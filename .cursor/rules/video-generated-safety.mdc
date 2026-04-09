@@ -1,0 +1,23 @@
+---
+description: 保护 video/generated 即梦分镜，禁止占位覆盖与误判素材缺失
+alwaysApply: true
+---
+
+# `video/generated` 与视频流水线
+
+- **`video/generated/`** 存放用户 **即梦等导出的正式分镜 MP4**（与 `config_ep01.json` / `ep01_clip_list.txt` 同名路径对应）。
+- **禁止**向该目录写入 **占位/测试/纯色条** 等与正式导出 **同名的 MP4**；覆盖即 **不可恢复**（非废纸篓删除）。
+- 占位、实验、合成测试：只用 **`video/automation/_scratch/`** 或 **`video/generated/_placeholders/`**，且 **勿使用** `第NN镜_*_jimeng.mp4` 正式命名。
+- 判断素材是否存在或体积：**勿仅依赖工作区搜索**（该目录常被 `.gitignore`）。在终端执行 `ls -lh video/generated/*.mp4`；单镜仅数 KB 视为异常，**停止**拼接并提示用户恢复真素材后再跑 `gen_srt_from_clips` / `local_pipeline`。
+- 详细说明见 **`video/automation/RULES.md`**。
+
+# 🚫 禁止调用视频/图片生成MCP工具
+
+**除非用户明确要求，否则严禁调用以下MCP工具：**
+- `jimeng_image_submit`（即梦图片生成）
+- `volc_visual_submit`（通用视觉提交，可用于jimeng/kling视频和图片）
+- `volc_visual_query`（查询视觉任务状态）
+- `kling_image_*`、`kling_video_*`（Kling相关工具）
+- `minimax_text_to_image`（MiniMax图片生成）
+
+**违规调用将浪费用户金钱！调用前必须获得用户明确授权！**

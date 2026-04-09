@@ -1,0 +1,37 @@
+{
+  "name": "kling_omni_image",
+  "description": "可灵AI OmniImage图片生成。支持文生图和参考图生图，有参考图时prompt只描述变化差异部分。文档：https://klingai.com/document-api/apiReference/model/OmniImage\n\n【重要】参考图使用规范：\n- 有参考图时，prompt应该只描述「变化」部分，而非完整角色描述\n- 公式：变化动作 + 变化对象 + 变化特征\n- 示例：「将人物保持不变，服装改为深红色官服」\n- 禁止在有参考图时写完整角色描述，否则角色一致性会严重丢失",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "prompt": {
+        "type": "string",
+        "description": "图片描述文本（中英文均可）"
+      },
+      "image_paths": {
+        "type": "string",
+        "description": "参考图片路径，逗号分隔（最多支持多张）"
+      },
+      "resolution": {
+        "type": "string",
+        "enum": ["1k", "2k", "4k"],
+        "description": "分辨率，默认2k"
+      },
+      "aspect_ratio": {
+        "type": "string",
+        "enum": ["16:9", "9:16", "1:1", "4:3", "3:4", "3:2", "2:3", "21:9", "auto"],
+        "description": "宽高比，默认9:16"
+      },
+      "n": {
+        "type": "number",
+        "description": "生成数量，1-9，默认1"
+      },
+      "model": {
+        "type": "string",
+        "enum": ["kling-image-o1", "kling-v3-omni"],
+        "description": "模型，默认kling-v3-omni"
+      }
+    },
+    "required": ["prompt"]
+  }
+}
