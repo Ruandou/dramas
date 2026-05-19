@@ -1,7 +1,7 @@
 # Seedance 2.0 分镜格式与 API 映射
 
-> **目标**：分镜 → `shots.yaml` → 火山方舟 **异步任务** `POST …/contents/generations/tasks`；生成前**先备齐参考图/首帧图**。  
-> **模型（中国区示例）**：`doubao-seedance-2-0-260128`（标准）/ `doubao-seedance-2-0-fast-260128`（快）  
+> **目标**：分镜 → `shots.yaml` → 火山方舟 **异步任务** `POST …/contents/generations/tasks`；生成前**先备齐参考图/首帧图**（本地路径即可，**无需图床**，提交时转 data URI）。  
+> **模型（中国区示例）**：`doubao-seedance-2-0-fast-260128`（快，**默认**）/ `doubao-seedance-2-0-260128`（标准）  
 > **Base URL**：`https://ark.cn-beijing.volces.com/api/v3`
 
 ## 官方文档（你提供的教程入口）
@@ -51,7 +51,7 @@ POST https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
 - **`role`**：`first_frame` | `last_frame` | `reference_image` | `reference_video` | `reference_audio`
 - **参考上限**：图 ≤9、视频 ≤3、音频 ≤3；提示词用 **`[图1][图2]`** 对应顺序
 - **轮询**：`GET …/tasks/{id}` → `succeeded` → `content.video_url`（**24h 内转存**）
-- **模型 id**：以控制台为准，常见 `doubao-seedance-2-0-260128`
+- **模型 id**：以控制台为准，默认 `doubao-seedance-2-0-fast-260128`
 
 短剧推荐 `mode`：`i2v`（单关键帧）| `i2v_ref`（定妆+场景+首帧，一致性最好）| `t2v` | `skip`。  
 关键帧可用 **Seedream 4.0** 生成后再进 Seedance（[1951250](https://www.volcengine.com/docs/82379/1951250?lang=zh)）。
@@ -106,7 +106,7 @@ POST https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
 episode_id: EP01
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
-  model: doubao-seedance-2-0-260128
+  model: doubao-seedance-2-0-fast-260128
   ratio: "9:16"
   resolution: 720p
   duration: 5
@@ -176,7 +176,7 @@ python3 script/storyboard_to_seedance.py EP04                    # 单集
 
 ```json
 {
-  "model": "doubao-seedance-2-0-260128",
+  "model": "doubao-seedance-2-0-fast-260128",
   "content": [
     { "type": "text", "text": "【图1】男主……【图2】卧室。镜头特写……" },
     { "type": "image_url", "image_url": { "url": "…/CHAR-001-L01.png" }, "role": "reference_image" },

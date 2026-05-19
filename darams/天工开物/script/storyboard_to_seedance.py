@@ -26,7 +26,7 @@ PROMPT_SUFFIX = (
 
 DEFAULTS = {
     "endpoint": "https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks",
-    "model": "doubao-seedance-2-0-260128",
+    "model": "doubao-seedance-2-0-fast-260128",
     "ratio": "9:16",
     "resolution": "720p",
     "duration": 5,

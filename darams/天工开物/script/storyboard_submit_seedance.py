@@ -2,13 +2,12 @@
 """
 读取 EP##_shots.yaml → 校验本地素材 → 展开方舟 Seedance API 请求体。
 
-默认 --dry-run（不写 API）；--submit 需 ARK_API_KEY 与 SEEDANCE_CDN_BASE（图床前缀）。
+默认 --dry-run（不写 API）；--submit 需 ARK_API_KEY（本地图自动 base64，无需图床）。
 
 用法（在 darams/天工开物 下）：
   python3 script/storyboard_submit_seedance.py EP01
   python3 script/storyboard_submit_seedance.py EP01 --shot EP01-S02
   python3 script/storyboard_submit_seedance.py EP01 --check-only
-  export SEEDANCE_CDN_BASE=https://your-cdn.example/tiangong/
   export ARK_API_KEY=...
   python3 script/storyboard_submit_seedance.py EP01 --submit
 """
@@ -32,6 +31,11 @@ if str(_SCRIPT_DIR) not in sys.path:
 from storyboard_yaml import load_yaml
 
 ROOT = Path(__file__).resolve().parents[1]
+_REPO_SCRIPTS = Path(__file__).resolve().parents[3] / "mcps" / "volc-ark" / "scripts"
+if str(_REPO_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_REPO_SCRIPTS))
+from ark_media import resolve_image_url  # noqa: E402
+
 EPISODE_DIR = ROOT / "分集剧本"
 GENERATED_DIR = ROOT / "assets" / "generated"
 REQUESTS_DIR = ROOT / "configs" / "seedance_requests"
@@ -49,12 +53,6 @@ def load_episode_shots(ep_id: str) -> dict:
 
 def resolve_asset_path(rel: str) -> Path:
     return (ROOT / rel).resolve()
-
-
-def cdn_url(rel_path: str, base: str) -> str:
-    base = base.rstrip("/") + "/"
-    rel = rel_path.lstrip("/")
-    return base + rel
 
 
 def collect_asset_paths(shot: dict) -> list[str]:
@@ -94,7 +92,7 @@ def role_file_to_path(shot: dict, file_key: str) -> str | None:
     return None
 
 
-def build_content_array(shot: dict, cdn_base: str) -> list[dict]:
+def build_content_array(shot: dict) -> list[dict]:
     api = shot.get("api") or {}
     content: list[dict] = [{"type": "text", "text": api.get("text", "")}]
     for role_spec in api.get("content_roles") or []:
@@ -105,18 +103,18 @@ def build_content_array(shot: dict, cdn_base: str) -> list[dict]:
         content.append(
             {
                 "type": "image_url",
-                "image_url": {"url": cdn_url(rel, cdn_base)},
+                "image_url": {"url": resolve_image_url(rel, ROOT)},
                 "role": role_spec["role"],
             }
         )
     return content
 
 
-def build_request_body(episode: dict, shot: dict, cdn_base: str) -> dict:
+def build_request_body(episode: dict, shot: dict) -> dict:
     defaults = episode.get("defaults") or {}
     body: dict[str, Any] = {
-        "model": defaults.get("model", "doubao-seedance-2-0-260128"),
-        "content": build_content_array(shot, cdn_base),
+        "model": defaults.get("model", "doubao-seedance-2-0-fast-260128"),
+        "content": build_content_array(shot),
         "ratio": defaults.get("ratio", "9:16"),
         "resolution": defaults.get("resolution", "720p"),
         "duration": shot.get("duration_sec", defaults.get("duration", 5)),
@@ -171,12 +169,12 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--submit",
         action="store_true",
-        help="真正 POST（需 ARK_API_KEY + SEEDANCE_CDN_BASE）",
+        help="真正 POST（需 ARK_API_KEY）",
     )
     parser.add_argument(
         "--cdn-base",
         default=os.environ.get("SEEDANCE_CDN_BASE", "").strip(),
-        help="图床 URL 前缀，映射 assets/… 相对路径",
+        help="（已废弃，忽略）现用本地 data URI",
     )
     args = parser.parse_args(argv)
 
@@ -221,14 +219,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"✓ {sid} 素材齐全")
             continue
 
-        if not args.cdn_base:
-            print(
-                f"⚠ {sid}: 未设 SEEDANCE_CDN_BASE，跳过写出可提交 URL 的 body",
-                file=sys.stderr,
-            )
-            continue
-
-        body = build_request_body(episode, shot, args.cdn_base)
+        body = build_request_body(episode, shot)
         out_path = req_dir / f"{sid}.json"
         out_path.write_text(
             json.dumps(body, ensure_ascii=False, indent=2) + "\n",
@@ -265,8 +256,6 @@ def main(argv: list[str] | None = None) -> int:
         if len(missing_all) > 30:
             print(f"  … 另有 {len(missing_all) - 30} 条")
 
-    if args.submit and not args.cdn_base:
-        return 1
     if missing_all and args.check_only:
         return 1
     return 0

@@ -28,12 +28,13 @@ cat assets/keyframes/EP01/seedream_prompts.yaml
 
 ```bash
 python3 script/storyboard_submit_seedance.py EP01 --check-only
-export SEEDANCE_CDN_BASE=https://你的图床/天工/
 export ARK_API_KEY=...
 python3 script/storyboard_submit_seedance.py EP01          # 写出 configs/seedance_requests/
-python3 script/storyboard_submit_seedance.py EP01 --submit # 需用户明确授权
+python3 script/storyboard_submit_seedance.py EP01 --submit # 本地图自动 base64，无需图床
 ```
 
-成片：`assets/generated/EP##/` · 任务日志 `task_log.jsonl`
+或使用 MCP **`volc-ark`** 的 `ark_seedance_shots` / CLI `mcps/volc-ark/scripts/ark_seedance_video.py shots`。
+
+成片：`assets/generated/EP##/` · 方舟任务归档 `video/ark_tasks/tasks_video.json`（与 `volc-jimeng` 的 `jimeng_tasks` 分开）
 
 **禁止**向其他剧的 `generated/` 目录写入占位 MP4。
