@@ -11,13 +11,34 @@ alwaysApply: true
 - 判断素材是否存在或体积：**勿仅依赖工作区搜索**（该目录常被 `.gitignore`）。在终端执行 `ls -lh video/generated/*.mp4`；单镜仅数 KB 视为异常，**停止**拼接并提示用户恢复真素材后再跑 `gen_srt_from_clips` / `local_pipeline`。
 - 详细说明见 **`video/automation/RULES.md`**。
 
-# 🚫 禁止调用视频/图片生成MCP工具
+# volc-ark MCP（方舟 Seedream / Seedance）
 
-**除非用户明确要求，否则严禁调用以下MCP工具：**
+独立于 **`volc-jimeng`**（视觉 AK/SK + 即梦 4.0）。配置见 **`.cursor/mcp.json.example`**：MCP 名 **`volc-ark`**，**`env` 仅需 `ARK_API_KEY`**；实现位于 **`mcps/volc-ark/`**，说明见 **`mcps/volc-ark/README.md`**。
+
+| 类别 | 工具 | 说明 |
+|------|------|------|
+| 只读 | `ark_seedream_docs`、`ark_seedance_docs` | 文档与默认配置 |
+| 只读 | `ark_list_tasks` | 读本地 **`video/ark_tasks/`**（`tasks_image.json` / `tasks_video.json`） |
+| 只读 | `ark_seedance_list`、`ark_seedance_get` | 云端/单任务查询（列表约 7 天） |
+| 轮询 | `ark_seedance_wait` | 等已有任务结束（不新建生成任务） |
+| 下载 | `ark_seedance_download` | 按 `task_id` 或直链落盘；**须用户指定路径**，勿覆盖正式分镜 |
+| **扣费** | `ark_seedream_generate`、`ark_seedream_batch` | Seedream 5.0 lite 出图 |
+| **扣费** | `ark_seedance_create`、`ark_seedance_shots` | Seedance 2.0 出视频 |
+
+- **无需图床**：本地 `assets/` 参考图提交时自动转 **data URI**（`https://` / `data:` 原样保留）。
+- **输出目录**：短剧（如天工开物）用 **`darams/<剧名>/assets/generated/`**；**禁止**把方舟成片默认写到本规则保护的 **`video/generated/`**（错嫁 ep01 即梦正式分镜），除非用户明确要求路径。
+- **`volc-jimeng` 方舟工具**（同一 `ARK_API_KEY`）：`ark_list_generation_tasks`、`ark_download_ark_videos` — 列表/下载，不提交新生成，但仍可能写入 `video/generated/`，覆盖前须确认。
+
+# 🚫 禁止调用视频/图片生成 MCP 工具
+
+**除非用户明确要求，否则严禁调用以下 MCP 工具：**
+
 - `jimeng_image_submit`（即梦图片生成）
-- `volc_visual_submit`（通用视觉提交，可用于jimeng/kling视频和图片）
+- `volc_visual_submit`（通用视觉提交，可用于 jimeng/kling 视频和图片）
 - `volc_visual_query`（查询视觉任务状态）
-- `kling_image_*`、`kling_video_*`（Kling相关工具）
-- `minimax_text_to_image`（MiniMax图片生成）
+- `kling_image_*`、`kling_video_*`（Kling 相关）
+- `minimax_text_to_image`（MiniMax 图片生成）
+- **`ark_seedream_generate`、`ark_seedream_batch`**（方舟 Seedream 出图）
+- **`ark_seedance_create`、`ark_seedance_shots`**（方舟 Seedance 出视频）
 
 **违规调用将浪费用户金钱！调用前必须获得用户明确授权！**

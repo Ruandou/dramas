@@ -38,7 +38,8 @@ ls -lh 短剧/错嫁后我改写了王朝/素材/generated/*.mp4
 若走**火山方舟**等内容生成，可使用**`GET …/api/v3/contents/generations/tasks`**（API Explorer）。本仓库提供：
 
 - 命令行：`python3 script/ark_generation_tasks.py list` / `download`（**`ARK_API_KEY`**，Bearer）。
-- MCP：**`ark_list_generation_tasks`**、**`ark_download_ark_videos`**（`mcp.json` 的 `env` 中配置**`ARK_API_KEY`**）。
+- MCP（**`volc-jimeng`**）：**`ark_list_generation_tasks`**、**`ark_download_ark_videos`**（`mcp.json` 的 `env` 中配置 **`ARK_API_KEY`**）。
+- MCP（**`volc-ark`**，推荐 Seedream/Seedance）：**`ark_seedance_list`**、**`ark_seedance_download`**、**`ark_list_tasks`**；本地归档 **`video/ark_tasks/`**。配置仅需 **`ARK_API_KEY`**，见 **`mcps/volc-ark/README.md`**。
 
 列表约保留**7 天**；**`content.video_url` 约 24 小时有效**。**`download --ep01-names`**按**创建时间升序**取前 14 条成功任务并命名；若同期还有别的视频，镜序可能错位，请先**`list --json`**核对。
 
@@ -75,14 +76,32 @@ python3 script/download_jimeng_from_tasks.py
 2. **批量提交**：多个相关改动合并为一次提交。
 3. **提交前确认**：询问用户提交信息是否正确。
 
-## 🚫 禁止调用视频/图片生成MCP工具
+## volc-ark MCP（方舟 Seedream / Seedance）
 
-**除非用户明确要求，否则严禁调用以下MCP工具：**
+与 **`volc-jimeng`**（视觉 AK/SK）并列的独立 MCP：**`mcps/volc-ark/`**，Cursor 配置名 **`volc-ark`**，**`env` 仅需 `ARK_API_KEY`**（示例见 **`.cursor/mcp.json.example`**）。
+
+| 工具 | 扣费 | 说明 |
+|------|------|------|
+| `ark_seedream_docs` / `ark_seedance_docs` | 否 | 文档 |
+| `ark_list_tasks` | 否 | 读 **`video/ark_tasks/`** |
+| `ark_seedance_list` / `get` / `wait` | 否* | 查询/轮询已有任务（*wait 不新建任务） |
+| `ark_seedance_download` | 否 | 下载成片；路径须用户指定，勿覆盖 **`video/generated/`** 正式分镜 |
+| `ark_seedream_generate` / `batch` | **是** | Seedream 5.0 lite |
+| `ark_seedance_create` / `shots` | **是** | Seedance 2.0 fast；本地图 **data URI**，无需图床 |
+
+短剧素材输出：**`darams/<剧名>/assets/generated/`**（如天工开物），与错嫁 **`video/generated/`** 分开。
+
+## 🚫 禁止调用视频/图片生成 MCP 工具
+
+**除非用户明确要求，否则严禁调用以下 MCP 工具：**
 
 - `jimeng_image_submit`（即梦图片生成）
-- `volc_visual_submit`（通用视觉提交，可用于jimeng/kling视频和图片）
-- `kling_image_*`、`kling_video_*`（Kling相关工具）
-- `minimax_text_to_image`（MiniMax图片生成）
+- `volc_visual_submit`（通用视觉提交，可用于 jimeng/kling 视频和图片）
+- `volc_visual_query`（查询视觉任务状态）
+- `kling_image_*`、`kling_video_*`（Kling 相关）
+- `minimax_text_to_image`（MiniMax 图片生成）
+- **`ark_seedream_generate`、`ark_seedream_batch`**（方舟 Seedream 出图）
+- **`ark_seedance_create`、`ark_seedance_shots`**（方舟 Seedance 出视频）
 
 **违规调用将浪费用户金钱！调用前必须获得用户明确授权！**
 
