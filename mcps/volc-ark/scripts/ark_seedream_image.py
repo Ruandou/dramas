@@ -12,7 +12,7 @@
 环境变量：
   ARK_API_KEY 或 VOLC_ARK_API_KEY（必填）
   ARK_BASE_URL（默认 https://ark.cn-beijing.volces.com）
-  ARK_SEEDREAM_MODEL（默认 doubao-seedream-5.0-lite）
+  ARK_SEEDREAM_MODEL（默认 doubao-seedream-5-0-lite-260128，方舟控制台「5.0 lite」）
   ARK_SEEDREAM_SIZE_TIER（2K 或 3K，默认 2K）
 
 CLI：
@@ -43,7 +43,7 @@ from ark_media import resolve_image_url
 
 DEFAULT_BASE = "https://ark.cn-beijing.volces.com"
 RESPONSES_PATH = "/api/v3/responses"
-DEFAULT_MODEL = "doubao-seedream-5.0-lite"
+DEFAULT_MODEL = "doubao-seedream-5-0-lite-260128"
 
 # 官方推荐像素（2K / 3K），见 Seedream 5.0 lite 文档
 SIZE_BY_RATIO = {

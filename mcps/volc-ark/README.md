@@ -4,7 +4,7 @@
 
 | 能力 | 模型示例 | 接口 |
 |------|----------|------|
-| **Seedream 5.0 lite** 文生图 | `doubao-seedream-5.0-lite` | `POST /api/v3/responses` |
+| **Seedream 5.0 lite** 文生图 | `doubao-seedream-5-0-lite-260128`（`ARK_SEEDREAM_MODEL` 可覆盖） | `POST /api/v3/responses` |
 | **Seedance 2.0 fast** 视频 | `doubao-seedance-2-0-fast-260128` | `POST /api/v3/contents/generations/tasks` |
 
 ## 图床
