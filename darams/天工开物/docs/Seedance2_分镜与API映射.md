@@ -1,5 +1,8 @@
 # Seedance 2.0 分镜格式与 API 映射
 
+> **新默认（2026-05-20）**：有声 **段落** 提交、零剪映 → 见 [`Seedance2_有声段落流水线.md`](./Seedance2_有声段落流水线.md) 与 [`资产/声音卡.md`](../资产/声音卡.md)（声音**路线一**）。  
+> 下文「一镜一任务 + 剪映」保留作镜级字段与 API 形态参考。
+
 > **目标**：分镜 → `shots.yaml` → 火山方舟 **异步任务** `POST …/contents/generations/tasks`；生成前**先备齐参考图/首帧图**（本地路径即可，**无需图床**，提交时转 data URI）。  
 > **模型（中国区示例）**：`doubao-seedance-2-0-fast-260128`（快，**默认**）/ `doubao-seedance-2-0-260128`（标准）  
 > **Base URL**：`https://ark.cn-beijing.volces.com/api/v3`

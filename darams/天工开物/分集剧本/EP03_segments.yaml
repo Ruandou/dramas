@@ -1,0 +1,92 @@
+# EP03 段落草案 · 待扩写
+episode_id: EP03
+source_md: 分集剧本/EP03_一鸣惊人.md
+defaults:
+  model: doubao-seedance-2-0-fast-260128
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品，无清晰汉字"
+
+voice_prompts:
+  CHAR-001: "成年男性，27岁，沉稳偏低，语速中等，短句干脆"
+  CHAR-002: "成年女性，清冷自持，语速稳，略带威严"
+  CHAR-004: "少女，18岁，清亮略快，带担心"
+  CHAR-009: "中年男性，油腻偏高，蛮横"
+
+segments:
+  - segment_id: EP03-SEG01
+    shot_ids: [EP03-S01, EP03-S02, EP03-S03]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    api:
+      text: |
+        【图1】男主【图2】小翠【图3】院落。接 EP02 试车。
+        镜头1（4秒）手柄拉下，八锭旋转，齿轮咬合。
+        镜头2（4秒）小翠放八根棉条。
+        镜头3（4秒）慢镜：八纱同出，粗细均匀。
+        环境音：机杼轰鸣、街坊远处惊呼。
+        明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品，无清晰汉字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+
+  - segment_id: EP03-SEG02
+    shot_ids: [EP03-S07, EP03-S08, EP03-S09]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-009]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-009-L01: assets/looks/CHAR-009-L01.png
+        CHAR-GRP-01-L01: assets/looks/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    api:
+      text: |
+        【图1】男主【图2】曹老板【图3】院落。
+        正反打（5秒）：停手柄看曹。
+        对白（宋知行，成年男性，27岁，沉稳偏低，语速中等，短句干脆）：「该兑现赌约了。」
+        曹挥手（3秒）。
+        对白（曹德源，中年男性，油腻偏高，蛮横）：「给我砸了这妖器！」
+        打手一拥而上（4秒）。
+        明代苏州古风写实竖屏9比16
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+
+  - segment_id: EP03-SEG03
+    shot_ids: [EP03-S11, EP03-S12, EP03-S13, EP03-S14]
+    duration_sec: 12
+    speakers: [CHAR-002, CHAR-001]
+    assets:
+      look_urls:
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-009-L01: assets/looks/CHAR-009-L01.png
+      scene_urls:
+        SCENE-005: assets/scenes/SCENE-005.png
+        SCENE-002: assets/scenes/SCENE-002.png
+    api:
+      text: |
+        【图1】吴卿云【图2】男主【图3】街市/院落。
+        镜头1（5秒）吴卿云带随从入画，清冷女声：「住手！」
+        对白（吴卿云，成年女性，清冷自持，语速稳，略带威严）：「住手！」
+        镜头2（3秒）曹老板变色。
+        镜头3（4秒）吴卿云蹲下看齿轮。
+        对白（吴卿云，同上声线）：「这机器……是你造的？」
+        对白（宋知行，成年男性，27岁，沉稳偏低，语速中等，短句干脆）：「是。」
+        明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品，无清晰汉字
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }

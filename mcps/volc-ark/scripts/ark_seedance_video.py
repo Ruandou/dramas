@@ -45,7 +45,7 @@ from ark_common import (
     task_id_from_response,
     task_status,
 )
-from ark_media import resolve_image_url
+from ark_media import resolve_image_url, resolve_media_url
 
 try:
     import yaml
@@ -438,6 +438,178 @@ def cmd_download(args: argparse.Namespace) -> int:
     return 0
 
 
+def segment_file_to_path(segment: dict, file_key: str) -> str | None:
+    assets = segment.get("assets") or {}
+    looks = assets.get("look_urls") or {}
+    if file_key in looks:
+        return looks[file_key]
+    scenes = assets.get("scene_urls") or {}
+    if file_key in scenes:
+        return scenes[file_key]
+    voice_refs = segment.get("voice_refs") or {}
+    if file_key in voice_refs:
+        return voice_refs[file_key]
+    return None
+
+
+def validate_segment_assets(segment: dict, project_root: Path) -> list[str]:
+    missing = []
+    assets = segment.get("assets") or {}
+    for mapping in (assets.get("look_urls") or {}).values():
+        p = project_root / mapping if not Path(mapping).is_absolute() else Path(mapping)
+        if not p.is_file():
+            missing.append(str(mapping))
+    for mapping in (assets.get("scene_urls") or {}).values():
+        p = project_root / mapping if not Path(mapping).is_absolute() else Path(mapping)
+        if not p.is_file():
+            missing.append(str(mapping))
+    for mapping in (segment.get("voice_refs") or {}).values():
+        p = project_root / mapping if not Path(mapping).is_absolute() else Path(mapping)
+        if not p.is_file():
+            missing.append(str(mapping))
+    return missing
+
+
+def build_segment_content_array(segment: dict, project_root: Path) -> list[dict]:
+    api = segment.get("api") or {}
+    content: list[dict] = [{"type": "text", "text": (api.get("text") or "").strip()}]
+    for role_spec in api.get("content_roles") or []:
+        file_key = role_spec["file"]
+        rel = segment_file_to_path(segment, file_key)
+        if not rel:
+            raise ValueError(f"{segment.get('segment_id')}: 找不到素材 {file_key}")
+        content.append(
+            {
+                "type": "image_url",
+                "image_url": {"url": resolve_image_url(rel, project_root)},
+                "role": role_spec["role"],
+            }
+        )
+    for _cid, rel in (segment.get("voice_refs") or {}).items():
+        if rel:
+            content.append(
+                {
+                    "type": "audio_url",
+                    "audio_url": {"url": resolve_media_url(rel, project_root)},
+                    "role": "reference_audio",
+                }
+            )
+    return content
+
+
+def _duration_bounds(model: str) -> tuple[int, int]:
+    return (4, 12) if "fast" in model else (4, 15)
+
+
+def _clamp_duration(sec: int, model: str) -> int:
+    lo, hi = _duration_bounds(model)
+    return max(lo, min(hi, int(sec)))
+
+
+def build_segment_body(episode: dict, segment: dict, project_root: Path) -> dict[str, Any]:
+    defaults = episode.get("defaults") or {}
+    model = defaults.get("model", default_model())
+    raw_dur = segment.get("duration_sec", defaults.get("duration", 5))
+    body: dict[str, Any] = {
+        "model": model,
+        "content": build_segment_content_array(segment, project_root),
+        "ratio": defaults.get("ratio", "9:16"),
+        "resolution": defaults.get("resolution", "720p"),
+        "duration": _clamp_duration(raw_dur, model),
+        "generate_audio": defaults.get("generate_audio", True),
+        "watermark": defaults.get("watermark", False),
+    }
+    api = segment.get("api") or {}
+    if api.get("return_last_frame"):
+        body["return_last_frame"] = True
+    if api.get("seed") is not None:
+        body["seed"] = api["seed"]
+    return body
+
+
+def cmd_segments(args: argparse.Namespace) -> int:
+    ep_id = args.episode.upper()
+    project_root = Path(args.project_root).expanduser().resolve()
+    seg_path = (
+        Path(args.segments_file).expanduser().resolve()
+        if args.segments_file
+        else project_root / "分集剧本" / f"{ep_id}_segments.yaml"
+    )
+    if not seg_path.is_file():
+        print(json.dumps({"error": f"找不到 {seg_path}"}, ensure_ascii=False))
+        return 1
+
+    episode = load_yaml_or_json(seg_path)
+    segments = episode.get("segments") or []
+    if args.segment:
+        segments = [s for s in segments if s.get("segment_id") == args.segment]
+        if not segments:
+            print(json.dumps({"error": f"未找到 {args.segment}"}, ensure_ascii=False))
+            return 1
+
+    results: list[dict[str, Any]] = []
+    ready = 0
+
+    for seg in segments:
+        sid = seg.get("segment_id", "?")
+        miss = validate_segment_assets(seg, project_root)
+        if miss:
+            results.append({"segment_id": sid, "status": "missing_assets", "missing": miss})
+            if args.check_only:
+                print(f"✗ {sid} 缺 {len(miss)} 个文件", file=sys.stderr)
+            continue
+        ready += 1
+        if args.check_only:
+            print(f"✓ {sid} 素材齐全", file=sys.stderr)
+            continue
+        try:
+            body = build_segment_body(episode, seg, project_root)
+            if args.dry_run:
+                results.append(
+                    {
+                        "segment_id": sid,
+                        "status": "dry_run",
+                        "body": sanitize_body_for_log(body),
+                    }
+                )
+                continue
+            r = create_task(
+                body,
+                dry_run=False,
+                archive_meta={"segment_id": sid, "episode": ep_id},
+            )
+            r["segment_id"] = sid
+            results.append(r)
+            if args.output_dir:
+                log_dir = Path(args.output_dir).expanduser()
+                log_dir.mkdir(parents=True, exist_ok=True)
+                with (log_dir / "task_log.jsonl").open("a", encoding="utf-8") as f:
+                    f.write(
+                        json.dumps(
+                            {"ts": time.time(), "segment_id": sid, **r},
+                            ensure_ascii=False,
+                        )
+                        + "\n"
+                    )
+            time.sleep(args.delay)
+        except Exception as e:
+            results.append({"segment_id": sid, "status": "error", "error": str(e)})
+
+    summary = {
+        "episode": ep_id,
+        "ready": ready,
+        "archive_dir": get_archive_base_hint(),
+        "image_source": "local_data_uri",
+        "results": results,
+    }
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    if args.check_only and any(r.get("status") == "missing_assets" for r in results):
+        return 1
+    if any(r.get("status") == "error" for r in results):
+        return 1
+    return 0
+
+
 def cmd_shots(args: argparse.Namespace) -> int:
     import os
 
@@ -607,6 +779,17 @@ def main() -> int:
     p_shots.add_argument("--output-dir", help="写入 task_log.jsonl 的目录")
     p_shots.add_argument("--delay", type=float, default=0.5)
     p_shots.set_defaults(func=cmd_shots)
+
+    p_seg = sub.add_parser("segments", help="从 EP##_segments.yaml 提交段落视频")
+    p_seg.add_argument("episode", help="如 EP01")
+    p_seg.add_argument("--project-root", required=True, help="短剧项目根，如 darams/天工开物")
+    p_seg.add_argument("--segments-file", help="覆盖默认 分集剧本/EP##_segments.yaml")
+    p_seg.add_argument("--segment", help="仅指定 segment_id")
+    p_seg.add_argument("--check-only", action="store_true")
+    p_seg.add_argument("--dry-run", action="store_true")
+    p_seg.add_argument("--output-dir", help="写入 task_log.jsonl 的目录")
+    p_seg.add_argument("--delay", type=float, default=0.5)
+    p_seg.set_defaults(func=cmd_segments)
 
     args = parser.parse_args()
     return args.func(args)

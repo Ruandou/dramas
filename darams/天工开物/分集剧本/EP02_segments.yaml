@@ -1,0 +1,84 @@
+# EP02 段落草案 · 待按 EP01 试跑经验扩写 prompt
+episode_id: EP02
+source_md: 分集剧本/EP02_三日之约.md
+defaults:
+  model: doubao-seedance-2-0-fast-260128
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品，无清晰汉字"
+  prompt_suffix_flashback: "flashback overlay, soft blur, cinematic, vertical 9:16, no readable text"
+
+voice_prompts:
+  CHAR-001: "成年男性，27岁，沉稳偏低，语速中等，短句干脆"
+  CHAR-004: "少女，18岁，清亮略快，带担心"
+
+segments:
+  - segment_id: EP02-SEG01
+    shot_ids: [EP02-S02, EP02-S03, EP02-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    api:
+      text: |
+        【图1】男主【图2】小翠【图3】院落。三日之约第一日。
+        镜头1（5秒）男主盯纺纱机，小翠旁站，纺车吱呀。
+        镜头2（4秒）小翠近景含泪。
+        对白（小翠，少女18岁，清亮略快，带担心）：「少爷，家里只剩一贯钱了……」
+        镜头3（3秒）男主头也不回。
+        对白（宋知行，成年男性，27岁，沉稳偏低，语速中等，短句干脆）：「谁说我要还钱？」
+        明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品，无清晰汉字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+
+  - segment_id: EP02-SEG02
+    shot_ids: [EP02-S05, EP02-S06, EP02-S07, EP02-S08]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    api:
+      text: |
+        【图1】男主【图2】院落。
+        镜头1（3秒）手摸齿轮闭眼，心跳渐起。
+        镜头2（2秒）闪回：图书馆珍妮纺纱机原理图。flashback overlay, soft blur, vertical 9:16, no readable text
+        镜头3（4秒）思考神情叠画。
+        对白（宋知行，成年男性，27岁，沉稳偏低，语速中等，短句干脆）：「珍妮纺纱机……提前一百二十年……」
+        镜头4（3秒）睁眼精光。
+        对白（宋知行，同上声线）：「拆了它。」
+        明代苏州古风写实竖屏9比16
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+
+  - segment_id: EP02-SEG03
+    shot_ids: [EP02-S09, EP02-S10, EP02-S11]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    api:
+      text: |
+        【图1】男主【图2】院落。蒙太奇快切：拆齿轮、画图、打铁、淬火。
+        镜头（4秒）试车失败，拇指食指卡尺手势测间距。
+        对白（宋知行，成年男性，27岁，沉稳偏低，语速中等，短句干脆）：「八锭间距误差太大……」
+        镜头（4秒）竹片铜丝卡尺校准。
+        对白（宋知行，同上声线）：「公差控制在半厘以内。」
+        明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品，无清晰汉字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
