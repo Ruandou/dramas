@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-火山方舟 · Seedream 5.0 lite 文生图（Responses API）
+火山方舟 · Seedream 5.0 lite 文生图（图片生成 API）
 
 文档：
   - 教程：https://www.volcengine.com/docs/82379/1824121?lang=zh
@@ -42,7 +42,7 @@ from ark_archive import add_task, get_archive_base
 from ark_media import resolve_image_url
 
 DEFAULT_BASE = "https://ark.cn-beijing.volces.com"
-RESPONSES_PATH = "/api/v3/responses"
+IMAGES_PATH = "/api/v3/images/generations"
 DEFAULT_MODEL = "doubao-seedream-5-0-lite-260128"
 
 # 官方推荐像素（2K / 3K），见 Seedream 5.0 lite 文档
@@ -117,29 +117,28 @@ def build_payload(
     max_images: int = 1,
     stream: bool = False,
 ) -> dict[str, Any]:
-    """构造 POST /api/v3/responses 请求体。"""
+    """构造 POST /api/v3/images/generations 请求体（5.0 lite 走此接口，非 Responses）。"""
     body: dict[str, Any] = {
         "model": model or default_model(),
-        "input": prompt,
+        "prompt": prompt,
         "size": resolve_size(ratio, size),
-        "sequential_image_generation": sequential,
-        "stream": stream,
-        "output_format": output_format,
         "response_format": "url",
         "watermark": watermark,
     }
     if sequential == "auto":
+        body["sequential_image_generation"] = "auto"
         body["sequential_image_generation_options"] = {"max_images": max(1, min(max_images, 15))}
+    elif sequential != "disabled":
+        body["sequential_image_generation"] = sequential
+    if output_format and output_format != "png":
+        body["output_format"] = output_format
     if web_search:
         body["tools"] = [{"type": "web_search"}]
     if image_urls:
         resolved = [
             resolve_image_url(u, project_root) for u in image_urls[:10]
         ]
-        body["input"] = [
-            *[{"type": "input_image", "image_url": u} for u in resolved],
-            {"type": "input_text", "text": prompt},
-        ]
+        body["image"] = resolved[0] if len(resolved) == 1 else resolved
     return body
 
 
@@ -191,6 +190,10 @@ def extract_image_urls(payload: Any) -> list[str]:
                 walk(v)
 
     walk(payload)
+    if isinstance(payload, dict) and isinstance(payload.get("data"), list):
+        for item in payload["data"]:
+            if isinstance(item, dict) and isinstance(item.get("url"), str):
+                add(item["url"])
     return urls
 
 
@@ -235,14 +238,14 @@ def generate_one(
     if dry_run:
         return {
             "status": "dry_run",
-            "endpoint": base_url() + RESPONSES_PATH,
+            "endpoint": base_url() + IMAGES_PATH,
             "payload": payload,
             "output": str(output) if output else None,
             "archive_dir": str(get_archive_base()),
         }
 
     t0 = time.time()
-    resp = http_post_json(base_url() + RESPONSES_PATH, key, payload)
+    resp = http_post_json(base_url() + IMAGES_PATH, key, payload)
     urls = extract_image_urls(resp)
     if not urls:
         return {
@@ -253,7 +256,7 @@ def generate_one(
         }
 
     pick = urls[min(index, len(urls) - 1)]
-    rid = resp.get("id")
+    rid = resp.get("id") or resp.get("created")
     if rid:
         add_task(
             "seedream_image",
@@ -407,7 +410,7 @@ def cmd_docs(_: argparse.Namespace) -> int:
             "https://www.volcengine.com/docs/82379/1541523?lang=zh",
             "https://www.volcengine.com/docs/82379/1666945?lang=zh",
         ],
-        "endpoint": base_url() + RESPONSES_PATH,
+        "endpoint": base_url() + IMAGES_PATH,
         "model_default": default_model(),
         "auth": "Bearer ARK_API_KEY",
         "env": ["ARK_API_KEY", "ARK_BASE_URL", "ARK_SEEDREAM_MODEL", "ARK_SEEDREAM_SIZE_TIER"],
