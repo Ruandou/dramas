@@ -20,9 +20,17 @@ KEYFRAMES_DIR = ROOT / "assets" / "keyframes"
 LOOKS_DIR = ROOT / "assets" / "looks"
 SCENES_DIR = ROOT / "assets" / "scenes"
 
-PROMPT_SUFFIX = (
+PROMPT_SUFFIX_MING = (
     "明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品，无清晰汉字"
 )
+PROMPT_SUFFIX_FLASHBACK = (
+    "flashback overlay, soft blur, 0.5 second cut, cinematic, vertical 9:16, "
+    "no readable text"
+)
+FLASHBACK_SCENE_IDS = frozenset({"SCENE-004"})
+
+# 兼容旧引用
+PROMPT_SUFFIX = PROMPT_SUFFIX_MING
 
 DEFAULTS = {
     "endpoint": "https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks",
@@ -32,7 +40,8 @@ DEFAULTS = {
     "duration": 5,
     "generate_audio": False,
     "watermark": False,
-    "prompt_suffix": PROMPT_SUFFIX,
+    "prompt_suffix": PROMPT_SUFFIX_MING,
+    "prompt_suffix_flashback": PROMPT_SUFFIX_FLASHBACK,
 }
 
 
@@ -47,12 +56,24 @@ def strip_md(s: str) -> str:
     return s.strip().strip("`").strip()
 
 
-def parse_scene_id(raw: str) -> str | None:
+def parse_scene_ids(raw: str) -> list[str]:
     raw = strip_md(raw)
     if not raw or raw == "-":
-        return None
-    m = re.search(r"SCENE-\d+", raw)
-    return m.group(0) if m else None
+        return []
+    return re.findall(r"SCENE-\d+", raw)
+
+
+def parse_scene_id(raw: str) -> str | None:
+    ids = parse_scene_ids(raw)
+    return ids[0] if ids else None
+
+
+def is_flashback_shot(scene_raw: str, 运镜: str, 画面: str, 景别: str = "") -> bool:
+    """SCENE-004 或分镜标明闪回 → 用闪回后缀（不含「无现代物品」）。"""
+    if FLASHBACK_SCENE_IDS.intersection(parse_scene_ids(scene_raw)):
+        return True
+    blob = "".join(strip_md(x) for x in (运镜, 画面, 景别) if x and strip_md(x) != "-")
+    return "闪回" in blob
 
 
 def parse_look_ids(raw: str) -> list[str]:
@@ -97,8 +118,20 @@ def parse_table_rows(md_path: Path) -> list[dict]:
     return rows
 
 
+def pick_prompt_suffix(scene_raw: str, 运镜: str, 画面: str, 景别: str = "") -> str:
+    if is_flashback_shot(scene_raw, 运镜, 画面, 景别):
+        return PROMPT_SUFFIX_FLASHBACK
+    return PROMPT_SUFFIX_MING
+
+
 def build_api_text(
-    运镜: str, 画面: str, mode: str, look_ids: list[str], scene_id: str | None
+    运镜: str,
+    画面: str,
+    mode: str,
+    look_ids: list[str],
+    scene_id: str | None,
+    scene_raw: str = "",
+    景别: str = "",
 ) -> str:
     parts = []
     y = strip_md(运镜)
@@ -114,7 +147,8 @@ def build_api_text(
             labels.append(f"【图{len(look_ids) + 1}】{scene_id}")
         prefix = "".join(labels) + "。"
         body = prefix + body
-    return f"{body}。{PROMPT_SUFFIX}"
+    suffix = pick_prompt_suffix(scene_raw, 运镜, 画面, 景别)
+    return f"{body}。{suffix}"
 
 
 def shot_to_yaml_entry(row: dict, ep_id: str) -> dict:
@@ -175,7 +209,13 @@ def shot_to_yaml_entry(row: dict, ep_id: str) -> dict:
 
     api = {
         "text": build_api_text(
-            row.get("运镜", ""), row.get("画面", ""), mode, look_ids, scene_id
+            row.get("运镜", ""),
+            row.get("画面", ""),
+            mode,
+            look_ids,
+            scene_id,
+            scene_raw=row.get("场景", ""),
+            景别=row.get("景别", ""),
         ),
     }
     if content_roles:

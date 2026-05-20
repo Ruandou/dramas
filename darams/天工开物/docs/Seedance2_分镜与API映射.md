@@ -246,9 +246,14 @@ required:
 | 慢镜 | 慢动作 |
 | 闪回 | 闪回、叠化 |
 
-**集级后缀**（写进 `defaults.prompt_suffix`）：
+**集级后缀**（写进 `defaults.prompt_suffix` / `defaults.prompt_suffix_flashback`）：
 
-> 明代苏州，天启年间，古风写实，电影感，竖屏9:16，无现代物品，无清晰汉字
+| 类型 | 后缀 |
+|------|------|
+| **明代主戏**（默认） | 明代苏州，天启年间，古风写实，电影感，竖屏9:16，无现代物品，无清晰汉字 |
+| **闪回**（`SCENE-004` 或运镜/景别含「闪回」） | flashback overlay, soft blur, 0.5 second cut, cinematic, vertical 9:16, no readable text — **不含**「无现代物品」 |
+
+`storyboard_to_seedance.py` 按场景 ID 自动选择。详见 [`资产/年代美术规范.md`](../资产/年代美术规范.md)。
 
 **从 ID 解析**（不重复写脸）：
 
