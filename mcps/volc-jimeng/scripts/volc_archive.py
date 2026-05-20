@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-火山引擎任务归档管理
-图片和视频分开归档
-保存和查询任务归档
+即梦/视觉任务归档（方案 A）。
+
+设置 DRAMA_PROJECT_ROOT → {project}/assets/tasks_jimeng_image.json | tasks_jimeng_video.json
+未设置时回退 video/jimeng_tasks/（遗留）。
 """
 from __future__ import annotations
 
@@ -13,42 +14,68 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-def get_archive_base():
-    """获取归档根目录"""
-    # 向上三级：scripts -> volc-jimeng -> mcps -> 仓库根
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    archive_dir = os.path.join(script_dir, "..", "..", "..", "video", "jimeng_tasks")
-    os.makedirs(archive_dir, exist_ok=True)
-    return archive_dir
+_VOLC_SCRIPTS = Path(__file__).resolve().parent
+_ARK_SCRIPTS = _VOLC_SCRIPTS.parent.parent / "volc-ark" / "scripts"
+if str(_ARK_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_ARK_SCRIPTS))
 
-def get_archive_path(task_type: str = None):
-    """获取归档文件路径"""
+import project_task_archive as pta  # noqa: E402
+
+
+def _jimeng_kind(task_type: str, params: dict | None = None) -> str:
+    t = task_type.lower()
+    p = params or {}
+    if "image" in t or "jimeng_t2i" in str(p.get("req_key", "")):
+        return pta.KIND_JIMENG_IMAGE
+    return pta.KIND_JIMENG_VIDEO
+
+
+def get_archive_base() -> str:
+    proot = pta.resolve_project_root()
+    if proot:
+        return str(proot / "assets")
+    script_dir = Path(__file__).resolve().parent
+    archive_dir = script_dir.parent.parent.parent / "video" / "jimeng_tasks"
+    archive_dir.mkdir(parents=True, exist_ok=True)
+    return str(archive_dir)
+
+
+def get_archive_path(task_type: str | None = None) -> str:
+    proot = pta.resolve_project_root()
+    if proot:
+        kind = pta.KIND_JIMENG_IMAGE if task_type == "image" else pta.KIND_JIMENG_VIDEO
+        return str(pta.archive_file(proot, kind))
     base = get_archive_base()
     if task_type == "image":
         return os.path.join(base, "tasks_image.json")
-    elif task_type == "video":
+    if task_type == "video":
         return os.path.join(base, "tasks_video.json")
-    else:
-        return os.path.join(base, "tasks.json")
+    return os.path.join(base, "tasks.json")
 
-def load_archive(task_type: str = None):
-    """加载任务归档"""
-    path = get_archive_path(task_type)
-    if os.path.exists(path):
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return {"tasks": []}
 
-def save_archive(archive, task_type: str = None):
-    """保存任务归档"""
-    path = get_archive_path(task_type)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(archive, f, ensure_ascii=False, indent=2)
+def load_archive(task_type: str | None = None) -> dict:
+    return pta.load_doc(Path(get_archive_path(task_type)))
 
-def add_task(task_type: str, task_id: str, params: dict, status: str = "pending"):
-    """添加任务到归档"""
-    # 根据类型选择归档文件
-    archive_type = "image" if "image" in task_type.lower() or "jimeng_t2i" in str(params.get("req_key", "")) else "video"
+
+def save_archive(archive: dict, task_type: str | None = None) -> None:
+    path = Path(get_archive_path(task_type))
+    kind = pta.KIND_JIMENG_IMAGE if task_type == "image" else pta.KIND_JIMENG_VIDEO
+    pta.save_doc(path, archive, kind=kind)
+
+
+def add_task(task_type: str, task_id: str, params: dict, status: str = "pending") -> dict:
+    proot = pta.resolve_project_root()
+    if proot:
+        kind = _jimeng_kind(task_type, params)
+        return pta.add_task(
+            kind,
+            task_id,
+            params,
+            project_root=proot,
+            status=status,
+            task_type=task_type,
+        )
+    archive_type = "image" if _jimeng_kind(task_type, params) == pta.KIND_JIMENG_IMAGE else "video"
     archive = load_archive(archive_type)
     task = {
         "task_id": task_id,
@@ -62,94 +89,84 @@ def add_task(task_type: str, task_id: str, params: dict, status: str = "pending"
     save_archive(archive, archive_type)
     return task
 
-def update_task(task_id: str, updates: dict, archive_type: str = None):
-    """更新任务状态"""
+
+def update_task(task_id: str, updates: dict, archive_type: str | None = None) -> bool:
+    proot = pta.resolve_project_root()
+    if proot:
+        kind = None
+        if archive_type == "image":
+            kind = pta.KIND_JIMENG_IMAGE
+        elif archive_type == "video":
+            kind = pta.KIND_JIMENG_VIDEO
+        return pta.update_task(task_id, updates, project_root=proot, kind=kind)
     if archive_type:
         archive = load_archive(archive_type)
-        found = False
         for task in archive["tasks"]:
-            if task["task_id"] == task_id:
+            if task.get("task_id") == task_id:
                 task.update(updates)
                 task["updated_at"] = datetime.now().isoformat()
-                found = True
-                break
-        if found:
-            save_archive(archive, archive_type)
-    else:
-        # 尝试在两个归档文件中查找
-        for at in ["image", "video"]:
-            archive = load_archive(at)
-            for task in archive["tasks"]:
-                if task["task_id"] == task_id:
-                    task.update(updates)
-                    task["updated_at"] = datetime.now().isoformat()
-                    save_archive(archive, at)
-                    return
+                save_archive(archive, archive_type)
+                return True
+        return False
+    for at in ("image", "video"):
+        if update_task(task_id, updates, at):
+            return True
+    return False
 
-def list_tasks(limit: int = 20, task_type: str = None):
-    """列出最近的任务"""
+
+def list_tasks(limit: int = 20, task_type: str | None = None) -> list[dict]:
+    proot = pta.resolve_project_root()
+    if proot:
+        if task_type == "image":
+            return pta.list_tasks(proot, kind=pta.KIND_JIMENG_IMAGE, limit=limit)
+        if task_type == "video":
+            return pta.list_tasks(proot, kind=pta.KIND_JIMENG_VIDEO, limit=limit)
+        return pta.list_tasks(proot, limit=limit)
     if task_type == "image":
         return load_archive("image")["tasks"][:limit]
-    elif task_type == "video":
+    if task_type == "video":
         return load_archive("video")["tasks"][:limit]
-    else:
-        # 合并两个归档
-        image_tasks = load_archive("image")["tasks"]
-        video_tasks = load_archive("video")["tasks"]
-        all_tasks = image_tasks + video_tasks
-        # 按时间排序
-        all_tasks.sort(key=lambda x: x.get("created_at", ""), reverse=True)
-        return all_tasks[:limit]
+    image_tasks = load_archive("image")["tasks"]
+    video_tasks = load_archive("video")["tasks"]
+    merged = image_tasks + video_tasks
+    merged.sort(key=lambda t: t.get("created_at", ""), reverse=True)
+    return merged[:limit]
 
-def main():
+
+def main() -> int:
     if len(sys.argv) < 2:
-        print(json.dumps({"error": "缺少子命令"}, ensure_ascii=False))
-        sys.exit(1)
-
+        print(__doc__)
+        return 1
     cmd = sys.argv[1]
-
-    if cmd == "add":
-        # add <type> <task_id> <params_json>
-        if len(sys.argv) < 4:
-            print(json.dumps({"error": "缺少参数"}, ensure_ascii=False))
-            sys.exit(1)
-        task_type = sys.argv[2]
-        task_id = sys.argv[3]
-        params = json.loads(sys.argv[4]) if len(sys.argv) > 4 else {}
-        result = add_task(task_type, task_id, params)
-        print(json.dumps(result, ensure_ascii=False))
-
-    elif cmd == "update":
-        # update <task_id> <updates_json> [archive_type]
-        if len(sys.argv) < 4:
-            print(json.dumps({"error": "缺少参数"}, ensure_ascii=False))
-            sys.exit(1)
-        task_id = sys.argv[2]
-        updates = json.loads(sys.argv[3])
+    if cmd == "list":
+        task_type = None
+        limit = 20
+        args = sys.argv[2:]
+        i = 0
+        while i < len(args):
+            if args[i] == "--type" and i + 1 < len(args):
+                task_type = args[i + 1]
+                i += 2
+            elif args[i] == "--limit" and i + 1 < len(args):
+                limit = int(args[i + 1])
+                i += 2
+            else:
+                i += 1
+        print(json.dumps(list_tasks(limit, task_type), ensure_ascii=False, indent=2))
+        return 0
+    if cmd == "add" and len(sys.argv) >= 5:
+        add_task(sys.argv[2], sys.argv[3], json.loads(sys.argv[4]))
+        return 0
+    if cmd == "update" and len(sys.argv) >= 4:
+        updates = json.loads(sys.argv[2])
+        tid = sys.argv[3]
         archive_type = sys.argv[4] if len(sys.argv) > 4 else None
-        update_task(task_id, updates, archive_type)
-        print(json.dumps({"status": "ok"}))
+        ok = update_task(tid, updates, archive_type)
+        print(json.dumps({"updated": ok, "task_id": tid}, ensure_ascii=False))
+        return 0 if ok else 1
+    print(__doc__)
+    return 1
 
-    elif cmd == "list":
-        # list [limit] [task_type]
-        limit = int(sys.argv[2]) if len(sys.argv) > 2 else 20
-        task_type = sys.argv[3] if len(sys.argv) > 3 else None
-        tasks = list_tasks(limit, task_type)
-        print(json.dumps(tasks, ensure_ascii=False))
-
-    elif cmd == "list-image":
-        # 只列出图片任务
-        tasks = list_tasks(100, "image")
-        print(json.dumps(tasks, ensure_ascii=False))
-
-    elif cmd == "list-video":
-        # 只列出视频任务
-        tasks = list_tasks(100, "video")
-        print(json.dumps(tasks, ensure_ascii=False))
-
-    else:
-        print(json.dumps({"error": f"未知命令: {cmd}"}, ensure_ascii=False))
-        sys.exit(1)
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

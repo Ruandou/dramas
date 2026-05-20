@@ -32,7 +32,13 @@ import time
 from pathlib import Path
 from typing import Any
 
-from ark_archive import add_task, list_tasks as list_local_tasks, update_task
+from ark_archive import list_tasks as list_local_tasks
+from ark_seedance_record import (
+    archive_params_from_body,
+    record_status,
+    record_submit,
+    summarize_content,
+)
 from ark_common import (
     TASKS_PATH,
     api_key,
@@ -81,32 +87,6 @@ def build_content_from_simple(
     return content
 
 
-def summarize_content(content: Any) -> Any:
-    """归档用摘要，不落库 base64 全文。"""
-    if isinstance(content, str):
-        return {"text_chars": len(content)}
-    if not isinstance(content, list):
-        return content
-    out = []
-    for item in content:
-        if not isinstance(item, dict):
-            continue
-        t = item.get("type")
-        if t == "text":
-            out.append({"type": "text", "chars": len(item.get("text") or "")})
-        elif t == "image_url":
-            u = (item.get("image_url") or {}).get("url") or ""
-            out.append(
-                {
-                    "type": "image_url",
-                    "role": item.get("role"),
-                    "source": "data_uri" if u.startswith("data:") else "url",
-                    "approx_bytes": len(u) if u.startswith("data:") else None,
-                }
-            )
-    return out
-
-
 def sanitize_body_for_log(body: dict[str, Any]) -> dict[str, Any]:
     import copy
 
@@ -118,19 +98,6 @@ def sanitize_body_for_log(body: dict[str, Any]) -> dict[str, Any]:
                 if u.startswith("data:") and len(u) > 120:
                     item["image_url"]["url"] = u[:80] + f"...<{len(u)} chars>"
     return b
-
-
-def archive_params_from_body(body: dict[str, Any], extra: dict | None = None) -> dict:
-    p = {
-        "model": body.get("model"),
-        "ratio": body.get("ratio"),
-        "resolution": body.get("resolution"),
-        "duration": body.get("duration"),
-        "content": summarize_content(body.get("content")),
-    }
-    if extra:
-        p.update(extra)
-    return p
 
 
 def create_task(
@@ -146,13 +113,18 @@ def create_task(
         }
     resp = http_request("POST", TASKS_PATH, body=body, timeout=180)
     tid = task_id_from_response(resp)
-    if tid:
-        add_task(
-            "seedance_video",
-            tid,
-            archive_params_from_body(body, archive_meta),
-            status="pending",
-        )
+    if tid and archive_meta:
+        proot = archive_meta.get("project_root")
+        if proot:
+            record_submit(
+                tid,
+                body,
+                project_root=proot,
+                episode=str(archive_meta.get("episode") or ""),
+                project_name=str(archive_meta.get("project") or "天工开物"),
+                segment_id=archive_meta.get("segment_id"),
+                shot_id=archive_meta.get("shot_id"),
+            )
     return {
         "status": "submitted",
         "task_id": tid,
@@ -172,11 +144,7 @@ def get_task(task_id: str) -> dict[str, Any]:
     resp = http_request("GET", path, timeout=60)
     st = task_status(resp)
     vu = extract_video_url(resp)
-    update_task(
-        task_id,
-        {"status": st, "video_url": vu},
-        "video",
-    )
+    record_status(task_id, st or "unknown", video_url=vu)
     return {
         "task_id": task_id,
         "status": st,
@@ -224,13 +192,10 @@ def wait_task(
         last = get_task(task_id)
         st = last.get("status") or ""
         if st in ("succeeded", "failed", "cancelled", "expired"):
-            update_task(
+            record_status(
                 task_id,
-                {
-                    "status": st,
-                    "video_url": last.get("video_url"),
-                },
-                "video",
+                st,
+                video_url=last.get("video_url"),
             )
             return last
         time.sleep(poll_interval)
@@ -434,6 +399,13 @@ def cmd_download(args: argparse.Namespace) -> int:
         return 1
     out = args.output or safe_mp4_name(args.task_id or "seedance")
     r = download_url(url, out)
+    if args.task_id:
+        record_status(
+            args.task_id,
+            "succeeded",
+            video_url=url,
+            local_mp4=str(Path(out).resolve()),
+        )
     print(json.dumps({"status": "ok", **r}, ensure_ascii=False, indent=2))
     return 0
 
@@ -576,21 +548,15 @@ def cmd_segments(args: argparse.Namespace) -> int:
             r = create_task(
                 body,
                 dry_run=False,
-                archive_meta={"segment_id": sid, "episode": ep_id},
+                archive_meta={
+                    "segment_id": sid,
+                    "episode": ep_id,
+                    "project_root": str(project_root),
+                    "project": project_root.name,
+                },
             )
             r["segment_id"] = sid
             results.append(r)
-            if args.output_dir:
-                log_dir = Path(args.output_dir).expanduser()
-                log_dir.mkdir(parents=True, exist_ok=True)
-                with (log_dir / "task_log.jsonl").open("a", encoding="utf-8") as f:
-                    f.write(
-                        json.dumps(
-                            {"ts": time.time(), "segment_id": sid, **r},
-                            ensure_ascii=False,
-                        )
-                        + "\n"
-                    )
             time.sleep(args.delay)
         except Exception as e:
             results.append({"segment_id": sid, "status": "error", "error": str(e)})
@@ -668,22 +634,15 @@ def cmd_shots(args: argparse.Namespace) -> int:
             r = create_task(
                 body,
                 dry_run=False,
-                archive_meta={"shot_id": sid, "episode": ep_id},
+                archive_meta={
+                    "shot_id": sid,
+                    "episode": ep_id,
+                    "project_root": str(project_root),
+                    "project": project_root.name,
+                },
             )
             r["shot_id"] = sid
             results.append(r)
-            if args.output_dir:
-                log_dir = Path(args.output_dir).expanduser()
-                log_dir.mkdir(parents=True, exist_ok=True)
-                log_path = log_dir / "task_log.jsonl"
-                with log_path.open("a", encoding="utf-8") as f:
-                    f.write(
-                        json.dumps(
-                            {"ts": time.time(), "shot_id": sid, **r},
-                            ensure_ascii=False,
-                        )
-                        + "\n"
-                    )
             time.sleep(args.delay)
         except Exception as e:
             results.append({"shot_id": sid, "status": "error", "error": str(e)})
@@ -776,7 +735,6 @@ def main() -> int:
     p_shots.add_argument("--shot", help="仅指定 shot_id")
     p_shots.add_argument("--check-only", action="store_true")
     p_shots.add_argument("--dry-run", action="store_true")
-    p_shots.add_argument("--output-dir", help="写入 task_log.jsonl 的目录")
     p_shots.add_argument("--delay", type=float, default=0.5)
     p_shots.set_defaults(func=cmd_shots)
 
@@ -787,7 +745,6 @@ def main() -> int:
     p_seg.add_argument("--segment", help="仅指定 segment_id")
     p_seg.add_argument("--check-only", action="store_true")
     p_seg.add_argument("--dry-run", action="store_true")
-    p_seg.add_argument("--output-dir", help="写入 task_log.jsonl 的目录")
     p_seg.add_argument("--delay", type=float, default=0.5)
     p_seg.set_defaults(func=cmd_segments)
 

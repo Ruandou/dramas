@@ -3,6 +3,7 @@
 读取 EP##_segments.yaml → 校验 looks/scenes（+ 可选 voice_refs）→ 展开 Seedance API 请求体。
 
 默认 dry-run；--submit 需 ARK_API_KEY。--wait --download 在提交后轮询并落盘 mp4。
+任务登记（方案 A）：assets/generated/EP##/tasks.json（经 ark_seedance_record）。
 
 用法（在 darams/天工开物 下）：
   python3 script/storyboard_submit_segments.py EP01 --check-only
@@ -36,6 +37,7 @@ if str(_REPO_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_REPO_SCRIPTS))
 
 from ark_media import resolve_image_url, resolve_media_url  # noqa: E402
+from ark_seedance_record import record_status, record_submit  # noqa: E402
 
 EPISODE_DIR = ROOT / "分集剧本"
 GENERATED_DIR = ROOT / "assets" / "generated"
@@ -242,15 +244,13 @@ def post_task(endpoint: str, api_key: str, body: dict) -> dict:
         raise RuntimeError(f"HTTP {e.code}: {detail or e.reason}") from e
 
 
-def append_task_log(ep_id: str, entry: dict) -> None:
-    log_dir = GENERATED_DIR / ep_id
-    log_dir.mkdir(parents=True, exist_ok=True)
-    log_path = log_dir / "task_log.jsonl"
-    with log_path.open("a", encoding="utf-8") as f:
-        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
-
-
-def ark_wait_download(task_id: str, out_mp4: Path) -> int:
+def ark_wait_download(
+    task_id: str,
+    out_mp4: Path,
+    *,
+    project_root: Path,
+    episode_id: str,
+) -> int:
     if not ARK_VIDEO_CLI.is_file():
         print(f"找不到 {ARK_VIDEO_CLI}", file=sys.stderr)
         return 1
@@ -273,7 +273,20 @@ def ark_wait_download(task_id: str, out_mp4: Path) -> int:
         ],
         cwd=str(_REPO_ROOT),
     )
-    return r2.returncode
+    if r2.returncode != 0:
+        return r2.returncode
+    try:
+        local_rel = str(out_mp4.resolve().relative_to(ROOT))
+    except ValueError:
+        local_rel = str(out_mp4.resolve())
+    record_status(
+        task_id,
+        "succeeded",
+        project_root=project_root,
+        episode=episode_id,
+        local_mp4=local_rel,
+    )
+    return 0
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -362,18 +375,24 @@ def main(argv: list[str] | None = None) -> int:
             result = post_task(endpoint, key, body)
             task_id = result.get("id") or result.get("task_id") or result.get("data", {}).get("id")
             print(f"  submitted {sid} task_id={task_id}")
-            append_task_log(
-                ep_id,
-                {
-                    "ts": time.time(),
-                    "segment_id": sid,
-                    "task_id": task_id,
-                    "response": result,
-                },
-            )
+            if task_id:
+                tasks_path = record_submit(
+                    str(task_id),
+                    body,
+                    project_root=ROOT,
+                    episode=ep_id,
+                    project_name="天工开物",
+                    segment_id=sid,
+                )
+                print(f"  archived → {tasks_path.relative_to(ROOT)}")
             if task_id and (args.wait or args.download):
                 mp4 = GENERATED_DIR / ep_id / f"{sid}.mp4"
-                rc = ark_wait_download(str(task_id), mp4)
+                rc = ark_wait_download(
+                    str(task_id),
+                    mp4,
+                    project_root=ROOT,
+                    episode_id=ep_id,
+                )
                 if rc == 0:
                     print(f"  downloaded {mp4.relative_to(ROOT)}")
                 else:

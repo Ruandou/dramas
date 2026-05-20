@@ -35,6 +35,7 @@ _REPO_SCRIPTS = Path(__file__).resolve().parents[3] / "mcps" / "volc-ark" / "scr
 if str(_REPO_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_REPO_SCRIPTS))
 from ark_media import resolve_image_url  # noqa: E402
+from ark_seedance_record import record_submit  # noqa: E402
 
 EPISODE_DIR = ROOT / "分集剧本"
 GENERATED_DIR = ROOT / "assets" / "generated"
@@ -149,14 +150,6 @@ def post_task(endpoint: str, api_key: str, body: dict) -> dict:
         raise RuntimeError(f"HTTP {e.code}: {detail or e.reason}") from e
 
 
-def append_task_log(ep_id: str, entry: dict) -> None:
-    log_dir = GENERATED_DIR / ep_id
-    log_dir.mkdir(parents=True, exist_ok=True)
-    log_path = log_dir / "task_log.jsonl"
-    with log_path.open("a", encoding="utf-8") as f:
-        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
-
-
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Seedance 分镜提交（默认 dry-run）")
     parser.add_argument("episode", help="如 EP01")
@@ -235,15 +228,16 @@ def main(argv: list[str] | None = None) -> int:
             result = post_task(endpoint, key, body)
             task_id = result.get("id") or result.get("task_id") or result.get("data", {}).get("id")
             print(f"  submitted {sid} task_id={task_id}")
-            append_task_log(
-                ep_id,
-                {
-                    "ts": time.time(),
-                    "shot_id": sid,
-                    "task_id": task_id,
-                    "response": result,
-                },
-            )
+            if task_id:
+                tasks_path = record_submit(
+                    str(task_id),
+                    body,
+                    project_root=ROOT,
+                    episode=ep_id,
+                    project_name="天工开物",
+                    shot_id=sid,
+                )
+                print(f"  archived → {tasks_path.relative_to(ROOT)}")
             time.sleep(0.5)
 
     print(

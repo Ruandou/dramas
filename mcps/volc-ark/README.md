@@ -11,21 +11,22 @@
 
 **不需要。** 本地 `assets/` 图片在提交时自动转为 **data URI**（base64）写入 API；仅当参考图本身已是 `https://` 或 `data:` 时原样使用。
 
-## 任务归档（与 volc-jimeng 同级）
+## 任务归档（方案 A · 推荐）
 
-每次成功 **创建/提交** 会写入仓库：
+设置 **`DRAMA_PROJECT_ROOT`**（短剧根，如 `darams/天工开物`）后，任务写入该剧 `assets/`：
 
 ```
-video/ark_tasks/
-├── tasks_image.json   # Seedream
-└── tasks_video.json   # Seedance
+assets/generated/EP01/tasks.json   # Seedance 按集
+assets/tasks_seedream.json
+assets/tasks_jimeng_*.json         # 即梦（volc-jimeng，同 env）
+assets/tasks_kling.json            # Kling（同 env）
 ```
 
-与 `video/jimeng_tasks/`（视觉 AK/SK 即梦 4.0）分开存放。`get` / `wait` 会回写 `status`、`video_url`。
+未设 `DRAMA_PROJECT_ROOT` 时回退 `video/ark_tasks/`（遗留）。详见 `project_task_archive.py`、各剧 `assets/TASKS.md`。
 
 | MCP 工具 | 说明 |
 |----------|------|
-| `ark_list_tasks` | 读本地 `video/ark_tasks/` |
+| `ark_list_tasks` | 读 `DRAMA_PROJECT_ROOT` 下 assets；可传 `project_root` / `episode` |
 | `ark_seedance_list` | 读方舟云端任务列表（近约 7 天） |
 
 ## 环境变量（MCP 配置）
@@ -34,7 +35,9 @@ video/ark_tasks/
 |------|------|
 | `ARK_API_KEY` | 方舟 API Key（**MCP 只需这一项**） |
 
-相对路径默认相对仓库根（`mcps/volc-ark` 上两级）。工作区不是仓库根时再设 `ARK_PROJECT_ROOT`。
+| `DRAMA_PROJECT_ROOT` | 短剧根（**任务归档方案 A**，与 `ARK_PROJECT_ROOT` 等价） |
+
+相对路径默认相对仓库根。短剧流水线务必设 `DRAMA_PROJECT_ROOT`。
 
 ## Cursor MCP 工具一览
 

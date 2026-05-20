@@ -258,6 +258,8 @@ def generate_one(
     pick = urls[min(index, len(urls) - 1)]
     rid = resp.get("id") or resp.get("created")
     if rid:
+        if project_root:
+            os.environ.setdefault("DRAMA_PROJECT_ROOT", str(Path(project_root).resolve()))
         add_task(
             "seedream_image",
             str(rid),
@@ -266,6 +268,7 @@ def generate_one(
                 "model": payload.get("model"),
                 "size": payload.get("size"),
                 "has_ref_images": bool(image_urls),
+                "output": str(output) if output else None,
             },
             status=str(resp.get("status") or "completed"),
         )
@@ -348,6 +351,8 @@ def cmd_batch(args: argparse.Namespace) -> int:
         return 1
 
     project_root = Path(args.project_root).expanduser().resolve() if args.project_root else None
+    if project_root:
+        os.environ["DRAMA_PROJECT_ROOT"] = str(project_root)
     items = load_batch_yaml(yaml_path)
     id_filter = None
     if args.ids:

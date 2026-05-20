@@ -180,15 +180,18 @@ def download_image(url: str, output_path: str, task_id: str = "", mcp_mode: bool
 
 # ============ 任务归档 ============
 def get_archive_path():
-    """获取归档文件路径"""
-    project_root = os.environ.get("KLING_PROJECT_ROOT")
+    """方案 A：{project}/assets/tasks_kling.json；无 project 时回退 video/kling_tasks/"""
+    project_root = (
+        os.environ.get("KLING_PROJECT_ROOT")
+        or os.environ.get("DRAMA_PROJECT_ROOT")
+        or ""
+    ).strip()
     if project_root:
-        archive_dir = os.path.join(project_root, "video", "kling_tasks")
-    else:
-        # 向上两级找到仓库根 (mcps/kling/scripts -> 仓库根)
-        script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        archive_dir = os.path.join(script_dir, "..", "..", "video", "kling_tasks")
-
+        assets = os.path.join(project_root, "assets")
+        os.makedirs(assets, exist_ok=True)
+        return os.path.join(assets, "tasks_kling.json")
+    script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    archive_dir = os.path.join(script_dir, "..", "..", "video", "kling_tasks")
     os.makedirs(archive_dir, exist_ok=True)
     return os.path.join(archive_dir, "tasks.json")
 

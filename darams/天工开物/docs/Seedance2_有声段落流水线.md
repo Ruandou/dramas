@@ -29,6 +29,7 @@
     → Seedance API（有声 + reference_audio）
     → assets/generated/EP##/EP01-SEG04.mp4 …
     →（可选）ffmpeg concat → EP##_full.mp4
+    → 任务归档 assets/generated/EP##/tasks.json（方案 A，见 assets/TASKS.md）
 ```
 
 ---

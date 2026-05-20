@@ -220,14 +220,21 @@ server.registerTool(
   {
     title: "本地任务归档（volc-ark）",
     description:
-      "读取 video/ark_tasks/tasks_image.json 与 tasks_video.json，与 volc-jimeng 的 jimeng_tasks 同级。",
+      "方案 A：读取短剧 project_root 下 assets/tasks_*.json 与 assets/generated/EP##/tasks.json。未传 project_root 时回退 video/ark_tasks/。",
     inputSchema: z.object({
+      project_root: z
+        .string()
+        .optional()
+        .describe("短剧根目录，如 darams/天工开物；建议在 mcp env 设 DRAMA_PROJECT_ROOT"),
+      episode: z.string().optional().describe("仅列该集 Seedance 任务，如 EP01"),
       type: z.enum(["image", "video", "all"]).optional(),
       limit: z.number().optional(),
     }),
   },
   async (p) => {
     const args = ["list"];
+    if (p.project_root) args.push("--project-root", resolveUserPath(p.project_root));
+    if (p.episode) args.push("--episode", p.episode);
     if (p.type && p.type !== "all") args.push("--type", p.type);
     if (p.limit != null) args.push("--limit", String(p.limit));
     const out = await runCli(ARCHIVE_CLI, args);

@@ -38,7 +38,13 @@ python3 script/storyboard_submit_segments.py EP01 --segment EP01-SEG04b --submit
 
 或仓库根：`python3 mcps/volc-ark/scripts/ark_seedance_video.py segments EP01 --project-root darams/天工开物`
 
-成片：`assets/generated/EP##/EP01-SEGxx.mp4` · 任务归档 `video/ark_tasks/tasks_video.json`
+成片：`assets/generated/EP##/EP01-SEGxx.mp4`
+
+**任务登记（方案 A）**：`assets/generated/EP##/tasks.json` 等，见 [`TASKS.md`](./TASKS.md)。提交前建议 `export DRAMA_PROJECT_ROOT=$(pwd)`。
+
+```bash
+python3 mcps/volc-ark/scripts/project_task_archive.py list --project-root . --episode EP01
+```
 
 ```bash
 # 集级顺接（试跑通过后）
