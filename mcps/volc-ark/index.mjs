@@ -37,11 +37,12 @@ function resolveUserPath(p) {
   return path.isAbsolute(s) ? path.resolve(s) : path.join(resolveProjectRoot(), s);
 }
 
-function runCli(scriptPath, args) {
+function runCli(scriptPath, args, options = {}) {
+  const { cwd = SCRIPTS, envExtra = {} } = options;
   return new Promise((resolve, reject) => {
     const child = spawn(PYTHON, [scriptPath, ...args], {
-      env: { ...process.env, PYTHONPATH: SCRIPTS },
-      cwd: SCRIPTS,
+      env: { ...process.env, PYTHONPATH: SCRIPTS, ...envExtra },
+      cwd,
       stdio: ["pipe", "pipe", "pipe"],
     });
     let out = "";
@@ -60,8 +61,16 @@ function runCli(scriptPath, args) {
   });
 }
 
+function runTgkw(dramaRoot, tgkwArgs) {
+  const tgkw = path.join(dramaRoot, "tgkw");
+  return runCli(tgkw, tgkwArgs, {
+    cwd: dramaRoot,
+    envExtra: { DRAMA_PROJECT_ROOT: dramaRoot },
+  });
+}
+
 const server = new McpServer(
-  { name: "volc-ark", version: "1.2.0" },
+  { name: "volc-ark", version: "1.3.0" },
   { capabilities: { tools: {} } }
 );
 
@@ -301,6 +310,50 @@ server.registerTool(
     if (p.task_id) args.push("--task-id", p.task_id);
     if (p.url) args.push("--url", p.url);
     const out = await runCli(VIDEO_CLI, args);
+    return { content: [{ type: "text", text: out }] };
+  }
+);
+
+server.registerTool(
+  "ark_drama_pull",
+  {
+    title: "拉取短剧同事段落成片（天工开物等）",
+    description:
+      "git pull + 按 assets/generated/EP##/tasks.json 用 task_id 从方舟下载缺段（直链约 24h）。不扣费。使用本 MCP 已配置的 ARK_API_KEY，无需再 export。",
+    inputSchema: z.object({
+      episode: z.string().describe("如 EP01"),
+      project_root: z
+        .string()
+        .optional()
+        .describe("短剧根目录；默认 mcp env 的 DRAMA_PROJECT_ROOT 或 darams/天工开物"),
+      concat: z
+        .boolean()
+        .optional()
+        .describe("下载完成后 ffmpeg 拼 EP##_full.mp4"),
+      force: z.boolean().optional().describe("已存在 mp4 也重新下载"),
+      wait_pending: z
+        .boolean()
+        .optional()
+        .describe("任务未完成时轮询等待"),
+      git_pull: z
+        .boolean()
+        .optional()
+        .describe("是否先 git pull，默认 true"),
+    }),
+  },
+  async (p) => {
+    const dramaRoot = p.project_root
+      ? resolveUserPath(p.project_root)
+      : process.env.DRAMA_PROJECT_ROOT
+        ? path.resolve(process.env.DRAMA_PROJECT_ROOT)
+        : path.join(resolveProjectRoot(), "darams", "天工开物");
+    const ep = p.episode.toUpperCase();
+    const args = ["pull", ep];
+    if (p.concat) args.push("--concat");
+    if (p.force) args.push("--force");
+    if (p.wait_pending) args.push("--wait");
+    if (p.git_pull === false) args.push("--no-git");
+    const out = await runTgkw(dramaRoot, args);
     return { content: [{ type: "text", text: out }] };
   }
 );

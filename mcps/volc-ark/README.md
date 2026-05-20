@@ -26,6 +26,7 @@ assets/tasks_kling.json            # Kling（同 env）
 
 | MCP 工具 | 说明 |
 |----------|------|
+| **`ark_drama_pull`** | **拉同事段落**（git pull + tasks.json 下载，**不扣费**，用 MCP 已配 Key） |
 | `ark_list_tasks` | 读 `DRAMA_PROJECT_ROOT` 下 assets；可传 `project_root` / `episode` |
 | `ark_seedance_list` | 读方舟云端任务列表（近约 7 天） |
 
@@ -43,6 +44,7 @@ assets/tasks_kling.json            # Kling（同 env）
 
 | 工具 | 作用 |
 |------|------|
+| **`ark_drama_pull`** | 拉短剧同事成片（**推荐**，无需终端 export Key） |
 | `ark_seedream_*` | 图片 |
 | `ark_seedance_*` | 视频 |
 | `ark_list_tasks` | 本地归档 |

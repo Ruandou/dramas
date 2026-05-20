@@ -2,6 +2,9 @@
 
 **默认流程（2026-05-20）**：有声 **段落** `segments.yaml` → Seedance 2.0，见 [`../docs/Seedance2_有声段落流水线.md`](../docs/Seedance2_有声段落流水线.md)。
 
+**视频怎么管（目录、拼接、验收、重跑）**：[`../docs/视频资产管理.md`](../docs/视频资产管理.md)  
+**拉同事成片**：Cursor 用 MCP **`ark_drama_pull`**（Key 已在 mcp.json）· 终端 [`../AGENTS.md`](../AGENTS.md) `./tgkw pull EP01 --concat`
+
 ## 1. 定妆与场景（全剧复用，段落必用）
 
 | 目录 | 命名 | 说明 |
@@ -47,7 +50,10 @@ python3 mcps/volc-ark/scripts/project_task_archive.py list --project-root . --ep
 ```
 
 ```bash
-# 集级顺接（试跑通过后）
+# 一键拉同事段落（先 git pull 同事提交的 tasks.json，24h 内从方舟下）
+bash script/pull_episode.sh EP01 --concat
+
+# 仅拼集（本地段已齐）
 bash script/ffmpeg_concat_episode.sh EP01
 ```
 

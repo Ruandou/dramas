@@ -11,6 +11,8 @@
   export ARK_API_KEY=...
   python3 script/storyboard_submit_segments.py EP01 --segment EP01-SEG04b --submit --wait --download
   python3 script/storyboard_submit_segments.py EP01 --submit --wait --download
+  python3 script/storyboard_submit_segments.py EP01 --pull              # 按 tasks.json 补下缺段
+  bash script/pull_episode.sh EP01 --concat   # git pull + 补下 + 可选拼集
 """
 
 from __future__ import annotations
@@ -244,6 +246,129 @@ def post_task(endpoint: str, api_key: str, body: dict) -> dict:
         raise RuntimeError(f"HTTP {e.code}: {detail or e.reason}") from e
 
 
+MIN_MP4_BYTES = 80 * 1024  # 小于约 80KB 视为异常/占位，--pull 时会重下
+
+
+def load_segment_task_map(ep_id: str) -> dict[str, str]:
+    """segment_id → task_id（同段多条时取 updated_at 最新）。"""
+    path = GENERATED_DIR / ep_id / "tasks.json"
+    if not path.is_file():
+        return {}
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    best: dict[str, tuple[str, str]] = {}
+    for row in doc.get("tasks") or []:
+        tid = row.get("task_id")
+        params = row.get("params") or {}
+        sid = params.get("segment_id")
+        if not tid or not sid:
+            continue
+        ts = row.get("updated_at") or row.get("created_at") or ""
+        prev = best.get(sid)
+        if prev is None or ts >= prev[1]:
+            best[sid] = (str(tid), ts)
+    return {sid: tid for sid, (tid, _) in best.items()}
+
+
+def mp4_needs_pull(path: Path, force: bool) -> bool:
+    if force or not path.is_file():
+        return True
+    try:
+        return path.stat().st_size < MIN_MP4_BYTES
+    except OSError:
+        return True
+
+
+def ark_download_existing(
+    task_id: str,
+    out_mp4: Path,
+    *,
+    project_root: Path,
+    episode_id: str,
+    wait_if_pending: bool,
+) -> int:
+    """已提交任务：先 download；失败且 wait_if_pending 则 wait 后再下。"""
+    if not ARK_VIDEO_CLI.is_file():
+        print(f"找不到 {ARK_VIDEO_CLI}", file=sys.stderr)
+        return 1
+    out_mp4.parent.mkdir(parents=True, exist_ok=True)
+    base = [
+        sys.executable,
+        str(ARK_VIDEO_CLI),
+        "download",
+        "--task-id",
+        task_id,
+        "-o",
+        str(out_mp4),
+    ]
+
+    def _run_download() -> int:
+        r = subprocess.run(base, cwd=str(_REPO_ROOT))
+        if r.returncode != 0:
+            return r.returncode
+        try:
+            local_rel = str(out_mp4.resolve().relative_to(ROOT))
+        except ValueError:
+            local_rel = str(out_mp4.resolve())
+        record_status(
+            task_id,
+            "succeeded",
+            project_root=project_root,
+            episode=episode_id,
+            local_mp4=local_rel,
+        )
+        return 0
+
+    if _run_download() == 0:
+        return 0
+    if not wait_if_pending:
+        return 1
+    print(f"  download 失败，轮询任务 {task_id} …", file=sys.stderr)
+    return ark_wait_download(
+        task_id, out_mp4, project_root=project_root, episode_id=episode_id
+    )
+
+
+def run_pull(ep_id: str, segments: list[dict], *, force: bool, wait_pending: bool) -> int:
+    task_map = load_segment_task_map(ep_id)
+    if not task_map:
+        print(
+            f"缺少 {GENERATED_DIR / ep_id / 'tasks.json'}，请先 git pull 或请同事提交任务登记",
+            file=sys.stderr,
+        )
+        return 1
+
+    ok = skip = fail = no_tid = 0
+    for seg in segments:
+        sid = seg.get("segment_id", "?")
+        mp4 = GENERATED_DIR / ep_id / f"{sid}.mp4"
+        if not mp4_needs_pull(mp4, force):
+            print(f"⊙ {sid} 已有 {mp4.stat().st_size // 1024}KB，跳过")
+            skip += 1
+            continue
+        tid = task_map.get(sid)
+        if not tid:
+            print(f"✗ {sid} tasks.json 中无 task_id（请同事生成后 push tasks.json）", file=sys.stderr)
+            no_tid += 1
+            continue
+        print(f"↓ {sid} ← {tid}")
+        rc = ark_download_existing(
+            tid,
+            mp4,
+            project_root=ROOT,
+            episode_id=ep_id,
+            wait_if_pending=wait_pending,
+        )
+        if rc == 0:
+            print(f"  ✓ {mp4.relative_to(ROOT)} ({mp4.stat().st_size // 1024}KB)")
+            ok += 1
+        else:
+            print(f"  ✗ 下载失败（链接可能已过期 >24h 或任务未成功）", file=sys.stderr)
+            fail += 1
+
+    print(f"\n{ep_id} --pull: downloaded={ok} skipped={skip} no_task_id={no_tid} failed={fail}")
+    return 1 if (fail or no_tid) else 0
+
+
 def ark_wait_download(
     task_id: str,
     out_mp4: Path,
@@ -302,6 +427,26 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="若 assets/generated/EP##/SEGxx.mp4 已存在则跳过",
     )
+    parser.add_argument(
+        "--pull",
+        action="store_true",
+        help="按 segments.yaml + tasks.json 补下缺失段落（同事 push 任务后本地执行；需 ARK_API_KEY）",
+    )
+    parser.add_argument(
+        "--pull-wait",
+        action="store_true",
+        help="与 --pull 合用：若任务未完成则轮询等待后再下载",
+    )
+    parser.add_argument(
+        "--pull-force",
+        action="store_true",
+        help="与 --pull 合用：已存在 mp4 也重新下载",
+    )
+    parser.add_argument(
+        "--concat",
+        action="store_true",
+        help="pull/submit 完成后执行 ffmpeg_concat_episode.sh 生成 EP##_full.mp4",
+    )
     args = parser.parse_args(argv)
 
     ep_id = args.episode.upper()
@@ -327,6 +472,26 @@ def main(argv: list[str] | None = None) -> int:
     thin_warnings: list[str] = []
     shot_durations = load_shot_durations(ep_id)
     ready = 0
+
+    if args.pull:
+        if not (os.environ.get("ARK_API_KEY") or os.environ.get("VOLC_ARK_API_KEY")):
+            print("--pull 需要 ARK_API_KEY", file=sys.stderr)
+            return 1
+        rc = run_pull(
+            ep_id,
+            segments,
+            force=args.pull_force,
+            wait_pending=args.pull_wait,
+        )
+        if rc != 0:
+            return rc
+        if args.concat:
+            concat_sh = ROOT / "script" / "ffmpeg_concat_episode.sh"
+            if not concat_sh.is_file():
+                print(f"找不到 {concat_sh}", file=sys.stderr)
+                return 1
+            return subprocess.run(["bash", str(concat_sh), ep_id], cwd=str(ROOT)).returncode
+        return 0
 
     for seg in segments:
         sid = seg.get("segment_id", "?")
@@ -420,6 +585,12 @@ def main(argv: list[str] | None = None) -> int:
         for line in missing_all[:20]:
             print(f"  - {line}")
         return 1
+    if args.concat:
+        concat_sh = ROOT / "script" / "ffmpeg_concat_episode.sh"
+        if not concat_sh.is_file():
+            print(f"找不到 {concat_sh}", file=sys.stderr)
+            return 1
+        return subprocess.run(["bash", str(concat_sh), ep_id], cwd=str(ROOT)).returncode
     return 0
 
 

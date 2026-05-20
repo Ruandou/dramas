@@ -1,0 +1,173 @@
+#!/usr/bin/env python3
+"""
+天工开物 · 制片 CLI（人工 / Cursor Agent 通用）
+
+在仓库任意位置均可调用（自动定位本剧根目录）：
+  darams/天工开物/tgkw pull EP01 --concat
+  darams/天工开物/tgkw check EP01
+  darams/天工开物/tgkw concat EP01
+  darams/天工开物/tgkw tasks EP01
+
+环境：ARK_API_KEY（pull/submit 必填）· DRAMA_PROJECT_ROOT（可选，默认本目录）
+"""
+from __future__ import annotations
+
+import argparse
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+REPO_ROOT = ROOT.parent.parent
+SCRIPT = ROOT / "script"
+_ARK_SCRIPTS = REPO_ROOT / "mcps" / "volc-ark" / "scripts"
+if str(_ARK_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_ARK_SCRIPTS))
+
+from drama_env import ensure_credentials  # noqa: E402
+
+ensure_credentials(REPO_ROOT, ROOT)
+
+
+def _env() -> dict[str, str]:
+    e = os.environ.copy()
+    e.setdefault("DRAMA_PROJECT_ROOT", str(ROOT))
+    return e
+
+
+def _run(cmd: list[str], *, cwd: Path | None = None) -> int:
+    print("+", " ".join(cmd), file=sys.stderr)
+    return subprocess.run(cmd, cwd=str(cwd or ROOT), env=_env()).returncode
+
+
+def cmd_pull(args: argparse.Namespace) -> int:
+    ensure_credentials(REPO_ROOT, ROOT)
+    if not (os.environ.get("ARK_API_KEY") or os.environ.get("VOLC_ARK_API_KEY")):
+        print(
+            "需要 ARK_API_KEY：在 .cursor/mcp.json 的 volc-ark.env 配置，或 export ARK_API_KEY",
+            file=sys.stderr,
+        )
+        return 1
+    ep = args.episode.upper()
+    if not args.no_git and (REPO_ROOT / ".git").exists():
+        _run(["git", "-C", str(REPO_ROOT), "pull", "--ff-only", "origin", "main"])
+    py = [
+        sys.executable,
+        str(SCRIPT / "storyboard_submit_segments.py"),
+        ep,
+        "--pull",
+    ]
+    if args.concat:
+        py.append("--concat")
+    if args.force:
+        py.append("--pull-force")
+    if args.wait:
+        py.append("--pull-wait")
+    return _run(py)
+
+
+def cmd_check(args: argparse.Namespace) -> int:
+    ep = args.episode.upper()
+    return _run([sys.executable, str(SCRIPT / "storyboard_submit_segments.py"), ep, "--check-only"])
+
+
+def cmd_concat(args: argparse.Namespace) -> int:
+    ep = args.episode.upper()
+    return _run(["bash", str(SCRIPT / "ffmpeg_concat_episode.sh"), ep])
+
+
+def cmd_tasks(args: argparse.Namespace) -> int:
+    ep = args.episode.upper()
+    cli = REPO_ROOT / "mcps" / "volc-ark" / "scripts" / "project_task_archive.py"
+    if not cli.is_file():
+        print(f"找不到 {cli}", file=sys.stderr)
+        return 1
+    return _run(
+        [
+            sys.executable,
+            str(cli),
+            "list",
+            "--project-root",
+            str(ROOT),
+            "--episode",
+            ep,
+            "--limit",
+            str(args.limit),
+        ],
+        cwd=REPO_ROOT,
+    )
+
+
+def cmd_submit(args: argparse.Namespace) -> int:
+    if not (os.environ.get("ARK_API_KEY") or os.environ.get("VOLC_ARK_API_KEY")):
+        print("需要 ARK_API_KEY", file=sys.stderr)
+        return 1
+    ep = args.episode.upper()
+    py = [
+        sys.executable,
+        str(SCRIPT / "storyboard_submit_segments.py"),
+        ep,
+        "--submit",
+    ]
+    if args.segment:
+        py.extend(["--segment", args.segment])
+    if args.wait:
+        py.append("--wait")
+    if args.download:
+        py.append("--download")
+    if args.skip_existing:
+        py.append("--skip-existing")
+    if args.concat:
+        py.append("--concat")
+    return _run(py)
+
+
+def build_parser() -> argparse.ArgumentParser:
+    p = argparse.ArgumentParser(
+        prog="tgkw",
+        description="天工开物制片 CLI · 详阅 docs/视频资产管理.md",
+    )
+    sub = p.add_subparsers(dest="command", required=True)
+
+    pull = sub.add_parser("pull", help="git pull + 按 tasks.json 补下同事段落（24h 内）")
+    pull.add_argument("episode", help="如 EP01")
+    pull.add_argument("--concat", action="store_true", help="补全后拼 EP##_full.mp4")
+    pull.add_argument("--force", action="store_true", help="已存在 mp4 也重下")
+    pull.add_argument("--wait", action="store_true", help="未完成则轮询等待")
+    pull.add_argument("--no-git", action="store_true", help="跳过 git pull")
+    pull.set_defaults(func=cmd_pull)
+
+    chk = sub.add_parser("check", help="校验 segments 素材与 duration")
+    chk.add_argument("episode")
+    chk.set_defaults(func=cmd_check)
+
+    cnc = sub.add_parser("concat", help="ffmpeg 顺接段落为 full")
+    cnc.add_argument("episode")
+    cnc.set_defaults(func=cmd_concat)
+
+    tsk = sub.add_parser("tasks", help="列出本集 tasks.json 归档")
+    tsk.add_argument("episode")
+    tsk.add_argument("--limit", type=int, default=30)
+    tsk.set_defaults(func=cmd_tasks)
+
+    subm = sub.add_parser("submit", help="提交 Seedance 段落（扣费，需授权）")
+    subm.add_argument("episode")
+    subm.add_argument("--segment", help="仅指定 EP01-SEGxx")
+    subm.add_argument("--wait", action="store_true")
+    subm.add_argument("--download", action="store_true")
+    subm.add_argument("--skip-existing", action="store_true")
+    subm.add_argument("--concat", action="store_true")
+    subm.set_defaults(func=cmd_submit)
+
+    return p
+
+
+def main() -> int:
+    parser = build_parser()
+    args = parser.parse_args()
+    return args.func(args)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
