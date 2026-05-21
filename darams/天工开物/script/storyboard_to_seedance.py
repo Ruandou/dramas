@@ -84,9 +84,15 @@ def parse_look_ids(raw: str) -> list[str]:
 
 def parse_dialogue(note: str) -> list[dict]:
     out = []
-    for m in re.finditer(r"\*\*(CHAR-[^*]+)\*\*[：:]([^*]+)", note):
-        speaker = m.group(1).split("(")[0].strip()
-        out.append({"speaker": speaker, "line": m.group(2).strip()})
+    # 支持 **CHAR-001**(哭腔)： 与 **CHAR-009**(VO)：
+    for m in re.finditer(
+        r"\*\*(CHAR-[^*]+)\*\*(?:\([^)]*\))?[：:]([^*]+?)(?=\s*\*\*CHAR-|\s*$)",
+        note,
+    ):
+        speaker = m.group(1).strip()
+        line = m.group(2).strip().rstrip("。")
+        if line:
+            out.append({"speaker": speaker, "line": line})
     return out
 
 

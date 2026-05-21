@@ -190,6 +190,41 @@ def warn_thin_segment(segment: dict, shot_durations: dict[str, int]) -> str | No
     return None
 
 
+def narrator_voice_prompt(episode: dict) -> str | None:
+    prompts = episode.get("voice_prompts") or {}
+    raw = prompts.get("NARR-001")
+    return str(raw).strip() if raw else None
+
+
+def validate_narrator_voice(episode: dict) -> list[str]:
+    """含「旁白」的 segment 须嵌入 NARR-001 全文；禁用旧写法。"""
+    narr_prompt = narrator_voice_prompt(episode)
+    if not narr_prompt:
+        return []
+    errors: list[str] = []
+    banned = (
+        "旁白（沉稳男声）",
+        "口播钩子（宋知行",
+        "口播钩子（宋知行，同上声线）",
+    )
+    for seg in episode.get("segments") or []:
+        sid = seg.get("segment_id", "?")
+        text = (seg.get("api") or {}).get("text") or ""
+        if "旁白" not in text and "口播钩子" not in text:
+            continue
+        for b in banned:
+            if b in text:
+                errors.append(f"{sid}: 含已废弃旁白写法「{b}」，请改用 NARR-001")
+        if "旁白" in text or "口播钩子" in text:
+            if narr_prompt not in text:
+                errors.append(
+                    f"{sid}: 含旁白但未嵌入 voice_prompts.NARR-001 全文"
+                )
+            elif "NARR-001" not in text:
+                errors.append(f"{sid}: 旁白须标注 NARR-001")
+    return errors
+
+
 def validate_duration_sec(segment: dict, episode: dict) -> str | None:
     """YAML 中 duration_sec 须在合法区间内，避免 API 400。"""
     defaults = episode.get("defaults") or {}
@@ -568,9 +603,14 @@ def main(argv: list[str] | None = None) -> int:
         f"\n{ep_id}: segments_ready={ready} missing_entries={len(missing_all)} "
         f"duration_errors={len(duration_errors)} thin_warnings={len(thin_warnings)}"
     )
+    narr_errors = validate_narrator_voice(episode)
+    if narr_errors and args.check_only:
+        print("\n旁白 NARR-001 校验失败：", file=sys.stderr)
+        for line in narr_errors:
+            print(f"  - {line}", file=sys.stderr)
     if thin_warnings and args.check_only:
         print("\n薄段建议合并（非 API 错误，但会造成时长/费用浪费）", file=sys.stderr)
-    if duration_errors:
+    if duration_errors or narr_errors:
         print("\n非法 duration_sec：", file=sys.stderr)
         for line in duration_errors:
             print(f"  - {line}", file=sys.stderr)
