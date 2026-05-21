@@ -14,7 +14,7 @@
 - [x] 全集 `EP01_full.mp4` 耳听：**声音还可以**
 - [x] **阶段 1 通过** — 暂不补 `reference_audio` 锚点
 - 未挂 `reference_audio`；宋知行 `voice_prompt` 跨段一致  
-- **NARR-001**：SEG02 时间线旁白与 SEG07 集末钩子须同一 `voice_prompt` 全文（勿用宋知行声线念钩子）
+- **字幕**：全段对白/字卡 Seedance 画面简体底字幕；仅 SEG01a 无对白无字幕
 
 ## 全集生成
 

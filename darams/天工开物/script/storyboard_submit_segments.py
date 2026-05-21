@@ -20,6 +20,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -196,8 +197,15 @@ def narrator_voice_prompt(episode: dict) -> str | None:
     return str(raw).strip() if raw else None
 
 
+def segment_has_narration(text: str) -> bool:
+    """排除「无旁白」等否定表述。"""
+    if "口播钩子" in text:
+        return True
+    return bool(re.search(r"旁白\s*[（(]", text))
+
+
 def validate_narrator_voice(episode: dict) -> list[str]:
-    """含「旁白」的 segment 须嵌入 NARR-001 全文；禁用旧写法。"""
+    """含画外旁白的 segment 须嵌入 NARR-001 全文；字幕镜（无旁白）不校验。"""
     narr_prompt = narrator_voice_prompt(episode)
     if not narr_prompt:
         return []
@@ -209,19 +217,48 @@ def validate_narrator_voice(episode: dict) -> list[str]:
     )
     for seg in episode.get("segments") or []:
         sid = seg.get("segment_id", "?")
+        if seg.get("subtitle_shots"):
+            continue
         text = (seg.get("api") or {}).get("text") or ""
-        if "旁白" not in text and "口播钩子" not in text:
+        if not segment_has_narration(text):
             continue
         for b in banned:
             if b in text:
                 errors.append(f"{sid}: 含已废弃旁白写法「{b}」，请改用 NARR-001")
-        if "旁白" in text or "口播钩子" in text:
-            if narr_prompt not in text:
-                errors.append(
-                    f"{sid}: 含旁白但未嵌入 voice_prompts.NARR-001 全文"
-                )
-            elif "NARR-001" not in text:
-                errors.append(f"{sid}: 旁白须标注 NARR-001")
+        if narr_prompt not in text:
+            errors.append(f"{sid}: 含旁白但未嵌入 voice_prompts.NARR-001 全文")
+        elif "NARR-001" not in text:
+            errors.append(f"{sid}: 旁白须标注 NARR-001")
+    return errors
+
+
+def validate_subtitle_segments(episode: dict) -> list[str]:
+    """全段须声明字幕规则；有对白段用 prompt_suffix，无对白段用 prompt_suffix_silent。"""
+    defaults = episode.get("defaults") or {}
+    sub_suffix = defaults.get("prompt_suffix") or ""
+    silent_suffix = defaults.get("prompt_suffix_silent") or ""
+    errors: list[str] = []
+    for seg in episode.get("segments") or []:
+        sid = seg.get("segment_id", "?")
+        text = (seg.get("api") or {}).get("text") or ""
+        if "字幕：" not in text:
+            errors.append(f"{sid}: 须在 api.text 开头声明「字幕：…」规则")
+        if "无清晰汉字" in text:
+            errors.append(f"{sid}: 已启用全段字幕，勿使用「无清晰汉字」")
+        silent = "本段无对白" in text or "不显示字幕" in text
+        if silent:
+            if silent_suffix and silent_suffix not in text:
+                errors.append(f"{sid}: 无对白段须使用 defaults.prompt_suffix_silent")
+        else:
+            if "简体" not in text and "白字" not in text:
+                errors.append(f"{sid}: 有对白段须写明简体白字字幕规则")
+            if sub_suffix and sub_suffix not in text:
+                errors.append(f"{sid}: 有对白段须包含 defaults.prompt_suffix 全文")
+        if segment_has_narration(text) and "NARR-001" not in text:
+            errors.append(f"{sid}: 画外旁白须标注 NARR-001 并嵌入 voice_prompts 全文")
+        narr_prompt = narrator_voice_prompt(episode)
+        if segment_has_narration(text) and narr_prompt and narr_prompt not in text:
+            errors.append(f"{sid}: 旁白须嵌入 voice_prompts.NARR-001 全文")
     return errors
 
 
@@ -604,13 +641,18 @@ def main(argv: list[str] | None = None) -> int:
         f"duration_errors={len(duration_errors)} thin_warnings={len(thin_warnings)}"
     )
     narr_errors = validate_narrator_voice(episode)
+    subtitle_errors = validate_subtitle_segments(episode)
     if narr_errors and args.check_only:
         print("\n旁白 NARR-001 校验失败：", file=sys.stderr)
         for line in narr_errors:
             print(f"  - {line}", file=sys.stderr)
+    if subtitle_errors and args.check_only:
+        print("\n字幕段校验失败：", file=sys.stderr)
+        for line in subtitle_errors:
+            print(f"  - {line}", file=sys.stderr)
     if thin_warnings and args.check_only:
         print("\n薄段建议合并（非 API 错误，但会造成时长/费用浪费）", file=sys.stderr)
-    if duration_errors or narr_errors:
+    if duration_errors or narr_errors or subtitle_errors:
         print("\n非法 duration_sec：", file=sys.stderr)
         for line in duration_errors:
             print(f"  - {line}", file=sys.stderr)
