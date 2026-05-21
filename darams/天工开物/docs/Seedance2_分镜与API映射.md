@@ -21,7 +21,9 @@
 
 ---
 
-## 一、整体流水线
+## 一、整体流水线（已废弃 · 仅作字段参考）
+
+> **现行默认**：有声 **段落** `segments.yaml` → `EP##-SEG*.mp4` → 可选 `ffmpeg` 顺接；**零剪映**。见 [`Seedance2_有声段落流水线.md`](./Seedance2_有声段落流水线.md)。
 
 ```
 角色卡/场景卡 (CHAR/SCENE)
@@ -29,14 +31,14 @@
 assets/looks/*.png          assets/scenes/*.png
     ↓ ② 合首帧（可选：场景底图 + 人物融图）
 assets/keyframes/EP01/EP01-S02_first.png
-    ↓ ③ 分镜 shots JSON/YAML
-    ↓ ④ API 批量提交
-assets/generated/EP01/EP01-S02.mp4
-    ↓ ⑤ 剪映：对白 TTS + 字幕（Seedance 不负责口型）
+    ↓ ③ 分镜 shots JSON/YAML + segments.yaml
+    ↓ ④ API 按 segment 提交（generate_audio: true）
+assets/generated/EP01/EP01-SEG01.mp4 …
+    ↓ ⑤ ffmpeg 顺接（可选）
 成片
 ```
 
-**原则**：Seedance **一次任务 = 一条镜头（通常 4–8 秒）**；对白不在 API 里生成，用后期轨。
+**旧原则（勿再执行）**：一镜一任务 + 剪映 TTS/字幕轨。
 
 ---
 
@@ -74,7 +76,7 @@ POST https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
 | 形象 `CHAR-*-L##` | 首帧人物 | 需 `assets/looks/` 定妆 |
 | 景别 | 写入 `prompt` | 需映射表（特写→镜头特写） |
 | 画面 | `prompt` 主体 | ✓ |
-| 对白/备注 | **不进 API** | → `dialogue` + 剪映 SRT |
+| 对白/备注 | **不进 API**（旧） | 现行 → `segments.yaml` 的 `api.text` |
 | — | `seconds` | **缺**：每镜时长 |
 | — | `mode` | **缺**：文生/图生/跳过 |
 | — | `first_frame` 路径 | **缺**：素材文件路径 |
@@ -95,7 +97,7 @@ POST https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
 
 | 值 | 含义 |
 |----|------|
-| `skip` | 黑屏/字卡：不调用 API，剪映处理 |
+| `skip` | 黑屏/字卡/画外：不单独 API；**并入相邻 segment**（旧：剪映） |
 | `t2v` | 文生视频（仅 `content.text`） |
 | `i2v` | 首帧图 + 文本（**默认**） |
 | `i2v_ref` | 定妆/场景 `reference_image` + 首帧（**一致性推荐**） |
