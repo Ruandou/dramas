@@ -1,5 +1,17 @@
 # 天工开物 · Agent / CLI 指引
 
+## 改剧本 / 对白 / 字幕（顺序强制）
+
+1. **主剧本** `短剧剧本_天工开物_36集_改造方案.md`  
+2. **分集剧本** `分集剧本/EP##_*.md`  
+3. `python3 script/storyboard_to_seedance.py EP##`  
+4. `分集剧本/EP##_segments.yaml`  
+5. 声音卡、规范、`trial_notes` 等  
+
+**不要**先改 `segments.yaml`。详见 [`制片规范.md`](./制片规范.md) §3.1。
+
+---
+
 ## 推荐：用 volc-ark MCP（Key 已在 mcp.json，不用再 export）
 
 在对话里说即可，例如：
