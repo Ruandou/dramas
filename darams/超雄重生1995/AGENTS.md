@@ -96,6 +96,13 @@ python3 script/validate_era.py EP01
 ls -lh assets/generated/EP01/*.mp4
 ```
 
+### 引用图片提交规则
+
+- **CDN 优先**：提交 Seedance 段落时，优先使用 Seedream 返回的 CDN 链接（有效期 24h），可支持 4-6 张引用图/段
+- **base64 兜底**：CDN 过期后回退本地 base64，此时限制 ≤3 张/段
+- **cdn_urls.json**：每次生成图片后更新 `assets/looks/cdn_urls.json` 和 `assets/scenes/cdn_urls.json`
+- **刷新策略**：若批量提交前 CDN 已过期，先重新生成图片获取新链接
+
 ---
 
 ## 团队协作

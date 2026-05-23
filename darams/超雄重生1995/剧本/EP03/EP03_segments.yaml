@@ -1,0 +1,542 @@
+# EP03 segments — 16 segments, ALL within 4-12s Seedance 2.0 fast hard limit
+# CRITICAL: No segment exceeds 12 seconds. Max 3 content_roles per segment.
+# Content-safety: No first-person death/violence language. Investigative framing only.
+episode_id: EP03
+episode_title: 日记本
+source_md: 剧本/EP03/EP03_日记本.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128
+  ratio: "9:16"
+  resolution: 1080x1920
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字"
+  prompt_suffix_silent: "本段无对白无字幕，禁止其它汉字乱字"
+  negative_prompt: "smartphone, flat screen TV, LED lights, modern car, laptop, tablet, QR code, delivery box, power bank, glass curtain wall, subway station, LED billboard, Nike logo, Adidas logo, wireless earbuds, ring light, bubble tea cup, modern minimalist interior, neon RGB lighting"
+
+voice_prompts:
+  CHAR-001: "成年男性，25岁，沉稳偏低，内心独白语气为主，短句干脆"
+  CHAR-014: "中年男性，50岁，沉稳厚重，老大哥语气"
+  CHAR-015: "中年男性，45岁，油滑略尖，带假笑语气"
+  CHAR-017: "青年女性，20岁，日记朗读语气天真兴奋"
+  CHAR-GRP-02: "中年男性/女性，30-50岁，普通市民语气"
+  SYS: "电子合成音，无性别，冷静客观，类似系统提示"
+
+segments:
+  # ═══════════ Beat 1: 日记分析 ═══════════
+
+  - segment_id: EP03-SEG01
+    title: 深夜翻阅
+    shot_ids: [EP03-S01, EP03-S02]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm internal monologue, night atmosphere"
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "周小梅的日记本……藏在柜底夹层里。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "她姐姐不知道这东西存在。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "如果厂里的人清理过宿舍……说明有人不想让别人看到这本日记。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "失踪前两周开始……笔迹变了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "原来写的都是今天加班好累、食堂的菜又涨价了……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "但从七月一号开始——整个人像换了个状态。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】陆峥宿舍 SCENE-013。
+        字幕：本段内心独白显示简体白字底字幕，与语音同步。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：深夜，台灯昏黄光圈；陆峥坐书桌前，面前摊开碎花布面日记本；旁边搪瓷杯和案卷堆。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「周小梅的日记本……藏在柜底夹层里。」「有人不想让别人看到这本日记。」
+        镜头2（5秒）特写推近：陆峥手指翻开日记本内页——稚嫩圆珠笔字迹，某页字迹变得潦草兴奋。
+        对白（陆峥，同上声线）：「失踪前两周开始……笔迹变了。」「从七月一号开始——整个人像换了个状态。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP03-SEG02
+    title: 日记内容
+    shot_ids: [EP03-S03, EP03-S04]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001, CHAR-017]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Female 20yo naive excited reading voice; Male 25yo deep calm commentary"
+    dialogue_lines:
+      - { speaker: CHAR-017, emotion: VO兴奋, text: "七月三号，有人说可以介绍我去南方的电子厂，月薪八百块！" }
+      - { speaker: CHAR-017, emotion: VO兴奋, text: "比我现在多三倍！下个月就能攒够钱给妈看病了。" }
+      - { speaker: CHAR-017, emotion: VO期待, text: "七月五号。他说不用交押金，包吃包住，还管路费。" }
+      - { speaker: CHAR-017, emotion: VO期待, text: "下周三晚上在东门集合。千万别告诉别人——名额只有两个。" }
+      - { speaker: CHAR-001, emotion: 内心警觉, text: "千万别告诉别人……经典的隔离话术。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "不用交押金——这是消除戒心的标准套路。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "她完全被骗了。一个二十岁的女孩，哪里见过这种手段。" }
+    api:
+      text: |
+        【图1】陆峥宿舍 SCENE-013。
+        字幕：日记朗读与内心独白均显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）主观：看日记本内页，圆珠笔字迹写着赚大钱的内容。
+        对白（周小梅VO，20岁女性，天真兴奋）：「有人说可以介绍我去南方电子厂，月薪八百！」「下个月就能攒够钱给妈看病了。」
+        镜头2（5秒）主观翻页：字迹越来越兴奋潦草，写着秘密集合内容。
+        对白（周小梅VO）：「下周三晚上在东门集合。千万别告诉别人。」
+        对白（陆峥，内心独白）：「千万别告诉别人……经典的隔离话术。」「她完全被骗了。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: SCENE-013, role: reference_image, label: 图1 }
+
+  # ═══════════ Beat 2: 分析与系统激活 ═══════════
+
+  - segment_id: EP03-SEG03
+    title: 前世记忆判断
+    shot_ids: [EP03-S05, EP03-S06]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep analytical tone, building certainty"
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "我见过这个模式。上辈子在档案室里翻过上百份类似的卷宗。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九三年到一九九七年——沿海招工诈骗系列案。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "高薪诱饵、保密话术、约定偏僻集合点、然后——人就消失了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "目标永远是年轻女工——家里穷、急需用钱、信息闭塞。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "承诺高薪，制造紧迫感，断绝她们和外界联系……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "东门集合——厂区东门，夜班结束后最偏僻的出口。有人在内部接应。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】陆峥宿舍 SCENE-013。
+        字幕：内心独白显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写：陆峥合上日记本，双手抵住下巴；眼神锐利分析模式，灯光投下锋利阴影。
+        对白（陆峥，25岁，分析语气）：「我见过这个模式。沿海招工诈骗系列案。」「高薪诱饵、保密话术——人就消失了。」
+        镜头2（5秒）近景固定：陆峥站起踱步；墙上1995年日历、手绘城区地图。
+        对白（陆峥）：「目标永远是年轻女工。」「东门集合——夜班后最偏僻的出口。有人在内部接应。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP03-SEG04
+    title: 系统激活
+    shot_ids: [EP03-S07, EP03-S08]
+    duration_sec: 9
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male 25yo receiving info; electronic system voice cold objective"
+    dialogue_lines:
+      - { speaker: SYS, emotion: 电子音, text: "犯罪侧写系统激活。案件类型：有组织拐骗。正在生成嫌疑人画像……" }
+      - { speaker: CHAR-001, emotion: 惊讶, text: "系统……第一次给出完整侧写。" }
+      - { speaker: SYS, emotion: 电子音, text: "嫌疑人画像：男性，25-35岁，本地口音或熟悉本地情况。" }
+      - { speaker: SYS, emotion: 电子音, text: "特征：有能力接触厂区内部招工渠道，可能为临时工或外协人员。" }
+      - { speaker: SYS, emotion: 电子音, text: "行为模式：周期性作案，间隔约两年，每次转移二至四名目标。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一定有内应——或者，嫌疑人本身就在厂区里工作过。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】陆峥宿舍 SCENE-013。
+        字幕：系统语音和内心独白均显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）特写：陆峥太阳穴刺痛，捂额头——瞳孔收缩似有信息涌入。
+        对白（系统音，电子合成）：「犯罪侧写系统激活。案件类型：有组织拐骗。」
+        对白（陆峥）：「系统……第一次给出完整侧写。」
+        镜头2（5秒）近景固定：陆峥拿笔纸快速记录；台灯下手飞速书写。
+        对白（系统音）：「嫌疑人：男性，25-35岁，有能力接触厂区招工渠道。」
+        对白（陆峥）：「一定有内应——嫌疑人本身就在厂区里工作过。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  # ═══════════ Beat 3: 所内阻力 ═══════════
+
+  - segment_id: EP03-SEG05
+    title: 派出所汇报
+    shot_ids: [EP03-S09, EP03-S10]
+    duration_sec: 10
+    scene_primary: SCENE-001
+    characters: [CHAR-001, CHAR-014, CHAR-015]
+    looks: [CHAR-001-L01, CHAR-014-L01, CHAR-015-L01]
+    generate_audio: true
+    voice_prompt: "Male 25yo earnest reporting; Male 50yo cautious; Male 45yo dismissive oily"
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 汇报, text: "所长，我昨晚分析了日记本——周小梅不是自愿出走的。" }
+      - { speaker: CHAR-001, emotion: 坚定, text: "有人用高薪招工引诱她，约在厂区东门。这是典型的有组织拐骗模式。" }
+      - { speaker: CHAR-014, emotion: 犹豫, text: "你是说……有人在厂区里搞这种事？" }
+      - { speaker: CHAR-014, emotion: 谨慎, text: "这……可不能乱说啊。棉纺厂是咱们辖区的大单位。" }
+      - { speaker: CHAR-015, emotion: 嘲讽, text: "小陆啊，你一个新来的，别太冲了。" }
+      - { speaker: CHAR-015, emotion: 打压, text: "人家厂区有自己的保卫科。你跑去人家地盘上查案，不合适吧？" }
+      - { speaker: CHAR-015, emotion: 质疑, text: "而且你凭一本日记就说是诈骗？证据呢？" }
+      - { speaker: CHAR-001, emotion: 克制, text: "指导员，日记里的细节和多起招工诈骗案的作案手法完全吻合。如果我们不抓紧——" }
+      - { speaker: CHAR-015, emotion: 摆手, text: "行了行了。老郑，你看着办吧。" }
+    api:
+      text: |
+        【图1】陆峥【图2】所长老郑【图3】城南派出所办公室 SCENE-001。
+        字幕：每句对白显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：所长办公室，老郑搪瓷杯冒热气；陆峥站在桌前拿日记本。
+        对白（陆峥，25岁，汇报）：「周小梅不是自愿出走的。有人用高薪招工引诱她。」
+        对白（老郑，50岁）：「可不能乱说啊。棉纺厂是大单位。」
+        镜头2（5秒）近景推近：老赵从门口探进，斜眼打量。
+        对白（老赵，45岁，油滑）：「你凭一本日记就说是诈骗？证据呢？」
+        对白（陆峥，克制）：「日记细节和多起招工诈骗案完全吻合。」
+        对白（老赵）：「行了行了。老郑你看着办吧。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-014-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  - segment_id: EP03-SEG06
+    title: 决心独行
+    shot_ids: [EP03-S11, EP03-S12]
+    duration_sec: 10
+    scene_primary: SCENE-001
+    characters: [CHAR-001, CHAR-014]
+    looks: [CHAR-001-L01, CHAR-014-L01]
+    generate_audio: true
+    voice_prompt: "Male 25yo resolute determined; Male 50yo weary sympathetic"
+    dialogue_lines:
+      - { speaker: CHAR-014, emotion: 叹气, text: "小陆，我不是不信你。但没有实证，我没法派人配合你去厂区。" }
+      - { speaker: CHAR-014, emotion: 嘱咐, text: "你要查可以查，但别惹出事来。我顶不住的。" }
+      - { speaker: CHAR-001, emotion: 平静, text: "所长，我明白。我不去厂区——我换个方向查。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "厂区保卫科已经被人打过招呼。去了也是打草惊蛇。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "日记里说下周三晚上在东门集合。周小梅是周三失踪的。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "如果是招工诈骗，一定要有交通工具把人转移出城。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九五年……长途转移只有两种：火车和长途客车。" }
+      - { speaker: CHAR-001, emotion: 内心坚定, text: "先去火车站。" }
+    api:
+      text: |
+        【图1】陆峥【图2】所长老郑【图3】城南派出所办公室 SCENE-001。
+        字幕：对白和内心独白均显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景固定：老赵走后，老郑叹气看着陆峥。
+        对白（老郑）：「我不是不信你，但没实证，我没法派人。」
+        对白（陆峥）：「所长我明白。我不去厂区——换个方向查。」
+        镜头2（5秒）全景跟随：陆峥骑飞鸽自行车驶出派出所，穿行上午街道。
+        对白（陆峥，内心独白）：「招工诈骗一定要有交通工具转移。先去火车站。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-014-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  # ═══════════ Beat 4: 火车站调查 ═══════════
+
+  - segment_id: EP03-SEG07
+    title: 火车站到达
+    shot_ids: [EP03-S13, EP03-S14]
+    duration_sec: 9
+    scene_primary: SCENE-020
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, alert cautious tone"
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "不穿警服。穿了会打草惊蛇。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "火车站……如果他们买了去南方的票，售票记录里应该有线索。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "但一九九五年没有实名制购票。只能靠问。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这年头车站里三教九流，得小心别打草惊蛇。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "先从售票窗口开始。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】火车站 SCENE-020。
+        字幕：内心独白显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）远景空镜：1995年火车站站前广场全景，绿皮火车、蛇皮袋旅客、站前大钟十点。
+        镜头2（5秒）中景跟随：陆峥锁好自行车快步走向火车站入口；便装深色夹克，眼神警觉扫视。
+        对白（陆峥，内心独白）：「不穿警服。穿了会打草惊蛇。」「先从售票窗口开始。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-020, role: reference_image, label: 图2 }
+
+  - segment_id: EP03-SEG08
+    title: 售票窗口
+    shot_ids: [EP03-S15, EP03-S16]
+    duration_sec: 10
+    scene_primary: SCENE-020
+    characters: [CHAR-001, CHAR-GRP-02]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male 25yo polite inquiring; Female 40yo helpful but vague"
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 礼貌, text: "同志你好，我是派出所的。想了解一下——上周三晚上有没有人买去广州方向的票？" }
+      - { speaker: CHAR-001, emotion: 平静, text: "大概是两三个人一起买的，其中有年轻女性。" }
+      - { speaker: CHAR-GRP-02, emotion: 回忆, text: "上周三啊……买广州票的人多了去了。现在去南方打工的人一拨接一拨。" }
+      - { speaker: CHAR-GRP-02, emotion: 犹豫, text: "不过……你说年轻女的……我想想。好像有——但我记不太清了。" }
+      - { speaker: CHAR-001, emotion: 追问, text: "这个女孩见过吗？大概上周三或者周四。" }
+      - { speaker: CHAR-GRP-02, emotion: 摇头, text: "不记得了……每天卖几百张票，脸都记不住。" }
+      - { speaker: CHAR-GRP-02, emotion: 指点, text: "不过你可以问问候车厅的老李——他是搬运工，天天在月台上转，眼睛尖。" }
+      - { speaker: CHAR-001, emotion: 追问, text: "老李在哪？" }
+      - { speaker: CHAR-GRP-02, emotion: 指点, text: "出去往右拐，搬运组休息室。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】火车站 SCENE-020。
+        字幕：每句对白均显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景固定：陆峥在售票窗口旁低调出示证件，和中年女售票员交谈。
+        对白（陆峥，礼貌）：「同志你好，上周三有没有人买去广州方向的票？」
+        对白（售票员，40岁女性）：「买广州票的人多了。好像有年轻女的——记不太清。」
+        镜头2（5秒）近景固定：陆峥拿出照片递给售票员。
+        对白（售票员）：「不记得了。你可以问候车厅的老李——搬运工，眼睛尖。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-020, role: reference_image, label: 图2 }
+
+  - segment_id: EP03-SEG09
+    title: 搬运工线索
+    shot_ids: [EP03-S17, EP03-S18]
+    duration_sec: 10
+    scene_primary: SCENE-020
+    characters: [CHAR-001, CHAR-GRP-02]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male 25yo urgent; Male 45yo rough honest worker"
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 期待, text: "李师傅？我是派出所的，想问你一个事。" }
+      - { speaker: CHAR-001, emotion: 期待, text: "上周三晚上……有没有见过这个女孩？" }
+      - { speaker: CHAR-GRP-02, emotion: 肯定, text: "有！我记得她！" }
+      - { speaker: CHAR-GRP-02, emotion: 回忆, text: "不是火车——是长途汽车那边。上周四一早我路过客运站，看见一个小姑娘在退票窗口那儿哭。" }
+      - { speaker: CHAR-001, emotion: 急切, text: "你确定是她？什么时候的事？" }
+      - { speaker: CHAR-GRP-02, emotion: 回忆, text: "上周四吧……早上七八点。我刚来上班路过隔壁客运站。" }
+      - { speaker: CHAR-GRP-02, emotion: 描述, text: "她旁边有两个男的，一高一矮，看着……不太像亲戚。" }
+      - { speaker: CHAR-GRP-02, emotion: 描述, text: "高个儿一直架着她胳膊，矮个儿在窗口排队。" }
+      - { speaker: CHAR-001, emotion: 确认, text: "退票……他们是要退票？" }
+      - { speaker: CHAR-GRP-02, emotion: 回忆, text: "对，好像是退长途票。现在你这么一问确实不对劲。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】火车站 SCENE-020。
+        字幕：每句对白显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：搬运组休息室水泥房；黝黑精瘦中年男人喝水；陆峥出示照片。
+        对白（陆峥）：「上周三晚上有没有见过这个女孩？」
+        对白（搬运工老李）：「有！不是火车——是客运站那边。一个小姑娘在退票窗口哭。」
+        镜头2（5秒）近景推近：陆峥眼神锐利身体前倾。
+        对白（陆峥）：「你确定是她？」
+        对白（老李）：「她旁边两个男的，一高一矮。高个儿一直架着她胳膊。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-020, role: reference_image, label: 图2 }
+
+  - segment_id: EP03-SEG10
+    title: 分析转向
+    shot_ids: [EP03-S19, EP03-S20]
+    duration_sec: 9
+    scene_primary: SCENE-019
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, urgent racing thoughts, building tension"
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心急切, text: "退票——说明第一条线路出了问题。火车票被退了，改走长途客车。" }
+      - { speaker: CHAR-001, emotion: 内心分析, text: "上周四退票……但周小梅到现在还没出现——说明他们换了别的方式转移。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "或者……她还在客运站附近。被控制着，等下一班车。" }
+      - { speaker: CHAR-001, emotion: 内心惊觉, text: "今天是周三。整整一周了。" }
+      - { speaker: CHAR-001, emotion: 内心急切, text: "长途客运站每周三和周六有去南方的加班车！" }
+      - { speaker: CHAR-001, emotion: 内心急切, text: "今天——就是今天！如果他们还要走客运这条线——" }
+      - { speaker: CHAR-001, emotion: 内心决断, text: "我还有机会。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】城区街道 SCENE-019。
+        字幕：内心独白显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）特写：陆峥快步走出火车站，脸上压抑焦急快速思考。
+        对白（陆峥，内心独白，急切）：「退票——改走长途客车。」「她还在附近，等下一班车。」
+        镜头2（5秒）全景跟随：陆峥跨上自行车猛踩冲出；城区自行车流中他身影急促。
+        对白（陆峥）：「今天是周三——加班车日！我还有机会。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-019, role: reference_image, label: 图2 }
+
+  # ═══════════ Beat 5: 客运站发现 ═══════════
+
+  - segment_id: EP03-SEG11
+    title: 客运站到达
+    shot_ids: [EP03-S21, EP03-S22]
+    duration_sec: 9
+    scene_primary: SCENE-006
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, focused scanning"
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "人太多了……一九九五年的客运站，比火车站还乱。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "没有监控，没有安检。任何人都可以随时买票走人。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "蛇皮袋、编织袋……到处都是南下打工的人。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "在这种环境里藏一个人，太容易了。" }
+      - { speaker: CHAR-001, emotion: 内心冷静, text: "冷静。如果今天有去南方的加班车……他们一定会出现在售票窗口或候车区。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一排一排看过去。不放过每一张面孔。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】长途客运站 SCENE-006。
+        字幕：内心独白显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）远景空镜：长途客运站外景——铁栅栏大门、手写班次牌、蛇皮袋堆积。
+        镜头2（5秒）中景跟随：陆峥快步走进候车大厅；乌泱泱人群、木质长椅坐满人。
+        对白（陆峥，内心独白）：「人太多了。没有监控没有安检。」「他们一定会出现。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+
+  - segment_id: EP03-SEG12
+    title: 搜索候车厅
+    shot_ids: [EP03-S23, EP03-S24]
+    duration_sec: 8
+    scene_primary: SCENE-006
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, scanning then sudden recognition"
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心扫视, text: "售票窗口……没看到。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "候车区……也没有。等一下——" }
+      - { speaker: CHAR-001, emotion: 内心震惊, text: "角落……退票窗口旁边。" }
+      - { speaker: CHAR-001, emotion: 内心确认, text: "一个女孩——低着头，碎花棉布衫……和照片上一样。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "是她。周小梅。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "活着——她还活着。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "但旁边那两个人……不对劲。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】长途客运站 SCENE-006。
+        字幕：内心独白显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）主观：扫视候车厅——木椅上妇女、民工打牌、售票窗口长队。
+        对白（陆峥，内心）：「售票窗口没看到……候车区也没有。等一下——」
+        镜头2（4秒）特写：陆峥目光骤然定住，瞳孔微缩。
+        对白（陆峥，内心震惊）：「角落……碎花棉布衫……是她。周小梅。活着。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+
+  - segment_id: EP03-SEG13
+    title: 发现周小梅
+    shot_ids: [EP03-S25, EP03-S26]
+    duration_sec: 10
+    scene_primary: SCENE-006
+    characters: [CHAR-001, CHAR-017]
+    looks: [CHAR-001-L01, CHAR-017-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, tense internal assessment"
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心观察, text: "两个人……一高一矮。和老李描述的一模一样。" }
+      - { speaker: CHAR-001, emotion: 内心分析, text: "高个儿的手一直搭在她肩膀上——不是亲昵，是控制。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "矮个儿手里攥着几张票——刚买的，还没坐下就在数。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "她还活着。一周了，她还在这里——没有被转移出城。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "他们在等今天的加班车。" }
+      - { speaker: CHAR-001, emotion: 内心紧张, text: "现在——我一个人，没有枪，没有后援。对方两个人，不知道有没有凶器。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "如果我现在亮明身份，他们可能会狗急跳墙。" }
+    api:
+      text: |
+        【图1】周小梅 CHAR-017-L01【图2】陆峥 CHAR-001-L01【图3】长途客运站 SCENE-006。
+        字幕：内心独白显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景推近：角落木椅上周小梅缩着身子——苍白红肿；两侧各一个男人看守。
+        对白（陆峥，内心）：「两个人一高一矮。高个儿是控制。矮个儿攥着票。」
+        镜头2（5秒）近景固定：陆峥靠在柱子后控制呼吸观察。
+        对白（陆峥，内心紧张）：「她还活着。我一个人，没有枪，没有后援。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-017-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+
+  # ═══════════ Beat 6: 决断与钩子 ═══════════
+
+  - segment_id: EP03-SEG14
+    title: 临机决断
+    shot_ids: [EP03-S27, EP03-S28]
+    duration_sec: 10
+    scene_primary: SCENE-006
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, intense decision-making building to action"
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心冷静, text: "冷静。上辈子我处理过比这更危险的现场。" }
+      - { speaker: CHAR-001, emotion: 内心计算, text: "加班车十二点发车——我还有四十分钟。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "回去叫人？来不及——来回骑车要半小时。等我带人回来，车早开了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "但如果我一个人动手……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "格斗技能……系统给了我基础格斗。但从没实战用过。" }
+      - { speaker: CHAR-001, emotion: 内心决绝, text: "不管了。这辈子——我不会让周小梅再消失。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "正面接近，靠人群掩护。等距离够近——先制服高个儿。他是主控。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】长途客运站 SCENE-006。
+        字幕：内心独白显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写：陆峥眼神从紧张变为冷静决绝；看手腕老式手表——十一点二十分。
+        对白（陆峥，内心）：「冷静。加班车十二点——还有四十分钟。回去叫人来不及。」
+        镜头2（5秒）中景固定：陆峥深吸一口气从柱子后走出；步伐平稳不急不徐。
+        对白（陆峥，内心决绝）：「不管了。这辈子我不会让周小梅再消失。先制服高个儿。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+
+  - segment_id: EP03-SEG15
+    title: 目光交汇
+    shot_ids: [EP03-S29, EP03-S30]
+    duration_sec: 9
+    scene_primary: SCENE-006
+    characters: [CHAR-001, CHAR-017]
+    looks: [CHAR-001-L01, CHAR-017-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, quiet intense determination"
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "她看到我了。" }
+      - { speaker: CHAR-001, emotion: 内心温柔坚定, text: "周小梅……你再等我三十秒。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "她在向我求救。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "她的手在发抖。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "撑住——马上就到。" }
+      - { speaker: CHAR-001, emotion: 内心决断, text: "来了——就是现在。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】周小梅 CHAR-017-L01【图3】长途客运站 SCENE-006。
+        字幕：内心独白显示简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景推近：陆峥向角落走去——背后跟随；前方周小梅抬头，红肿眼睛与陆峥目光交汇。
+        对白（陆峥，内心）：「她看到我了。」「周小梅……再等我三十秒。」
+        镜头2（4秒）特写：周小梅面部大特写——苍白恐惧但瞳孔闪过希望；嘴唇微颤。
+        对白（陆峥，内心）：「她在向我求救。来了——就是现在。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-017-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+
+  - segment_id: EP03-SEG16
+    title: 钩子悬念
+    shot_ids: [EP03-S31, EP03-S32, EP03-S33]
+    duration_sec: 4
+    scene_primary: SCENE-006
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, sharp cut-off tension"
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心紧张, text: "他发现了——" }
+      - { speaker: CHAR-001, emotion: 内心, text: "他手伸向腰间……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "是刀。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "没有退路了。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】长途客运站 SCENE-006。
+        字幕：内心独白加字卡显示简体白字底字幕。
+        竖屏9比16。
+        镜头1（4秒）快切近景：高个子皮夹克男注意到异样转头——手微伸向腰间口袋。画面急切切断。
+        对白（陆峥，内心）：「他发现了——」
+        黑屏字卡：「他身上有刀——而陆峥没有枪。EP04《拦截》」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }

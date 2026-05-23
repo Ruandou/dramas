@@ -1,0 +1,637 @@
+# EP02 segments — 14 segments, all 4-12 seconds (Seedance 2.0 fast hard limit)
+# image_strategy: cdn_first — CDN URLs bypass base64 payload size limit (4+ images ok)
+# Without valid CDN URLs, max 3 content_roles before base64 payload exceeds limit
+# No first-person death/violence language
+episode_id: EP02
+episode_title: 失踪案
+source_md: 剧本/EP02/EP02_失踪案.md
+image_strategy: cdn_first
+image_cdn_registry:
+  looks: assets/looks/cdn_urls.json
+  scenes: assets/scenes/cdn_urls.json
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128
+  ratio: "9:16"
+  resolution: 1080x1920
+  duration_sec: "8-10"
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字"
+  prompt_suffix_silent: "本段无对白无字幕，禁止其它汉字乱字"
+  negative_prompt: "smartphone, flat screen TV, LED lights, modern car, laptop, tablet, QR code, delivery box, power bank, glass curtain wall, subway station, LED billboard, Nike logo, Adidas logo, wireless earbuds, ring light, bubble tea cup, modern minimalist interior, neon RGB lighting"
+
+voice_prompts:
+  CHAR-001: "成年男性，25岁，沉稳偏低，内心独白语气为主，短句干脆"
+  CHAR-014: "中年男性，50岁，沉稳厚重，老大哥语气，略显谨慎"
+  CHAR-GRP-02: "混合群演：中年男性门卫/文员，中年女性工友/宿管，老年男性门卫"
+
+segments:
+  - segment_id: EP02-SEG01
+    title: 案卷分析
+    shot_ids: [EP02-S01, EP02-S02, EP02-S03]
+    duration_sec: 12
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, analytical"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "周小梅，二十岁，棉纺厂第三车间纺纱工。失踪七天了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "厂区治保会的结论是「跟男友跑了」……七天，就这么结了案。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "上辈子，这个案子拖了一个月才正式立案。等立案的时候，所有现场痕迹都没了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "证人记忆模糊，物证被清理……最后不了了之。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "但我记得——后来在档案室翻旧卷宗，发现这不是个案。一九九三年，同样的手法。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这一次，我不等七天。不等一个月。今天就去棉纺厂。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "案卷上写的太干净了——「自愿出走」四个字，连个问话笔录都没有。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "谁清理的现场？谁写的结论？我得亲眼看看。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】陆峥宿舍 SCENE-013。
+        字幕：本段内心独白显示简体白字底字幕，与语音同步。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：清晨微光，陆峥坐书桌前翻阅案卷；笔记本铅笔搪瓷杯；墙上1995年日历。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「周小梅，二十岁……失踪七天了。」「治保会结论：跟男友跑了。」
+        镜头2（5秒）特写推近：手指划过案卷文字眉头紧锁；用铅笔画线。
+        对白（陆峥，同上声线）：「上辈子这案子拖了一个月……最后不了了之。」「但我记得——一九九三年，同样的手法。」
+        镜头3（5秒）近景：陆峥合上案卷目光坚定，站起拿起警服外套。
+        对白（陆峥，同上声线）：「这一次不等了。今天就去棉纺厂。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP02-SEG02
+    title: 请命受阻
+    shot_ids: [EP02-S04, EP02-S05, EP02-S06]
+    duration_sec: 12
+    scene_primary: SCENE-001
+    characters: [CHAR-001, CHAR-014]
+    looks: [CHAR-001-L01, CHAR-014-L01]
+    generate_audio: true
+    voice_prompt: "Two speakers: male 25yo deep calm; male 50yo warm cautious fatherly"
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-014-L01: assets/looks/CHAR-014-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 请示, text: "所长，我想跟您请示——周小梅的案子，我想去棉纺厂实地走访一趟。" }
+      - { speaker: CHAR-014, emotion: 不以为然, text: "周小梅？那案子不是结了吗？厂区治保会的结论，跟人跑了。" }
+      - { speaker: CHAR-014, emotion: 平, text: "再说，那是厂里的事，人家有自己的保卫科。" }
+      - { speaker: CHAR-001, emotion: 坚持, text: "所长，她姐姐来报案的时候说，宿舍的东西都还在。一个人要是跟人走，不会什么都不带。" }
+      - { speaker: CHAR-001, emotion: 平静, text: "我就去看看，不给厂里添麻烦。问几个问题就回来。" }
+      - { speaker: CHAR-014, emotion: 叹气, text: "小陆啊，你才来几天？棉纺厂那边关系复杂，保卫科跟我们不是一个系统……" }
+      - { speaker: CHAR-014, emotion: 让步, text: "行吧，去看看。但别惹事，问完就回来。" }
+      - { speaker: CHAR-001, emotion: 恭敬, text: "是，所长。我下午之前回来汇报。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "他不知道这案子有多大。但我知道。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "七天了。每多一天，证据就少一分。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】所长老郑 CHAR-014-L01【图3】派出所办公室 SCENE-001。
+        字幕：本段对白显示简体白字底字幕，与语音同步。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：所长老郑坐办公桌后喝茶，陆峥站桌前拿案卷；铁柜旋转电话红色标语。
+        对白（陆峥，25岁，请示语气）：「所长，周小梅的案子，我想去棉纺厂走访。」
+        对白（老郑，50岁，沉稳不以为然）：「那案子不是结了吗？跟人跑了。」
+        镜头2（5秒）近景固定：陆峥目光平静坚持。
+        对白（陆峥）：「她宿舍的东西都还在。一个人要走不会什么都不带。」
+        对白（老郑，叹气让步）：「行吧，去看看。别惹事。」
+        镜头3（4秒）特写：陆峥微微点头眼底锋芒。
+        对白（陆峥，内心独白）：「他不知道这案子有多大。但我知道。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-014-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  - segment_id: EP02-SEG03
+    title: 骑车前往
+    shot_ids: [EP02-S07, EP02-S08]
+    duration_sec: 10
+    scene_primary: SCENE-003
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue"
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-019: assets/scenes/SCENE-019.png
+        SCENE-003: assets/scenes/SCENE-003.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "棉纺厂，国营老厂，一千多工人。九十年代末会倒闭，但现在还是城南最大的单位。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "厂里有自己的保卫科、治保会、宿舍区……等于一个小社会。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "到了。上辈子我没来过这里——案子转到刑侦科的时候，已经过了三个月。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "三个月……证人记忆全糊了，物证全毁了。所以今天我得抢时间。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】城区街道 SCENE-019【图3】棉纺厂大门 SCENE-003。
+        字幕：内心独白简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）远景跟随：1995年城区上午，陆峥骑飞鸽自行车穿过街道；远处棉纺厂烟囱冒白烟。
+        对白（陆峥，25岁，内心独白）：「棉纺厂，国营老厂，一千多工人。」
+        镜头2（5秒）全景拉远：棉纺厂大门红砖围墙铁门半开门卫室；自行车棚满二八自行车。
+        对白（陆峥，同上声线）：「到了。上辈子案子转到刑侦科时已过三个月。今天得抢时间。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      # expanded: added SCENE-019 (city street) previously in assets but absent from content_roles
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-019, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+
+  - segment_id: EP02-SEG04
+    title: 厂门交涉
+    shot_ids: [EP02-S09, EP02-S10, EP02-S11]
+    duration_sec: 10
+    scene_primary: SCENE-003
+    characters: [CHAR-001, CHAR-GRP-02]
+    looks: [CHAR-001-L01, CHAR-GRP-02-L01]
+    generate_audio: true
+    voice_prompt: "Two speakers: male 25yo deep calm investigative; male 50yo impatient factory worker"
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 礼貌, text: "同志你好，城南派出所，民警陆峥。我来了解一下周小梅的情况。" }
+      - { speaker: CHAR-GRP-02, emotion: 不耐烦, text: "哦，派出所来的？周小梅那事儿啊……保卫科王科长说过了，人跟男朋友走了。" }
+      - { speaker: CHAR-GRP-02, emotion: 随意, text: "那个男的也是我们厂的，叫什么来着……反正两个人一起走的。" }
+      - { speaker: CHAR-001, emotion: 不动声色, text: "那个男的叫什么名字？他们是同一天走的？" }
+      - { speaker: CHAR-GRP-02, emotion: 推脱, text: "好像是……哎，叫什么我真记不清了。你找王科长吧，他在厂区里面。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "门卫说「男朋友」，但周小梅姐姐说她根本没有男朋友。第一个矛盾。" }
+      - { speaker: CHAR-001, emotion: 平, text: "好，谢谢。我进去找王科长。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】工人群演 CHAR-GRP-02-L01【图3】棉纺厂大门 SCENE-003。
+        字幕：对白简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：陆峥在门卫室前出示警官证；穿蓝色工装中年门卫靠窗口表情不耐烦。
+        对白（陆峥，25岁，礼貌）：「城南派出所，民警陆峥。了解周小梅情况。」
+        对白（门卫，50岁，不耐烦）：「保卫科说了，人跟男朋友走了。」
+        镜头2（5秒）近景推近：陆峥从口袋取笔记本。
+        对白（陆峥，不动声色）：「那个男的叫什么名字？同一天走的？」
+        对白（门卫，推脱）：「记不清了。你找王科长吧。」
+        对白（陆峥，内心独白）：「门卫说男朋友，但她姐姐说根本没有。第一个矛盾。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+
+  - segment_id: EP02-SEG05
+    title: 车间走访
+    shot_ids: [EP02-S12, EP02-S13, EP02-S14]
+    duration_sec: 12
+    scene_primary: SCENE-003
+    characters: [CHAR-001, CHAR-GRP-02]
+    looks: [CHAR-001-L01, CHAR-GRP-02-L01]
+    generate_audio: true
+    voice_prompt: "Multiple: male 25yo investigative; female 40yo factory worker gossipy; female 25yo factory worker"
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 礼貌, text: "大姐你好，我是派出所的。你认识第三车间的周小梅吗？" }
+      - { speaker: CHAR-GRP-02, emotion: 热情, text: "小梅啊？认识认识，跟我一个车间的。听说跟人跑了？" }
+      - { speaker: CHAR-001, emotion: 平, text: "她平时跟谁走得近？有没有男朋友？" }
+      - { speaker: CHAR-GRP-02, emotion: 摇头, text: "男朋友？没听她说过啊。她平时挺安静的，就跟宿舍几个小姑娘一起。" }
+      - { speaker: CHAR-GRP-02, emotion: 回忆, text: "不过……走之前那几天，小梅挺兴奋的。" }
+      - { speaker: CHAR-001, emotion: 追问, text: "兴奋？什么意思？" }
+      - { speaker: CHAR-GRP-02, emotion: 回忆, text: "就是话多了，说什么有个好机会……具体的她没细说。" }
+      - { speaker: CHAR-GRP-02, emotion: 补充, text: "哦对了，有个男的最近老来找她，在厂区外面等。不是我们车间的人。" }
+      - { speaker: CHAR-001, emotion: 追问, text: "那个男的长什么样？多大年纪？" }
+      - { speaker: CHAR-GRP-02, emotion: 描述, text: "三十来岁吧……穿得挺体面的，像做生意的。别的我没注意了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "三十来岁、穿得体面、像做生意的……不是厂里的人。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这跟上辈子我在旧卷宗里看到的描述一模一样。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】工人群演 CHAR-GRP-02-L01【图3】棉纺厂区 SCENE-003。
+        字幕：对白简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：陆峥拦住下班中年女工；红砖车间墙壁远处纺纱机。
+        对白（陆峥，25岁）：「认识周小梅吗？有没有男朋友？」
+        对白（女工，40岁，热情）：「认识。男朋友？没听说过。不过走之前那几天她挺兴奋。」
+        镜头2（5秒）近景固定：另一年轻女工补充信息。
+        对白（女工）：「有个男的最近老来找她，在厂区外面等。三十来岁，像做生意的。」
+        镜头3（4秒）特写：陆峥快速记录眼神专注。
+        对白（陆峥，内心独白）：「三十来岁，体面，像做生意的……跟旧卷宗描述一模一样。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+
+  - segment_id: EP02-SEG06
+    title: 第一疑点
+    shot_ids: [EP02-S15, EP02-S16]
+    duration_sec: 10
+    scene_primary: SCENE-003
+    characters: [CHAR-001, CHAR-GRP-02]
+    looks: [CHAR-001-L01, CHAR-GRP-02-L01]
+    generate_audio: true
+    voice_prompt: "Two speakers: male 25yo sharp investigative; male 55yo bureaucratic clerk"
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 平, text: "同志，我想查一下，最近一周有没有工人辞职或者旷工的记录？" }
+      - { speaker: CHAR-GRP-02, emotion: 翻档案, text: "辞职？有一个。七月二十号，男工张建国，说要回老家，直接走了。没办手续。" }
+      - { speaker: CHAR-001, emotion: 追问, text: "七月二十号……周小梅最后一次出现也是七月二十号？" }
+      - { speaker: CHAR-GRP-02, emotion: 不确定, text: "好像是吧。他们不是一个车间的，我也不清楚。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "同一天。一个「失踪」，一个「辞职」。这不是巧合。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "保卫科说她跟男友走了——这个张建国就是他们口中的「男友」？" }
+      - { speaker: CHAR-001, emotion: 内心, text: "但工友说她没有男朋友。说有个「外面的人」来找她。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "如果张建国只是个幌子呢？有人安排好了一个「她跟人跑了」的故事。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】工人群演 CHAR-GRP-02-L01【图3】棉纺厂区 SCENE-003。
+        字幕：对白简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：陆峥在人事窗口，戴老花镜文员翻档案。
+        对白（陆峥，25岁）：「最近有工人辞职吗？」
+        对白（文员，55岁）：「有。七月二十号，张建国，说回老家。」
+        镜头2（5秒）特写推近：陆峥停笔瞳孔微缩；笔记本上两行字。
+        对白（陆峥，内心独白）：「同一天。一个失踪一个辞职。这不是巧合。」「张建国只是个幌子。有人安排好了故事。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+
+  - segment_id: EP02-SEG07
+    title: 宿舍调查
+    shot_ids: [EP02-S17, EP02-S18]
+    duration_sec: 10
+    scene_primary: SCENE-004
+    characters: [CHAR-001, CHAR-GRP-02]
+    looks: [CHAR-001-L01, CHAR-GRP-02-L01]
+    generate_audio: true
+    voice_prompt: "Two speakers: male 25yo investigative alert; female 50yo dormitory manager cooperative"
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    dialogue_lines:
+      - { speaker: CHAR-GRP-02, emotion: 指引, text: "就这间，小梅住上铺。她走了以后，保卫科来人收拾过一次。" }
+      - { speaker: CHAR-001, emotion: 追问, text: "保卫科来收拾的？什么时候？" }
+      - { speaker: CHAR-GRP-02, emotion: 回忆, text: "就她走后第二天。说是检查有没有厂里的东西。" }
+      - { speaker: CHAR-001, emotion: 追问, text: "他们动了什么？" }
+      - { speaker: CHAR-GRP-02, emotion: 平, text: "把柜子里的东西都清了。说如果家属不来领，就算厂里处理。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "失踪第二天就来「清理」？这速度不正常。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "正常流程，人员离职或失踪，至少等十天半个月才处理个人物品。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "除非……有人不想让别人看到柜子里的东西。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "第二个疑点：宿舍柜子被提前清理。谁下的令？保卫科。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】工人群演 CHAR-GRP-02-L01【图3】女工宿舍 SCENE-004。
+        字幕：对白简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：宿舍走廊水泥地铁皮门；中年女宿管带陆峥到门前；上下铺铁架床碎花被褥。
+        对白（宿管，50岁）：「就这间。保卫科来收拾过了，第二天就清了柜子。」
+        对白（陆峥，追问）：「保卫科来的？什么时候？动了什么？」
+        镜头2（5秒）近景推近：陆峥走到铁皮柜前；柜门半开里面空荡；他蹲下细看。
+        对白（陆峥，内心独白）：「失踪第二天就清理——不正常。除非有人不想让别人看到柜里的东西。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+
+  - segment_id: EP02-SEG08
+    title: 柜底秘密
+    shot_ids: [EP02-S19, EP02-S20, EP02-S21]
+    duration_sec: 10
+    scene_primary: SCENE-004
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, discovery tension"
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "等等……这个柜子底板有松动。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "老式铁皮柜，底板是单独一块，可以活动……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "日记本……藏在柜底夹层里。保卫科的人没发现这个。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "她在藏东西。她知道有些事不能让别人看到。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "他们清理了表面的东西，但漏掉了最重要的。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这个日记本……可能记录了失踪前发生的事。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "先拿走。回去再看。现在还有最后一个地方要去——厂区东门。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】女工宿舍 SCENE-004。
+        字幕：内心独白简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）主观特写：陆峥的手伸进铁皮柜底部——触到凹陷底板活动；撬开一角。
+        对白（陆峥，25岁，内心独白紧张）：「底板有松动……老式铁皮柜，可以活动。」
+        镜头2（4秒）特写：底板掀开下面红色塑料封皮日记本；小心取出。
+        对白（陆峥，同上）：「日记本……保卫科没发现。她在藏东西。」
+        镜头3（4秒）近景固定：陆峥站起将日记本揣进制服胸袋；目光扫过宿舍。
+        对白（陆峥，同上）：「他们漏掉了最重要的。现在去东门。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+
+  - segment_id: EP02-SEG09
+    title: 东门目击
+    shot_ids: [EP02-S22, EP02-S23, EP02-S24]
+    duration_sec: 12
+    scene_primary: SCENE-003
+    characters: [CHAR-001, CHAR-GRP-02]
+    looks: [CHAR-001-L01, CHAR-GRP-02-L01]
+    generate_audio: true
+    voice_prompt: "Two speakers: male 25yo investigative urgent; male 65yo elderly night watchman slow memory"
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 平, text: "大爷，我是派出所的。七月二十号晚上，您在这儿值班吗？" }
+      - { speaker: CHAR-GRP-02, emotion: 回忆, text: "二十号？嗯……那天是我。每天晚上十点到早上六点，都是我守着。" }
+      - { speaker: CHAR-001, emotion: 追问, text: "那天晚上，有没有看到人从这个门出去？" }
+      - { speaker: CHAR-GRP-02, emotion: 回忆, text: "有……好像是有。半夜两三点吧，有个小姑娘从这边出去了。" }
+      - { speaker: CHAR-GRP-02, emotion: 回忆, text: "我喊了一声，她说回家看妈。当时还有个人在外面等她——一辆面包车。" }
+      - { speaker: CHAR-001, emotion: 追问, text: "面包车？什么颜色？几个人？" }
+      - { speaker: CHAR-GRP-02, emotion: 犹豫, text: "白色的……灯没开，看不太清。好像车里还有人。两三个吧。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "半夜两三点。一个年轻女性。一辆关了灯的白色面包车。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "第三个疑点：最后目击——厂区东门，半夜被人接走。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "「跟男友跑了」？半夜三点，关着灯的面包车，车里好几个人——" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这不是私奔。这是有组织的。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】工人群演 CHAR-GRP-02-L01【图3】棉纺厂东门 SCENE-003。
+        字幕：对白简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：厂区东门窄铁门旁传达室；上年纪门卫坐竹椅；陆峥走过去。
+        对白（陆峥，25岁）：「七月二十号晚上您值班吗？有没有看到人出去？」
+        对白（老门卫，65岁，回忆慢）：「有……半夜两三点一个小姑娘出去。外面有辆面包车。」
+        镜头2（5秒）近景推近：老门卫搓脸回忆细节。
+        对白（陆峥）：「什么颜色？几个人？」
+        对白（老门卫）：「白色……灯没开。车里好像还有两三个人。」
+        镜头3（4秒）特写：陆峥快速记录眼神锐利。
+        对白（陆峥，内心独白）：「半夜三点，面包车，好几个人。这不是私奔，这是有组织的。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+
+  - segment_id: EP02-SEG10
+    title: 三条线索
+    shot_ids: [EP02-S25, EP02-S26, EP02-S27]
+    duration_sec: 10
+    scene_primary: SCENE-019
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, building conclusion"
+    refs:
+      scene_id: SCENE-019
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-019: assets/scenes/SCENE-019.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "三条线索全对上了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一——「男友」张建国同日辞职，但工友说她没有男朋友。这个人是安排好的。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "二——保卫科第二天就清理了宿舍柜子。速度不正常，像在灭证。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "三——东门老门卫目击：半夜三点，有人用面包车把她接走了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这三条加在一起，只能指向一个结论——" }
+      - { speaker: CHAR-001, emotion: 内心, text: "周小梅不是自愿走的。有人用「好机会」把她骗出来，然后用车带走。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "而保卫科在第一时间清理痕迹……他们知道些什么。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】城区街道 SCENE-019。
+        字幕：内心独白简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）全景跟随：陆峥骑车离开厂区正午阳光；路边老树下停车翻笔记本。
+        对白（陆峥，25岁，内心独白总结）：「三条线索全对上了。一、男友同日辞职但工友说没男朋友。二、保卫科第二天清柜子。」
+        镜头2（5秒）特写：陆峥面部阳光明暗分割目光笃定。
+        对白（陆峥，同上）：「三、东门门卫目击半夜面包车。她不是自愿走的——是被骗出来带走的。」
+        镜头3（skip）闪白——系统激活视觉效果。
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-019, role: reference_image, label: 图2 }
+
+  - segment_id: EP02-SEG11
+    title: 系统激活
+    shot_ids: [EP02-S28, EP02-S29]
+    duration_sec: 10
+    scene_primary: SCENE-019
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep tone, surprised then confident"
+    refs:
+      scene_id: SCENE-019
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-019: assets/scenes/SCENE-019.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心惊讶, text: "这是……什么感觉？脑子里像打开了一扇门。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "知识……不，是本能。身体记住了什么——格斗的动作、制服的要领。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "系统？是你在给我东西？" }
+      - { speaker: CHAR-001, emotion: 内心, text: "格斗技能……这是奖励？因为我发现了关键线索？" }
+      - { speaker: CHAR-001, emotion: 内心, text: "好。以后用得着。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "上辈子我是个文职警察，追个小偷都跑不过。这辈子……不一样了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "但现在更重要的事——回所里。我得让所长知道，这案子没结。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】城区街道 SCENE-019。
+        字幕：内心独白简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景固定：陆峥在树下忽然眩晕扶住车把手；眼神恍惚一瞬随即闪过清晰光。
+        对白（陆峥，25岁，内心惊讶）：「脑子里像打开了一扇门……是本能。格斗动作。」「系统？是你在给我东西？」
+        镜头2（5秒）中景推近：陆峥攥拳感受新力量；低头看手微微一笑即逝。
+        对白（陆峥，内心自信）：「格斗技能——奖励。以后用得着。」「现在回所里。这案子没结。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-019, role: reference_image, label: 图2 }
+
+  - segment_id: EP02-SEG12
+    title: 回所汇报
+    shot_ids: [EP02-S30, EP02-S31]
+    duration_sec: 10
+    scene_primary: SCENE-001
+    characters: [CHAR-001, CHAR-014]
+    looks: [CHAR-001-L01, CHAR-014-L01]
+    generate_audio: true
+    voice_prompt: "Two speakers: male 25yo calm factual; male 50yo serious increasingly alarmed"
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-014-L01: assets/looks/CHAR-014-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 汇报, text: "所长，我今天去厂里查了。有三个问题。" }
+      - { speaker: CHAR-001, emotion: 汇报, text: "第一，那个「男友」张建国，跟周小梅同一天消失。但工友说她根本没有男朋友。" }
+      - { speaker: CHAR-001, emotion: 汇报, text: "第二，她失踪第二天，保卫科就清空了宿舍柜子。正常流程不会这么快。" }
+      - { speaker: CHAR-014, emotion: 坐直, text: "等等……保卫科清柜子？" }
+      - { speaker: CHAR-001, emotion: 汇报, text: "第三，东门门卫说七月二十号凌晨两三点，有个年轻女性从东门出去，外面有辆白色面包车。车里有两三个人。" }
+      - { speaker: CHAR-014, emotion: 沉默, text: "半夜三点，面包车。" }
+      - { speaker: CHAR-014, emotion: 严肃, text: "小陆，你知不知道你在说什么？你这意思是——她不是跟人跑的，是被人带走的？" }
+      - { speaker: CHAR-001, emotion: 克制, text: "所长，我不下结论。但这三个疑点，至少说明治保会的结论太草率了。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】所长老郑 CHAR-014-L01【图3】办公室 SCENE-001。
+        字幕：对白简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：陆峥站所长面前翻笔记本汇报；老郑靠椅背听。
+        对白（陆峥，25岁，汇报）：「有三个问题。男友同日消失但工友说没男朋友。保卫科第二天清柜子。」
+        对白（老郑，50岁，坐直警觉）：「保卫科清柜子？」
+        镜头2（5秒）近景固定：两人对视老郑严肃。
+        对白（陆峥）：「东门门卫说凌晨两三点有面包车接人。」
+        对白（老郑，震惊）：「半夜三点面包车。你意思是——被人带走的？」
+        对白（陆峥，克制）：「我不下结论。但治保会结论太草率。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-014-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  - segment_id: EP02-SEG13
+    title: 所长的犹豫
+    shot_ids: [EP02-S32, EP02-S33, EP02-S34]
+    duration_sec: 12
+    scene_primary: SCENE-001
+    characters: [CHAR-001, CHAR-014]
+    looks: [CHAR-001-L01, CHAR-014-L01]
+    generate_audio: true
+    voice_prompt: "Two speakers: male 25yo firm determined; male 50yo conflicted cautious relenting"
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-014-L01: assets/looks/CHAR-014-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    dialogue_lines:
+      - { speaker: CHAR-014, emotion: 叹气, text: "小陆啊……你说的有道理。但你知道吗，棉纺厂是大单位，保卫科背后是厂领导。" }
+      - { speaker: CHAR-014, emotion: 担忧, text: "你一个新来的民警，去人家厂里翻旧案，这……上面知道了怎么说？" }
+      - { speaker: CHAR-014, emotion: 关心, text: "我不是不让你查。我是怕……你刚来，别把自己搭进去。" }
+      - { speaker: CHAR-001, emotion: 坚定, text: "所长，我理解您的顾虑。但那个姑娘才二十岁。" }
+      - { speaker: CHAR-001, emotion: 坚定, text: "如果她真的是被人带走的——每多等一天，就多一天的危险。" }
+      - { speaker: CHAR-001, emotion: 平, text: "我不打着所里的旗号。我用自己的休息时间查。查到实锤了，再正式立案。" }
+      - { speaker: CHAR-014, emotion: 让步, text: "行。你小心点。别让保卫科那边知道你还在查。" }
+      - { speaker: CHAR-014, emotion: 嘱咐, text: "有什么情况，第一时间跟我说。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "老郑不是坏人。他只是怕事。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "但他至少没拦我。这就够了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "接下来……日记本。答案应该在里面。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】所长老郑 CHAR-014-L01【图3】办公室 SCENE-001。
+        字幕：对白简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景固定：老郑摘老花镜揉眼叹气。
+        对白（老郑，50岁，担忧）：「棉纺厂是大单位，保卫科背后是厂领导。你刚来，别搭进去。」
+        镜头2（5秒）近景推近：陆峥目光坚定有力。
+        对白（陆峥，25岁，坚定）：「那姑娘才二十岁。每多等一天多一天危险。我用自己时间查。」
+        对白（老郑，让步）：「行。小心点。有情况跟我说。」
+        镜头3（4秒）特写：陆峥微点头转身走出；眼中温度。
+        对白（陆峥，内心独白）：「老郑不是坏人，只是怕事。他没拦我就够了。接下来——日记本。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-014-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  - segment_id: EP02-SEG14
+    title: 夜读日记·钩子
+    shot_ids: [EP02-S35, EP02-S36, EP02-S37, EP02-S38, EP02-S39]
+    duration_sec: 12
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep tone, internal monologue, reading diary, growing anger and determination"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "周小梅的日记……从今年四月开始记。字迹工整，是个认真的姑娘。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "前面都是日常——上班、吃饭、宿舍聊天。正常得不能再正常。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "七月十号……笔迹变了。兴奋、激动。她写了什么？" }
+      - { speaker: CHAR-001, emotion: 内心, text: "「今天王姐介绍了一个人给我，说南方有电子厂在招人，月薪八百。」" }
+      - { speaker: CHAR-001, emotion: 内心, text: "「八百！我在厂里干一年才一千六。如果是真的……我妈的药钱就够了。」" }
+      - { speaker: CHAR-001, emotion: 内心, text: "月薪八百……一九九五年，纺纱工一个月才一百多。这个数字像天上掉下来的馅饼。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "「南方电子厂招人」——这就是那个年代最常见的骗局。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "用高薪把年轻女工骗出去，然后……上辈子我在档案室看过太多这种案卷。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九三年有一个，一九九五年又一个。同样的套路，同样的猎物。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这不是一个人作案。这是一条线——从厂区内部有人拉线，到外面有人接应，再到南方有人接收。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一条完整的链条。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "日记里提到的「王姐」……谁是王姐？她在厂里还是厂外？" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这个人是关键。找到她——就能找到周小梅。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "周小梅……等着我。这辈子，你不会消失。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】陆峥宿舍 SCENE-013。
+        字幕：内心独白简体白字底字幕。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：夜晚台灯下陆峥翻开红色日记本；搪瓷杯冒气窗外漆黑。
+        对白（陆峥，25岁，内心独白）：「从四月开始记。前面都是日常。」
+        镜头2（5秒）特写推近：翻到后半部分笔迹变潦草兴奋；手指停某页。
+        对白（陆峥，同上读日记）：「七月十号笔迹变了。『王姐介绍了人，南方电子厂，月薪八百。』」
+        镜头3（5秒）特写：陆峥面部台灯下阴影锐利；痛苦愤怒。
+        对白（陆峥，同上）：「月薪八百——那个年代最常见的骗局。用高薪把年轻女工骗出去。」
+        镜头4（5秒）中景固定：合上日记双手按封面；画面渐暗只剩台灯光。
+        对白（陆峥，同上决心）：「一条从厂区通往南方的链条。『王姐』是关键。找到她就能找到周小梅。」
+        镜头5（3秒）黑屏白字：「日记本的秘密，指向一条从厂区通往南方的黑色通道。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
