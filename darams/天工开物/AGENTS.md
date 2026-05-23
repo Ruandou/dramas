@@ -2,7 +2,7 @@
 
 ## 改剧本 / 对白 / 字幕（顺序强制）
 
-1. **主剧本** `短剧剧本_天工开物_36集_改造方案.md`
+1. **主剧本** `短剧剧本_天工开物_36集.md`
 2. **分集剧本** `剧本/EP##_*.md`
 3. `python3 script/storyboard_to_seedance.py EP##`
 4. `剧本/EP##_segments.yaml`
