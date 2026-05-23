@@ -1,0 +1,405 @@
+# EP01 segments — 7 segments matching storyboard SEG01–SEG07
+# duration_sec: Seedance 2.0 fast API limit 4–12 per submission
+# NOTE: Segments >12s should be split into sub-segments (a/b/c) before API submission
+episode_id: EP01
+episode_title: 醒来
+source_md: 剧本/EP01/EP01_醒来.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128
+  ratio: "9:16"
+  resolution: 1080x1920
+  duration_sec: "10-12"
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字"
+  prompt_suffix_silent: "本段无对白无字幕，禁止其它汉字乱字"
+  negative_prompt: "smartphone, flat screen TV, LED lights, modern car, laptop, tablet, QR code, delivery box, power bank, glass curtain wall, subway station, LED billboard, Nike logo, Adidas logo, wireless earbuds, ring light, bubble tea cup, modern minimalist interior, neon RGB lighting"
+
+voice_prompts:
+  CHAR-001: "成年男性，25岁，沉稳偏低，内心独白语气为主，短句干脆"
+  CHAR-003: "成年女性，25岁，温柔清亮，梦境回声渐弱"
+  CHAR-014: "中年男性，50岁，沉稳厚重，老大哥语气"
+  CHAR-015: "中年男性，45岁，油滑略尖，带假笑语气"
+  CHAR-017: "青年女性，22岁，急切带哭腔，语速快"
+  CHAR-GRP-01: "成年男性，30岁，普通值班警员语气，事务性"
+
+segments:
+  - segment_id: EP01-SEG01
+    title: 穿越确认
+    shot_ids: [EP01-S01, EP01-S02, EP01-S03, EP01-S04, EP01-S05]
+    duration_sec: 19
+    scene_primary: SCENE-013
+    characters: [CHAR-001, CHAR-003]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep and calm tone, internal monologue"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "林栀……！" }
+      - { speaker: CHAR-001, emotion: 内心, text: "不——她在哪？！" }
+      - { speaker: CHAR-001, emotion: 内心, text: "那个声音……是她在叫我……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "等等……这个房间……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "铁床……案卷……日历……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九五年？不可能……我明明……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "最后的记忆是档案室……胸口发闷……然后什么都没了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这双手……这是二十五岁的手。没有老茧、没有伤疤。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "我的毕业证……分配通知……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "「一九九五年七月十四日报到」——还没去报到。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "我死了。上辈子，在档案室里坐了十年，最后一刻是心脏骤停。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "林栀走了八年了……我没能保护她。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "那一年，有人冲进她值班的急诊室，拿刀……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "而我接到电话赶过去的时候……她已经……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "可是现在……我回来了。这是一九九五年七月。一切还没有发生。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "林栀还活着。那些人还没动手。我还有机会。" }
+      - { speaker: CHAR-003, emotion: VO渐弱梦境回声, text: "陆峥……陆峥……" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】陆峥宿舍 SCENE-013。
+        字幕：本段内心独白显示简体白字底字幕，与语音同步。
+        竖屏9比16连贯叙事。
+        镜头1（skip）黑屏：心跳声由远及近，女人尖叫——前世林栀被害瞬间。音效：穿越锚点。
+        镜头2（5秒）特写：陆峥双眼猛然睁开，瞳孔聚焦，额头细密汗珠；铁架床锈迹可见。
+        对白（陆峥，成年男性，25岁，沉稳偏低，内心独白）：「林栀……！」「不——她在哪？！」
+        镜头3（5秒）近景推近：陆峥猛然坐起，粗喘，汗湿白色背心；铁床、案卷堆、旧收音机；墙上1995年日历。
+        对白（陆峥，同上声线）：「等等……这个房间……」「一九九五年？不可能……」
+        镜头4（4秒）主观：年轻的手、公安大学毕业证、CRT电视播新闻联播。
+        对白（陆峥，同上声线）：「这双手……这是二十五岁的手。」
+        镜头5（5秒）特写：双手颤抖捧起毕业证，眼神从惊恐渐变坚定。
+        对白（陆峥，同上声线）：「我死了。上辈子……心脏骤停。」「林栀还活着。我还有机会。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG02
+    title: 警察生涯开始
+    shot_ids: [EP01-S06, EP01-S07, EP01-S08, EP01-S09]
+    duration_sec: 15
+    scene_primary: SCENE-019
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep and calm tone, internal monologue"
+    refs:
+      scene_id: SCENE-019
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+        SCENE-019: assets/scenes/SCENE-019.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "二十年前世……给了我什么？" }
+      - { speaker: CHAR-001, emotion: 内心, text: "每一桩案子的走向，每一个人的底牌，每一次站错队的代价。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "我知道谁会抢功，谁会挖坑，哪个案子会死人。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这一次，我不当老实人了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九五年……没有监控，没有 DNA 数据库，没有天网。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "破案全靠脚和脑子。但也没有人能查到我知道什么。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这个年代，信息就是最大的武器。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "城南派出所。上辈子我被分到了城北，坐了十年冷板凳。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "城北综合科……听着好听，其实就是个死胡同。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这辈子……我主动来这里。因为三个月后，这里会接到一桩失踪案——" }
+      - { speaker: CHAR-001, emotion: 内心, text: "那是一切的起点。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】城区街道 SCENE-019。
+        字幕：本段内心独白显示简体白字底字幕，与语音同步。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：陆峥穿上83式藏蓝警服，扣好风纪扣，对小镜子——年轻面容、板寸短发。
+        对白（陆峥，成年男性，25岁，沉稳偏低，内心独白）：「二十年前世……给了我什么？」「这一次，我不当老实人了。」
+        镜头2（5秒）远景跟随：1995年城区晨景，桑塔纳、二八自行车流；陆峥骑飞鸽自行车。
+        对白（陆峥，同上声线）：「一九九五年……没有监控，没有天网。」「信息就是最大的武器。」
+        镜头3（5秒）中景推近：陆峥停车望向城南派出所大门，白底红字牌匾。
+        对白（陆峥，同上声线）：「城南派出所。上辈子我被分到了城北。」「这辈子……我主动来这里。」
+        镜头4（skip）字幕镜：「1995年7月·城南派出所」。
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-019, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG03
+    title: 分配陷阱
+    shot_ids: [EP01-S10, EP01-S11, EP01-S12, EP01-S13, EP01-S14]
+    duration_sec: 24
+    scene_primary: SCENE-001
+    characters: [CHAR-001, CHAR-014, CHAR-015]
+    looks: [CHAR-001-L01, CHAR-014-L01, CHAR-015-L01]
+    generate_audio: true
+    voice_prompt: "Multiple speakers: male 25yo deep calm; male 50yo warm fatherly; male 45yo oily scheming"
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-014-L01: assets/looks/CHAR-014-L01.png
+        CHAR-015-L01: assets/looks/CHAR-015-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    dialogue_lines:
+      - { speaker: CHAR-014, emotion: 和蔼, text: "小陆是吧？公安大学毕业，成绩不错嘛。" }
+      - { speaker: CHAR-014, emotion: 和蔼, text: "坐坐坐，别紧张。" }
+      - { speaker: CHAR-001, emotion: 恭敬, text: "所长好，陆峥向您报到。" }
+      - { speaker: CHAR-014, emotion: 平和, text: "嗯，年轻人嘛，多学多看。咱们所里不大，但案子不少。" }
+      - { speaker: CHAR-014, emotion: 平和, text: "你先在户籍内勤干着，熟悉情况。急什么，慢慢来。" }
+      - { speaker: CHAR-001, emotion: 恭敬, text: "是，所长。我听安排。" }
+      - { speaker: CHAR-015, emotion: 假笑, text: "老郑，新来的小陆？" }
+      - { speaker: CHAR-015, emotion: 打量, text: "哟，公安大学的高材生啊。" }
+      - { speaker: CHAR-015, emotion: 平, text: "正好，局里通知下来了——今年新警分配有两个岗位可以选。" }
+      - { speaker: CHAR-015, emotion: 诱导, text: "一个是城北分局的综合科，行政岗，稳定，升得快。" }
+      - { speaker: CHAR-015, emotion: 诱导, text: "另一个嘛……就留咱们城南，基层派出所，辛苦，但接触案子多。" }
+      - { speaker: CHAR-015, emotion: 诱导, text: "说实话，城北那边条件好，宿舍都是新的。我个人建议你去城北。" }
+      - { speaker: CHAR-014, emotion: 摆手, text: "老赵，让人家自己选。年轻人有自己的想法。" }
+      - { speaker: CHAR-015, emotion: 假笑, text: "那是那是。小陆，你考虑考虑？" }
+      - { speaker: CHAR-001, emotion: 内心, text: "城北综合科……上辈子我就去了那里。十年坐穿板凳，被架空到档案室。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "老赵推荐城北，是因为他不想我碍他的事。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这个陷阱，我踩过一次了。" }
+    api:
+      text: |
+        【图1】陆峥【图2】所长老郑【图3】指导员老赵【图4】城南派出所办公室 SCENE-001。
+        字幕：本段每句对白均显示简体白字底字幕，与语音同步。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景固定：所长老郑坐办公桌后，搪瓷茶杯冒热气，翻档案。
+        对白（老郑，中年男性，50岁，沉稳厚重）：「小陆是吧？公安大学毕业，成绩不错嘛。」
+        镜头2（5秒）中景固定：陆峥端坐老郑对面，两人之间老式木桌。
+        对白（陆峥，25岁，沉稳偏低）：「所长好，陆峥向您报到。」
+        对白（老郑）：「你先在户籍内勤干着，熟悉情况。」
+        镜头3（5秒）近景推近：指导员老赵推门进来，油亮偏分头、窄眼假笑。
+        对白（老赵，中年男性，45岁，油滑略尖）：「哟，公安大学的高材生啊。」「局里通知下来了——今年新警分配有两个岗位可以选。」
+        镜头4（5秒）中景固定：三人同框。
+        对白（老赵）：「城北综合科，行政岗，稳定。」「说实话，我个人建议你去城北。」
+        对白（老郑）：「老赵，让人家自己选。」
+        镜头5（4秒）特写：陆峥面部，眼神平静，嘴角微收。
+        对白（陆峥，内心独白）：「城北综合科……上辈子我就去了那里。这个陷阱，我踩过一次了。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-014-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-015-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+
+  - segment_id: EP01-SEG04
+    title: 主动规避
+    shot_ids: [EP01-S15, EP01-S16, EP01-S17, EP01-S18]
+    duration_sec: 16
+    scene_primary: SCENE-001
+    characters: [CHAR-001, CHAR-014, CHAR-015]
+    looks: [CHAR-001-L01, CHAR-014-L01, CHAR-015-L01]
+    generate_audio: true
+    voice_prompt: "Multiple speakers: male 25yo deep decisive; male 50yo warm approving; male 45yo oily displeased"
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-014-L01: assets/looks/CHAR-014-L01.png
+        CHAR-015-L01: assets/looks/CHAR-015-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 笃定, text: "所长，我不用考虑。我选城南。" }
+      - { speaker: CHAR-001, emotion: 笃定, text: "我想在基层。接触真实的案子，才能学到真东西。" }
+      - { speaker: CHAR-001, emotion: 恭敬, text: "请所长多指教。" }
+      - { speaker: CHAR-015, emotion: 愣, text: "城南？你确定？城北那边条件好多了。" }
+      - { speaker: CHAR-015, emotion: 劝阻, text: "年轻人不要冲动嘛，基层苦，很多人干了半年就后悔了。" }
+      - { speaker: CHAR-014, emotion: 拍桌赞赏, text: "好嘛！年轻人有冲劲。那就留咱们所里。" }
+      - { speaker: CHAR-014, emotion: 平和, text: "明天先跟老张学学户籍登记，以后有的是活儿干。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "上辈子你推我去城北，我以为是好意。干了十年才明白那是个死胡同。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这辈子，我只争一世。" }
+      - { speaker: CHAR-015, emotion: 低声不满, text: "行吧……随你。" }
+      - { speaker: CHAR-015, emotion: 低声, text: "基层的苦，以后你就知道了。" }
+    api:
+      text: |
+        【图1】陆峥【图2】所长老郑【图3】指导员老赵【图4】办公室 SCENE-001。
+        字幕：本段每句对白均显示简体白字底字幕，与语音同步。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景固定：陆峥抬头，目光笃定。
+        对白（陆峥，25岁，沉稳偏低，坚定）：「所长，我不用考虑。我选城南。」「我想在基层。接触真实的案子，才能学到真东西。」
+        镜头2（4秒）近景快切：老赵假笑僵住；老郑点头。
+        对白（老赵，45岁，油滑）：「城南？你确定？」
+        对白（老郑，50岁，赞赏）：「好嘛！年轻人有冲劲。那就留咱们所里。」
+        镜头3（4秒）特写推近：陆峥微微欠身，眼底掠过锋芒。
+        对白（陆峥，内心独白）：「上辈子你推我去城北……这辈子，我只争一世。」
+        镜头4（3秒）特写固定：老赵背对走向门口，嘴角撇下。
+        对白（老赵，低声自言）：「行吧……随你。基层的苦，以后你就知道了。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-014-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-015-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+
+  - segment_id: EP01-SEG05
+    title: 城市建立
+    shot_ids: [EP01-S19, EP01-S20, EP01-S21, EP01-S22]
+    duration_sec: 18
+    scene_primary: SCENE-019
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep and calm tone, internal monologue with growing confidence"
+    refs:
+      scene_id: SCENE-019
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-019: assets/scenes/SCENE-019.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九五年。手机还没普及，最快的通讯是 BP 机。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "没有天网、没有 DNA 库、没有大数据……破案全靠脚和脑子。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "上辈子，我就是靠脚和脑子干了二十年。只是没人给我机会。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "但这也意味着——在这个年代，一个有经验的刑警，能比任何人都快。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "我有二十年的记忆……该够了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这座城市接下来五年会发生什么——招工诈骗、连环失踪、保健品杀人案……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "每一桩，我都记得清清楚楚。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "嗯？派出所的号码……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "第一天报到就有事？" }
+      - { speaker: CHAR-001, emotion: 平静, text: "来了。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】城区街道 SCENE-019。
+        字幕：本段内心独白显示简体白字底字幕，与语音同步。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）远景拉远：1995年城区黄昏全景，夕阳下六层砖混楼群，传呼机专卖店霓虹灯，蜂窝煤车驶过。
+        无对白，环境音：自行车铃铛、小贩叫卖。
+        镜头2（5秒）全景跟随：陆峥独自走在黄昏街道，路过报刊亭买《法制日报》。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「一九九五年。手机还没普及。」「破案全靠脚和脑子。」
+        镜头3（4秒）中景固定：陆峥路灯下停步，目光远眺天际线。
+        对白（陆峥，同上声线）：「在这个年代，一个有经验的刑警，能比任何人都快。」「我有二十年的记忆……该够了。」
+        镜头4（4秒）特写：腰间BP机「嘀嘀嘀」响起，屏幕显示派出所号码。
+        对白（陆峥，同上声线）：「嗯？派出所的号码……」
+        对白（陆峥，平静出声）：「来了。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-019, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG06
+    title: 第一个案子
+    shot_ids: [EP01-S23, EP01-S24, EP01-S25, EP01-S26, EP01-S27, EP01-S28]
+    duration_sec: 28
+    scene_primary: SCENE-002
+    characters: [CHAR-001, CHAR-017, CHAR-GRP-01]
+    looks: [CHAR-001-L01, CHAR-017-L01, CHAR-GRP-01-L01]
+    generate_audio: true
+    voice_prompt: "Multiple speakers: male 25yo deep calm; female 22yo anxious crying; male 30yo bureaucratic"
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-017-L01: assets/looks/CHAR-017-L01.png
+        CHAR-GRP-01-L01: assets/looks/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    dialogue_lines:
+      - { speaker: CHAR-GRP-01, emotion: 事务性, text: "你慢慢说，叫什么名字？什么时候发现人不见的？" }
+      - { speaker: CHAR-GRP-01, emotion: 事务性, text: "别着急，我先做个登记。" }
+      - { speaker: CHAR-017, emotion: 急切哭泣, text: "同志！求你们帮帮忙！" }
+      - { speaker: CHAR-017, emotion: 急切哭泣, text: "我妹妹……我妹妹失踪三天了！" }
+      - { speaker: CHAR-017, emotion: 急切, text: "她叫周小梅，在棉纺厂上班……三天前下了夜班就没回宿舍！" }
+      - { speaker: CHAR-017, emotion: 急切, text: "厂里说她跟男朋友跑了……可她根本没有男朋友啊！" }
+      - { speaker: CHAR-017, emotion: 哭腔, text: "她才二十岁……我妈让我来报案……" }
+      - { speaker: CHAR-GRP-01, emotion: 敷衍, text: "行了行了，我记下来了。失踪三天是吧？按规定七天才立案……" }
+      - { speaker: CHAR-GRP-01, emotion: 低声, text: "棉纺厂那边，十有八九是跟人跑了。年轻姑娘嘛……" }
+      - { speaker: CHAR-GRP-01, emotion: 敷衍, text: "你先回去等着，要是七天还没消息，再来。" }
+      - { speaker: CHAR-017, emotion: 激动, text: "不是的！她不是那种人！你们到底管不管！" }
+      - { speaker: CHAR-017, emotion: 激动, text: "三天了！万一出事了呢？！你们就不能先去问问？！" }
+      - { speaker: CHAR-001, emotion: 内心, text: "周小梅……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "就是这个案子。上辈子，这个案子报上来的时候，所里没当回事。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "等到第七天立案，线索全断了。证人散了，现场没了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "最后结案：「自愿出走，下落不明」。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "可她从来都没有自愿走。" }
+      - { speaker: CHAR-001, emotion: 平静有力, text: "这位同志，我是新分配来的民警陆峥。" }
+      - { speaker: CHAR-001, emotion: 平静, text: "你妹妹——周小梅，在棉纺厂第三车间，对吗？" }
+      - { speaker: CHAR-017, emotion: 愣, text: "你……你怎么知道她在第三车间？" }
+      - { speaker: CHAR-001, emotion: 沉稳, text: "那个车间的排班跟其他车间不一样。你说她下夜班没回去——是周三的夜班？" }
+      - { speaker: CHAR-017, emotion: 惊喜, text: "对对对！就是周三！你认识她？！" }
+      - { speaker: CHAR-017, emotion: 急切, text: "她东西还在宿舍里……衣服、被子都没动……" }
+      - { speaker: CHAR-001, emotion: 平静, text: "不认识。但我想帮你找她。" }
+      - { speaker: CHAR-001, emotion: 坚定, text: "这个案子，我来跟。" }
+      - { speaker: CHAR-GRP-01, emotion: 惊讶, text: "你……你一个新来的……" }
+      - { speaker: CHAR-001, emotion: 坚定, text: "我来跟。三天了，再拖下去就来不及了。" }
+      - { speaker: CHAR-001, emotion: 坚定, text: "明天一早，我去棉纺厂。" }
+    api:
+      text: |
+        【图1】陆峥【图2】周小梅姐姐 CHAR-017【图3】值班警员 CHAR-GRP-01【图4】城南派出所值班室 SCENE-002。
+        字幕：本段每句对白均显示简体白字底字幕，与语音同步。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）中景固定：值班室，值班警员坐接待台后填登记表。
+        对白（值班警员，30岁，事务性）：「你慢慢说，叫什么名字？」
+        镜头2（5秒）近景推近：年轻女人趴接待台哭，碎花棉布衫、凌乱马尾。
+        对白（周小梅姐姐，22岁，急切哭腔）：「同志！求你们帮帮忙！」「我妹妹……失踪三天了！」
+        镜头3（4秒）中景固定：值班警员记录叹气，女人拍台面。
+        对白（值班警员，敷衍）：「失踪三天是吧？按规定七天才立案……」
+        对白（周小梅姐姐，激动）：「你们到底管不管！」
+        镜头4（5秒）中景推近：陆峥推门走进值班室，目光落在哭泣女人身上。
+        对白（陆峥，内心独白）：「周小梅……就是这个案子。上辈子所里没当回事。」
+        镜头5（5秒）近景固定：陆峥走到值班台前。
+        对白（陆峥，平静有力）：「你妹妹——周小梅，在棉纺厂第三车间，对吗？」
+        对白（周小梅姐姐，愣）：「你……你怎么知道她在第三车间？」
+        镜头6（5秒）近景固定：女人惊喜点头，值班警员停笔看陆峥。
+        对白（陆峥，坚定）：「不认识。但我想帮你找她。」「这个案子，我来跟。」「明天一早，我去棉纺厂。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-017-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+
+  - segment_id: EP01-SEG07
+    title: 钩子悬念
+    shot_ids: [EP01-S29, EP01-S30, EP01-S31, EP01-S32]
+    duration_sec: 14
+    scene_primary: SCENE-002
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep and determined, internal monologue building to resolution"
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心痛苦回忆, text: "周小梅……上辈子，她再也没有回来过。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "后来我在档案室翻旧卷宗，才知道——这不是「自愿出走」。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "她被人从厂区东门带走了。不是一个人……是一伙人。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九三年、一九九五年……同样的手法，同样的目标——年轻女工。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "同一伙人，同一条线。而当年所里没人追查。" }
+      - { speaker: CHAR-001, emotion: 内心坚定, text: "这一次……我不会让她消失。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "我知道这案子的背后是什么——招工诈骗、人口贩卖，还有一条通向更深处的线。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "那条线牵着棉纺厂，牵着南方贸易公司，牵着更大的保护伞。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这就是我来城南的原因。这就是我选基层的原因。" }
+      - { speaker: CHAR-001, emotion: 内心决绝, text: "上辈子，我用二十年学会了一件事——" }
+      - { speaker: CHAR-001, emotion: 内心决绝, text: "这个世界不会因为你老实就放过你。" }
+      - { speaker: CHAR-001, emotion: 内心决绝, text: "善良没有用。沉默没有用。忍耐也没有用。" }
+      - { speaker: CHAR-001, emotion: 内心决绝, text: "这辈子……我不当老实人了。" }
+      - { speaker: CHAR-001, emotion: 内心决绝, text: "我要改写所有人的命运——从这个案子开始。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "周小梅，等着我。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】城南派出所值班室 SCENE-002。
+        字幕：本段内心独白显示简体白字底字幕，与语音同步。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写：陆峥面部大特写，侧面灯光半明半暗，眼神痛苦中有决心。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「周小梅……上辈子，她再也没有回来过。」「她被人从厂区东门带走了……同一伙人，同一条线。」
+        镜头2（5秒）中景拉远：陆峥转身走向案卷柜，拉开铁抽屉；画面渐暗。
+        对白（陆峥，内心独白）：「这一次……我不会让她消失。」「这就是我来城南的原因。」
+        镜头3（4秒）特写固定：陆峥翻开旧登记簿，眼神锋利、冷静、决绝。
+        对白（陆峥，内心独白，坚定）：「这辈子……我不当老实人了。」「我要改写所有人的命运——从这个案子开始。」「周小梅，等着我。」
+        镜头4（skip）黑屏字卡：「棉纺厂女工失踪三天——这只是开始。」付费卡点。
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
