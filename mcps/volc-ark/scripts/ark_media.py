@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import base64
+import json
 import mimetypes
 from pathlib import Path
+from typing import Any
 
 MIME_BY_SUFFIX = {
     ".png": "image/png",
@@ -74,3 +76,51 @@ def resolve_image_url(
     - 否则视为本地路径（可相对 project_root）→ data URI
     """
     return resolve_media_url(path_or_url, project_root)
+
+
+# --- TOS CDN registry support ---
+
+
+def load_cdn_registry(
+    registry_config: dict[str, str],
+    project_root: Path,
+) -> dict[str, dict[str, Any]]:
+    """Load cdn_urls.json files and merge into a unified key→entry map.
+
+    registry_config: e.g. {"looks": "assets/looks/cdn_urls.json", "scenes": "assets/scenes/cdn_urls.json"}
+    Returns: {"CHAR-001-L01": {"tos_url": "https://...", ...}, "SCENE-001": {...}, ...}
+    """
+    merged: dict[str, dict[str, Any]] = {}
+    for _category, rel_path in registry_config.items():
+        p = project_root / rel_path
+        if not p.is_file():
+            continue
+        try:
+            data = json.loads(p.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        for key, entry in data.items():
+            if key.startswith("_"):
+                continue
+            if isinstance(entry, dict):
+                merged[key] = entry
+    return merged
+
+
+def lookup_tos_url(
+    file_key: str,
+    cdn_registry: dict[str, dict[str, Any]] | None,
+) -> str | None:
+    """Look up a permanent TOS URL for the given asset key.
+
+    Returns the tos_url string if found, else None.
+    """
+    if not cdn_registry:
+        return None
+    entry = cdn_registry.get(file_key)
+    if not entry:
+        return None
+    tos = entry.get("tos_url")
+    if tos and isinstance(tos, str) and tos.startswith("https://"):
+        return tos
+    return None

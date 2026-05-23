@@ -1,11 +1,11 @@
 # EP02 segments — 14 segments, all 4-12 seconds (Seedance 2.0 fast hard limit)
-# image_strategy: cdn_first — CDN URLs bypass base64 payload size limit (4+ images ok)
-# Without valid CDN URLs, max 3 content_roles before base64 payload exceeds limit
+# image_strategy: tos_first — TOS URLs are permanent; base64 fallback limited to ≤3 images/segment
+# Without TOS URLs uploaded, max 3 content_roles before base64 payload exceeds limit
 # No first-person death/violence language
 episode_id: EP02
 episode_title: 失踪案
 source_md: 剧本/EP02/EP02_失踪案.md
-image_strategy: cdn_first
+image_strategy: tos_first
 image_cdn_registry:
   looks: assets/looks/cdn_urls.json
   scenes: assets/scenes/cdn_urls.json
@@ -14,7 +14,7 @@ defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast-260128
   ratio: "9:16"
-  resolution: 1080x1920
+  resolution: 720p
   duration_sec: "8-10"
   generate_audio: true
   watermark: false
@@ -102,14 +102,14 @@ segments:
         【图1】陆峥 CHAR-001-L01【图2】所长老郑 CHAR-014-L01【图3】派出所办公室 SCENE-001。
         字幕：本段对白显示简体白字底字幕，与语音同步。
         竖屏9比16连贯叙事。
-        镜头1（5秒）中景固定：所长老郑坐办公桌后喝茶，陆峥站桌前拿案卷；铁柜旋转电话红色标语。
-        对白（陆峥，25岁，请示语气）：「所长，周小梅的案子，我想去棉纺厂走访。」
-        对白（老郑，50岁，沉稳不以为然）：「那案子不是结了吗？跟人跑了。」
+        镜头1（5秒）中景固定：老郑坐办公桌后喝茶，陆峥站桌前翻笔记本；铁柜旋转电话红色标语。
+        对白（陆峥，25岁，商量语气）：「所长，棉纺厂那边的情况，我想过去看看。」
+        对白（老郑，50岁，沉稳随意）：「那事儿不是结了吗？人走了。」
         镜头2（5秒）近景固定：陆峥目光平静坚持。
         对白（陆峥）：「她宿舍的东西都还在。一个人要走不会什么都不带。」
         对白（老郑，叹气让步）：「行吧，去看看。别惹事。」
         镜头3（4秒）特写：陆峥微微点头眼底锋芒。
-        对白（陆峥，内心独白）：「他不知道这案子有多大。但我知道。」
+        对白（陆峥，内心独白）：「他不知道那边情况有多复杂。但我清楚。」
         1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
@@ -526,13 +526,13 @@ segments:
         【图1】陆峥 CHAR-001-L01【图2】所长老郑 CHAR-014-L01【图3】办公室 SCENE-001。
         字幕：对白简体白字底字幕。
         竖屏9比16连贯叙事。
-        镜头1（5秒）中景固定：陆峥站所长面前翻笔记本汇报；老郑靠椅背听。
-        对白（陆峥，25岁，汇报）：「有三个问题。男友同日消失但工友说没男朋友。保卫科第二天清柜子。」
-        对白（老郑，50岁，坐直警觉）：「保卫科清柜子？」
-        镜头2（5秒）近景固定：两人对视老郑严肃。
-        对白（陆峥）：「东门门卫说凌晨两三点有面包车接人。」
-        对白（老郑，震惊）：「半夜三点面包车。你意思是——被人带走的？」
-        对白（陆峥，克制）：「我不下结论。但治保会结论太草率。」
+        镜头1（5秒）中景固定：陆峥站老郑面前翻笔记本；老郑靠椅背听。
+        对白（陆峥，25岁，平静）：「所长，今天去了一趟。情况和之前说的不一样。」
+        对白（老郑，50岁，坐直）：「怎么不一样？」
+        镜头2（5秒）近景固定：两人对视。
+        对白（陆峥）：「细节还需要确认。明天我再去一次。」
+        对白（老郑，点头）：「嘶，注意方法。」
+        对白（陆峥，点头）：「明白。」
         1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
@@ -573,13 +573,13 @@ segments:
         【图1】陆峥 CHAR-001-L01【图2】所长老郑 CHAR-014-L01【图3】办公室 SCENE-001。
         字幕：对白简体白字底字幕。
         竖屏9比16连贯叙事。
-        镜头1（5秒）近景固定：老郑摘老花镜揉眼叹气。
-        对白（老郑，50岁，担忧）：「棉纺厂是大单位，保卫科背后是厂领导。你刚来，别搭进去。」
-        镜头2（5秒）近景推近：陆峥目光坚定有力。
-        对白（陆峥，25岁，坚定）：「那姑娘才二十岁。每多等一天多一天危险。我用自己时间查。」
-        对白（老郑，让步）：「行。小心点。有情况跟我说。」
-        镜头3（4秒）特写：陆峥微点头转身走出；眼中温度。
-        对白（陆峥，内心独白）：「老郑不是坏人，只是怕事。他没拦我就够了。接下来——日记本。」
+        镜头1（5秒）中景固定：老郑站窗前背对镜头看窗外，陆峥站一侧。
+        对白（老郑，50岁，关切）：「小陆，你刚来，不着急。慢慢熟悉。」
+        镜头2（5秒）中景側面：陆峥站立表情淡定。
+        对白（陆峥，25岁）：「所长放心。我就利用休息时间多了解了解。」
+        对白（老郑，点头）：「行。有事跟我说。」
+        镜头3（4秒）中景：陆峥微点头转身往门口走；老郑继续看窗外。
+        对白（陆峥，内心独白）：「好。接下来看看那个本子。」
         1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }

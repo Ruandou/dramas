@@ -51,7 +51,7 @@ from ark_common import (
     task_id_from_response,
     task_status,
 )
-from ark_media import resolve_image_url, resolve_media_url
+from ark_media import load_cdn_registry, lookup_tos_url, resolve_image_url, resolve_media_url
 
 try:
     import yaml
@@ -442,18 +442,28 @@ def validate_segment_assets(segment: dict, project_root: Path) -> list[str]:
     return missing
 
 
-def build_segment_content_array(segment: dict, project_root: Path) -> list[dict]:
+def build_segment_content_array(
+    segment: dict,
+    project_root: Path,
+    cdn_registry: dict | None = None,
+) -> list[dict]:
     api = segment.get("api") or {}
     content: list[dict] = [{"type": "text", "text": (api.get("text") or "").strip()}]
     for role_spec in api.get("content_roles") or []:
         file_key = role_spec["file"]
-        rel = segment_file_to_path(segment, file_key)
-        if not rel:
-            raise ValueError(f"{segment.get('segment_id')}: 找不到素材 {file_key}")
+        # TOS URL lookup: use permanent HTTPS URL if available
+        tos_url = lookup_tos_url(file_key, cdn_registry)
+        if tos_url:
+            url = tos_url
+        else:
+            rel = segment_file_to_path(segment, file_key)
+            if not rel:
+                raise ValueError(f"{segment.get('segment_id')}: 找不到素材 {file_key}")
+            url = resolve_image_url(rel, project_root)
         content.append(
             {
                 "type": "image_url",
-                "image_url": {"url": resolve_image_url(rel, project_root)},
+                "image_url": {"url": url},
                 "role": role_spec["role"],
             }
         )
@@ -478,13 +488,18 @@ def _clamp_duration(sec: int, model: str) -> int:
     return max(lo, min(hi, int(sec)))
 
 
-def build_segment_body(episode: dict, segment: dict, project_root: Path) -> dict[str, Any]:
+def build_segment_body(
+    episode: dict,
+    segment: dict,
+    project_root: Path,
+    cdn_registry: dict | None = None,
+) -> dict[str, Any]:
     defaults = episode.get("defaults") or {}
     model = defaults.get("model", default_model())
     raw_dur = segment.get("duration_sec", defaults.get("duration", 5))
     body: dict[str, Any] = {
         "model": model,
-        "content": build_segment_content_array(segment, project_root),
+        "content": build_segment_content_array(segment, project_root, cdn_registry),
         "ratio": defaults.get("ratio", "9:16"),
         "resolution": defaults.get("resolution", "720p"),
         "duration": _clamp_duration(raw_dur, model),
@@ -519,12 +534,31 @@ def cmd_segments(args: argparse.Namespace) -> int:
             print(json.dumps({"error": f"未找到 {args.segment}"}, ensure_ascii=False))
             return 1
 
+    # Load CDN registry for TOS URL resolution (tos_first strategy)
+    cdn_registry: dict | None = None
+    registry_config = episode.get("image_cdn_registry")
+    if registry_config and isinstance(registry_config, dict):
+        cdn_registry = load_cdn_registry(registry_config, project_root)
+        if cdn_registry:
+            print(
+                f"✓ CDN registry loaded: {len(cdn_registry)} assets with TOS URLs",
+                file=sys.stderr,
+            )
+
     results: list[dict[str, Any]] = []
     ready = 0
 
     for seg in segments:
         sid = seg.get("segment_id", "?")
+        # With TOS URLs, skip local file validation for assets that have TOS entries
         miss = validate_segment_assets(seg, project_root)
+        if miss and cdn_registry:
+            # Filter out missing files that have TOS URLs available
+            still_missing = [
+                m for m in miss
+                if not lookup_tos_url(Path(m).stem, cdn_registry)
+            ]
+            miss = still_missing
         if miss:
             results.append({"segment_id": sid, "status": "missing_assets", "missing": miss})
             if args.check_only:
@@ -535,7 +569,7 @@ def cmd_segments(args: argparse.Namespace) -> int:
             print(f"✓ {sid} 素材齐全", file=sys.stderr)
             continue
         try:
-            body = build_segment_body(episode, seg, project_root)
+            body = build_segment_body(episode, seg, project_root, cdn_registry)
             if args.dry_run:
                 results.append(
                     {
@@ -565,7 +599,8 @@ def cmd_segments(args: argparse.Namespace) -> int:
         "episode": ep_id,
         "ready": ready,
         "archive_dir": get_archive_base_hint(),
-        "image_source": "local_data_uri",
+        "image_source": "tos_url" if cdn_registry else "local_data_uri",
+        "cdn_assets": len(cdn_registry) if cdn_registry else 0,
         "results": results,
     }
     print(json.dumps(summary, ensure_ascii=False, indent=2))
