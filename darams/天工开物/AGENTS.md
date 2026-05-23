@@ -2,11 +2,11 @@
 
 ## 改剧本 / 对白 / 字幕（顺序强制）
 
-1. **主剧本** `短剧剧本_天工开物_36集_改造方案.md`  
-2. **分集剧本** `分集剧本/EP##_*.md`  
-3. `python3 script/storyboard_to_seedance.py EP##`  
-4. `分集剧本/EP##_segments.yaml`  
-5. 声音卡、规范、`trial_notes` 等  
+1. **主剧本** `短剧剧本_天工开物_36集_改造方案.md`
+2. **分集剧本** `剧本/EP##_*.md`
+3. `python3 script/storyboard_to_seedance.py EP##`
+4. `剧本/EP##_segments.yaml`
+5. 声音卡、规范、`trial_notes` 等
 
 **不要**先改 `segments.yaml`。详见 [`制片规范.md`](./制片规范.md) §3.1。
 
@@ -18,12 +18,12 @@
 
 > 用 `ark_drama_pull` 拉取 EP01 并拼集：`episode=EP01`, `concat=true`
 
-| MCP 工具 | 扣费 | 说明 |
-|----------|------|------|
-| **`ark_drama_pull`** | 否 | git pull + 按 `tasks.json` 下载同事段落（24h 内） |
-| `ark_list_tasks` | 否 | 查 `assets/generated/EP##/tasks.json` |
-| `ark_seedance_download` | 否 | 按单个 `task_id` 下到指定路径 |
-| `ark_seedance_create` 等 | **是** | 仅用户明确要求时 |
+| MCP 工具                 | 扣费   | 说明                                              |
+| ------------------------ | ------ | ------------------------------------------------- |
+| **`ark_drama_pull`**     | 否     | git pull + 按 `tasks.json` 下载同事段落（24h 内） |
+| `ark_list_tasks`         | 否     | 查 `assets/generated/EP##/tasks.json`             |
+| `ark_seedance_download`  | 否     | 按单个 `task_id` 下到指定路径                     |
+| `ark_seedance_create` 等 | **是** | 仅用户明确要求时                                  |
 
 `mcp.json` 建议：
 
@@ -63,8 +63,8 @@ cd darams/天工开物
 
 ## 协作前提
 
-1. 同事 push `assets/generated/EP01/tasks.json`  
-2. 你在 **24h 内** pull / `ark_drama_pull`  
-3. 勿覆盖正式 `EP##-SEG*.mp4` 占位  
+1. 同事 push `assets/generated/EP01/tasks.json`
+2. 你在 **24h 内** pull / `ark_drama_pull`
+3. 勿覆盖正式 `EP##-SEG*.mp4` 占位
 
 文档：[`docs/视频资产管理.md`](docs/视频资产管理.md) · [`docs/团队协作.md`](docs/团队协作.md)

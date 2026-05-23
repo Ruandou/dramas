@@ -42,7 +42,7 @@ if str(_REPO_SCRIPTS) not in sys.path:
 from ark_media import resolve_image_url, resolve_media_url  # noqa: E402
 from ark_seedance_record import record_status, record_submit  # noqa: E402
 
-EPISODE_DIR = ROOT / "分集剧本"
+EPISODE_DIR = ROOT / "剧本"
 GENERATED_DIR = ROOT / "assets" / "generated"
 REQUESTS_DIR = ROOT / "configs" / "seedance_requests"
 ARK_VIDEO_CLI = _REPO_SCRIPTS / "ark_seedance_video.py"
@@ -107,7 +107,8 @@ def role_file_to_path(segment: dict, file_key: str) -> str | None:
 
 def build_content_array(segment: dict) -> list[dict]:
     api = segment.get("api") or {}
-    content: list[dict] = [{"type": "text", "text": api.get("text", "").strip()}]
+    content: list[dict] = [
+        {"type": "text", "text": api.get("text", "").strip()}]
     for role_spec in api.get("content_roles") or []:
         file_key = role_spec["file"]
         rel = role_file_to_path(segment, file_key)
@@ -419,7 +420,8 @@ def run_pull(ep_id: str, segments: list[dict], *, force: bool, wait_pending: boo
             continue
         tid = task_map.get(sid)
         if not tid:
-            print(f"✗ {sid} tasks.json 中无 task_id（请同事生成后 push tasks.json）", file=sys.stderr)
+            print(
+                f"✗ {sid} tasks.json 中无 task_id（请同事生成后 push tasks.json）", file=sys.stderr)
             no_tid += 1
             continue
         print(f"↓ {sid} ← {tid}")
@@ -431,7 +433,8 @@ def run_pull(ep_id: str, segments: list[dict], *, force: bool, wait_pending: boo
             wait_if_pending=wait_pending,
         )
         if rc == 0:
-            print(f"  ✓ {mp4.relative_to(ROOT)} ({mp4.stat().st_size // 1024}KB)")
+            print(
+                f"  ✓ {mp4.relative_to(ROOT)} ({mp4.stat().st_size // 1024}KB)")
             ok += 1
         else:
             print(f"  ✗ 下载失败（链接可能已过期 >24h 或任务未成功）", file=sys.stderr)
@@ -452,7 +455,8 @@ def ark_wait_download(
         print(f"找不到 {ARK_VIDEO_CLI}", file=sys.stderr)
         return 1
     r1 = subprocess.run(
-        [sys.executable, str(ARK_VIDEO_CLI), "wait", "--task-id", task_id, "--max-wait", "600"],
+        [sys.executable, str(ARK_VIDEO_CLI), "wait",
+         "--task-id", task_id, "--max-wait", "600"],
         cwd=str(_REPO_ROOT),
     )
     if r1.returncode != 0:
@@ -493,7 +497,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--check-only", action="store_true")
     parser.add_argument("--submit", action="store_true")
     parser.add_argument("--wait", action="store_true", help="提交后等待任务完成")
-    parser.add_argument("--download", action="store_true", help="等待后下载到 assets/generated/")
+    parser.add_argument("--download", action="store_true",
+                        help="等待后下载到 assets/generated/")
     parser.add_argument(
         "--skip-existing",
         action="store_true",
@@ -605,12 +610,14 @@ def main(argv: list[str] | None = None) -> int:
         print(f"→ {out_path.relative_to(ROOT)}")
 
         if args.submit:
-            key = (os.environ.get("ARK_API_KEY") or os.environ.get("VOLC_ARK_API_KEY") or "").strip()
+            key = (os.environ.get("ARK_API_KEY") or os.environ.get(
+                "VOLC_ARK_API_KEY") or "").strip()
             if not key:
                 print("提交需要 ARK_API_KEY", file=sys.stderr)
                 return 1
             result = post_task(endpoint, key, body)
-            task_id = result.get("id") or result.get("task_id") or result.get("data", {}).get("id")
+            task_id = result.get("id") or result.get(
+                "task_id") or result.get("data", {}).get("id")
             print(f"  submitted {sid} task_id={task_id}")
             if task_id:
                 tasks_path = record_submit(

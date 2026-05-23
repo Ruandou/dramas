@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-EPISODE_DIR = ROOT / "分集剧本"
+EPISODE_DIR = ROOT / "剧本"
 LOOKS_BATCH = ROOT / "assets" / "looks" / "seedream_batch.yaml"
 
 FLASHBACK_SCENES = frozenset({"SCENE-004"})

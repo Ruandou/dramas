@@ -9,13 +9,13 @@
 
 ## 官方文档（你提供的教程入口）
 
-| 文档 | 链接 | 用途 |
-|------|------|------|
-| **Doubao Seedance 2.0 系列教程（SDK 示例）** | [2291680](https://www.volcengine.com/docs/82379/2291680?lang=zh) | 调用方式、多模态入参示例 |
-| Seedance 2.0 提示词指南 | [2222480](https://www.volcengine.com/docs/82379/2222480?lang=zh) | 主体/风格/运镜/规格五要素 |
-| Seedream 4.0 助力 Seedance 最佳实践 | [1951250](https://www.volcengine.com/docs/82379/1951250?lang=zh) | **用 Seedream 出分镜关键帧 → 再喂 Seedance** |
-| API 参考 | [1393047](https://www.volcengine.com/docs/82379/1393047?lang=zh) | 字段说明 |
-| 输出格式 / 裁剪规则 | [1366799](https://www.volcengine.com/docs/82379/1366799?lang=zh) | 分辨率、ratio、图片约束 |
+| 文档                                         | 链接                                                             | 用途                                         |
+| -------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------- |
+| **Doubao Seedance 2.0 系列教程（SDK 示例）** | [2291680](https://www.volcengine.com/docs/82379/2291680?lang=zh) | 调用方式、多模态入参示例                     |
+| Seedance 2.0 提示词指南                      | [2222480](https://www.volcengine.com/docs/82379/2222480?lang=zh) | 主体/风格/运镜/规格五要素                    |
+| Seedream 4.0 助力 Seedance 最佳实践          | [1951250](https://www.volcengine.com/docs/82379/1951250?lang=zh) | **用 Seedream 出分镜关键帧 → 再喂 Seedance** |
+| API 参考                                     | [1393047](https://www.volcengine.com/docs/82379/1393047?lang=zh) | 字段说明                                     |
+| 输出格式 / 裁剪规则                          | [1366799](https://www.volcengine.com/docs/82379/1366799?lang=zh) | 分辨率、ratio、图片约束                      |
 
 > 控制台页面为 JS 渲染，本地以 **SDK 教程 + API 参考** 为准；接入以你账号下控制台显示的 **model id** 为最终值。
 
@@ -67,20 +67,20 @@ POST https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
 
 ## 三、现有分镜 vs API 缺口
 
-当前 `分集剧本/EP01_*.md` 表格列：
+当前 `剧本/EP01_*.md` 表格列：
 
-| 已有列 | API / 资产 | 缺口 |
-|--------|------------|------|
-| 镜号 | `shot_id` | 需稳定 ID：`EP01-S02` |
-| 场景 `SCENE-*` | 背景 Prompt / 场景图 | 需 `assets/scenes/` |
-| 形象 `CHAR-*-L##` | 首帧人物 | 需 `assets/looks/` 定妆 |
-| 景别 | 写入 `prompt` | 需映射表（特写→镜头特写） |
-| 画面 | `prompt` 主体 | ✓ |
-| 对白/备注 | **不进 API**（旧） | 现行 → `segments.yaml` 的 `api.text` |
-| — | `seconds` | **缺**：每镜时长 |
-| — | `mode` | **缺**：文生/图生/跳过 |
-| — | `first_frame` 路径 | **缺**：素材文件路径 |
-| — | `seed` / `ratio` | **缺**：集级默认 + 镜级覆盖 |
+| 已有列            | API / 资产           | 缺口                                 |
+| ----------------- | -------------------- | ------------------------------------ |
+| 镜号              | `shot_id`            | 需稳定 ID：`EP01-S02`                |
+| 场景 `SCENE-*`    | 背景 Prompt / 场景图 | 需 `assets/scenes/`                  |
+| 形象 `CHAR-*-L##` | 首帧人物             | 需 `assets/looks/` 定妆              |
+| 景别              | 写入 `prompt`        | 需映射表（特写→镜头特写）            |
+| 画面              | `prompt` 主体        | ✓                                    |
+| 对白/备注         | **不进 API**（旧）   | 现行 → `segments.yaml` 的 `api.text` |
+| —                 | `seconds`            | **缺**：每镜时长                     |
+| —                 | `mode`               | **缺**：文生/图生/跳过               |
+| —                 | `first_frame` 路径   | **缺**：素材文件路径                 |
+| —                 | `seed` / `ratio`     | **缺**：集级默认 + 镜级覆盖          |
 
 ---
 
@@ -88,24 +88,24 @@ POST https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
 
 ### 4.1 人类可读（继续用 Markdown）
 
-保留 `分集剧本/EP##_*.md`，**增加列**：
+保留 `剧本/EP##_*.md`，**增加列**：
 
 | 镜号 | 场景 | 角色 | 形象 | 景别 | 时长 | 模式 | 画面 | 运镜 | 对白/备注 |
-|------|------|------|------|------|------|------|------|------|-----------|
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | --------- |
 
 **模式**枚举：
 
-| 值 | 含义 |
-|----|------|
-| `skip` | 黑屏/字卡/画外：不单独 API；**并入相邻 segment**（旧：剪映） |
-| `t2v` | 文生视频（仅 `content.text`） |
-| `i2v` | 首帧图 + 文本（**默认**） |
-| `i2v_ref` | 定妆/场景 `reference_image` + 首帧（**一致性推荐**） |
-| `i2v_ff` | 首尾帧 `first_frame` + `last_frame` |
+| 值        | 含义                                                         |
+| --------- | ------------------------------------------------------------ |
+| `skip`    | 黑屏/字卡/画外：不单独 API；**并入相邻 segment**（旧：剪映） |
+| `t2v`     | 文生视频（仅 `content.text`）                                |
+| `i2v`     | 首帧图 + 文本（**默认**）                                    |
+| `i2v_ref` | 定妆/场景 `reference_image` + 首帧（**一致性推荐**）         |
+| `i2v_ff`  | 首尾帧 `first_frame` + `last_frame`                          |
 
 ### 4.2 机器可读（API 与素材清单）
 
-每集一个文件：`分集剧本/EP01_shots.yaml`（或 `configs/EP01_seedance.json`）
+每集一个文件：`剧本/EP01_shots.yaml`（或 `configs/EP01_seedance.json`）
 
 ```yaml
 episode_id: EP01
@@ -126,7 +126,7 @@ shots:
 
   - shot_id: EP01-S02
     shot_no: 2
-    mode: i2v_ref          # 或 i2v（仅首帧图）
+    mode: i2v_ref # 或 i2v（仅首帧图）
     duration_sec: 4
     refs:
       scene_id: SCENE-001
@@ -167,15 +167,15 @@ cd darams/天工开物 && python3 script/storyboard_to_seedance.py   # EP01–03
 python3 script/storyboard_to_seedance.py EP04                    # 单集
 ```
 
-产出：`分集剧本/EP##_shots.yaml`、`assets/keyframes/EP##/manifest.yaml`
+产出：`剧本/EP##_shots.yaml`、`assets/keyframes/EP##/manifest.yaml`
 
-| shots 字段 | 展开为 API |
-|------------|------------|
-| `api.text` | `content[]` 中 `{ type: text, text }` |
+| shots 字段                        | 展开为 API                                         |
+| --------------------------------- | -------------------------------------------------- |
+| `api.text`                        | `content[]` 中 `{ type: text, text }`              |
 | `assets.*_urls` + `content_roles` | 上传 CDN 后 `{ type: image_url, image_url, role }` |
-| `duration_sec` | `duration` |
-| `defaults.*` | 请求体顶层字段 |
-| `refs.look_ids` | 校验 looks 文件存在 |
+| `duration_sec`                    | `duration`                                         |
+| `defaults.*`                      | 请求体顶层字段                                     |
+| `refs.look_ids`                   | 校验 looks 文件存在                                |
 
 **展开后的 JSON 片段示例（EP01-S02）**：
 
@@ -184,9 +184,21 @@ python3 script/storyboard_to_seedance.py EP04                    # 单集
   "model": "doubao-seedance-2-0-fast-260128",
   "content": [
     { "type": "text", "text": "【图1】男主……【图2】卧室。镜头特写……" },
-    { "type": "image_url", "image_url": { "url": "…/CHAR-001-L01.png" }, "role": "reference_image" },
-    { "type": "image_url", "image_url": { "url": "…/SCENE-001.png" }, "role": "reference_image" },
-    { "type": "image_url", "image_url": { "url": "…/EP01-S02_first.png" }, "role": "first_frame" }
+    {
+      "type": "image_url",
+      "image_url": { "url": "…/CHAR-001-L01.png" },
+      "role": "reference_image"
+    },
+    {
+      "type": "image_url",
+      "image_url": { "url": "…/SCENE-001.png" },
+      "role": "reference_image"
+    },
+    {
+      "type": "image_url",
+      "image_url": { "url": "…/EP01-S02_first.png" },
+      "role": "first_frame"
+    }
   ],
   "ratio": "9:16",
   "resolution": "720p",
@@ -201,17 +213,17 @@ python3 script/storyboard_to_seedance.py EP04                    # 单集
 
 ### 5.1 第一层：定妆（已有 ID，缺文件）
 
-| 目录 | 来源 ID | 文件示例 |
-|------|---------|----------|
-| `assets/looks/` | `CHAR-*-L01`（及 L02+） | `CHAR-001-L01.png` |
-| `assets/scenes/` | `SCENE-*`（无人物） | `SCENE-001.png` |
+| 目录             | 来源 ID                 | 文件示例           |
+| ---------------- | ----------------------- | ------------------ |
+| `assets/looks/`  | `CHAR-*-L01`（及 L02+） | `CHAR-001-L01.png` |
+| `assets/scenes/` | `SCENE-*`（无人物）     | `SCENE-001.png`    |
 
 规则：见 `角色卡.md` / `场景卡片.md` Prompt；**L02+ 必须基于 L01 图生图**。
 
 ### 5.2 第二层：镜头首帧（每镜一张，图生视频用）
 
-| 目录 | 命名 | 合成方式 |
-|------|------|----------|
+| 目录                     | 命名                     | 合成方式                                  |
+| ------------------------ | ------------------------ | ----------------------------------------- |
 | `assets/keyframes/EP01/` | `EP01-S{镜号}_first.png` | 场景图 + 人物定妆（融图/ControlNet/手动） |
 
 **镜级 manifest**（便于检查「是否齐图」）：
@@ -227,7 +239,7 @@ required:
 
 ### 5.3 不必为每镜单独出「场景图」
 
-- 同一场景多镜可**复用** `SCENE-001` 底图，只换人物 pose 的首帧合成。  
+- 同一场景多镜可**复用** `SCENE-001` 底图，只换人物 pose 的首帧合成。
 - `return_last_frame` 时，镜 N 的尾帧可另存为 `EP01-S{N}_last.png` 供 S{N+1} 作首帧。
 
 ---
@@ -241,40 +253,40 @@ required:
 ```
 
 | 景别 | 写入 Prompt |
-|------|-------------|
-| 特写 | 镜头特写 |
-| 近景 | 镜头近景 |
-| 中景 | 镜头中景 |
-| 全景 | 镜头全景 |
-| 主观 | 主观镜头 |
-| 跟拍 | 镜头跟随 |
-| 慢镜 | 慢动作 |
-| 闪回 | 闪回、叠化 |
+| ---- | ----------- |
+| 特写 | 镜头特写    |
+| 近景 | 镜头近景    |
+| 中景 | 镜头中景    |
+| 全景 | 镜头全景    |
+| 主观 | 主观镜头    |
+| 跟拍 | 镜头跟随    |
+| 慢镜 | 慢动作      |
+| 闪回 | 闪回、叠化  |
 
 **集级后缀**（写进 `defaults.prompt_suffix` / `defaults.prompt_suffix_flashback`）：
 
-| 类型 | 后缀 |
-|------|------|
-| **明代主戏**（默认） | 明代苏州，天启年间，古风写实，电影感，竖屏9:16，无现代物品，无清晰汉字 |
+| 类型                                          | 后缀                                                                                                              |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **明代主戏**（默认）                          | 明代苏州，天启年间，古风写实，电影感，竖屏9:16，无现代物品，无清晰汉字                                            |
 | **闪回**（`SCENE-004` 或运镜/景别含「闪回」） | flashback overlay, soft blur, 0.5 second cut, cinematic, vertical 9:16, no readable text — **不含**「无现代物品」 |
 
 `storyboard_to_seedance.py` 按场景 ID 自动选择。详见 [`资产/年代美术规范.md`](../资产/年代美术规范.md)。
 
 **从 ID 解析**（不重复写脸）：
 
-- 有 `first_frame` 图时，prompt **不写**五官细节，只写动作、光影、运镜。  
+- 有 `first_frame` 图时，prompt **不写**五官细节，只写动作、光影、运镜。
 - 无图 `t2v` 时，拼接 `角色卡 L01` 简短外貌 + `场景卡片` 环境。
 
 ---
 
 ## 七、与仓库其他项目对齐
 
-| 项目 | 可借鉴 |
-|------|--------|
+| 项目                                 | 可借鉴                          |
+| ------------------------------------ | ------------------------------- |
 | `错嫁…/第01集_分镜与AI视频提示词.md` | 时长列、中英文 prompt、negative |
-| `错嫁…/config_ep01.json` | 成片拼接顺序 `clips[]` |
-| `即梦3.0Pro_Prompt与运镜备忘.md` | 运镜词表、对白后期 |
-| `分集剧本/EP01` | CHAR/SCENE/形象 ID |
+| `错嫁…/config_ep01.json`             | 成片拼接顺序 `clips[]`          |
+| `即梦3.0Pro_Prompt与运镜备忘.md`     | 运镜词表、对白后期              |
+| `剧本/EP01`                          | CHAR/SCENE/形象 ID              |
 
 建议天工开物新增：
 
@@ -294,28 +306,28 @@ required:
 
 ## 八、EP01 体量估算（样片）
 
-| 项目 | 数量 |
-|------|------|
-| 分镜行 | 26 |
-| 需 API（非 skip） | 约 22（去掉黑屏/字幕 4 镜） |
-| 定妆图 | looks 约 4 + scenes 约 3 = **7 张** |
-| 首帧图 | 约 **22 张**（可部分用上一镜尾帧减少） |
+| 项目              | 数量                                   |
+| ----------------- | -------------------------------------- |
+| 分镜行            | 26                                     |
+| 需 API（非 skip） | 约 22（去掉黑屏/字幕 4 镜）            |
+| 定妆图            | looks 约 4 + scenes 约 3 = **7 张**    |
+| 首帧图            | 约 **22 张**（可部分用上一镜尾帧减少） |
 
 ---
 
 ## 九、下一步建议
 
-1. **定稿** `EP01_shots.yaml` 结构（可先手工转 2–3 镜试 API）。  
-2. **批量出** `assets/looks` + `assets/scenes`（禁止写入别剧 `generated/`）。  
-3. ~~写 `storyboard_to_seedance.py`~~ → **`storyboard_submit_seedance.py`**：校验素材 → 展开 `POST` body → `configs/seedance_requests/`；`--submit` 写 `task_log.jsonl`。  
-4. **`storyboard_keyframe_prompts.py`**：导出 `seedream_batch.yaml` + 每集 `seedream_prompts.yaml`（Seedream 出图用）。  
-4. EP01 试跑 4 镜通过后，再扩 EP02–03。
+1. **定稿** `EP01_shots.yaml` 结构（可先手工转 2–3 镜试 API）。
+2. **批量出** `assets/looks` + `assets/scenes`（禁止写入别剧 `generated/`）。
+3. ~~写 `storyboard_to_seedance.py`~~ → **`storyboard_submit_seedance.py`**：校验素材 → 展开 `POST` body → `configs/seedance_requests/`；`--submit` 写 `task_log.jsonl`。
+4. **`storyboard_keyframe_prompts.py`**：导出 `seedream_batch.yaml` + 每集 `seedream_prompts.yaml`（Seedream 出图用）。
+5. EP01 试跑 4 镜通过后，再扩 EP02–03。
 
 ---
 
 ## 修订记录
 
-| 版本 | 日期 | 说明 |
-|------|------|------|
-| v0.1 | 2026-05-19 | 草案；对齐现有 CHAR/SCENE 与 Seedance 2.0 参数 |
+| 版本 | 日期       | 说明                                                           |
+| ---- | ---------- | -------------------------------------------------------------- |
+| v0.1 | 2026-05-19 | 草案；对齐现有 CHAR/SCENE 与 Seedance 2.0 参数                 |
 | v0.2 | 2026-05-19 | 按官方教程 2291680 修正为 content[]/contents/generations/tasks |

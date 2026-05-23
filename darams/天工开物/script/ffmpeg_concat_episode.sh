@@ -3,7 +3,7 @@
 set -euo pipefail
 EP="${1:?用法: ffmpeg_concat_episode.sh EP01}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-SEG_YAML="$ROOT/分集剧本/${EP}_segments.yaml"
+SEG_YAML="$ROOT/剧本/${EP}_segments.yaml"
 OUT_DIR="$ROOT/assets/generated/${EP}"
 OUT_MP4="$OUT_DIR/${EP}_full.mp4"
 LIST="$OUT_DIR/concat_list.txt"

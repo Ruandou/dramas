@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""从分集剧本 Markdown 导出 EP##_shots.yaml 与 assets/keyframes/EP##/manifest.yaml"""
+"""从剧本 Markdown 导出 EP##_shots.yaml 与 assets/keyframes/EP##/manifest.yaml"""
 
 from __future__ import annotations
+from storyboard_yaml import dump_yaml, load_yaml
 
 import json
 import re
@@ -12,10 +13,9 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from storyboard_yaml import dump_yaml, load_yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-EPISODE_DIR = ROOT / "分集剧本"
+EPISODE_DIR = ROOT / "剧本"
 KEYFRAMES_DIR = ROOT / "assets" / "keyframes"
 LOOKS_DIR = ROOT / "assets" / "looks"
 SCENES_DIR = ROOT / "assets" / "scenes"
@@ -72,7 +72,8 @@ def is_flashback_shot(scene_raw: str, 运镜: str, 画面: str, 景别: str = ""
     """SCENE-004 或分镜标明闪回 → 用闪回后缀（不含「无现代物品」）。"""
     if FLASHBACK_SCENE_IDS.intersection(parse_scene_ids(scene_raw)):
         return True
-    blob = "".join(strip_md(x) for x in (运镜, 画面, 景别) if x and strip_md(x) != "-")
+    blob = "".join(strip_md(x)
+                   for x in (运镜, 画面, 景别) if x and strip_md(x) != "-")
     return "闪回" in blob
 
 
@@ -204,10 +205,12 @@ def shot_to_yaml_entry(row: dict, ep_id: str) -> dict:
     if mode == "i2v_ref":
         idx = 1
         for lid in look_ids:
-            content_roles.append({"file": lid, "role": "reference_image", "label": f"图{idx}"})
+            content_roles.append(
+                {"file": lid, "role": "reference_image", "label": f"图{idx}"})
             idx += 1
         if scene_id:
-            content_roles.append({"file": scene_id, "role": "reference_image", "label": f"图{idx}"})
+            content_roles.append(
+                {"file": scene_id, "role": "reference_image", "label": f"图{idx}"})
             idx += 1
         content_roles.append({"file": "first_frame", "role": "first_frame"})
     elif mode in ("i2v", "i2v_ff"):
@@ -271,7 +274,8 @@ def build_manifest(ep_id: str, shots: list[dict]) -> dict:
 
 
 def export_episode(md_path: Path) -> None:
-    ep_id = parse_frontmatter(md_path.read_text(encoding="utf-8")).get("episode_id")
+    ep_id = parse_frontmatter(md_path.read_text(
+        encoding="utf-8")).get("episode_id")
     if not ep_id:
         ep_id = md_path.stem.split("_")[0].upper()
 
@@ -310,7 +314,8 @@ def main(argv: list[str]) -> None:
         eps = argv[1:]
     for ep in eps:
         matches = list(EPISODE_DIR.glob(f"{ep}_*.md"))
-        matches = [m for m in matches if "_shots" not in m.name and m.name != "_模板.md"]
+        matches = [
+            m for m in matches if "_shots" not in m.name and m.name != "_模板.md"]
         if not matches:
             print(f"No markdown for {ep}", file=sys.stderr)
             continue

@@ -9,6 +9,7 @@
 """
 
 from __future__ import annotations
+from storyboard_yaml import dump_yaml, load_yaml
 
 import json
 import re
@@ -19,10 +20,9 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from storyboard_yaml import dump_yaml, load_yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-EPISODE_DIR = ROOT / "分集剧本"
+EPISODE_DIR = ROOT / "剧本"
 ROLE_CARD = ROOT / "角色卡.md"
 SCENE_CARD = ROOT / "资产" / "场景卡片.md"
 KEYFRAMES_DIR = ROOT / "assets" / "keyframes"
@@ -107,7 +107,8 @@ def export_episode(ep_id: str, look_prompts: dict, scene_prompts: dict) -> set[s
             continue
         sid = shot["shot_id"]
         assets = shot.get("assets") or {}
-        rel = assets.get("first_frame", f"assets/keyframes/{ep_id}/{sid}_first.png")
+        rel = assets.get(
+            "first_frame", f"assets/keyframes/{ep_id}/{sid}_first.png")
         refs = shot.get("refs") or {}
         for lid in refs.get("look_ids") or []:
             looks_needed.add(lid)
@@ -164,7 +165,8 @@ def write_batch(path: Path, kind: str, ids: set[str], prompts: dict[str, str]) -
 
 def main(argv: list[str]) -> None:
     eps = argv[1:] if len(argv) > 1 else ["EP01", "EP02", "EP03"]
-    look_prompts = parse_codeblock_prompts(ROLE_CARD, r"CHAR-(?:GRP-\d+|\d+)-L\d+")
+    look_prompts = parse_codeblock_prompts(
+        ROLE_CARD, r"CHAR-(?:GRP-\d+|\d+)-L\d+")
     scene_prompts = parse_codeblock_prompts(SCENE_CARD, r"SCENE-\d+")
 
     all_looks: set[str] = set()
@@ -174,8 +176,10 @@ def main(argv: list[str]) -> None:
         all_looks |= looks
         all_scenes |= scenes
 
-    write_batch(LOOKS_DIR / "seedream_batch.yaml", "looks", all_looks, look_prompts)
-    write_batch(SCENES_DIR / "seedream_batch.yaml", "scenes", all_scenes, scene_prompts)
+    write_batch(LOOKS_DIR / "seedream_batch.yaml",
+                "looks", all_looks, look_prompts)
+    write_batch(SCENES_DIR / "seedream_batch.yaml",
+                "scenes", all_scenes, scene_prompts)
 
 
 if __name__ == "__main__":

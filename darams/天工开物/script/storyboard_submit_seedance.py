@@ -13,6 +13,7 @@
 """
 
 from __future__ import annotations
+from storyboard_yaml import load_yaml
 
 import argparse
 import json
@@ -28,16 +29,16 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from storyboard_yaml import load_yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-_REPO_SCRIPTS = Path(__file__).resolve().parents[3] / "mcps" / "volc-ark" / "scripts"
+_REPO_SCRIPTS = Path(__file__).resolve(
+).parents[3] / "mcps" / "volc-ark" / "scripts"
 if str(_REPO_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_REPO_SCRIPTS))
 from ark_media import resolve_image_url  # noqa: E402
 from ark_seedance_record import record_submit  # noqa: E402
 
-EPISODE_DIR = ROOT / "分集剧本"
+EPISODE_DIR = ROOT / "剧本"
 GENERATED_DIR = ROOT / "assets" / "generated"
 REQUESTS_DIR = ROOT / "configs" / "seedance_requests"
 
@@ -49,7 +50,8 @@ def load_episode_shots(ep_id: str) -> dict:
         return json.loads(json_path.read_text(encoding="utf-8"))
     if yaml_path.is_file():
         return load_yaml(yaml_path.read_text(encoding="utf-8"))
-    raise FileNotFoundError(f"缺少 {json_path} 或 {yaml_path}，请先运行 storyboard_to_seedance.py")
+    raise FileNotFoundError(
+        f"缺少 {json_path} 或 {yaml_path}，请先运行 storyboard_to_seedance.py")
 
 
 def resolve_asset_path(rel: str) -> Path:
@@ -221,12 +223,14 @@ def main(argv: list[str] | None = None) -> int:
         print(f"→ {out_path.relative_to(ROOT)}")
 
         if args.submit:
-            key = (os.environ.get("ARK_API_KEY") or os.environ.get("VOLC_ARK_API_KEY") or "").strip()
+            key = (os.environ.get("ARK_API_KEY") or os.environ.get(
+                "VOLC_ARK_API_KEY") or "").strip()
             if not key:
                 print("提交需要 ARK_API_KEY", file=sys.stderr)
                 return 1
             result = post_task(endpoint, key, body)
-            task_id = result.get("id") or result.get("task_id") or result.get("data", {}).get("id")
+            task_id = result.get("id") or result.get(
+                "task_id") or result.get("data", {}).get("id")
             print(f"  submitted {sid} task_id={task_id}")
             if task_id:
                 tasks_path = record_submit(

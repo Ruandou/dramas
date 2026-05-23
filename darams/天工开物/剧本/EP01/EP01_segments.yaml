@@ -1,7 +1,7 @@
 # duration_sec：API fast 仅 4–12
-# v1.3：全段 Seedance 对白/字卡均出画面简体底字幕（零剪映）
+# v2.0：全段 Seedance 对白/字卡均出画面简体底字幕（零剪映）；扩写43行→13 segments
 episode_id: EP01
-source_md: 分集剧本/EP01_机械之魂.md
+source_md: 剧本/EP01_机械之魂.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast-260128
@@ -22,8 +22,8 @@ voice_prompts:
 
 segments:
   - segment_id: EP01-SEG01a
-    shot_ids: [EP01-S02, EP01-S03, EP01-S04]
-    duration_sec: 10
+    shot_ids: [EP01-S02, EP01-S03]
+    duration_sec: 8
     speakers: [CHAR-001]
     refs:
       scene_id: SCENE-001
@@ -38,8 +38,7 @@ segments:
         字幕：本段无对白，不显示字幕。
         竖屏9比16连贯叙事。音效：远处电子表「滴」一声、剧烈心跳（穿越锚点，极短）。
         镜头1（4秒）特写：眼睁开，瞳孔倒映雕花木床，粗重呼吸。
-        镜头2（3秒）主观：蚊帐、纸窗由模糊到清晰。
-        镜头3（3秒）固定：手抬起宽袖僵住。
+        镜头2（4秒）主观：蚊帐、纸窗由模糊到清晰。
         环境音：晨鸟、木床吱呀。
         明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品，本段无对白无字幕，禁止其它汉字乱字
       content_roles:
@@ -47,7 +46,31 @@ segments:
         - { file: SCENE-001, role: reference_image, label: 图2 }
 
   - segment_id: EP01-SEG01b
-    shot_ids: [EP01-S05, EP01-S06]
+    shot_ids: [EP01-S04, EP01-S05]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    api:
+      text: |
+        【图1】男主【图2】卧室。
+        字幕：本段对白显示简体白字底字幕，与语音同步，字面与引号一致。
+        镜头1（5秒）固定：手抬起宽袖僵住，低头看自己。
+        对白（宋知行，成年男性，27岁，沉稳偏低，低语）：「怎么回事……头好疼……」
+        镜头2（3秒）闪回叠化：运动手表敲键盘0.5秒。flashback overlay, soft blur, cinematic vertical 9:16, no readable text
+        环境音：心跳渐弱。
+        明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品。对白或字卡时画面底部居中显示简体白字字幕与语音同步、字面与引号一致；禁止招牌匾额等其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG02a
+    shot_ids: [EP01-S06, EP01-S07]
     duration_sec: 10
     speakers: [CHAR-001]
     refs:
@@ -61,18 +84,23 @@ segments:
       text: |
         【图1】男主【图2】卧室。
         字幕：本段每句对白均在画面底部显示简体白字字幕，与语音同步，字面与引号一致。
-        镜头1（2秒）闪回叠化：运动手表敲键盘0.5秒。flashback overlay, soft blur, cinematic vertical 9:16, no readable text
-        镜头2（8秒）推近：猛然坐起，摸脸摸长发，环顾卧房。
-        对白（宋知行，成年男性，27岁，沉稳偏低，语速中等，短句干脆）：「这是……宋家？我怎睡在这儿？」
+        镜头1（4秒）推近：猛然坐起，摸脸摸长发，环顾卧房。
+        对白（宋知行，成年男性，27岁，沉稳偏低，语速中等）：「头……疼死了……这是哪儿？」
+        对白（宋知行，同上声线）：「这是……宋家？我怎睡在这儿？」
+        镜头2（6秒）跟随：跌撞下床扑到水盆边；桌上摊着借据（特写「赌债二十两」），门外传来粗暴拍门声。
+        对白（宋知行，同上声线，略急喘）：「这是……什么地方？」
+        对白（宋知行，同上声线）：「这双手……怎么这么粗糙？」
+        对白（宋知行，同上声线）：「头发……为什么这么长？」
+        环境音：水声、远处拍门。
         明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品。对白或字卡时画面底部居中显示简体白字字幕与语音同步、字面与引号一致；禁止招牌匾额等其它乱字
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: SCENE-001, role: reference_image, label: 图2 }
 
-  - segment_id: EP01-SEG02
-    shot_ids: [EP01-S07, EP01-S08, EP01-S09]
-    duration_sec: 12
-    speakers: [CHAR-001, NARR-001]
+  - segment_id: EP01-SEG02b
+    shot_ids: [EP01-S08, EP01-S27]
+    duration_sec: 10
+    speakers: [CHAR-001]
     refs:
       scene_id: SCENE-001
     assets:
@@ -83,13 +111,13 @@ segments:
     api:
       text: |
         【图1】男主【图2】卧室。
-        字幕：本段每句对白与字卡均显示简体白字底字幕，与语音同步，字面与引号一致。
-        镜头1（4秒）跟随：跌撞下床扑到水盆边。
-        对白（宋知行，成年男性，27岁，沉稳偏低，语速中等，短句干脆，略急喘）：「父债未还……他们随时会闯进来！」
-        镜头2（5秒）特写：水面倒影陌生脸，叠化现代装残影一闪。
-        对白（宋知行，同上声线）：「这……不是我……」
+        字幕：本段每句对白均在画面底部显示简体白字字幕，与语音同步，字面与引号一致。
+        镜头1（6秒）特写：水面倒影陌生脸，叠化现代装残影一闪。
+        对白（宋知行，成年男性，27岁，沉稳偏低）：「这……不是我……」
         对白（宋知行，同上声线，低声）：「我占了他的身子……」
-        镜头3（2秒）窗景字卡（S09）：旁白（NARR-001，成年男性，客观第三人称旁白，沉稳偏低，语速平稳略慢，无戏剧夸张）：「天启七年六月，苏州。」同时画面底部居中简体白字字幕，一字不差与旁白相同。远处更鼓、晨鸡。
+        对白（宋知行，同上声线）：「不……这不可能……一定是在做梦……」
+        镜头2（4秒）固定：男主摸到身上古装粗棉布料，低头打量。
+        对白（宋知行，同上声线）：「粗织棉……这是什么年代的衣服？」
         环境音：水声、急促呼吸。
         明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品。对白或字卡时画面底部居中显示简体白字字幕与语音同步、字面与引号一致；禁止招牌匾额等其它乱字
       content_roles:
@@ -97,9 +125,9 @@ segments:
         - { file: SCENE-001, role: reference_image, label: 图2 }
 
   - segment_id: EP01-SEG03
-    shot_ids: [EP01-S10]
+    shot_ids: [EP01-S09, EP01-S10]
     duration_sec: 8
-    speakers: [CHAR-009]
+    speakers: [NARR-001, CHAR-009]
     refs:
       scene_id: SCENE-003
     assets:
@@ -110,18 +138,52 @@ segments:
     api:
       text: |
         【图1】门外巷 SCENE-003。
-        字幕：画外对白同步显示简体白字底字幕，字面与引号一致。
-        固定镜头：粗暴拍门，门震动，门缝见富商剪影。
-        画外对白（曹德源，中年男性，油腻偏高，蛮横）：「宋家欠曹老板赌债二十两！今日不还——」
-        画外对白（曹德源，同上声线）：「就拿你家丫鬟抵债！」
+        字幕：本段每句对白与字卡均显示简体白字底字幕，与语音同步，字面与引号一致。
+        镜头1（2秒）窗景字卡（S09）：旁白（NARR-001，成年男性，客观第三人称旁白，沉稳偏低，语速平稳略慢，无戏剧夸张）：「天启七年六月，苏州。」同时画面底部居中简体白字字幕，一字不差与旁白相同。远处更鼓、晨鸡。
+        镜头2（6秒）固定：粗暴拍门，门震动，门缝见富商剪影。
+        画外对白（曹德源，中年男性，油腻偏高，蛮横）：「宋家的！开门！」
+        画外对白（曹德源，同上声线）：「三天了！再不开门，老子砸了！」
+        环境音：拍门震动、犬吠。
         明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品。对白或字卡时画面底部居中显示简体白字字幕与语音同步、字面与引号一致；禁止招牌匾额等其它乱字
       content_roles:
         - { file: SCENE-003, role: reference_image, label: 图1 }
 
-  - segment_id: EP01-SEG04a
-    shot_ids: [EP01-S11, EP01-S12, EP01-S13]
-    duration_sec: 12
-    speakers: [CHAR-004, CHAR-001, CHAR-GRP-01]
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S11, EP01-S28]
+    duration_sec: 10
+    speakers: [CHAR-009, CHAR-004, CHAR-GRP-01]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+        CHAR-GRP-01-L01: assets/looks/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    api:
+      text: |
+        【图1】小翠【图2】打手【图3】宋家庭院 SCENE-002。
+        字幕：本段每句对白均显示简体白字底字幕，与语音同步，字面与引号一致。
+        镜头1（3秒）固定：门外继续叫骂。
+        画外对白（曹德源，中年男性，油腻偏高，蛮横）：「宋家欠曹老板赌债二十两！今日不还——」
+        画外对白（曹德源，同上声线）：「就拿你家丫鬟抵债！」
+        镜头2（4秒）快切：门被踹开，小翠挡门被推倒。
+        对白（小翠，少女，18岁，清亮略快，带哭腔与担心）：「少爷还病着！你们不能进来！」
+        对白（小翠，同上声线，恳求）：「求求你们再宽限几日……」
+        对白（小翠，同上声线，急）：「少爷真的三天没醒了……我们一定会还！」
+        镜头3（3秒）快切：打手推门而入，小翠被推倒在地。
+        对白（小翠，同上声线）：「啊！」
+        环境音：踹门、惊呼、尘土。
+        明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品。对白或字卡时画面底部居中显示简体白字字幕与语音同步、字面与引号一致；禁止招牌匾额等其它乱字
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+
+  - segment_id: EP01-SEG05a
+    shot_ids: [EP01-S12, EP01-S13]
+    duration_sec: 8
+    speakers: [CHAR-001, CHAR-GRP-01]
     refs:
       scene_id: SCENE-002
     assets:
@@ -133,15 +195,14 @@ segments:
         SCENE-002: assets/scenes/SCENE-002.png
     api:
       text: |
-        【图1】男主【图2】小翠【图3】打手【图4】宋家庭院 SCENE-002。
+        【图1】男主【图2】小翠【图3】打手【图4】宋家庭院。
         字幕：本段每句对白（含内心独白）均显示简体白字底字幕，与语音同步，字面与引号一致。
-        镜头1（5秒）快切：门被踹开，小翠挡门被推倒。
-        对白（小翠，少女，18岁，清亮略快，带哭腔与担心）：「少爷还病着！你们不能进来！」
-        镜头2（3秒）特写：男主眼神迷茫转凌厉。
+        镜头1（4秒）特写：男主眼神迷茫转凌厉。
         对白（宋知行，成年男性，27岁，沉稳偏低，内心独白语气）：「别慌……这双手，还记得使锤。」
-        镜头3（4秒）固定：打手揪住小翠头发。
+        对白（宋知行，同上声线，内心独白）：「力臂……支点……杠杆……这身体记得。」
+        镜头2（4秒）固定：打手揪住小翠头发。
         对白（打手，壮年男性，粗哑凶狠，语速快）：「走！」
-        环境音：踹门、惊呼、尘土。
+        环境音：尘土、挣扎声。
         明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品。对白或字卡时画面底部居中显示简体白字字幕与语音同步、字面与引号一致；禁止招牌匾额等其它乱字
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
@@ -149,33 +210,40 @@ segments:
         - { file: CHAR-GRP-01-L01, role: reference_image, label: 图3 }
         - { file: SCENE-002, role: reference_image, label: 图4 }
 
-  - segment_id: EP01-SEG04b
-    shot_ids: [EP01-S14]
+  - segment_id: EP01-SEG05b
+    shot_ids: [EP01-S14, EP01-S30, EP01-S15]
     duration_sec: 10
-    speakers: [CHAR-001]
+    speakers: [CHAR-001, CHAR-GRP-01]
     refs:
       scene_id: SCENE-002
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-GRP-01-L01: assets/looks/CHAR-GRP-01-L01.png
       scene_urls:
         SCENE-002: assets/scenes/SCENE-002.png
     api:
       text: |
-        【图1】男主宋知行【图2】宋家庭院。
-        字幕：本段对白显示简体白字底字幕，与语音同步，字面与引号一致。
-        镜头1（10秒）推近：男主缓缓站起，目光凌厉，周围打手与小翠在后景。
+        【图1】男主宋知行【图2】打手【图3】宋家庭院。
+        字幕：本段每句对白显示简体白字底字幕，与语音同步，字面与引号一致。
+        镜头1（3秒）推近：男主缓缓站起，目光凌厉。
         对白（宋知行，成年男性，27岁，沉稳偏低，语速中等，短句干脆）：「放开她。」
+        镜头2（4秒）固定：打手回头嘿笑，男主冷目不动。
+        对白（打手，壮年男性，粗哑凶狠，语速快）：「哟，废物宋还站起来了？一个书呆子也想英雄救美？」
+        对白（宋知行，同上声线，冷）：「我说了，放开她。」
+        镜头3（3秒）固定：打手嗤笑近景。
+        对白（打手，同上声线）：「废物宋，你还没死啊？」
         环境音：风声、紧张寂静。
         明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品。对白或字卡时画面底部居中显示简体白字字幕与语音同步、字面与引号一致；禁止招牌匾额等其它乱字
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
 
-  - segment_id: EP01-SEG05
-    shot_ids: [EP01-S15, EP01-S16, EP01-S17, EP01-S18]
+  - segment_id: EP01-SEG06a
+    shot_ids: [EP01-S16, EP01-S17, EP01-S18]
     duration_sec: 12
-    speakers: [CHAR-GRP-01, CHAR-001]
+    speakers: [CHAR-001, CHAR-004, CHAR-GRP-01]
     refs:
       scene_id: SCENE-002
       prop_ids: [PROP-001]
@@ -191,12 +259,13 @@ segments:
         字幕：本段每句对白显示简体白字底字幕，与语音同步，字面与引号一致。
         角色分工（全段强制）：只有图1男主可碰锤、握柄、挥锤；图2打手只站立嘲讽或后退闪避，双手不得握锤、不得抄锤、不得抡锤。
         道具锁定：全程仅一把铁匠用大锤，方形锤头约等于成年人头颅大小、木柄齐腰；锤头禁止变大；锤柄刻字勿清晰可读。
-        镜头1（3秒）中景：图2打手近景冷笑。
-        对白（打手，壮年男性，粗哑凶狠，语速快）：「废物宋，你还没死啊？」
-        镜头2（3秒）摇移：图1男主目光落墙角铁锤。
+        镜头1（4秒）摇移：图1男主目光落墙角精铁大锤。
         对白（宋知行，成年男性，27岁，沉稳偏低，低声）：「爹的锤……还在。」
-        镜头3（3秒）跟拍：图1男主独自抄起同一把锤（图2打手不伸手）。
-        镜头4（3秒）慢动作：图1挥锤擦过图2头皮砸门框；图2抱头蹲躲。
+        对白（宋知行，同上声线，低声）：「爹……借我用一次。」
+        镜头2（4秒）快切：图1男主独自抄锤，棒球握法抡起。
+        对白（小翠，少女，18岁，清亮略快，画外）：「少爷！小心！」
+        镜头3（4秒）慢动作：图1挥锤擦过图2头皮砸门框；木屑纷飞，图2抱头蹲躲。
+        对白（打手，壮年男性，粗哑凶狠）：「他真敢——」
         环境音：木裂、惊呼。
         明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品。对白或字卡时画面底部居中显示简体白字字幕与语音同步、字面与引号一致；禁止招牌匾额等其它乱字
       content_roles:
@@ -204,7 +273,7 @@ segments:
         - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
         - { file: SCENE-002, role: reference_image, label: 图3 }
 
-  - segment_id: EP01-SEG06a
+  - segment_id: EP01-SEG06b
     shot_ids: [EP01-S19, EP01-S20]
     duration_sec: 10
     speakers: [CHAR-GRP-01, CHAR-001]
@@ -220,17 +289,20 @@ segments:
       text: |
         【图1】男主【图2】打手【图3】院落。
         字幕：本段每句对白显示简体白字底字幕，与语音同步，字面与引号一致。
-        镜头1（3秒）打手瘫软后退。
+        镜头1（3秒）固定：打手瘫软后退。
         对白（打手，壮年男性，粗哑凶狠，语速快）：「你……你疯了！」
-        镜头2（7秒）男主近景冰冷注视。
-        对白（宋知行，成年男性，27岁，沉稳偏低，语速中等，短句干脆）：「三日后，我亲自登门还债。再有人踏入宋家一步——」
+        对白（打手，同上声线）：「兄弟们，退！退！」
+        镜头2（7秒）固定：男主近景冰冷注视。
+        对白（宋知行，成年男性，27岁，沉稳偏低，语速中等，短句干脆）：「听好了。」
+        对白（宋知行，同上声线）：「三日后，我亲自登门还债。」
+        对白（宋知行，同上声线）：「再有人踏入宋家一步——」
         明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品。对白或字卡时画面底部居中显示简体白字字幕与语音同步、字面与引号一致；禁止招牌匾额等其它乱字
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
         - { file: SCENE-002, role: reference_image, label: 图3 }
 
-  - segment_id: EP01-SEG06b
+  - segment_id: EP01-SEG07a
     shot_ids: [EP01-S21, EP01-S22]
     duration_sec: 8
     speakers: [CHAR-001]
@@ -246,41 +318,65 @@ segments:
         【图1】男主【图2】院落。
         字幕：本段对白显示简体白字底字幕，与语音同步，字面与引号一致。
         镜头1（3秒）特写：大锤砸地，青砖碎裂。
-        镜头2（5秒）收锤，男主凛然。
+        镜头2（5秒）固定：收锤，男主凛然。
         对白（宋知行，成年男性，27岁，沉稳偏低，语速中等，短句干脆）：「——犹如此砖。」
+        对白（宋知行，同上声线）：「滚。」
         环境音：锤击回响、尘土。
         明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品。对白或字卡时画面底部居中显示简体白字字幕与语音同步、字面与引号一致；禁止招牌匾额等其它乱字
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: SCENE-002, role: reference_image, label: 图2 }
 
-  - segment_id: EP01-SEG07
-    shot_ids: [EP01-S23, EP01-S24, EP01-S25, EP01-S26]
-    duration_sec: 12
-    speakers: [CHAR-004, CHAR-001, NARR-001]
+  - segment_id: EP01-SEG07b
+    shot_ids: [EP01-S23, EP01-S24]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-001]
     refs:
       scene_id: SCENE-002
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
         CHAR-004-L01: assets/looks/CHAR-004-L01.png
-        CHAR-GRP-01-L01: assets/looks/CHAR-GRP-01-L01.png
       scene_urls:
         SCENE-002: assets/scenes/SCENE-002.png
     api:
       text: |
-        【图1】小翠【图2】男主【图3】打手【图4】院落。
-        字幕：本段每句对白与字卡均显示简体白字底字幕，与语音同步，字面与引号一致。
+        【图1】小翠【图2】男主【图3】院落。
+        字幕：本段每句对白均显示简体白字底字幕，与语音同步，字面与引号一致。
         镜头1（5秒）拉远：打手逃走，小翠含泪看男主。
         对白（小翠，少女，18岁，清亮略快，带哭腔与担心）：「少爷，曹家的人还会来的……」
+        对白（小翠，同上声线）：「少爷你刚才……好吓人……」
         对白（宋知行，成年男性，27岁，沉稳偏低，语速中等，短句干脆）：「三日。够了。」
-        镜头2（4秒）特写：男主低头看手微颤。
+        对白（宋知行，同上声线）：「放心。三日后，他们不敢再来。」
+        镜头2（5秒）特写：男主低头看手微颤。
         对白（宋知行，同上声线）：「这具身体的肌肉记忆……还在。」
-        镜头3（3秒）快切蒙太奇：传动草图模糊、数字不可清晰辨认。
-        镜头4（字卡 S26）：旁白（NARR-001，成年男性，客观第三人称旁白，沉稳偏低，语速平稳略慢，无戏剧夸张）：「三日后，他真的能还债吗？」同时画面底部居中简体白字字幕，一字不差与旁白相同。
+        对白（宋知行，同上声线）：「打铁……传动……齿轮……够了。三天够做一台机器。」
         明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品。对白或字卡时画面底部居中显示简体白字字幕与语音同步、字面与引号一致；禁止招牌匾额等其它乱字
       content_roles:
         - { file: CHAR-004-L01, role: reference_image, label: 图1 }
         - { file: CHAR-001-L01, role: reference_image, label: 图2 }
-        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图3 }
-        - { file: SCENE-002, role: reference_image, label: 图4 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+
+  - segment_id: EP01-SEG08
+    shot_ids: [EP01-S25, EP01-S29, EP01-S26]
+    duration_sec: 10
+    speakers: [CHAR-001, NARR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    api:
+      text: |
+        【图1】男主【图2】院落。
+        字幕：本段每句对白与字卡均显示简体白字底字幕，与语音同步，字面与引号一致。
+        镜头1（3秒）快切蒙太奇：传动草图模糊、数字不可清晰辨认。
+        镜头2（4秒）特写：男主目光落在院角旧纺车上，若有所思。
+        对白（宋知行，成年男性，27岁，沉稳偏低，语速中等）：「纺车……八锭同纺……有意思。」
+        镜头3（3秒）字卡：旁白（NARR-001，成年男性，客观第三人称旁白，沉稳偏低，语速平稳略慢，无戏剧夸张）：「三日后，他真的能还债吗？」同时画面底部居中简体白字字幕，一字不差与旁白相同。
+        明代苏州，天启年间，古风写实，电影感竖屏9比16，无现代物品。对白或字卡时画面底部居中显示简体白字字幕与语音同步、字面与引号一致；禁止招牌匾额等其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
