@@ -78,7 +78,30 @@ python3 script/storyboard_to_seedance.py EP01
 
 # 校验时代一致性
 python3 script/validate_era.py EP01
+
+# 整集字幕（听写 → 校对 → 烧录）
+HF_ENDPOINT=https://hf-mirror.com python3 script/gen_audio_srt.py assets/generated/EP01/EP01_full.mp4 -o assets/generated/EP01/EP01_audio.srt
+python3 script/review_audio_srt.py assets/generated/EP01/EP01_audio.srt
+python3 script/burn_subs_pillow.py assets/generated/EP01/EP01_full.mp4 assets/generated/EP01/EP01_audio.srt -o assets/generated/EP01/EP01_subtitled.mp4
 ```
+
+---
+
+## 整集字幕
+
+**必须听写成片音频**，禁止用 `segments.yaml` 对白按时长比例分配。
+
+| 步骤 | 脚本 | 输出 |
+|------|------|------|
+| 1 听写 | `script/gen_audio_srt.py` | `EP##_audio.srt` |
+| 2 校对 | `script/review_audio_srt.py` | 同文件 in-place（修同音错字） |
+| 3 烧录 | `script/burn_subs_pillow.py` | `EP##_subtitled.mp4` |
+
+- **样式**：白字 + 黑描边、底部居中、**无黑底条**（对齐 EP04）
+- **镜像**：`HF_ENDPOINT=https://hf-mirror.com`（Whisper 模型下载）
+- **纠错**：改 `EP##_audio.srt` 后只重跑第 3 步；Agent 听写后须自动跑 `review_audio_srt.py`
+
+Cursor 规则：仓库根 `.cursor/rules/chao-xiong-subtitles.mdc`
 
 ---
 
@@ -131,6 +154,9 @@ darams/超雄重生1995/
 │   └── scenes/
 └── script/
     ├── storyboard_to_seedance.py
+    ├── gen_audio_srt.py       ← Whisper 听写 SRT
+    ├── review_audio_srt.py    ← 听写后校对同音错字
+    ├── burn_subs_pillow.py    ← Pillow 硬字幕（EP04 样式）
     ├── ffmpeg_concat_episode.sh
     ├── pull_episode.sh
     └── validate_era.py

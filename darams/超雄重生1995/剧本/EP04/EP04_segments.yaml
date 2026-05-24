@@ -1,6 +1,7 @@
 # EP04 segments — 13 segments, all 4-12 seconds (Seedance 2.0 fast hard limit)
 # image_strategy: tos_first — TOS URLs are permanent; base64 fallback limited to ≤3 images/segment
-# CHAR-016-L01: 待生成 (NOT included in content_roles until TOS URL available)
+# CHAR-016-L01 / CHAR-019-L01: 疑犯双人组定妆 — 见 资产/EP03-EP04_疑犯双人组.md
+# 有疑犯出镜的段落 content_roles 必须挂 016+019（+017 如有周小梅）
 # Content safety: knife/fight scenes use third-person procedural framing
 episode_id: EP04
 episode_title: 拦截
@@ -26,7 +27,8 @@ voice_prompts:
   CHAR-001: "成年男性，25岁，沉稳偏低，内心独白语气为主，短句干脆"
   CHAR-014: "中年男性，50岁，沉稳厚重，老大哥语气，略显谨慎"
   CHAR-015: "中年男性，45岁，官腔，假笑，阴阳怪气"
-  CHAR-016: "中年男性，40岁，油滑市井，面带假笑，声音中气十足"
+  CHAR-016: "中年男性，38岁，湖南口音，油滑市井，花衬衫，面带假笑"
+  CHAR-019: "中年男性，32岁，高壮少言，皮夹克，警觉望风"
   CHAR-017: "年轻女性，20岁，惊恐无助，哭泣状，声音颤抖短促"
   CHAR-GRP-02: "混合群演：中年男性，中年女性旅客，老年男性"
 
@@ -82,8 +84,8 @@ segments:
     shot_ids: [EP04-S03, EP04-S04]
     duration_sec: 8
     scene_primary: SCENE-006
-    characters: [CHAR-001, CHAR-017]
-    looks: [CHAR-001-L01, CHAR-017-L01]
+    characters: [CHAR-001, CHAR-017, CHAR-016, CHAR-019]
+    looks: [CHAR-001-L01, CHAR-017-L01, CHAR-016-L01, CHAR-019-L01]
     generate_audio: true
     voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, alert"
     refs:
@@ -92,6 +94,8 @@ segments:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
         CHAR-017-L01: assets/looks/CHAR-017-L01.png
+        CHAR-016-L01: assets/looks/CHAR-016-L01.png
+        CHAR-019-L01: assets/looks/CHAR-019-L01.png
       scene_urls:
         SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
@@ -104,7 +108,7 @@ segments:
       - {
           speaker: CHAR-001,
           emotion: 内心,
-          text: "旁边两个男的，三十来岁，一个花衬衫一个皮夹克。眼神不对——一直在扫四周。",
+          text: "旁边两个男的，三十来岁，花衬衫李大勇和皮夹克同伙。眼神不对——一直在扫四周。",
         }
       - {
           speaker: CHAR-001,
@@ -113,25 +117,27 @@ segments:
         }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】周小梅 CHAR-017-L01【图3】长途客运站 SCENE-006。
+        【图1】陆峥 CHAR-001-L01【图2】周小梅 CHAR-017-L01【图3】李大勇 CHAR-016-L01【图4】皮夹克同伙 CHAR-019-L01【图5】长途客运站 SCENE-006。
         竖屏9比16连贯叙事。
-        镜头1（4秒）主观视角推近：候车大厅内人群嘈杂；陆峥视线穿过旅客锁定西侧角落——年轻女孩坐长椅攥蛇皮袋，旁边两名男子警觉扫视。
+        镜头1（4秒）主观视角推近：候车大厅内人群嘈杂；陆峥视线穿过旅客锁定西侧角落——年轻女孩坐长椅攥蛇皮袋，花衬衫瘦男与皮夹克壮汉警觉扫视。
         镜头2（4秒）近景固定：陆峥微微侧身贴墙柱观察；眼神专注瞳孔收缩。
         对白（陆峥，25岁，内心独白）：「找到了。周小梅——瘦小，马尾辫，蛇皮袋。」
-        对白（陆峥，同上）：「旁边两个男的，眼神不对。不能硬冲，先靠近。」
+        对白（陆峥，同上）：「李大勇和皮夹克同伙，眼神不对。不能硬冲，先靠近。」
         1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: CHAR-017-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-006, role: reference_image, label: 图3 }
+        - { file: CHAR-016-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-019-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-006, role: reference_image, label: 图5 }
 
   - segment_id: EP04-SEG03
     title: 穿越人群·接近
     shot_ids: [EP04-S05, EP04-S06]
     duration_sec: 8
     scene_primary: SCENE-006
-    characters: [CHAR-001, CHAR-GRP-02]
-    looks: [CHAR-001-L01, CHAR-GRP-02-L01]
+    characters: [CHAR-001, CHAR-016, CHAR-019]
+    looks: [CHAR-001-L01, CHAR-016-L01, CHAR-019-L01]
     generate_audio: true
     voice_prompt: "Male, 25 years old, deep calm tone, tactical narration"
     refs:
@@ -139,7 +145,8 @@ segments:
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
-        CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png
+        CHAR-016-L01: assets/looks/CHAR-016-L01.png
+        CHAR-019-L01: assets/looks/CHAR-019-L01.png
       scene_urls:
         SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
@@ -151,7 +158,7 @@ segments:
       - {
           speaker: CHAR-001,
           emotion: 内心,
-          text: "花衬衫那个体型偏瘦，左手插口袋——可能有东西。皮夹克壮一些，站外侧望风。",
+          text: "花衬衫李大勇体型偏瘦，左手插口袋——可能有东西。皮夹克同伙壮一些，站外侧望风。",
         }
       - {
           speaker: CHAR-001,
@@ -161,33 +168,36 @@ segments:
       - { speaker: CHAR-001, emotion: 内心, text: "十步。" }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】群演旅客 CHAR-GRP-02-L01【图3】长途客运站 SCENE-006。
+        【图1】陆峥 CHAR-001-L01【图2】李大勇 CHAR-016-L01【图3】皮夹克同伙 CHAR-019-L01【图4】长途客运站 SCENE-006。
         竖屏9比16连贯叙事。
         镜头1（4秒）中景跟随：陆峥低头穿过候车旅客，手提行李箱的大妈、扛蛇皮袋的民工从身边经过；他右手微微握拳。
-        镜头2（4秒）近景推近：陆峥视角前方——花衬衫男左手插口袋侧身站着；周小梅低头不安地搓手。
-        对白（陆峥，25岁，内心独白）：「从右侧绕。花衬衫左手口袋里可能有东西。」
+        镜头2（4秒）近景推近：陆峥视角前方——李大勇花衬衫左手插口袋侧身站着；周小梅低头不安地搓手；皮夹克同伙在外侧望风。
+        对白（陆峥，25岁，内心独白）：「从右侧绕。李大勇左手口袋里可能有东西。」
         对白（陆峥，同上）：「格斗技能——今天第一次实战。十步。」
         1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-006, role: reference_image, label: 图3 }
+        - { file: CHAR-016-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-019-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
 
   - segment_id: EP04-SEG04
     title: 亮明身份·亮刃
     shot_ids: [EP04-S07, EP04-S08, EP04-S09]
     duration_sec: 10
     scene_primary: SCENE-006
-    characters: [CHAR-001, CHAR-017, CHAR-016] # CHAR-016-L01: 待生成
-    looks: [CHAR-001-L01, CHAR-017-L01]
+    characters: [CHAR-001, CHAR-017, CHAR-016, CHAR-019]
+    looks: [CHAR-001-L01, CHAR-017-L01, CHAR-016-L01, CHAR-019-L01]
     generate_audio: true
-    voice_prompt: "Multiple: male 25yo commanding; male 35yo panicked aggressive"
+    voice_prompt: "Multiple: male 25yo commanding; male 38yo panicked oily; male 32yo alert"
     refs:
       scene_id: SCENE-006
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
         CHAR-017-L01: assets/looks/CHAR-017-L01.png
+        CHAR-016-L01: assets/looks/CHAR-016-L01.png
+        CHAR-019-L01: assets/looks/CHAR-019-L01.png
       scene_urls:
         SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
@@ -210,28 +220,29 @@ segments:
         }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】周小梅 CHAR-017-L01【图3】长途客运站 SCENE-006。
+        【图1】陆峥 CHAR-001-L01【图2】周小梅 CHAR-017-L01【图3】李大勇 CHAR-016-L01【图4】皮夹克同伙 CHAR-019-L01【图5】长途客运站 SCENE-006。
         竖屏9比16连贯叙事。
-        镜头1（4秒）中景固定：陆峥从人群中走出亮出警官证，声音洪亮；花衬衫男和皮夹克男瞬间僵住。
-        镜头2（3秒）近景固定：花衬衫男堆笑狡辩双手比划；周小梅缩在长椅上惊恐瞪大眼睛。
-        镜头3（3秒）特写：花衬衫男右手缓缓从口袋中抽出——金属反光一闪；陆峥目光骤冷。
+        镜头1（4秒）中景固定：陆峥从人群中走出亮出警官证，声音洪亮；李大勇和皮夹克同伙瞬间僵住。
+        镜头2（3秒）近景固定：李大勇堆笑狡辩双手比划；周小梅缩在长椅上惊恐瞪大眼睛。
+        镜头3（3秒）特写：李大勇右手缓缓从口袋中抽出——金属反光一闪；陆峥目光骤冷。
         对白（陆峥，25岁，命令语气）：「城南派出所！都别动！」
-        对白（嫌疑人，35岁，狡辩）：「警察同志搞错了吧？我们是她亲戚。」
+        对白（李大勇 CHAR-016，38岁，狡辩）：「警察同志搞错了吧？我们是她亲戚。」
         对白（陆峥，冷）：「亲戚？她户籍我查过了。没有你这号人。」
         1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
-      # CHAR-016-L01: 待生成，暂不加入content_roles
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: CHAR-017-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-006, role: reference_image, label: 图3 }
+        - { file: CHAR-016-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-019-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-006, role: reference_image, label: 图5 }
 
   - segment_id: EP04-SEG05
     title: 格斗·制服
     shot_ids: [EP04-S10, EP04-S11, EP04-S12]
     duration_sec: 10
     scene_primary: SCENE-006
-    characters: [CHAR-001]
-    looks: [CHAR-001-L01]
+    characters: [CHAR-001, CHAR-016]
+    looks: [CHAR-001-L01, CHAR-016-L01]
     generate_audio: true
     voice_prompt: "Male, 25 years old, deep commanding tone, action decisive"
     refs:
@@ -239,6 +250,7 @@ segments:
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-016-L01: assets/looks/CHAR-016-L01.png
       scene_urls:
         SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
@@ -256,26 +268,27 @@ segments:
       - { speaker: CHAR-001, emotion: 内心, text: "制住了。但另一个——" }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】长途客运站 SCENE-006。
+        【图1】陆峥 CHAR-001-L01【图2】李大勇 CHAR-016-L01【图3】长途客运站 SCENE-006。
         竖屏9比16连贯叙事。
-        镜头1（4秒）中景侧面：值班民警陆峥侧身格挡，用标准擒拿动作控制花衬衫男手腕，金属物脱手落地。
-        镜头2（3秒）近景俯拍：陆峥将嫌疑人按压在地面，膝盖顶住后背，双手反扣手腕。
-        镜头3（3秒）中景：陆峥单膝跪压制住嫌疑人，抬头急扫四周寻找另一人。
+        镜头1（4秒）中景侧面：值班民警陆峥侧身格挡，用标准擒拿动作控制李大勇花衬衫手腕，金属物脱手落地。
+        镜头2（3秒）近景俯拍：陆峥将李大勇按压在地面，膝盖顶住后背，双手反扣手腕。
+        镜头3（3秒）中景：陆峥单膝跪压制住李大勇，抬头急扫四周寻找皮夹克同伙。
         对白（陆峥，25岁，内心独白）：「侧闪，擒腕，下压——系统给的肌肉本能，管用。」
         对白（陆峥，命令）：「别动！双手背后！」
-        对白（陆峥，内心）：「制住了。但另一个——」
+        对白（陆峥，内心）：「制住了李大勇。但皮夹克同伙——」
         1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: SCENE-006, role: reference_image, label: 图2 }
+        - { file: CHAR-016-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
 
   - segment_id: EP04-SEG06
     title: 同伙逃跑
     shot_ids: [EP04-S13, EP04-S14]
     duration_sec: 8
     scene_primary: SCENE-006
-    characters: [CHAR-001, CHAR-GRP-02]
-    looks: [CHAR-001-L01, CHAR-GRP-02-L01]
+    characters: [CHAR-001, CHAR-016, CHAR-019]
+    looks: [CHAR-001-L01, CHAR-016-L01, CHAR-019-L01]
     generate_audio: true
     voice_prompt: "Male, 25 years old, frustrated calm, crowd panic"
     refs:
@@ -283,14 +296,15 @@ segments:
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
-        CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png
+        CHAR-016-L01: assets/looks/CHAR-016-L01.png
+        CHAR-019-L01: assets/looks/CHAR-019-L01.png
       scene_urls:
         SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
       - {
           speaker: CHAR-001,
           emotion: 内心,
-          text: "皮夹克跑了——往北门方向，钻进了人群。",
+          text: "皮夹克同伙跑了——往北门方向，钻进了人群。",
         }
       - {
           speaker: CHAR-001,
@@ -305,17 +319,18 @@ segments:
       - { speaker: CHAR-001, emotion: 内心, text: "先把眼前的事处理完。" }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】群演旅客 CHAR-GRP-02-L01【图3】长途客运站 SCENE-006。
+        【图1】陆峥 CHAR-001-L01【图2】李大勇 CHAR-016-L01【图3】皮夹克同伙 CHAR-019-L01【图4】长途客运站 SCENE-006。
         竖屏9比16连贯叙事。
-        镜头1（4秒）中景跟随：皮夹克男推开旅客夺路而逃，撞翻一个编织袋；周围旅客惊叫躲避。
-        镜头2（4秒）近景固定：陆峥单膝压住地上嫌疑人，抬头望向北门方向人群；表情冷静但眼底有不甘。
-        对白（陆峥，25岁，内心独白）：「跑了……追不了，手下这个不能松。」
+        镜头1（4秒）中景跟随：皮夹克同伙推开旅客夺路而逃，撞翻一个编织袋；周围旅客惊叫躲避。
+        镜头2（4秒）近景固定：陆峥单膝压住李大勇，抬头望向北门方向人群；表情冷静但眼底有不甘。
+        对白（陆峥，25岁，内心独白）：「皮夹克同伙跑了……追不了，手下李大勇不能松。」
         对白（陆峥，同上）：「没关系。记住他的脸了。先处理眼前的。」
         1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-006, role: reference_image, label: 图3 }
+        - { file: CHAR-016-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-019-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
 
   - segment_id: EP04-SEG07
     title: 周小梅哭诉
@@ -386,8 +401,8 @@ segments:
     shot_ids: [EP04-S18, EP04-S19]
     duration_sec: 8
     scene_primary: SCENE-006
-    characters: [CHAR-001]
-    looks: [CHAR-001-L01]
+    characters: [CHAR-001, CHAR-016]
+    looks: [CHAR-001-L01, CHAR-016-L01]
     generate_audio: true
     voice_prompt: "Male, 25 years old, deep analytical tone, internal monologue"
     refs:
@@ -395,6 +410,7 @@ segments:
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-016-L01: assets/looks/CHAR-016-L01.png
       scene_urls:
         SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
@@ -430,24 +446,25 @@ segments:
         }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】长途客运站 SCENE-006。
+        【图1】陆峥 CHAR-001-L01【图2】李大勇 CHAR-016-L01【图3】长途客运站 SCENE-006。
         竖屏9比16连贯叙事。
         镜头1（4秒）特写：陆峥面部半侧光，眼神深邃向远处凝视；背景虚化候车厅嘈杂人影。
-        镜头2（4秒）近景固定：陆峥低头看押在地上的嫌疑人，目光如刀；嘴角微抿。
+        镜头2（4秒）近景固定：陆峥低头看被押在地上的李大勇，目光如刀；嘴角微抿。
         对白（陆峥，25岁，内心独白）：「招工诈骗系列案——一九九三年到现在，同一个网络。」
         对白（陆峥，同上）：「今天拦下了人。但链条还在转。必须从这个人嘴里撬出上家。」
         1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。本段无对白无语音，禁止画面中出现任何文字
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: SCENE-006, role: reference_image, label: 图2 }
+        - { file: CHAR-016-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
 
   - segment_id: EP04-SEG09
     title: 押送归所
     shot_ids: [EP04-S20, EP04-S21]
     duration_sec: 8
     scene_primary: SCENE-019
-    characters: [CHAR-001, CHAR-GRP-02]
-    looks: [CHAR-001-L01, CHAR-GRP-02-L01]
+    characters: [CHAR-001, CHAR-016, CHAR-017]
+    looks: [CHAR-001-L01, CHAR-016-L01, CHAR-017-L01]
     generate_audio: true
     voice_prompt: "Male, 25 years old, calm procedural"
     refs:
@@ -455,7 +472,8 @@ segments:
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
-        CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png
+        CHAR-016-L01: assets/looks/CHAR-016-L01.png
+        CHAR-017-L01: assets/looks/CHAR-017-L01.png
       scene_urls:
         SCENE-019: assets/scenes/SCENE-019.png
     dialogue_lines:
@@ -476,17 +494,18 @@ segments:
         }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】群演 CHAR-GRP-02-L01【图3】城市街道 SCENE-019。
+        【图1】陆峥 CHAR-001-L01【图2】李大勇 CHAR-016-L01【图3】周小梅 CHAR-017-L01【图4】城市街道 SCENE-019。
         竖屏9比16连贯叙事。
-        镜头1（4秒）全景跟随：1995年午后街道，桑塔纳停路边；陆峥押着戴手铐嫌疑人走向路边三轮摩托；周小梅低头跟在身后。
-        镜头2（4秒）中景：陆峥将嫌疑人推上三轮后座；路边围观群众议论纷纷。
+        镜头1（4秒）全景跟随：1995年午后街道，桑塔纳停路边；陆峥押着戴手铐的李大勇走向路边三轮摩托；周小梅低头跟在身后。
+        镜头2（4秒）中景：陆峥将李大勇推上三轮后座；路边围观群众议论纷纷。
         对白（陆峥，25岁，内心独白）：「押人回去走流程。周小梅还在发抖——但至少她活着回来了。」
         对白（陆峥，同上）：「上辈子这时候她已经在南下的火车上了。这辈子不一样。」
         1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-019, role: reference_image, label: 图3 }
+        - { file: CHAR-016-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-017-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-019, role: reference_image, label: 图4 }
 
   - segment_id: EP04-SEG10
     title: 所长认可
