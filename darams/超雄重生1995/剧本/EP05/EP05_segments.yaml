@@ -1,0 +1,517 @@
+# EP05 segments — 13 segments, all 4-12 seconds (Seedance 2.0 fast hard limit)
+# image_strategy: tos_first — TOS URLs are permanent; base64 fallback limited to ≤3 images/segment
+# Episode arc: system upgrade → Memory Palace → cold case review → pattern recognition → cliffhanger
+episode_id: EP05
+episode_title: 系统升级
+source_md: 剧本/EP05/EP05_系统升级.md
+image_strategy: tos_first
+image_cdn_registry:
+  looks: assets/looks/cdn_urls.json
+  scenes: assets/scenes/cdn_urls.json
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128
+  ratio: "9:16"
+  resolution: 720p
+  duration_sec: "4-12"
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字"
+  prompt_suffix_silent: "本段无对白无字幕，禁止其它汉字乱字"
+  negative_prompt: "smartphone, flat screen TV, LED lights, modern car, laptop, tablet, QR code, delivery box, power bank, glass curtain wall, subway station, LED billboard, Nike logo, Adidas logo, wireless earbuds, ring light, bubble tea cup, modern minimalist interior, neon RGB lighting"
+
+voice_prompts:
+  CHAR-001: "成年男性，25岁，沉稳偏低，内心独白语气为主，短句干脆"
+  CHAR-014: "中年男性，50岁，沉稳厚重，老大哥语气，略显谨慎"
+  CHAR-015: "中年男性，45岁，官腔，假笑，阴阳怪气"
+
+segments:
+  - segment_id: EP05-SEG01
+    title: 案件总结·所内汇报
+    shot_ids: [EP05-S01, EP05-S02, EP05-S03]
+    duration_sec: 12
+    scene_primary: SCENE-001
+    characters: [CHAR-001, CHAR-014]
+    looks: [CHAR-001-L01, CHAR-014-L01]
+    generate_audio: true
+    voice_prompt: "Two speakers: male 25yo deep calm factual; male 50yo warm approving"
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-014-L01: assets/looks/CHAR-014-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 汇报, text: "所长，昨天的案子已经移交刑侦科了。嫌疑人供述完整，物证链闭合。" }
+      - { speaker: CHAR-014, emotion: 满意, text: "好。干得漂亮。你来所里才多久？比老同志还利索。" }
+      - { speaker: CHAR-001, emotion: 谦虚, text: "运气好，赶上了。" }
+      - { speaker: CHAR-014, emotion: 拍肩, text: "什么运气，是本事。好好干，小陆。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "案子结了。但我心里清楚——这只是开始。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这座城市的水比我上辈子知道的还深。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】所长老郑 CHAR-014-L01【图3】派出所办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：清晨办公室，陆峥站老郑桌前汇报；铁柜旋转电话红色标语「严厉打击刑事犯罪」；老郑靠椅背点头。
+        镜头2（4秒）近景固定：老郑站起拍陆峥肩膀，表情欣慰。
+        镜头3（3秒）近景：陆峥微笑点头，目光平静深沉。
+        对白（陆峥，25岁，汇报）：「所长，昨天的案子已经移交刑侦科了。」
+        对白（老郑，50岁，满意）：「干得漂亮。比老同志还利索。」
+        对白（陆峥，内心独白）：「案子结了。但这只是开始。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-014-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  - segment_id: EP05-SEG02
+    title: 系统升级·记忆宫殿解锁
+    shot_ids: [EP05-S04, EP05-S05]
+    duration_sec: 10
+    scene_primary: SCENE-002
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, surprised then awed"
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心惊讶, text: "又来了——那种感觉。比上次强烈十倍。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "不是疼。是……打开。像脑子里有扇锁了很久的门，忽然被推开了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "上次给了格斗本能。这次……是什么？" }
+      - { speaker: CHAR-001, emotion: 内心, text: "「记忆宫殿」——我能看见了。所有读过的卷宗、案例、侦查手册……像存档一样，随时调取。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "系统在升级我。每破一个案子，它就给我新的能力。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】陆峥宿舍 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景固定：夜晚宿舍，陆峥坐床沿忽然身体一僵，双手扶住太阳穴，表情从痛苦转为惊异；台灯光摇晃，搪瓷杯水面微颤。
+        镜头2（5秒）特写推近：陆峥缓缓睁眼，瞳孔中倒映台灯光点，眼神从迷茫变为清澈锐利；嘴角微动如看见了什么。
+        对白（陆峥，25岁，内心独白惊讶）：「又来了。比上次强烈十倍。脑子里有扇门被推开了。」
+        对白（陆峥，同上渐悟）：「记忆宫殿——所有读过的卷宗、案例……像存档一样随时调取。」
+        对白（陆峥，同上）：「系统在升级我。每破一个案子，就给新的能力。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+
+  - segment_id: EP05-SEG03
+    title: 记忆宫殿·能力展示
+    shot_ids: [EP05-S06, EP05-S07]
+    duration_sec: 10
+    scene_primary: SCENE-002
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep tone, internal monologue, methodical analytical"
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "试试看——一九九五年，本市刑事案件统计……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "清晰。像翻书一样。每一页都在眼前。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "盗窃、抢劫、伤害……这些不是我要找的。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "失踪。我要找的是失踪案。上辈子在档案室翻过——有几起一直没破。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "现在不用去档案室了。闭上眼就能看到那些卷宗封面。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "整理一下。把今年所有未破失踪案，按时间线排出来。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】陆峥宿舍 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：陆峥闭眼坐书桌前，手指无意识在桌面比划，像翻阅看不见的书页；台灯光稳定，面部表情专注平静。
+        镜头2（5秒）近景推近：陆峥睁眼，拿起笔在笔记本上快速书写列表，字迹工整有序；眼神清亮如一切了然于胸。
+        对白（陆峥，25岁，内心独白）：「试试——一九九五年本市刑事案件统计……清晰。像翻书一样。」
+        对白（陆峥，同上）：「失踪案。上辈子翻过几起一直没破。现在不用去档案室了。」
+        对白（陆峥，同上）：「整理一下。所有未破失踪案按时间线排出来。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+
+  - segment_id: EP05-SEG04
+    title: 档案室·积案整理
+    shot_ids: [EP05-S08, EP05-S09]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, methodical investigative"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "档案室。白炽灯嗡嗡响，铁皮柜子一排排，灰尘味。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "记忆宫殿告诉我大概位置——但实物卷宗还是得亲手翻。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九五年，未结案……第三排，第二层。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "找到了。比我想象的多——厚厚一摞。但我只要失踪类的。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "抽出来。一份、两份、三份……五份失踪案，全是年轻女性。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）全景固定：档案室长廊，两侧铁皮文件柜顶天立地，白炽灯泡吊顶泛黄光，陆峥推门而入脚步声回荡；地面水泥灰尘微扬。
+        镜头2（5秒）中景固定：陆峥拉开柜门翻找，手指划过发黄卷宗边缘，抽出几份牛皮纸袋案卷放桌上；桌上搪瓷茶缸油印表格。
+        对白（陆峥，25岁，内心独白）：「档案室。记忆宫殿告诉我位置——第三排第二层。」
+        对白（陆峥，同上）：「一九九五年未结失踪案。五份，全是年轻女性。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP05-SEG05
+    title: 第一起失踪案
+    shot_ids: [EP05-S10, EP05-S11]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep tone, internal monologue, analytical notation"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "第一份。三月份。李秀兰，二十二岁，市第二印染厂工人。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "失踪前被人介绍去「南方电子厂打工」。报案人是母亲。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "结论：自愿外出务工，未归。案件搁置。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "「南方电子厂」……跟周小梅那个案子一模一样的说辞。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "同样是工厂年轻女工。同样是高薪诱骗。同样是「自愿出走」的结论。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景固定：陆峥在木桌前打开第一份牛皮纸袋卷宗，翻开泛黄纸页，手指停在某行文字上；白炽灯下尘埃飘浮。
+        镜头2（5秒）特写推近：卷宗纸面模糊可见钢笔字迹，陆峥用圆珠笔在笔记本上记录要点，眉头微锁。
+        对白（陆峥，25岁，内心独白）：「第一份。三月。李秀兰，二十二岁，印染厂。」
+        对白（陆峥，同上）：「失踪前被介绍去南方电子厂打工。结论：自愿外出，案件搁置。」
+        对白（陆峥，同上）：「跟周小梅一模一样的说辞。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP05-SEG06
+    title: 第二起失踪案
+    shot_ids: [EP05-S12, EP05-S13]
+    duration_sec: 8
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep tone, internal monologue, pattern recognition"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "第二份。六月份。赵小芳，十九岁，市纺织机械厂临时工。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "同样的套路——有人介绍高薪工作，之后人就消失了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "报案人是工友。结论还是四个字：自愿出走。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "两起了。都是国营厂年轻女工，都是「南方高薪」的饵。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "间隔三个月。时间规律。像是同一伙人在按节奏作案。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）中景固定：陆峥翻开第二份卷宗，快速扫读，左手按住纸角防止卷翘；桌面已摊开两份案卷并排。
+        镜头2（4秒）特写：陆峥的笔记本上两行记录并列，手指在两个名字间画线连接，眼神专注。
+        对白（陆峥，25岁，内心独白）：「第二份。六月。赵小芳，十九岁，纺织机械厂。同样的套路。」
+        对白（陆峥，同上）：「两起了。间隔三个月。同一伙人在按节奏作案。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP05-SEG07
+    title: 系统侧写·模式识别
+    shot_ids: [EP05-S14, EP05-S15]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep tone, internal monologue, analytical certainty"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "第三份——周小梅。七月。我已经知道她的情况。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "三起案子摆在一起。模式清楚了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "目标：国营厂年轻女工，家境困难，没有本地社会关系网。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "手法：通过厂内熟人介绍「南方高薪工作」，建立信任，然后带人消失。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "善后：制造「自愿出走」假象，保卫科配合掩盖，案件迅速搁置。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "三个月一个。组织化、规律化。这不是临时起意——是产业链。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "必须并案。三起案子连起来，才能看清全貌。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景俯拍：桌面三份卷宗并排摊开，陆峥的手在三份之间移动比对；笔记本上画出时间轴箭头连线。
+        镜头2（5秒）近景推近：陆峥抬头目光锐利，脑海中信息汇聚如拼图完成最后一块；手合上笔记本，指尖轻叩桌面。
+        对白（陆峥，25岁，内心独白）：「三起。模式清楚了。目标——国营厂年轻女工，家境困难。」
+        对白（陆峥，同上）：「手法——厂内熟人介绍南方高薪。善后——制造自愿出走假象。」
+        对白（陆峥，同上）：「三个月一个。组织化、规律化。这是产业链。必须并案。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP05-SEG08
+    title: 并案决定·向老郑汇报
+    shot_ids: [EP05-S16, EP05-S17, EP05-S18]
+    duration_sec: 12
+    scene_primary: SCENE-001
+    characters: [CHAR-001, CHAR-014]
+    looks: [CHAR-001-L01, CHAR-014-L01]
+    generate_audio: true
+    voice_prompt: "Two speakers: male 25yo deep calm factual; male 50yo cautious then alarmed"
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-014-L01: assets/looks/CHAR-014-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 汇报, text: "所长，我整理了今年的未结失踪案。有三起作案手法完全一致。" }
+      - { speaker: CHAR-014, emotion: 疑惑, text: "三起？哪三起？" }
+      - { speaker: CHAR-001, emotion: 平, text: "三月李秀兰，六月赵小芳，七月周小梅。全是国营厂年轻女工，全被「南方高薪」骗走。" }
+      - { speaker: CHAR-001, emotion: 坚定, text: "我认为是同一伙人干的。建议并案调查。" }
+      - { speaker: CHAR-014, emotion: 沉吟, text: "并案……小陆，这事不小。三个厂，三个辖区。光协调就够喝一壶的。" }
+      - { speaker: CHAR-001, emotion: 平, text: "所长，如果不并案，每起都当个案处理，永远破不了。他们三个月换一个厂——" }
+      - { speaker: CHAR-014, emotion: 点头, text: "你说得有道理。我跟上面通个气。但是——先别声张。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】所长老郑 CHAR-014-L01【图3】派出所办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：陆峥站老郑桌前递上笔记本翻开页面指着时间轴；老郑戴老花镜凑近看。
+        镜头2（4秒）近景固定：老郑摘下眼镜揉眉心，表情凝重。
+        镜头3（3秒）近景：陆峥目光坚定等待回复。
+        对白（陆峥，25岁）：「所长，三起失踪案，手法完全一致。建议并案。」
+        对白（老郑，50岁，沉吟）：「并案？三个厂三个辖区，协调起来……」
+        对白（陆峥）：「不并案，每起当个案，永远破不了。」
+        对白（老郑，点头）：「有道理。我跟上面通气。但先别声张。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-014-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  - segment_id: EP05-SEG09
+    title: 老赵干涉
+    shot_ids: [EP05-S19, EP05-S20, EP05-S21]
+    duration_sec: 12
+    scene_primary: SCENE-001
+    characters: [CHAR-001, CHAR-015]
+    looks: [CHAR-001-L01, CHAR-015-L01]
+    generate_audio: true
+    voice_prompt: "Two speakers: male 25yo restrained calm; male 45yo bureaucratic condescending"
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-015-L01: assets/looks/CHAR-015-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    dialogue_lines:
+      - { speaker: CHAR-015, emotion: 假笑, text: "哟，小陆啊。听说你最近在翻旧案？精力挺旺盛嘛。" }
+      - { speaker: CHAR-001, emotion: 平静, text: "赵指导员。就是看看，熟悉辖区情况。" }
+      - { speaker: CHAR-015, emotion: 阴阳怪气, text: "熟悉情况好啊。不过呢，失踪案这个东西……有些是家务事，别太较真。" }
+      - { speaker: CHAR-015, emotion: 意味深长, text: "年轻人嘛，有冲劲是好事。但也要分清主次，把精力放在所里安排的工作上。" }
+      - { speaker: CHAR-001, emotion: 不动声色, text: "赵指导员说得对。我会注意的。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "他怎么知道我在翻旧案？我只跟所长说了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这个人……上辈子我对他没什么印象。但这辈子，他给我的感觉不对。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "不管。继续查。但要更小心。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】指导员老赵 CHAR-015-L01【图3】派出所走廊 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：派出所走廊，老赵端搪瓷茶缸拦住陆峥去路；白炽灯照出老赵假笑皱纹；墙上值班表。
+        镜头2（4秒）近景固定：老赵凑近低声说话，表情意味深长。
+        镜头3（3秒）近景：陆峥微笑点头，目光平静但警觉。
+        对白（老赵，45岁，假笑）：「小陆，听说在翻旧案？精力旺盛嘛。」
+        对白（老赵，意味深长）：「失踪案有些是家务事。年轻人要分清主次。」
+        对白（陆峥，25岁，不动声色）：「赵指导员说得对。我注意。」
+        对白（陆峥，内心独白）：「他怎么知道？我只跟所长说了。这个人——不对劲。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-015-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  - segment_id: EP05-SEG10
+    title: 深夜档案室
+    shot_ids: [EP05-S22, EP05-S23]
+    duration_sec: 8
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep tone, internal monologue, determined isolated"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "深夜。整个所里就我一个人还醒着。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "老赵的话让我警觉——有人在盯着我。但我不能停。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "三起并案的材料整理好了。现在需要更早的线索——如果这伙人不是今年才开始呢？" }
+      - { speaker: CHAR-001, emotion: 内心, text: "记忆宫殿里有模糊的印象……一九九三年，好像也有类似的案子。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "翻。往前翻。一九九四年……一九九三年……" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）全景固定：深夜档案室仅一盏白炽灯亮着，陆峥独坐铁桌前被案卷包围；窗外漆黑，远处偶有犬吠。
+        镜头2（4秒）中景固定：陆峥站起走向更深处的柜子，拉开抽屉翻找更早年份的卷宗；灰尘扬起在灯光中飘散。
+        对白（陆峥，25岁，内心独白）：「深夜。有人在盯我，但不能停。」
+        对白（陆峥，同上）：「如果这伙人不是今年才开始……往前翻。一九九三年。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP05-SEG11
+    title: 档案发现·1993年旧案
+    shot_ids: [EP05-S24, EP05-S25, EP05-S26]
+    duration_sec: 12
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep tone, internal monologue, shock and disbelief"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九三年的柜子。锁生锈了——用钥匙使劲拧。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "里面卷宗比九五年的还多。那个年代案件更乱……" }
+      - { speaker: CHAR-001, emotion: 内心, text: "失踪类……翻。一份、两份——" }
+      - { speaker: CHAR-001, emotion: 内心震惊, text: "等等。" }
+      - { speaker: CHAR-001, emotion: 内心震惊, text: "这份档案的封皮——「周小梅」。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九三年。失踪案。名字叫「周小梅」。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "跟我现在在查的——同名同姓？" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）近景固定：陆峥用力拧开生锈铁柜锁，拉开抽屉，里面卷宗发黄泛潮。
+        镜头2（4秒）中景：陆峥翻找，手指忽然停住；抽出一份牛皮纸封面档案，封皮钢笔字清晰。
+        镜头3（4秒）特写推近：档案封皮——模糊可辨「周小梅」三个钢笔字，日期标注1993；陆峥的手微微颤抖。
+        对白（陆峥，25岁，内心独白）：「一九九三年的柜子。锁生锈了。」
+        对白（陆峥，同上震惊）：「等等——这份封皮。周小梅。一九九三年。失踪案。」
+        对白（陆峥，同上）：「跟我现在查的……同名同姓？」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP05-SEG12
+    title: 翻开旧档
+    shot_ids: [EP05-S27, EP05-S28]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep tone, internal monologue, racing thoughts"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "打开。一九九三年四月，女，二十一岁，市棉纺厂第一车间。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "同一个棉纺厂。比今年的周小梅早两年。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "失踪经过——有人介绍南方务工，之后未归。结论：自愿出走。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一模一样。连结论都一样。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这伙人……不是今年才开始的。至少从一九九三年就在了。两年了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "但最让我不安的是这个名字——周小梅。同名同姓？还是……同一个人？" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写：陆峥翻开1993年卷宗，纸页泛黄边缘卷曲，钢笔字记录简短；白炽灯光打在纸面上。
+        镜头2（5秒）近景固定：陆峥抬头瞪着虚空，嘴唇微动无声；手指无意识捏紧卷宗边角。
+        对白（陆峥，25岁，内心独白）：「一九九三年四月。同一个棉纺厂。同样的手法，同样的结论。」
+        对白（陆峥，同上）：「这伙人至少干了两年。但这个名字……同名同姓，还是同一个人？」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP05-SEG13
+    title: 惊讶反应·钩子
+    shot_ids: [EP05-S29, EP05-S30]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep tone, internal monologue, cliffhanger tension"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "如果是同一个人——一九九三年失踪，一九九五年又失踪。那中间两年她在哪？" }
+      - { speaker: CHAR-001, emotion: 内心, text: "如果不是同一个人——同一个厂，同样的手法，用同一个名字？也太巧了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "不管哪种可能——这背后的水，比我想的还深。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九三年到一九九五年，至少四起。也许更多。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "同名同姓……还是同一个人？" }
+      - { speaker: CHAR-001, emotion: 内心, text: "明天。我要去查九三年那个周小梅的户籍。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景固定：陆峥合上1993年旧档，双手按在封面上，指节发白；抬头看向黑暗深处的档案柜走廊，白炽灯光只照亮眼前方寸。
+        镜头2（5秒）特写推近：陆峥面部半明半暗，眼神中有震惊有决心有不安；画面缓慢推近至瞳孔，最终定格黑屏。
+        对白（陆峥，25岁，内心独白）：「如果是同一个人——九三年失踪，九五年又失踪。中间两年她在哪？」
+        对白（陆峥，同上）：「如果不是——同一个厂同样手法同一个名字？太巧了。」
+        对白（陆峥，同上悬念）：「同名同姓……还是同一个人？」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }

@@ -1,0 +1,467 @@
+# EP06 segments — 13 segments, all 4-12 seconds (Seedance 2.0 fast hard limit)
+# image_strategy: tos_first — TOS URLs are permanent; base64 fallback limited to ≤3 images/segment
+# Pure archive-investigation episode: 陆峥 alone in records room reconstructing the 1993 cold case
+# Content safety: authority framing kept neutral/procedural; evidence destruction framed as discovery
+# No first-person injury/death language; "案卷标注已终结" used instead of "不予立案"
+episode_id: EP06
+episode_title: 1993年旧案
+source_md: 剧本/EP06/EP06_1993年旧案.md
+image_strategy: tos_first
+image_cdn_registry:
+  looks: assets/looks/cdn_urls.json
+  scenes: assets/scenes/cdn_urls.json
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128
+  ratio: "9:16"
+  resolution: 720p
+  duration_sec: "4-12"
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字"
+  prompt_suffix_silent: "本段无对白无字幕，禁止其它汉字乱字"
+  negative_prompt: "smartphone, flat screen TV, LED lights, modern car, laptop, tablet, QR code, delivery box, power bank, glass curtain wall, subway station, LED billboard, Nike logo, Adidas logo, wireless earbuds, ring light, bubble tea cup, modern minimalist interior, neon RGB lighting"
+
+voice_prompts:
+  CHAR-001: "成年男性，25岁，沉稳偏低，内心独白语气为主，短句干脆"
+  CHAR-014: "中年男性，50岁，沉稳厚重，老大哥语气，略显谨慎"
+  CHAR-GRP-02: "混合群演：中年男性门卫/文员，中年女性工友/宿管，老年男性门卫"
+
+segments:
+  - segment_id: EP06-SEG01
+    title: 宿舍·承上启下
+    shot_ids: [EP06-S01, EP06-S02]
+    duration_sec: 10
+    scene_primary: SCENE-002
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, low urgency, pre-dawn clarity"
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "昨晚在档案室角落找到了这份卷宗——一九九三年，棉纺厂，女工失踪。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "案卷封存，没有后续，就这么搁了两年。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "同一家工厂，同一个年龄段的女工……和今年这个案子太像了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "今天得把这份卷宗从头翻一遍。档案室，早点去。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】陆峥宿舍 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：清晨窗帘透光，陆峥坐书桌前翻看泛黄卷宗封面；搪瓷杯铅笔铁架床；1995年台历。
+        镜头2（5秒）特写推近：陆峥手指按住卷宗"一九九三年"字样；眉头微锁；窗外晨光渐亮。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「昨晚找到这份卷宗——一九九三年，棉纺厂，女工失踪。封存，没有后续。」「和今年的案子太像了。今天去档案室把它翻完。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+
+  - segment_id: EP06-SEG02
+    title: 档案室·1993年旧案卷面
+    shot_ids: [EP06-S03, EP06-S04]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, slow deliberate reading"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "档案室，早上刚开。一个值班老头，一排铁皮柜，白炽灯昏黄。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九三年九月——棉纺厂第二车间，缝纫工，失踪。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "案卷末页标注：案件已终结，封存归档。时间：一九九三年十一月。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "两个月。从报案到封存，只用了两个月。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：灰暗档案室白炽灯昏黄光，铁皮文件柜成排；陆峥站窗边台面展开泛黄卷宗，圆珠笔批注和红色印章清晰可见；空气中浮灰。
+        镜头2（5秒）特写推近：卷宗末页——油印字迹"案件已终结"红色方章覆盖；陆峥手指划过印章轮廓停住。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「一九九三年九月，棉纺厂，缝纫工失踪。」「案卷末页标注——案件已终结，封存归档，一九九三年十一月。」「两个月。报案到封存，两个月。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP06-SEG03
+    title: 棉纺厂·1993年现场回溯想象
+    shot_ids: [EP06-S05, EP06-S06]
+    duration_sec: 8
+    scene_primary: SCENE-006
+    characters: []
+    looks: []
+    generate_audio: false
+    voice_prompt: ""
+    refs:
+      scene_id: SCENE-006
+    assets:
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    dialogue_lines: []
+    api:
+      text: |
+        【图1】棉纺厂 SCENE-006。
+        竖屏9比16纯视觉叙事，无人物，无对白，仅氛围空镜。
+        镜头1（4秒）远景固定：秋日黄昏棉纺厂大院，烟囱冒白烟，工人三三两两收班离去；画面宁静苍凉。
+        镜头2（4秒）特写缓移：昏暗车间角落——纺纱机停转，地面棉絮飘散，斜射光柱穿过灰尘；一片寂静。
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。本段无对白无字幕，禁止其它汉字乱字
+      content_roles:
+        - { file: SCENE-006, role: reference_image, label: 图1 }
+
+  - segment_id: EP06-SEG04
+    title: 物证记录·发现损毁
+    shot_ids: [EP06-S07, EP06-S08]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, methodical discovery, neutral"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "物证清单……报案时登记了什么？" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九三年九月：当事人私人物品两件，工友证词三份，厂区走访笔录一份。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "发现记录显示：一九九四年六月，注明库房进水，上述物证材料损毁处理。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "案件封存半年后，物证全部消失了。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：陆峥翻到卷宗中部物证清单页，铅笔逐条指向登记内容；铁皮柜旁昏黄灯光，桌面摊开数页。
+        镜头2（5秒）特写推近：物证处理记录单页——油印字"一九九四年六月，库房进水，损毁处理"；陆峥铅笔圈住这行字，圆珠笔在旁边写下"6月"。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「物证清单——私人物品、工友证词、走访笔录。」「发现记录显示：一九九四年六月，注明库房进水，物证材料损毁处理。」「案件封存半年后，物证全部消失了。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP06-SEG05
+    title: 系统提示·损毁时间点可疑
+    shot_ids: [EP06-S09, EP06-S10]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, analytical deduction, quiet intensity"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "系统提示——封存日期九三年十一月，物证处理日期九四年六月。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "七个月。恰好是那个年代行政案件物证的最低留存期限。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "刚过最低期限就处理。时间点……选得太精准了。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "这是直觉，不是证明。但直觉说——这不是巧合。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景固定：陆峥站铁皮柜旁，在随身笔记本写下两个日期圈起来，中间画横线写"7个月"；圆珠笔落下一个问号。
+        镜头2（5秒）特写推近：陆峥仰头盯着昏黄灯泡一瞬；眼神从沉思转为锐利；嘴唇收紧。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「封存日期九三年十一月，物证处理日期九四年六月——七个月。」「刚过最低留存期限就处理。时间点太精准了。」「这是直觉，不是证明。但直觉说——不是巧合。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP06-SEG06
+    title: 档案室·寻找替代信源
+    shot_ids: [EP06-S11, EP06-S12]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, methodical searching, focused"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "物证没了……但还有别的。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "报案登记台账、来访人员登记——这些不属于案卷，不会跟着案件一起处理。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "找台账。一九九三年的来访登记本——应该在旁边那排柜子里。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "上辈子我在这间档案室待过三年。这里的规矩，我清楚。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：陆峥走向另一排铁皮柜，逐格抽开抽屉翻看索引卡片；动作沉稳有序，灰尘飘扬，白炽灯光昏黄。
+        镜头2（5秒）近景固定：陆峥从深处抽出一本厚册——封面手写"一九九三年来访登记"；翻开平放台面。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「物证没了，还有台账。来访登记、报案记录，不属于案卷，不会被一起处理。」「上辈子在档案室待了三年。这里的规矩我清楚。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP06-SEG07
+    title: 关键细节·住址差一号
+    shot_ids: [EP06-S13, EP06-S14, EP06-S15]
+    duration_sec: 12
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, mounting discovery tension, slow realization"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "来了……一九九三年九月，报案人：周小梅。住址登记：棉纺厂宿舍区二号楼三单元二零七。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "今年，周小梅父亲来报案——住址登记：棉纺厂宿舍区二号楼三单元二零八。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "等一下。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "二零七……二零八。差了一个门牌号。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "父女住同一栋楼，父亲不知道自家的门牌号？" }
+      - { speaker: CHAR-001, emotion: 内心, text: "还是说——这不是笔误。这是一个留给人看的信号。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）特写固定：来访登记本——钢笔手写"一九九三年九月，报案人：周小梅，住址：二号楼三单元二零七"；陆峥铅笔下划线。
+        镜头2（4秒）特写固定：今年报案记录并排展开——"报案人：周父，住址：二号楼三单元二零八"；铅笔把"二零七"和"二零八"各圈一圈，连一条线。
+        镜头3（4秒）近景推近：陆峥从两份台账之间缓缓抬起头；眉心细纹；嘴唇微张，随即合上。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「一九九三年报案——住址二零七。」「今年父亲报案——住址二零八。差了一个门牌号。」「父女住同一栋楼，父亲不知道自家门牌？」「还是说——这不是笔误。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP06-SEG08
+    title: 系统侧写·同一报案人
+    shot_ids: [EP06-S16, EP06-S17]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, system alert tone, growing realization"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "系统侧写启动——交叉比对两份报案人签名笔迹。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九三年的「周小梅」签字，与今年「周父」的签字笔迹特征——" }
+      - { speaker: CHAR-001, emotion: 内心, text: "运笔方式，顿笔位置……是同一个人写的。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "「父亲来报案」——写字的不是父亲，是她自己。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "她九三年来过，今年又来了。她一直在盯着这件事。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景固定：陆峥把两份台账签名并排，铅笔逐笔比对走势；嘴唇收紧，表情极度专注；白炽灯光在纸面上投下硬影。
+        镜头2（5秒）特写推近：两处签名放大——笔划走势、顿笔位置高度吻合；陆峥铅笔停在两者之间，轻轻敲击一下。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「系统侧写——两份签名笔迹比对。」「一九九三年的周小梅，与今年的周父签字……是同一个人写的。」「她自己来报的案。她一直在盯着这件事。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP06-SEG09
+    title: 结论浮现·可能是知情人
+    shot_ids: [EP06-S18, EP06-S19]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, controlled intensity, revelation"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "两起失踪案。一九九三年一起，一九九五年一起。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "两次，都是同一个人来报案，用不同的名义。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九三年她来了，案子封存，她没有放弃。两年后，又来。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "她可能是知情人。甚至……可能是幸存者。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "她一直在等人来查这件事。今天，这个人是我。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：陆峥背靠铁皮柜，双手垂在身侧，直视前方；白炽灯光在他脸上投下半明半暗；档案室寂静。
+        镜头2（5秒）特写推近：陆峥眼神由疲惫转为笃定；嘴角线条收紧；轻微摇头，随即目光稳定。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「两起失踪案，两次报案，同一个人。九三年来了没人查，两年后她又来。」「她可能是知情人。甚至——可能是幸存者。」「她一直在等人来查。今天，这个人是我。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP06-SEG10
+    title: 派出所·汇报线索
+    shot_ids: [EP06-S20, EP06-S21, EP06-S22]
+    duration_sec: 12
+    scene_primary: SCENE-001
+    characters: [CHAR-001, CHAR-014]
+    looks: [CHAR-001-L01, CHAR-014-L01]
+    generate_audio: true
+    voice_prompt: "Two speakers: male 25yo deep calm concise reporting; male 50yo cautious increasingly serious"
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-014-L01: assets/looks/CHAR-014-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 汇报, text: "所长，档案室那边有些情况，想跟您说一下。" }
+      - { speaker: CHAR-014, emotion: 平, text: "说吧。" }
+      - { speaker: CHAR-001, emotion: 汇报, text: "一九九三年棉纺厂有一起类似的情况，案卷已终结封存。" }
+      - { speaker: CHAR-001, emotion: 汇报, text: "两起案子的来访登记，签名笔迹高度一致——很可能是同一个人报的案。" }
+      - { speaker: CHAR-014, emotion: 坐直, text: "等等……你是说，今年这个报案人，九三年也来过？" }
+      - { speaker: CHAR-001, emotion: 克制, text: "笔迹特征一致。住址差了一个门牌号。这两个细节，值得认真核实。" }
+      - { speaker: CHAR-014, emotion: 沉默后, text: "你在档案室呆多久了？" }
+      - { speaker: CHAR-001, emotion: 平, text: "从早上八点。" }
+      - { speaker: CHAR-014, emotion: 叹气低声, text: "继续。查清楚了再说。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】所长老郑 CHAR-014-L01【图3】派出所办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：陆峥站老郑办公桌前摊开随身笔记本；老郑靠椅背端茶杯听；旋转电话铁皮文件柜红色标语。
+        镜头2（4秒）近景固定：老郑缓缓放下茶杯，身体微微前倾，眉间拧起。
+        镜头3（3秒）中景侧面：陆峥合上笔记本目光平静；老郑低头沉思。
+        对白（陆峥，25岁，平静汇报）：「所长，档案室两份来访登记，签名笔迹高度一致——九三年和今年，很可能同一个人。」
+        对白（老郑，50岁，坐直）：「同一个人？」
+        对白（陆峥）：「住址差一个门牌号，笔迹特征一致。值得核实。」
+        对白（老郑，叹气）：「继续，查清楚再说。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-014-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  - segment_id: EP06-SEG11
+    title: 档案室·厂长接访记录
+    shot_ids: [EP06-S23, EP06-S24]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, tightening focus, quiet dread"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "还有一本……厂长接访登记，九三年九月。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "九月三日——来访：周小梅。事由：个人事务。接待结果：已处理。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "九月四日——周小梅报案。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "她先进了厂长办公室……然后第二天去报案。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "「个人事务，已处理」……她在那间办公室里看到了什么，或者谈了什么。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写固定：厂长接访登记册——钢笔字迹"九月三日，来访：周小梅，事由：个人事务，结果：已处理"；陆峥铅笔在"三日"和旁边补写的"四日报案"之间来回点。
+        镜头2（5秒）近景推近：陆峥抬起头，目光停在空处；昏黄灯光下脸色凝重；档案室沉默。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「厂长接访登记——九月三日，来访：周小梅，事由个人事务，结果已处理。」「九月四日……她去报案了。」「她先进了厂长办公室，然后第二天报案。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP06-SEG12
+    title: 系统整合·全局分析
+    shot_ids: [EP06-S25, EP06-S26]
+    duration_sec: 10
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, synthesizing, quiet controlled intensity"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "把几条线拉在一起——" }
+      - { speaker: CHAR-001, emotion: 内心, text: "一九九三年：进了厂长办公室，第二天报案，案子封存，物证消失。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "两年后：她自己再次出现，用父亲的名义，故意留下差一号的住址。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "她没有直接说出来——她知道直接说没有用。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "所以她留下线索，等一个会查案的人来找她。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景固定：陆峥在台面摊开所有找到的台账，用铅笔把几个关键日期连成折线；白炽灯下光影清晰，灰尘漂浮。
+        镜头2（5秒）近景推近：陆峥盯着连线图；嘴角微收，目光深邃；轻轻点头。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「九三年进厂长办公室，第二天报案，案子封存，物证消失。」「两年后她自己来——故意差一号，留下线索。」「她没有直接说，她在引路。她在等一个会查案的人来找她。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+
+  - segment_id: EP06-SEG13
+    title: 钩子·厂长办公室
+    shot_ids: [EP06-S27, EP06-S28]
+    duration_sec: 8
+    scene_primary: SCENE-013
+    characters: [CHAR-001]
+    looks: [CHAR-001-L01]
+    generate_audio: true
+    voice_prompt: "Male, 25 years old, deep calm tone, resolute single-line delivery, episode-closing weight"
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 内心, text: "厂长办公室。" }
+      - { speaker: CHAR-001, emotion: 内心, text: "那是下一个要去的地方。" }
+    api:
+      text: |
+        【图1】陆峥 CHAR-001-L01【图2】档案室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）特写固定：陆峥双手合拢所有卷宗台账，整齐叠放于铁皮柜；双手短暂按住封面，停顿一拍。
+        镜头2（4秒）近景推近：陆峥转身面对镜头；眼神沉静而坚定；昏黄灯光打亮半张脸；缓慢淡出。
+        对白（陆峥，25岁，沉稳偏低，内心独白）：「厂长办公室。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型，无清晰广告文字。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
