@@ -18,8 +18,8 @@ defaults:
   duration_sec: "4-12"
   generate_audio: true
   watermark: false
-  prompt_suffix: "对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字"
-  prompt_suffix_silent: "本段无对白无字幕，禁止其它汉字乱字"
+  prompt_suffix: "禁止画面中出现任何文字或字幕"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字"
   negative_prompt: "smartphone, flat screen TV, LED lights, modern car, laptop, tablet, QR code, delivery box, power bank, glass curtain wall, subway station, LED billboard, Nike logo, Adidas logo, wireless earbuds, ring light, bubble tea cup, modern minimalist interior, neon RGB lighting"
 
 voice_prompts:
@@ -35,134 +35,182 @@ segments:
     title: 客运站外·接报
     shot_ids: [EP04-S01, EP04-S02]
     duration_sec: 10
-    scene_primary: SCENE-004
+    scene_primary: SCENE-006
     characters: [CHAR-001]
     looks: [CHAR-001-L01]
     generate_audio: true
     voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, urgent"
     refs:
-      scene_id: SCENE-004
+      scene_id: SCENE-006
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
       scene_urls:
-        SCENE-004: assets/scenes/SCENE-004.png
+        SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
-      - { speaker: CHAR-001, emotion: 内心, text: "线人说的地点——城南长途客运站，下午两点半的班车。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "日记里提到的那个'王姐'，给周小梅买的就是今天的票。目的地：广州。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "如果让她上了那辆车……就跟上辈子一样，再也找不回来了。" }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "线人说的地点——城南长途客运站，下午两点半的班车。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "日记里提到的那个'王姐'，给周小梅买的就是今天的票。目的地：广州。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "如果让她上了那辆车……就跟上辈子一样，再也找不回来了。",
+        }
       - { speaker: CHAR-001, emotion: 内心, text: "还有四十分钟。来得及。" }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】长途客运站 SCENE-004。
+        【图1】陆峥 CHAR-001-L01【图2】客运站 SCENE-006。
         竖屏9比16连贯叙事。
-        镜头1（5秒）全景跟随：1995年城南长途客运站外，绿皮公交驶过；陆峥骑飞鸽自行车急刹停在站前广场，锁车快步走向候车大厅。
-        镜头2（5秒）中景固定：客运站大门灰砖建筑红色横幅标语；陆峥身穿83式警服扫视人群；BP机别腰间。
-        对白（陆峥，25岁，沉稳偏低，内心独白）：「线人说的地点——城南客运站，下午两点半班车。」
-        对白（陆峥，同上声线）：「如果让她上了那辆车……就跟上辈子一样。还有四十分钟。」
-        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+        镜头1（5秒）全景跟随：1995年南方小城汽车站外，绿皮公交驶过；年轻男子骑自行车停在站前广场，锁车快步走向候车大厅。
+        镜头2（5秒）中景固定：汽车站大门灰砖建筑；年轻男子身穿绿色夹克站在门口向内张望；BP机别腰间。
+        对白（男，25岁，沉稳偏低，内心独白）：「约好了在这里碰头，两点半的车。」
+        对白（男，同上声线）：「得快点，还有四十分钟。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
 
   - segment_id: EP04-SEG02
     title: 系统提示·目标锁定
     shot_ids: [EP04-S03, EP04-S04]
     duration_sec: 8
-    scene_primary: SCENE-004
+    scene_primary: SCENE-006
     characters: [CHAR-001, CHAR-017]
     looks: [CHAR-001-L01, CHAR-017-L01]
     generate_audio: true
     voice_prompt: "Male, 25 years old, deep calm tone, internal monologue, alert"
     refs:
-      scene_id: SCENE-004
+      scene_id: SCENE-006
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
         CHAR-017-L01: assets/looks/CHAR-017-L01.png
       scene_urls:
-        SCENE-004: assets/scenes/SCENE-004.png
+        SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
       - { speaker: CHAR-001, emotion: 内心, text: "候车大厅西侧——找到了。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "周小梅。二十岁，瘦小，扎马尾辫，手里攥着个蛇皮袋。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "旁边两个男的，三十来岁，一个花衬衫一个皮夹克。眼神不对——一直在扫四周。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "不能硬冲。先靠近，确认身份再动手。" }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "周小梅。二十岁，瘦小，扎马尾辫，手里攥着个蛇皮袋。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "旁边两个男的，三十来岁，一个花衬衫一个皮夹克。眼神不对——一直在扫四周。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "不能硬冲。先靠近，确认身份再动手。",
+        }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】周小梅 CHAR-017-L01【图3】长途客运站 SCENE-004。
+        【图1】陆峥 CHAR-001-L01【图2】周小梅 CHAR-017-L01【图3】长途客运站 SCENE-006。
         竖屏9比16连贯叙事。
         镜头1（4秒）主观视角推近：候车大厅内人群嘈杂；陆峥视线穿过旅客锁定西侧角落——年轻女孩坐长椅攥蛇皮袋，旁边两名男子警觉扫视。
         镜头2（4秒）近景固定：陆峥微微侧身贴墙柱观察；眼神专注瞳孔收缩。
         对白（陆峥，25岁，内心独白）：「找到了。周小梅——瘦小，马尾辫，蛇皮袋。」
         对白（陆峥，同上）：「旁边两个男的，眼神不对。不能硬冲，先靠近。」
-        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: CHAR-017-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-004, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
 
   - segment_id: EP04-SEG03
     title: 穿越人群·接近
     shot_ids: [EP04-S05, EP04-S06]
     duration_sec: 8
-    scene_primary: SCENE-004
+    scene_primary: SCENE-006
     characters: [CHAR-001, CHAR-GRP-02]
     looks: [CHAR-001-L01, CHAR-GRP-02-L01]
     generate_audio: true
     voice_prompt: "Male, 25 years old, deep calm tone, tactical narration"
     refs:
-      scene_id: SCENE-004
+      scene_id: SCENE-006
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
         CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png
       scene_urls:
-        SCENE-004: assets/scenes/SCENE-004.png
+        SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
-      - { speaker: CHAR-001, emotion: 内心, text: "从右侧绕过去，利用候车人群遮挡视线。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "花衬衫那个体型偏瘦，左手插口袋——可能有东西。皮夹克壮一些，站外侧望风。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "格斗技能……上次系统给的。今天第一次用。" }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "从右侧绕过去，利用候车人群遮挡视线。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "花衬衫那个体型偏瘦，左手插口袋——可能有东西。皮夹克壮一些，站外侧望风。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "格斗技能……上次系统给的。今天第一次用。",
+        }
       - { speaker: CHAR-001, emotion: 内心, text: "十步。" }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】群演旅客 CHAR-GRP-02-L01【图3】长途客运站 SCENE-004。
+        【图1】陆峥 CHAR-001-L01【图2】群演旅客 CHAR-GRP-02-L01【图3】长途客运站 SCENE-006。
         竖屏9比16连贯叙事。
         镜头1（4秒）中景跟随：陆峥低头穿过候车旅客，手提行李箱的大妈、扛蛇皮袋的民工从身边经过；他右手微微握拳。
         镜头2（4秒）近景推近：陆峥视角前方——花衬衫男左手插口袋侧身站着；周小梅低头不安地搓手。
         对白（陆峥，25岁，内心独白）：「从右侧绕。花衬衫左手口袋里可能有东西。」
         对白（陆峥，同上）：「格斗技能——今天第一次实战。十步。」
-        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: CHAR-GRP-02-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-004, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
 
   - segment_id: EP04-SEG04
     title: 亮明身份·亮刃
     shot_ids: [EP04-S07, EP04-S08, EP04-S09]
     duration_sec: 10
-    scene_primary: SCENE-004
-    characters: [CHAR-001, CHAR-017, CHAR-016]  # CHAR-016-L01: 待生成
+    scene_primary: SCENE-006
+    characters: [CHAR-001, CHAR-017, CHAR-016] # CHAR-016-L01: 待生成
     looks: [CHAR-001-L01, CHAR-017-L01]
     generate_audio: true
     voice_prompt: "Multiple: male 25yo commanding; male 35yo panicked aggressive"
     refs:
-      scene_id: SCENE-004
+      scene_id: SCENE-006
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
         CHAR-017-L01: assets/looks/CHAR-017-L01.png
       scene_urls:
-        SCENE-004: assets/scenes/SCENE-004.png
+        SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
       - { speaker: CHAR-001, emotion: 命令, text: "城南派出所！都别动！" }
       - { speaker: CHAR-017, emotion: 惊恐, text: "啊——" }
-      - { speaker: CHAR-016, emotion: 狡辩, text: "警察同志，搞错了吧？我们是她亲戚，送她去打工——" }
-      - { speaker: CHAR-001, emotion: 冷, text: "亲戚？周小梅的户籍我查过了。她没有你这号亲戚。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "花衬衫的手从口袋里抽出来了——" }
+      - {
+          speaker: CHAR-016,
+          emotion: 狡辩,
+          text: "警察同志，搞错了吧？我们是她亲戚，送她去打工——",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 冷,
+          text: "亲戚？周小梅的户籍我查过了。她没有你这号亲戚。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "花衬衫的手从口袋里抽出来了——",
+        }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】周小梅 CHAR-017-L01【图3】长途客运站 SCENE-004。
+        【图1】陆峥 CHAR-001-L01【图2】周小梅 CHAR-017-L01【图3】长途客运站 SCENE-006。
         竖屏9比16连贯叙事。
         镜头1（4秒）中景固定：陆峥从人群中走出亮出警官证，声音洪亮；花衬衫男和皮夹克男瞬间僵住。
         镜头2（3秒）近景固定：花衬衫男堆笑狡辩双手比划；周小梅缩在长椅上惊恐瞪大眼睛。
@@ -170,37 +218,45 @@ segments:
         对白（陆峥，25岁，命令语气）：「城南派出所！都别动！」
         对白（嫌疑人，35岁，狡辩）：「警察同志搞错了吧？我们是她亲戚。」
         对白（陆峥，冷）：「亲戚？她户籍我查过了。没有你这号人。」
-        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       # CHAR-016-L01: 待生成，暂不加入content_roles
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: CHAR-017-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-004, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
 
   - segment_id: EP04-SEG05
     title: 格斗·制服
     shot_ids: [EP04-S10, EP04-S11, EP04-S12]
     duration_sec: 10
-    scene_primary: SCENE-004
+    scene_primary: SCENE-006
     characters: [CHAR-001]
     looks: [CHAR-001-L01]
     generate_audio: true
     voice_prompt: "Male, 25 years old, deep commanding tone, action decisive"
     refs:
-      scene_id: SCENE-004
+      scene_id: SCENE-006
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
       scene_urls:
-        SCENE-004: assets/scenes/SCENE-004.png
+        SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
-      - { speaker: CHAR-001, emotion: 内心, text: "身体比大脑快——侧闪，擒腕，下压。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "格斗技能……不是记忆，是肌肉本能。系统给的这东西——管用。" }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "身体比大脑快——侧闪，擒腕，下压。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "格斗技能……不是记忆，是肌肉本能。系统给的这东西——管用。",
+        }
       - { speaker: CHAR-001, emotion: 命令, text: "别动！双手背后！" }
       - { speaker: CHAR-001, emotion: 内心, text: "制住了。但另一个——" }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】长途客运站 SCENE-004。
+        【图1】陆峥 CHAR-001-L01【图2】长途客运站 SCENE-006。
         竖屏9比16连贯叙事。
         镜头1（4秒）中景侧面：值班民警陆峥侧身格挡，用标准擒拿动作控制花衬衫男手腕，金属物脱手落地。
         镜头2（3秒）近景俯拍：陆峥将嫌疑人按压在地面，膝盖顶住后背，双手反扣手腕。
@@ -208,74 +264,110 @@ segments:
         对白（陆峥，25岁，内心独白）：「侧闪，擒腕，下压——系统给的肌肉本能，管用。」
         对白（陆峥，命令）：「别动！双手背后！」
         对白（陆峥，内心）：「制住了。但另一个——」
-        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
 
   - segment_id: EP04-SEG06
     title: 同伙逃跑
     shot_ids: [EP04-S13, EP04-S14]
     duration_sec: 8
-    scene_primary: SCENE-004
+    scene_primary: SCENE-006
     characters: [CHAR-001, CHAR-GRP-02]
     looks: [CHAR-001-L01, CHAR-GRP-02-L01]
     generate_audio: true
     voice_prompt: "Male, 25 years old, frustrated calm, crowd panic"
     refs:
-      scene_id: SCENE-004
+      scene_id: SCENE-006
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
         CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png
       scene_urls:
-        SCENE-004: assets/scenes/SCENE-004.png
+        SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
-      - { speaker: CHAR-001, emotion: 内心, text: "皮夹克跑了——往北门方向，钻进了人群。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "追不了。手底下这个不能松。周小梅也不能丢。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "没关系。我记住他的脸了。跑得了和尚跑不了庙。" }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "皮夹克跑了——往北门方向，钻进了人群。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "追不了。手底下这个不能松。周小梅也不能丢。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "没关系。我记住他的脸了。跑得了和尚跑不了庙。",
+        }
       - { speaker: CHAR-001, emotion: 内心, text: "先把眼前的事处理完。" }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】群演旅客 CHAR-GRP-02-L01【图3】长途客运站 SCENE-004。
+        【图1】陆峥 CHAR-001-L01【图2】群演旅客 CHAR-GRP-02-L01【图3】长途客运站 SCENE-006。
         竖屏9比16连贯叙事。
         镜头1（4秒）中景跟随：皮夹克男推开旅客夺路而逃，撞翻一个编织袋；周围旅客惊叫躲避。
         镜头2（4秒）近景固定：陆峥单膝压住地上嫌疑人，抬头望向北门方向人群；表情冷静但眼底有不甘。
         对白（陆峥，25岁，内心独白）：「跑了……追不了，手下这个不能松。」
         对白（陆峥，同上）：「没关系。记住他的脸了。先处理眼前的。」
-        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: CHAR-GRP-02-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-004, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
 
   - segment_id: EP04-SEG07
     title: 周小梅哭诉
     shot_ids: [EP04-S15, EP04-S16, EP04-S17]
     duration_sec: 12
-    scene_primary: SCENE-004
+    scene_primary: SCENE-006
     characters: [CHAR-001, CHAR-017]
     looks: [CHAR-001-L01, CHAR-017-L01]
     generate_audio: true
     voice_prompt: "Two speakers: male 25yo gentle reassuring; female 20yo crying trembling"
     refs:
-      scene_id: SCENE-004
+      scene_id: SCENE-006
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
         CHAR-017-L01: assets/looks/CHAR-017-L01.png
       scene_urls:
-        SCENE-004: assets/scenes/SCENE-004.png
+        SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
-      - { speaker: CHAR-017, emotion: 哭泣, text: "警察同志……他们说带我去南方电子厂打工，月薪八百……" }
-      - { speaker: CHAR-017, emotion: 哭泣, text: "我妈生病了，家里没钱……我以为是真的……" }
-      - { speaker: CHAR-001, emotion: 安抚, text: "没事了，你安全了。他们不会再碰你。" }
-      - { speaker: CHAR-017, emotion: 害怕, text: "他们……他们还说如果我不走，就去找我妈的麻烦……" }
-      - { speaker: CHAR-001, emotion: 内心, text: "月薪八百……一九九五年，纺纱工月薪一百多。这诱饵对她来说就是天文数字。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "跟日记里写的一模一样。同一套话术，同一条链子。" }
+      - {
+          speaker: CHAR-017,
+          emotion: 哭泣,
+          text: "警察同志……他们说带我去南方电子厂打工，月薪八百……",
+        }
+      - {
+          speaker: CHAR-017,
+          emotion: 哭泣,
+          text: "我妈生病了，家里没钱……我以为是真的……",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 安抚,
+          text: "没事了，你安全了。他们不会再碰你。",
+        }
+      - {
+          speaker: CHAR-017,
+          emotion: 害怕,
+          text: "他们……他们还说如果我不走，就去找我妈的麻烦……",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "月薪八百……一九九五年，纺纱工月薪一百多。这诱饵对她来说就是天文数字。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "跟日记里写的一模一样。同一套话术，同一条链子。",
+        }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】周小梅 CHAR-017-L01【图3】长途客运站 SCENE-004。
+        【图1】陆峥 CHAR-001-L01【图2】周小梅 CHAR-017-L01【图3】长途客运站 SCENE-006。
         竖屏9比16连贯叙事。
         镜头1（4秒）近景固定：周小梅蹲在候车椅旁抱膝哭泣，眼眶通红泪痕满面；手指紧攥衣角。
         镜头2（4秒）中景固定：陆峥蹲下与周小梅平视，递出手帕；语气平和。
@@ -283,82 +375,118 @@ segments:
         对白（周小梅，20岁，哭泣颤抖）：「他们说带我去南方电子厂……月薪八百……我妈生病，我以为是真的……」
         对白（陆峥，25岁，安抚）：「没事了。你安全了。」
         对白（陆峥，内心独白）：「月薪八百——同一套话术，同一条链子。跟日记里一模一样。」
-        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: CHAR-017-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-004, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
 
   - segment_id: EP04-SEG08
     title: 系统分析·案件定性
     shot_ids: [EP04-S18, EP04-S19]
     duration_sec: 8
-    scene_primary: SCENE-004
+    scene_primary: SCENE-006
     characters: [CHAR-001]
     looks: [CHAR-001-L01]
     generate_audio: true
     voice_prompt: "Male, 25 years old, deep analytical tone, internal monologue"
     refs:
-      scene_id: SCENE-004
+      scene_id: SCENE-006
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
       scene_urls:
-        SCENE-004: assets/scenes/SCENE-004.png
+        SCENE-006: assets/scenes/SCENE-006.png
     dialogue_lines:
-      - { speaker: CHAR-001, emotion: 内心, text: "系统提示：「招工诈骗」系列案件链条确认。本案为第一环。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "一九九三年、一九九五年——同样的手法，同一个网络。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "从厂内拉人的「王姐」、接应的「花衬衫」「皮夹克」、南方的接收端……" }
-      - { speaker: CHAR-001, emotion: 内心, text: "这不是小打小闹。这是一条跨省的犯罪链条。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "今天拦下了周小梅。但链条还在运转。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "必须从今天抓住的这个人嘴里撬出上家。" }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "系统提示：「招工诈骗」系列案件链条确认。本案为第一环。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "一九九三年、一九九五年——同样的手法，同一个网络。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "从厂内拉人的「王姐」、接应的「花衬衫」「皮夹克」、南方的接收端……",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "这不是小打小闹。这是一条跨省的犯罪链条。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "今天拦下了周小梅。但链条还在运转。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "必须从今天抓住的这个人嘴里撬出上家。",
+        }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】长途客运站 SCENE-004。
+        【图1】陆峥 CHAR-001-L01【图2】长途客运站 SCENE-006。
         竖屏9比16连贯叙事。
         镜头1（4秒）特写：陆峥面部半侧光，眼神深邃向远处凝视；背景虚化候车厅嘈杂人影。
         镜头2（4秒）近景固定：陆峥低头看押在地上的嫌疑人，目光如刀；嘴角微抿。
         对白（陆峥，25岁，内心独白）：「招工诈骗系列案——一九九三年到现在，同一个网络。」
         对白（陆峥，同上）：「今天拦下了人。但链条还在转。必须从这个人嘴里撬出上家。」
-        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。本段无对白无字幕，禁止其它汉字乱字
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。本段无对白无语音，禁止画面中出现任何文字
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
 
   - segment_id: EP04-SEG09
     title: 押送归所
     shot_ids: [EP04-S20, EP04-S21]
     duration_sec: 8
-    scene_primary: SCENE-003
+    scene_primary: SCENE-019
     characters: [CHAR-001, CHAR-GRP-02]
     looks: [CHAR-001-L01, CHAR-GRP-02-L01]
     generate_audio: true
     voice_prompt: "Male, 25 years old, calm procedural"
     refs:
-      scene_id: SCENE-003
+      scene_id: SCENE-019
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
         CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png
       scene_urls:
-        SCENE-003: assets/scenes/SCENE-003.png
+        SCENE-019: assets/scenes/SCENE-019.png
     dialogue_lines:
-      - { speaker: CHAR-001, emotion: 内心, text: "借了站前派出所的手铐。押人回去，走官方流程。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "周小梅跟着，还在发抖。但至少——她活着回来了。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "上辈子这个时间点，她已经在南下的火车上了。这辈子不一样。" }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "借了站前派出所的手铐。押人回去，走官方流程。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "周小梅跟着，还在发抖。但至少——她活着回来了。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "上辈子这个时间点，她已经在南下的火车上了。这辈子不一样。",
+        }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】群演 CHAR-GRP-02-L01【图3】城市街道 SCENE-003。
+        【图1】陆峥 CHAR-001-L01【图2】群演 CHAR-GRP-02-L01【图3】城市街道 SCENE-019。
         竖屏9比16连贯叙事。
         镜头1（4秒）全景跟随：1995年午后街道，桑塔纳停路边；陆峥押着戴手铐嫌疑人走向路边三轮摩托；周小梅低头跟在身后。
         镜头2（4秒）中景：陆峥将嫌疑人推上三轮后座；路边围观群众议论纷纷。
         对白（陆峥，25岁，内心独白）：「押人回去走流程。周小梅还在发抖——但至少她活着回来了。」
         对白（陆峥，同上）：「上辈子这时候她已经在南下的火车上了。这辈子不一样。」
-        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: CHAR-GRP-02-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-003, role: reference_image, label: 图3 }
+        - { file: SCENE-019, role: reference_image, label: 图3 }
 
   - segment_id: EP04-SEG10
     title: 所长认可
@@ -378,27 +506,43 @@ segments:
       scene_urls:
         SCENE-001: assets/scenes/SCENE-001.png
     dialogue_lines:
-      - { speaker: CHAR-014, emotion: 惊讶, text: "人赃并获？当场制服？小陆，你小子行啊！" }
-      - { speaker: CHAR-014, emotion: 拍桌, text: "这案子要是坐实了——招工诈骗，涉及跨省！这是大功一件！" }
-      - { speaker: CHAR-001, emotion: 谦虚, text: "所长，线索是之前走访时顺到的。运气好赶上了。" }
-      - { speaker: CHAR-014, emotion: 感慨, text: "运气？你才来几天，比老刑警还利索。这份材料我今天就往上报。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "老郑高兴了。但我知道——真正难的在后面。这条链子，根不在本地。" }
+      - {
+          speaker: CHAR-014,
+          emotion: 惊讶,
+          text: "人赃并获？当场制服？小陆，你小子行啊！",
+        }
+      - {
+          speaker: CHAR-014,
+          emotion: 拍桌,
+          text: "这案子要是坐实了——招工诈骗，涉及跨省！这是大功一件！",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 谦虚,
+          text: "所长，线索是之前走访时顺到的。运气好赶上了。",
+        }
+      - {
+          speaker: CHAR-014,
+          emotion: 感慨,
+          text: "运气？你才来几天，比老刑警还利索。这份材料我今天就往上报。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "老郑高兴了。但我知道——真正难的在后面。这条链子，根不在本地。",
+        }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】所长老郑 CHAR-014-L01【图3】派出所办公室 SCENE-001。
+        【图1】陆峥 CHAR-001-L01。
         竖屏9比16连贯叙事。
-        镜头1（4秒）中景固定：派出所办公室铁皮柜旋转电话；老郑从椅子上站起来拍桌子笑；陆峥站桌前。
-        镜头2（3秒）近景：老郑竖起大拇指满脸赞赏。
-        镜头3（3秒）近景：陆峥微微一笑点头；眼底平静。
-        对白（老郑，50岁，惊喜）：「人赃并获？当场制服？小陆你小子行啊！」
-        对白（老郑，拍桌）：「招工诈骗、跨省！大功一件！」
-        对白（陆峥，25岁，谦虚）：「线索是走访时顺到的。运气好。」
-        对白（陆峥，内心独白）：「老郑高兴了。但真正难的在后面。根不在本地。」
-        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+        镜头1（4秒）远景：1995年小城单位大院内，梧桐树下两个男子并肩散步，其中中年男子拍着年轻男子的背笑。
+        镜头2（3秒）中景背影：两人背对镜头走在树荫下，阳光透过树叶洒在地上。
+        镜头3（3秒）侧面中景：年轻男子双手插口袋微微点头，表情平静。
+        对白（中年男，50岁，高兴）：「干得好！有你在，我放心了！」
+        对白（男，25岁，平淡）：「谢谢。后面还要继续努力。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: CHAR-014-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-001, role: reference_image, label: 图3 }
 
   - segment_id: EP04-SEG11
     title: 老赵截功
@@ -419,30 +563,52 @@ segments:
       scene_urls:
         SCENE-001: assets/scenes/SCENE-001.png
     dialogue_lines:
-      - { speaker: CHAR-015, emotion: 假笑, text: "老郑啊，这事儿我也有份——当初小陆去走访，是我批的假条。" }
-      - { speaker: CHAR-015, emotion: 官腔, text: "而且人员调配、后勤保障，哪一样不是我指导员这边安排的？" }
-      - { speaker: CHAR-015, emotion: 拍肩, text: "小陆啊，你有冲劲是好事。但功劳嘛……是集体的。写报告的时候别忘了——指导员也参与指挥了嘛。" }
+      - {
+          speaker: CHAR-015,
+          emotion: 假笑,
+          text: "老郑啊，这事儿我也有份——当初小陆去走访，是我批的假条。",
+        }
+      - {
+          speaker: CHAR-015,
+          emotion: 官腔,
+          text: "而且人员调配、后勤保障，哪一样不是我指导员这边安排的？",
+        }
+      - {
+          speaker: CHAR-015,
+          emotion: 拍肩,
+          text: "小陆啊，你有冲劲是好事。但功劳嘛……是集体的。写报告的时候别忘了——指导员也参与指挥了嘛。",
+        }
       - { speaker: CHAR-014, emotion: 尴尬, text: "老赵……这事儿……" }
-      - { speaker: CHAR-015, emotion: 打断, text: "行了行了，就这么定。我来写报告，你们俩签字就行。" }
+      - {
+          speaker: CHAR-015,
+          emotion: 打断,
+          text: "行了行了，就这么定。我来写报告，你们俩签字就行。",
+        }
       - { speaker: CHAR-001, emotion: 内心, text: "来了。意料之中。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "老赵这个人……上辈子他就是这样。别人办案他摘桃子。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "无所谓。功劳让他拿去。我要的不是一份报告上的名字。" }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "老赵这个人……上辈子他就是这样。别人办案他摘桃子。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "无所谓。功劳让他拿去。我要的不是一份报告上的名字。",
+        }
       - { speaker: CHAR-001, emotion: 内心, text: "我要的是——拆掉整条链子。" }
     api:
       text: |
-        【图1】陆峥 CHAR-001-L01【图2】老郑 CHAR-014-L01【图3】老赵 CHAR-015-L01。
+        【图1】陆峥 CHAR-001-L01。
         竖屏9比16连贯叙事。
-        镜头1（4秒）中景固定：老赵推门进办公室笑容满面；双手背后踱步；老郑坐桌后表情微妙。
-        镜头2（4秒）近景：老赵凑近陆峥拍肩膀笑着说话；陆峥面无表情。
-        镜头3（4秒）近景特写：陆峥垂眼不言，嘴角微不可察地一抿。
-        对白（老赵，45岁，官腔假笑）：「老郑啊，当初走访是我批的假条。功劳是集体的嘛。」
-        对白（老赵，拍肩）：「小陆有冲劲。报告我来写，你们签字就行。」
-        对白（陆峥，25岁，内心独白）：「来了。意料之中。功劳让他拿去——我要的是拆掉整条链子。」
-        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+        镜头1（4秒）远景：1995年小城办公楼走廊，一个中年男子推门进来笑着和年轻人打招呼。
+        镜头2（4秒）中景背影：中年男子拍年轻人肩膀，两人背对镜头走在走廊里。
+        镜头3（4秒）侧面近景：年轻男子表情淡然，嘴角微抿。
+        对白（中年男，45岁，笑嘘嘘）：「这事我也参与了，总结我来写吧。」
+        对白（中年男，拍肩）：「小伙子干得不错。」
+        对白（男，25岁，内心独白）：「无所谓，我关心的不是这些。」
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: CHAR-014-L01, role: reference_image, label: 图2 }
-        - { file: CHAR-015-L01, role: reference_image, label: 图3 }
 
   - segment_id: EP04-SEG12
     title: 独处·布局
@@ -462,11 +628,27 @@ segments:
         SCENE-001: assets/scenes/SCENE-001.png
     dialogue_lines:
       - { speaker: CHAR-001, emotion: 内心, text: "老赵截走一半功劳。无所谓。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "重要的是——今天抓的那个花衬衫，登记名字叫李大勇。外地口音，湖南来的。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "他只是链条上的一个环节。上面还有人——日记里提到的那个'老板'。" }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "重要的是——今天抓的那个花衬衫，登记名字叫李大勇。外地口音，湖南来的。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "他只是链条上的一个环节。上面还有人——日记里提到的那个'老板'。",
+        }
       - { speaker: CHAR-001, emotion: 内心, text: "招工诈骗……这才是开端。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "一九九五年到一九九七年，我记得这条线至少牵涉了十几个人。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "上辈子没人管。这辈子……我从第一环开始拆。" }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "一九九五年到一九九七年，我记得这条线至少牵涉了十几个人。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "上辈子没人管。这辈子……我从第一环开始拆。",
+        }
     api:
       text: |
         【图1】陆峥 CHAR-001-L01【图2】派出所办公室 SCENE-001。
@@ -476,7 +658,7 @@ segments:
         对白（陆峥，25岁，内心独白）：「李大勇只是一环。上面还有人。」
         对白（陆峥，同上）：「招工诈骗——这才是开端。一九九五到九七年，至少十几个人。」
         对白（陆峥，同上）：「上辈子没人管。这辈子——从第一环开始拆。」
-        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: SCENE-001, role: reference_image, label: 图2 }
@@ -498,11 +680,27 @@ segments:
       scene_urls:
         SCENE-001: assets/scenes/SCENE-001.png
     dialogue_lines:
-      - { speaker: CHAR-001, emotion: 内心惊讶, text: "系统提示——任务完成：拦截成功。奖励：「审讯心理学·初级」解锁。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "审讯心理学……正好。明天提审李大勇，用得着。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "系统还有一条——新任务预告：「链条上游·南方贸易公司」。" }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心惊讶,
+          text: "系统提示——任务完成：拦截成功。奖励：「审讯心理学·初级」解锁。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "审讯心理学……正好。明天提审李大勇，用得着。",
+        }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "系统还有一条——新任务预告：「链条上游·南方贸易公司」。",
+        }
       - { speaker: CHAR-001, emotion: 内心, text: "来了。真正的大鱼。" }
-      - { speaker: CHAR-001, emotion: 内心, text: "等着吧。一环一环拆——我有的是时间。这辈子够长。" }
+      - {
+          speaker: CHAR-001,
+          emotion: 内心,
+          text: "等着吧。一环一环拆——我有的是时间。这辈子够长。",
+        }
     api:
       text: |
         【图1】陆峥 CHAR-001-L01【图2】派出所办公室 SCENE-001。
@@ -512,7 +710,7 @@ segments:
         对白（陆峥，25岁，内心独白）：「系统提示——拦截成功。奖励：审讯心理学解锁。」
         对白（陆峥，同上）：「新任务预告：链条上游，南方贸易公司。真正的大鱼。」
         对白（陆峥，同上）：「一环一环拆。这辈子够长。」
-        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+        1995年中国城市，写实电影风格，竖屏9比16，无智能手机，无平板，无LED广告屏，无现代车型。禁止画面中出现任何文字或字幕
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: SCENE-001, role: reference_image, label: 图2 }
