@@ -1,0 +1,805 @@
+# EP03 shots — 26 effective + 2 skip, 11 API segments
+episode_id: EP03
+source_md: 剧本/EP03/EP03_到家.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128
+  ratio: "9:16"
+  resolution: 1080x1920
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字"
+  negative_prompt: "1990s interior, CRT TV, flip phone, ancient costume, palace, anime style, heavy neon cyberpunk, unreadable gibberish text"
+
+shots:
+  - shot_id: EP03-S01
+    shot_no: 1
+    mode: skip
+    note: 字幕镜「程家·傍晚」；并入 EP03-SEG01
+
+  # === SEG01 到家厨房 ===
+  - shot_id: EP03-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-007
+    characters: [CHAR-003, CHAR-002]
+    look_ids: [CHAR-003-L02, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-007
+      look_ids: [CHAR-003-L02, CHAR-002-L02]
+    assets:
+      look_urls:
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png
+    api:
+      text: |
+        【图1】CHAR-003-L02【图2】CHAR-002-L02【图3】SCENE-007。固定镜头，全景，程母领沈听进厨房，暖黄灶灯，砧板已备。
+                对白（程母，55岁热情）：「听听，随便坐，妈做饭。」
+                对白（沈听，26岁温柔专业）：「阿姨我来搭把手。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-003-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-003, text: "听听，随便坐，妈做饭。" }
+      - { speaker: CHAR-002, text: "阿姨我来搭把手。" }
+
+  - shot_id: EP03-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-007
+    characters: [CHAR-002]
+    look_ids: [CHAR-002-L02]
+    refs:
+      scene_id: SCENE-007
+      look_ids: [CHAR-002-L02]
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png
+    api:
+      text: |
+        【图1】CHAR-002-L02【图2】SCENE-007。跟拍，中景，沈听洗手、系围裙，动作利落无生疏。
+                对白（沈听，内心）：「厨房动线我看过平面图——问卷附件。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-002, text: "厨房动线我看过平面图——问卷附件。", note: 内心 }
+
+  - shot_id: EP03-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    scene_id: SCENE-007
+    characters: [CHAR-002, CHAR-003]
+    look_ids: [CHAR-002-L02, CHAR-003-L02]
+    refs:
+      scene_id: SCENE-007
+      look_ids: [CHAR-002-L02, CHAR-003-L02]
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png
+    api:
+      text: |
+        【图1】CHAR-002-L02【图2】CHAR-003-L02【图3】SCENE-007。推近，近景，沈听接过刀，把香菜整棵挑出扔进废筐。
+                对白（沈听）：「程野不吃香菜，我都切掉。」
+                对白（程母，愣后笑）：「……」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-002, text: "程野不吃香菜，我都切掉。" }
+
+  - shot_id: EP03-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-007
+    characters: [CHAR-003, CHAR-002]
+    look_ids: [CHAR-003-L02, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-007
+      look_ids: [CHAR-003-L02, CHAR-002-L02]
+    assets:
+      look_urls:
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png
+    api:
+      text: |
+        【图1】CHAR-003-L02【图2】CHAR-002-L02【图3】SCENE-007。固定镜头，特写，程母看废筐里香菜，又看沈听，眼角弯。
+                对白（程母）：「哎，野子那臭脾气……你咋知道？」
+                对白（沈听）：「他问卷里写了。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-003-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-003, text: "哎，野子那臭脾气……你咋知道？" }
+      - { speaker: CHAR-002, text: "他问卷里写了。" }
+
+  # === SEG02 程父与帮厨 ===
+  - shot_id: EP03-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-007
+    characters: [CHAR-004]
+    look_ids: [CHAR-004-L01]
+    refs:
+      scene_id: SCENE-007
+      look_ids: [CHAR-004-L01]
+    assets:
+      look_urls:
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png
+    api:
+      text: |
+        【图1】CHAR-004-L01【图2】SCENE-007。固定镜头，中景，程父灶前烧火/看锅，沉默少语，不看镜头。
+                环境音：柴火噼啪、锅盖轻响。本段无对白。
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+      return_last_frame: true
+    note: 环境音镜，无对白
+
+  - shot_id: EP03-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    scene_id: SCENE-007
+    characters: [CHAR-002, CHAR-003]
+    look_ids: [CHAR-002-L02, CHAR-003-L02]
+    refs:
+      scene_id: SCENE-007
+      look_ids: [CHAR-002-L02, CHAR-003-L02]
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png
+    api:
+      text: |
+        【图1】CHAR-002-L02【图2】CHAR-003-L02【图3】SCENE-007。固定镜头，双人中景，沈听与程母配合备菜，递盘、调火，节奏默契。
+                对白（沈听，内心）：「备菜顺序——先凉后热，阿姨习惯我记了。」
+                对白（程母）：「这刀工，像自家闺女。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-002, text: "备菜顺序——先凉后热，阿姨习惯我记了。", note: 内心 }
+      - { speaker: CHAR-003, text: "这刀工，像自家闺女。" }
+
+  # === SEG03 别真干 ===
+  - shot_id: EP03-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-007
+    characters: [CHAR-001]
+    look_ids: [CHAR-001-L04]
+    refs:
+      scene_id: SCENE-007
+      look_ids: [CHAR-001-L04]
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png
+    api:
+      text: |
+        【图1】CHAR-001-L04【图2】SCENE-007。固定镜头，中景，程野倚门框，看沈听忙，眉头微拧。
+                对白（程野，内心）：「她真下厨房……合同没写要会做饭吧。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-001, text: "她真下厨房……合同没写要会做饭吧。", note: 内心 }
+
+  - shot_id: EP03-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    scene_id: SCENE-007
+    characters: [CHAR-001, CHAR-002]
+    look_ids: [CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-007
+      look_ids: [CHAR-001-L04, CHAR-002-L02]
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png
+    api:
+      text: |
+        【图1】CHAR-001-L04【图2】CHAR-002-L02【图3】SCENE-007。固定镜头，近景，程野把沈听拉到门边，压低声音，程母背影在灶前。
+                对白（程野，低）：「别真干。」
+                对白（沈听，低，温柔笃定）：「你不干，他们信我们是假的。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-001, text: "别真干。" }
+      - { speaker: CHAR-002, text: "你不干，他们信我们是假的。" }
+
+  - shot_id: EP03-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-007
+    characters: [CHAR-001]
+    look_ids: [CHAR-001-L04]
+    refs:
+      scene_id: SCENE-007
+      look_ids: [CHAR-001-L04]
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png
+    api:
+      text: |
+        【图1】CHAR-001-L04【图2】SCENE-007。推近，特写，程野愣住，想反驳又咽回——被她说服一半。
+                对白（程野，内心）：「她说得……好像也对。」「别陷进去，程野，这是交付。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-001, text: "她说得……好像也对。", note: 内心 }
+      - { speaker: CHAR-001, text: "别陷进去，程野，这是交付。", note: 内心 }
+
+  # === SEG04 出菜摆桌 ===
+  - shot_id: EP03-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-007
+    characters: [CHAR-002]
+    look_ids: [CHAR-002-L02]
+    refs:
+      scene_id: SCENE-007
+      look_ids: [CHAR-002-L02]
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png
+    api:
+      text: |
+        【图1】CHAR-002-L02【图2】SCENE-007。跟拍，中景，沈听端热菜出厨房，围裙未解，热气升腾。
+                对白（沈听）：「最后一道，无香菜版。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-002, text: "最后一道，无香菜版。" }
+
+  - shot_id: EP03-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-008
+    characters: [CHAR-002]
+    look_ids: [CHAR-002-L02]
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-002-L02]
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-008: assets/scenes/SCENE-008.png
+    api:
+      text: |
+        【图1】CHAR-002-L02【图2】SCENE-008。固定镜头，全景，堂屋方桌，沈听布筷、挪碟，按方位摆。
+                环境音：碗碟轻碰。本段无对白。
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+      return_last_frame: true
+    note: 布桌环境音，无对白
+
+  # === SEG05 布菜规矩 ===
+  - shot_id: EP03-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    scene_id: SCENE-008
+    characters: [CHAR-002, CHAR-001]
+    look_ids: [CHAR-002-L02, CHAR-001-L04]
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-002-L02, CHAR-001-L04]
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+      scene_urls:
+        SCENE-008: assets/scenes/SCENE-008.png
+    api:
+      text: |
+        【图1】CHAR-002-L02【图2】CHAR-001-L04【图3】SCENE-008。固定镜头，中景，沈听按程野习惯摆位——汤近程野、辣碟靠外。
+                对白（沈听，内心）：「他爱汤放右手边，问卷生活偏好栏。」
+                对白（程野，内心）：「她……怎么比我妈还熟我家桌子？」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L04, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-002, text: "他爱汤放右手边，问卷生活偏好栏。", note: 内心 }
+      - { speaker: CHAR-001, text: "她……怎么比我妈还熟我家桌子？", note: 内心 }
+
+  - shot_id: EP03-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-008
+    characters: [CHAR-004, CHAR-001]
+    look_ids: [CHAR-004-L01, CHAR-001-L04]
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-004-L01, CHAR-001-L04]
+    assets:
+      look_urls:
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+      scene_urls:
+        SCENE-008: assets/scenes/SCENE-008.png
+    api:
+      text: |
+        【图1】CHAR-004-L01【图2】CHAR-001-L04【图3】SCENE-008。固定镜头，近景，程父落座，看摆位，微点头。
+                对白（程父，58岁寡言）：「丫头细心。」
+                对白（程野，内心）：「爸都夸……我才是亲儿子吧。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L04, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-004, text: "丫头细心。" }
+      - { speaker: CHAR-001, text: "爸都夸……我才是亲儿子吧。", note: 内心 }
+
+  # === SEG06 踩脚 ===
+  - shot_id: EP03-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-008
+    characters: [CHAR-001, CHAR-002, CHAR-003, CHAR-004]
+    look_ids: [CHAR-001-L04, CHAR-002-L02, CHAR-003-L02, CHAR-004-L01]
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-001-L04, CHAR-002-L02, CHAR-003-L02, CHAR-004-L01]
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-008: assets/scenes/SCENE-008.png
+    api:
+      text: |
+        【图1】CHAR-001-L04【图2】CHAR-002-L02【图3】CHAR-003-L02【图4】CHAR-004-L01【图5】SCENE-008。固定镜头，全景，四人围桌吃饭，程母给沈听夹菜，气氛热络。
+                对白（程母）：「听听，多吃点。」
+                对白（沈听）：「谢谢阿姨。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L02, role: reference_image, label: 图3 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-008, role: reference_image, label: 图5 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-003, text: "听听，多吃点。" }
+      - { speaker: CHAR-002, text: "谢谢阿姨。" }
+
+  - shot_id: EP03-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-008
+    characters: [CHAR-001, CHAR-002]
+    look_ids: [CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-001-L04, CHAR-002-L02]
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-008: assets/scenes/SCENE-008.png
+    api:
+      text: |
+        【图1】CHAR-001-L04【图2】CHAR-002-L02【图3】SCENE-008。推近，特写，桌下程野鞋尖踩沈听脚背；沈听面上依旧微笑夹菜。
+                对白（程野，极低）：「过了。」
+                对白（沈听，内心）：「收到。表演继续。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-001, text: "过了。" }
+      - { speaker: CHAR-002, text: "收到。表演继续。", note: 内心 }
+
+  # === SEG07 收席同房 ===
+  - shot_id: EP03-S17
+    shot_no: 17
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-008
+    characters: [CHAR-003]
+    look_ids: [CHAR-003-L02]
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-003-L02]
+    assets:
+      look_urls:
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+      scene_urls:
+        SCENE-008: assets/scenes/SCENE-008.png
+    api:
+      text: |
+        【图1】CHAR-003-L02【图2】SCENE-008。固定镜头，中景，饭后程母收碗，对两人笑。
+                对白（程母）：「野子那屋床我铺好了，你们早点歇。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-003-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-003, text: "野子那屋床我铺好了，你们早点歇。" }
+
+  - shot_id: EP03-S18
+    shot_no: 18
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-009
+    characters: [CHAR-001, CHAR-002]
+    look_ids: [CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-001-L04, CHAR-002-L02]
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】CHAR-001-L04【图2】CHAR-002-L02【图3】SCENE-009。跟拍，全景，窄走廊，两人进程野旧房，单人床、旧衣柜。
+                对白（程野，内心）：「同房……真演啊。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-001, text: "同房……真演啊。", note: 内心 }
+
+  # === SEG08 地铺博弈 ===
+  - shot_id: EP03-S19
+    shot_no: 19
+    mode: i2v_ref
+    duration_sec: 5
+    scene_id: SCENE-009
+    characters: [CHAR-001]
+    look_ids: [CHAR-001-L04]
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-001-L04]
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】CHAR-001-L04【图2】SCENE-009。固定镜头，中景，程野从柜里抱出薄被，在床边打地铺。
+                对白（程野）：「合同说分房……」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-001, text: "合同说分房……" }
+
+  - shot_id: EP03-S20
+    shot_no: 20
+    mode: i2v_ref
+    duration_sec: 5
+    scene_id: SCENE-009
+    characters: [CHAR-001, CHAR-002]
+    look_ids: [CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-001-L04, CHAR-002-L02]
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】CHAR-001-L04【图2】CHAR-002-L02【图3】SCENE-009。固定镜头，双人中景，沈听拍床沿，指房间小沙发/折叠椅。
+                对白（沈听）：「你睡床，我守规矩睡沙发。」
+                对白（沈听，内心）：「见家长套餐标准流程——不能真越界。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-002, text: "你睡床，我守规矩睡沙发。" }
+      - { speaker: CHAR-002, text: "见家长套餐标准流程——不能真越界。", note: 内心 }
+
+  - shot_id: EP03-S21
+    shot_no: 21
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-009
+    characters: [CHAR-002, CHAR-001]
+    look_ids: [CHAR-002-L02, CHAR-001-L04]
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-002-L02, CHAR-001-L04]
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】CHAR-002-L02【图2】CHAR-001-L04【图3】SCENE-009。固定镜头，近景，沈听看门口方向，压低声音。
+                对白（沈听，低）：「阿姨看见我们分房，更假。」
+                对白（程野，内心）：「……她说得有理，可我睡床她睡沙发，我更心虚。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L04, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-002, text: "阿姨看见我们分房，更假。" }
+      - { speaker: CHAR-001, text: "……她说得有理，可我睡床她睡沙发，我更心虚。", note: 内心 }
+
+  # === SEG09 关灯失眠 ===
+  - shot_id: EP03-S22
+    shot_no: 22
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-009
+    characters: [CHAR-001, CHAR-002]
+    look_ids: [CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-001-L04, CHAR-002-L02]
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】CHAR-001-L04【图2】CHAR-002-L02【图3】SCENE-009。固定镜头，中景，灯灭，程野躺床，沈听蜷沙发，两人各一侧。
+                环境音：夜静、远处犬吠。本段无对白。
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+      return_last_frame: true
+    note: 关灯环境音，无对白
+
+  - shot_id: EP03-S23
+    shot_no: 23
+    mode: i2v_ref
+    duration_sec: 5
+    scene_id: SCENE-009
+    characters: [CHAR-001]
+    look_ids: [CHAR-001-L04]
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-001-L04]
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】CHAR-001-L04【图2】SCENE-009。推近，特写，程野睁眼望天花板，侧耳听沙发呼吸。
+                对白（程野，内心）：「她睡沙发……我睡床，像什么话。」「七天，别动心——可心跳怎么还这么快。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-001, text: "她睡沙发……我睡床，像什么话。", note: 内心 }
+      - { speaker: CHAR-001, text: "七天，别动心——可心跳怎么还这么快。", note: 内心 }
+
+  # === SEG10 收睡衣钩子 ===
+  - shot_id: EP03-S24
+    shot_no: 24
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-009
+    characters: []
+    look_ids: []
+    refs:
+      scene_id: SCENE-009
+    assets:
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】SCENE-009。固定镜头，中景，走廊静，门缝下透出一线光，两套叠好的分房睡衣。
+                环境音：脚步极轻。本段无对白。
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: SCENE-009, role: reference_image, label: 图1 }
+      return_last_frame: true
+    note: 门缝睡衣，无对白
+
+  - shot_id: EP03-S25
+    shot_no: 25
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-009
+    characters: [CHAR-003]
+    look_ids: [CHAR-003-L02]
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-003-L02]
+    assets:
+      look_urls:
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】CHAR-003-L02【图2】SCENE-009。固定镜头，近景，程母蹲在门外，手伸向门缝下的睡衣。
+                本段无对白。
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-003-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+      return_last_frame: true
+    note: 收睡衣前奏，无对白
+
+  - shot_id: EP03-S26
+    shot_no: 26
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-009
+    characters: [CHAR-003]
+    look_ids: [CHAR-003-L02]
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-003-L02]
+    assets:
+      look_urls:
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】CHAR-003-L02【图2】SCENE-009。推近，特写，程母默默收走两套分房睡衣，满意轻笑。
+                本段无对白。
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-003-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+      return_last_frame: true
+    note: 钩子镜，无对白
+
+  - shot_id: EP03-S27
+    shot_no: 27
+    mode: i2v_ref
+    duration_sec: 4
+    scene_id: SCENE-009
+    characters: [CHAR-003]
+    look_ids: [CHAR-003-L02]
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-003-L02]
+    assets:
+      look_urls:
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】CHAR-003-L02【图2】SCENE-009。拉出，中景，程母抱睡衣往主卧走，背影轻快。
+                对白（程母，极低自语）：「小两口，还害羞。」
+                2020年代中国都市/小城，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+
+      content_roles:
+        - { file: CHAR-003-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+      return_last_frame: true
+    dialogue:
+      - { speaker: CHAR-003, text: "小两口，还害羞。" }
+
+  - shot_id: EP03-S28
+    shot_no: 28
+    mode: skip
+    note: 黑屏预告「下集·早饭一声「谢谢妈」，程野喷饭。」；并入 EP03-SEG11

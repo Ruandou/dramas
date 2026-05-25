@@ -1,0 +1,365 @@
+# EP04 segments — 11 submissions (4–12s each)
+episode_id: EP04
+episode_title: 改口
+source_md: 剧本/EP04/EP04_改口.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128
+  ratio: "9:16"
+  resolution: 1080x1920
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字"
+  negative_prompt: "1990s interior, CRT TV, flip phone, ancient costume, palace, anime style, heavy neon cyberpunk, unreadable gibberish text"
+
+voice_prompts:
+  CHAR-001: "成年男性，29岁，小城在家略慌，嘴硬心虚，短句"
+  CHAR-002: "成年女性，26岁，温柔自然，改口叫妈时像真儿媳"
+  CHAR-003: "中年女性，55岁，热情眼细，被叫妈时哽咽"
+  CHAR-004: "中年男性，58岁，低沉简短，少话"
+  CHAR-005: "成年女性，28岁，前女友，冷笑带刺，压低自语"
+
+segments:
+  - segment_id: EP04-SEG01
+    title: 晨粥第一碗
+    shot_ids: [EP04-S01, EP04-S02, EP04-S03]
+    duration_sec: 12
+    scene_primary: SCENE-007
+    characters: [CHAR-002, CHAR-003, CHAR-004]
+    looks: [CHAR-002-L02, CHAR-003-L02, CHAR-004-L01]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png
+    dialogue_lines:
+      - { speaker: CHAR-002, emotion: 自然, text: "爸，趁热。" }
+      - { speaker: CHAR-004, emotion: 平静, text: "嗯。" }
+      - { speaker: CHAR-003, emotion: 欣慰, text: "听听，别忙，你也坐。" }
+    api:
+      text: |
+        【图1】沈听 CHAR-002-L02【图2】程母 CHAR-003-L02【图3】程父 CHAR-004-L01【图4】厨房 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）全景：晨光斜进小城厨房，沈听围裙马尾盛白粥，程母摆筷。
+        镜头2（4秒）中景推近：沈听第一碗粥端给程父，动作自然像儿媳。
+        对白（沈听，26岁温柔自然）：「爸，趁热。」
+        对白（程父，58岁低沉）：「嗯。」
+        镜头3（4秒）过肩：程母接碟欣慰看沈听。
+        对白（程母，55岁热情）：「听听，别忙，你也坐。」
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-007, role: reference_image, label: 图4 }
+
+  - segment_id: EP04-SEG02
+    title: 谢谢妈全场静
+    shot_ids: [EP04-S04, EP04-S05, EP04-S06, EP04-S07]
+    duration_sec: 12
+    scene_primary: SCENE-008
+    characters: [CHAR-001, CHAR-002, CHAR-003, CHAR-004]
+    looks: [CHAR-001-L04, CHAR-002-L02, CHAR-003-L02, CHAR-004-L01]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-008: assets/scenes/SCENE-008.png
+    dialogue_lines:
+      - { speaker: CHAR-002, emotion: 自然, text: "谢谢妈。" }
+      - { speaker: CHAR-003, emotion: 感动哽咽, text: "哎……好。好。" }
+    api:
+      text: |
+        【图1】沈听【图2】程野 CHAR-001-L04【图3】程母【图4】堂屋 SCENE-008。
+        镜头1（5秒）双人中景：程母夹菜，沈听抬眼笑，自然改口。
+        对白（沈听，温柔坚定）：「谢谢妈。」
+        镜头2（4秒）全景：全场静，程父停筷，程母愣住。
+        镜头3（4秒）特写：程野呛咳，粥溢出，慌乱抽纸。
+        音效：呛咳。
+        镜头4（4秒）程母眼眶红，手捂嘴。
+        对白（程母，哽咽）：「哎……好。好。」
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L04, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L02, role: reference_image, label: 图3 }
+        - { file: SCENE-008, role: reference_image, label: 图4 }
+
+  - segment_id: EP04-SEG03
+    title: 拉去院角
+    shot_ids: [EP04-S08, EP04-S09]
+    duration_sec: 8
+    scene_primary: SCENE-010
+    characters: [CHAR-001, CHAR-002]
+    looks: [CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-010: assets/scenes/SCENE-010.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 压低心虚, text: "你叫妈叫得太顺了。" }
+    api:
+      text: |
+        【图1】程野【图2】沈听【图3】院子 SCENE-010。
+        镜头1（4秒）厨房门边程野拉沈听低语，程母背影在灶前。
+        对白（程野，29岁压低）：「你叫妈叫得太顺了。」
+        镜头2（4秒）跟拍出厨房到院角晾绳下，冬日午后光。
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+
+  - segment_id: EP04-SEG04
+    title: 改口钱对质
+    shot_ids: [EP04-S10, EP04-S11, EP04-S12]
+    duration_sec: 12
+    scene_primary: SCENE-010
+    characters: [CHAR-001, CHAR-002]
+    looks: [CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-010: assets/scenes/SCENE-010.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 急, text: "改口钱没给你啊！你凭什么叫妈？" }
+      - { speaker: CHAR-002, emotion: 专业, text: "七大姑八大姨来了也要改口，我预习。" }
+      - { speaker: CHAR-001, emotion: 无奈, text: "过头了。" }
+      - { speaker: CHAR-002, emotion: 认真, text: "你要的是七天不穿帮。我交付。" }
+    api:
+      text: |
+        【图1】程野【图2】沈听【图3】院子。
+        镜头1（5秒）双人：程野皱眉质问改口钱。
+        对白（程野）：「改口钱没给你啊！你凭什么叫妈？」
+        镜头2（4秒）沈听近景，像背合同。
+        对白（沈听，专业平稳）：「七大姑八大姨来了也要改口，我预习。」
+        镜头3（5秒）过肩推近：程野语塞，沈听认真交付。
+        对白（程野）：「过头了。」
+        对白（沈听，认真）：「你要的是七天不穿帮。我交付。」
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+
+  - segment_id: EP04-SEG05
+    title: 哑口
+    shot_ids: [EP04-S13]
+    duration_sec: 4
+    scene_primary: SCENE-010
+    characters: [CHAR-001]
+    looks: [CHAR-001-L04]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+      scene_urls:
+        SCENE-010: assets/scenes/SCENE-010.png
+    api:
+      text: |
+        【图1】程野【图2】院子。
+        镜头（4秒）特写：程野哑口无言，目光躲闪，喉结动，被说中。
+        本段无对白，无字幕。
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，本段无对白无字幕，禁止其它汉字乱字
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+
+  - segment_id: EP04-SEG06
+    title: 亲戚视频
+    shot_ids: [EP04-S14, EP04-S15, EP04-S16]
+    duration_sec: 12
+    scene_primary: SCENE-008
+    characters: [CHAR-001, CHAR-002, CHAR-003]
+    looks: [CHAR-001-L04, CHAR-002-L02, CHAR-003-L02]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+      scene_urls:
+        SCENE-008: assets/scenes/SCENE-008.png
+    dialogue_lines:
+      - { speaker: CHAR-003, emotion: 热情, text: "你二姨要看听听。" }
+      - { speaker: CHAR-002, emotion: 笑, text: "听程野的。" }
+    api:
+      text: |
+        【图1】程野【图2】沈听【图3】程母【图4】堂屋。
+        镜头1（4秒）程母摆水果，程野架手机视频，屏幕亲戚脸虚化。
+        对白（程母）：「你二姨要看听听。」
+        镜头2（4秒）沈听入画挽程野臂，对手机笑。
+        画外亲戚：「啥时候结婚啊？」
+        镜头3（5秒）沈听侧看程野，再对屏。
+        对白（沈听，笑）：「听程野的。」
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L02, role: reference_image, label: 图3 }
+        - { file: SCENE-008, role: reference_image, label: 图4 }
+
+  - segment_id: EP04-SEG07
+    title: 心跳一下
+    shot_ids: [EP04-S17]
+    duration_sec: 4
+    scene_primary: SCENE-008
+    characters: [CHAR-001]
+    looks: [CHAR-001-L04]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+      scene_urls:
+        SCENE-008: assets/scenes/SCENE-008.png
+    api:
+      text: |
+        【图1】程野【图2】堂屋。
+        镜头（4秒）特写推近：程野心跳一下，瞳孔微扩，嘴角不自觉上扬又压住，不像演的。
+        音效：心跳轻击。
+        本段无对白，无字幕。
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，本段无对白无字幕，禁止其它汉字乱字
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+
+  - segment_id: EP04-SEG08
+    title: 周琳走近
+    shot_ids: [EP04-S18, EP04-S19, EP04-S20]
+    duration_sec: 12
+    scene_primary: SCENE-010
+    characters: [CHAR-005, CHAR-001, CHAR-002]
+    looks: [CHAR-005-L01, CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-010: assets/scenes/SCENE-010.png
+    api:
+      text: |
+        【图1】周琳 CHAR-005-L01【图2】程野【图3】沈听【图4】院子/窗 SCENE-010。
+        镜头1（4秒）远景：院外周琳呢子外套卷发剪影走近程家窗。
+        镜头2（4秒）中景跟拍：周琳抬眼望窗，脚步渐慢。
+        镜头3（5秒）窗内过肩：沈听给程野夹青菜，程野自然接，像真夫妻。
+        画外亲戚：「真般配。」
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L04, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图3 }
+        - { file: SCENE-010, role: reference_image, label: 图4 }
+
+  - segment_id: EP04-SEG09
+    title: 停步与离开
+    shot_ids: [EP04-S21, EP04-S22, EP04-S23, EP04-S24]
+    duration_sec: 12
+    scene_primary: SCENE-010
+    characters: [CHAR-005, CHAR-001, CHAR-002]
+    looks: [CHAR-005-L01, CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-010: assets/scenes/SCENE-010.png
+    dialogue_lines:
+      - { speaker: CHAR-005, emotion: 自语, text: "……程野。" }
+    api:
+      text: |
+        【图1】周琳【图2】程野【图3】沈听【图4】院子。
+        镜头1（4秒）周琳停步特写，手攥包带。
+        镜头2（4秒）周琳侧脸复杂，极低自语。
+        对白（周琳，28岁冷笑）：「……程野。」
+        镜头3（4秒）窗内程野对视频笑，不知窗外。
+        镜头4（4秒）周琳转身离开，背影渐远，晾绳前景晃。
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L04, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图3 }
+        - { file: SCENE-010, role: reference_image, label: 图4 }
+
+  - segment_id: EP04-SEG10
+    title: 你刚才那句
+    shot_ids: [EP04-S25]
+    duration_sec: 4
+    scene_primary: SCENE-008
+    characters: [CHAR-001, CHAR-002]
+    looks: [CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-008: assets/scenes/SCENE-008.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 欲言又止, text: "……你刚才那句。" }
+      - { speaker: CHAR-002, emotion: 无辜, text: "哪句？" }
+      - { speaker: CHAR-001, emotion: 回避, text: "算了。" }
+    api:
+      text: |
+        【图1】程野【图2】沈听【图3】堂屋。
+        镜头（4秒）程野挂视频看沈听，欲言又止。
+        对白（程野）：「……你刚才那句。」
+        对白（沈听）：「哪句？」
+        对白（程野）：「算了。」
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+
+  - segment_id: EP04-SEG11
+    title: 钩子停步剪影
+    shot_ids: [EP04-S26, EP04-S27]
+    duration_sec: 8
+    scene_primary: SCENE-010
+    characters: [CHAR-005]
+    looks: [CHAR-005-L01]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png
+      scene_urls:
+        SCENE-010: assets/scenes/SCENE-010.png
+    api:
+      text: |
+        【图1】周琳【图2】院外巷口 SCENE-010。
+        镜头1（4秒）远景：巷口周琳停步剪影再顿半秒，终离去。
+        镜头2（4秒）黑屏白字简体：「下集 · 街口偶遇：租的？」
+        悬疑轻喜剧钩子氛围。
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }

@@ -1,0 +1,358 @@
+# EP05 segments — 11 submissions (4–12s each)
+episode_id: EP05
+episode_title: 周琳
+source_md: 剧本/EP05/EP05_周琳.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128
+  ratio: "9:16"
+  resolution: 1080x1920
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字"
+  negative_prompt: "1990s interior, CRT TV, flip phone, ancient costume, palace, anime style, heavy neon cyberpunk, unreadable gibberish text"
+
+voice_prompts:
+  CHAR-001: "成年男性，29岁，小城在家，嘴硬心虚，被问时沉默"
+  CHAR-002: "成年女性，26岁，温柔专业，宣示主权时笑里带锋"
+  CHAR-003: "中年女性，55岁，热情眼细，给红包时真诚"
+  CHAR-004: "中年男性，58岁，低沉简短"
+  CHAR-005: "成年女性，28岁，前女友，精致带刺，冷笑"
+
+segments:
+  - segment_id: EP05-SEG01
+    title: 街口租的
+    shot_ids: [EP05-S01, EP05-S02, EP05-S03, EP05-S04]
+    duration_sec: 12
+    scene_primary: SCENE-011
+    characters: [CHAR-001, CHAR-002, CHAR-005]
+    looks: [CHAR-001-L04, CHAR-002-L02, CHAR-005-L01]
+    refs:
+      scene_id: SCENE-011
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png
+      scene_urls:
+        SCENE-011: assets/scenes/SCENE-011.png
+    dialogue_lines:
+      - { speaker: CHAR-005, emotion: 挑衅, text: "程野？听说你带人回来了——租的？" }
+      - { speaker: CHAR-002, emotion: 微笑, text: "我们认识快一年了。你是？" }
+      - { speaker: CHAR-005, emotion: 冷, text: "前女友。" }
+    api:
+      text: |
+        【图1】程野 CHAR-001-L04【图2】周琳 CHAR-005-L01【图3】沈听 CHAR-002-L02【图4】街口 SCENE-011。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）程野拎袋出小超市，冬日午后窄街。
+        镜头2（5秒）周琳拦路，笑里带刺。
+        对白（周琳，28岁精致带刺）：「程野？听说你带人回来了——租的？」
+        镜头3（4秒）店门开，沈听出店挽程野臂。
+        镜头4（5秒）三人三角站位。
+        对白（沈听，温柔）：「我们认识快一年了。你是？」
+        对白（周琳，冷）：「前女友。」
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图3 }
+        - { file: SCENE-011, role: reference_image, label: 图4 }
+
+  - segment_id: EP05-SEG02
+    title: 现在有主
+    shot_ids: [EP05-S05, EP05-S06, EP05-S07, EP05-S08]
+    duration_sec: 12
+    scene_primary: SCENE-011
+    characters: [CHAR-001, CHAR-002, CHAR-005]
+    looks: [CHAR-001-L04, CHAR-002-L02, CHAR-005-L01]
+    refs:
+      scene_id: SCENE-011
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png
+      scene_urls:
+        SCENE-011: assets/scenes/SCENE-011.png
+    dialogue_lines:
+      - { speaker: CHAR-002, emotion: 坚定, text: "那请保持距离，他现在有主。" }
+      - { speaker: CHAR-005, emotion: 讽刺, text: "有主？行。祝你们……演得开心。" }
+    api:
+      text: |
+        【图1】沈听【图2】程野【图3】周琳【图4】街口。
+        镜头1（5秒）沈听近景推近，笑而硬。
+        对白（沈听，坚定）：「那请保持距离，他现在有主。」
+        镜头2（4秒）程野特写，没否认，喉结动。
+        镜头3（4秒）周琳冷笑掐掌心。
+        对白（周琳，讽刺）：「有主？行。祝你们……演得开心。」
+        镜头4（4秒）周琳转身走开，高跟鞋声脆。
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L04, role: reference_image, label: 图2 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-011, role: reference_image, label: 图4 }
+
+  - segment_id: EP05-SEG03
+    title: 河边租的
+    shot_ids: [EP05-S09, EP05-S10, EP05-S11, EP05-S12]
+    duration_sec: 12
+    scene_primary: SCENE-012
+    characters: [CHAR-001, CHAR-002]
+    looks: [CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-012
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 试探, text: "谢了。刚才……" }
+      - { speaker: CHAR-002, emotion: 专业, text: "合同：挡桃花。" }
+      - { speaker: CHAR-001, emotion: 认真, text: "周琳说租的……你生气吗？" }
+      - { speaker: CHAR-002, emotion: 平静沉, text: "我本来就是租的。" }
+    api:
+      text: |
+        【图1】程野【图2】沈听【图3】河岸 SCENE-012。
+        镜头1（4秒）灰蒙冬暮河栏，两人背影并肩。
+        镜头2（5秒）双人：程野侧看沈听。
+        对白（程野）：「谢了。刚才……」
+        对白（沈听，专业）：「合同：挡桃花。」
+        镜头3（5秒）程野停步认真问。
+        对白（程野）：「周琳说租的……你生气吗？」
+        镜头4（5秒）沈听停步看河面。
+        对白（沈听，平静沉）：「我本来就是租的。」
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-012, role: reference_image, label: 图3 }
+
+  - segment_id: EP05-SEG04
+    title: 河边沉默
+    shot_ids: [EP05-S13]
+    duration_sec: 4
+    scene_primary: SCENE-012
+    characters: [CHAR-001, CHAR-002]
+    looks: [CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-012
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png
+    api:
+      text: |
+        【图1】程野【图2】沈听【图3】河岸。
+        镜头（4秒）全景：两人沉默，河风掀衣角，气氛沉。
+        本段无对白，无字幕。
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，本段无对白无字幕，禁止其它汉字乱字
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-012, role: reference_image, label: 图3 }
+
+  - segment_id: EP05-SEG05
+    title: 厚红包
+    shot_ids: [EP05-S14, EP05-S15]
+    duration_sec: 8
+    scene_primary: SCENE-008
+    characters: [CHAR-002, CHAR-003]
+    looks: [CHAR-002-L02, CHAR-003-L02]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+      scene_urls:
+        SCENE-008: assets/scenes/SCENE-008.png
+    dialogue_lines:
+      - { speaker: CHAR-003, emotion: 真诚, text: "听听，拿着，见面礼。" }
+      - { speaker: CHAR-002, emotion: 推辞, text: "阿姨，这太多了，我不能……" }
+    api:
+      text: |
+        【图1】沈听【图2】程母【图3】堂屋 SCENE-008。
+        镜头1（4秒）夜堂屋暖灯，程母掏厚红包塞沈听。
+        对白（程母，真诚）：「听听，拿着，见面礼。」
+        镜头2（4秒）沈听双手推辞。
+        对白（沈听，推辞）：「阿姨，这太多了，我不能……」
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+
+  - segment_id: EP05-SEG06
+    title: 你应得的
+    shot_ids: [EP05-S16, EP05-S17, EP05-S18]
+    duration_sec: 12
+    scene_primary: SCENE-008
+    characters: [CHAR-001, CHAR-002, CHAR-003, CHAR-004]
+    looks: [CHAR-001-L04, CHAR-002-L02, CHAR-003-L02, CHAR-004-L01]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+        CHAR-003-L02: assets/looks/CHAR-003-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-008: assets/scenes/SCENE-008.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 坚定, text: "拿着。你应得的。" }
+      - { speaker: CHAR-003, emotion: 低语, text: "这姑娘，不像假的。" }
+      - { speaker: CHAR-004, emotion: 平静, text: "嗯。" }
+    api:
+      text: |
+        【图1】程野【图2】沈听【图3】程母【图4】堂屋。
+        镜头1（5秒）程野按沈听手背推红包。
+        对白（程野，坚定）：「拿着。你应得的。」
+        镜头2（4秒）沈听看程野两秒，收红包，指尖微颤。
+        镜头3（4秒）程母对程父低语，程父喝茶。
+        对白（程母，低）：「这姑娘，不像假的。」
+        对白（程父，58岁）：「嗯。」
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L02, role: reference_image, label: 图3 }
+        - { file: SCENE-008, role: reference_image, label: 图4 }
+
+  - segment_id: EP05-SEG07
+    title: 洗澡铃声
+    shot_ids: [EP05-S19, EP05-S20, EP05-S21]
+    duration_sec: 12
+    scene_primary: SCENE-009
+    characters: [CHAR-001, CHAR-002]
+    looks: [CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】沈听【图2】程野【图3】走廊 SCENE-009。
+        镜头1（4秒）沈听抱换洗衣物进浴室，水声起。
+        镜头2（4秒）程野端水杯过走廊停步。
+        音效：手机震动。
+        镜头3（4秒）浴室内手机屏亮，来电名「陆城」（虚构UI，无真实品牌）。
+        铃声短促两声。
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L04, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+
+  - segment_id: EP05-SEG08
+    title: 门外僵住
+    shot_ids: [EP05-S22, EP05-S23, EP05-S24]
+    duration_sec: 12
+    scene_primary: SCENE-009
+    characters: [CHAR-001, CHAR-002]
+    looks: [CHAR-001-L04, CHAR-002-L02]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】程野【图2】沈听【图3】走廊。
+        镜头1（4秒）程野门外僵住，水杯晃，眼神变。
+        镜头2（4秒）浴室内沈听关水够手机。
+        镜头3（4秒）程野退半步假装路过，竖耳听。
+        环境音：水声停。
+        本段无对白，无字幕。
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，本段无对白无字幕，禁止其它汉字乱字
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+
+  - segment_id: EP05-SEG09
+    title: 拒接
+    shot_ids: [EP05-S25]
+    duration_sec: 4
+    scene_primary: SCENE-009
+    characters: [CHAR-002]
+    looks: [CHAR-002-L02]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】沈听【图2】浴室 SCENE-009。
+        镜头（4秒）沈听看屏眉头微蹙，拒接，扣手机在掌心。
+        本段无对白，无字幕。
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，本段无对白无字幕，禁止其它汉字乱字
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+
+  - segment_id: EP05-SEG10
+    title: 陆城谁
+    shot_ids: [EP05-S26]
+    duration_sec: 4
+    scene_primary: SCENE-009
+    characters: [CHAR-001]
+    looks: [CHAR-001-L04]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L04: assets/looks/CHAR-001-L04.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    dialogue_lines:
+      - { speaker: CHAR-001, emotion: 极低困惑, text: "陆城……谁？" }
+    api:
+      text: |
+        【图1】程野【图2】走廊。
+        镜头（4秒）程野进房门半关，背贴门板。
+        对白（程野，极低困惑）：「陆城……谁？」
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，对白时画面底部居中简体白字字幕与语音同步；禁止其它乱字
+      content_roles:
+        - { file: CHAR-001-L04, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+
+  - segment_id: EP05-SEG11
+    title: 钩子镜中
+    shot_ids: [EP05-S27]
+    duration_sec: 4
+    scene_primary: SCENE-009
+    characters: [CHAR-002]
+    looks: [CHAR-002-L02]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: |
+        【图1】沈听【图2】浴室镜 SCENE-009。
+        镜头（4秒）沈听扣手机在掌心，镜中水汽，眼神复杂——钩子。
+        本段无对白，无字幕。悬疑氛围。
+        2020年代中国都市上海租房，写实短剧，竖屏9比16，本段无对白无字幕，禁止其它汉字乱字
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
