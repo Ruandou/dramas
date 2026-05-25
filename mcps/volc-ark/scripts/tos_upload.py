@@ -379,9 +379,9 @@ def cmd_sync(args: argparse.Namespace) -> int:
     # Directories to sync: (local_subdir, tos_prefix, recursive, extensions)
     project_name = project_root.name
     sync_dirs = [
-        ("looks", "looks", False, IMAGE_EXTENSIONS),
-        ("scenes", "scenes", False, IMAGE_EXTENSIONS),
-        ("props", "props", False, IMAGE_EXTENSIONS),
+        ("looks", f"looks/{project_name}", False, IMAGE_EXTENSIONS),
+        ("scenes", f"scenes/{project_name}", False, IMAGE_EXTENSIONS),
+        ("props", f"props/{project_name}", False, IMAGE_EXTENSIONS),
         ("generated", f"generated/{project_name}", True, VIDEO_EXTENSIONS),
     ]
 
@@ -445,10 +445,9 @@ def cmd_sync(args: argparse.Namespace) -> int:
     print(
         f"\n=== Sync complete: {total_uploaded} uploaded, {total_skipped} skipped, {total_failed} failed ===")
 
-    # Auto-update registry after sync
-    if total_uploaded > 0:
-        print("\nUpdating cdn_urls.json registries...")
-        _update_registry_for_project(cfg, project_root)
+    # Always update registries after sync
+    print("\nUpdating cdn_urls.json registries...")
+    _update_registry_for_project(cfg, project_root)
 
     return 0 if total_failed == 0 else 1
 
@@ -467,8 +466,9 @@ def cmd_update_registry(args: argparse.Namespace) -> int:
 def _update_registry_for_project(cfg: dict[str, str], project_root: Path) -> None:
     """Update cdn_urls.json in looks/ and scenes/ with tos_url fields."""
     assets_dir = project_root / "assets"
+    project_name = project_root.name
 
-    for subdir, prefix in [("looks", "looks"), ("scenes", "scenes")]:
+    for subdir in ("looks", "scenes"):
         registry_path = assets_dir / subdir / "cdn_urls.json"
         if not registry_path.is_file():
             print(f"  No {subdir}/cdn_urls.json found, skipping.")
@@ -484,11 +484,10 @@ def _update_registry_for_project(cfg: dict[str, str], project_root: Path) -> Non
         for asset_id, entry in registry.items():
             if not isinstance(entry, dict):
                 continue
-            # Determine the filename
             local_name = entry.get("local", "")
             if not local_name:
                 local_name = f"{asset_id}.png"
-            key = f"{prefix}/{local_name}"
+            key = f"{subdir}/{project_name}/{local_name}"
             tos_url = build_public_url(cfg, key)
 
             if entry.get("tos_url") != tos_url:
