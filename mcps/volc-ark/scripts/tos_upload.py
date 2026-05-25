@@ -43,6 +43,8 @@ DEFAULT_REGION = "cn-beijing"
 DEFAULT_ENDPOINT = "tos-cn-beijing.volces.com"
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp"}
+VIDEO_EXTENSIONS = {".mp4", ".mov", ".avi", ".webm"}
+ASSET_EXTENSIONS = IMAGE_EXTENSIONS | VIDEO_EXTENSIONS
 
 # Paths for credential sources (relative to workspace root)
 _SCRIPT_DIR = Path(__file__).resolve().parent
@@ -124,7 +126,7 @@ def _is_placeholder(value: str) -> bool:
 
 
 def _resolve_credential(key: str, env_vars: dict[str, str], dotenv_vars: dict[str, str],
-                         mcp_vars: dict[str, str], default: str = "") -> str:
+                        mcp_vars: dict[str, str], default: str = "") -> str:
     """Resolve a credential value with priority: shell env > .env > mcp.json > default."""
     # 1. Shell environment (highest priority)
     val = env_vars.get(key, "").strip()
@@ -166,19 +168,23 @@ def check_credentials(cfg: dict[str, str]) -> bool:
     """Verify credentials are present; print setup instructions if not."""
     if not cfg["access_key"] or not cfg["secret_key"]:
         print("ERROR: TOS credentials not configured.\n", file=sys.stderr)
-        print("Credentials are loaded with this priority (first found wins):", file=sys.stderr)
+        print(
+            "Credentials are loaded with this priority (first found wins):", file=sys.stderr)
         print("  1. Shell environment variables", file=sys.stderr)
         print("  2. .env file in workspace root", file=sys.stderr)
         print("  3. .cursor/mcp.json env section\n", file=sys.stderr)
-        print(f"To configure in .env file, create {_WORKSPACE_ROOT / '.env'}:", file=sys.stderr)
+        print(
+            f"To configure in .env file, create {_WORKSPACE_ROOT / '.env'}:", file=sys.stderr)
         print("  VOLC_ACCESS_KEY=your_ak", file=sys.stderr)
         print("  VOLC_SECRET_KEY=your_sk", file=sys.stderr)
         print(f"  TOS_BUCKET={DEFAULT_BUCKET}\n", file=sys.stderr)
-        print("Or add to .cursor/mcp.json under the volc-ark env section:", file=sys.stderr)
+        print("Or add to .cursor/mcp.json under the volc-ark env section:",
+              file=sys.stderr)
         print('  "VOLC_ACCESS_KEY": "your_ak",', file=sys.stderr)
         print('  "VOLC_SECRET_KEY": "your_sk",', file=sys.stderr)
         print(f'  "TOS_BUCKET": "{DEFAULT_BUCKET}"\n', file=sys.stderr)
-        print("Or set shell environment variables (for CI/automation):", file=sys.stderr)
+        print("Or set shell environment variables (for CI/automation):",
+              file=sys.stderr)
         print("  export VOLC_ACCESS_KEY='your-access-key'", file=sys.stderr)
         print("  export VOLC_SECRET_KEY='your-secret-key'\n", file=sys.stderr)
         print("Optional (with defaults):", file=sys.stderr)
@@ -228,10 +234,12 @@ def ensure_bucket(client, cfg: dict[str, str]) -> bool:
             print(f"Bucket '{cfg['bucket']}' not found. Creating...")
             from tos.enum import ACLType
             client.create_bucket(cfg["bucket"], acl=ACLType.ACL_Public_Read)
-            print(f"Created bucket '{cfg['bucket']}' with public-read ACL in {cfg['region']}")
+            print(
+                f"Created bucket '{cfg['bucket']}' with public-read ACL in {cfg['region']}")
             return True
         # Other error (permissions, network, etc.)
-        print(f"ERROR: Cannot access bucket '{cfg['bucket']}': {e}", file=sys.stderr)
+        print(
+            f"ERROR: Cannot access bucket '{cfg['bucket']}': {e}", file=sys.stderr)
         return False
 
 
@@ -341,12 +349,13 @@ def cmd_upload_dir(args: argparse.Namespace) -> int:
             print(f"  FAILED: {key} — {e}", file=sys.stderr)
             failed += 1
 
-    print(f"\nSummary: {uploaded} uploaded, {skipped} skipped, {failed} failed")
+    print(
+        f"\nSummary: {uploaded} uploaded, {skipped} skipped, {failed} failed")
     return 0 if failed == 0 else 1
 
 
 def cmd_sync(args: argparse.Namespace) -> int:
-    """Smart sync for drama project: upload looks + scenes, update registry."""
+    """Smart sync for drama project: upload looks + scenes + props + generated videos, update registry."""
     cfg = get_config()
     if not check_credentials(cfg):
         return 1
@@ -355,7 +364,8 @@ def cmd_sync(args: argparse.Namespace) -> int:
     assets_dir = project_root / "assets"
 
     if not assets_dir.is_dir():
-        print(f"ERROR: assets/ directory not found at {assets_dir}", file=sys.stderr)
+        print(
+            f"ERROR: assets/ directory not found at {assets_dir}", file=sys.stderr)
         return 1
 
     client = get_client(cfg)
@@ -366,43 +376,74 @@ def cmd_sync(args: argparse.Namespace) -> int:
     total_skipped = 0
     total_failed = 0
 
-    # Directories to sync: (local_subdir, tos_prefix)
+    # Directories to sync: (local_subdir, tos_prefix, recursive, extensions)
+    project_name = project_root.name
     sync_dirs = [
-        ("looks", "looks"),
-        ("scenes", "scenes"),
-        ("props", "props"),
+        ("looks", "looks", False, IMAGE_EXTENSIONS),
+        ("scenes", "scenes", False, IMAGE_EXTENSIONS),
+        ("props", "props", False, IMAGE_EXTENSIONS),
+        ("generated", f"generated/{project_name}", True, VIDEO_EXTENSIONS),
     ]
 
-    for subdir, prefix in sync_dirs:
+    for subdir, prefix, recursive, extensions in sync_dirs:
         local_dir = assets_dir / subdir
         if not local_dir.is_dir():
             continue
 
-        files = sorted(
-            f for f in local_dir.iterdir()
-            if f.is_file() and f.suffix.lower() in IMAGE_EXTENSIONS
-        )
+        if recursive:
+            files = sorted(
+                f for f in local_dir.rglob("*")
+                if f.is_file() and f.suffix.lower() in extensions
+            )
+        else:
+            files = sorted(
+                f for f in local_dir.iterdir()
+                if f.is_file() and f.suffix.lower() in extensions
+            )
 
         if not files:
             continue
 
-        print(f"\n--- {subdir}/ ({len(files)} images) ---")
+        file_type = "videos" if recursive else "images"
+        print(f"\n--- {subdir}/ ({len(files)} {file_type}) ---")
+
+        # Track all files for registry (uploaded + previously existing)
+        registry_entries: list[tuple[str, str, int]] = []
 
         for f in files:
-            key = f"{prefix}/{f.name}"
+            if recursive:
+                key = f"{prefix}/{f.relative_to(local_dir)}"
+                rel_path = str(f.relative_to(local_dir))
+            else:
+                key = f"{prefix}/{f.name}"
+                rel_path = ""
+            tos_url = build_public_url(cfg, key)
+
             if object_exists(client, cfg["bucket"], key):
                 print(f"  SKIP: {key}")
                 total_skipped += 1
+                if recursive:
+                    registry_entries.append(
+                        (rel_path, tos_url, f.stat().st_size))
                 continue
             try:
                 result = upload_file(client, cfg, f, key)
                 print(f"  UPLOADED: {key} ({result['size']:,} bytes)")
                 total_uploaded += 1
+                if recursive:
+                    registry_entries.append(
+                        (rel_path, tos_url, result["size"]))
             except Exception as e:
                 print(f"  FAILED: {key} — {e}", file=sys.stderr)
                 total_failed += 1
 
-    print(f"\n=== Sync complete: {total_uploaded} uploaded, {total_skipped} skipped, {total_failed} failed ===")
+        # Always rebuild generated/ cdn_urls.json from full TOS state
+        if recursive and registry_entries:
+            _update_video_registry(
+                cfg, project_root, subdir, prefix, registry_entries)
+
+    print(
+        f"\n=== Sync complete: {total_uploaded} uploaded, {total_skipped} skipped, {total_failed} failed ===")
 
     # Auto-update registry after sync
     if total_uploaded > 0:
@@ -459,9 +500,40 @@ def _update_registry_for_project(cfg: dict[str, str], project_root: Path) -> Non
                 json.dumps(registry, ensure_ascii=False, indent=2) + "\n",
                 encoding="utf-8",
             )
-            print(f"  Updated {subdir}/cdn_urls.json: {updated} entries got tos_url")
+            print(
+                f"  Updated {subdir}/cdn_urls.json: {updated} entries got tos_url")
         else:
             print(f"  {subdir}/cdn_urls.json: already up-to-date")
+
+
+def _update_video_registry(cfg: dict[str, str], project_root: Path, subdir: str,
+                           prefix: str, uploaded: list[tuple[str, str, int]]) -> None:
+    """Write/update generated/cdn_urls.json with TOS URLs for videos."""
+    registry_path = project_root / "assets" / subdir / "cdn_urls.json"
+
+    # Load existing registry if any
+    registry: dict[str, dict[str, Any]] = {}
+    if registry_path.is_file():
+        try:
+            registry = json.loads(registry_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            pass
+
+    new_count = 0
+    for rel_path, tos_url, size in uploaded:
+        entry = registry.get(rel_path, {})
+        entry["local"] = rel_path
+        entry["tos_url"] = tos_url
+        entry["size"] = size
+        registry[rel_path] = entry
+        new_count += 1
+
+    if new_count > 0:
+        registry_path.write_text(
+            json.dumps(registry, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        print(f"  Updated {subdir}/cdn_urls.json: {new_count} video entries")
 
 
 def cmd_list(args: argparse.Namespace) -> int:
@@ -486,7 +558,8 @@ def cmd_list(args: argparse.Namespace) -> int:
             print(f"No objects found with prefix '{prefix}'")
             return 0
 
-        print(f"Objects in {cfg['bucket']}/{prefix} ({len(contents)} items):\n")
+        print(
+            f"Objects in {cfg['bucket']}/{prefix} ({len(contents)} items):\n")
         for obj in contents:
             url = build_public_url(cfg, obj.key)
             size_kb = (obj.size or 0) / 1024
@@ -541,29 +614,39 @@ Examples:
 """,
     )
 
-    subparsers = parser.add_subparsers(dest="command", help="Available commands")
+    subparsers = parser.add_subparsers(
+        dest="command", help="Available commands")
 
     # upload
     p_upload = subparsers.add_parser("upload", help="Upload a single file")
-    p_upload.add_argument("--file", "-f", required=True, help="Local file path")
-    p_upload.add_argument("--key", "-k", help="Object key in bucket (default: filename)")
+    p_upload.add_argument("--file", "-f", required=True,
+                          help="Local file path")
+    p_upload.add_argument(
+        "--key", "-k", help="Object key in bucket (default: filename)")
 
     # upload-dir
-    p_upload_dir = subparsers.add_parser("upload-dir", help="Upload all images from directory")
-    p_upload_dir.add_argument("--dir", "-d", required=True, help="Source directory")
-    p_upload_dir.add_argument("--prefix", "-p", default="", help="Key prefix in bucket")
+    p_upload_dir = subparsers.add_parser(
+        "upload-dir", help="Upload all images from directory")
+    p_upload_dir.add_argument(
+        "--dir", "-d", required=True, help="Source directory")
+    p_upload_dir.add_argument(
+        "--prefix", "-p", default="", help="Key prefix in bucket")
 
     # sync
     p_sync = subparsers.add_parser("sync", help="Smart sync for drama project")
-    p_sync.add_argument("--project-root", "-r", required=True, help="Drama project root directory")
+    p_sync.add_argument("--project-root", "-r", required=True,
+                        help="Drama project root directory")
 
     # update-registry
-    p_registry = subparsers.add_parser("update-registry", help="Update cdn_urls.json with TOS URLs")
-    p_registry.add_argument("--project-root", "-r", required=True, help="Drama project root directory")
+    p_registry = subparsers.add_parser(
+        "update-registry", help="Update cdn_urls.json with TOS URLs")
+    p_registry.add_argument("--project-root", "-r",
+                            required=True, help="Drama project root directory")
 
     # list
     p_list = subparsers.add_parser("list", help="List objects in bucket")
-    p_list.add_argument("--prefix", "-p", default="", help="Filter by key prefix")
+    p_list.add_argument("--prefix", "-p", default="",
+                        help="Filter by key prefix")
 
     args = parser.parse_args()
 
