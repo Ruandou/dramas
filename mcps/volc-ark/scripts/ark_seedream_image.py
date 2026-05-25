@@ -437,9 +437,25 @@ def cmd_batch(args: argparse.Namespace) -> int:
         print(json.dumps({"error": f"文件不存在: {yaml_path}"}, ensure_ascii=False))
         return 1
 
+    if yaml is None:
+        print(json.dumps({"error": "批量模式需要 PyYAML: pip3 install pyyaml"}, ensure_ascii=False))
+        return 1
+    doc = yaml.safe_load(yaml_path.read_text(encoding="utf-8"))
+    if not isinstance(doc, dict):
+        print(json.dumps({"error": "YAML 根节点须为对象"}, ensure_ascii=False))
+        return 1
+
     project_root = Path(args.project_root).expanduser().resolve() if args.project_root else None
+    if project_root is None and doc.get("project_root"):
+        project_root = Path(str(doc["project_root"])).expanduser().resolve()
     if project_root:
         os.environ["DRAMA_PROJECT_ROOT"] = str(project_root)
+
+    default_model = args.model or doc.get("model")
+    default_size = args.size or doc.get("size")
+    default_ratio = args.ratio or doc.get("ratio")
+    default_watermark = args.watermark or bool(doc.get("watermark"))
+
     items = load_batch_yaml(yaml_path)
     id_filter = None
     if args.ids:
@@ -466,16 +482,22 @@ def cmd_batch(args: argparse.Namespace) -> int:
             skip += 1
             continue
 
-        ratio = item.get("ratio") or args.ratio
+        ratio = item.get("ratio") or default_ratio
+        item_images = item.get("image_urls") or item.get("image_url")
+        if isinstance(item_images, str):
+            item_images = [item_images]
+        image_urls = [str(u).strip() for u in (item_images or []) if str(u).strip()] or None
+
         r = generate_one(
             prompt,
             out_path,
-            model=args.model,
-            size=args.size,
+            model=item.get("model") or default_model,
+            size=item.get("size") or default_size,
             ratio=ratio,
+            image_urls=image_urls,
             project_root=project_root,
             web_search=args.web_search,
-            watermark=args.watermark,
+            watermark=bool(item.get("watermark", default_watermark)),
             dry_run=args.dry_run,
         )
         r["id"] = item_id
