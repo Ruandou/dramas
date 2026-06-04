@@ -1,0 +1,280 @@
+# EP01 Seedance 镜头配置 (segments.yaml)
+# 对应 EP01_一张照片引发的误会.md v4.0
+# Seedance 2.0 fast | 15 SEG | 29 SHOTS | 155s
+
+global_defaults:
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市轻喜剧风格，写实风格，竖屏9比16。"
+  negative_prompt: "ancient costume, historical clothing, period costumes, weapon, military uniform, blurry, distorted, low quality, watermark, subtitles burned into frame, anime style, cartoon style, police uniform, judge robe, real brand logo, real celebrity face"
+  text_cfg_scale: 7.0
+
+segments:
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG01 · 外卖站日常 + 接单出发 · SCENE-001 · 12s · 3镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG01
+    scene_id: SCENE-001
+    shots: [EP01-S01, EP01-S02, EP01-S03]
+    duration_sec: 12
+    content_roles:
+      - label: "[图1] young_chinese_man_delivery_uniform"
+        image_path: "assets/generated/CHAR-001-L01_01.jpg"
+      - label: "[图2] chubby_delivery_guy_green_uniform"
+        image_path: "assets/generated/CHAR-003-L01_01.jpg"
+    prompt: "[图1] young_chinese_man_delivery_uniform | [图2] chubby_delivery_guy_green_uniform — 中午12点，繁忙的外卖站点，塑料棚下三排电动车充电。前景：林小跑（[图1]，25岁，疲惫但清澈的眼神，蓝色外卖服）低头看手机，屏幕显示商业分析文章。中景：王大锤（[图2]，圆脸，嘴里塞半个包子，包子渣掉在绿色外卖服上）探头入画递包子。调度室窗口，值班组长（短发，蓝色马甲）探出身甩小票。白板上红色磁铁贴"晴天科技"。暖黄午后阳光，热闹站点氛围。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "CHAR-001"
+        text: "昨晚三点才睡……这个收购案的逻辑还是没想通。"
+      - speaker: "CHAR-003"
+        text: "小跑！包子！猪肉大葱！"
+      - speaker: "CHAR-001"
+        text: "锤哥，我在看东西。"
+      - speaker: "CHAR-GRP-01"
+        text: "小跑！晴天科技！三单！二十分钟！"
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG02 · 写字楼大堂 + 电梯前的女人 · SCENE-004 · 11s · 2镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG02
+    scene_id: SCENE-004
+    shots: [EP01-S04, EP01-S05]
+    duration_sec: 11
+    content_roles:
+      - label: "[图1] young_chinese_man_delivery_uniform"
+        image_path: "assets/generated/CHAR-001-L01_01.jpg"
+      - label: "[图2] young_professional_woman_ponytail_white_shirt"
+        image_path: "assets/generated/CHAR-002-L01_01.jpg"
+    prompt: "[图1] young_chinese_man_delivery_uniform | [图2] young_professional_woman_ponytail_white_shirt — 高档写字楼大堂，米色大理石地面倒映吊灯光斑。林小跑（[图1]，蓝色外卖服，提着白色塑料袋）走进大堂，身后玻璃门映出他的倒影。他抬头看电梯指示牌，15楼亮着。中景切：电梯前，苏晴（[图2]，28岁，马尾扎利落，耳垂小珍珠，白色丝绸衬衫配黑色铅笔裙）左手文件夹右手打字，阳光从落地窗打来在她脸上投下窗格阴影。现代商务氛围，冷白灯光。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "CHAR-001"
+        text: "15楼……这楼挺气派。以前这种地方，我进都不让进。"
+      - speaker: "CHAR-002"
+        text: "融资条款还得改……对方想多要5%，不可能。"
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG03 · 摔倒 + 本能反应 · SCENE-004 · 12s · 2镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG03
+    scene_id: SCENE-004
+    shots: [EP01-S06, EP01-S07]
+    duration_sec: 12
+    content_roles:
+      - label: "[图2] young_professional_woman_ponytail_white_shirt"
+        image_path: "assets/generated/CHAR-002-L01_01.jpg"
+      - label: "[图1] young_chinese_man_delivery_uniform"
+        image_path: "assets/generated/CHAR-001-L01_01.jpg"
+    prompt: "[图2] young_professional_woman_ponytail_white_shirt | [图1] young_chinese_man_delivery_uniform — 高档写字楼大堂，电梯前。电梯门叮一声打开，苏晴（[图2]）抬脚迈步——鞋跟卡进大理石地砖缝，身体一歪，文件夹飞出纸张如雪片散落，手机脱手弹两下，她伸手扶门框抓了个空。切：林小跑（[图1]，蓝色外卖服）本能比脑子快——白色外卖袋落地汤汁溅出，两步冲过去一把扶住苏晴手臂。两人站定距离极近，能闻到她身上的香水味。冷白灯光，紧张瞬间。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "CHAR-002"
+        text: "啊——！"
+      - speaker: "CHAR-001"
+        text: "小、小心！"
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG04 · 尴尬对视 + 捡文件 · SCENE-004 · 12s · 2镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG04
+    scene_id: SCENE-004
+    shots: [EP01-S08, EP01-S09]
+    duration_sec: 12
+    content_roles:
+      - label: "[图2] young_professional_woman_ponytail_white_shirt"
+        image_path: "assets/generated/CHAR-002-L01_01.jpg"
+      - label: "[图1] young_chinese_man_delivery_uniform"
+        image_path: "assets/generated/CHAR-001-L01_01.jpg"
+    prompt: "[图2] young_professional_woman_ponytail_white_shirt | [图1] young_chinese_man_delivery_uniform — 高档写字楼大堂电梯前。苏晴（[图2]）看清扶她的人——蓝色外卖服，表情从惊慌→困惑→冷淡，轻轻挣开他手后退半步。切：两人蹲下捡散落文件，手指碰到同一张纸同时愣住如触电；苏晴先抽回手站起身恢复CEO气场，接过文件看都没看林小跑转身走向电梯。林小跑（[图1]）蹲在原地看她背影。冷白灯光，尴尬氛围。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "CHAR-002"
+        text: "我没事。谢谢。"
+      - speaker: "CHAR-002"
+        text: "（外卖小哥？反应倒是挺快。）"
+      - speaker: "CHAR-001"
+        text: "（好漂亮……算了，汤洒了，这单要被投诉了。）"
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG05 · 偷拍 · SCENE-004 · 5s · 1镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG05
+    scene_id: SCENE-004
+    shots: [EP01-S10]
+    duration_sec: 5
+    content_roles:
+      - label: "[图1] bespectacled_male_office_worker_gray_suit"
+        image_path: "assets/generated/CHAR-GRP-02-L01_01.jpg"
+    prompt: "[图1] bespectacled_male_office_worker_gray_suit — 高档写字楼大堂角落，远景。戴眼镜男白领（[图1]，灰色西装，30岁左右）举起手机偷拍。手机屏幕中可见：林小跑蹲着捡文件，苏晴刚站直，角度刁钻看起来像在扶她的腰。快门声。背景其他上班族走过无人注意。冷白灯光。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "narrator"
+        text: "（手机快门声，无对白）"
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG06 · 照片疯传 + 起哄 · SCENE-001 · 12s · 3镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG06
+    scene_id: SCENE-001
+    shots: [EP01-S11, EP01-S12, EP01-S13]
+    duration_sec: 12
+    content_roles:
+      - label: "[图2] chubby_delivery_guy_green_uniform"
+        image_path: "assets/generated/CHAR-003-L01_01.jpg"
+      - label: "[图1] young_chinese_man_delivery_uniform"
+        image_path: "assets/generated/CHAR-001-L01_01.jpg"
+    prompt: "[图2] chubby_delivery_guy_green_uniform | [图1] young_chinese_man_delivery_uniform — 外卖站点午后。王大锤（[图2]，圆脸震惊表情）手机怼到镜头前，屏幕显示本地生活号推送"晴天科技CEO苏晴神秘男友现身！"。切：林小跑（[图1]，蓝色外卖服）被骑手们围在中间，有人搂肩拍背，起哄热闹。切：王大锤一把搂住林小跑脖子往下按，笑得前仰后合；林小跑双手投降举着脸涨通红。午后刺眼阳光，热闹氛围。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "CHAR-003"
+        text: "卧槽！小跑！你上热搜了！"
+      - speaker: "CHAR-GRP-01"
+        text: "小跑深藏不露啊！"
+      - speaker: "CHAR-001"
+        text: "不是！我就是扶了一下！"
+      - speaker: "CHAR-003"
+        text: "别解释了，解释就是掩饰！"
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG07 · CEO的怒火 · SCENE-002 · 12s · 2镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG07
+    scene_id: SCENE-002
+    shots: [EP01-S14, EP01-S15]
+    duration_sec: 12
+    content_roles:
+      - label: "[图1] young_professional_woman_ponytail_white_shirt"
+        image_path: "assets/generated/CHAR-002-L01_01.jpg"
+      - label: "[图2] female_secretary_bob_glasses_blue_blouse"
+        image_path: "assets/generated/CHAR-004-L01_01.jpg"
+    prompt: "[图1] young_professional_woman_ponytail_white_shirt | [图2] female_secretary_bob_glasses_blue_blouse — 苏晴办公室，冷蓝灰色调。苏晴（[图1]，马尾，白色衬衫）脸部特写：手机屏幕光映在脸上，评论区数字跳动——阅读10万+。她眉头皱紧，把手机摔在桌上"砰"。切：李秘书（[图2]，齐肩直发，黑框眼镜，浅蓝衬衫）推眼镜，平板上舆情数据曲线陡峭上升，犹豫开口。办公窗外晴天科技Logo。冷蓝灰调，紧张氛围。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "CHAR-002"
+        text: "找到那个外卖小哥。让他公开澄清。"
+      - speaker: "CHAR-004"
+        text: "苏总……这样会不会越描越黑？"
+      - speaker: "CHAR-002"
+        text: "我不管。"
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG08 · 张总算盘 · SCENE-009 · 6s · 1镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG08
+    scene_id: SCENE-009
+    shots: [EP01-S16]
+    duration_sec: 6
+    content_roles:
+      - label: "[图1] middle_aged_man_gray_hair_3piece_suit"
+        image_path: "assets/generated/CHAR-006-L01_01.jpg"
+    prompt: "[图1] middle_aged_man_gray_hair_3piece_suit — 豪华办公室，实木办公桌，墙上挂着高尔夫球具。张总（[图1]，银灰背头，三件套西装，袖扣反光）看着手机，嘴角慢慢上扬，油腻笑容。他举起威士忌杯对着窗外晴天科技Logo"敬"了一下。深琥珀色酒液。窗外城市夜景。暗调灯光。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "CHAR-006"
+        text: "有意思……苏晴，当年你拒绝我的时候，想过有今天吗？"
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG09 · 天台独白 · SCENE-003 · 12s · 2镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG09
+    scene_id: SCENE-003
+    shots: [EP01-S17, EP01-S18]
+    duration_sec: 12
+    content_roles:
+      - label: "[图1] young_chinese_man_delivery_uniform"
+        image_path: "assets/generated/CHAR-001-L01_01.jpg"
+    prompt: "[图1] young_chinese_man_delivery_uniform — 夜晚城中村天台，水泥台面，晾衣绳挂着蓝色外卖服随风摆。林小跑（[图1]，换灰色T恤，头发被风吹乱）坐在水泥台上，手里半空啤酒罐，看向远方。远处城市灯火通明，晴天科技大厦Logo亮着。切特写：路灯侧面打来半明半暗，他看手机里那张照片苦笑，眼神从自嘲变成隐秘期待。夜风微凉，月光与城市灯火交织。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "CHAR-001"
+        text: "这一天……像做梦。早上还是外卖小哥，晚上就变成CEO的秘密男友了。"
+      - speaker: "CHAR-001"
+        text: "我就是扶了你一下啊……"
+      - speaker: "CHAR-001"
+        text: "（苏晴……明天去找你道歉吧。）"
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG10 · 被认出（街头）· SCENE-001 · 8s · 1镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG10
+    scene_id: SCENE-001
+    shots: [EP01-S19]
+    duration_sec: 8
+    content_roles:
+      - label: "[图1] young_chinese_man_delivery_uniform"
+        image_path: "assets/generated/CHAR-001-L01_01.jpg"
+    prompt: "[图1] young_chinese_man_delivery_uniform — 外卖站点街道。林小跑（[图1]，蓝色外卖服）骑电动车经过路口，手机架在车把上导航。突然一个路人认出他，指着他大喊。林小跑猛地转头脸色一变，猛拧油门加速逃离，留下一路议论声。午后刺眼阳光。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "CHAR-001"
+        text: "（完了……彻底完了……）"
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG11 · 苏晴的压力 · SCENE-002 · 8s · 2镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG11
+    scene_id: SCENE-002
+    shots: [EP01-S21, EP01-S22]
+    duration_sec: 8
+    content_roles:
+      - label: "[图1] young_professional_woman_ponytail_white_shirt"
+        image_path: "assets/generated/CHAR-002-L01_01.jpg"
+    prompt: "[图1] young_professional_woman_ponytail_white_shirt — 苏晴办公室。苏晴（[图1]，马尾，白色衬衫）坐在办公桌前面对笔记本电脑，屏幕上投资人不悦的脸。切特写：她深吸一口气强装镇定，额头细密汗珠，用力捏手里的笔。窗外晴天科技Logo。冷蓝灰调，压力氛围。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "CHAR-002"
+        text: "融资进度一切正常……"
+      - speaker: "CHAR-002"
+        text: "（必须撑住……晴天科技不能倒在我手里。）"
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG12 · 张总的布局 · SCENE-009 · 8s · 1镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG12
+    scene_id: SCENE-009
+    shots: [EP01-S23]
+    duration_sec: 8
+    content_roles:
+      - label: "[图1] middle_aged_man_gray_hair_3piece_suit"
+        image_path: "assets/generated/CHAR-006-L01_01.jpg"
+    prompt: "[图1] middle_aged_man_gray_hair_3piece_suit — 豪华办公室。张总（[图1]，银灰背头，三件套西装）坐在真皮沙发上翘二郎腿，晃威士忌杯，对着手机说话，笑容阴险。雪茄盒放在手边，窗外城市天际线。暗调灯光。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "CHAR-006"
+        text: "查一下那个外卖小哥的底细……对，就是苏晴的'男友'。"
+      - speaker: "CHAR-006"
+        text: "（苏晴，这次我看你怎么逃。）"
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG13 · 妈妈打电话 + 爸爸打电话 + 路人起哄 · SCENE-001 · 12s · 3镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG13
+    scene_id: SCENE-001
+    shots: [EP01-S24, EP01-S25, EP01-S26]
+    duration_sec: 12
+    content_roles:
+      - label: "[图1] young_chinese_man_delivery_uniform"
+        image_path: "assets/generated/CHAR-001-L01_01.jpg"
+    prompt: "[图1] young_chinese_man_delivery_uniform — 外卖站点充电棚角落。林小跑（[图1]，蓝色外卖服）蹲在角落背靠轮胎，一手举电话一手捂耳朵，压低声音眼眶微红。切特写：手机屏幕亮着备注'爸'，深吸气强装镇定，嘴角扯笑但眼神发抖。切：他挂了电话把手机扣地上双手抱头，远处骑手指手机给同伴看，林小跑猛地站起来快步走向电动车。午后刺眼阳光。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "CHAR-001"
+        text: "妈……我在这边挺好的……嗯，工作稳定……"
+      - speaker: "CHAR-001"
+        text: "爸，放心吧……我在这边，一切都好。"
+      - speaker: "CHAR-001"
+        text: "（这一天的信息量……脑子要炸了。赶紧走，别让人又认出来。）"
+
+  # ═══════════════════════════════════════════════════════════
+  # SEG14 · 舆情发酵 + 苏晴决定不澄清 · SCENE-002 · 10s · 2镜
+  # ═══════════════════════════════════════════════════════════
+  - segment_id: SEG14
+    scene_id: SCENE-002
+    shots: [EP01-S27, EP01-S28]
+    duration_sec: 10
+    content_roles:
+      - label: "[图1] young_professional_woman_ponytail_white_shirt"
+        image_path: "assets/generated/CHAR-002-L01_01.jpg"
+      - label: "[图2] female_secretary_bob_glasses_blue_blouse"
+        image_path: "assets/generated/CHAR-004-L01_01.jpg"
+    prompt: "[图1] young_professional_woman_ponytail_white_shirt | [图2] female_secretary_bob_glasses_blue_blouse — 苏晴办公室。李秘书（[图2]，齐肩直发，黑框眼镜，浅蓝衬衫）拿着平板电脑向苏晴汇报，表情担忧。苏晴（[图1]）听完沉默片刻。切特写：苏晴看向窗外，嘴角微微上扬露出玩味笑容，转身眼神变得坚定。冷蓝灰调转微妙暖意。竖屏9比16，写实风格。"
+    dialogue_lines:
+      - speaker: "CHAR-004"
+        text: "苏总，舆情还在发酵……澄清声明还发吗？"
+      - speaker: "CHAR-002"
+        text: "不澄清了。"
+      - speaker: "CHAR-004"
+        text: "啊？"
+      - speaker: "CHAR-002"
+        text: "有意思。"
