@@ -282,7 +282,7 @@ segments:
 | 理想时长 | 8–10 秒 | 最佳生成效果 |
 | 每 segment 镜头数 | 1–3（最多 3） | 超出必须拆分 |
 | 每 segment 说话人 | ≤2 | 超出必须拆分 |
-| 全集总时长 | 140–180 秒 | 约 2.5–3 分钟 |
+| 全集总时长 | 150–180 秒 | 约 2.5–3 分钟 |
 | 全集 segment 数 | 12–15 段 | 合理密度 |
 
 ### 超时拆分规则
@@ -459,7 +459,7 @@ segments:
 | 8 | voice_prompts 完整 | 所有出场角色均在顶层 `voice_prompts` 映射中 |
 | 9 | CDN URL 解析 | 已从 `cdn_urls.json` 解析，缺失处有 WARNING 注释 |
 | 10 | shot_ids 一致 | segments 中引用的 shot_ids 均存在于 shots.yaml |
-| 11 | 总时长 | 所有 segment `duration_sec` 之和在 140–180 秒 |
+| 11 | 总时长 | 所有 segment `duration_sec` 之和在 150–180 秒 |
 | 12 | Segment ID 命名 | 均为 `EP##-SEG##` 或 `EP##-SEG##a/b` |
 | 13 | 不跨场景 | 每个 segment 内所有 shot 属于同一 SCENE-### |
 
