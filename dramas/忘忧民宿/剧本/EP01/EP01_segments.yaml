@@ -1,0 +1,300 @@
+# EP01 segments — 13 submissions (4–12s each); 有效镜28 + skip1 · 132s
+# submit: 按 segment_id 顺序
+episode_id: EP01
+episode_title: 接盘
+source_md: 剧本/EP01/EP01_接盘.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128
+  ratio: '9:16'
+  resolution: 1080x1920
+  generate_audio: true
+  watermark: false
+  prompt_suffix: 2020年代中国小城老民宿，女频治愈写实短剧，竖屏9比16，柔和光线，非恐怖非古装宫斗；对白由后期字幕呈现，画面禁止汉字乱码
+  negative_prompt: blurry, distorted, horror, ghost face, blood, palace hanfu crown, anime style, subtitles burned in, celebrity face, unreadable text
+voice_prompts:
+  CHAR-001: 成年女性，29岁，清柔略哑，疲惫时语速慢，倾听时低稳
+  CHAR-002: 成年女性，28岁，极轻极慢，气声，像怕惊动空气
+  CHAR-GRP-01: 成年男性，40岁，市侩快语
+  SYS-忘忧: 机械女声，毒舌但不凶
+segments:
+- segment_id: EP01-SEG01
+  title: 接盘签字
+  shot_ids: [EP01-S01, EP01-S02, EP01-S03]
+  duration_sec: 12
+  scene_primary: SCENE-001
+  characters: [CHAR-001, CHAR-GRP-01]
+  looks: [CHAR-001-L01, CHAR-GRP-01-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 内心犹豫, text: 最后一笔积蓄……再赌一次。}
+  - {speaker: CHAR-GRP-01, emotion: 催促, text: 签吧，这价再找不到。}
+  - {speaker: CHAR-001, emotion: 短句, text: ……好。}
+  - {speaker: CHAR-001, emotion: 自嘲, text: 忘忧民宿……真忘忧就好了。}
+  api:
+    text: |
+      【图1】苏眠 CHAR-001-L01【图2】民宿前台 SCENE-001。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）中景：旧木前台转让合同；苏眠米色开衫深绿围裙握笔。
+      对白（苏眠，内心，29岁）：「最后一笔积蓄……再赌一次。」
+      镜头2（4秒）近景：中介敲桌指条款。
+      对白（中介，40岁快语）：「签吧，这价再找不到。」对白（苏眠）：「……好。」
+      镜头3（4秒）全景：空荡前台，苏眠独自站柜台后。
+      对白（苏眠，内心）：「忘忧民宿……真忘忧就好了。」
+      2020年代中国小城老民宿，女频治愈写实短剧，竖屏9比16，柔和光线，非恐怖非古装宫斗；对白由后期字幕呈现，画面禁止汉字乱码
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: SCENE-001, role: reference_image, label: 图2}
+- segment_id: EP01-SEG02
+  title: 钥匙盒
+  shot_ids: [EP01-S04, EP01-S05, EP01-S06]
+  duration_sec: 12
+  scene_primary: SCENE-001
+  characters: [CHAR-001]
+  looks: [CHAR-001-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 疑惑, text: 上一任……连盒子都没带走？}
+  - {speaker: CHAR-001, emotion: 低声, text: 先活着。别的……明天再说。}
+  api:
+    text: |
+      【图1】苏眠 CHAR-001-L01【图2】前台 SCENE-001。
+      镜头1（4秒）中景：苏眠从抽屉取出木质钥匙盒。
+      对白（苏眠，内心）：「上一任……连盒子都没带走？」
+      镜头2（4秒）特写：盒盖刻字忘忧，内藏404房卡。
+      镜头3（4秒）近景：苏眠推回抽屉，挂钟23:50。
+      对白（苏眠，低声）：「先活着。别的……明天再说。」
+      2020年代中国小城老民宿，女频治愈写实短剧，竖屏9比16，柔和光线，非恐怖非古装宫斗；对白由后期字幕呈现，画面禁止汉字乱码
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: SCENE-001, role: reference_image, label: 图2}
+- segment_id: EP01-SEG03
+  title: burnout闪回
+  shot_ids: [EP01-S07, EP01-S08, EP01-S09]
+  duration_sec: 12
+  scene_primary: SCENE-001
+  characters: [CHAR-001]
+  looks: [CHAR-001-L01]
+  dialogue_lines:
+  - {speaker: VO-HR, emotion: 冷静, text: 这是业务调整，不是你们不够好。}
+  - {speaker: CHAR-001, emotion: 闪回内心, text: 原来被需要……也可以被扔掉。}
+  - {speaker: CHAR-001, emotion: 内心, text: 苏眠，别哭。你还没付下月水电。}
+  api:
+    text: |
+      【图1】苏眠 CHAR-001-L01【图2】前台 SCENE-001。
+      镜头1（4秒）闪切：会议室优化PPT红字。
+      对白（HR VO）：「这是业务调整，不是你们不够好。」
+      镜头2（4秒）闪回：抱纸箱出公司，手机群规24小时在线。
+      对白（苏眠，内心）：「原来被需要……也可以被扔掉。」
+      镜头3（4秒）回现实：对镜拍脸，挂钟00:07。
+      对白（苏眠，内心）：「苏眠，别哭。你还没付下月水电。」
+      2020年代中国小城老民宿，女频治愈写实短剧，竖屏9比16，柔和光线，非恐怖非古装宫斗；对白由后期字幕呈现，画面禁止汉字乱码
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: SCENE-001, role: reference_image, label: 图2}
+- segment_id: EP01-SEG04
+  title: 零点门铃
+  shot_ids: [EP01-S10, EP01-S11]
+  duration_sec: 8
+  scene_primary: SCENE-002
+  characters: []
+  looks: []
+  dialogue_lines: []
+  api:
+    text: |
+      【图1】民宿门口 SCENE-002。
+      镜头1（4秒）特写：挂钟00:07，房卡机指示灯微闪。
+      镜头2（4秒）全景：门头冷白月光，门铃长音响起。
+      本段无对白。2020年代中国小城老民宿，女频治愈写实短剧，竖屏9比16，非恐怖；画面禁止汉字乱码
+    content_roles:
+    - {file: SCENE-002, role: reference_image, label: 图1}
+- segment_id: EP01-SEG05
+  title: 开门见客
+  shot_ids: [EP01-S12, EP01-S13]
+  duration_sec: 10
+  scene_primary: SCENE-002
+  characters: [CHAR-001, CHAR-002]
+  looks: [CHAR-001-L01, CHAR-002-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 惊, text: ……这么晚？}
+  - {speaker: CHAR-002, emotion: 极轻, text: 住404。我姓嫦。}
+  - {speaker: CHAR-001, emotion: 结巴, text: 订、订单上没……}
+  api:
+    text: |
+      【图1】苏眠 CHAR-001-L01【图2】嫦娥 CHAR-002-L01【图3】门口 SCENE-002。
+      镜头1（5秒）中景：苏眠开门手机电筒微亮。
+      对白（苏眠，29岁惊）：「……这么晚？」
+      镜头2（5秒）中景：门外白裙女人脸半暗，桂香淡。
+      对白（嫦娥，28岁极轻）：「住404。我姓嫦。」对白（苏眠，结巴）：「订、订单上没……」
+      2020年代中国小城老民宿，女频治愈写实短剧，竖屏9比16，非恐怖非古装；画面禁止汉字乱码
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: CHAR-002-L01, role: reference_image, label: 图2}
+    - {file: SCENE-002, role: reference_image, label: 图3}
+- segment_id: EP01-SEG06
+  title: 房卡吐出
+  shot_ids: [EP01-S14, EP01-S15]
+  duration_sec: 8
+  scene_primary: SCENE-001
+  characters: [CHAR-001]
+  looks: [CHAR-001-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 内心震惊, text: 广寒……宫？}
+  api:
+    text: |
+      【图1】苏眠 CHAR-001-L01【图2】前台 SCENE-001。
+      镜头1（4秒）特写：房卡机自亮吐卡，无电源线。
+      镜头2（4秒）特写：苏眠捏起房卡愣住。
+      对白（苏眠，内心）：「广寒……宫？」
+      2020年代中国小城老民宿，女频治愈写实短剧，竖屏9比16；画面禁止清晰汉字乱码
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: SCENE-001, role: reference_image, label: 图2}
+- segment_id: EP01-SEG07
+  title: 走廊微光
+  shot_ids: [EP01-S16, EP01-S17]
+  duration_sec: 10
+  scene_primary: SCENE-003
+  characters: [CHAR-001, CHAR-002]
+  looks: [CHAR-001-L01, CHAR-002-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 低声, text: 您……怎么找到这儿的？}
+  - {speaker: CHAR-002, emotion: 淡, text: 它叫我来的。}
+  api:
+    text: |
+      【图1】苏眠 CHAR-001-L01【图2】嫦娥 CHAR-002-L01【图3】走廊 SCENE-003。
+      镜头1（5秒）中景：苏眠手机光在前，嫦娥白裙在后走向404。
+      对白（苏眠，低声）：「您……怎么找到这儿的？」对白（嫦娥，淡）：「它叫我来的。」
+      镜头2（5秒）近景：404门牌，门缝桂香。
+      2020年代中国小城老民宿，女频治愈写实短剧，竖屏9比16，非恐怖；画面禁止汉字乱码
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: CHAR-002-L01, role: reference_image, label: 图2}
+    - {file: SCENE-003, role: reference_image, label: 图3}
+- segment_id: EP01-SEG08
+  title: 进404
+  shot_ids: [EP01-S18, EP01-S19, EP01-S20]
+  duration_sec: 12
+  scene_primary: SCENE-004
+  characters: [CHAR-001, CHAR-002]
+  looks: [CHAR-001-L01, CHAR-002-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 习惯, text: 我开灯——}
+  - {speaker: CHAR-002, emotion: 轻, text: 别开灯。}
+  - {speaker: CHAR-002, emotion: 极轻, text: 我怕……你们看见。}
+  api:
+    text: |
+      【图1】苏眠 CHAR-001-L01【图2】嫦娥 CHAR-002-L01【图3】404房间 SCENE-004。
+      镜头1（4秒）中景：极暗房间，苏眠手伸向开关。
+      对白（苏眠）：「我开灯——」
+      镜头2（4秒）特写：嫦娥手指按住开关。
+      对白（嫦娥，极轻）：「别开灯。」
+      镜头3（4秒）近景：嫦娥肩线微颤。
+      对白（嫦娥）：「我怕……你们看见。」
+      2020年代中国小城老民宿，女频治愈写实短剧，竖屏9比16，极暗非恐怖；画面禁止汉字乱码
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: CHAR-002-L01, role: reference_image, label: 图2}
+    - {file: SCENE-004, role: reference_image, label: 图3}
+- segment_id: EP01-SEG09
+  title: 温水薄毯
+  shot_ids: [EP01-S21, EP01-S22]
+  duration_sec: 10
+  scene_primary: SCENE-004
+  characters: [CHAR-001, CHAR-002]
+  looks: [CHAR-001-L01, CHAR-002-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 柔, text: ……温水。规则里有的。}
+  - {speaker: CHAR-002, emotion: 气声, text: 谢谢。}
+  api:
+    text: |
+      【图1】苏眠 CHAR-001-L01【图2】404 SCENE-004。
+      镜头1（5秒）中景：苏眠摸黑递温水杯。
+      对白（苏眠，柔）：「……温水。规则里有的。」
+      镜头2（5秒）近景：薄毯搭椅背，嫦娥点头。
+      对白（嫦娥，气声）：「谢谢。」
+      2020年代中国小城老民宿，女频治愈写实短剧，竖屏9比16，极暗安全；画面禁止汉字乱码
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: SCENE-004, role: reference_image, label: 图2}
+- segment_id: EP01-SEG10
+  title: 别看见哭
+  shot_ids: [EP01-S23, EP01-S24, EP01-S25]
+  duration_sec: 12
+  scene_primary: SCENE-004
+  characters: [CHAR-002]
+  looks: [CHAR-002-L01]
+  dialogue_lines:
+  - {speaker: CHAR-002, emotion: 慢, text: 人间说，我活该清冷。}
+  - {speaker: CHAR-002, emotion: 颤, text: 可清冷……也会怕冷。}
+  - {speaker: CHAR-002, emotion: 极轻, text: 我怕你们看见我在哭。}
+  api:
+    text: |
+      【图1】嫦娥 CHAR-002-L01【图2】404 SCENE-004。
+      镜头1（4秒）中景：嫦娥背对镜头面向窗缝月光。
+      对白（嫦娥，慢）：「人间说，我活该清冷。」
+      镜头2（4秒）特写：下颌收紧，声颤不嚎哭。
+      对白（嫦娥，颤）：「可清冷……也会怕冷。」
+      镜头3（4秒）近景：侧脸，不给眼泪大特写。
+      对白（嫦娥，极轻）：「我怕你们看见我在哭。」
+      2020年代中国小城老民宿，女频治愈写实短剧，竖屏9比16，极暗非恐怖；画面禁止汉字乱码
+    content_roles:
+    - {file: CHAR-002-L01, role: reference_image, label: 图1}
+    - {file: SCENE-004, role: reference_image, label: 图2}
+- segment_id: EP01-SEG11
+  title: 苏眠愣住
+  shot_ids: [EP01-S26, EP01-S27]
+  duration_sec: 8
+  scene_primary: SCENE-004
+  characters: [CHAR-001]
+  looks: [CHAR-001-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 内心, text: ……我也是。}
+  - {speaker: CHAR-001, emotion: 内心, text: 这店……退不了了吧。}
+  api:
+    text: |
+      【图1】苏眠 CHAR-001-L01【图2】404 SCENE-004。
+      镜头1（4秒）特写：苏眠手抖，杯里涟漪，眼眶红没哭。
+      对白（苏眠，内心）：「……我也是。」
+      镜头2（4秒）近景：稳杯放回，深呼吸。
+      对白（苏眠，内心）：「这店……退不了了吧。」
+      2020年代中国小城老民宿，女频治愈写实短剧，竖屏9比16；画面禁止汉字乱码
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: SCENE-004, role: reference_image, label: 图2}
+- segment_id: EP01-SEG12
+  title: 夜规启用
+  shot_ids: [EP01-S28, EP01-S29, EP01-S30]
+  duration_sec: 11
+  scene_primary: SCENE-001
+  characters: [CHAR-001]
+  looks: [CHAR-001-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 惊, text: 什么……}
+  - {speaker: SYS-忘忧, emotion: 机械, text: 夜规已启用。}
+  - {speaker: SYS-忘忧, emotion: 机械, text: 午夜后，女客请进。}
+  api:
+    text: |
+      【图1】苏眠 CHAR-001-L01【图2】前台 SCENE-001。
+      镜头1（4秒）中景：苏眠下楼，抽屉钥匙盒自亮柔光。
+      对白（苏眠，惊）：「什么……」
+      镜头2（4秒）特写：盒面浮绿字，机械女声。
+      对白（系统忘忧，机械女声）：「夜规已启用。」
+      镜头3（3秒）近景：苏眠手指悬空不敢碰。
+      对白（系统忘忧）：「午夜后，女客请进。」
+      2020年代中国小城老民宿，女频治愈写实短剧，竖屏9比16；画面禁止汉字乱码
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: SCENE-001, role: reference_image, label: 图2}
+- segment_id: EP01-SEG13
+  title: 下集预告
+  shot_ids: [EP01-S31]
+  duration_sec: 5
+  scene_primary: null
+  characters: []
+  looks: []
+  dialogue_lines:
+  - {speaker: 字幕, emotion: 预告, text: 下集 · 女客请进：第一句真话，记好了。}
+  api:
+    text: |
+      黑屏5秒，后期白字字幕：下集 · 女客请进：第一句真话，记好了。
+      本段 skip，不提交 Seedance 或仅作剪辑用。
+    content_roles: []

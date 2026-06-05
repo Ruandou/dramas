@@ -1,0 +1,224 @@
+# EP01 segments — 13 · 130s
+episode_id: EP01
+episode_title: 退稿
+source_md: 剧本/EP01/EP01_退稿.md
+defaults:
+  model: doubao-seedance-2-0-fast-260128
+  ratio: '9:16'
+  resolution: 1080x1920
+  generate_audio: true
+  prompt_suffix: 2020年代中国都市小出租，女频meta喜剧写实短剧，竖屏9比16；电脑文字后期合成，画面避免清晰汉字
+  negative_prompt: blurry, horror, palace hanfu, religious ritual, anime, subtitles burned in, celebrity face, courtroom, police
+voice_prompts:
+  CHAR-001: 成年女性27岁，略快，熬夜哑，激动结巴
+  CHAR-002: 成年女性28岁，极轻极慢
+  CHAR-006: 成年男性34岁，平滑职场腔压人
+segments:
+- segment_id: EP01-SEG01
+  title: 熬夜第三稿
+  shot_ids: [EP01-S01, EP01-S02, EP01-S03]
+  duration_sec: 12
+  scene_primary: SCENE-001
+  characters: [CHAR-001]
+  looks: [CHAR-001-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 内心, text: 第三稿……再不改就交不了 rent。}
+  - {speaker: CHAR-001, emotion: 低声, text: 她们不该只为男主活。}
+  - {speaker: CHAR-001, emotion: 内心, text: 没人看……我也写。}
+  api:
+    text: |
+      【图1】林写晚 CHAR-001-L01【图2】书桌 SCENE-001。
+      镜头1-3（各4秒）熬夜写第三稿，便签删改，灌咖啡。
+      对白见 dialogue_lines。2020年代都市小出租，竖屏9比16；画面避免清晰汉字。
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: SCENE-001, role: reference_image, label: 图2}
+- segment_id: EP01-SEG02
+  title: 韩默退稿
+  shot_ids: [EP01-S04, EP01-S05, EP01-S06]
+  duration_sec: 12
+  scene_primary: SCENE-001
+  characters: [CHAR-001, CHAR-006]
+  looks: [CHAR-001-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 疲, text: 韩编……第三稿发了。}
+  - {speaker: CHAR-006, emotion: VO, text: 看了。情绪不够。}
+  - {speaker: CHAR-006, emotion: VO, text: 嫦娥不跳，观众凭什么付费？}
+  api:
+    text: |
+      【图1】林写晚【图2】SCENE-001。蓝牙耳机通话，韩默VO退稿。
+      2020年代都市小出租，竖屏9比16。
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: SCENE-001, role: reference_image, label: 图2}
+- segment_id: EP01-SEG03
+  title: 只值祭天
+  shot_ids: [EP01-S07, EP01-S08, EP01-S09]
+  duration_sec: 12
+  scene_primary: SCENE-001
+  characters: [CHAR-001]
+  looks: [CHAR-001-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 压火, text: 她可以不跳。}
+  - {speaker: CHAR-006, emotion: VO, text: 女配的价值，就是祭天。懂？}
+  - {speaker: CHAR-001, emotion: 内心, text: ……懂。所以我才改。}
+  api:
+    text: |
+      【图1】林写晚【图2】SCENE-001。韩默VO「祭天论」，挂钟00:00。
+      竖屏9比16。
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: SCENE-001, role: reference_image, label: 图2}
+- segment_id: EP01-SEG04
+  title: 零点屏幕
+  shot_ids: [EP01-S10, EP01-S11]
+  duration_sec: 8
+  scene_primary: SCENE-001
+  characters: [CHAR-001]
+  looks: [CHAR-001-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 惊, text: 谁……谁动我稿？}
+  api:
+    text: |
+      【图1】SCENE-001。光标自动闪，林写晚惊抬头。无清晰屏幕文字。
+    content_roles:
+    - {file: SCENE-001, role: reference_image, label: 图1}
+- segment_id: EP01-SEG05
+  title: 删一行
+  shot_ids: [EP01-S12, EP01-S13]
+  duration_sec: 10
+  scene_primary: SCENE-001
+  characters: [CHAR-001]
+  looks: [CHAR-001-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 内心, text: ……删了？}
+  - {speaker: CHAR-001, emotion: 颤, text: 我没按删除键。}
+  api:
+    text: |
+      【图1】林写晚【图2】SCENE-001。屏幕删改反应镜，文字后期合成。
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: SCENE-001, role: reference_image, label: 图2}
+- segment_id: EP01-SEG06
+  title: 窗敲
+  shot_ids: [EP01-S14, EP01-S15]
+  duration_sec: 8
+  scene_primary: SCENE-002
+  characters: [CHAR-001]
+  looks: [CHAR-001-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 壮胆, text: 谁？！}
+  api:
+    text: |
+      【图1】窗 SCENE-002【图2】林写晚。夜窗轻敲，非恐怖。
+    content_roles:
+    - {file: SCENE-002, role: reference_image, label: 图1}
+    - {file: CHAR-001-L01, role: reference_image, label: 图2}
+- segment_id: EP01-SEG07
+  title: 她来了
+  shot_ids: [EP01-S16, EP01-S17]
+  duration_sec: 10
+  scene_primary: SCENE-002
+  characters: [CHAR-001, CHAR-002]
+  looks: [CHAR-001-L01, CHAR-002-L01]
+  dialogue_lines:
+  - {speaker: CHAR-002, emotion: 轻, text: ……林写晚？}
+  - {speaker: CHAR-001, emotion: 结巴, text: 嫦……嫦娥？}
+  api:
+    text: |
+      【图1】嫦娥 CHAR-002-L01【图2】林写晚【图3】SCENE-002。窗外夜访，现代家居服。
+    content_roles:
+    - {file: CHAR-002-L01, role: reference_image, label: 图1}
+    - {file: CHAR-001-L01, role: reference_image, label: 图2}
+    - {file: SCENE-002, role: reference_image, label: 图3}
+- segment_id: EP01-SEG08
+  title: 不是我写的
+  shot_ids: [EP01-S18, EP01-S19, EP01-S20]
+  duration_sec: 12
+  scene_primary: SCENE-001
+  characters: [CHAR-001, CHAR-002]
+  looks: [CHAR-001-L01, CHAR-002-L01]
+  dialogue_lines:
+  - {speaker: CHAR-002, emotion: 淡, text: 你写的第三稿……我看了。}
+  - {speaker: CHAR-002, emotion: 轻, text: 跳塔那行，不是我写的。}
+  - {speaker: CHAR-001, emotion: 懵, text: 那是……官方版。}
+  api:
+    text: |
+      【图1】嫦娥【图2】林写晚【图3】SCENE-001。室内对坐指屏幕。
+    content_roles:
+    - {file: CHAR-002-L01, role: reference_image, label: 图1}
+    - {file: CHAR-001-L01, role: reference_image, label: 图2}
+    - {file: SCENE-001, role: reference_image, label: 图3}
+- segment_id: EP01-SEG09
+  title: 我可以不跳
+  shot_ids: [EP01-S21, EP01-S22]
+  duration_sec: 10
+  scene_primary: SCENE-001
+  characters: [CHAR-002]
+  looks: [CHAR-002-L01]
+  dialogue_lines:
+  - {speaker: CHAR-002, emotion: 极轻, text: 这句……可以留。}
+  api:
+    text: |
+      【图1】嫦娥【图2】SCENE-001。键盘自动打字反应，文字后期。
+    content_roles:
+    - {file: CHAR-002-L01, role: reference_image, label: 图1}
+    - {file: SCENE-001, role: reference_image, label: 图2}
+- segment_id: EP01-SEG10
+  title: 写晚愣住
+  shot_ids: [EP01-S23, EP01-S24]
+  duration_sec: 8
+  scene_primary: SCENE-001
+  characters: [CHAR-001]
+  looks: [CHAR-001-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 内心, text: 原来有人……等这句。}
+  - {speaker: CHAR-001, emotion: 低声, text: 第三稿……归我改。}
+  api:
+    text: |
+      【图1】林写晚特写【图2】SCENE-001。情绪转折。
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: SCENE-001, role: reference_image, label: 图2}
+- segment_id: EP01-SEG11
+  title: 第三稿归我
+  shot_ids: [EP01-S25, EP01-S26]
+  duration_sec: 10
+  scene_primary: SCENE-001
+  characters: [CHAR-001, CHAR-002]
+  looks: [CHAR-001-L01, CHAR-002-L01]
+  dialogue_lines:
+  - {speaker: CHAR-002, emotion: 淡, text: 还有这一行。}
+  - {speaker: CHAR-001, emotion: 稳, text: 好。}
+  api:
+    text: |
+      【图1】嫦娥递红稿【图2】林写晚保存。PROP-002。
+    content_roles:
+    - {file: CHAR-002-L01, role: reference_image, label: 图1}
+    - {file: CHAR-001-L01, role: reference_image, label: 图2}
+- segment_id: EP01-SEG12
+  title: 新建文档
+  shot_ids: [EP01-S27, EP01-S28]
+  duration_sec: 11
+  scene_primary: SCENE-001
+  characters: [CHAR-001]
+  looks: [CHAR-001-L01]
+  dialogue_lines:
+  - {speaker: CHAR-001, emotion: 内心, text: ……下一篇，谁催？}
+  api:
+    text: |
+      【图1】林写晚【图2】SCENE-001。新建文件提示，空椅桂香。
+    content_roles:
+    - {file: CHAR-001-L01, role: reference_image, label: 图1}
+    - {file: SCENE-001, role: reference_image, label: 图2}
+- segment_id: EP01-SEG13
+  title: 下集预告
+  shot_ids: [EP01-S29]
+  duration_sec: 5
+  scene_primary: null
+  characters: []
+  looks: []
+  dialogue_lines:
+  - {speaker: 字幕, emotion: 预告, text: 下集·云霄待改}
+  api:
+    text: 黑屏预告，skip。
