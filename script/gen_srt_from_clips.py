@@ -19,7 +19,7 @@ from pathlib import Path
 
 
 def repo_root() -> Path:
-    return Path(__file__).resolve().parent.parent.parent
+    return Path(__file__).resolve().parent.parent
 
 
 def ffprobe_duration(path: Path) -> float:
