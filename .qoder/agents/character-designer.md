@@ -99,6 +99,7 @@ tools: [Read, Write, Grep, Glob]
 - **恶的层次**：[表面恶→深层恶→终极恶的递进]
 - **弱点**：[最终被击败的关键破绽]
 - **AI视觉Prompt**：[English]
+- **声音特征**：[音色、语速、说话习惯描述，供TTS/配音参考]
 
 ## 辅助角色
 
@@ -107,6 +108,7 @@ tools: [Read, Write, Grep, Glob]
 - **戏剧功能**：[助力/对比/信息传递/喜剧调剂]
 - **与主角关系**：
 - **AI视觉Prompt**：[English]
+- **声音特征**：[音色、语速、说话习惯描述，供TTS/配音参考]
 
 ## 人物关系图谱
 
@@ -122,6 +124,52 @@ tools: [Read, Write, Grep, Glob]
 ### 秘密关系
 - [角色A] 知道 [秘密内容]，[角色B] 不知道
 ```
+
+# L01 角色参考图生成规则
+
+L01 是角色全剧面部一致性的唯一锚点。生成 L01 参考图时**必须**遵循：
+
+| 要求 | 说明 |
+|------|------|
+| 构图 | 正面全身，从头顶到脚底完整可见 |
+| 背景 | 纯白背景（plain white background），无任何环境元素 |
+| 人数 | 单人（single person, solo），画面中不得出现第二个人物 |
+| 姿态 | 站立面朝镜头（standing upright facing the camera） |
+| 打光 | 平光/棚拍光（clean flat studio lighting），不用情绪光 |
+
+**Seedream Prompt 模板**：
+```
+Character reference sheet, front-facing full-body portrait from head to toe, single person standing upright facing the camera, plain white background, clean flat studio lighting. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. Vertical 9:16, character design sheet.
+```
+
+**禁止**：
+- 禁止在 L01 Prompt 中包含场景背景（花园、书房、雨中、宫殿等）
+- 禁止在 L01 Prompt 中包含情绪灯光（moonlit, cinematic, somber lighting 等）
+- 角色卡中的叙事性 AI视觉Prompt 仅用于 Seedance 视频分镜，不用于 L01 参考图生成
+
+---
+
+# 道具与角色的交叉引用
+
+角色卡中的「视觉锚点」如涉及可独立生成的道具，必须标注 PROP-ID：
+
+**示例**：
+```
+- **视觉锚点**：
+  - 发间一支白玉兰簪（`PROP-002`）——母亲遗物
+  - 随身携带锦瑟（`PROP-001`）——父亲的遗物，琴身有修补痕迹
+  - 腰间一枚羊脂玉佩（`PROP-005`）——靖王府信物
+```
+
+## 规则
+
+1. 每个反复出现（≥3 集）的实体道具必须分配 PROP-ID
+2. 角色卡视觉锚点列表中，凡已有 PROP-ID 的道具必须标注
+3. 仅穿戴型（不可分离）的装饰不需要 PROP-ID（如发型本身、妆容）
+4. 可分离的随身物品（簪子、玉佩、琴、扇子、令牌等）需要 PROP-ID
+5. 在角色「AI视觉Prompt」中无需特意分离道具描述——角色 L01 Prompt 中可以自然地包含随身道具；PROP 参考图是独立生成的补充资产
+
+---
 
 # 约束条件
 

@@ -240,6 +240,68 @@ content_roles:
 [完整英文场景描述]
 ```
 
+### `资产/道具卡片.md`
+
+道具卡片（`资产/道具卡片.md`）是道具视觉资产的真相源，与角色索引、场景卡片平级。
+
+```markdown
+# 道具卡片
+
+## PROP-001 · [道具名]
+
+| 字段 | 内容 |
+|------|------|
+| ID | `PROP-001` |
+| 道具名 | [中文名称] |
+| 持有者 | `CHAR-002`→`CHAR-001`（[转移说明]） |
+| 首次出场 | EP## |
+| 说明 | [一句话描述功能/意义] |
+| 参考图 | `assets/props/PROP-001.png` |
+
+**道具 Prompt（EN）**：
+[完整英文道具描述]
+```
+
+#### 道具卡片必须输出字段
+
+| 字段 | 说明 |
+|------|------|
+| ID | `PROP-###` 格式，编号只增不删 |
+| 道具名 | 中文名称 |
+| 持有者 | CHAR-ID，含转移关系（如 `CHAR-002→CHAR-001`） |
+| 首次出场 | EP## |
+| 说明 | 一句话描述功能/意义 |
+| 场景 Prompt（EN） | 英文生成提示词 |
+
+#### 道具 Prompt 规则
+
+- 构图：单物体，最具辨识度的角度，从完整物体到细节清晰可见
+- 背景：温暖中性丝绸/宣纸底色（非纯白，与角色 Character Sheet 区分）
+- 人物：**严禁出现任何人物或手部**（no people, no hands）
+- 打光：产品摄影式戏剧打光，柔和阴影展示质感
+- 细节：必须包含材质、做工、年代磨损痕迹、文化标识
+- 画幅：9:16 竖屏
+
+**Seedream Prompt 模板**：
+```
+Prop reference photograph, single object isolated on warm neutral silk background, dramatic product lighting with soft shadows. [detailed object description]. Tang Dynasty [era] artifact. Vertical 9:16, detailed prop reference sheet.
+```
+
+#### 与制片规范的关系
+
+- 制片规范中的 `关键道具 ID 表` 定义 PROP-ID 和持有关系
+- 道具卡片提供视觉生成 Prompt
+- 两者必须一一对应：制片规范有的 PROP-ID，道具卡片必须有对应条目
+
+#### seedream_batch.yaml 道具条目
+
+所有 PROP-* 必须加入 `seedream_batch.yaml` 的 `items` 列表，格式：
+```yaml
+  - id: "PROP-001"
+    prompt_en: "[from 道具卡片.md]"
+    output: "assets/props/PROP-001.png"
+```
+
 ### `资产/声音卡.md`
 
 ```markdown
@@ -430,6 +492,7 @@ dramas/剧名/
 │   ├── 角色索引.md                   # CHAR-* 主表
 │   ├── 形象索引.md                   # CHAR-*-L** 主表
 │   ├── 场景卡片.md                   # SCENE-* 主表
+│   ├── 道具卡片.md                   # PROP-* 主表
 │   └── 声音卡.md                     # voice_prompt 主表
 ├── assets/
 │   ├── generated/EP##/               # AI 生成成品（禁止写入占位）
@@ -480,6 +543,15 @@ dramas/剧名/
 - 规划每集的 segment 划分（遵循 4-12 秒规则）
 - 识别跨集复用的场景
 - 输出 `资产/场景卡片.md`
+
+### Step 3.5：识别关键道具 → 分配 PROP-ID，编写道具卡片
+
+- 从角色卡视觉锚点和剧情中提取反复出现（≥3集）的实体道具
+- 为每个道具分配 `PROP-###`（连续编号）
+- 确认持有者和转移关系
+- 为每个道具编写英文 Seedream Prompt（遵循道具卡片规范）
+- 将所有 PROP-* 加入 `seedream_batch.yaml`
+- 输出 `资产/道具卡片.md`
 
 ### Step 4：AI Prompt 规范
 
@@ -577,6 +649,35 @@ dramas/剧名/
 
 ---
 
+## 资产图片生成规则
+
+### 角色参考图（looks/）
+- 必须为 Character Sheet 格式：正面全身、白底、单人、平光
+- Prompt 必须以 `Character reference sheet, front-facing full-body portrait from head to toe, single person standing upright facing the camera, plain white background, clean flat studio lighting.` 开头
+- 结尾使用 `Vertical 9:16, character design sheet.`
+- **禁止**包含场景背景或情绪灯光描述
+
+### 场景参考图（scenes/）
+- **严禁出现任何人物**（no people, no human figures）
+- 仅包含建筑、家具、道具、植被、光线、氛围
+- Prompt 末尾必须追加：`Empty environment, no people, no human figures, architectural and environmental reference only.`
+- **禁止**出现具体人物描述（“a musician with a zither”, “officials standing” 等）
+- **禁止**出现外国人描写（“Persian musician”, “Central Asian merchants” 等），避免 AI 模型渲染外国面孔
+- 允许使用暗示人类活动的物品（茶杯、乐器架、文件等），但不可有人物在场
+
+### 道具参考图（props/）
+- 构图：单物体，最具辨识度的角度，完整物体清晰可见
+- 背景：温暖中性丝绸/宣纸底色（非纯白，与角色 Character Sheet 区分）
+- 人物：**严禁出现任何人物或手部**（no people, no hands, no fingers）
+- 打光：产品摄影式戏剧打光，柔和阴影展示质感
+- 细节：必须包含材质、做工、年代磨损痕迹、文化标识
+- Prompt 必须以 `Prop reference photograph, single object isolated on warm neutral silk background, dramatic product lighting with soft shadows.` 开头
+- 结尾使用 `Vertical 9:16, detailed prop reference sheet.`
+- **禁止**出现任何人物、手部、手指
+- **禁止**出现外国文字或现代标签
+
+---
+
 # 约束条件
 
 1. **所有 AI Prompt 必须用英文**——生成工具以英文理解最佳
@@ -598,6 +699,8 @@ dramas/剧名/
 
 - [ ] 所有角色是否已分配 CHAR-ID 并建立 L01？
 - [ ] 所有场景是否已分配 SCENE-ID 并有英文 Prompt？
+- [ ] 所有关键道具是否已分配 PROP-ID 并在道具卡片中有英文 Prompt？
+- [ ] 道具卡片与制片规范中的关键道具 ID 表是否一一对应？
 - [ ] 形象索引是否与角色卡 Prompt 一致？
 - [ ] Negative Prompt 是否包含画面质量 + 年代禁忌？
 - [ ] 目录结构是否已创建？

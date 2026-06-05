@@ -38,10 +38,12 @@ story-architect → scene-writer → [本角色] → Seedance API 提交
 | 1 | `制片规范.md` | 默认 model、ratio、resolution、prompt_suffix、negative_prompt、duration 约束 |
 | 2 | `角色卡.md` | CHAR-### ID、形象 ID（CHAR-###-L##）、voice_prompt |
 | 3 | `资产/场景卡片.md` | SCENE-### ID、场景描述 |
-| 4 | `assets/looks/cdn_urls.json` | 角色形象 TOS URL 解析 |
-| 5 | `assets/scenes/cdn_urls.json` | 场景图 TOS URL 解析 |
-| 6 | `工作计划.md` | voice_prompt 表（如角色卡中未包含） |
-| 7 | `剧本/EP##/EP##_*.md` | **源文件**——待转换的分集剧本 |
+| 4 | `资产/道具卡片.md` | PROP-### ID、道具描述、持有者 |
+| 5 | `assets/looks/cdn_urls.json` | 角色形象 TOS URL 解析 |
+| 6 | `assets/scenes/cdn_urls.json` | 场景图 TOS URL 解析 |
+| 7 | `assets/props/cdn_urls.json` | 道具图 TOS URL 解析 |
+| 8 | `工作计划.md` | voice_prompt 表（如角色卡中未包含） |
+| 9 | `剧本/EP##/EP##_*.md` | **源文件**——待转换的分集剧本 |
 
 如任何文件缺失，**停止并报告**，不得猜测或编造参数。
 
@@ -207,6 +209,7 @@ segments:
 - 列出本段**所有**引用的角色形象和场景，附带 ID 和服装描述
 - 格式：`【图N】角色名 形象ID（服装简述）`
 - 场景格式：`【图N】地点名 SCENE-###`
+- 道具格式：`【图N】道具名 PROP-###`
 - 编号连续：图1、图2、图3...
 
 ### 2. 角色分工（有道具/肢体互动时必写）
@@ -274,6 +277,64 @@ segments:
 
 ---
 
+# 参考图选择规则
+
+当为 Seedance API 配置 `content_roles` 时：
+- 角色参考图（`assets/looks/CHAR-*-L##.png`）必须是 Character Sheet 格式（正面全身白底）
+- 场景参考图（`assets/scenes/SCENE-*.png`）必须是空场景（无人物）
+- 道具参考图（`assets/props/PROP-*.png`）必须是单物体拍摄（无人物无手部，丝绸/宣纸底色）
+- 如果发现参考图不符合上述要求（如角色图有背景、场景图有人），应在输出中标注警告并建议重新生成
+
+---
+
+# 道具参考图引用规则
+
+当 segment 中出现关键道具互动时（角色递交、特写、首次出场等），应在 content_roles 中包含道具参考图。
+
+## 判定标准（何时引入道具参考图）
+
+| 条件 | 是否引入 |
+|------|----------|
+| 道具首次出场（如 EP6 冰弦赠予） | ✅ 必须引入 |
+| 道具特写镜头（如密信展开） | ✅ 必须引入 |
+| 道具传递（A→B递交） | ✅ 必须引入 |
+| 道具作为背景一部分（桌上的琴） | ⚠️ 视配额余量 |
+| 道具无互动仅穿戴中（如玉佩随身） | ❌ 不需要，角色形象已含 |
+
+## content_roles 格式
+
+```yaml
+content_roles:
+  - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+  - { file: SCENE-001, role: reference_image, label: 图2 }
+  - { file: PROP-001, role: reference_image, label: 图3 }  # ← 道具参考
+```
+
+## 配额约束
+
+- 每 segment 最多 6 张参考图（TOS模式）
+- 道具为 P3 优先级（角色 P0/P1 > 场景 P2 > 道具 P3）
+- 当配额紧张时，优先保证角色和场景，道具可省略
+- 同一 segment 最多引入 1-2 张道具图
+
+## 道具资产 URL 解析
+
+与角色/场景相同，优先从 `assets/props/cdn_urls.json` 查找 CDN URL：
+
+```yaml
+assets:
+  look_urls:
+    CHAR-001-L01: assets/looks/CHAR-001-L01.png
+  scene_urls:
+    SCENE-001: assets/scenes/SCENE-001.png
+  prop_urls:
+    PROP-001: assets/props/PROP-001.png  # WARNING: no CDN URL
+```
+
+缺失时使用本地路径 + `# WARNING: no CDN URL` 注释。
+
+---
+
 # 时长约束（硬性规则）
 
 | 约束项 | 值 | 说明 |
@@ -325,9 +386,9 @@ segments:
 
 ## 解析流程
 
-1. 读取 `assets/looks/cdn_urls.json` 和 `assets/scenes/cdn_urls.json`
-2. 用形象 ID / 场景 ID 作为 key 查找 CDN URL
-3. 找到 → 填入 `assets.look_urls` / `assets.scene_urls`
+1. 读取 `assets/looks/cdn_urls.json`、`assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json`
+2. 用形象 ID / 场景 ID / 道具 ID 作为 key 查找 CDN URL
+3. 找到 → 填入 `assets.look_urls` / `assets.scene_urls` / `assets.prop_urls`
 4. 未找到 → 使用本地路径（如 `assets/looks/CHAR-001-L01.png`），并在 YAML 中添加警告注释
 
 ## 缺失资产处理
@@ -499,7 +560,7 @@ segments:
 | `ratio` / `resolution` | `制片规范.md` |
 | `voice_prompts` | `角色卡.md` 或 `资产/声音卡.md` 或 `工作计划.md` |
 | 风格描述 | `制片规范.md` 中的题材风格段落 |
-| CDN URLs | `assets/looks/cdn_urls.json` + `assets/scenes/cdn_urls.json` |
+| CDN URLs | `assets/looks/cdn_urls.json` + `assets/scenes/cdn_urls.json` + `assets/props/cdn_urls.json` |
 
 因此同一角色定义可用于：
 - 现代都市剧（全楼都觉得我和女明星同居）
