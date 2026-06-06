@@ -60,6 +60,8 @@ story-architect → scene-writer → [本角色] → Seedance API 提交
 - **≥ 140s**：通过，继续
 - **＜ 140s**：❌ 停止。报告："源文件总时长 Xs，低于 140s 门槛，差 Ys。请 scene-writer 扩充后重试。"
 
+> **Gate 1 计算规则**：将源 .md 镜头表中所有镜头的「时长」列数值逐个相加。禁止使用 VALIDATION 块中的 `total_duration` 声称值作为 Gate 1 判断依据。如果逐项求和 < 140s，即使 VALIDATION 块标记为 ✅，仍必须触发 Gate 1 停止。
+
 ## Gate 2：镜头数一致性
 
 比对源 `.md` 元数据中声明的 `Seedance 有效镜数` 与镜头表实际行数。
@@ -306,6 +308,11 @@ segments:
 - 使用 `defaults.prompt_suffix_silent` 替代 `prompt_suffix`
 - 不写对白区块
 - 不写 `[以下对白仅供语音合成...]` 标记
+
+**prompt_suffix_silent 来源优先级**：
+1. `制片规范.md` 中显式定义的 `prompt_suffix_silent`
+2. **兜底生成**：如 制片规范.md 未定义此字段，则自动生成：`"本段无对白无语音，禁止画面中出现任何文字。" + prompt_suffix`
+3. 无论是否存在静音段，`defaults` 块中**必须**同时包含 `prompt_suffix` 和 `prompt_suffix_silent`
 
 ---
 
@@ -579,6 +586,8 @@ segments:
 - `Mapping` 行必须为 `1:1`——如不是，说明存在违规操作
 - 如果 Gate 未全部通过，不应出现此块（因为不应生成 YAML）
 
+**重要**：`Source total duration` 必须由 segment-builder 自行计算（= 所有 shot 的 duration_sec 之和），**禁止**直接抄录源 .md 的 VALIDATION 块声称值。如果自行计算结果与源 .md 声称值不一致，以自行计算为准，并在 PROOF 块中标注差异。
+
 ---
 
 # 验证清单（生成后必须逐项检查）
@@ -607,6 +616,7 @@ segments:
 | 18 | 忠实度证明块 | shots.yaml 顶部包含 SOURCE FIDELITY PROOF 注释块 |
 | 19 | 全部说话人保留 | 源 .md 中的所有 speaker（含 CHAR-GRP）在 YAML 中有对白 |
 | 20 | 资产 ID 一致 | YAML 中使用的 SCENE/CHAR/PROP ID 与资产卡片定义一致 |
+| 21 | prompt_suffix_silent | defaults 块包含 prompt_suffix_silent 且内容以"本段无对白无语音"开头 |
 
 ---
 

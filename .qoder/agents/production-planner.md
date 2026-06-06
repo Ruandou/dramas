@@ -119,6 +119,7 @@ seedance_defaults:
   duration_sec: "8-10"
   generate_audio: true
   prompt_suffix: "禁止画面中出现任何文字或字幕"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。[与 prompt_suffix 相同的风格描述]"
   negative_prompt: "[根据年代/题材定制]"
 ---
 ```
@@ -568,10 +569,13 @@ production-planner 负责确保以下信息对下游角色（segment-builder、s
 |------|-----------------|---------------------------|
 | voice_prompt | `资产/声音卡.md` → `角色卡.md` → `制片规范.md` | 确保声音卡存在且完整 |
 | prompt_suffix | `制片规范.md` §prompt 模板 | 确保制片规范中有明确定义 |
+| prompt_suffix_silent | `制片规范.md` §prompt 模板 | 确保制片规范中有明确定义 |
 | negative_prompt | `制片规范.md` §negative | 确保制片规范中有明确定义 |
 | 角色形象 ID | `角色卡.md` §形象 + `资产/形象索引.md` | 确保两者一致 |
 | 场景 ID + 描述 | `资产/场景卡片.md` | 确保场景卡覆盖所有集数使用的场景 |
 | 道具 ID + 描述 | `资产/道具卡片.md` | 确保道具卡覆盖所有集数使用的道具 |
+
+> **`prompt_suffix_silent`**（必填）：用于无对白段落。格式为 `"本段无对白无语音，禁止画面中出现任何文字。" + 风格描述`。segment-builder 将在 speakers 为空的段落使用此后缀替代 prompt_suffix。
 
 如果下游角色报告某参数缺失（如 segment-builder 报告“Gate 4 未通过：CHAR-GRP-01 无 voice_prompt”），production-planner 必须立即补充对应的资产文件。
 
