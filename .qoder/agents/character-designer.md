@@ -216,8 +216,21 @@ L01 是角色全剧面部一致性的唯一锚点。生成 L01 参考图时**必
 | 打光 | 平光/棚拍光（clean flat studio lighting），不用情绪光 |
 
 **Seedream Prompt 模板**：
+
+### Prompt 风格适配
+
+Seedream Prompt 的风格后缀必须根据项目题材调整：
+- 读取大纲元数据中的「题材」和「视觉风格」
+- 读取制片规范中的 `style_anchors`（如已存在）
+- 将对应的正向风格锚定词插入 Prompt 末尾
+
+**示例**：
+- 仙侠项目：`...photorealistic costume reference, ethereal xianxia atmosphere, flowing silk texture, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga`
+- 都市项目：`...photorealistic costume reference, contemporary urban realism, natural daylight, street photography aesthetic, NOT anime, NOT cartoon, NOT illustration, NOT manga`
+- 古装项目：`...photorealistic costume reference, period-accurate historical costume, warm candlelight atmosphere, NOT anime, NOT cartoon, NOT illustration, NOT manga`
+
 ```
-Photorealistic costume reference, front-facing full-body portrait from head to toe, single person standing upright facing the camera, plain white background, clean flat studio lighting. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. Vertical 9:16, photorealistic costume reference, realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.
+Photorealistic costume reference, front-facing full-body portrait from head to toe, single person standing upright facing the camera, plain white background, clean flat studio lighting. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. Vertical 9:16, photorealistic costume reference, [style_anchors from 制片规范 or genre mapping], realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.
 ```
 
 ### Seedream Prompt 风格强制规则

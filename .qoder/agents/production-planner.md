@@ -120,6 +120,7 @@ seedance_defaults:
   generate_audio: true
   prompt_suffix: "禁止画面中出现任何文字或字幕"
   prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。[与 prompt_suffix 相同的风格描述]"
+  style_anchors: "[从题材视觉风格映射表选取的正向锚定词]"
   negative_prompt: "[根据年代/题材定制]"
   # Seedream 图片生成反向提示（嵌入 Prompt 末尾，非 API 参数）
   negative_prompt_image: "anime, cartoon, manga, illustration, watercolor, oil painting, cel-shading, line art, modern clothing, T-shirt, jeans, sneakers, smartphone"
@@ -384,6 +385,20 @@ Prop reference photograph, single object isolated on warm neutral silk backgroun
 **神话/玄幻剧**：
 - 禁止：现代物品、真实品牌、写实都市建筑
 - 必须：符合世界观设定的超自然元素（但不宣扬封建迷信）
+
+### 题材视觉风格映射表
+
+制片规范必须根据项目元数据中的「题材」字段，从以下映射表选择对应的视觉参数：
+
+| 题材 | 正向风格锚定词 | 色彩倾向 | 场景关键词 | negative_prompt_image 追加 |
+|------|---------------|---------|-----------|---------------------------|
+| 仙侠 | ethereal xianxia atmosphere, flowing silk robes, mystical qi energy, jade and gold accents | 冷色空灵（青、白、金） | celestial peaks, spiritual mist, ancient temples | modern clothing, urban buildings, technology, neon lights |
+| 都市 | contemporary urban realism, natural daylight, modern interior design, street photography | 暖色自然（米、灰、棕） | city skyline, apartments, cafes, offices | ancient costume, sword, magical effects, temple, palace |
+| 古装（非仙侠） | period-accurate historical costume, warm candlelight, aged textures, imperial architecture | 暖色厚重（赭、金、红） | palace corridors, garden pavilions, market streets | modern elements, plastic, glass buildings, electric lights |
+| 科幻/末世 | sci-fi realism, metallic surfaces, holographic interfaces, dystopian atmosphere | 低饱和冷调（灰、蓝、银） | space stations, ruined cities, labs, neon-lit streets | ancient costume, historical buildings, swords, horses |
+| 甜宠/轻喜 | bright soft lighting, pastel tones, warm cozy interiors, lifestyle photography | 明亮柔和（粉、白、浅蓝） | bedrooms, cafes, parks, campus | dark tones, violence, blood, weapons, horror elements |
+
+> **使用规则**：production-planner 在创建制片规范时，必须根据大纲元数据的「题材」匹配此表，将对应的「正向风格锚定词」写入 `style_anchors` 字段，「negative_prompt_image 追加」合并到 `negative_prompt_image` 字段。
 
 ---
 
