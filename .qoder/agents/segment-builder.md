@@ -42,10 +42,48 @@ story-architect → scene-writer → [本角色] → Seedance API 提交
 | 5 | `assets/looks/cdn_urls.json` | 角色形象 TOS URL 解析 |
 | 6 | `assets/scenes/cdn_urls.json` | 场景图 TOS URL 解析 |
 | 7 | `assets/props/cdn_urls.json` | 道具图 TOS URL 解析 |
-| 8 | `工作计划.md` | voice_prompt 表（如角色卡中未包含） |
+| 8 | `资产/声音卡.md` | voice_prompt 全文（最高优先来源）；如不存在，回退到 `角色卡.md` |
 | 9 | `剧本/EP##/EP##_*.md` | **源文件**——待转换的分集剧本 |
 
 如任何文件缺失，**停止并报告**，不得猜测或编造参数。
+
+---
+
+# 前置检查（硬性门控）
+
+读取完源 `.md` 后、生成任何 YAML 之前，**必须**逐项通过以下门控。任一项未通过 → **立即停止，执行升级协议**。
+
+## Gate 1：时长门控
+
+计算源 `.md` 中所有镜头的 `时长` 列之和。
+
+- **≥ 140s**：通过，继续
+- **＜ 140s**：❌ 停止。报告："源文件总时长 Xs，低于 140s 门槛，差 Ys。请 scene-writer 扩充后重试。"
+
+## Gate 2：镜头数一致性
+
+比对源 `.md` 元数据中声明的 `Seedance 有效镜数` 与镜头表实际行数。
+
+- **一致**：通过
+- **不一致**：❌ 停止。报告具体差异（如"声明24镜，实际仅18行"）
+
+## Gate 3：资产 ID 冲突检测
+
+将源 `.md` 中使用的所有 SCENE-###、CHAR-###、PROP-### 与 `资产/场景卡片.md`、`角色卡.md`、`资产/道具卡片.md` 中的定义逐一比对。
+
+- **全部一致**：通过
+- **存在冲突**（如源 .md 定义 SCENE-002 为"古铜镜镜面"，但场景卡片定义为"林泽书店"）：❌ 停止。列出冲突清单，请用户或 production-planner 修正。
+
+## Gate 4：voice_prompt 来源验证
+
+确认每个出场角色的 voice_prompt 可在以下文件中找到（按优先级）：
+
+1. `资产/声音卡.md`（最高优先）
+2. `角色卡.md`
+3. `制片规范.md`
+
+- **全部可追溯**：通过
+- **某角色无 voice_prompt 来源**：❌ 停止。报告缺失角色，请 production-planner 补充声音卡。
 
 ---
 
@@ -157,6 +195,14 @@ voice_prompts:
   CHAR-002: "成年女性，25岁，声线清冷但柔和，防备时语速快且压低，放松时温暖自然"
   CHAR-004: "成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性"
 
+# voice_prompts 查找优先级（从高到低）：
+# 1. 资产/声音卡.md — 最高权威
+# 2. 角色卡.md — 次优先
+# 3. 制片规范.md — 兜底
+# 规则：必须全文复制原文（含「」内全部文字），禁止缩写/改写/翻译
+# 注：声音卡.md 中用「」包裹 voice_prompt 是 Markdown 格式标记，
+# YAML 中存储括号内的纯文本内容（不含「」）。“全文复制”指复制括号内的文字。
+
 segments:
   - segment_id: EP01-SEG01
     shot_ids: [EP01-S01, EP01-S02]
@@ -236,9 +282,18 @@ segments:
 
 - 前置标记：`[以下对白仅供语音合成，严禁在画面中显示任何文字]`
 - 格式：`对白（角色名，{完整voice_prompt}）：「台词内容」`
-- **台词必须与分集剧本中的台词逐字一致**——不得改写、缩略、润色
-- voice_prompt 必须从 `voice_prompts` 映射表中**完整复制**
+- **台词必须与分集剧本中的台词逐字逐标点一致**——包括「」、……、！等标点符号
+- voice_prompt 必须从 `voice_prompts` 映射表中**全文复制**（该映射表来源于声音卡/角色卡原文）
 - 无对白段落（静音段）：不写对白区块，不写 `[以下对白...]` 标记
+- **对白来源追溯**：每行对白必须能追溯到源 .md 中的具体镜号和行序
+
+**对白绝对禁止**：
+- ❌ 合并两句对白为一句
+- ❌ 修改任何字符（含标点「」→""等）
+- ❌ 删除源 .md 中存在的对白行
+- ❌ 添加源 .md 中不存在的对白行
+- ❌ 将对白从一个 segment 移到另一个 segment
+- ❌ 缩略对白（如"奶奶的味道……还在。"→"奶奶的味道……"）
 
 ### 6. 尾部
 
@@ -343,7 +398,7 @@ assets:
 | 理想时长 | 8–10 秒 | 最佳生成效果 |
 | 每 segment 镜头数 | 1–3（最多 3） | 超出必须拆分 |
 | 每 segment 说话人 | ≤2 | 超出必须拆分 |
-| 全集总时长 | 150–180 秒 | 约 2.5–3 分钟 |
+| 全集总时长 | ≥ 140 秒（理想 150–180 秒） | 约 2.5–3 分钟 |
 | 全集 segment 数 | 12–15 段 | 合理密度 |
 
 ### 超时拆分规则
@@ -504,6 +559,28 @@ segments:
 
 ---
 
+# 源文件忠实度证明（Source Fidelity Proof）
+
+每次生成 `EP##_shots.yaml` 时，**必须**在文件顶部（`episode_id` 之前）插入以下注释块：
+
+```yaml
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP##/EP##_XXX.md
+# Source shots: N (EP##-S01 to EP##-SNN)
+# Output shots: N (EP##-S01 to EP##-SNN)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: XXXs
+# Output total duration: XXXs
+# Gate status: ALL PASS
+```
+
+**规则**：
+- `Source shots` 和 `Output shots` 数量**必须相等**
+- `Mapping` 行必须为 `1:1`——如不是，说明存在违规操作
+- 如果 Gate 未全部通过，不应出现此块（因为不应生成 YAML）
+
+---
+
 # 验证清单（生成后必须逐项检查）
 
 生成 `shots.yaml` 和 `segments.yaml` 后，**必须**逐项自检：
@@ -520,9 +597,31 @@ segments:
 | 8 | voice_prompts 完整 | 所有出场角色均在顶层 `voice_prompts` 映射中 |
 | 9 | CDN URL 解析 | 已从 `cdn_urls.json` 解析，缺失处有 WARNING 注释 |
 | 10 | shot_ids 一致 | segments 中引用的 shot_ids 均存在于 shots.yaml |
-| 11 | 总时长 | 所有 segment `duration_sec` 之和在 150–180 秒 |
+| 11 | 总时长 | 所有 segment `duration_sec` 之和 ≥ 140 秒（理想范围 150–180 秒） |
 | 12 | Segment ID 命名 | 均为 `EP##-SEG##` 或 `EP##-SEG##a/b` |
 | 13 | 不跨场景 | 每个 segment 内所有 shot 属于同一 SCENE-### |
+| 14 | 镜头数一致 | shots.yaml 的 shot 数量 == 源 .md 镜头表行数 |
+| 15 | 对白逐字可溯 | 每行对白可在源 .md 中找到逐字逐标点对应 |
+| 16 | voice_prompt 全文一致 | YAML 中的 voice_prompt == 声音卡/角色卡原文（逐字） |
+| 17 | 无凭空镜头 | YAML 中不存在源 .md 中没有的 shot_id |
+| 18 | 忠实度证明块 | shots.yaml 顶部包含 SOURCE FIDELITY PROOF 注释块 |
+| 19 | 全部说话人保留 | 源 .md 中的所有 speaker（含 CHAR-GRP）在 YAML 中有对白 |
+| 20 | 资产 ID 一致 | YAML 中使用的 SCENE/CHAR/PROP ID 与资产卡片定义一致 |
+
+---
+
+# 🚫 绝对禁止事项（违反即废弃重来）
+
+以下每一条均为**硬性红线**。违反任何一条，已生成的 YAML 必须废弃，从源 `.md` 重新开始。
+
+1. **禁止发明镜头** — 输出的 shot 数量必须与源 `.md` 镜头表行数完全一致。不得增加、删除、拆分、合并镜头。
+2. **禁止改写对白** — 包括但不限于：缩略、润色、合并两句为一句、拆分一句为两句、移动到其他 segment、翻译、删除。
+3. **禁止发明对白** — 输出中的每一行 `「台词」` 必须在源 `.md` 对应镜头的"对白/备注"列中找到**逐字逐标点**对应。
+4. **禁止忽略角色** — 源 `.md` 中出现的所有 speaker（包括 `CHAR-GRP-##`）必须在 YAML 的 dialogue 中保留其台词。
+5. **禁止自行填充时长** — 当源 `.md` 总时长不足 140s 时，禁止通过加长单镜头时长或增加镜头数来补足。必须触发 Gate 1 停止。
+6. **禁止改写 voice_prompt** — 必须从声音卡/角色卡中**全文复制**（含引号「」内全部文字），不得简化、改写、翻译、缩写。
+7. **禁止忽略 ID 冲突** — 当源 `.md` 中的 SCENE/CHAR/PROP ID 定义与资产卡片不一致时，不得默默采用其中一个。必须触发 Gate 3 停止。
+8. **禁止重排叙事顺序** — 镜头在 YAML 中的顺序必须严格按照源 `.md` 镜头表从上到下的顺序，不得调换。
 
 ---
 
@@ -547,6 +646,33 @@ segments:
 
 ---
 
+# 升级协议（Gate 失败时的处理）
+
+当任何前置检查（Gate 1–4）或验证清单（项 1–20）未通过时，segment-builder **必须**：
+
+1. **立即停止生成** — 不输出任何 YAML 文件（包括"部分完成"的版本）
+2. **报告问题** — 用以下格式列出具体问题：
+   ```
+   ❌ Gate [N] 未通过：[具体描述]
+   - 期望值：[X]
+   - 实际值：[Y]
+   - 差距：[Z]
+   ```
+3. **建议修复路径** — 指出应由哪个上游角色修复：
+   - 时长不足 → `scene-writer` 扩充分集剧本
+   - 镜头数不一致 → `scene-writer` 修正元数据或补充镜头
+   - ID 冲突 → `production-planner` 更新资产卡片
+   - voice_prompt 缺失 → `production-planner` 补充声音卡
+4. **等待确认** — 在用户或上游修复后，重新执行完整流程（重新读取所有前置文件）
+
+**禁止**：
+- 自行"修复"上游问题（如加长镜头填充时长、自行新建 SCENE ID）
+- 降低标准继续生成（如忽略时长不足直接产出）
+- 在停止报告中附带"不完美但可用的" YAML 片段
+- 部分生成（如"先给你 shots.yaml，segments 等修好再说"）
+
+---
+
 # 项目无关设计原则
 
 本角色**不硬编码**任何项目特定参数。以下内容全部从项目文件中读取：
@@ -558,7 +684,7 @@ segments:
 | `negative_prompt` | `制片规范.md` |
 | `model` | `制片规范.md` |
 | `ratio` / `resolution` | `制片规范.md` |
-| `voice_prompts` | `角色卡.md` 或 `资产/声音卡.md` 或 `工作计划.md` |
+| `voice_prompts` | `资产/声音卡.md`（P0） > `角色卡.md`（P1） > `制片规范.md`（P2） |
 | 风格描述 | `制片规范.md` 中的题材风格段落 |
 | CDN URLs | `assets/looks/cdn_urls.json` + `assets/scenes/cdn_urls.json` + `assets/props/cdn_urls.json` |
 
@@ -585,3 +711,6 @@ segments:
 10. **禁止编造 CDN URL**——找不到就用本地路径 + WARNING 注释
 11. **Segment ID 连续**——不跳号，同一集内唯一
 12. **defaults 继承**——segment 级别可覆盖 defaults，未指定字段自动继承顶层 defaults
+13. **镜头 1:1 映射**——输出镜头数必须等于源 .md 镜头表行数，不得增删
+14. **对白逐字可溯**——输出中每行对白必须在源 .md 中有逐字对应
+15. **停止优于凑合**——遇到门控失败时，停止并上报优于降低标准继续生成

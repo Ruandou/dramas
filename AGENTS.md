@@ -1,6 +1,6 @@
 # 视频资产与安全规则
 
-本仓库 `短剧/错嫁后我改写了王朝/素材/generated/` 用于存放**即梦等平台导出的正式分镜 MP4**，与 `script/config_ep01.json` / `script/ep01_clip_list.txt` 中的路径一一对应。
+本仓库 `dramas/错嫁后我改写了王朝/素材/generated/` 用于存放**即梦等平台导出的正式分镜 MP4**，与 `script/config_ep01.json` / `script/ep01_clip_list.txt` 中的路径一一对应。
 
 ## 严禁事项
 
@@ -13,7 +13,7 @@
 在仓库根执行：
 
 ```bash
-ls -lh 短剧/错嫁后我改写了王朝/素材/generated/*.mp4
+ls -lh dramas/错嫁后我改写了王朝/素材/generated/*.mp4
 ```
 
 - **正常即梦导出**：单文件多为**数 MB 级**（视分辨率与时长而定）。
@@ -89,7 +89,7 @@ python3 script/download_jimeng_from_tasks.py
 | `ark_seedream_generate` / `batch`         | **是** | Seedream 5.0 lite                                                |
 | `ark_seedance_create` / `shots`           | **是** | Seedance 2.0 fast；本地图 **data URI**，无需图床                 |
 
-短剧素材输出：**`darams/<剧名>/assets/generated/`**（如天工开物），与错嫁 **`video/generated/`** 分开。
+短剧素材输出：**`dramas/<剧名>/assets/generated/`**（如天工开物），与错嫁 **`video/generated/`** 分开。
 
 ## 🚫 禁止调用视频/图片生成 MCP 工具
 
@@ -115,8 +115,8 @@ python3 script/download_jimeng_from_tasks.py
 
 生成 AI 素材前，必须先读取以下文档：
 
-1. `短剧/天庭临时工/AI素材清单_1-3集.md` - 了解生成规范
-2. `短剧/天庭临时工/角色卡.md` - 获取角色 Prompt
+1. `dramas/天庭临时工/AI素材清单_1-3集.md` - 了解生成规范
+2. `dramas/天庭临时工/角色卡.md` - 获取角色 Prompt
 
 然后基于文档中的规则和 Prompt 生成素材，不要凭空编造规则。
 
@@ -128,7 +128,7 @@ python3 script/download_jimeng_from_tasks.py
 
 - **默认比例**：9:16 竖屏（与视频一致）
 - **模型**：`image-01`
-- **输出目录**：`短剧/天庭临时工/素材/`（按角色归类）
+- **输出目录**：`dramas/天庭临时工/素材/`（按角色归类）
 - **Prompt 优化**：建议关闭 `prompt_optimizer: false`，使用角色卡中已有的英文 Prompt
 
 ## 制作资质：其他微短剧
