@@ -1,0 +1,407 @@
+episode_id: EP01
+source_md: 剧本/EP01/EP01_镜中人.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。现代都市旧式居民楼环境。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。真人实拍质感，电影级色彩，浅景深。现代都市旧式居民楼环境。"
+  negative_prompt: "real celebrity face, real brand logo, Apple logo, Samsung logo, Nike logo, real platform UI visible on screens, WeChat interface, Alipay interface, TikTok UI, Douyin UI, news headline text, real politician faces, real public figure faces, watermark, subtitles burned into frame, ancient costume, historical clothing, period costumes, weapon, military uniform, gun, explosion, anime style, cartoon style, watercolor, oil painting style, 1980s fashion, 1990s fashion"
+
+voice_prompts:
+  CHAR-001: "年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎"
+  CHAR-002: "年轻女性，声线与苏晚相同但更自信冰冷，语速快，语调平稳有力，带控制感"
+
+segments:
+  - segment_id: EP01-SEG01
+    shot_ids: [EP01-S01]
+    duration_sec: 8
+    speakers: []
+    refs:
+      scene_id: SCENE-001
+    assets:
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚出租屋 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）全景 缓推：夜雨中的旧式出租屋全景。单人床上铺着洗旧的碎花床单，床头铁栏杆挂着一件灰色卫衣。小木桌上台灯亮着暖黄光，旁边散落简历和笔记本电脑。墙角三个纸箱叠放，最上面那个侧面用马克笔写着"奶奶的东西"。窗玻璃上雨水蜿蜒，路灯的光被雨幕打散。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。真人实拍质感，电影级色彩，浅景深。现代都市旧式居民楼环境。
+      content_roles:
+        - { file: SCENE-001, role: reference_image, label: 图1 }
+
+  - segment_id: EP01-SEG02
+    shot_ids: [EP01-S02, EP01-S03]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】苏晚出租屋 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：手机屏幕亮着，招聘APP的通知栏一排红色标记。最新一条标题清晰可见：「很遗憾地通知您，您未通过……」。图1苍白的手指握着手机边缘，指节发白。
+        镜头2（7秒）近景 镜头推近：图1靠在床头，灰色卫衣领口松垮，低马尾散了一半。她盯着手机屏幕，眼神从期待一点点暗下去，最后变成空洞。台灯暖光打在她侧脸上，眼下黑眼圈更重了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「又被拒了……已经是这周第七家。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG03
+    shot_ids: [EP01-S04, EP01-S05]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】苏晚出租屋 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1把手机扣在床上，抬起头环顾房间。镜头随她视线移动：角落的纸箱、桌上被划掉的简历、墙上奶奶的遗照（黑白，花白短发慈祥笑容）。台灯在遗照旁投下一个暖黄的光圈。
+        镜头2（5秒）近景 固定：图1低下头，双手插进卫衣口袋，肩膀缩着。窗外雨声变大，一道闪电照亮房间一瞬，她没动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「奶奶走了三个月了。工作也没了。」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「这个月的房租……又交不上了。」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「要是奶奶还在，她会怎么说？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S06, EP01-S07]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】苏晚出租屋 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 镜头跟随：图1蹲在纸箱旁，双手翻动里面的物品。旧衣服、用报纸包裹的相框、一本泛黄的笔记本（边缘有封蜡痕迹）。她拿起一件素色棉布围巾，贴在脸上。
+        镜头2（6秒）特写 固定：图1手中一张旧照片——照片上一位慈祥老太太搂着年轻女孩，笑得很开心。老人脖子上戴着一条细细的银色项链，链坠心形（只露出轮廓）。照片边缘泛黄。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「奶奶的味道……」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「这些旧东西……每一件都有奶奶的回忆。」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「奶奶，你在那边过得好吗？小晚好想你。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG05
+    shot_ids: [EP01-S08, EP01-S09]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】苏晚出租屋 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 缓推：图1把照片放在一旁，继续翻箱子。手突然停住——箱底旧衣服下面，压着一个深色布包裹，系着旧绳结，和箱子里其他东西不同，像是被刻意单独保存。
+        镜头2（5秒）近景 固定：图1捧着布包，犹豫地看了看它，又看了看奶奶遗照。她心跳加速——胸口微微起伏。然后她开始解绳结，手指轻轻发抖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「这是什么……奶奶从没提过。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG06
+    shot_ids: [EP01-S10, EP01-S11]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】苏晚出租屋 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）特写 固定：手机屏幕突然亮起——微信消息。对话框显示"王姐（房东）"，消息内容：「小苏，房租已经逾期15天了。下周一再交不上，只能让你搬了。」旁边还有第二条：「当初看你奶奶面子才租的，现在老人也不在了。」
+        镜头2（6秒）近景 固定：图1看了一眼手机，眼神瞬间黯淡。她把手机翻过去扣在地上，闭上眼睛，双手紧握那件围巾。手指骨节发白。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「奶奶走了，工作没了……我到底该怎么办。」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「连奶奶留下的房子都保不住了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG07
+    shot_ids: [EP01-S12, EP01-S13]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】苏晚出租屋 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1靠在纸箱旁坐了很久，然后用手撑着地板站起来，踉跄了一下。她转头看向桌上那堆简历——每一份都画了大叉。她走向角落的"奶奶的东西"纸箱。
+        镜头2（6秒）特写 缓推：图1打开纸箱，里面塞满旧衣物、相框和被报纸包裹的东西。她一件件翻动，每拿起一件都会短暂停顿。指尖触到一件洗旧的棉布围巾，是奶奶常穿的。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「不行，不能一直这样。先把奶奶的东西整理完。」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「简历上全是叉，没有一家要我。」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「可我不能倒下。」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「奶奶的味道……还在。」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「这些东西都老了……可摸着还像昨天的事。」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「奶奶的东西还留着，我的东西呢？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG08
+    shot_ids: [EP01-S14]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】苏晚出租屋 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）特写 缓推：图1继续翻动箱底的衣物，手指突然触到一个硬物——深色布包，被单独压在箱底，和其他物品隔开。她愣了一下，轻轻把它拿出来。台灯光照亮布包表面，旧绳结系得很紧，像是被人精心保管。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「这是什么？奶奶为什么从没提过……」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「奶奶藏了一辈子的秘密，就在这块布里。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG09
+    shot_ids: [EP01-S15, EP01-S16]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】苏晚出租屋 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：布包被放在膝盖上，图1的手指解开绳结，深色布料一层层展开——里面是一面手掌大小的古铜镜（PROP-001）。青铜色镜面泛着幽暗光泽，边缘刻满繁复花纹，在台灯下像活物般微微流动。
+        镜头2（6秒）大特写 镜头推近：图1将古铜镜捧在掌心。镜面约手掌大小，青铜色表面泛着古老光泽。背面有繁复刻痕，灯光下纹路流动如活物。镜面边缘的花纹异常精巧，繁复细密，不像是普通装饰。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「这花纹……不像是普通的铜镜。背面还有刻痕，看不出是什么字。」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「奶奶以前怎么从没见过这个？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG10
+    shot_ids: [EP01-S17, EP01-S18]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】苏晚出租屋 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1翻转古铜镜，镜面朝上。台灯暖黄光落在青铜镜面上，幽暗泛绿的铜锈覆盖表面。镜中映出图1的脸——模糊、变形，像一个陌生人，比真人老了十岁。她皱眉，手指无意识地摩挲镜面边缘。
+        镜头2（6秒）大特写 固定：镜面特写。铜锈表面突然泛起一圈微弱涟漪——像平静水面被无形手指轻触。涟漪从中心向边缘扩散，持续不到一秒便消散。台灯的光映在镜面上，形成一个暖黄光圈，涟漪在光圈中闪烁后消失。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「铜锈盖住了……这是奶奶什么时候的东西？」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「这面镜子……比我想象的要老得多。」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「刚才……镜面动了。不，一定是眼花了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG11
+    shot_ids: [EP01-S19, EP01-S20]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】苏晚出租屋 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：手机再次震动亮起，邮件通知。屏幕上清晰可见：「面试结果通知——很遗憾地通知您，您未通过终面……」。图1的目光落在"很遗憾"三个字上，眼神彻底暗下去。
+        镜头2（7秒）近景 固定：图1盯着手机，嘴唇抿成一条线。她握紧古铜镜，指节发白。然后把手机扔到床上，仰头盯着天花板，眼眶泛红但没有落泪。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「所有人都不要我……连最后一丝希望都没了。」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「工作没了，奶奶走了……我什么都没有了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG12
+    shot_ids: [EP01-S21]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】镜中苏晚 CHAR-002-L01（白色衬衫黑色西装，精致妆容，微卷光泽黑发）【图3】镜面特写 SCENE-002。
+        角色分工：图1为现实人物，手持古铜镜；图2仅以镜中倒影形式出现在古铜镜镜面内，禁止图2独立出镜。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）大特写 缓推：图1重新举起古铜镜，凝视镜面。台灯暖黄光落在青铜表面——镜中映出图2的完美倒影：容光焕发、皮肤光泽无瑕疵、眼睛明亮有神、嘴角自信上扬，黑色长发微卷光泽柔顺。与真人图1的疲惫灰暗形成强烈对比。台灯的暖光打在镜面边缘，而镜中图2身后是冷白色光芒——两个世界的光在镜面上交汇。镜中图2在微笑，像在看另一个自己。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「这……不是我。可这就是我的脸。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+
+  - segment_id: EP01-SEG13
+    shot_ids: [EP01-S22, EP01-S23]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】镜中苏晚 CHAR-002-L01（白色衬衫黑色西装，精致妆容，微卷光泽黑发）【图3】镜面特写 SCENE-002。
+        角色分工：图1为现实人物，手持古铜镜；图2仅以镜中倒影形式出现在古铜镜镜面内，禁止图2独立出镜。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1举着古铜镜，手在微微发抖。她慢慢移动镜子，镜面角度变化——镜中图2的脸始终清晰、完美，不受角度影响。图1的眉头越皱越紧，嘴唇微张。
+        镜头2（7秒）特写 固定：图1呆呆地看着镜中图2，心跳声渐强。然后——镜中图2轻轻眨了一下眼睛。不是无意识的眨眼，是缓慢的、刻意的，像在说"我看到你了"。图1瞳孔猛缩。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「不是眼花。她还在那里。」
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「她……眨眼了。她看到我了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+
+  # NOTE: Script SEG14 spans SCENE-002 (S24) → SCENE-001 (S25).
+  # Split into SEG14a/SEG14b to respect the no-cross-scene rule.
+
+  - segment_id: EP01-SEG14a
+    shot_ids: [EP01-S24]
+    duration_sec: 5
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】苏晚出租屋 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1猛地后仰，手一松，古铜镜落在桌上发出沉闷金属声。她撞翻身后纸箱，旧围巾和相框散落一地。她跌坐在地，背靠床腿，双手撑着地板，浑身发抖。眼睛瞪大，死死盯着桌上的古铜镜。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「不可能……这不可能……」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+  - segment_id: EP01-SEG14b
+    shot_ids: [EP01-S25]
+    duration_sec: 6
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】苏晚 CHAR-001-L01（洗旧灰色卫衣，黑色长发低马尾，眼下黑眼圈，疲惫神态）【图2】苏晚出租屋 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：台灯摇晃后恢复稳定。古铜镜静静立在桌面上，镜面朝上，在暖黄灯光下泛着幽暗微光。图1蜷缩在角落，下巴抵在膝盖上，眼神无法从镜面移开。嘴唇微张，像想说什么又发不出声。整个房间陷入凝固般的寂静——只有雨声和她急促的呼吸声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚，年轻女性，28岁，声线略带疲惫和紧张，语速偏慢，语调低沉犹豫，独处时声音更轻更碎）：「镜子里那个人……到底是谁？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市旧式居民楼出租屋，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }

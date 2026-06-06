@@ -1,0 +1,679 @@
+episode_id: EP01
+source_md: 剧本/EP01/EP01_镜中人.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。现代都市旧式居民楼环境。"
+  negative_prompt: "real celebrity face, real brand logo, Apple logo, Samsung logo, Nike logo, real platform UI visible on screens, WeChat interface, Alipay interface, TikTok UI, Douyin UI, news headline text, real politician faces, real public figure faces, watermark, subtitles burned into frame, ancient costume, historical clothing, period costumes, weapon, military uniform, gun, explosion, anime style, cartoon style, watercolor, oil painting style, 1980s fashion, 1990s fashion"
+
+shots:
+  - shot_id: EP01-S01
+    shot_no: 1
+    mode: t2v
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-001
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: >
+        夜雨中的旧式出租屋全景。单人床上铺着洗旧的碎花床单，床头铁栏杆挂着一件灰色卫衣。小木桌上台灯亮着暖黄光，旁边散落简历和笔记本电脑。墙角三个纸箱叠放，最上面那个侧面用马克笔写着"奶奶的东西"。窗玻璃上雨水蜿蜒，路灯的光被雨幕打散。
+      content_roles: []
+    dialogue: []
+
+  - shot_id: EP01-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。特写 固定：手机屏幕亮着，招聘APP的通知栏一排红色标记。最新一条标题清晰可见：「很遗憾地通知您，您未通过……」。苏晚苍白的手指握着手机边缘，指节发白。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue: []
+
+  - shot_id: EP01-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。近景 镜头推近：图1靠在床头，灰色卫衣领口松垮，低马尾散了一半。她盯着手机屏幕，眼神从期待一点点暗下去，最后变成空洞。台灯暖光打在她侧脸上，眼下黑眼圈更重了。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心]「又被拒了……已经是这周第七家。」"
+
+  - shot_id: EP01-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。中景 固定：图1把手机扣在床上，抬起头环顾房间。镜头随她视线移动：角落的纸箱、桌上被划掉的简历、墙上奶奶的遗照（黑白，花白短发慈祥笑容）。台灯在遗照旁投下一个暖黄的光圈。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心]「奶奶走了三个月了。工作也没了。」"
+
+  - shot_id: EP01-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。近景 固定：图1低下头，双手插进卫衣口袋，肩膀缩着。窗外雨声变大，一道闪电照亮房间一瞬，她没动。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·低沉]「这个月的房租……又交不上了。」"
+      - speaker: CHAR-001
+        line: "[内心]「要是奶奶还在，她会怎么说？」"
+
+  - shot_id: EP01-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。中景 镜头跟随：图1蹲在纸箱旁，双手翻动里面的物品。旧衣服、用报纸包裹的相框、一本泛黄的笔记本（PROP-002，边缘有封蜡痕迹）。她拿起一件素色棉布围巾，贴在脸上。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·哽咽]「奶奶的味道……」"
+      - speaker: CHAR-001
+        line: "[内心]「这些旧东西……每一件都有奶奶的回忆。」"
+
+  - shot_id: EP01-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。特写 固定：图1手中一张旧照片——照片上一位慈祥老太太搂着年轻女孩，笑得很开心。老人脖子上戴着一条细细的银色项链，链坠心形（PROP-003，只露出轮廓）。照片边缘泛黄。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心]「奶奶，你在那边过得好吗？小晚好想你。」"
+
+  - shot_id: EP01-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。特写 缓推：图1把照片放在一旁，继续翻箱子。手突然停住——箱底旧衣服下面，压着一个深色布包裹，系着旧绳结，和箱子里其他东西不同，像是被刻意单独保存。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue: []
+
+  - shot_id: EP01-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。近景 固定：图1捧着布包，犹豫地看了看它，又看了看奶奶遗照。她心跳加速——胸口微微起伏。然后她开始解绳结，手指轻轻发抖。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·紧张]「这是什么……奶奶从没提过。」"
+
+  - shot_id: EP01-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: >
+        CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。特写 固定：手机屏幕突然亮起——微信消息。对话框显示"王姐（房东）"，消息内容：「小苏，房租已经逾期15天了。下周一再交不上，只能让你搬了。」旁边还有第二条：「当初看你奶奶面子才租的，现在老人也不在了。」
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue: []
+
+  - shot_id: EP01-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。近景 固定：图1看了一眼手机，眼神瞬间黯淡。她把手机翻过去扣在地上，闭上眼睛，双手紧握那件围巾。手指骨节发白。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·绝望]「奶奶走了，工作没了……我到底该怎么办。」"
+      - speaker: CHAR-001
+        line: "[内心]「连奶奶留下的房子都保不住了。」"
+
+  - shot_id: EP01-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: >
+        CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。中景 固定：图1靠在纸箱旁坐了很久，然后用手撑着地板站起来，踉跄了一下。她转头看向桌上那堆简历——每一份都画了大叉。她走向角落的"奶奶的东西"纸箱。
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心]「不行，不能一直这样。先把奶奶的东西整理完。」"
+      - speaker: CHAR-001
+        line: "[内心]「简历上全是叉，没有一家要我。」"
+      - speaker: CHAR-001
+        line: "[内心]「可我不能倒下。」"
+
+  - shot_id: EP01-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。特写 缓推：图1打开纸箱，里面塞满旧衣物、相框和被报纸包裹的东西。她一件件翻动，每拿起一件都会短暂停顿。指尖触到一件洗旧的棉布围巾，是奶奶常穿的。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·哽咽]「奶奶的味道……还在。」"
+      - speaker: CHAR-001
+        line: "[内心]「这些东西都老了……可摸着还像昨天的事。」"
+      - speaker: CHAR-001
+        line: "[内心]「奶奶的东西还留着，我的东西呢？」"
+
+  - shot_id: EP01-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。特写 缓推：图1继续翻动箱底的衣物，手指突然触到一个硬物——深色布包，被单独压在箱底，和其他物品隔开。她愣了一下，轻轻把它拿出来。台灯光照亮布包表面，旧绳结系得很紧，像是被人精心保管。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·紧张]「这是什么？奶奶为什么从没提过……」"
+      - speaker: CHAR-001
+        line: "[内心]「奶奶藏了一辈子的秘密，就在这块布里。」"
+
+  - shot_id: EP01-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。特写 固定：布包被放在膝盖上，图1的手指解开绳结，深色布料一层层展开——里面是一面手掌大小的古铜镜（PROP-001）。青铜色镜面泛着幽暗光泽，边缘刻满繁复花纹，在台灯下像活物般微微流动。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue: []
+
+  - shot_id: EP01-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。大特写 镜头推近：图1将古铜镜捧在掌心。镜面约手掌大小，青铜色表面泛着古老光泽。背面有繁复刻痕，灯光下纹路流动如活物。镜面边缘的花纹异常精巧，繁复细密，不像是普通装饰。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·疑惑]「这花纹……不像是普通的铜镜。背面还有刻痕，看不出是什么字。」"
+      - speaker: CHAR-001
+        line: "[内心]「奶奶以前怎么从没见过这个？」"
+
+  - shot_id: EP01-S17
+    shot_no: 17
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。特写 固定：图1翻转古铜镜，镜面朝上。台灯暖黄光落在青铜镜面上，幽暗泛绿的铜锈覆盖表面。镜中映出图1的脸——模糊、变形，像一个陌生人，比真人老了十岁。她皱眉，手指无意识地摩挲镜面边缘。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心]「铜锈盖住了……这是奶奶什么时候的东西？」"
+      - speaker: CHAR-001
+        line: "[内心]「这面镜子……比我想象的要老得多。」"
+
+  - shot_id: EP01-S18
+    shot_no: 18
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。大特写 固定：镜面特写。铜锈表面突然泛起一圈微弱涟漪——像平静水面被无形手指轻触。涟漪从中心向边缘扩散，持续不到一秒便消散。台灯的光映在镜面上，形成一个暖黄光圈，涟漪在光圈中闪烁后消失。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·惊]「刚才……镜面动了。不，一定是眼花了。」"
+
+  - shot_id: EP01-S19
+    shot_no: 19
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: >
+        CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。特写 固定：手机再次震动亮起，邮件通知。屏幕上清晰可见：「面试结果通知——很遗憾地通知您，您未通过终面……」。图1的目光落在"很遗憾"三个字上，眼神彻底暗下去。
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue: []
+
+  - shot_id: EP01-S20
+    shot_no: 20
+    mode: i2v_ref
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。近景 固定：图1盯着手机，嘴唇抿成一条线。她握紧古铜镜，指节发白。然后把手机扔到床上，仰头盯着天花板，眼眶泛红但没有落泪。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·颤抖]「所有人都不要我……连最后一丝希望都没了。」"
+      - speaker: CHAR-001
+        line: "[内心]「工作没了，奶奶走了……我什么都没有了。」"
+
+  - shot_id: EP01-S21
+    shot_no: 21
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）手持古铜镜，镜面中映出CHAR-002-L01（白色衬衫黑色西装，精致妆容，微卷光泽黑发）的完美倒影。大特写 缓推：图1重新举起古铜镜，凝视镜面。台灯暖黄光落在青铜表面——镜中映出一张与她截然不同的脸：容光焕发、皮肤光泽无瑕疵、眼睛明亮有神、嘴角自信上扬。与真人图1的疲惫灰暗形成强烈对比。镜中人在微笑，像在看另一个自己。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·震惊]「这……不是我。可这就是我的脸。」"
+
+  - shot_id: EP01-S22
+    shot_no: 22
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-002镜面特写场景。近景 固定：图1举着古铜镜，手在微微发抖。她慢慢移动镜子，镜面角度变化——镜中苏晚的脸始终清晰、完美，不受角度影响。图1的眉头越皱越紧，嘴唇微张。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·颤抖]「不是眼花。她还在那里。」"
+
+  - shot_id: EP01-S23
+    shot_no: 23
+    mode: i2v_ref
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: >
+        CHAR-001-L01（灰色卫衣低马尾）手持古铜镜，镜面中映出CHAR-002-L01（白色衬衫黑色西装，精致妆容）的完美倒影。特写 固定：图1呆呆地看着镜中人，心跳声渐强。然后——镜中图2轻轻眨了一下眼睛。不是无意识的眨眼，是缓慢的、刻意的，像在说"我看到你了"。图1瞳孔猛缩。
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·惊恐]「她……眨眼了。她看到我了。」"
+
+  - shot_id: EP01-S24
+    shot_no: 24
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。中景 固定：图1猛地后仰，手一松，古铜镜落在桌上发出沉闷金属声。她撞翻身后纸箱，旧围巾和相框散落一地。她跌坐在地，背靠床腿，双手撑着地板，浑身发抖。眼睛瞪大，死死盯着桌上的古铜镜。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·喘息]「不可能……这不可能……」"
+
+  - shot_id: EP01-S25
+    shot_no: 25
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+    api:
+      text: "CHAR-001-L01（灰色卫衣低马尾）在SCENE-001出租屋内。特写 固定：台灯摇晃后恢复稳定。古铜镜静静立在桌面上，镜面朝上，在暖黄灯光下泛着幽暗微光。图1蜷缩在角落，下巴抵在膝盖上，眼神无法从镜面移开。嘴唇微张，像想说什么又发不出声。整个房间陷入凝固般的寂静——只有雨声和她急促的呼吸声。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心·颤抖]「镜子里那个人……到底是谁？」"
