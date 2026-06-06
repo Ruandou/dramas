@@ -1,11 +1,11 @@
 # === SOURCE FIDELITY PROOF ===
 # Source: 剧本/EP01/EP01_零灵根.md
-# Source shots: 23 (EP01-S01 to EP01-S23)
-# Output shots: 23 (EP01-S01 to EP01-S23)
-# Mapping: 1:1 (no insertions, no deletions, no reordering)
-# Source total duration: 141s
-# Output total duration: 141s
-# Gate status: ALL PASS
+# Source shots: 24 (EP01-S01 to EP01-S23, with S05a)
+# Output shots: 24 (EP01-S01 to EP01-S23, with S05a)
+# Mapping: 1:1 (R2 fix applied: S05a Zhao cutaway; transition merged into S19)
+# Source total duration: 131s
+# Output total duration: 131s
+# Gate status: ALL PASS (R2 revised v1.1b)
 
 episode_id: EP01
 source_md: 剧本/EP01/EP01_零灵根.md
@@ -115,7 +115,7 @@ shots:
   - shot_id: EP01-S05
     shot_no: 5
     mode: i2v_ref
-    duration_sec: 7
+    duration_sec: 5
     refs:
       scene_id: SCENE-002
       look_ids:
@@ -129,6 +129,27 @@ shots:
       text: "【图1】陈尘 CHAR-001-L01（破旧灰色长袍）【图2】灵根殿 SCENE-002。大特写 固定镜头：图1手掌紧按灵石，指节因用力发白，灵石纹丝不动，没有光没有色没有波动，画面静止。"
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue: []
+
+  # ── R2 Fix: Zhao Tianxing cutaway in SEG03 ──
+  - shot_id: EP01-S05a
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 2
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: assets/looks/CHAR-003-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】赵天行 CHAR-003-L01（深蓝底金纹华服）【图2】灵根殿 SCENE-002。近景 固定镜头：人群中图1嘴角勾起一丝冷笑，双手抱胸，居高临下盯着台上陈尘，眼神满是轻蔑与期待。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
         - { file: SCENE-002, role: reference_image, label: 图2 }
     dialogue: []
 
@@ -169,13 +190,13 @@ shots:
       scene_urls:
         SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
     api:
-      text: "【图1】萧远 CHAR-005-L01（白色道袍）【图2】灵根殿 SCENE-002。中景 固定镜头：图1宗主坐于高台之上，白发白须鹤发童颜，双手背于身后缓缓起身，面色沉稳。"
+      text: "【图1】萧远 CHAR-005-L01（白色道袍）【图2】灵根殿 SCENE-002。中景 固定镜头：图1宗主坐于高台之上，白发白须鹤发童颜，双手背于身后缓缓起身，面色沉稳但眉心极轻微地一紧，目光在陈尘身上多停了一瞬。"
       content_roles:
         - { file: CHAR-005-L01, role: reference_image, label: 图1 }
         - { file: SCENE-002, role: reference_image, label: 图2 }
     dialogue:
       - speaker: CHAR-005
-        line: "「灵根测试——零灵根。」"
+        line: "「灵根测试——（停顿半秒）——零灵根。」"
 
   - shot_id: EP01-S08
     shot_no: 8
@@ -442,7 +463,7 @@ shots:
       scene_urls:
         SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
     api:
-      text: "【图1】萧远 CHAR-005-L01（白色道袍）【图2】演武广场 SCENE-001。中景 固定镜头：图1宗主坐于高台之上，白袍如雪，双手交握，阳光刺眼，宗门旗帜在风中翻飞。"
+      text: "【图1】萧远 CHAR-005-L01（白色道袍）【图2】演武广场 SCENE-001。中景 固定镜头：阳光从灵根殿大门涌入，百余灰袍弟子鱼贯而出涌向演武广场，图1宗主已立于高台之上，白袍如雪，双手交握，宗门旗帜在风中翻飞。"
       content_roles:
         - { file: CHAR-005-L01, role: reference_image, label: 图1 }
         - { file: SCENE-001, role: reference_image, label: 图2 }
@@ -517,9 +538,7 @@ shots:
       - speaker: CHAR-GRP-05
         line: "「长老有令——不是关押，是丢进禁地。」"
       - speaker: CHAR-GRP-05
-        line: "「禁地深处关着上古凶兽，没人能活着出来。」"
-      - speaker: CHAR-GRP-05
-        line: "「里面的东西会替我们收拾他。」"
+        line: "「禁地深处关着上古凶兽，没人能活着出来。里面的东西会替我们收拾他。」"
 
   # ── SEG12: 铁门开启 ──
   - shot_id: EP01-S23
