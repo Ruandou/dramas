@@ -1,6 +1,6 @@
 ---
 name: code-reviewer
-model: "[DeepSeek-V4-Pro](custom:model_1779775561868_hf9m9kl)"
+model: "[Qwen3.7-Max](qmodel_latest)"
 skills: []
 mcpServers: []
 additionalPrompt: ""
