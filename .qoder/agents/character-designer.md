@@ -217,8 +217,15 @@ L01 是角色全剧面部一致性的唯一锚点。生成 L01 参考图时**必
 
 **Seedream Prompt 模板**：
 ```
-Character reference sheet, front-facing full-body portrait from head to toe, single person standing upright facing the camera, plain white background, clean flat studio lighting. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. Vertical 9:16, character design sheet.
+Photorealistic costume reference, front-facing full-body portrait from head to toe, single person standing upright facing the camera, plain white background, clean flat studio lighting. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. Vertical 9:16, photorealistic costume reference, realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.
 ```
+
+### Seedream Prompt 风格强制规则
+
+1. **正向锚定词（必须包含至少2个）**：`photorealistic` / `realistic photograph` / `cinematic portrait` / `live-action film still` / `studio photography`
+2. **禁止术语**：`character design sheet`（单独使用会触发动漫风格）、`anime`、`manga`、`illustration`、`cel-shading`、`line art`
+3. **末尾反向提示（必须附加）**：每个 Prompt 末尾必须包含 `NOT anime, NOT cartoon, NOT illustration, NOT manga`
+4. **验证**：如果生成结果呈现动漫/卡通风格，判定为失败，必须重新生成
 
 **禁止**：
 - 禁止在 L01 Prompt 中包含场景背景（花园、书房、雨中、宫殿等）
@@ -280,6 +287,7 @@ Character reference sheet, front-facing full-body portrait from head to toe, sin
 | 5 | PROP 交叉引用 | 角色专属道具标注了 PROP-### ID |
 | 6 | 关系网络完整 | 主要角色间的关系有明确定义 |
 | 7 | 群演标注 | 无名但有功能的角色使用 CHAR-GRP-## 格式 |
+| 8 | Seedream 风格锚定 | 所有 Seedream Prompt 包含正向写实锚定词且末尾有 "NOT anime" 反向提示 |
 
 ---
 

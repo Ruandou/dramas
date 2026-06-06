@@ -121,8 +121,12 @@ seedance_defaults:
   prompt_suffix: "禁止画面中出现任何文字或字幕"
   prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。[与 prompt_suffix 相同的风格描述]"
   negative_prompt: "[根据年代/题材定制]"
+  # Seedream 图片生成反向提示（嵌入 Prompt 末尾，非 API 参数）
+  negative_prompt_image: "anime, cartoon, manga, illustration, watercolor, oil painting, cel-shading, line art, modern clothing, T-shirt, jeans, sneakers, smartphone"
 ---
 ```
+
+> **`negative_prompt_image`**（必填）：Seedream 5.0 lite API 不支持独立 negative_prompt 参数，因此反向关键词必须以 "NOT xxx" 形式嵌入 Prompt 正文末尾。此字段供 character-designer 和批量生成脚本参考。
 
 ---
 
@@ -727,8 +731,8 @@ production-planner 负责确保以下信息对下游角色（segment-builder、s
 
 ### 角色参考图（looks/）
 - 必须为 Character Sheet 格式：正面全身、白底、单人、平光
-- Prompt 必须以 `Character reference sheet, front-facing full-body portrait from head to toe, single person standing upright facing the camera, plain white background, clean flat studio lighting.` 开头
-- 结尾使用 `Vertical 9:16, character design sheet.`
+- Prompt 必须以 `Photorealistic costume reference, front-facing full-body portrait from head to toe, single person standing upright facing the camera, plain white background, clean flat studio lighting.` 开头
+- 结尾使用 `Vertical 9:16, photorealistic costume reference, realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.`
 - **禁止**包含场景背景或情绪灯光描述
 
 ### 场景参考图（scenes/）
