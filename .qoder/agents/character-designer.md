@@ -349,6 +349,16 @@ same face as CHAR-###-L01, now wearing [changed clothing],
 - L02 Prompt 不包含 same face 或面部锚定块
 - 未提供 L01 参考图就提交 L02 生成请求
 
+### L02+ 背景纪律（Background Discipline for L02+ Variants）
+
+> ⚠️ 此规则源于实际生产中多轮未修复的顽固问题（CHAR-007-L02 大气背景侵蚀白底参考格式）
+
+L02 衍生形象（尤其是戏剧化/堕化/觉醒态）倾向于引入大气背景（黑烟、旋涡迷雾、戏剧天空），破坏白底参考图格式。除非制片规范明确允许 L02 使用大气背景：
+
+- L02 Prompt 必须包含 `plain white background maintained` 或 `clean white studio background`
+- 如需大气环境用于气氛参考（mood board），必须作为**独立资产**生成，不得作为 L02 参考图
+- **例外**：当 L02 形态本身就散发环境改变效果（如血雾、火焰光环），可允许柔和渐变，但背景仍应以白色/中性色为主
+
 ---
 
 ## 四、年龄渲染安全（Age Rendering Safety）
@@ -368,6 +378,32 @@ same face as CHAR-###-L01, now wearing [changed clothing],
    - 大眼 + 婴儿肥 + 16岁（large eyes + baby fat + 16 years old）
 
 3. 如角色设定为 16 岁但故事需要其外观接近成年，Prompt 中写 a 16-year-old with a mature build, 170cm tall, lean and athletic 而非仅写 a 16-year-old boy
+
+### 年龄关键词偏差规则（Age Keyword Bias Rule）
+
+> ⚠️ 此规则源于实际生产中多轮未修复的顽固问题（CHAR-008 年龄渲染历经 3 轮再生仍未修复）
+
+Seedream 5.0 lite 存在强烈的年龄渲染偏差，由特定词汇组合触发：
+
+| 触发组合 | 渲染结果 | 修复方法 |
+|---------|---------|----------|
+| "boy" + round face + freckles + patched clothes | 渲染为 8-12 岁儿童 | 替换 "boy" 为 "teenage youth" 或 "young man" |
+| "圆脸" + 雀斑 + 童装描述 | 比指定年龄小 3-5 岁 | 替换 "圆脸" 为 "oval face with defined adolescent jawline" |
+| 短裤/赤脚 + 圆润特征 | 儿童渲染偏差 | 添加 "NOT a child — a physically mature teenager with adolescent bone structure" |
+
+**底层原理**：Seedream 将某些视觉线索组合与训练数据中的儿童主体关联。即使 Prompt 明确写了"16岁"或"168cm高"，视觉线索仍会覆盖指定年龄。修复方法：
+
+- 移除童稚视觉触发器（圆脸、短裤、婴儿雀斑）
+- 替换为成熟青少年标记（棱角分明的下颌线、精瘦肌肉、日晒粗糙皮肤）
+- 使用 "young man" / "teenage youth" / "adolescent" 而非 "boy" / "少年"
+- 添加 "looks older than his actual age due to hard physical labor since childhood"
+- 明确声明身高与体格："170cm tall with lean muscular build visible through clothing"
+
+**升级措施**：如果两次生成尝试后角色仍然渲染过幼，追加：
+
+```
+This person is clearly a TEENAGER, not a child. Adolescent proportions, angular face beginning to show adult bone structure, visible adam's apple, hands sized for an adult.
+```
 
 ---
 
@@ -450,9 +486,45 @@ shot on 85mm lens, shallow depth of field, natural skin texture with visible por
 - "NOT anime, NOT cartoon" 负面提示 **不足以**抵消超自然描述符的风格拉偏——必须依赖正向写实锚定
 - 竖瞳是极强的动漫触发器，除非角色明确非人类（如龙族、蛇妖），否则禁用
 
+### “NOT” 反向提示不充分规则（强化）
+
+> ⚠️ 此规则源于实际生产中多轮未修复的顽固问题
+
+**核心原则**：负向提示（‘NOT anime’, ‘NOT cartoon’, ‘NOT digital painting’）在 Seedream 5.0 lite 中的有效性仅为正向锚定词的约 **20%**。它们应被包含作为安全网，但**绝不可**作为防止风格漂移的主要机制。主要机制必须始终是正文中的正向写实锚定词。
+
+**具体比例指导**：每一条负向风格排除，必须对应至少 **3 个正向写实锚定词**。
+
+示例：
+- 如果写了 `NOT anime` → 必须同时包含 `photorealistic` + `shot on 85mm lens` + `natural skin texture with visible pores`
+- 如果写了 `NOT digital painting` → 必须同时包含 `editorial portrait photograph` + `subsurface scattering` + `shallow depth of field`
+
+### 情感语言绘画风漂移规则（Emotional Language Painterly Drift Rule）
+
+> ⚠️ 此规则源于实际生产中多轮未修复的顽固问题（CHAR-007-L02 绘画风格历经 2 轮未修复）
+
+某些情感化描述会将 Seedream 推向插画/绘画风格，与超自然标记收敛问题类似。
+
+**触发绘画风漂移的短语**：
+- "grief-etched features" / "悲痛刻入骨骼"
+- "centuries of sorrow" / "千年悲伤"
+- "tormented soul" / "受尽折磨的灵魂"
+- "haunted eyes" / "满是往事的眼神"
+- "face carved by tragedy" / "被悲剧雕刻的面容"
+
+这些诗意/文学性描述与训练数据中的数字艺术和概念艺术相关。当角色的情感状态需要此类语言时：
+
+- **始终**与写实锚定词配对（与超自然规则的相同锚定块）
+- 优先使用**具体物理描述**而非抽象情感表达：
+  - ✘ "grief-etched" → ✔ "deep nasolabial folds, sunken eye sockets, visible cheekbone shadows, slight downturn at lip corners"
+  - ✘ "haunted eyes" → ✔ "bloodshot sclera, dark circles extending to cheekbones, slightly unfocused gaze"
+  - ✘ "tormented soul" → ✔ "gaunt cheeks, premature gray at temples, clenched jaw muscles visible under skin"
+- 将情感翻译为**可观察的物理特征**，而非抽象概念
+
 ---
 
 ## 八、超自然标记预算规则（Supernatural Marker Budget）
+
+> 参考：情感语言绘画风漂移规则（Section 七）同样适用于超自然角色的情感描述。
 
 单个角色的超自然视觉标记叠加上限为 **2 个**，统计范围如下：
 
@@ -517,11 +589,73 @@ shot on 85mm lens, shallow depth of field, natural skin texture with visible por
 | "ink-black waterfall hair" | 平面风格化渲染 | "deep black hair with natural highlights and loose strands" |
 | "skin like porcelain" / "肤若瓷器" | 塑料/人工皮肤感 | "luminous skin with natural texture visible at close range" |
 | "eyes like [gemstone]" | 过大的娃娃眼 | "naturally proportioned eyes with [color] iris" |
+| "grief-etched features" / "悲痛刻入骨骼" | 绘画风/数字艺术风格漂移 | "deep nasolabial folds, sunken eye sockets, visible cheekbone shadows" |
+| "haunted eyes" / "满是往事的眼神" | 绘画风/概念艺术触发 | "bloodshot sclera, dark circles extending to cheekbones, slightly unfocused gaze" |
+| "tormented soul" / "受尽折磨的灵魂" | 插画风格触发 | "gaunt cheeks, premature gray at temples, clenched jaw muscles visible under skin" |
+| "face carved by tragedy" / "被悲剧雕刻的面容" | 数字艺术风格触发 | "pronounced bone structure, weathered skin texture, deep-set eyes with heavy upper lids" |
+| "boy" + round face + freckles (年幼角色) | 渲染为 8-12 岁儿童 | "teenage youth" / "young man" + "oval face with defined adolescent jawline" |
 
 **使用规则**：
 - 左列模式在任何 Seedream Prompt（L01/L02+）中均为禁用
 - 审查时发现左列模式，判定为不合格，必须用右列替换后重新提交
 - 审查范围包括中文和英文 Prompt
+
+---
+
+## 十一、异色瞳渲染规则（Heterochromia Rendering Rule）
+
+> ⚠️ 此规则源于实际生产中多轮未修复的顽固问题
+
+当角色具有异色瞳（两只眼睛颜色不同）时，标准 Prompt 写法（仅声明“左眼[color]，右眼[color]”）不足以让 Seedream 正确渲染——模型倾向于忽略并将两只眼睛渲染为相同颜色。
+
+### 强制要求
+
+Prompt **必须**：
+
+1. 使用显式逐眼指令格式：
+   ```
+   HETEROCHROMIA: left eye iris is [exact color], right eye iris is [exact color] — two clearly DIFFERENT colored eyes
+   ```
+
+2. 添加强调：
+   ```
+   the color difference between the two eyes must be visually obvious and unmistakable
+   ```
+
+3. 将 "heterochromia" 作为关键词放在 Prompt **前部**（不得埋在末尾）
+
+4. 如果异色瞳是角色的核心设定特征，考虑将眼色差异作为 Prompt 的 **主要主题**
+
+5. 在反向提示中添加：`NOT same-colored eyes, NOT matching eye colors`
+
+### Prompt 模板（异色瞳角色）
+
+```
+Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: left eye iris is [vivid color A], right eye iris is [vivid color B] — two clearly DIFFERENT colored eyes, the color difference between the two eyes must be visually obvious and unmistakable. [...rest of prompt...]. NOT same-colored eyes, NOT matching eye colors, NOT anime, NOT cartoon, NOT illustration, NOT manga.
+```
+
+---
+
+## 十二、道具数量精确规则（Prop Quantity Precision Rule）
+
+> ⚠️ 此规则源于实际生产中道具复制问题
+
+当角色携带道具时，Prompt 必须明确声明数量，否则模型可能复制道具。
+
+### 强制规则
+
+| 写法 | ✘ 禁止 | ✔ 必须 |
+|------|---------|--------|
+| 单个道具 | "a gourd at waist" | "ONE single gourd at waist" + "only one, singular" |
+| 多个道具 | "swords on back" | "exactly two swords crossed on back" |
+| 任何数量 | 省略数字 | 始终使用 "[NUMBER] [prop]" 格式 |
+
+### 执行原则
+
+- 始终包含数字（即使是 "one"）
+- 对于单个道具，用 "only one, singular" 强化
+- 格式：`[NUMBER] [prop]`——数字始终在道具名前
+- 如果生成结果中道具被复制，在重新生成时追加："there is exactly [N] of this prop, no duplicates"
 
 ---
 
@@ -589,6 +723,12 @@ shot on 85mm lens, shallow depth of field, natural skin texture with visible por
 | 16 | 写实锚定（超自然角色） | 含超自然视觉标记的角色 Prompt 末尾有写实锚定块 |
 | 17 | 禁用模式检查 | 所有 Prompt 不含禁用模式表中的左列表达 |
 | 18 | 跨角色风格一致性 | 同一剧所有角色渲染风格统一（全部写实或全部插画） |
+| 19 | 异色瞳渲染 | 具有异色瞳的角色 Prompt 使用强化 HETEROCHROMIA 格式 + 反向提示 |
+| 20 | 道具数量精确 | 所有携带道具的 Prompt 包含明确数字（[NUMBER] [prop] 格式） |
+| 21 | L02+ 背景纪律 | L02 Prompt 包含 "plain white background maintained" 或等效声明 |
+| 22 | 年龄关键词偏差 | 年轻角色未使用触发儿童渲染的词汇组合，使用成熟青少年标记 |
+| 23 | 情感语言绘画风检查 | 所有情感描述已转化为具体物理特征，无抽象诗意表达 |
+| 24 | NOT 反向提示比例 | 每条 NOT 排除对应至少 3 个正向写实锚定词 |
 
 ---
 
