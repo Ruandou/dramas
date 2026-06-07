@@ -51,6 +51,36 @@ tools: [Read, Write, Grep, Glob, Bash]
 3. **禁止跳过 L01 直接生成 L02**
 4. 多角色同框：按形象 ID 顺序合并；每人脸对应其 `L##`，禁止混用别角 L01
 
+### L02+ 生成验证检查点
+
+> **来源**：「我的丹田是许愿池」资产复盘 - L02/L03 作为独立 Prompt 生成导致面部不一致。
+
+production-planner 在审核批量生成配置（seedream_batch.yaml 或任何生成请求）时，必须执行以下验证：
+
+| # | 检查项 | 通过标准 |
+|---|--------|----------|
+| 1 | ref_image 字段存在 | L02+ 条目必须包含 `ref_image` 字段指向已定稿的 L01 图片路径 |
+| 2 | L01 图片已存在 | `ref_image` 指向的文件必须在 `assets/looks/` 中实际存在 |
+| 3 | Prompt 为 delta | L02+ 的 `prompt_en` 长度不超过对应 L01 的 80%，且包含 `same face as CHAR-xxx-L01` |
+| 4 | 面部锚定块保留 | L02+ Prompt 包含与 L01 相同的面部特征描述块 |
+| 5 | based_on 字段 | 形象索引中 L02+ 条目的 `based_on` 字段指向正确的 L01 |
+
+**批量生成 YAML 格式要求**：
+
+```yaml
+items:
+  - id: "CHAR-001-L02"
+    ref_image: "assets/looks/CHAR-001-L01.png"  # 必须指向已定稿 L01
+    prompt_en: "same face as CHAR-001-L01, now wearing [delta description only]..."
+    output: "assets/looks/CHAR-001-L02.png"
+    based_on: "CHAR-001-L01"
+```
+
+**禁止**：
+- 禁止 L02+ 条目缺少 `ref_image` 字段
+- 禁止 `ref_image` 指向未定稿/不存在的图片
+- 禁止 L02+ 使用与 L01 完全无关的 standalone 全新 Prompt
+
 ### 形象表格式（角色卡中）
 
 ```markdown
@@ -803,3 +833,5 @@ production-planner 负责确保以下信息对下游角色（segment-builder、s
 - [ ] 分段规则（4-12秒）是否已写入规范？
 - [ ] 视觉禁忌是否已按年代/题材定制？
 - [ ] 分集剧本是否使用 11 列镜头表格式？
+- [ ] L02+ 批量生成配置是否均包含 `ref_image` 指向已定稿 L01？
+- [ ] L02+ Prompt 是否为 delta 格式（含 same face + 面部锚定块，长度不超 L01 的80%）？

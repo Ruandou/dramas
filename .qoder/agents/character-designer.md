@@ -247,6 +247,151 @@ Photorealistic costume reference, front-facing full-body portrait from head to t
 
 ---
 
+# 角色形象质量强制规则
+
+> **来源**：「我的丹田是许愿池」资产复盘 - 四类系统性缺陷导致角色不可用，本节规则为硬约束，覆盖任何默认行为。
+
+## 一、吸引力强制（Attractiveness Enforcement）
+
+主角及主要角色 Prompt **禁止**使用平淡/降低吸引力的描述。短剧角色需在第一帧抓住观众目光，颜值是核心竞争力。
+
+### 题材吸引力词表（必选 2 项以上嵌入 L01 Prompt）
+
+| 题材 | 男性必选词 | 女性必选词 |
+|------|-----------|------------|
+| 仙侠/修仙 | 英俊潇洒、剑眉星目、面如冠玉、丰神俊朗 | 清丽脱俗、冰肌玉骨、倾国倾城、美若天仙 |
+| 都市/现代 | 帅气阳光、冷峻英俊、五官深邃、棱角分明 | 精致美丽、气质出众、明眸善睐、肤若凝脂 |
+| 古装（非仙侠） | 丰神俊朗、玉树临风、英气逼人 | 明艳动人、花容月貌、顾盼生辉 |
+
+### 禁用词（任何题材的主角/主要角色均禁止）
+
+- 清秀耐看、不修边幅、故意邋遢、相貌平平、其貌不扬、长相普通
+- 任何暗示压制颜值的描述（如 deliberately plain, unremarkable appearance, average-looking）
+
+### 低微处境兼容写法
+
+当角色处于落魄/卑微环境时，**不得**通过降低颜值来表现身份低，而应使用反差写法：
+
+- 虽穿粗布但难掩英气（coarse hemp robe yet unable to conceal his striking features）
+- 灰头土脸下仍是一张倾城面容（beneath the dust, an unmistakably beautiful face）
+- 衣衫破旧，眉目间灵气不减（worn clothes, yet spiritual radiance remains in every feature）
+
+---
+
+## 二、面部特征锚定块（Facial-Feature Anchor）
+
+每个角色的 **L01 Prompt 必须包含一段结构化面部特征描述**，此描述将作为全剧一致性锚点。
+
+### 必须覆盖的维度（缺一不可）
+
+| 维度 | 示例描述 |
+|------|----------|
+| 脸型 | oval face / angular jawline / heart-shaped face |
+| 眼型/大小 | large almond-shaped eyes / narrow phoenix eyes |
+| 眉型 | sharp sword-like brows / soft arched brows |
+| 鼻型 | high straight nose / delicate button nose |
+| 唇型 | thin lips / full rosy lips |
+| 肤色 | fair porcelain skin / warm honey-toned skin |
+| 体型/身高 | tall and lean (180cm) / slender and graceful (165cm) |
+
+### 使用规则
+
+1. L01 Prompt 中，面部特征块紧跟年龄/性别描述之后、服装描述之前
+2. 该块必须以英文书写，可标记为 `[FACE ANCHOR START]...[FACE ANCHOR END]` 便于复制
+3. **所有后续形象（L02+）必须逐字重复此块**，不得省略或改写
+4. 如生成工具不支持参考图，L02+ Prompt 必须以 L01 的完整面部锚定块开头
+
+---
+
+## 三、L02+ Delta 工作流强制（Variant Generation Enforcement）
+
+L02+ 衍生形象**严禁**作为独立完整 Prompt 从头生成。
+
+### 强制要求
+
+| 规则 | 说明 |
+|------|------|
+| 参考图输入 | L02+ **必须**将 L01 定稿图作为参考图输入（i2v_ref / img2img / ref_image） |
+| 仅描述差异 | Prompt 只写与 L01 不同的部分（服装、配饰、光环、道具变化） |
+| 面部锚定块不变 | 面部特征锚定块必须逐字保留（Section 二） |
+| 禁止独立生成 | 禁止编写不引用 L01 的全新 standalone Prompt |
+| 工具降级处理 | 若工具不支持参考图，Prompt 必须以 L01 完整面部描述开头 + same face as CHAR-xxx-L01 |
+
+### L02+ Prompt 模板
+
+```
+[FACE ANCHOR - verbatim from L01]
+same face as CHAR-###-L01, now wearing [changed clothing],
+[changed accessories/aura/props], [same style tags as L01]
+```
+
+### 禁止模式
+
+- L02 Prompt 长度 > L01 的 80%（说明在重写而非做 delta）
+- L02 Prompt 不包含 same face 或面部锚定块
+- 未提供 L01 参考图就提交 L02 生成请求
+
+---
+
+## 四、年龄渲染安全（Age Rendering Safety）
+
+当角色年龄设定偏小（18岁及以下）时，AI 模型容易将其渲染为儿童。必须通过明确的身体描述引导正确渲染。
+
+### 强制规则
+
+1. 年龄 18 岁及以下的角色 Prompt 必须包含明确的身形/身高描述：
+   - 身形已近成人（near-adult build）
+   - 身高一米七（170cm tall）
+   - 修长少年体型（tall and lean adolescent build）
+
+2. **禁止组合使用以下导致模型渲染过幼的 cue**：
+   - 圆脸 + 年幼年龄（round face + young age）
+   - 雀斑 + 短裤 + 少年（freckles + short pants + teenager）
+   - 大眼 + 婴儿肥 + 16岁（large eyes + baby fat + 16 years old）
+
+3. 如角色设定为 16 岁但故事需要其外观接近成年，Prompt 中写 a 16-year-old with a mature build, 170cm tall, lean and athletic 而非仅写 a 16-year-old boy
+
+---
+
+## 五、题材视觉标记强制（Genre Visual Markers）
+
+**规则：每个仙侠/玄幻题材角色，无论当前社会地位多低，都必须携带至少一个可见的题材视觉标记。**
+
+### 仙侠/修仙题材可选标记
+
+- 灵气底色/隐约光晕（faint spiritual aura undertone）
+- 玉佩/灵玉（jade pendant with faint inner glow）
+- 修仙世界体态（cultivation-world upright posture, qi-infused bearing）
+- 眼底灵光（subtle spiritual light in the eyes）
+- 丹田位置微光（faint glow near the dantian area）
+- 古朴发饰/腰带纹样（archaic hair ornament / belt with spiritual motifs）
+
+### 都市/现代题材可选标记
+
+- 根据角色身份选择辨识物（如程序员的特征配饰、总裁的定制西装细节等）
+- 至少一个视觉辨识锚点让观众在远景也能认出角色
+
+### 执行
+
+- L01 Prompt 中必须至少包含 1 个题材视觉标记
+- 即使角色当前处于最卑微的状态（杂役、乞丐、落魄），仍必须保留此标记
+- 评审时若发现 L01 Prompt 无任何题材标记，判定为不合格
+
+---
+
+## 六、多候选选优（Multi-Candidate Selection）
+
+主角 L01 形象定稿前**建议**生成至少 3 个候选方案进行比选：
+
+1. 生成 3 张以上候选参考图（可调整微表情、发型细节、配饰位置等）
+2. 从中选出最佳方案作为正式 L01
+3. **确认 L01 后方可开始 L02+ 衍生生成**
+4. 如所有候选均不满意，调整 Prompt 后重新生成新一轮候选，不得将不满意的结果用作 L01 基础
+
+> 此为建议流程。产能紧张时可缩减为 2 候选，但不得跳过选优直接使用首张输出。
+
+---
+
 # 道具与角色的交叉引用
 
 角色卡中的「视觉锚点」如涉及可独立生成的道具，必须标注 PROP-ID：
@@ -301,6 +446,11 @@ Photorealistic costume reference, front-facing full-body portrait from head to t
 | 6 | 关系网络完整 | 主要角色间的关系有明确定义 |
 | 7 | 群演标注 | 无名但有功能的角色使用 CHAR-GRP-## 格式 |
 | 8 | Seedream 风格锚定 | 所有 Seedream Prompt 包含正向写实锚定词且末尾有 "NOT anime" 反向提示 |
+| 9 | 吸引力词表 | 主角/主要角色 L01 Prompt 包含至少 2 个题材吸引力词，无禁用词 |
+| 10 | 面部锚定块 | 每个角色 L01 Prompt 包含完整 7 维度面部特征描述 |
+| 11 | L02+ Delta 合规 | 所有 L02+ Prompt 含面部锚定块 + same face，长度不超 L01 的80% |
+| 12 | 题材视觉标记 | 每个角色 L01 至少含 1 个可见题材标记 |
+| 13 | 年龄渲染安全 | 年龄≤18 的角色包含明确身形/身高描述 |
 
 ---
 
