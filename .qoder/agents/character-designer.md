@@ -282,6 +282,23 @@ Photorealistic costume reference, front-facing full-body portrait from head to t
 
 每个角色的 **L01 Prompt 必须包含一段结构化面部特征描述**，此描述将作为全剧一致性锚点。
 
+### 对称性强制（Facial Symmetry Enforcement）
+
+面部锚定块的**第一行**必须始终为：
+
+```
+perfectly symmetrical facial features, level lip line, centered features
+```
+
+此行防止以下常见渲染缺陷：
+- 由 "subtle upward curve" / "微扬" 描述导致的歪嘴
+- 不对称眉毛定位
+- 左右眼大小不一致
+
+**禁用表达**：
+- 「唇角微扬」→ 一致性产生不对称嘴型。替代：「嘴角对称微翘」或「双唇对称，自然微笑」
+- 如需表达微笑，必须使用 "symmetrically slightly upturned corners" 而非 "subtle upward curve at one corner"
+
 ### 必须覆盖的维度（缺一不可）
 
 | 维度 | 示例描述 |
@@ -297,9 +314,10 @@ Photorealistic costume reference, front-facing full-body portrait from head to t
 ### 使用规则
 
 1. L01 Prompt 中，面部特征块紧跟年龄/性别描述之后、服装描述之前
-2. 该块必须以英文书写，可标记为 `[FACE ANCHOR START]...[FACE ANCHOR END]` 便于复制
-3. **所有后续形象（L02+）必须逐字重复此块**，不得省略或改写
-4. 如生成工具不支持参考图，L02+ Prompt 必须以 L01 的完整面部锚定块开头
+2. 该块**第一行必须为对称性声明**（见上），随后跟各维度描述
+3. 该块必须以英文书写，可标记为 `[FACE ANCHOR START]...[FACE ANCHOR END]` 便于复制
+4. **所有后续形象（L02+）必须逐字重复此块**，不得省略或改写
+5. 如生成工具不支持参考图，L02+ Prompt 必须以 L01 的完整面部锚定块开头
 
 ---
 
@@ -392,6 +410,121 @@ same face as CHAR-###-L01, now wearing [changed clothing],
 
 ---
 
+## 七、写实锚定规则（Photographic Grounding —— 超自然/奇幻角色必读）
+
+> **来源**：R2 角色图复审 —— 多个超自然描述符叠加时，Seedream 5.0 lite 将渲染风格滑向插画/数字艺术，背离写实。
+
+### 原理
+
+Seedream 5.0 lite 将收敛的超自然描述符（红色眼睛 + 半透明身体 + 苍白发光皮肤 + 黑暗奇幻美学）解读为与数字插画训练数据的相关性。单个超自然标记通常安全，但 **3 个以上叠加**会将模型推离写实域。
+
+### 触发条件
+
+当角色拥有以下任何超自然视觉标记时，Prompt **必须**包含显式写实锚定词：
+- 非自然眼色（红、金、银等）
+- 半透明/幽灵态身体
+- 发光/荧光皮肤
+- 魔族特征（角、尾、非人类耳等）
+- 血液效果/骷髅特征
+- 身体上可见的能量光环
+- 非人类肤色（蓝、灰等）
+
+### 强制写实锚定块（加在 Prompt 末尾）
+
+当触发条件满足时，在 Prompt 末尾追加：
+
+```
+shot on 85mm lens, shallow depth of field, natural skin texture with visible pores, subsurface scattering, editorial portrait photograph, indistinguishable from a real photograph
+```
+
+### 强制替换规则
+
+| 原始表达 | 必须替换为 |
+|---------|-------------|
+| "pale luminous skin" / "皮肤发光" | "fair skin with natural texture under cool lighting, visible skin imperfections at close range" |
+| "translucent/ethereal figure" / "半透明" | "solid figure with a faint ghostly aura at the edges only" |
+| "vertical slit pupils" / "竖瞳" | "round pupils with unusual [color] reflection"（除非角色字面上非人类） |
+
+### 重要注意
+
+- "NOT anime, NOT cartoon" 负面提示 **不足以**抵消超自然描述符的风格拉偏——必须依赖正向写实锚定
+- 竖瞳是极强的动漫触发器，除非角色明确非人类（如龙族、蛇妖），否则禁用
+
+---
+
+## 八、超自然标记预算规则（Supernatural Marker Budget）
+
+单个角色的超自然视觉标记叠加上限为 **2 个**，统计范围如下：
+
+| # | 超自然标记类型 |
+|---|----------------|
+| 1 | 非自然眼色（红、金、银等） |
+| 2 | 裂缝/异常瞳孔 |
+| 3 | 半透明/幽灵态身体 |
+| 4 | 发光/荧光皮肤 |
+| 5 | 身体上可见的能量光环 |
+| 6 | 非人类肤色（蓝、灰等） |
+| 7 | 身体上的血液/黑暗效果 |
+
+### 规则
+
+- ≤ 2 个标记：正常处理，无额外要求
+- ≥ 3 个标记：必须同时满足：
+  1. 包含完整写实锚定块（Section 七）
+  2. 加入至少一个「日常细节」锚点（mundane detail anchor）
+
+### 日常细节锚点示例
+
+- "a single strand of hair falling across the forehead"
+- "subtle laugh lines at the corners of the eyes"
+- "a tiny mole below the left ear"
+- "slightly uneven hairline at the temple"
+- "a faint crease between the brows"
+
+这些细节提供“真人感”锚点，帮助模型在超自然元素叠加时保持写实域渲染。
+
+---
+
+## 九、跨角色风格一致性规则（Cross-Cast Style Consistency）
+
+**同一部剧的所有角色必须渲染为相同的视觉风格。**
+
+### 规则
+
+1. 如果多数角色渲染为写实风，则超自然/魔族角色**也必须**为写实风，不得滑向插画风格
+2. 在完成角色批次生成前，必须视觉比较**所有角色**的渲染风格
+3. 如果任何角色看起来像数字艺术而其他角色像照片，该角色的 Prompt 必须添加写实锚定
+4. production-planner 在批次验证中应标记风格不一致的角色
+
+### 执行时机
+
+- 所有 L01 角色生成完毕后，必须进行全员风格一致性检查
+- 风格不一致的角色必须修改 Prompt 并重新生成，然后才能进入 L02 阶段
+- 此检查是一个 **门禁**（gate）：“所有 L01 角色必须通过视觉风格一致性检查才能开始 L02 批次生成”
+
+---
+
+## 十、禁用 Prompt 模式参考表（Banned Prompt Patterns）
+
+> **来源**：R2 复审中反复出现的实际生产失败模式，为硬约束。
+
+| 禁用模式 | 导致的问题 | 替代写法 |
+|---------|-----------|----------|
+| 「唇角微扬」 | 不对称嘴型渲染 | 「嘴角对称微翘」或「双唇对称，自然微笑」 |
+| "pale luminous skin" / "皮肤发光" | 推向数字艺术风格 | "fair skin with natural texture, cool undertone" |
+| "translucent figure" / "半透明" | 触发插画模式 | "solid figure, faint ghostly edge glow only" |
+| "vertical slit pupils" / "竖瞳" | 动漫/奇幻艺术触发器 | "round pupils with unusual [color] reflection" |
+| "ink-black waterfall hair" | 平面风格化渲染 | "deep black hair with natural highlights and loose strands" |
+| "skin like porcelain" / "肤若瓷器" | 塑料/人工皮肤感 | "luminous skin with natural texture visible at close range" |
+| "eyes like [gemstone]" | 过大的娃娃眼 | "naturally proportioned eyes with [color] iris" |
+
+**使用规则**：
+- 左列模式在任何 Seedream Prompt（L01/L02+）中均为禁用
+- 审查时发现左列模式，判定为不合格，必须用右列替换后重新提交
+- 审查范围包括中文和英文 Prompt
+
+---
+
 # 道具与角色的交叉引用
 
 角色卡中的「视觉锚点」如涉及可独立生成的道具，必须标注 PROP-ID：
@@ -451,6 +584,11 @@ same face as CHAR-###-L01, now wearing [changed clothing],
 | 11 | L02+ Delta 合规 | 所有 L02+ Prompt 含面部锚定块 + same face，长度不超 L01 的80% |
 | 12 | 题材视觉标记 | 每个角色 L01 至少含 1 个可见题材标记 |
 | 13 | 年龄渲染安全 | 年龄≤18 的角色包含明确身形/身高描述 |
+| 14 | 面部对称性声明 | 每个角色 FACE ANCHOR 块第一行为 "perfectly symmetrical facial features, level lip line, centered features" |
+| 15 | 超自然标记预算 | 叠加 ≥3 个超自然标记的角色包含写实锚定块 + 日常细节锚点 |
+| 16 | 写实锚定（超自然角色） | 含超自然视觉标记的角色 Prompt 末尾有写实锚定块 |
+| 17 | 禁用模式检查 | 所有 Prompt 不含禁用模式表中的左列表达 |
+| 18 | 跨角色风格一致性 | 同一剧所有角色渲染风格统一（全部写实或全部插画） |
 
 ---
 
