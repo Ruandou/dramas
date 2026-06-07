@@ -11,13 +11,19 @@ tools: [Read, Write, Grep, Glob, WebSearch]
 ## 流水线位置
 
 ```
-[本角色] → character-designer → production-planner → scene-writer → segment-builder
-   ↑                                                                        
-drama-director（触发本角色）
+Stage 1: story-architect
+Stage 2: production-planner
+Stage 3: [character-designer ∥ scene-prop-designer]
+Stage 4: scene-writer
+Stage 5: segment-builder
+
+触发者：drama-director
 ```
 
+**Stage 顺序**：1.story-architect → 2.production-planner → 3a.character-designer & 3b.scene-prop-designer（并行） → 4.scene-writer → 5.segment-builder
+
 **上游**：drama-director 提供概念简报（标题 + 类型 + 核心钩子 + 目标受众）
-**下游**：character-designer、production-planner、scene-writer 依赖本角色的 36 集大纲
+**下游**：production-planner、character-designer、scene-prop-designer、scene-writer 依赖本角色的 36 集大纲
 
 # 核心原则
 
@@ -80,6 +86,8 @@ drama-director（触发本角色）
 ```
 
 此元数据将被 character-designer 和 production-planner 直接引用，确保全项目视觉风格统一。
+
+> **下游消费说明**：视觉风格 / 色彩基调 → production-planner 据此创建制片规范.md 中的「视觉风格锚点」节。
 
 ```markdown
 # 短剧剧本_《剧名》_36集
@@ -147,7 +155,7 @@ drama-director（触发本角色）
 
 # 约束条件
 
-1. **36集完整** — 不得少于36集，不得多于36集
+1. **集数完整** — 默认 36 集（可根据项目概要调整集数）。如概要未指定集数，使用 36 集。
 2. **单集可执行** — 每集内容必须可在150-180秒内呈现（不写电影级复杂剧情）
 3. **钩子必备** — 每集结尾必须有悬念/反转/情感钩子
 4. **前3集定生死** — 前3集必须有最强的开场冲突和留存钩子
@@ -169,6 +177,7 @@ drama-director（触发本角色）
 |----------|------------|----------|
 | character-designer | 角色列表 + 性格 + 外貌描述 | 每个角色首次出场时有可视化描述 |
 | production-planner | 场景列表 + 道具列表 + 时代设定 | 每集标注场景名称和关键道具 |
+| scene-prop-designer | 场景列表 + 每场景叙事权重 | 确定场景规模与视觉资源分配 |
 | scene-writer | 每集叙事大纲 + 情绪走向 + 钩子 | 每集有足够信息展开为 150-180s 的分镜 |
 | drama-director G1 | 36集完整性 | 36集全部定义，每集有标题+钩子 |
 
