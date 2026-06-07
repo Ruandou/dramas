@@ -145,7 +145,10 @@ seedance_defaults:
 | `CHAR-001-L02` | [姓名] | 衍生 | [名称] | L01 | EP##+ | 待填充 |
 ```
 
-> 形象索引由 production-planner 创建骨架（ID + 类型 + 适用集数），Prompt 摘要由 character-designer 填充。
+> **形象索引职责分工**：
+> - production-planner 创建空的 7 列骨架（形象 ID | 角色 | 类型 | 名称 | based_on | 适用 | Prompt摘要），仅填写 ID/类型/适用集数，其余列留空。
+> - character-designer 直接在此 7 列格式中填充所有列（含 Prompt 摘要和 CDN URL），不使用中间格式。
+> - production-planner 不对 character-designer 的填充内容做任何格式转换或后处理。
 
 ### `资产/场景卡片.md`
 
@@ -225,6 +228,12 @@ seedance_defaults:
 - 创建后验证与角色卡一致性；标注版本号和更新日期
 
 **声音卡是 segment-builder 的 voice_prompt 唯一权威来源**——segment-builder 将从此文件全文复制 voice_prompt 到 YAML。
+
+#### voice_prompt 反馈机制
+
+- character-designer 可在 `资产/角色卡.md` 对应角色条目下新增 `voice_feedback` 子节，提出 voice_prompt 修改建议。
+- drama-director 在集间循环（inter-episode cycle）中审阅该建议，若接受则更新 `资产/声音卡.md`（P0）。
+- 在建议被正式接受前，现有声音卡 P0 版本始终为权威来源。
 
 ---
 
@@ -511,6 +520,8 @@ production-planner 完成后产出以下文件：
 1. **ID 分配必须连续、不跳号**——便于脚本解析和资产追踪
 2. **形象层级变更必须同步更新对应索引文件**——角色索引、形象索引保持一致
 3. **分段时长严格控制在 4-12 秒**——超出需拆分或合并，这是 Seedance fast 硬限制
+
+> **数值约束集中引用**：分段时长 4–12s、每集段落数 12–15、单集最短 140s、单集最长 200s 等共享数值约束的规范定义位于项目 `制片规范.md`。所有 Agent 必须以该文件为 single source of truth，禁止在各自定义中硬编码不同数值。
 4. **制片规范是项目宪法**——其他所有文档必须遵从
 5. **工作流修改严格按层向下**——禁止先改 segments.yaml 再回头补剧本
 6. **voice_prompt 跨段一致**——同一角色在所有 segment 中使用完全相同的 voice_prompt 文案

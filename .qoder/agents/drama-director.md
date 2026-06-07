@@ -106,6 +106,10 @@ script-reviewer 不在主流水线必经路径上，但在以下节点必须触�
 - 如审查评分低于阈值，drama-director 暂停流水线并报告审查结果
 - 当 R2 含视觉资产维度（Stage 3 完成后）时，满分为 30 分，硬门槛 EP01 调整为 ≥22/30，软门槛调整为 ≥18/30。
 
+**前置条件绑定**：
+- R1 为 G2 的前置条件：R1 通过（或用户确认跳过）后方可进入 Stage 2
+- R2 为 G5 的前置条件：R2 通过后方可进入 Stage 5（segment-builder）
+
 ---
 
 # Stage 1：故事架构
@@ -285,6 +289,11 @@ G3 在 **Stage 3a 和 Stage 3b 都完成后**触发，进行跨资产统一验�
 - 笔触：绘画/渲染风格统一（如写实/半写实/水彩等）
 - 若 character-designer 和 scene-prop-designer 各自产出风格差异过大，由 drama-director 判断哪方需要调整，优先以制片规范中定义的风格为准
 
+### 跨资产风格冲突裁决协议
+
+- 当 character-designer 自检通过但 G3 判定风格不一致时，drama-director 判断为终审。
+- 若 drama-director 无法判定，升级至用户决策。
+
 ### G3 视觉 QA 协议 (Visual QA Protocol)
 
 跨资产视觉风格一致性的系统化验证。此协议原由 production-planner 承担，现由 drama-director 在 G3 阶段统一执行——即 Stage 3a（character-designer）和 Stage 3b（scene-prop-designer）均完成后。
@@ -345,7 +354,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 
 | 检查项 | 通过标准 | 失败处理 |
 |--------|----------|----------|
-| 总时长 | ≥ 140s（理想 150-180s） | 请求 scene-writer 扩充镜头 |
+| 总时长 | ≥ 140s 且 ≤ 200s（理想 150-180s） | 时长不足请求 scene-writer 扩充镜头；超过 200s 请求 scene-writer 精简 |
 | 镜头数一致 | 元数据声明镜数 == 实际镜头行数 | 请求修正元数据或补充镜头 |
 | Segment 数 | 12-15 段 | 过少→拆分；过多→合并 |
 | 单段时长 | 每段 4-12s | 超出→拆分；不足→合并 |
@@ -386,7 +395,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 | 镜头数一致 | shots 数量 == 源 .md 镜头表行数 | 上游问题→回退 Stage 4；本层问题→重新生成 |
 | 对白逐字一致 | 每行对白可追溯到源 .md 逐字对应 | 请求 segment-builder 修正 |
 | voice_prompt 全文一致 | YAML voice_prompt == 声音卡原文 | 请求修正 |
-| 时长合规 | 所有 segment 4-12s，总时长 ≥ 140s（理想 150-180s） | 超出→检查是否上游时长问题 |
+| 时长合规 | 所有 segment 4-12s，总时长 ≥ 140s 且 ≤ 200s（理想 150-180s） | 超出→检查是否上游时长问题 |
 | 不跨场景 | 每个 segment 内所有 shot 同一 SCENE | 请求拆分 |
 | content_roles 对应 | 【图N】 ↔ content_roles 一一对应 | 请求修正 |
 | 23 项自检清单 | 全部通过 | 逐项检查失败原因，判断是上游还是本层 |
@@ -497,6 +506,18 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 每集视频生成状态可细化到分镜级别，记录在 `剧本/EP##/generation_status.md` 中。
 
 **注:** Stages 6-8（视频制作、后期、发行）在此追踪但由人工或未来 Agent 执行。工作计划提供全生命周期可见性，无论自动化程度如何。
+
+---
+
+### 集间资产增量验证
+
+启动 EP(N>01) 的 Stage 4 前，drama-director 须验证：
+1. 大纲中 EP(N) 新增角色已录入角色卡并完成 L01 生成
+2. EP(N) 新增场景已录入场景卡片并完成参考图生成
+3. EP(N) 新增道具已录入道具卡片并完成参考图生成
+4. 所有新增资产已上传 CDN 并注册 cdn_urls.json
+
+未通过则阻塞 Stage 4，由 drama-director 调度相应设计师补充。
 
 ---
 

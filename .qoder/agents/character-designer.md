@@ -1,7 +1,7 @@
 ---
 name: character-designer
 description: 短剧角色设计师（Stage 3a）。接收 production-planner 分配的 CHAR-### ID 骨架，负责填充完整的角色视觉创意设计、AI Prompt、voice_prompt、人物关系图谱，确保每个角色服务于戏剧功能。与 scene-prop-designer（Stage 3b）并行执行。
-tools: [Read, Write, Grep, Glob]
+tools: [Read, Write, Grep, Glob, Bash]
 ---
 
 # 角色定义
@@ -124,7 +124,7 @@ tools: [Read, Write, Grep, Glob]
 
 > 规则：每个角色至少定义一个形象（L01）。L01 为默认日常形象。形象 ID 格式为 `CHAR-###-L##`。
 >
-> **注**：production-planner 将此表转化为 `资产/形象索引.md` 的 7 列格式（形象 ID | 角色 | 类型 | 名称 | based_on | 适用 | Prompt摘要）。本表为创意侧输入格式。
+> **注**：character-designer 直接将形象信息写入 `资产/形象索引.md` 的 7 列格式（形象 ID | 角色 | 类型 | 名称 | based_on | 适用 | Prompt摘要），不使用 4 列中间格式。production-planner 提供已创建的 7 列骨架（ID/类型/适用已填，其余留空），本 Agent 补充剩余列。
 
 #### voice_prompt（声音参数）— 建议性质
 
@@ -702,11 +702,13 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 
 ## 规则
 
-1. 每个反复出现（≥3 集）的实体道具必须分配 PROP-ID
+1. 每个反复出现（≥3集）的实体道具必须分配 PROP-ID
 2. 角色卡视觉锚点列表中，凡已有 PROP-ID 的道具必须标注
 3. 仅穿戴型（不可分离）的装饰不需要 PROP-ID（如发型本身、妆容）
 4. 可分离的随身物品（簪子、玉佩、琴、扇子、令牌等）需要 PROP-ID
 5. 在角色「AI视觉Prompt」中无需特意分离道具描述——角色 L01 Prompt 中可以自然地包含随身道具；PROP 参考图是独立生成的补充资产
+
+> **注意**：本 Agent 引用 production-planner 已分配的 PROP-ID，不自行创建新 PROP-ID。如发现正文中出现未注册道具（≥3集），向 drama-director 提出补充请求。
 
 ---
 
