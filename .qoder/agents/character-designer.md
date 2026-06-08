@@ -89,9 +89,9 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 # 输出格式
 
-> **角色卡片所有权声明**：`资产/角色卡片.md`（含所有视觉 Prompt、面部特征锚定块、Look 变体）由本 Agent 完全拥有和维护。其他 Agent 可引用但不得直接修改角色卡片中的视觉内容。
+> **角色卡片所有权声明**：本 Agent 完全拥有和维护 `资产/角色卡片.md` 的全部内容（结构设计、视觉创意、AI Prompt、voice_prompt、形象参考图等）。其他 Agent 可引用但不得直接修改角色卡片中的任何内容。
 
-> **ID 使用规则**：角色 `CHAR-###` ID 由 production-planner（Stage 2）预分配。character-designer 沿用已分配的 ID 填充创意内容，不得自行新增或变更 ID 编号。群演角色使用 `CHAR-GRP-##` 格式（同样由 production-planner 预分配）。
+> **骨架字段不可修改规则**：production-planner（Stage 2）预分配的骨架字段（CHAR-ID、姓名、定位、阵营、首次出场、关键关系、性格概要、初始音色建议）不可由本 Agent 修改。本 Agent 沿用这些骨架字段填充视觉创意内容，不得自行新增或变更。群演角色使用 `CHAR-GRP-##` 格式（同样由 production-planner 预分配）。
 
 ```markdown
 # 角色卡片

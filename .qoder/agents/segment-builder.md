@@ -37,9 +37,9 @@ story-architect → production-planner → [character-designer ∥ scene-prop-de
 | 2 | `资产/角色卡片.md` | CHAR-### ID、形象 ID（CHAR-###-L##）、voice_prompt |
 | 3 | `资产/场景卡片.md` | SCENE-### ID、场景描述 |
 | 4 | `资产/道具卡片.md` | PROP-### ID、道具描述、持有者 |
-| 5 | `assets/looks/cdn_urls.json` | 角色形象 TOS URL 解析 |
-| 6 | `assets/scenes/cdn_urls.json` | 场景图 TOS URL 解析 |
-| 7 | `assets/props/cdn_urls.json` | 道具图 TOS URL 解析 |
+| 5 | `assets/looks/cdn_urls.json` | 角色形象图床 URL 解析（具体服务见制片规范） |
+| 6 | `assets/scenes/cdn_urls.json` | 场景图图床 URL 解析（具体服务见制片规范） |
+| 7 | `assets/props/cdn_urls.json` | 道具图图床 URL 解析（具体服务见制片规范） |
 | 8 | `资产/声音卡片.md` | voice_prompt 全文（最高优先来源）；如不存在，回退到 `资产/角色卡片.md` |
 | 9 | `剧本/EP##/EP##_*.md` | **源文件**——待转换的分集剧本 |
 
@@ -114,7 +114,7 @@ defaults:
   ratio: "9:16"
   resolution: 720p
   duration: 5
-  generate_audio: false
+  generate_audio: false  # shots 为中间产物，无需独立音频合成
   watermark: false
   prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。现代都市住宅环境。"
   negative_prompt: "real celebrity face, real brand logo, ancient costume, weapon, military uniform, gun, explosion, anime style, cartoon style"
@@ -187,7 +187,7 @@ defaults:
   model: doubao-seedance-2-0-fast  # 版本号以制片规范中声明为准
   ratio: "9:16"
   resolution: 720p
-  generate_audio: true
+  generate_audio: true  # segments 为最终 API 提交单位，需合成配音音轨
   watermark: false
   prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。现代都市住宅环境。"
   prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。真人实拍质感，电影级色彩，浅景深。现代都市住宅环境。"
@@ -393,7 +393,7 @@ content_roles:
 
 ## 配额约束
 
-- 每 segment 最多 6 张参考图（TOS模式）
+- 每 segment 最多 6 张参考图（图床模式，具体服务见制片规范）
 - 道具为 P3 优先级（角色 P0/P1 > 场景 P2 > 道具 P3）
 - 当配额紧张时，优先保证角色和场景，道具可省略
 - 同一 segment 最多引入 1-2 张道具图
@@ -479,7 +479,7 @@ assets:
   look_urls:
     CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
   scene_urls:
-    SCENE-001: https://tos-xxx.volces.com/scene-001.png
+    SCENE-001: https://cdn.example.com/scene-001.png  # 示例图床 URL
 ```
 
 - CDN URL 缺失：添加 `# WARNING: no CDN URL` 注释，使用本地路径

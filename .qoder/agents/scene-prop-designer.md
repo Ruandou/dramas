@@ -174,8 +174,8 @@ items:
 
 ## Step 9：上传图床
 
-使用 `imgbb` MCP 的 `imgbb_upload` 工具，将生成的图片上传到 imgbb 图床获取公开 URL：
-- 对 `assets/scenes/` 和 `assets/props/` 下的每张 `.png` 文件调用 `imgbb_upload`（传入 `file_path`）
+将生成的图片上传至项目配置的图床（具体服务见 `制片规范.md`），获取公开 URL：
+- 使用项目配置的图床 MCP 工具，对 `assets/scenes/` 和 `assets/props/` 下的每张 `.png` 文件上传
 - 将返回的公开 URL 记录到 `assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json`
 
 确保 `assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json` 已生成。
@@ -509,15 +509,15 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 
 ```json
 {
-  "SCENE-001": "https://i.ibb.co/xxxxx/SCENE-001.png",
-  "SCENE-002": "https://i.ibb.co/xxxxx/SCENE-002.png"
+  "SCENE-001": "https://<图床域名>/xxxxx/SCENE-001.png",
+  "SCENE-002": "https://<图床域名>/xxxxx/SCENE-002.png"
 }
 ```
 
 ```json
 {
-  "PROP-001": "https://i.ibb.co/xxxxx/PROP-001.png",
-  "PROP-002": "https://i.ibb.co/xxxxx/PROP-002.png"
+  "PROP-001": "https://<图床域名>/xxxxx/PROP-001.png",
+  "PROP-002": "https://<图床域名>/xxxxx/PROP-002.png"
 }
 ```
 
@@ -550,9 +550,9 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 2. **不得在道具图中出现手/手指/人体部位**
 3. **所有可见文字必须与场景卡片中的规范完全一致**，逐字核对
 4. **不得使用占位符代替具体中文文字**（如"宗门名"必须写为"青云宗"）
-5. **不得生成分辨率低于 1600×2848 (9:16) 的参考图**
+5. **不得生成分辨率低于 1600×2848 (9:16) 的 Seedream 参考图**。视频生成分辨率以 `制片规范.md` 中 `video_resolution` 字段为准（默认 720p）。
 
-> 此分辨率下限应与 `制片规范.md` 中的统一视觉规格保持一致；如需调整，以 `制片规范.md` 为准。
+> 此分辨率下限仅针对 Seedream 参考图；如需调整，以 `制片规范.md` 为准。
 6. **场景图的视觉风格必须与制片规范定义的写实摄影风格保持一致**（若角色图已就绪则交叉比对）
 7. **未经用户授权，不得调用付费图片/视频生成 API**
 8. **道具背景必须为暖色中性丝绸**（不是白色、不是渐变色）
