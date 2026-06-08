@@ -225,6 +225,9 @@ seedance_defaults:
 
 - 为**每个有对白的角色**（含 CHAR-GRP-##）定义 voice_prompt
 - 格式统一：`「性别，年龄，音色特征，语速特征，情绪/说话习惯」`
+
+> **格式说明**：「」为 markdown 可读性标记，下游 segment-builder 写入 YAML 时仅取括号内纯文本内容，不含「」本身。
+
 - 创建后验证与角色卡一致性；标注版本号和更新日期
 
 **声音卡是 segment-builder 的 voice_prompt 唯一权威来源**——segment-builder 将从此文件全文复制 voice_prompt 到 YAML。

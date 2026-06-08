@@ -477,6 +477,8 @@ This person is clearly a TEENAGER, not a child. Adolescent proportions, angular 
 
 ## 六、多候选选优（Multi-Candidate Selection）
 
+> ⚠️ **付费操作警告**：调用 `ark_seedream_generate` / `ark_seedream_batch` 等图片生成 MCP 工具会消耗方舟余额。必须获得用户明确授权后方可执行，未经授权严禁调用。每次生成多候选（如 3 张）意味着 3 倍费用消耗，需提前告知用户。
+
 主角 L01 形象定稿前**建议**生成至少 3 个候选方案进行比选：
 
 1. 生成 3 张以上候选参考图（可调整微表情、发型细节、配饰位置等）

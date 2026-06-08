@@ -148,6 +148,7 @@ shots:
     dialogue:
       - speaker: CHAR-001
         line: "台词内容"
+    transition_to_next: hard_cut  # 可选，默认 hard_cut。有效值: hard_cut | dissolve | fade | audio_bridge
 ```
 
 ## 字段说明
@@ -165,6 +166,7 @@ shots:
 | `api.text` | string | 单镜头 Prompt（shots 级别较简略） |
 | `api.content_roles` | list | 参考图绑定 |
 | `dialogue` | list | 本镜台词（speaker + line） |
+| `transition_to_next` | enum | 可选。到下一镜头的转场类型：`hard_cut`（默认）/ `dissolve` / `fade` / `audio_bridge` |
 
 ## mode 选择规则
 
@@ -230,7 +232,25 @@ segments:
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut  # 可选，默认 hard_cut。有效值: hard_cut | dissolve | fade | audio_bridge
 ```
+
+---
+
+# Segment 字段说明
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| `segment_id` | string | 全集唯一，格式 `EP##-SEG##` 或 `EP##-SEG##a/b` |
+| `shot_ids` | list | 本段包含的镜头 ID 列表 |
+| `duration_sec` | int | 本段总时长（各镜头 duration_sec 之和） |
+| `speakers` | list | 本段说话人角色 ID 列表（静音段为空 `[]`） |
+| `refs.scene_id` | string | 本段所在场景 ID |
+| `assets.look_urls` | map | 形象 ID → 本地路径或 CDN URL |
+| `assets.scene_urls` | map | 场景 ID → 本地路径或 CDN URL |
+| `api.text` | string | 合并后的 Segment Prompt |
+| `api.content_roles` | list | 参考图绑定列表 |
+| `transition_to_next` | enum | 可选。到下一 Segment 的转场类型：`hard_cut`（默认）/ `dissolve` / `fade` / `audio_bridge`。未标注时默认 `hard_cut` |
 
 ---
 
@@ -512,6 +532,7 @@ shots:
     dialogue:
       - speaker: CHAR-001
         line: "又下雨了……"
+    transition_to_next: hard_cut
 ```
 
 ## segments.yaml 示例（双镜头有对白段）
@@ -542,6 +563,7 @@ segments:
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
 ```
 
 ## segments.yaml 示例（静音段）
@@ -565,6 +587,7 @@ segments:
         本段无对白无语音，禁止画面中出现任何文字。真人实拍质感，电影级色彩，浅景深。现代都市住宅环境。
       content_roles:
         - { file: SCENE-002, role: reference_image, label: 图1 }
+    transition_to_next: hard_cut
 ```
 
 ---
