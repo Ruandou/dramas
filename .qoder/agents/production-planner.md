@@ -52,7 +52,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 > 形象 Prompt 内容、生成流程、delta 规则等视觉创意细节由 character-designer 负责。
 
-### 形象表格式（角色卡中）
+### 形象表格式（角色卡片中）
 
 ```markdown
 | 形象 ID        | 类型     | 名称         | 基于 | 适用       |
@@ -73,7 +73,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 | 理想时长         | 8–10 秒         | 一条 API = 一段可拍的戏                                 |
 | 每 segment 镜头数 | 1–3 镜          | 不超过 3 个镜头                                         |
 | 最小叙事单位     | 1 个完整 beat   | 每个 segment 必须构成完整叙事节拍                       |
-| 每集段落数       | 约 12–15 段     | 对应单集 2.5 分钟时长                                   |
+| 每集段落数       | 12–15 段        | 对应单集 2.5 分钟时长                                   |
 
 ### 拆分原则
 
@@ -208,10 +208,10 @@ seedance_defaults:
 - 道具卡片提供结构骨架，视觉生成 Prompt 由 scene-prop-designer 填充
 - 两者必须一一对应：制片规范有的 PROP-ID，道具卡片必须有对应条目
 
-### `资产/声音卡.md`
+### `资产/声音卡片.md`
 
 ```markdown
-# 声音卡
+# 声音卡片
 
 | 角色 ID | 姓名 | voice_prompt | 备注 |
 |---------|------|-------------|------|
@@ -221,22 +221,22 @@ seedance_defaults:
 
 **要求**：同一角色跨 segment 的 `voice_prompt` 必须**全文一致**。
 
-### 声音卡创建规范
+### 声音卡片创建规范
 
 - 为**每个有对白的角色**（含 CHAR-GRP-##）定义 voice_prompt
 - 格式统一：`「性别，年龄，音色特征，语速特征，情绪/说话习惯」`
 
 > **格式说明**：「」为 markdown 可读性标记，下游 segment-builder 写入 YAML 时仅取括号内纯文本内容，不含「」本身。
 
-- 创建后验证与角色卡一致性；标注版本号和更新日期
+- 创建后验证与角色卡片一致性；标注版本号和更新日期
 
-**声音卡是 segment-builder 的 voice_prompt 唯一权威来源**——segment-builder 将从此文件全文复制 voice_prompt 到 YAML。
+**声音卡片是 segment-builder 的 voice_prompt 唯一权威来源**——segment-builder 将从此文件全文复制 voice_prompt 到 YAML。
 
 #### voice_prompt 反馈机制
 
-- character-designer 可在 `资产/角色卡.md` 对应角色条目下新增 `voice_feedback` 子节，提出 voice_prompt 修改建议。
-- drama-director 在集间循环（inter-episode cycle）中审阅该建议，若接受则更新 `资产/声音卡.md`（P0）。
-- 在建议被正式接受前，现有声音卡 P0 版本始终为权威来源。
+- character-designer 可在 `资产/角色卡片.md` 对应角色条目下新增 `voice_feedback` 子节，提出 voice_prompt 修改建议。
+- drama-director 在集间循环（inter-episode cycle）中审阅该建议，若接受则更新 `资产/声音卡片.md`（P0）。
+- 在建议被正式接受前，现有声音卡片 P0 版本始终为权威来源。
 
 ---
 
@@ -281,7 +281,7 @@ seedance_defaults:
 | **2** | **分集剧本** | `剧本/EP##/EP##_*.md`    | 可拍分镜表：shot_id、画面、对白、CHAR/SCENE/形象    |
 | **3** | **机器可读** | `EP##_shots.yaml`        | 从分集 md 导出，勿手改 yaml 当源                    |
 | **4** | **段落 API** | `EP##_segments.yaml`     | 按 md 镜号合并为 segment；对白与第2步引号内字面一致 |
-| **5** | **其它**     | 声音卡、资产索引等       | 仅在前几步定稿后随需更新                            |
+| **5** | **其它**     | 声音卡片、资产索引等       | 仅在前几步定稿后随需更新                            |
 
 **禁止**先改 `segments.yaml` 再回头补剧本。**单集真相源**是 `剧本/EP##/EP##_*.md`。
 
@@ -300,12 +300,12 @@ dramas/剧名/
 │   │   └── EP01_segments.yaml        # 段落 API 配置
 │   └── EP02/ …
 ├── 资产/
-│   ├── 角色卡.md                     # 角色定义卡（外貌 Prompt + 面部锚定 + Look 变体）
+│   ├── 角色卡片.md                     # 角色定义卡（外貌 Prompt + 面部锚定 + Look 变体）
 │   ├── 角色索引.md                   # CHAR-* 主表
 │   ├── 形象索引.md                   # CHAR-*-L** 主表
 │   ├── 场景卡片.md                   # SCENE-* 主表
 │   ├── 道具卡片.md                   # PROP-* 主表
-│   └── 声音卡.md                     # voice_prompt 主表
+│   └── 声音卡片.md                     # voice_prompt 主表
 ├── assets/
 │   ├── generated/EP##/               # AI 生成成品（禁止写入占位）
 │   ├── looks/                        # 角色定妆参考图
@@ -319,7 +319,7 @@ dramas/剧名/
 └── 短剧剧本_剧名_36集.md            # 总纲
 ```
 
-> 注：旧项目可能将资产文件放在剧目根目录下（如 角色卡.md），新项目统一放入 资产/ 子目录。
+> 注：旧项目可能将资产文件放在剧目根目录下（如 角色卡片.md），新项目统一放入 资产/ 子目录。
 
 ---
 
@@ -331,8 +331,8 @@ dramas/剧名/
 
 | 优先级 | 文件 | 说明 |
 |--------|------|------|
-| **P0（最高）** | `资产/声音卡.md` | 专门定义声音参数的文件，最细粒度、最权威 |
-| P1 | `资产/角色卡.md` | 角色总览中的 voice_prompt 字段 |
+| **P0（最高）** | `资产/声音卡片.md` | 专门定义声音参数的文件，最细粒度、最权威 |
+| P1 | `资产/角色卡片.md` | 角色总览中的 voice_prompt 字段 |
 | P2（兜底） | `制片规范.md` | 制片规范中的音色段落 |
 
 **规则**：
@@ -344,15 +344,15 @@ dramas/剧名/
 | 数据类型 | 权威来源 | 说明 |
 |----------|----------|------|
 | 角色 ID（CHAR-###） | `资产/角色索引.md`（production-planner 分配） | 唯一定义；character-designer 不可自行新增 |
-| 形象 ID（CHAR-###-L##） | `资产/角色卡.md` / `资产/形象索引.md` | 角色卡定义，形象索引补充 |
+| 形象 ID（CHAR-###-L##） | `资产/角色卡片.md` / `资产/形象索引.md` | 角色卡片定义，形象索引补充 |
 | 场景 ID（SCENE-###） | `资产/场景卡片.md` | 唯一定义 |
 | 道具 ID（PROP-###） | `资产/道具卡片.md` | 唯一定义 |
-| voice_prompt | `资产/声音卡.md`（见上表） | 最高优先 |
+| voice_prompt | `资产/声音卡片.md`（见上表） | 最高优先 |
 
 ## 跨文件一致性维护
 
-- **声音卡 ↔ 角色卡**：voice_prompt 如有差异，以声音卡为准
-- **场景卡/道具卡 ↔ 分集剧本**：剧本中不得引用未在卡片中注册的 ID
+- **声音卡片 ↔ 角色卡片**：voice_prompt 如有差异，以声音卡片为准
+- **场景卡片/道具卡片 ↔ 分集剧本**：剧本中不得引用未在卡片中注册的 ID
 - **禁止**不同文件中同一 ID 有不同定义
 
 ---
@@ -365,7 +365,7 @@ dramas/剧名/
 1. **故事大纲** → `短剧剧本_剧名_36集.md`（36 集概要：集纲、角色提及、场景描述、对白要点、钩子）
 
 > **不接收、不依赖**：
-> - `资产/角色卡.md`（由 character-designer 在 Stage 3a 生成）
+> - `资产/角色卡片.md`（由 character-designer 在 Stage 3a 生成）
 > - 分集剧本（由 scene-writer 在 Stage 4 生成）
 
 ## 执行步骤
@@ -377,7 +377,7 @@ dramas/剧名/
 - 确认生成工具（Seedance / 即梦）
 - 建立目录结构
 
-### Step 2：提取角色身份 → 分配 CHAR-ID，建立角色卡骨架
+### Step 2：提取角色身份 → 分配 CHAR-ID，建立角色卡片骨架
 
 > **注意**：此步骤从故事大纲中直接提取角色信息，**不需要**等待 character-designer 的产出。
 
@@ -393,7 +393,7 @@ dramas/剧名/
   - 性格特征/情感弧线（供 character-designer 理解角色气质）
   - 初始音色建议（基于性格/年龄推断 voice_prompt 初稿）
 - 群演分级：有名字+跨 segment 出现 → 独立 CHAR-###；纯背景无台词 → CHAR-GRP
-- 生成**角色卡骨架**：
+- 生成**角色卡片骨架**：
   - 包含：CHAR-ID、姓名、角色定位、阵营/派系、首次出场、关键关系、性格概要
   - **不包含**：外貌描写、AI Prompt、生成参数 —— 这些由 character-designer 填充
 - 输出 `资产/角色索引.md`（含完整 CHAR-ID 列表）
@@ -422,7 +422,7 @@ production-planner 完成 Step 2 + 3 + 3.5 后，同时向两个下游消费者�
 
 #### A. 移交给 character-designer（Stage 3a）
 
-**输出**：角色卡骨架（CHAR-### ID、姓名、定位、阵营、首次出场、关键关系、性格概要、初始音色建议）+ 故事大纲原文引用 + `资产/角色索引.md` + `资产/形象索引.md` 骨架
+**输出**：角色卡片骨架（CHAR-### ID、姓名、定位、阵营、首次出场、关键关系、性格概要、初始音色建议）+ 故事大纲原文引用 + `资产/角色索引.md` + `资产/形象索引.md` 骨架
 
 **character-designer 填充**：外貌描写、L01/L02+ Prompt、形象索引 Prompt 摘要
 
@@ -450,7 +450,7 @@ production-planner 完成 Step 2 + 3 + 3.5 后，同时向两个下游消费者�
 - 为每个有对白角色编写 `voice_prompt`
 - 确定旁白风格
 - 标注音效/配乐需求
-- 输出 `资产/声音卡.md`
+- 输出 `资产/声音卡片.md`
 
 ### Step 5：输出完整制片规范文档
 
@@ -468,12 +468,12 @@ production-planner 完成后产出以下文件：
 | 文件 | 说明 | 下游消费者 |
 |------|------|---------------|
 | `制片规范.md` | 项目宪法：ID体系、分段规则、结构约束、视觉风格锚点 | 全员 |
-| `资产/角色卡.md`（骨架） | CHAR-ID + 身份元数据 + 性格概要（无视觉描写） | character-designer (Stage 3a) |
+| `资产/角色卡片.md`（骨架） | CHAR-ID + 身份元数据 + 性格概要（无视觉描写） | character-designer (Stage 3a) |
 | `资产/角色索引.md` | 完整 CHAR-### 列表 | character-designer, scene-writer, segment-builder |
 | `资产/形象索引.md`（骨架） | ID 占位，待填充 | character-designer (Stage 3a) |
 | `资产/场景卡片.md` | SCENE-### + 结构元数据 | scene-prop-designer (Stage 3b) |
 | `资产/道具卡片.md` | PROP-### + 持有者关系 + 叙事功能 | scene-prop-designer (Stage 3b) |
-| `资产/声音卡.md` | voice_prompt 权威源 | segment-builder |
+| `资产/声音卡片.md` | voice_prompt 权威源 | segment-builder |
 
 ---
 
@@ -540,8 +540,8 @@ production-planner 完成后产出以下文件：
 
 production-planner 完成所有步骤后，必须通过以下结构完整性门禁：
 
-- [ ] 所有角色是否已分配 CHAR-ID 并建立角色卡骨架（身份元数据 + 性格概要）？
-- [ ] 角色卡骨架是否已准备好移交 character-designer（Stage 3a）？
+- [ ] 所有角色是否已分配 CHAR-ID 并建立角色卡片骨架（身份元数据 + 性格概要）？
+- [ ] 角色卡片骨架是否已准备好移交 character-designer（Stage 3a）？
 - [ ] 所有场景是否已分配 SCENE-ID 并有完整结构元数据？
 - [ ] 所有关键道具是否已分配 PROP-ID 并在道具卡片中有结构元数据？
 - [ ] 道具卡片与制片规范中的关键道具 ID 表是否一一对应？
@@ -549,7 +549,7 @@ production-planner 完成所有步骤后，必须通过以下结构完整性门�
 - [ ] 目录结构是否已创建？
 - [ ] 分集 YAML 头模板是否已确定？
 - [ ] voice_prompt 是否已为所有有对白角色编写？
-- [ ] 资产/声音卡.md 是否已输出且完整？
+- [ ] 资产/声音卡片.md 是否已输出且完整？
 - [ ] 工作流顺序是否已明确？
 - [ ] 分段规则（4-12秒）是否已写入规范？
 - [ ] 视觉风格锚点是否已定义（供下游设计师参考）？

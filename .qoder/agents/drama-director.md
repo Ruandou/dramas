@@ -12,7 +12,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 - `story-architect`（故事架构师）— Stage 1：写大纲
 - `production-planner`（制片规范师）— Stage 2：建立制片规范与资产骨架
-- `character-designer`（角色设计师）— Stage 3a：设计完整角色卡 + 生成形象图
+- `character-designer`（角色设计师）— Stage 3a：设计完整角色卡片 + 生成形象图
 - `scene-prop-designer`（场景与道具视觉概念设计师）— Stage 3b：将场景/道具卡片转化为参考图
 - `scene-writer`（分镜编剧）— Stage 4：写分集剧本
 - `segment-builder`（分镜构建师）— Stage 5：生成 YAML
@@ -42,10 +42,10 @@ tools: [Read, Write, Grep, Glob, Bash]
 | 阶段 | 执行者 | 输入 | 输出 | 预估工作量 |
 |------|--------|------|------|-----------|
 | 1. 故事架构 | story-architect | 概念简报（标题+题材+核心钩子+目标受众） | `短剧剧本_剧名_36集.md` | 中 |
-| 2. 制片规范 | production-planner | 36集大纲 | `制片规范.md` + 角色卡骨架 + 场景卡片 + 道具卡片 + 形象索引 + 声音卡 | 大 |
-| 3a. 角色设计 | character-designer | 大纲 + production-planner 角色骨架 | `资产/角色卡.md`（完整创意视觉）+ L01/L02 形象图 + CDN URLs | 中 |
+| 2. 制片规范 | production-planner | 36集大纲 | `制片规范.md` + 角色卡片骨架 + 场景卡片 + 道具卡片 + 形象索引 + 声音卡片 | 大 |
+| 3a. 角色设计 | character-designer | 大纲 + production-planner 角色骨架 | `资产/角色卡片.md`（完整创意视觉）+ L01/L02 形象图 + CDN URLs | 中 |
 | 3b. 场景道具设计 | scene-prop-designer | 场景卡片 + 道具卡片 + 制片规范 | scene/prop 参考图 + CDN URLs | 中 |
-| 4. 分集编剧 | scene-writer | 大纲 + 角色卡 + 制片规范 + 资产文件 | `剧本/EP##/EP##_*.md` | 大（每集） |
+| 4. 分集编剧 | scene-writer | 大纲 + 角色卡片 + 制片规范 + 资产文件 | `剧本/EP##/EP##_*.md` | 大（每集） |
 | 5. 分镜构建 | segment-builder | EP##_*.md + 资产文件 + cdn_urls.json | `EP##_shots.yaml` + `EP##_segments.yaml` | 中（每集） |
 
 ---
@@ -75,12 +75,12 @@ dramas/剧名/
 ├── 剧本/
 │   └── EP01/
 ├── 资产/
-│   ├── 角色卡.md
+│   ├── 角色卡片.md
 │   ├── 角色索引.md
 │   ├── 形象索引.md
 │   ├── 场景卡片.md
 │   ├── 道具卡片.md
-│   └── 声音卡.md
+│   └── 声音卡片.md
 ├── assets/
 │   ├── looks/
 │   ├── scenes/
@@ -94,7 +94,7 @@ dramas/剧名/
 └── 短剧剧本_剧名_36集.md
 ```
 
-> 注：旧项目可能将资产文件放在剧目根目录下（如 角色卡.md），新项目统一放入 资产/ 子目录。
+> 注：旧项目可能将资产文件放在剧目根目录下（如 角色卡片.md），新项目统一放入 资产/ 子目录。
 
 ## 3. 创建工作计划
 
@@ -167,12 +167,12 @@ Stage 1 产出的 36 集大纲（`短剧剧本_剧名_36集.md`）
 ## 输出（共 7 份文件）
 
 1. `制片规范.md` — 项目宪法
-2. `资产/角色卡.md`（骨架）— CHAR-ID + 姓名 + 定位 + 叙事功能（无视觉描写）
+2. `资产/角色卡片.md`（骨架）— CHAR-ID + 姓名 + 定位 + 叙事功能（无视觉描写）
 3. `资产/角色索引.md` — CHAR-* 主表（含 ID 分配 + 基础描述骨架）
 4. `资产/形象索引.md` — CHAR-*-L** 主表（占位，待 character-designer 填充）
 5. `资产/场景卡片.md` — SCENE-* 主表
 6. `资产/道具卡片.md` — PROP-* 主表
-7. `资产/声音卡.md` — voice_prompt 主表
+7. `资产/声音卡片.md` — voice_prompt 主表
 
 ## 验证门控 G2
 
@@ -180,9 +180,9 @@ Stage 1 产出的 36 集大纲（`短剧剧本_剧名_36集.md`）
 |--------|----------|----------|
 | **▸ 文件存在性** | | |
 | 7 文件存在 | 以上 7 份文件全部创建 | 请求 production-planner 补充缺失文件 |
-| 资产/角色卡.md 骨架 | 资产/角色卡.md 存在且包含所有 CHAR-ID 骨架条目 | 请求补充 |
+| 资产/角色卡片.md 骨架 | 资产/角色卡片.md 存在且包含所有 CHAR-ID 骨架条目 | 请求补充 |
 | 角色 ID 分配 | 大纲中出现的所有关键角色在角色索引中有 CHAR-### 编号 | 请求补充 |
-| voice_prompt 完整 | 声音卡中每个有对白角色都有 voice_prompt | 请求补充 |
+| voice_prompt 完整 | 声音卡片中每个有对白角色都有 voice_prompt | 请求补充 |
 | EP01 场景覆盖 | 大纲 EP01 中涉及的场景均在场景卡片中 | 请求补充 |
 | 道具卡片完整 | 大纲中出现的关键道具均在道具卡片中有 PROP-### | 请求补充 |
 | **▸ 参数完整性** | | |
@@ -209,7 +209,7 @@ Stage 1 产出的 36 集大纲（`短剧剧本_剧名_36集.md`）
 
 ## 输出
 
-- `资产/角色卡.md` — 完整角色卡（含完整 Prompt、视觉锚点、反派设计等）
+- `资产/角色卡片.md` — 完整角色卡片（含完整 Prompt、视觉锚点、反派设计等）
 - `assets/looks/CHAR-*-L01.png` — L01 基础形象图
 - `assets/looks/CHAR-*-L02.png` — L02 衍生形象图（如有）
 - `assets/looks/cdn_urls.json` — 角色形象 CDN URL 注册表
@@ -280,10 +280,10 @@ G3 在 **Stage 3a 和 Stage 3b 都完成后**触发，进行跨资产统一验�
 
 | 检查项 | 通过标准 | 失败处理 |
 |--------|----------|----------|
-| 角色卡完整 | `资产/角色卡.md` 已创建，大纲中所有关键角色有定义 | 请求 character-designer 补充 |
+| 角色卡片完整 | `资产/角色卡片.md` 已创建，大纲中所有关键角色有定义 | 请求 character-designer 补充 |
 | L01 形象完整 | 每个角色至少有 L01 基础形象图（`assets/looks/CHAR-*-L01.png`） | 请求 character-designer 生成 |
 | 角色 CDN 注册 | `assets/looks/cdn_urls.json` 中每个形象图有有效 URL | 请求重新上传 |
-| CHAR-ID 一致 | 角色卡中 ID 与 production-planner 分配的 ID 一致 | 请求修正 |
+| CHAR-ID 一致 | 角色卡片中 ID 与 production-planner 分配的 ID 一致 | 请求修正 |
 | 反派设计 | 反派角色有"速恨"设计（具体恶行描述） | 请求 character-designer 补充 |
 | EP01 场景图完整 | EP01 涉及的所有 SCENE-* 均有对应 `assets/scenes/SCENE-*.png` | 请求 scene-prop-designer 补充 |
 | EP01 道具图完整 | EP01 涉及的所有 PROP-* 均有对应 `assets/props/PROP-*.png` | 请求 scene-prop-designer 补充 |
@@ -345,9 +345,9 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 ## 输入
 
 - 36 集大纲
-- 角色卡
+- 角色卡片
 - 制片规范
-- 所有资产文件（场景卡、道具卡、声音卡）
+- 所有资产文件（场景卡片、道具卡片、声音卡片）
 
 ## 执行者
 
@@ -405,7 +405,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 | SOURCE FIDELITY PROOF | shots.yaml 顶部包含忠实度证明块 | 请求 segment-builder 重新生成 |
 | 镜头数一致 | shots 数量 == 源 .md 镜头表行数 | 上游问题→回退 Stage 4；本层问题→重新生成 |
 | 对白逐字一致 | 每行对白可追溯到源 .md 逐字对应 | 请求 segment-builder 修正 |
-| voice_prompt 全文一致 | YAML voice_prompt == 声音卡原文 | 请求修正 |
+| voice_prompt 全文一致 | YAML voice_prompt == 声音卡片原文 | 请求修正 |
 | 时长合规 | 所有 segment 4-12s，总时长 ≥ 140s 且 ≤ 200s（理想 150-180s） | 超出→检查是否上游时长问题 |
 | 不跨场景 | 每个 segment 内所有 shot 同一 SCENE | 请求拆分 |
 | content_roles 对应 | 【图N】 ↔ content_roles 一一对应 | 请求修正 |
@@ -449,7 +449,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 |------|------|----------|------|------|
 | 1. 故事架构 | ✅/🔄/❌ | 短剧剧本_剧名_36集.md | G1 ✅/❌ | |
 | 2. 制片规范 | ✅/🔄/❌ | 制片规范.md + 角色骨架 + 资产卡片 | G2 ✅/❌ | |
-| 3a. 角色设计 | ✅/🔄/❌ | 资产/角色卡.md + L01/L02 images + cdn_urls.json | — | 与 3b 并行 |
+| 3a. 角色设计 | ✅/🔄/❌ | 资产/角色卡片.md + L01/L02 images + cdn_urls.json | — | 与 3b 并行 |
 | 3b. 场景道具设计 | ✅/🔄/❌ | assets/scenes/*.png + assets/props/*.png + cdn_urls.json | — | 与 3a 并行 |
 | G3 统一验证 | ✅/🔄/❌ | — | G3 ✅/❌ | 需 3a+3b 都完成 |
 | 4. EP01 编剧 | ✅/🔄/❌ | 剧本/EP01/EP01_*.md | G4 ✅/❌ | |
@@ -462,7 +462,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 | Stage 3a (character-designer) | character-designer | ✅/🔄/❌/⏳ | — | |
 | Stage 3b (scene-prop-designer) | scene-prop-designer | ✅/🔄/❌/⏳ | — | |
 
-## 分集进度（Stage 4-5 循环）
+## 分集进度（Stage 4–5 循环）
 
 | 集数 | Stage 4 | G4 | Stage 5 | G5 | 备注 |
 |------|---------|----|---------|----|------|
@@ -523,7 +523,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 ### 集间资产增量验证
 
 启动 EP(N>01) 的 Stage 4 前，drama-director 须验证：
-1. 大纲中 EP(N) 新增角色已录入角色卡并完成 L01 生成
+1. 大纲中 EP(N) 新增角色已录入角色卡片并完成 L01 生成
 2. EP(N) 新增场景已录入场景卡片并完成参考图生成
 3. EP(N) 新增道具已录入道具卡片并完成参考图生成
 4. 所有新增资产已上传 CDN 并注册 cdn_urls.json
@@ -540,7 +540,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 2. 每集独立经历 Stage 4 → G4 → Stage 5 → G5 循环
 3. 集间可能需要更新资产文件：
    - 新场景（新 SCENE-###）→ 更新场景卡片
-   - 新角色首次出场 → 确认角色卡已覆盖
+   - 新角色首次出场 → 确认角色卡片已覆盖
    - 新道具 → 更新道具卡片
    - 角色换装 → 添加 L02+ 衍生形象
 4. 资产更新后**不需要**重跑已通过的集数
@@ -562,7 +562,7 @@ EP03: ...
 
 | 情况 | 动作 |
 |------|------|
-| 新角色首次出场 | 确认角色卡和角色索引已包含 |
+| 新角色首次出场 | 确认角色卡片和角色索引已包含 |
 | 新场景 | 由 production-planner 补充场景卡片 |
 | 角色换装/重大外貌变化 | 由 character-designer 添加 L02+ |
 | 新关键道具 | 由 production-planner 补充道具卡片 |

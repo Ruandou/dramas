@@ -19,11 +19,8 @@ tools: [Read, Write, Grep, Glob, Bash]
 # 工作流位置
 
 ```
-story-architect → scene-writer → [本角色] → Seedance API 提交
-                                     ↑
-                           production-planner（提供制片规范）
+story-architect → production-planner → [character-designer ∥ scene-prop-designer] → scene-writer → [本角色] → Seedance API 提交
 ```
-辅助输入：production-planner（制片规范）| character-designer + scene-prop-designer（资产参考图）
 
 **上游**：`scene-writer` 产出 `剧本/EP##/EP##_*.md`（分集剧本，含 11 列镜头表）
 **下游**：`pipeline_episode.py` / `ark_seedance_shots` 等自动化脚本消费 YAML
@@ -37,13 +34,13 @@ story-architect → scene-writer → [本角色] → Seedance API 提交
 | 序号 | 文件 | 获取内容 |
 |------|------|----------|
 | 1 | `制片规范.md` | 默认 model、ratio、resolution、prompt_suffix、negative_prompt、duration 约束 |
-| 2 | `资产/角色卡.md` | CHAR-### ID、形象 ID（CHAR-###-L##）、voice_prompt |
+| 2 | `资产/角色卡片.md` | CHAR-### ID、形象 ID（CHAR-###-L##）、voice_prompt |
 | 3 | `资产/场景卡片.md` | SCENE-### ID、场景描述 |
 | 4 | `资产/道具卡片.md` | PROP-### ID、道具描述、持有者 |
 | 5 | `assets/looks/cdn_urls.json` | 角色形象 TOS URL 解析 |
 | 6 | `assets/scenes/cdn_urls.json` | 场景图 TOS URL 解析 |
 | 7 | `assets/props/cdn_urls.json` | 道具图 TOS URL 解析 |
-| 8 | `资产/声音卡.md` | voice_prompt 全文（最高优先来源）；如不存在，回退到 `资产/角色卡.md` |
+| 8 | `资产/声音卡片.md` | voice_prompt 全文（最高优先来源）；如不存在，回退到 `资产/角色卡片.md` |
 | 9 | `剧本/EP##/EP##_*.md` | **源文件**——待转换的分集剧本 |
 
 如任何文件缺失，**停止并报告**，不得猜测或编造参数。
@@ -52,7 +49,7 @@ story-architect → scene-writer → [本角色] → Seedance API 提交
 
 # 前置检查（硬性门控）
 
-读取完源 `.md` 后、生成任何 YAML 之前，**必须**逐项通过以下门控。任一项未通过 → **立即停止，执行升级协议**。
+读取完源 `.md` 后、生成任何 YAML 之前，**必须**逐项通过以下门控（Gate 1–4）。任一项未通过 → **立即停止，执行升级协议**。
 
 ## Gate 1：时长门控
 
@@ -73,7 +70,7 @@ story-architect → scene-writer → [本角色] → Seedance API 提交
 
 ## Gate 3：资产 ID 冲突检测
 
-将源 `.md` 中使用的所有 SCENE-###、CHAR-###、PROP-### 与 `资产/场景卡片.md`、`资产/角色卡.md`、`资产/道具卡片.md` 中的定义逐一比对。
+将源 `.md` 中使用的所有 SCENE-###、CHAR-###、PROP-### 与 `资产/场景卡片.md`、`资产/角色卡片.md`、`资产/道具卡片.md` 中的定义逐一比对。
 
 - **全部一致**：通过
 - **存在冲突**（如源 .md 定义 SCENE-002 为"古铜镜镜面"，但场景卡片定义为"林泽书店"）：❌ 停止。列出冲突清单，请用户或 production-planner 修正。
@@ -82,12 +79,12 @@ story-architect → scene-writer → [本角色] → Seedance API 提交
 
 确认每个出场角色的 voice_prompt 可在以下文件中找到（按优先级）：
 
-1. `资产/声音卡.md`（最高优先）
-2. `资产/角色卡.md`
+1. `资产/声音卡片.md`（最高优先）
+2. `资产/角色卡片.md`
 3. `制片规范.md`
 
 - **全部可追溯**：通过
-- **某角色无 voice_prompt 来源**：❌ 停止。报告缺失角色，请 production-planner 补充声音卡。
+- **某角色无 voice_prompt 来源**：❌ 停止。报告缺失角色，请 production-planner 补充声音卡片。
 
 ---
 
@@ -202,11 +199,11 @@ voice_prompts:
   CHAR-004: "成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性"
 
 # voice_prompts 查找优先级（从高到低）：
-# 1. 资产/声音卡.md — 最高权威
-# 2. 资产/角色卡.md — 次优先
+# 1. 资产/声音卡片.md — 最高权威
+# 2. 资产/角色卡片.md — 次优先
 # 3. 制片规范.md — 兜底
 # 规则：必须全文复制原文（含「」内全部文字），禁止缩写/改写/翻译
-# 注：声音卡.md 中用「」包裹 voice_prompt 是 Markdown 格式标记，
+# 注：声音卡片.md 中用「」包裹 voice_prompt 是 Markdown 格式标记，
 # YAML 中存储括号内的纯文本内容（不含「」）。“全文复制”指复制括号内的文字。
 
 segments:
@@ -307,7 +304,7 @@ segments:
 - 前置标记：`[以下对白仅供语音合成，严禁在画面中显示任何文字]`
 - 格式：`对白（角色名，{完整voice_prompt}）：「台词内容」`
 - **台词必须与分集剧本中的台词逐字逐标点一致**——包括「」、……、！等标点符号
-- voice_prompt 必须从 `voice_prompts` 映射表中**全文复制**（该映射表来源于声音卡/角色卡原文）
+- voice_prompt 必须从 `voice_prompts` 映射表中**全文复制**（该映射表来源于声音卡片/角色卡片原文）
 - 无对白段落（静音段）：不写对白区块，不写 `[以下对白...]` 标记
 - **对白来源追溯**：每行对白必须能追溯到源 .md 中的具体镜号和行序
 
@@ -486,7 +483,7 @@ assets:
 ```
 
 - CDN URL 缺失：添加 `# WARNING: no CDN URL` 注释，使用本地路径
-- 形象 ID 完全不存在（角色卡中无此 ID）：**停止生成，报告缺口**
+- 形象 ID 完全不存在（角色卡片中无此 ID）：**停止生成，报告缺口**
 - 若镜头涉及多角色组合参考图（CHAR-GRP-## 格式），按同一 CDN 路径规则解析：`assets/looks/CHAR-GRP-##.png`。如项目未使用分组参考图，忽略此条。
 
 ---
@@ -640,7 +637,7 @@ segments:
 ## 实现方式
 
 - 检查基于 ID 字符串匹配和场景卡片属性对照，不依赖 AI 语义理解
-- 角色名匹配：从 `资产/角色卡.md` 提取 CHAR-ID ↔ 角色名映射表，在 prompt 中查找
+- 角色名匹配：从 `资产/角色卡片.md` 提取 CHAR-ID ↔ 角色名映射表，在 prompt 中查找
 - 场景属性匹配：从 `资产/场景卡片.md` 提取 SCENE-ID ↔ 环境标签（室内/室外/虚空/自然）
 - 时间词匹配：维护时间词表（晨/朝/午/暮/夜/月/星/黎明/黄昏）按出现顺序检测逆转
 
@@ -667,7 +664,7 @@ segments:
 | 13 | 不跨场景 | 每个 segment 内所有 shot 属于同一 SCENE-### |
 | 14 | 镜头数一致 | shots.yaml 的 shot 数量 == 源 .md 镜头表行数 |
 | 15 | 对白逐字可溯 | 每行对白可在源 .md 中找到逐字逐标点对应 |
-| 16 | voice_prompt 全文一致 | YAML 中的 voice_prompt == 声音卡/角色卡原文（逐字） |
+| 16 | voice_prompt 全文一致 | YAML 中的 voice_prompt == 声音卡片/角色卡片原文（逐字） |
 | 17 | 无凭空镜头 | YAML 中不存在源 .md 中没有的 shot_id |
 | 18 | 忠实度证明块 | shots.yaml 顶部包含 SOURCE FIDELITY PROOF 注释块 |
 | 19 | 全部说话人保留 | 源 .md 中的所有 speaker（含 CHAR-GRP）在 YAML 中有对白 |
@@ -687,7 +684,7 @@ segments:
 3. **禁止发明对白** — 输出中的每一行 `「台词」` 必须在源 `.md` 对应镜头的"对白/备注"列中找到**逐字逐标点**对应。
 4. **禁止忽略角色** — 源 `.md` 中出现的所有 speaker（包括 `CHAR-GRP-##`）必须在 YAML 的 dialogue 中保留其台词。
 5. **禁止自行填充时长** — 当源 `.md` 总时长不足 140s 时，禁止通过加长单镜头时长或增加镜头数来补足。必须触发 Gate 1 停止。
-6. **禁止改写 voice_prompt** — 必须从声音卡中全文复制「」内的文字内容（不含「」符号本身），不得简化、改写、翻译、缩写。
+6. **禁止改写 voice_prompt** — 必须从声音卡片中全文复制「」内的文字内容（不含「」符号本身），不得简化、改写、翻译、缩写。
 7. **禁止忽略 ID 冲突** — 当源 `.md` 中的 SCENE/CHAR/PROP ID 定义与资产卡片不一致时，不得默默采用其中一个。必须触发 Gate 3 停止。
 8. **禁止重排叙事顺序** — 镜头在 YAML 中的顺序必须严格按照源 `.md` 镜头表从上到下的顺序，不得调换。
 
@@ -703,7 +700,7 @@ segments:
 | 2 | `剧本/EP##/EP##_*.md` | scene-writer |
 | **3** | **`剧本/EP##/EP##_shots.yaml`** | **segment-builder（本角色）** |
 | **4** | **`剧本/EP##/EP##_segments.yaml`** | **segment-builder（本角色）** |
-| 5 | 声音卡、资产索引等 | production-planner |
+| 5 | 声音卡片、资产索引等 | production-planner |
 
 **强制规则**：
 
@@ -730,7 +727,7 @@ segments:
    - 时长不足 → `scene-writer` 扩充分集剧本
    - 镜头数不一致 → `scene-writer` 修正元数据或补充镜头
    - ID 冲突 → `production-planner` 更新资产卡片
-   - voice_prompt 缺失 → `production-planner` 补充声音卡
+   - voice_prompt 缺失 → `production-planner` 补充声音卡片
 4. **等待确认** — 在用户或上游修复后，重新执行完整流程（重新读取所有前置文件）
 
 **禁止**：
@@ -752,7 +749,7 @@ segments:
 | `negative_prompt` | `制片规范.md` |
 | `model` | `制片规范.md` |
 | `ratio` / `resolution` | `制片规范.md` |
-| `voice_prompts` | `资产/声音卡.md`（P0） > `资产/角色卡.md`（P1） > `制片规范.md`（P2） |
+| `voice_prompts` | `资产/声音卡片.md`（P0） > `资产/角色卡片.md`（P1） > `制片规范.md`（P2） |
 | 风格描述 | `制片规范.md` 中的题材风格段落 |
 | CDN URLs | `assets/looks/cdn_urls.json` + `assets/scenes/cdn_urls.json` + `assets/props/cdn_urls.json` |
 
@@ -761,7 +758,7 @@ segments:
 - 古装宫廷剧（凤还尘、天工开物）
 - 神话/玄幻剧（天庭临时工）
 
-只要对应项目的制片规范和角色卡已建立。
+只要对应项目的制片规范和角色卡片已建立。
 
 ---
 

@@ -24,8 +24,8 @@
 |-------|-------|------|----------|
 | 1 | `story-architect`（故事架构师） | 36集故事大纲、情绪弧线、钩子矩阵 | `短剧剧本_<剧名>_36集.md` |
 | 2 | `production-planner`（制片结构注册师） | ID 系统、资产骨架、分段规则 | `制片规范.md` + `资产/` 骨架卡 |
-| 3a | `character-designer`（角色设计师） | 角色视觉设计、形象图生成 | `资产/角色卡.md` + `assets/looks/` |
-| 3b | `scene-prop-designer`（场景道具设计师） | 场景/道具视觉设计、参考图 | `资产/场景卡.md` + `assets/scenes/` |
+| 3a | `character-designer`（角色设计师） | 角色视觉设计、形象图生成 | `资产/角色卡片.md` + `assets/looks/` |
+| 3b | `scene-prop-designer`（场景道具设计师） | 场景/道具视觉设计、参考图 | `资产/场景卡片.md` + `assets/scenes/` |
 | 4 | `scene-writer`（分镜编剧） | 分集剧本、镜头表 | `剧本/EP##/EP##_*.md` |
 | 5 | `segment-builder`（分镜构建师） | YAML 生成供 API 提交 | `剧本/EP##/EP##_shots.yaml` + `EP##_segments.yaml` |
 
@@ -59,7 +59,7 @@
 
 ```
 dramas/<剧名>/
-├── 资产/              ← 角色卡.md, 形象索引.md, 场景卡.md, 道具卡.md, 声音卡.md
+├── 资产/              ← 角色卡片.md, 形象索引.md, 场景卡片.md, 道具卡片.md, 声音卡片.md
 ├── 剧本/EP01/         ← 分集剧本 + 分镜脚本 + YAML
 ├── assets/            ← AI 生成素材
 │   ├── generated/     ← 视频素材（Seedance 输出）
@@ -213,8 +213,8 @@ python3 script/download_jimeng_from_tasks.py
 
 生成 AI 素材前，必须先读取以下文档：
 
-1. 对应剧本的 `资产/角色卡.md` — 获取角色 Prompt
-2. 对应剧本的 `资产/场景卡.md` — 获取场景 Prompt
+1. 对应剧本的 `资产/角色卡片.md` — 获取角色 Prompt
+2. 对应剧本的 `资产/场景卡片.md` — 获取场景 Prompt
 3. 对应剧本的 `制片规范.md` — 了解 ID 系统和分段规则
 
 然后基于文档中的规则和 Prompt 生成素材，不要凭空编造规则。

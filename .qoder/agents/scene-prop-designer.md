@@ -85,7 +85,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 - `短剧剧本_剧名_36集.md` —— 故事大纲，用于理解场景叙事权重
 
 **角色视觉风格（并行执行期间可能不可用）：**
-- `资产/角色卡.md` —— 在重新生成轮次中若已有 L01 图像则使用；首次并行执行期间依赖 `制片规范.md` 风格参数
+- `资产/角色卡片.md` —— 在重新生成轮次中若已有 L01 图像则使用；首次并行执行期间依赖 `制片规范.md` 风格参数
 
 ## Step 2：提取视觉风格基线
 
@@ -96,7 +96,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 - 年代/题材（era/genre）——决定建筑语言和材质选择
 - `style_anchors`、`negative_prompt_image`
 
-若 `资产/角色卡.md` 已包含 L01 参考图（例如在重新生成轮次中），则用于跨资产一致性校准。在首次并行执行期间，以 `制片规范.md` 风格参数为准。
+若 `资产/角色卡片.md` 已包含 L01 参考图（例如在重新生成轮次中），则用于跨资产一致性校准。在首次并行执行期间，以 `制片规范.md` 风格参数为准。
 
 ## Step 3：场景概念发展
 
@@ -204,7 +204,7 @@ items:
 
 ### 失败处理
 
-- 生成后**逐字核对**图片中文字与场景卡规格
+- 生成后**逐字核对**图片中文字与场景卡片规格
 - 2 次尝试后文字仍错误/不可辨认 → 升级：
   1. 以文字为 Prompt **主焦点**重新生成（文字描述作为 Prompt 首句）
   2. 生成无文字版本 + 计划后期文字叠加
@@ -282,8 +282,8 @@ Photorealistic rendering, shot on wide-angle lens, natural lighting, real archit
 
 | 场景类型 | 处理方式 |
 |---------|----------|
-| **无文字场景**（场景卡中无任何引号文字） | Negative prompt **必须**包含：`no text, no characters, no writing, no inscriptions, no calligraphy` |
-| **有文字场景**（场景卡含引号文字） | 在 Prompt 正文中以双引号提供确切中文字符（见 4.1）；同时追加：`NOT inscribed with any other characters or text besides what is specified` |
+| **无文字场景**（场景卡片中无任何引号文字） | Negative prompt **必须**包含：`no text, no characters, no writing, no inscriptions, no calligraphy` |
+| **有文字场景**（场景卡片含引号文字） | 在 Prompt 正文中以双引号提供确切中文字符（见 4.1）；同时追加：`NOT inscribed with any other characters or text besides what is specified` |
 
 **关键**：不要依赖"没提就不会出现"——Seedream 的训练数据中大量东亚建筑带文字，即使 Prompt 未要求也极可能臆造。**主动排除是唯一可靠手段。**
 
@@ -531,7 +531,7 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 | 2 | 所有 PROP-### 已有生成图 | 文件存在于 `assets/props/` |
 | 3 | 场景图无人物 | 视觉确认无人、无剪影、无肢体 |
 | 4 | 道具图为单物体+丝绸背景 | 视觉确认 |
-| 5 | 文字元素逐字匹配场景卡 | 逐字核对 |
+| 5 | 文字元素逐字匹配场景卡片 | 逐字核对 |
 | 6 | 关键地点（≥3 集）使用宏大尺度 | 低角度、高耸建筑、压迫性规模 |
 | 7 | 每个场景含题材视觉标记 | 至少 1 个/图 |
 | 8 | 写实度 ≥7/10 | 无插画/卡通风格漂移 |

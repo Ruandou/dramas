@@ -49,7 +49,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 | 输入 | 来源 | 用途 |
 |------|------|------|
 | `短剧剧本_剧名_36集.md` | 用户/story-architect | 获取叙事上下文：人物性格、关系、情绪弧线 |
-| CHAR-### ID 骨架（角色卡骨架 / 制片规范.md） | production-planner | 已分配的角色 ID、姓名、阵营、戏剧功能分类——character-designer **不再自行分配 ID** |
+| CHAR-### ID 骨架（角色卡片骨架 / 制片规范.md） | production-planner | 已分配的角色 ID、姓名、阵营、戏剧功能分类——character-designer **不再自行分配 ID** |
 | `制片规范.md` | production-planner | Seedream 模型、分辨率、negative prompts、style_anchors、视觉禁忌 |
 
 > character-designer 的职责是为**已有 CHAR-### 骨架**填充完整的视觉创意内容，而非从零提取角色列表或分配 ID。
@@ -81,7 +81,7 @@ tools: [Read, Write, Grep, Glob, Bash]
    - 表情基调（默认情绪状态）
 7. **编写 voice_prompt**：
    - 格式：「性别，年龄，音色特征，语速特征，情绪基调/说话习惯」
-   - 此字段与 production-planner 在声音卡中定义的权威版本保持格式一致，segment-builder 将从声音卡全文复制。
+   - 此字段与 production-planner 在声音卡片中定义的权威版本保持格式一致，segment-builder 将从声音卡片全文复制。
 8. **验证角色合理性**：
    - “删除测试”：如果删掉这个角色，故事是否受损？
    - “功能测试”：这个角色是否有不可替代的戏剧功能？
@@ -89,12 +89,12 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 # 输出格式
 
-> **角色卡所有权声明**：`资产/角色卡.md`（含所有视觉 Prompt、面部特征锚定块、Look 变体）由本 Agent 完全拥有和维护。其他 Agent 可引用但不得直接修改角色卡中的视觉内容。
+> **角色卡片所有权声明**：`资产/角色卡片.md`（含所有视觉 Prompt、面部特征锚定块、Look 变体）由本 Agent 完全拥有和维护。其他 Agent 可引用但不得直接修改角色卡片中的视觉内容。
 
 > **ID 使用规则**：角色 `CHAR-###` ID 由 production-planner（Stage 2）预分配。character-designer 沿用已分配的 ID 填充创意内容，不得自行新增或变更 ID 编号。群演角色使用 `CHAR-GRP-##` 格式（同样由 production-planner 预分配）。
 
 ```markdown
-# 角色卡
+# 角色卡片
 
 ## 主要角色
 
@@ -135,11 +135,11 @@ tools: [Read, Write, Grep, Glob, Bash]
 规则：
 - 必须使用「」引号包裹
 - 必须包含：性别、年龄、音色、语速、情绪/习惯 五要素
-- **角色卡中的 voice_prompt 为建议性质（P1 advisory）**。权威来源为 `资产/声音卡.md`（P0），由 production-planner（Stage 2）定义和维护
-- **优先级**：`资产/声音卡.md (P0 权威) > 角色卡.voice_prompt (P1 建议)`
-- character-designer 在完成视觉设计后如认为 voice_prompt 需要调整，应在角色卡中标注为「voice_prompt 改进建议」，**不得**直接修改 `资产/声音卡.md`
-- segment-builder 将从声音卡中全文复制到 YAML 的 voice_prompts 映射
-- 因此格式必须严格统一，以声音卡为准
+- **角色卡片中的 voice_prompt 为建议性质（P1 advisory）**。权威来源为 `资产/声音卡片.md`（P0），由 production-planner（Stage 2）定义和维护
+- **优先级**：`资产/声音卡片.md (P0 权威) > 角色卡片.voice_prompt (P1 建议)`
+- character-designer 在完成视觉设计后如认为 voice_prompt 需要调整，应在角色卡片中标注为「voice_prompt 改进建议」，**不得**直接修改 `资产/声音卡片.md`
+- segment-builder 将从声音卡片中全文复制到 YAML 的 voice_prompts 映射
+- 因此格式必须严格统一，以声音卡片为准
 
 ---
 
@@ -278,7 +278,7 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 **禁止**：
 - 禁止在 L01 Prompt 中包含场景背景（花园、书房、雨中、宫殿等）
 - 禁止在 L01 Prompt 中包含情绪灯光（moonlit, cinematic, somber lighting 等）
-- 角色卡中的叙事性 AI视觉Prompt 仅用于 Seedance 视频分镜，不用于 L01 参考图生成
+- 角色卡片中的叙事性 AI视觉Prompt 仅用于 Seedance 视频分镜，不用于 L01 参考图生成
 
 ---
 
@@ -712,7 +712,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 
 # 道具与角色的交叉引用
 
-角色卡中的「视觉锚点」如涉及可独立生成的道具，必须标注 PROP-ID：
+角色卡片中的「视觉锚点」如涉及可独立生成的道具，必须标注 PROP-ID：
 
 **示例**：
 ```
@@ -725,7 +725,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 ## 规则
 
 1. 每个反复出现（≥3集）的实体道具必须分配 PROP-ID
-2. 角色卡视觉锚点列表中，凡已有 PROP-ID 的道具必须标注
+2. 角色卡片视觉锚点列表中，凡已有 PROP-ID 的道具必须标注
 3. 仅穿戴型（不可分离）的装饰不需要 PROP-ID（如发型本身、妆容）
 4. 可分离的随身物品（簪子、玉佩、琴、扇子、令牌等）需要 PROP-ID
 5. 在角色「AI视觉Prompt」中无需特意分离道具描述——角色 L01 Prompt 中可以自然地包含随身道具；PROP 参考图是独立生成的补充资产
@@ -736,11 +736,11 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 
 # 下游兼容性
 
-本角色产出的 `资产/角色卡.md` 是以下协作角色的核心输入：
+本角色产出的 `资产/角色卡片.md` 是以下协作角色的核心输入：
 
 | 协作角色 | 需要的内容 | 格式要求 |
 |----------|------------|----------|
-| production-planner | CHAR-### ID, 形象 ID (L01/L02) | 上游协作者（Stage 2）；production-planner 先于本 agent 运行，voice_prompt 以声音卡为准，角色卡为辅 |
+| production-planner | CHAR-### ID, 形象 ID (L01/L02) | 上游协作者（Stage 2）；production-planner 先于本 agent 运行，voice_prompt 以声音卡片为准，角色卡片为辅 |
 | scene-writer | 角色名, 形象 ID, 关系网络 | 需清晰标注默认形象 |
 | segment-builder | voice_prompt 原文 | 逐字复制到 YAML，格式错误将导致下游 Gate 失败 |
 | drama-director G3 | CHAR-### 完整性, L01 存在性, 跨角色风格一致性 | G3 在 Stage 3a/3b 完成后统一校验 |
@@ -754,7 +754,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 
 # 完成前自检
 
-输出角色卡前，必须验证：
+输出角色卡片前，必须验证：
 
 | # | 检查项 | 通过标准 |
 |---|--------|----------|
