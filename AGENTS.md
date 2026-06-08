@@ -1,3 +1,91 @@
+# AI 短剧制作流水线
+
+本仓库采用 Agent 驱动的 6 阶段制作流水线，由 `drama-director`（总导演）统一调度。
+
+## 流水线阶段
+
+```
+概念 → [Stage 1] → G1 → [Stage 2] → G2 → ┌─[Stage 3a]─┐ → G3 → [Stage 4] → G4 → [Stage 5] → G5
+         故事架构          制片规范         │  角色设计   │        分镜编剧         分镜构建
+                                           └─[Stage 3b]─┘
+                                              场景道具设计
+```
+
+| Stage | Agent | 职责 | 核心产出 |
+|-------|-------|------|----------|
+| 1 | `story-architect`（故事架构师） | 36集故事大纲、情绪弧线、钩子矩阵 | `短剧剧本_<剧名>_36集.md` |
+| 2 | `production-planner`（制片结构注册师） | ID 系统、资产骨架、分段规则 | `制片规范.md` + `资产/` 骨架卡 |
+| 3a | `character-designer`（角色设计师） | 角色视觉设计、形象图生成 | `资产/角色卡.md` + `assets/looks/` |
+| 3b | `scene-prop-designer`（场景道具设计师） | 场景/道具视觉设计、参考图 | `资产/场景卡.md` + `assets/scenes/` |
+| 4 | `scene-writer`（分镜编剧） | 分集剧本、镜头表 | `剧本/EP##/EP##_*.md` |
+| 5 | `segment-builder`（分镜构建师） | YAML 生成供 API 提交 | `剧本/EP##/EP##_shots.yaml` + `EP##_segments.yaml` |
+
+**辅助角色**：
+- `script-reviewer`（剧本审核师）：R1（大纲后）和 R2（EP01 剧本后）质量门控
+- `drama-director`（总导演）：流水线调度、门控判定、状态追踪
+
+## 质量门控（Gate）
+
+| 门控 | 位置 | 职责 |
+|------|------|------|
+| G1 | Stage 1 → Stage 2 | 大纲完整性校验 |
+| G2 | Stage 2 → Stage 3 | 制片规范 + ID 系统就绪 |
+| G3 | Stage 3 → Stage 4 | 角色/场景资产就绪 |
+| G4 | Stage 4 → Stage 5 | 分集剧本定稿 |
+| G5 | Stage 5 完成 | YAML 合规校验 |
+
+**审查节点**：
+- **R1**（G1 之后）：`script-reviewer` 审查 36 集大纲，≥15/25 分放行
+- **R2**（G4 之后）：`script-reviewer` 审查单集剧本，EP01 ≥18/25 硬门控
+
+## ID 格式
+
+- **镜头 ID**：`EP##-S##`（两段式：集号-镜号）
+- **角色 ID**：`CHAR-###`
+- **场景 ID**：`SCENE-###`
+- **道具 ID**：`PROP-###`
+
+## 项目文件结构
+
+```
+dramas/<剧名>/
+├── 资产/              ← 角色卡.md, 形象索引.md, 场景卡.md, 道具卡.md, 声音卡.md
+├── 剧本/EP01/         ← 分集剧本 + 分镜脚本 + YAML
+├── assets/            ← AI 生成素材
+│   ├── generated/     ← 视频素材（Seedance 输出）
+│   ├── looks/         ← 角色形象参考图（Seedream 输出）
+│   └── scenes/        ← 场景参考图
+├── 制片规范.md        ← 项目"宪法"（ID 系统、分段规则）
+├── 工作计划.md        ← 流水线状态追踪
+└── 短剧剧本_<剧名>_36集.md  ← 36集大纲
+```
+
+## MCP 工具链
+
+| 功能 | MCP 服务 | 工具 | 扣费 |
+|------|----------|------|------|
+| 图片生成 | `volc-ark` | `ark_seedream_generate` / `ark_seedream_batch` | **是** |
+| 图片托管 | `imgbb` | `imgbb_upload` | 否 |
+| 视频生成 | `volc-ark` | `ark_seedance_create` / `ark_seedance_shots` | **是** |
+| 视频查询 | `volc-ark` | `ark_seedance_list` / `ark_seedance_get` / `ark_seedance_wait` | 否 |
+| 视频下载 | `volc-ark` | `ark_seedance_download` | 否 |
+| 任务归档 | `volc-ark` | `ark_list_tasks` | 否 |
+
+**自动化脚本**：
+- `script/pipeline_episode.py` — 单集流水线自动化
+- `script/local_pipeline.py` — 本地拼接流水线
+- `script/tts_batch_edge.py` — edge-tts 批量配音
+- `script/gen_srt_from_clips.py` — 字幕生成
+- `script/mix_tts_from_srt.py` — TTS 混音
+
+## 竖屏规范
+
+- **画面比例**：9:16（竖屏优先）
+- **单集时长**：2.5-3 分钟
+- **每集镜头数**：8-14 个镜头
+
+---
+
 # 视频资产与安全规则
 
 本仓库 `dramas/错嫁后我改写了王朝/素材/generated/` 用于存放**即梦等平台导出的正式分镜 MP4**，与 `script/config_ep01.json` / `script/ep01_clip_list.txt` 中的路径一一对应。
@@ -107,29 +195,19 @@ python3 script/download_jimeng_from_tasks.py
 
 ## 视频生成规则
 
-1. **尽量带素材**：使用 `kling_image_to_video` 时，优先传入相关素材图片（用 `image_paths` 多图参数最多4张），确保角色/场景一致性。
+1. **尽量带素材**：使用 `ark_seedance_create` / `ark_seedance_shots` 时，优先传入相关角色/场景参考图，确保一致性。
 2. **竖屏优先**：默认使用 9:16 竖屏比例。
-3. **质量优先**：使用 `kling-v3-omni` 模型生成。
+3. **质量优先**：使用 Seedance 2.0 fast 模型生成。
 
 ## AI素材生成流程
 
 生成 AI 素材前，必须先读取以下文档：
 
-1. `dramas/天庭临时工/AI素材清单_1-3集.md` - 了解生成规范
-2. `dramas/天庭临时工/角色卡.md` - 获取角色 Prompt
+1. 对应剧本的 `资产/角色卡.md` — 获取角色 Prompt
+2. 对应剧本的 `资产/场景卡.md` — 获取场景 Prompt
+3. 对应剧本的 `制片规范.md` — 了解 ID 系统和分段规则
 
 然后基于文档中的规则和 Prompt 生成素材，不要凭空编造规则。
-
-## MiniMax MCP 使用规则
-
-**MiniMax MCP** (`project-0-demo1-minimax`) 支持文生图、文生音频等功能：
-
-### 文生图 (`minimax_text_to_image`)
-
-- **默认比例**：9:16 竖屏（与视频一致）
-- **模型**：`image-01`
-- **输出目录**：`dramas/天庭临时工/素材/`（按角色归类）
-- **Prompt 优化**：建议关闭 `prompt_optimizer: false`，使用角色卡中已有的英文 Prompt
 
 ## 制作资质：其他微短剧
 

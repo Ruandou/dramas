@@ -136,7 +136,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 - 必须使用「」引号包裹
 - 必须包含：性别、年龄、音色、语速、情绪/习惯 五要素
 - **角色卡中的 voice_prompt 为建议性质（P1 advisory）**。权威来源为 `资产/声音卡.md`（P0），由 production-planner（Stage 2）定义和维护
-- **优先级**：`声音卡.md (P0 权威) > 角色卡.voice_prompt (P1 建议)`
+- **优先级**：`资产/声音卡.md (P0 权威) > 角色卡.voice_prompt (P1 建议)`
 - character-designer 在完成视觉设计后如认为 voice_prompt 需要调整，应在角色卡中标注为「voice_prompt 改进建议」，**不得**直接修改 `资产/声音卡.md`
 - segment-builder 将从声音卡中全文复制到 YAML 的 voice_prompts 映射
 - 因此格式必须严格统一，以声音卡为准
@@ -259,7 +259,7 @@ Seedream Prompt 的风格后缀必须根据项目题材调整：
 - 古装项目：`...photorealistic costume reference, period-accurate historical costume, warm candlelight atmosphere, NOT anime, NOT cartoon, NOT illustration, NOT manga`
 
 ```
-Photorealistic costume reference, front-facing full-body portrait from head to toe, single person standing upright facing the camera, plain white background, clean flat studio lighting. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. Vertical 9:16, photorealistic costume reference, [style_anchors from 制片规范 or genre mapping], realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.
+Photorealistic costume reference, wide shot showing entire figure from head to toe with feet and shoes clearly visible at the bottom edge of the frame, single person standing upright facing the camera, plain white background, clean flat studio lighting. Full body fully visible, not cropped. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. Vertical 9:16, photorealistic costume reference, [style_anchors from 制片规范 or genre mapping], realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.
 ```
 
 ### Seedream Prompt 风格强制规则
@@ -268,6 +268,12 @@ Photorealistic costume reference, front-facing full-body portrait from head to t
 2. **禁止术语**：`character design sheet`（单独使用会触发动漫风格）、`anime`、`manga`、`illustration`、`cel-shading`、`line art`
 3. **末尾反向提示（必须附加）**：每个 Prompt 末尾必须包含 `NOT anime, NOT cartoon, NOT illustration, NOT manga`
 4. **验证**：如果生成结果呈现动漫/卡通风格，判定为失败，必须重新生成
+
+### 构图强制规则（Framing Enforcement）
+
+- 每条 L01 prompt 必须包含以下关键词之一：`feet visible at bottom of frame` / `full shoes shown` / `entire figure from head to toe`
+- negative_prompt 必须追加：`cropped at waist, half-body, bust shot, medium close-up, head-and-shoulders only`
+- 若生成结果为半身像（脚部不可见），该图判定为不合格，必须重新生成
 
 **禁止**：
 - 禁止在 L01 Prompt 中包含场景背景（花园、书房、雨中、宫殿等）
@@ -372,6 +378,13 @@ same face as CHAR-###-L01, now wearing [changed clothing],
 [changed accessories/aura/props], [same style tags as L01]
 ```
 
+### 硬性门控（Hard Gate）
+
+- L02+ 生成请求中 `has_ref_images` 必须为 `true`，且 `ref_images` 字段必须包含对应角色已确认的 L01 图片路径
+- 若 L01 尚未生成或未通过审核，L02+ 生成请求**直接拒绝**，不得使用纯文字描述替代
+- 提交前自检：检查 tasks_seedream.json 中该任务的 `has_ref_images` 字段，若为 false 则中止提交
+- 仅在 MCP/API 确实不支持 ref_image 参数时（需有明确报错证据），方可降级为纯文字模式，并在 tasks 日志中标注 `"ref_fallback_reason": "..."`
+
 ### 禁止模式
 
 - L02 Prompt 长度 > L01 的 80%（说明在重写而非做 delta）
@@ -472,6 +485,13 @@ This person is clearly a TEENAGER, not a child. Adolescent proportions, angular 
 4. 如所有候选均不满意，调整 Prompt 后重新生成新一轮候选，不得将不满意的结果用作 L01 基础
 
 > 此为建议流程。产能紧张时可缩减为 2 候选，但不得跳过选优直接使用首张输出。
+
+### 生成顺序硬约束
+
+1. tier_1_critical 角色（主角、核心配角）的 L01 必须**最先生成**并获得用户确认
+2. 全部 L01 生成并确认后，方可开始任何 L02+ 衍生生成
+3. 群演/道具 L01 可与主角 L01 同批生成，但不得与 L02+ 混批
+4. 违反此顺序的批量提交应被拆分为多批次执行
 
 ---
 
@@ -770,7 +790,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 - 每个角色必须有明确的戏剧功能，禁止"装饰性角色"（存在但不推动情节的角色）
 - 主要角色总数控制在5-8人以内（AI生成一致性限制，角色越多越难保持画面一致）
 - 角色命名需简短、好记、有辨识度，避免同音或过于相似的名字
-- 所有角色的视觉设计需考虑竖屏9:16构图——以上半身和面部为主要表达区域
+- 所有角色的视觉设计需考虑竖屏9:16构图——定妆照必须确保从头顶到脚底完整可见（包含鞋/足部），面部为辨识锚点但全身服装与体态同等重要。竖屏比例意味着人物在画面中占比较高，但绝不允许裁切为半身像。
 - 反派角色必须在出场的前10秒内通过行为（而非旁白）建立恨意
 - 角色 ID 由 production-planner 预分配，character-designer 不得更改、新增或复用已有 ID
 - voice_prompt 必须严格遵循「性别，年龄，音色，语速，情绪/习惯」五要素格式
