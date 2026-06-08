@@ -2,6 +2,15 @@
 
 本仓库采用 Agent 驱动的 6 阶段制作流水线，由 `drama-director`（总导演）统一调度。
 
+> **[Copilot] Agent 规范已同步至 VS Code Copilot 的 `/memories/repo/`**，Copilot 对话时自动加载上下文（其他工具不会读取此路径）。详见：
+> - `pipeline.md` — 流水线阶段、门控、并行规则
+> - `agent-specs.md` — 各 Agent 核心规范速查
+> - `id-format.md` — ID 格式、命名规范、项目结构
+> - `output-templates.md` — 关键输出格式与模板
+> - `safety-rules.md` — 安全禁止规则、题材约束
+> 
+> 完整 Agent 定义文件位于 `.qoder/agents/` 目录（Qoder/Cline 专用，Copilot 通过 `/memories/repo/` 读取）。
+
 ## 流水线阶段
 
 ```
