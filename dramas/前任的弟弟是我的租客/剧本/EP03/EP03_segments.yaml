@@ -1,0 +1,585 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP03/EP03_搬入第一天.md
+# Source segments: 13 (SEG01 to SEG13)
+# Output segments: 13 (SEG01 to SEG13)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 141s (self-calculated)
+# Output total duration: 141s
+# Note: Source .md VALIDATION block claims 151s; self-calculated total is 141s.
+# Gate status: ALL PASS (G1✅ G2✅ G3✅ G4✅)
+
+episode_id: EP03
+episode_title: 搬入第一天
+source_md: 剧本/EP03/EP03_搬入第一天.md
+
+# ✅ CDN STATUS: All URLs are permanent TOS object storage links (drama-reference-images bucket).
+# No expiry — ready for Seedance submission.
+
+seedance_defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+
+prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical."
+prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical."
+negative_prompt: "illustration style, cartoon, anime, painting, concept art, low quality, blurry, distorted, deformed, bad anatomy, extra limbs, fused fingers, no text, no writing, no inscriptions, no watermarks"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力"
+  CHAR-002: "成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌"
+
+segments:
+  # ============================================================
+  # SEG01 — 搬入早晨 (SCENE-007 · 10s · 2镜)
+  # ============================================================
+  - seg_id: SEG01
+    shots: [EP03-S01, EP03-S02]
+    scene_id: SCENE-007
+    duration_sec: 10
+    characters:
+      - char_id: CHAR-002
+        name: 陆辰逸
+        look_ids: [CHAR-002-L01]
+    props: []
+    mode: i2v_ref
+    speakers: [CHAR-002]
+    transition_to_next: hard_cut
+    assets:
+      look_urls:
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-002-L01.png"  # ✅ TOS permalink
+      scene_urls:
+        SCENE-007: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/前任的弟弟是我的租客/SCENE-007.png"  # ✅ TOS permalink
+    api:
+      text: |
+        【图1】陆辰逸 CHAR-002-L01（深灰色连帽卫衣，白色T恤内搭，细框眼镜，黑色登机箱，折叠木制画架，黑色帆布斜挎包）【图2】公寓走廊 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：电梯门打开，走廊冷白荧光灯均匀铺在地面。图1从电梯里走出来，右手拖黑色登机箱，左手臂弯夹着折叠A字木制画架。球鞋踩在灰色抛光地砖上几乎没有声音。整层楼走廊安静延展，六扇深色胡桃木公寓门均匀排列。
+        镜头2（5秒）中景 镜头跟随：图1在601号门前停下，门牌号在拉丝不锈钢面板上微反光。把画架靠墙边，抬手——手指悬在门铃上方停了一秒，不是犹豫是仪式感的停顿。然后按下——克制而清晰的两声。走廊里只有电梯低频机械嗡鸣和他自己的呼吸。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「就是这个楼层。六楼。她的门牌号——601。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「从这里开始。从这扇门开始。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical.
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+
+  # ============================================================
+  # SEG02 — 行李的秘密 (SCENE-001 · 10s · 2镜)
+  # ============================================================
+  - seg_id: SEG02
+    shots: [EP03-S03, EP03-S04]
+    scene_id: SCENE-001
+    duration_sec: 10
+    characters:
+      - char_id: CHAR-001
+        name: 林小薇
+        look_ids: [CHAR-001-L01]
+      - char_id: CHAR-002
+        name: 陆辰逸
+        look_ids: [CHAR-002-L01]
+    props: []
+    mode: i2v_ref
+    speakers: [CHAR-001, CHAR-002]
+    transition_to_next: hard_cut
+    assets:
+      look_urls:
+        CHAR-001-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-001-L01.png"  # ✅ TOS permalink
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-002-L01.png"  # ✅ TOS permalink
+      scene_urls:
+        SCENE-001: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/前任的弟弟是我的租客/SCENE-001.png"  # ✅ TOS permalink
+    api:
+      text: |
+        【图1】林小薇 CHAR-001-L01（米色针织衫，米白围裙，棕色微卷中长发用鲨鱼夹夹起）【图2】陆辰逸 CHAR-002-L01（深灰卫衣，白T内搭，细框眼镜，登机箱，画架）【图3】小薇公寓客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：门从内打开。图1站在玄关，看到图2时眼睛下意识弯了一下。上午阳光从客厅窗户斜照进来，在她身后投出温暖光晕。图2站在门口，逆光轮廓在暖黄与走廊冷白交界处。
+        镜头2（5秒）中景 固定：图2拖着登机箱跨过门槛，图1侧身让他进来。图1视线扫过他的行李：一个箱子，一个画架，没有第二个箱子。不由自主看向门口——走廊空荡荡。回身看图2站在客厅中央，阳光从奶油色亚麻窗帘透进来，影子拉得很长。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「来啦。进来吧。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「打扰了。」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「你的行李……全在这儿了？」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「嗯。够用了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  # ============================================================
+  # SEG03 — 一勺半糖 (SCENE-001 · 11s · 2镜)
+  # ============================================================
+  - seg_id: SEG03
+    shots: [EP03-S05, EP03-S06]
+    scene_id: SCENE-001
+    duration_sec: 11
+    characters:
+      - char_id: CHAR-001
+        name: 林小薇
+        look_ids: [CHAR-001-L01]
+      - char_id: CHAR-002
+        name: 陆辰逸
+        look_ids: [CHAR-002-L01]
+    props: []
+    mode: i2v_ref
+    speakers: [CHAR-001, CHAR-002]
+    transition_to_next: hard_cut
+    assets:
+      look_urls:
+        CHAR-001-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-001-L01.png"  # ✅ TOS permalink
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-002-L01.png"  # ✅ TOS permalink
+      scene_urls:
+        SCENE-001: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/前任的弟弟是我的租客/SCENE-001.png"  # ✅ TOS permalink
+    api:
+      text: |
+        【图1】林小薇 CHAR-001-L01（米色针织衫，米白围裙）【图2】陆辰逸 CHAR-002-L01（深灰卫衣）【图3】小薇公寓客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：开放式厨房。图1从橱柜拿咖啡罐，意式咖啡机正在预热。图2站在客厅与厨房交界处，画架已靠墙放好。他自然走进厨房区域，拉开抽屉拿出糖罐——动作流畅像在自己家。图1正在舀咖啡粉，没注意他在做什么。
+        镜头2（6秒）特写 缓推：图1的手停在半空，咖啡勺悬在杯口上方——银色勺子里堆着深褐色粉末，整个动作僵住两秒。镜头从手缓缓推到脸上：睫毛颤了一下，先盯着咖啡勺确认没听错，然后偏头看向图2。表情不是惊吓，是好奇中带着警觉的刺。上午阳光从百叶窗缝隙落在他拿糖罐的手指上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「一勺半糖。对吧。」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「你怎么——」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「……对。一勺半。你记性真好。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「看到了就记住了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  # ============================================================
+  # SEG04 — 百合换了雏菊 (SCENE-001 · 11s · 2镜)
+  # ============================================================
+  - seg_id: SEG04
+    shots: [EP03-S07, EP03-S08]
+    scene_id: SCENE-001
+    duration_sec: 11
+    characters:
+      - char_id: CHAR-001
+        name: 林小薇
+        look_ids: [CHAR-001-L01]
+      - char_id: CHAR-002
+        name: 陆辰逸
+        look_ids: [CHAR-002-L01]
+    props: []
+    mode: i2v_ref
+    speakers: [CHAR-001, CHAR-002]
+    transition_to_next: hard_cut
+    assets:
+      look_urls:
+        CHAR-001-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-001-L01.png"  # ✅ TOS permalink
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-002-L01.png"  # ✅ TOS permalink
+      scene_urls:
+        SCENE-001: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/前任的弟弟是我的租客/SCENE-001.png"  # ✅ TOS permalink
+    api:
+      text: |
+        【图1】林小薇 CHAR-001-L01（米色针织衫）【图2】陆辰逸 CHAR-002-L01（深灰卫衣，细框眼镜）【图3】小薇公寓客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中特写 固定：图1端着咖啡杯走向客厅茶几。刚把杯子放在蜂蜜色橡木茶几上——手停住。盯着茶几中央的玻璃花瓶：昨天三支白色百合换成了三支白色雏菊，黄色花心安安静静立在透明玻璃瓶里。下意识回头看垃圾桶——三支百合在里面，花瓣还新鲜。
+        镜头2（6秒）中景 固定：图2站在沙发旁，手里端着咖啡——黑的。他顺着图1视线看向雏菊，又看向她。表情极其平静，有一丝不易察觉的歉意。阳光透过奶油色窗帘在他镜片上形成柔和反射。图1看着他，拇指在杯沿轻轻摩挲。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「——你把花换了？」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「嗯。百合味道太重了。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「你刚才经过茶几打了个喷嚏。应该是花粉过敏。」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「……谢谢。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  # ============================================================
+  # SEG05 — 红烧排骨 (SCENE-001 · 11s · 2镜)
+  # ============================================================
+  - seg_id: SEG05
+    shots: [EP03-S09, EP03-S10]
+    scene_id: SCENE-001
+    duration_sec: 11
+    characters:
+      - char_id: CHAR-001
+        name: 林小薇
+        look_ids: [CHAR-001-L01]
+      - char_id: CHAR-002
+        name: 陆辰逸
+        look_ids: [CHAR-002-L01]
+    props: []
+    mode: i2v_ref
+    speakers: [CHAR-001, CHAR-002]
+    transition_to_next: hard_cut
+    assets:
+      look_urls:
+        CHAR-001-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-001-L01.png"  # ✅ TOS permalink
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-002-L01.png"  # ✅ TOS permalink
+      scene_urls:
+        SCENE-001: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/前任的弟弟是我的租客/SCENE-001.png"  # ✅ TOS permalink
+    api:
+      text: |
+        【图1】陆辰逸 CHAR-002-L01（深灰卫衣袖子推到小臂中间，深蓝色围裙）【图2】林小薇 CHAR-001-L01（米色针织衫）【图3】小薇公寓客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：傍晚。暖黄色橱柜灯带亮起。图1站在灶台前，锅里排骨在深褐色酱汁里翻滚，热气和酱香弥漫。他撒了一把冰糖，手腕轻抖，颗粒落进锅里发出嘶嘶声。侧头闻一下，又加一点老抽——动作安静熟练。旁边台面上葱姜蒜已切好码在小碟子里。
+        镜头2（6秒）中特写 固定：图2从卧室方向走进客厅，还在用毛巾擦手，脚步比平时快。看到厨房里图1的背影，围裙系带在腰后打了个松垮的结。视线落在锅里的内容——深褐色油亮酱汁裹着肋排，冰糖融化形成琥珀色包浆。她停在客厅和厨房交界处，擦手的动作停了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「再收十分钟。」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「红烧排骨？！」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「这是——你怎么知道我喜欢吃这个？」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「冰箱里有排骨。刚好会做。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「糖色差不多了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical.
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  # ============================================================
+  # SEG06 — 晚餐对坐 (SCENE-001 · 11s · 2镜)
+  # ============================================================
+  - seg_id: SEG06
+    shots: [EP03-S11, EP03-S12]
+    scene_id: SCENE-001
+    duration_sec: 11
+    characters:
+      - char_id: CHAR-001
+        name: 林小薇
+        look_ids: [CHAR-001-L01]
+      - char_id: CHAR-002
+        name: 陆辰逸
+        look_ids: [CHAR-002-L01]
+    props: []
+    mode: i2v_ref
+    speakers: [CHAR-001, CHAR-002]
+    transition_to_next: hard_cut
+    assets:
+      look_urls:
+        CHAR-001-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-001-L01.png"  # ✅ TOS permalink
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-002-L01.png"  # ✅ TOS permalink
+      scene_urls:
+        SCENE-001: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/前任的弟弟是我的租客/SCENE-001.png"  # ✅ TOS permalink
+    api:
+      text: |
+        【图1】林小薇 CHAR-001-L01（米色针织衫）【图2】陆辰逸 CHAR-002-L01（深灰卫衣，已摘围裙）【图3】小薇公寓餐厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：餐厅区域，简约白色圆桌，三菜一汤——红烧排骨酱色油亮、清炒时蔬碧绿菜心、番茄蛋花汤。图2坐靠窗位，图1坐他对面。窗外天色从灰蓝转暗，高楼灯光零星亮起。暖黄色餐桌吊灯在两人之间投下一圈光池。
+        镜头2（6秒）中特写 固定：图1的中特写。放下筷子，筷尖搭在碗沿发出很轻的"嗒"一声。看着图2，表情在暖黄灯下柔软，眼睛里有专注观察的锐利——像在解一道题。图2正喝汤，白色汤匙在修长手指间显得很小，动作有一瞬间的放慢——感受到了她的目光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「嗯——你这个手艺，专业级别的。」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「你才搬进来一天——我怎么觉得，你好像在这儿住了很久了。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「是吗。」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「你平时一个人住，也做这些？」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「不。一个人的时候——不做红烧排骨。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  # ============================================================
+  # SEG07 — 洗碗与浴室 (SCENE-001 · 10s · 2镜)
+  # ============================================================
+  - seg_id: SEG07
+    shots: [EP03-S13, EP03-S14]
+    scene_id: SCENE-001
+    duration_sec: 10
+    characters:
+      - char_id: CHAR-001
+        name: 林小薇
+        look_ids: [CHAR-001-L01]
+      - char_id: CHAR-002
+        name: 陆辰逸
+        look_ids: [CHAR-002-L01]
+    props:
+      - prop_id: PROP-001
+        name: 素描本
+        cdn_url: "https://drama-reference-images.tos-cn-beijing.volces.com/props/前任的弟弟是我的租客/PROP-001.png"  # ✅ TOS permalink
+    mode: i2v_ref
+    speakers: [CHAR-001, CHAR-002]
+    transition_to_next: hard_cut
+    assets:
+      look_urls:
+        CHAR-001-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-001-L01.png"  # ✅ TOS permalink
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-002-L01.png"  # ✅ TOS permalink
+      scene_urls:
+        SCENE-001: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/前任的弟弟是我的租客/SCENE-001.png"  # ✅ TOS permalink
+    api:
+      text: |
+        【图1】林小薇 CHAR-001-L01（米色针织衫，袖子挽起）【图2】陆辰逸 CHAR-002-L01（深灰卫衣）【图3】小薇公寓客厅 SCENE-001。
+        道具：素描本 PROP-001（A4牛皮封面，边缘微磨损，深棕色皮面），图2从斜挎包中抽出。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：厨房水槽前。图1挽起袖子在洗碗，水龙头水声哗哗响，白色碟子在她手里翻转。图2站在旁边伸手去拿洗好的盘子准备擦干。图1侧身用胳膊肘轻轻挡开他——自然的"我洗就行"。图2的手停在半空然后收回，靠在石英石台面边缘，不走，就站在她斜后方两步位置。
+        镜头2（5秒）中景 镜头跟随：图1擦手走进浴室，白门在身后合上，花洒水声闷闷传出。客厅安静。图2望一眼浴室紧闭的门，转身走向墙边靠在角落的折叠木制A字画架。单膝蹲下，手指解开帆布绑带搭扣——金属扣清脆"咔"一声。把画架展开支在落地灯旁，暖黄灯光打亮画架上半部。从斜挎包里抽出素描本（PROP-001）。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「饭都做了，碗我来洗。公平分工。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「好。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  # ============================================================
+  # SEG08 — 睡衣撞见 (SCENE-001 · 12s · 2镜)
+  # ============================================================
+  - seg_id: SEG08
+    shots: [EP03-S15, EP03-S16]
+    scene_id: SCENE-001
+    duration_sec: 12
+    characters:
+      - char_id: CHAR-001
+        name: 林小薇
+        look_ids: [CHAR-001-L01]
+      - char_id: CHAR-002
+        name: 陆辰逸
+        look_ids: [CHAR-002-L01]
+    props:
+      - prop_id: PROP-001
+        name: 素描本
+        cdn_url: "https://drama-reference-images.tos-cn-beijing.volces.com/props/前任的弟弟是我的租客/PROP-001.png"  # ✅ TOS permalink
+    mode: i2v_ref
+    speakers: [CHAR-001, CHAR-002]
+    transition_to_next: hard_cut
+    assets:
+      look_urls:
+        CHAR-001-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-001-L01.png"  # ✅ TOS permalink
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-002-L01.png"  # ✅ TOS permalink
+      scene_urls:
+        SCENE-001: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/前任的弟弟是我的租客/SCENE-001.png"  # ✅ TOS permalink
+    api:
+      text: |
+        【图1】林小薇 CHAR-001-L01（淡蓝色棉质长袖睡衣，白色滚边袖口，棕色中长发披散滴水，毛绒家居拖鞋）【图2】陆辰逸 CHAR-002-L01（深灰卫衣，细框眼镜）【图3】小薇公寓客厅 SCENE-001。
+        道具：素描本 PROP-001（A4牛皮封面），图2在画架上画画，本段合上藏起。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：浴室门打开，灯光从图1身后涌出。她换了淡蓝色棉质长袖睡衣，头发还在滴水，用白色毛巾揉着发梢。毛绒拖鞋，卸了妆的脸在暖黄灯光下更真实脆弱。揉揉脖子，抬头——整个人定住了。
+        镜头2（7秒）中景 固定：图2坐在L型沙发转角位，落地灯暖黄光圈笼罩。身体微前倾，铅笔在素描本（PROP-001）上快速移动——沙沙声轻而密。眼镜反光看不清眼神，但动作沉浸。听到浴室门开——肩膀猛地一僵，铅笔尖停住。然后以明显过于仓促的速度合上素描本——牛皮封面"啪"一声合拢。从画架取下压在斜挎包下——三秒内完成。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「……在画画？」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「随便画几笔。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  # ============================================================
+  # SEG09 — 画女朋友啊？ (SCENE-001 · 10s · 2镜)
+  # ============================================================
+  - seg_id: SEG09
+    shots: [EP03-S17, EP03-S18]
+    scene_id: SCENE-001
+    duration_sec: 10
+    characters:
+      - char_id: CHAR-001
+        name: 林小薇
+        look_ids: [CHAR-001-L01]
+      - char_id: CHAR-002
+        name: 陆辰逸
+        look_ids: [CHAR-002-L01]
+    props: []
+    mode: i2v_ref
+    speakers: [CHAR-001, CHAR-002]
+    transition_to_next: hard_cut
+    assets:
+      look_urls:
+        CHAR-001-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-001-L01.png"  # ✅ TOS permalink
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-002-L01.png"  # ✅ TOS permalink
+      scene_urls:
+        SCENE-001: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/前任的弟弟是我的租客/SCENE-001.png"  # ✅ TOS permalink
+    api:
+      text: |
+        【图1】林小薇 CHAR-001-L01（淡蓝色睡衣，头发滴水，毛绒拖鞋）【图2】陆辰逸 CHAR-002-L01（深灰卫衣，细框眼镜，黑色帆布斜挎包）【图3】小薇公寓客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1走近沙发，一边擦头发一边绕到茶几对面——步履很轻，毛绒拖鞋踩在羊毛混纺地毯上无声。眼睛落在他压在包下的素描本——牛皮封面露出一角，边缘磨损泛白。嘴角浮起微笑——带着刚洗完澡的热气、好奇和打趣。头发滴水在睡衣肩膀处晕开深色水渍。
+        镜头2（5秒）中特写 固定：图2的中特写。坐在沙发上，手还按在斜挎包上，指节微泛白。听到"女朋友"三个字嘴唇动了动——咽下了什么。镜片后眼睛抬起看她一眼——一瞬。那眼神复杂：像被刺中秘密，又像被说中了什么不敢承认。然后低下头，黑发遮眉，手指从素描本上慢慢松开，把素描本往包里推了推。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「画女朋友啊？藏那么快。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「不是。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「……随便画几笔而已。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+
+  # ============================================================
+  # SEG10 — 房间里那道门 (SCENE-002 · 11s · 2镜)
+  # ============================================================
+  - seg_id: SEG10
+    shots: [EP03-S19, EP03-S20]
+    scene_id: SCENE-002
+    duration_sec: 11
+    characters:
+      - char_id: CHAR-001
+        name: 林小薇
+        look_ids: [CHAR-001-L01]
+    props: []
+    mode: i2v_ref
+    speakers: [CHAR-001]
+    transition_to_next: hard_cut
+    assets:
+      look_urls:
+        CHAR-001-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-001-L01.png"  # ✅ TOS permalink
+      scene_urls:
+        SCENE-002: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/前任的弟弟是我的租客/SCENE-002.png"  # ✅ TOS permalink
+    api:
+      text: |
+        【图1】林小薇 CHAR-001-L01（淡蓝色睡衣，头发滴水，毛巾搭在肩上）【图2】小薇卧室 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1的卧室。她从里面合上门——门锁很轻的"咔嗒"。背靠着门没有立刻动。床头柜陶瓷台灯暖黄光圈照亮淡粉色亚麻床品和叠得整齐的粗针织奶油色毯子。头发还在滴水——水珠顺着发尾从锁骨滚过消失。手攥着毛巾垂在腿侧，眼睛盯着那扇关上的门。软木板照片墙上某些位置空了。
+        镜头2（6秒）中特写 缓推：图1走到床边坐下——床垫微凹。毛巾搭在脖子上，双手放在膝盖上，十个手指交叉握在一起。床头灯在脸上制造柔和明暗：一半暖光一半阴影。低头，湿发垂下遮半边脸。然后抬头——眼睛里有东西在慢慢沉淀：困惑、不安、和被触动的柔软混在一起。镜头缓缓推近。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「一勺半糖。」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「他知道我咖啡加多少糖。他知道我百合花粉过敏。他做了我最爱吃的菜。」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「一个陌生人不该知道这些。」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「除非——他不是陌生人。」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「还有那个本子。他藏起来的那一刻——像被人抓住了秘密。」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「林小薇。别想太多。也许只是……巧合。也许他只是——观察力好。」
+        对白（林小薇，成年女性，28岁，中音区偏暖有厚度，语速适中偏慢，日常温柔平和略带软糯感，据理力争时咬字清晰有力但不尖锐，哭戏有轻微哽咽感但不失控，笑时声音上扬眼睛弯弯的感染力）：「但这些巧合——也太多了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+
+  # ============================================================
+  # SEG11 — 翻开素描本 (SCENE-001 · 12s · 3镜)
+  # ============================================================
+  - seg_id: SEG11
+    shots: [EP03-S21, EP03-S22, EP03-S23]
+    scene_id: SCENE-001
+    duration_sec: 12
+    characters:
+      - char_id: CHAR-002
+        name: 陆辰逸
+        look_ids: [CHAR-002-L01]
+    props:
+      - prop_id: PROP-001
+        name: 素描本
+        cdn_url: "https://drama-reference-images.tos-cn-beijing.volces.com/props/前任的弟弟是我的租客/PROP-001.png"  # ✅ TOS permalink
+    mode: i2v_ref
+    speakers: [CHAR-002]
+    transition_to_next: hard_cut
+    assets:
+      look_urls:
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-002-L01.png"  # ✅ TOS permalink
+      scene_urls:
+        SCENE-001: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/前任的弟弟是我的租客/SCENE-001.png"  # ✅ TOS permalink
+      prop_urls:
+        PROP-001: "https://drama-reference-images.tos-cn-beijing.volces.com/props/前任的弟弟是我的租客/PROP-001.png"  # ✅ TOS permalink
+    api:
+      text: |
+        【图1】陆辰逸 CHAR-002-L01（深灰卫衣，细框眼镜，黑色帆布斜挎包）【图2】小薇公寓客厅 SCENE-001【图3】素描本 PROP-001（A4牛皮封面，深棕色包浆，内页铅笔素描）。
+        角色分工：仅图1可翻动素描本；图2图3为静态场景参考。
+        道具：素描本 PROP-001（A4大小，牛皮封面边缘微磨损，内页全部为铅笔素描，每一页右下角有铅笔小字标注日期）。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）中景 固定：客厅安静，落地灯暖黄光圈缩小到沙发那一块。图1独自坐在沙发转角位，侧耳听了两秒确认房门关了，从斜挎包下抽出素描本（PROP-001）。把素描本放在膝盖上，手指在封面上停了片刻，指腹轻轻划过皮面一道浅痕，然后翻开第一页。
+        镜头2（4秒）大特写 固定：素描本对开跨页。左页铅笔素描——一个女生仰头大笑，棕色中长发被风扬起，眼睛弯成月牙，背景是模糊樱花树枝。右下角铅笔小字标注日期。右页同一女生低头看东西，侧脸被光束打亮，睫毛投出阴影，铅笔排线层层叠叠。线条干净利落。
+        镜头3（4秒）中特写 固定：图1面部中特写。暖黄灯光从侧面只照亮半张脸，镜片后的眼睛专注温柔，瞳孔轻微移动。嘴唇微启，呼吸很轻。翻页——手指在纸边停顿，指腹轻抚上一页铅笔痕迹。翻页动作极为轻柔。落地灯光在睫毛上凝成细碎金色光点。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「她回房间了。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「2019年秋天。樱花早谢了——但她在樱花树下拍毕业照那天，是我第一次按快门。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「快门不够——我想画下来。画下来就不会忘。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「这一张——她在图书馆睡着了。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「头枕在书上。口水把书页浸湿了一块。醒来看见我——瞪了我一眼。但她不知道我是谁。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical.
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+
+  # ============================================================
+  # SEG12 — 全是她 (SCENE-001 · 12s · 3镜)
+  # ============================================================
+  - seg_id: SEG12
+    shots: [EP03-S24, EP03-S25, EP03-S26]
+    scene_id: SCENE-001
+    duration_sec: 12
+    characters:
+      - char_id: CHAR-002
+        name: 陆辰逸
+        look_ids: [CHAR-002-L01]
+    props: []
+    mode: i2v_ref
+    speakers: [CHAR-002]
+    transition_to_next: hard_cut
+    assets:
+      look_urls:
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-002-L01.png"  # ✅ TOS permalink
+      scene_urls:
+        SCENE-001: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/前任的弟弟是我的租客/SCENE-001.png"  # ✅ TOS permalink
+    api:
+      text: |
+        【图1】陆辰逸 CHAR-002-L01（深灰卫衣，细框眼镜）【图2】小薇公寓客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）大特写 固定：素描本又一页——女生在吃饭。筷子夹起红烧排骨正要往嘴里送，腮帮子鼓起来，眼睛满足地眯着。桌子对面伸出一只手——手指修长，帮她擦掉嘴角酱汁。这是想象中的视角——那只手是他自己的。铅笔把酱色光泽画得极逼真，用不同方向排线叠加出琥珀色反光。
+        镜头2（4秒）大特写 固定：再翻一页——女生在工作。笔记本电脑屏幕光映在脸上，眉头微蹙，嘴里咬着一支笔。背景深夜办公室——工位隔板、空咖啡杯、窗外写字楼零星灯光。眼睛下面的疲惫用极细排线勾勒，是温柔的观察。纸页边缘泛微黄——画得早，纸张开始老化。
+        镜头3（4秒）特写 固定：图1的手指——指尖停在当前页右下角。那里有一行极小铅笔字。手在灯光下显出脆弱线条感，指尖微抖。盯着那句话，喉结滚动一次。然后慢慢翻到最后一页。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「这张是我想象的。想象和她一起吃饭。想象帮她擦嘴角。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「那时候我只能想象。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「她在加班。凌晨一点。办公室只剩她一个人。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「那晚我在公司楼下。等到她关灯。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「这是第一百三十七张。一百三十七次——远远看着。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「但明天。明天不是第一百三十八张。明天——我可以不用画了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical.
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+  # ============================================================
+  # SEG13 — 最后一页 (SCENE-001 · 10s · 2镜)
+  # ============================================================
+  - seg_id: SEG13
+    shots: [EP03-S27, EP03-S28]
+    scene_id: SCENE-001
+    duration_sec: 10
+    characters:
+      - char_id: CHAR-002
+        name: 陆辰逸
+        look_ids: [CHAR-002-L01]
+    props: []
+    mode: i2v_ref
+    speakers: [CHAR-002]
+    transition_to_next: hard_cut
+    assets:
+      look_urls:
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/前任的弟弟是我的租客/CHAR-002-L01.png"  # ✅ TOS permalink
+      scene_urls:
+        SCENE-001: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/前任的弟弟是我的租客/SCENE-001.png"  # ✅ TOS permalink
+    api:
+      text: |
+        【图1】陆辰逸 CHAR-002-L01（深灰卫衣，细框眼镜，黑发遮眉）【图2】小薇公寓客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）大特写 固定：素描本最后一页。没有画。只有一行铅笔字——字迹更用力更慢，每个字笔画都有重复描过的痕迹，像写了擦擦了再写。纸张上有淡淡橡皮擦痕和灰色碎屑。字写在本子中央偏下位置，周围全是空白。铅笔痕迹深深嵌入纸面纤维。那一行字写着："五年了。终于可以靠近你。"笔画最后"你"字一捺拖得很长——像不舍得把笔抬起来。
+        镜头2（5秒）中特写 缓推：图1合上素描本，动作很轻——牛皮封面缓慢合拢发出极细微一声。抬起头——视线穿过客厅，穿过落地灯暖黄光圈，穿过半明半暗的空间，落在紧闭的卧室门上。门缝下没有光。他抱着素描本，双手交叠在牛皮封面上。客厅安静得能听到落地灯灯丝微弱电流声。镜头极缓慢推近他的侧脸——黑发遮眉，眼镜反射唯一光源，但眼睛深处有某种从未见过天日的、灼热的安静。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「五年了。终于——可以靠近你。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「林小薇。你不知道。你从来不知道。」
+        对白（陆辰逸，成年男性，24岁，中低音清朗干净有少年感，说话节奏偏慢有自然停顿，日常温和安静音量偏小，认真表白时声线灼热坚定有微微颤抖，对母亲/哥哥时有克制的冷感但保持礼貌）：「但我终于来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, urban contemporary realism, warm golden tone, cinematic 85mm lens, 9:16 vertical.
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+
+# === VALIDATION ===
+# episode_total_duration_sec: 141
+# segment_count: 13
+# all_segments_duration_range: 10-12s ✅ (all within 4-12s)
+# all_segments_shot_count_range: 2-3 ✅ (all within 1-3)
+# gate_g1_duration: 141s (range: 140-200s) ✅
+# gate_g2_count: 28 declared = 28 actual ✅
+# gate_g3_asset_ids: SCENE-001/002/007, CHAR-001/002, PROP-001 all verified ✅
+# gate_g4_voice_prompt: CHAR-001/002 all from 资产/声音卡片.md ✅
+# cross_scene_check: SEG01→SCENE-007 / SEG02-09→SCENE-001 / SEG10→SCENE-002 / SEG11-13→SCENE-001 ✅
+# dialogue_fidelity: all lines verbatim from source .md ✅
+# voice_prompt_consistency: identical across segments for same CHAR ✅
