@@ -346,7 +346,15 @@ def cmd_create(args: argparse.Namespace) -> int:
         }
         if args.return_last_frame:
             body["return_last_frame"] = True
-    result = create_task(body, dry_run=args.dry_run)
+    result = create_task(
+        body,
+        dry_run=args.dry_run,
+        archive_meta={
+            "episode": str(args.episode or ""),
+            "project_root": str(project_root) if project_root else "",
+            "project": project_root.name if project_root else "",
+        } if project_root else None,
+    )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result.get("status") in ("submitted", "dry_run") else 1
 
@@ -725,6 +733,11 @@ def main() -> int:
     p_create.add_argument(
         "--project-root",
         help="本地图片路径相对根目录（默认可省略，仅路径为相对时）",
+    )
+    p_create.add_argument(
+        "--episode",
+        default="",
+        help="集数标记，如 EP01（写入 tasks.json 时用）",
     )
     p_create.set_defaults(func=cmd_create)
 
