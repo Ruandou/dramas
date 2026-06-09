@@ -150,6 +150,11 @@ script-reviewer 不在主流水线必经路径上，但在以下节点必须触�
 | 集数完整 | 所有集数全部定义（集数以故事大纲声明为准，默认 36） | 请求补充缺失集数 |
 | 每集结构 | 每集含：核心事件 + 情绪峰值 + 集末悬念 | 请求补充缺失字段 |
 | Logline | 故事概述含 Logline | 请求补充 |
+| 项目元数据 | 文件开头含 YAML 代码块（题材/视觉风格/年代/色彩基调） | 请求 story-architect 补充 |
+| 钩子矩阵 | 存在完整的 36 行 × 4 列钩子矩阵表 | 请求补充 |
+| 不可能时刻 | 存在"不可能时刻"设计节（含场景描述和传播点） | 请求补充 |
+| 情绪债务清算表 | 存在清算表（≥5 行债务-清算对） | 请求补充 |
+| 附录完整 | 角色/场景/道具三张清单均存在，列数完整 | 请求补充 |
 
 **G1 未通过 → 不得进入 Stage 2。**
 
@@ -285,12 +290,12 @@ G3 在 **Stage 3a 和 Stage 3b 都完成后**触发，进行跨资产统一验�
 |--------|----------|----------|
 | 角色卡片完整 | `资产/角色卡片.md` 已创建，大纲中所有关键角色有定义 | 请求 character-designer 补充 |
 | L01 形象完整 | 每个角色至少有 L01 基础形象图（`assets/looks/CHAR-*-L01.png`） | 请求 character-designer 生成 |
-| 角色 CDN 注册 | `assets/looks/cdn_urls.json` 中每个形象图有有效 URL | 请求重新上传 |
+| 角色 CDN 注册 | `assets/looks/cdn_urls.json` 已生成，形象图有 URL 记录（永久 TOS URL 优先，临时 URL 可放行但标注 WARNING） | 请求重新上传 |
 | CHAR-ID 一致 | 角色卡片中 ID 与 production-planner 分配的 ID 一致 | 请求修正 |
 | 反派设计 | 反派角色有"速恨"设计（具体恶行描述） | 请求 character-designer 补充 |
 | EP01 场景图完整 | EP01 涉及的所有 SCENE-* 均有对应 `assets/scenes/SCENE-*.png` | 请求 scene-prop-designer 补充 |
 | EP01 道具图完整 | EP01 涉及的所有 PROP-* 均有对应 `assets/props/PROP-*.png` | 请求 scene-prop-designer 补充 |
-| 场景/道具 CDN 注册 | `assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json` 中每个图片有有效 URL | 请求重新上传 |
+| 场景/道具 CDN 注册 | `assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json` 已生成，图片有 URL 记录（永久 TOS URL 优先，临时 URL 可放行但标注 WARNING） | 请求重新上传 |
 | 文字渲染正确 | 含指定文字的场景/道具图文字逐字确认无误 | 请求 scene-prop-designer 重新生成 |
 | 跨资产风格一致性 | 角色 L01 形象图、场景参考图、道具参考图三者在色调/光影/笔触上风格统一 | 请求调整不一致方重新生成 |
 | 分辨率合规 | 所有参考图分辨率符合制片规范要求 | 请求重新生成 |
@@ -428,6 +433,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 | 不跨场景 | 每个 segment 内所有 shot 同一 SCENE | 请求拆分 |
 | content_roles 对应 | 【图N】 ↔ content_roles 一一对应 | 请求修正 |
 | 23 项自检清单 | 全部通过 | 逐项检查失败原因，判断是上游还是本层 |
+| CDN URL 永久性 | segments.yaml 中所有 CDN URL 为永久 TOS URL（不含 `X-Tos-Expires` 签名参数），或使用本地路径带 WARNING | 若含过期预签名 URL → 阻断提交，请求执行 `tos_upload.py sync` 后重新生成 YAML |
 
 **G5 未通过 → 判断失败源**：
 - 上游问题（时长不足/镜头数不对/对白有误）→ 回退 Stage 4 修正

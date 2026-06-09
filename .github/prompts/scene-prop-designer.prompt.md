@@ -174,13 +174,18 @@ items:
 
 按迭代升级协议（Section 7）处理未通过审查的图像。
 
-## Step 9：上传图床
+## Step 9：上传 TOS 并注册永久 URL
 
-将生成的图片上传至项目配置的图床（具体服务见 `制片规范.md`），获取公开 URL：
-- 使用项目配置的图床 MCP 工具，对 `assets/scenes/` 和 `assets/props/` 下的每张 `.png` 文件上传
-- 将返回的公开 URL 记录到 `assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json`
+将生成的图片上传至 TOS（VolcEngine 对象存储）获取永久公开 URL：
 
-确保 `assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json` 已生成。
+1. 执行 `tos_upload.py sync --project-root dramas/<剧名>`
+2. 确认 `assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json` 中每个 ID 的 URL 已更新为永久 TOS URL
+3. 永久 URL 格式：`https://<bucket>.tos-cn-beijing.volces.com/scenes/<project>/SCENE-###.png`（无查询参数）
+
+**注意**：Seedream API 返回的预签名 URL（含 `X-Tos-Expires`/`X-Tos-Signature` 参数）仅 24 小时有效，不可作为最终 CDN URL。
+
+若项目 `制片规范.md` 定义了 `tos_bucket`，使用 `tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>`。
+若项目 `制片规范.md` 定义了 `tos_key_prefix`，使用 `tos_upload.py sync --project-root dramas/<剧名> --key-prefix <prefix>`。
 
 ## Step 10：执行完成前自检
 

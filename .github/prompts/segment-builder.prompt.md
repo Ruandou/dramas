@@ -473,6 +473,10 @@ assets:
 2. 用形象 ID / 场景 ID / 道具 ID 作为 key 查找 CDN URL
 3. 找到 → 填入 `assets.look_urls` / `assets.scene_urls` / `assets.prop_urls`
 4. 未找到 → 使用本地路径（如 `assets/looks/CHAR-001-L01.png`），并在 YAML 中添加警告注释
+5. **URL 类型标记** — 对每个解析到的 CDN URL 检查是否为预签名临时链接：
+   - 若 URL 包含 `X-Tos-Expires`、`X-Tos-Signature` 或 `X-Tos-Credential` 参数 → 在对应 YAML 条目添加注释：`# ⚠️ TEMP_URL: 预签名链接（24h过期），提交 Seedance 前须替换为永久 TOS URL`
+   - 合法永久 URL：纯路径无查询参数（如 `https://xxx.tos-cn-beijing.volces.com/looks/project/CHAR-001-L01.png`）
+   - 此检查为 WARNING 级别——不阻断 YAML 生成，但提醒下游 G5 门控会硬拦
 
 ## 缺失资产处理
 
@@ -660,6 +664,7 @@ segments:
 | 7 | 镜头描述纯视觉 | 镜头N描述中无对白文本、无台词 |
 | 8 | voice_prompts 完整 | 所有出场角色均在顶层 `voice_prompts` 映射中 |
 | 9 | CDN URL 解析 | 已从 `cdn_urls.json` 解析，缺失处有 WARNING 注释 |
+| 9b | URL 永久性标记 | 所有临时预签名 URL（含 `X-Tos-Expires`）已标注 `# ⚠️ TEMP_URL` 警告注释 |
 | 10 | shot_ids 一致 | segments 中引用的 shot_ids 均存在于 shots.yaml |
 | 11 | 总时长 | 所有 segment `duration_sec` 之和 ≥ 140 秒 且 ≤ 200 秒（理想范围 150–180 秒） |
 | 12 | Segment ID 命名 | 均为 `EP##-SEG##` 或 `EP##-SEG##a/b` |

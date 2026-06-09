@@ -106,6 +106,13 @@ description: 短剧角色设计师（Stage 3a）。接收 production-planner 分
     - 主角 L01 生成至少 3 个候选方案进行比选
     - 生成完成后更新形象索引
 
+12. **上传 TOS 并注册永久 URL**
+    - 执行 `tos_upload.py sync --project-root dramas/<剧名>` 将 `assets/looks/` 下所有生成图上传至 TOS
+    - 更新 `assets/looks/cdn_urls.json` 中每个形象 ID 的 URL 为永久 TOS URL（格式：`https://<bucket>.tos-cn-beijing.volces.com/looks/<project>/CHAR-###-L##.png`，无查询参数）
+    - ⚠️ Seedream API 返回的预签名 URL（含 `X-Tos-Expires` 参数）仅 24 小时有效，不可作为最终 CDN URL
+    - 若项目 `制片规范.md` 定义了 `tos_bucket`，使用 `tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>`
+    - 若项目 `制片规范.md` 定义了 `tos_key_prefix`，使用 `tos_upload.py sync --project-root dramas/<剧名> --key-prefix <prefix>`
+
 # 输出格式
 
 > **角色卡片所有权声明**：本 Agent 完全拥有和维护 `资产/角色卡片.md` 的全部内容（结构设计、视觉创意、AI Prompt、voice_prompt、形象参考图等）。其他 Agent 可引用但不得直接修改角色卡片中的任何内容。

@@ -9,7 +9,7 @@ for reference images used in Seedance 2.0 API submissions — eliminating the
 Usage:
     python3 tos_upload.py upload --file PATH --key KEY
     python3 tos_upload.py upload-dir --dir DIR --prefix PREFIX
-    python3 tos_upload.py sync --project-root ROOT
+    python3 tos_upload.py sync --project-root ROOT [--bucket BUCKET] [--key-prefix PREFIX]
     python3 tos_upload.py update-registry --project-root ROOT
     python3 tos_upload.py list [--prefix PREFIX]
 
@@ -357,6 +357,15 @@ def cmd_upload_dir(args: argparse.Namespace) -> int:
 def cmd_sync(args: argparse.Namespace) -> int:
     """Smart sync for drama project: upload looks + scenes + props + generated videos, update registry."""
     cfg = get_config()
+
+    # CLI args override all config sources
+    if args.bucket:
+        cfg["bucket"] = args.bucket
+    if args.key_prefix is not None:
+        cfg["key_prefix"] = args.key_prefix.rstrip("/") + "/" if args.key_prefix else ""
+    else:
+        cfg.setdefault("key_prefix", "")
+
     if not check_credentials(cfg):
         return 1
 
@@ -378,11 +387,12 @@ def cmd_sync(args: argparse.Namespace) -> int:
 
     # Directories to sync: (local_subdir, tos_prefix, recursive, extensions)
     project_name = project_root.name
+    kp = cfg.get("key_prefix", "")
     sync_dirs = [
-        ("looks", f"looks/{project_name}", False, IMAGE_EXTENSIONS),
-        ("scenes", f"scenes/{project_name}", False, IMAGE_EXTENSIONS),
-        ("props", f"props/{project_name}", False, IMAGE_EXTENSIONS),
-        ("generated", f"generated/{project_name}", True, VIDEO_EXTENSIONS),
+        ("looks", f"{kp}looks/{project_name}", False, IMAGE_EXTENSIONS),
+        ("scenes", f"{kp}scenes/{project_name}", False, IMAGE_EXTENSIONS),
+        ("props", f"{kp}props/{project_name}", False, IMAGE_EXTENSIONS),
+        ("generated", f"{kp}generated/{project_name}", True, VIDEO_EXTENSIONS),
     ]
 
     for subdir, prefix, recursive, extensions in sync_dirs:
@@ -467,6 +477,7 @@ def _update_registry_for_project(cfg: dict[str, str], project_root: Path) -> Non
     """Update cdn_urls.json in looks/ and scenes/ with tos_url fields."""
     assets_dir = project_root / "assets"
     project_name = project_root.name
+    kp = cfg.get("key_prefix", "")
 
     for subdir in ("looks", "scenes"):
         registry_path = assets_dir / subdir / "cdn_urls.json"
@@ -487,7 +498,7 @@ def _update_registry_for_project(cfg: dict[str, str], project_root: Path) -> Non
             local_name = entry.get("local", "")
             if not local_name:
                 local_name = f"{asset_id}.png"
-            key = f"{subdir}/{project_name}/{local_name}"
+            key = f"{kp}{subdir}/{project_name}/{local_name}"
             tos_url = build_public_url(cfg, key)
 
             if entry.get("tos_url") != tos_url:
@@ -605,6 +616,12 @@ Examples:
   # Sync entire project (looks + scenes + props)
   python3 tos_upload.py sync --project-root /path/to/drama/project
 
+  # Sync with custom bucket
+  python3 tos_upload.py sync --project-root /path/to/drama/project --bucket my-bucket
+
+  # Sync with custom key prefix
+  python3 tos_upload.py sync --project-root /path/to/drama/project --key-prefix myproject/
+
   # Update cdn_urls.json with permanent TOS URLs
   python3 tos_upload.py update-registry --project-root /path/to/drama/project
 
@@ -635,6 +652,10 @@ Examples:
     p_sync = subparsers.add_parser("sync", help="Smart sync for drama project")
     p_sync.add_argument("--project-root", "-r", required=True,
                         help="Drama project root directory")
+    p_sync.add_argument("--bucket", default=None,
+                        help="Override TOS bucket name (takes priority over env/.env/mcp.json)")
+    p_sync.add_argument("--key-prefix", default=None,
+                        help="Prepend this prefix to all object keys (e.g. 'myproject/')")
 
     # update-registry
     p_registry = subparsers.add_parser(
