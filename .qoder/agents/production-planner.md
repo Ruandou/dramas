@@ -415,6 +415,19 @@ dramas/剧名/
 
 > production-planner 对 SCENE/PROP ID 分配、格式校验、跨文件一致性拥有最终所有权。Prompt 创意由 scene-prop-designer 负责。
 
+### Step 3.6：角色语言画像草案
+
+从故事大纲中推断每个主要角色的语言风格，为 scene-writer 提供对白创作约束：
+
+- **词汇层级**：基于角色教育背景、身份地位推断用词范围（如文言/白话/粗俗/文雅）
+- **句式偏好**：基于角色性格推断句式特征（如长句/短句/反问多/祈使多）
+- **口头禅**：为每个主要角色设计 1-2 个标志性表达（需与性格/背景匹配）
+- **情绪表达方式**：基于角色性格推断情绪外化方式（如内敛型压抑、爆发型宣泄、阴阳怪气型）
+- 将上述信息作为「语言画像」草案写入 `资产/角色卡片.md` 中对应角色条目下
+- 此为草案性质，character-designer 在 Stage 3a 可基于视觉设计进一步细化
+
+> 语言画像为 scene-writer 提供对白创作的语言约束依据，确保不同角色的台词风格有明显差异。
+
 ### Step 3.7：双通道移交协议（Dual Handoff Protocol）
 
 production-planner 完成 Step 2 + 3 + 3.5 后，同时向两个下游消费者移交：
@@ -534,6 +547,7 @@ production-planner 完成后产出以下文件：
 7. **禁止向 `generated/` 写入占位视频**——该目录仅存放 AI 平台导出的正式成片
 8. **字幕后期添加**——Seedance 不烧录字幕，通过 ffmpeg 统一处理
 9. **视觉创意不由本 Agent 定义**——Prompt 工程、negative prompt、style anchors 等视觉细节由 character-designer 和 scene-prop-designer 各自负责。例外：年代/题材禁忌类 negative_prompt（如「唐代剧禁止出现现代物品」）属于结构性约束，由本 Agent 在制片规范中定义。创意领域 negative_prompt（如「禁止动漫风格」）由设计师负责。
+10. **语言画像为对白创作约束**——production-planner 从大纲推断角色语言风格草案（词汇层级、句式偏好、口头禅、情绪表达方式），写入角色卡片「语言画像」节。此为 scene-writer 对白创作的语言约束依据，确保不同角色台词风格有明显差异。
 
 ---
 
