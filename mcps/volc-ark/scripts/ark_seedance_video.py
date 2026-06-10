@@ -33,6 +33,7 @@ from pathlib import Path
 from typing import Any
 
 from ark_archive import list_tasks as list_local_tasks
+from project_task_archive import find_by_segment_id, get_submitted_segment_ids, get_submitted_shot_ids
 from ark_seedance_record import (
     archive_params_from_body,
     record_status,
@@ -553,11 +554,46 @@ def cmd_segments(args: argparse.Namespace) -> int:
                 file=sys.stderr,
             )
 
+    # --- Dedup: skip already-submitted segments ---
+    existing_map: dict[str, str] = {}
+    if not args.force:
+        existing_map = get_submitted_segment_ids(
+            project_root=project_root,
+            episode_id=ep_id,
+        )
+        if existing_map:
+            print(
+                f"✓ Dedup: {len(existing_map)} segments already submitted in archive",
+                file=sys.stderr,
+            )
+
+    # Remote dedup (optional, informational only — does NOT skip)
+    if args.check_remote and not args.force:
+        try:
+            remote_tasks = list_tasks(model=default_model(), page_size=100, max_pages=2)
+            if remote_tasks:
+                print(
+                    f"⚠ Remote API shows {len(remote_tasks)} recent tasks for this model. "
+                    f"Use --force to override dedup.",
+                    file=sys.stderr,
+                )
+        except Exception as e:
+            print(f"⚠ Remote check failed (non-blocking): {e}", file=sys.stderr)
+
     results: list[dict[str, Any]] = []
     ready = 0
 
     for seg in segments:
         sid = seg.get("segment_id", "?")
+        # Dedup check
+        if sid in existing_map and not args.force:
+            results.append({
+                "segment_id": sid,
+                "status": "already_submitted",
+                "existing_task_id": existing_map[sid],
+            })
+            print(f"⊙ {sid} already submitted (task_id={existing_map[sid]}), skipping", file=sys.stderr)
+            continue
         # With TOS URLs, skip local file validation for assets that have TOS entries
         miss = validate_segment_assets(seg, project_root)
         if miss and cdn_registry:
@@ -645,11 +681,33 @@ def cmd_shots(args: argparse.Namespace) -> int:
             print(json.dumps({"error": f"未找到 {args.shot}"}, ensure_ascii=False))
             return 1
 
+    # --- Dedup: skip already-submitted shots ---
+    existing_map: dict[str, str] = {}
+    if not args.force:
+        existing_map = get_submitted_shot_ids(
+            project_root=project_root,
+            episode_id=ep_id,
+        )
+        if existing_map:
+            print(
+                f"✓ Dedup: {len(existing_map)} tasks already submitted in archive",
+                file=sys.stderr,
+            )
+
     results: list[dict[str, Any]] = []
     skipped = ready = 0
 
     for shot in shots:
         sid = shot.get("shot_id", "?")
+        # Dedup check
+        if sid in existing_map and not args.force:
+            results.append({
+                "shot_id": sid,
+                "status": "already_submitted",
+                "existing_task_id": existing_map[sid],
+            })
+            print(f"⊙ {sid} already submitted (task_id={existing_map[sid]}), skipping", file=sys.stderr)
+            continue
         if shot.get("mode") == "skip":
             skipped += 1
             continue
@@ -784,6 +842,7 @@ def main() -> int:
     p_shots.add_argument("--check-only", action="store_true")
     p_shots.add_argument("--dry-run", action="store_true")
     p_shots.add_argument("--delay", type=float, default=0.5)
+    p_shots.add_argument("--force", action="store_true", help="忽略去重检查，强制重新提交")
     p_shots.set_defaults(func=cmd_shots)
 
     p_seg = sub.add_parser("segments", help="从 EP##_segments.yaml 提交段落视频")
@@ -794,6 +853,12 @@ def main() -> int:
     p_seg.add_argument("--check-only", action="store_true")
     p_seg.add_argument("--dry-run", action="store_true")
     p_seg.add_argument("--delay", type=float, default=0.5)
+    p_seg.add_argument("--force", action="store_true", help="忽略去重检查，强制重新提交")
+    p_seg.add_argument(
+        "--check-remote",
+        action="store_true",
+        help="额外查询云端任务列表进行去重（较慢但更全面）",
+    )
     p_seg.set_defaults(func=cmd_segments)
 
     args = parser.parse_args()

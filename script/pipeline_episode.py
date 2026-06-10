@@ -30,8 +30,10 @@ class Pipeline:
         resolution: str = "720p",
         poll_interval: int = 15,
         max_wait: int = 900,
+        force_resubmit: bool = False,
     ):
         self.project_root = os.path.abspath(project_root)
+        self.force_resubmit = force_resubmit
         self.episode = episode.upper()
         self.segments = segments
         self.api_key = ark_api_key or os.environ.get("ARK_API_KEY", "")
@@ -54,8 +56,26 @@ class Pipeline:
         """Submit all segments. Writes segment_id → task_id map."""
         print(f"[{self.episode}] Submitting {len(self.segments)} segments...\n", flush=True)
 
+        # Dedup: check if submit_results.json already exists with prior submissions
+        if not self.force_resubmit and os.path.isfile(self.submit_path):
+            try:
+                with open(self.submit_path) as f:
+                    prior = json.load(f)
+                prior_map = prior.get("task_map", {})
+                if prior_map:
+                    print(f"  ℹ Found {len(prior_map)} prior submissions in {self.submit_path}", flush=True)
+                    for sid, tid in prior_map.items():
+                        if sid not in self._task_map:
+                            self._task_map[sid] = tid
+                            self._results.append({"segment_id": sid, "task_id": tid, "status": "already_submitted"})
+                            print(f"  ⊙ {sid} already submitted (task_id={tid}), skipping", flush=True)
+            except (json.JSONDecodeError, KeyError, AttributeError, TypeError):
+                pass  # Corrupted/malformed file, ignore and re-submit all
+
         for i, seg in enumerate(self.segments):
             sid = seg["id"]
+            if sid in self._task_map:
+                continue  # Already loaded from prior submission
             cmd = [
                 "/usr/bin/python3", SEEDANCE_CLI, "create",
                 "--text", seg["text"],

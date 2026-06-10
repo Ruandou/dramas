@@ -81,6 +81,23 @@ dramas/<剧名>/
 | 视频下载 | `volc-ark` | `ark_seedance_download` | 否 |
 | 任务归档 | `volc-ark` | `ark_list_tasks` | 否 |
 
+### CLI 直接调用（MCP 不可用时等价）
+
+MCP 工具本质是 Python CLI 的薄包装。MCP 未启动时，通过 Bash 直接调用：
+
+| 操作 | CLI 命令 |
+|------|----------|
+| 提交 segments | `python3 mcps/volc-ark/scripts/ark_seedance_video.py segments EP01 --project-root dramas/<剧名>` |
+| 提交 shots | `python3 mcps/volc-ark/scripts/ark_seedance_video.py shots EP01 --project-root dramas/<剧名>` |
+| 查询任务 | `python3 mcps/volc-ark/scripts/ark_seedance_video.py get --task-id cgt-xxx` |
+| 列出远程任务 | `python3 mcps/volc-ark/scripts/ark_seedance_video.py list --json` |
+| 下载视频 | `python3 mcps/volc-ark/scripts/ark_seedance_video.py download --task-id cgt-xxx -o out.mp4` |
+| 生成图片 | `python3 mcps/volc-ark/scripts/ark_seedream_image.py generate --prompt "..." --output path.png` |
+
+**环境变量**：`export ARK_API_KEY=xxx`（或 `DRAMA_PROJECT_ROOT=dramas/<剧名>`）
+
+**⚠️ 严禁创建临时提交脚本** — 所有提交必须通过上述 CLI，其内置归档和去重保护。
+
 **自动化脚本**：
 - `script/pipeline_episode.py` — 单集流水线自动化
 - `script/local_pipeline.py` — 本地拼接流水线

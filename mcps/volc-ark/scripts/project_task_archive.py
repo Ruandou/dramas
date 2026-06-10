@@ -212,6 +212,85 @@ def list_tasks(
     return merged[:limit]
 
 
+def find_by_segment_id(
+    segment_id: str,
+    *,
+    project_root: Path | str,
+    episode_id: str,
+    exclude_statuses: tuple[str, ...] = ("failed", "cancelled"),
+) -> list[dict]:
+    """Return archived tasks for a given segment_id (non-failed).
+
+    Searches assets/generated/EP##/tasks.json for tasks whose
+    params.segment_id matches, filtering out failed/cancelled ones.
+    """
+    root = Path(project_root).resolve()
+    path = archive_file(root, KIND_SEEDANCE, episode_id)
+    if not path.is_file():
+        return []
+    doc = load_doc(path)
+    results = []
+    for task in doc.get("tasks", []):
+        params = task.get("params") or {}
+        if params.get("segment_id") == segment_id:
+            status = task.get("status", "unknown")
+            if status not in exclude_statuses:
+                results.append(task)
+    return results
+
+
+def get_submitted_segment_ids(
+    *,
+    project_root: Path | str,
+    episode_id: str,
+    exclude_statuses: tuple[str, ...] = ("failed", "cancelled"),
+) -> dict[str, str]:
+    """Return {segment_id: task_id} for all non-failed segments in an episode.
+
+    Used for dedup checks before batch submission.
+    """
+    root = Path(project_root).resolve()
+    path = archive_file(root, KIND_SEEDANCE, episode_id)
+    if not path.is_file():
+        return {}
+    doc = load_doc(path)
+    result: dict[str, str] = {}
+    for task in doc.get("tasks", []):
+        params = task.get("params") or {}
+        sid = params.get("segment_id")
+        status = task.get("status", "unknown")
+        if sid and status not in exclude_statuses:
+            if sid not in result:  # keep first (most recent, since list is newest-first)
+                result[sid] = task.get("task_id", "")
+    return result
+
+
+def get_submitted_shot_ids(
+    *,
+    project_root: Path | str,
+    episode_id: str,
+    exclude_statuses: tuple[str, ...] = ("failed", "cancelled"),
+) -> dict[str, str]:
+    """Return {shot_id: task_id} for all non-failed shots in an episode.
+
+    Used for dedup checks before batch shot submission.
+    """
+    root = Path(project_root).resolve()
+    path = archive_file(root, KIND_SEEDANCE, episode_id)
+    if not path.is_file():
+        return {}
+    doc = load_doc(path)
+    result: dict[str, str] = {}
+    for task in doc.get("tasks", []):
+        params = task.get("params") or {}
+        sid = params.get("shot_id")
+        status = task.get("status", "unknown")
+        if sid and status not in exclude_statuses:
+            if sid not in result:
+                result[sid] = task.get("task_id", "")
+    return result
+
+
 def import_jsonl(
     path: Path,
     *,

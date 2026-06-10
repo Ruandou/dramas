@@ -786,3 +786,18 @@ segments:
 13. **镜头 1:1 映射**——输出镜头数必须等于源 .md 镜头表行数，不得增删
 14. **对白逐字可溯**——输出中每行对白必须在源 .md 中有逐字对应
 15. **停止优于凑合**——遇到门控失败时，停止并上报优于降低标准继续生成
+
+---
+
+# 提交说明（非本角色职责，但需告知下游）
+
+本角色产出 YAML 后，视频提交由用户或 drama-director 使用 CLI 执行：
+
+```bash
+python3 mcps/volc-ark/scripts/ark_seedance_video.py segments EP01 \
+  --project-root dramas/<剧名>
+```
+
+去重保护已内置于 CLI（默认跳过已提交的 segment）。如需强制重新提交，加 `--force`。
+
+**严禁在项目目录下创建 submit_*.py 等临时脚本。**

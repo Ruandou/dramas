@@ -631,3 +631,6 @@ EP03: ...
 11. **ID 只增不删** — 所有 CHAR/SCENE/PROP ID 只增加、不删除，弃用标 deprecated
 12. **工作计划即合同** — `工作计划.md` 中记录的状态对所有角色具有约束力
 13. **透明沟通** — 遇到阻塞/模糊/选择题时，主动向用户请示而非自行假设
+14. **视频提交幂等性** — 提交前必须确认目标 segment 未在 tasks.json 中存在 pending/succeeded 记录。使用 `ark_seedance_video.py segments` 自动去重，或先 `--check-only` 确认。
+15. **禁止一次性提交脚本** — 禁止创建 submit_*.py、poll_*.py 等临时脚本。所有视频提交必须通过 `mcps/volc-ark/scripts/ark_seedance_video.py` CLI（MCP 开启时等价于 ark_seedance_* 工具）。
+16. **CLI 优先于 MCP** — 当 MCP 不可用时，直接通过 Bash 调用 CLI：`python3 mcps/volc-ark/scripts/ark_seedance_video.py segments EP01 --project-root dramas/<剧名>`
