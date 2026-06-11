@@ -388,6 +388,19 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 - 禁止在 L01 Prompt 中包含情绪灯光（moonlit, cinematic, somber lighting 等）
 - 角色卡片中的叙事性 AI视觉Prompt 仅用于 Seedance 视频分镜，不用于 L01 参考图生成
 
+### 美学打光升级
+
+L01 角色参考图默认使用 `clean flat studio lighting`（保证形象均匀清晰）。当用户要求提升角色颜值/吸引力时，可升级为以下打光方案：
+
+| 打光方式 | 英文关键词 | 效果 | 适用场景 |
+|----------|-----------|------|----------|
+| 蝴蝶光 | `butterfly lighting with beauty dish` | 鼻下三角阴影，突出颧骨 | 女性主角 |
+| 伦勃朗光 | `soft Rembrandt lighting` | 一侧面部明暗对比，增加立体感 | 男性主角/反派 |
+| 侧逆光 | `rim lighting with warm backlight` | 轮廓发光，增加仙气/氛围 | 仙侠角色 |
+| 黄金时段 | `golden hour warm directional light` | 温暖肤色，柔化五官 | 甜宠/情感角色 |
+
+**规则**：美学打光仅用于增强吸引力，不改变 white background 要求（背景仍为白/浅色）。打光词加在 Prompt 尾部 style 区域。
+
 ---
 
 # 角色形象质量强制规则
@@ -418,6 +431,42 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 - 虽穿粗布但难掩英气（coarse hemp robe yet unable to conceal his striking features）
 - 灰头土脸下仍是一张倾城面容（beneath the dust, an unmistakably beautiful face）
 - 衣衫破旧，眉目间灵气不减（worn clothes, yet spiritual radiance remains in every feature）
+
+### 英文吸引力关键词库（Seedream Prompt 用）
+
+以下关键词在 Seedream 英文 Prompt 中具有显著提升角色吸引力的效果。按性别分列，编写 Prompt 时**必须**从中选取适配角色气质的词汇。
+
+**女性角色关键词：**
+
+| 维度 | 推荐关键词 |
+|------|-----------|
+| 面部吸引力 | `strikingly beautiful`, `captivating features`, `refined delicate bone structure`, `ethereal beauty` |
+| 眼部 | `large expressive almond-shaped eyes`, `bright clear eyes with natural sparkle`, `eyes with natural catchlight` |
+| 肌肤 | `luminous radiant complexion`, `clear skin with natural dewy glow`, `warm healthy skin tone`, `porcelain-smooth skin` |
+| 身材比例 | `graceful feminine proportions`, `slender with elegant S-curve silhouette`, `slim waist with balanced proportions`, `willowy svelte figure`, `elegant hourglass figure` |
+| 体态 | `graceful poised posture`, `elegant carriage`, `natural confident stance`, `long elegant neck` |
+| 发质 | `silky flowing hair with natural highlights`, `hair with natural sheen and volume`, `lustrous healthy hair` |
+
+**男性角色关键词：**
+
+| 维度 | 推荐关键词 |
+|------|-----------|
+| 面部吸引力 | `strikingly handsome`, `chiseled features`, `sharp defined jawline`, `angular masculine bone structure` |
+| 眼部 | `deep intense eyes with commanding presence`, `sharp piercing gaze`, `narrow phoenix eyes with clean intense gaze` |
+| 肌肤 | `clear healthy complexion`, `natural skin texture`, `clean-shaven with sharp jaw definition visible` |
+| 身材比例 | `athletic V-taper build`, `broad shoulders tapering to lean waist`, `tall muscular yet lean frame (183cm)`, `powerful elegant build` |
+| 体态 | `commanding upright posture`, `confident assertive stance`, `shoulders back with natural authority` |
+| 发质 | `well-groomed hair with natural texture`, `clean sharp hairline` |
+
+**摄影美学增强（通用，男女皆可）：**
+
+| 技术 | 关键词 | 效果 |
+|------|--------|------|
+| 镜头选择 | `shot on 85mm lens` | 人像镜头焦段，训练数据大量为美人照片 |
+| 打光方式 | `butterfly lighting`, `beauty dish lighting` | 时尚/美妆行业标准打光 |
+| 风格锚定 | `editorial portrait photograph`, `fashion photography` | 触发美人训练数据 |
+| 肤质渲染 | `natural skin texture with visible pores`, `subsurface scattering` | 防止塑料感/假人感 |
+| 眼部高光 | `natural catchlight in eyes` | 使眼睛显得灵动有神 |
 
 ---
 
@@ -461,6 +510,25 @@ perfectly symmetrical facial features, level lip line, centered features
 3. 该块必须以英文书写，可标记为 `[FACE ANCHOR START]...[FACE ANCHOR END]` 便于复制
 4. **所有后续形象（L02+）必须逐字重复此块**，不得省略或改写
 5. 如生成工具不支持参考图，L02+ Prompt 必须以 L01 的完整面部锚定块开头
+
+### 身材比例必写规则
+
+L01 Prompt 中 `[FACE ANCHOR]` 块内，在面部描述之后、服装描述之前，**必须**包含一行身材比例描述：
+
+**女性角色**（根据角色气质三选一）：
+- 都市/职场型：`tall and slender with graceful feminine proportions (168cm), slim waist, elegant confident posture`
+- 古装/仙侠型：`tall willowy figure (167cm) with flowing silhouette, slim elegant waist, cultivator's poised upright posture`
+- 甜宠/活泼型：`petite yet well-proportioned figure (163cm), slim waist with natural feminine curves, energetic youthful posture`
+
+**男性角色**（根据角色气质三选一）：
+- 都市/精英型：`tall athletic build (183cm) with broad shoulders and lean frame, V-taper physique visible through clothing`
+- 古装/仙侠型：`tall powerful yet elegant frame (182cm) with broad shoulders tapering to lean waist, cultivator's commanding bearing`
+- 硬汉/军人型：`tall imposing muscular build (185cm) with powerful broad shoulders, strong athletic frame, commanding presence`
+
+**禁止**：
+- ❌ 仅写 "身高180cm" 而无体型描述
+- ❌ 使用 "普通身材" 等模糊描述
+- ❌ 省略身材比例行（即使角色定位为"普通人"，也应写 `average build with natural proportions (175cm), clean posture`）
 
 ---
 
@@ -760,6 +828,16 @@ shot on 85mm lens, shallow depth of field, natural skin texture with visible por
 - 左列模式在任何 Seedream Prompt（L01/L02+）中均为禁用
 - 审查时发现左列模式，判定为不合格，必须用右列替换后重新提交
 - 审查范围包括中文和英文 Prompt
+
+### 角色吸引力相关 Negative Prompt 补充
+
+在制片规范的 `negative_prompt_image` 基础上，角色 L01 生成时**追加**以下 negative 关键词以避免不美观输出：
+
+```
+asymmetrical face, unflattering angle, plastic skin, doll-like skin, mannequin skin, lifeless eyes, dead eyes, awkward body proportions, stubby limbs, hunched posture, double chin, bloated face, flat lighting, overexposed skin, underexposed face, distorted body, uncanny valley
+```
+
+**关键**：追加至 `negative_prompt_image` 末尾，不替换制片规范中已有的 negative prompt。
 
 ---
 
