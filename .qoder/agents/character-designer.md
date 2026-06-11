@@ -860,7 +860,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 - voice_prompt 格式必须从源头统一，下游全文复制
 - 形象表必须包含至少 L01 行
 
---
+---
 
 # 角色设计框架
 
