@@ -1,0 +1,626 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP05/EP05_断剑之灵.md
+# Source shots: 14 (EP05-S01 to EP05-S14)
+# Output shots: 14 (EP05-S01 to EP05-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 160s (self-calculated: 12+11+12+11+10+12+12+11+12+12+12+11+12+10)
+# Output total duration: 160s
+# Gate status: ALL PASS
+# ⚠️ NOTE: CHAR-001-L02 not found in assets/looks/cdn_urls.json — only L01 exists
+
+episode_id: EP05
+source_md: 剧本/EP05/EP05_断剑之灵.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: ", chinese xianxia drama style, cinematic quality, dramatic lighting, high detail, professional cinematography, 9:16 vertical aspect ratio, film grain, shallow depth of field, color graded"
+  negative_prompt: "modern clothing, modern buildings, western fantasy style, cartoon style, anime style, chibi, low quality, blurry, deformed, extra limbs, bad anatomy, bad hands, watermark, text overlay, logo, nsfw, nude, violence gore extreme, qing dynasty hairstyle (manchu queue), republican era clothing, modern technology, guns, cars, modern furniture"
+
+shots:
+  # ── SEG01 · 墓门初现 ──
+  - shot_id: EP05-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣，腰间左侧挂断剑·归尘 PROP-001，右侧插凡铁剑 PROP-003）【图2】裴衍 CHAR-002-L01（灰色长袍，褰色蓝马甲，背负药箱）【图3】万剑墓 SCENE-007。全景 固定：万剑墓入口，巨型石门半开，门上刻满上古剑纹，缝隙间透出幽蓝微光，图1与图2并肩站在门前，身形与巨门形成悬殊对比，地面覆着薄薄灰尘，苍青灰色调，光线幽暗。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: NARRATOR
+        line: "万剑墓。上古大战的遗迹，万千剑修的埋骨之地。"
+      - speaker: CHAR-002
+        line: "古卷上的地图没有骗人——这里，就是万剑墓。"
+      - speaker: CHAR-002
+        line: "地图背面还记着……墓中封印着某种不该存在的东西。"
+      - speaker: CHAR-001
+        line: "不管里面是什么，总比等死强。"
+    transition_to_next: dissolve
+
+  # ── SEG02 · 残剑枯骨 ──
+  - shot_id: EP05-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣）【图2】裴衍 CHAR-002-L01（灰色长袍，手持火折）【图3】万剑墓 SCENE-007。中景 缓推：两人步入墓道，脚下是碎裂的残剑与泛白枯骨，每把残剑散发微弱幽蓝剑气如萤火虫般在黑暗中明灭，图2以火折照亮前路，光线在两人脸上投下跳跃的阴影，图1目光扫过地面的枯骨神情沉重。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "这些剑……都还有残余剑气。"
+      - speaker: CHAR-002
+        line: "万年前，它们都是名剑。"
+      - speaker: CHAR-001
+        line: "剑意还在。只是主人不在了。"
+      - speaker: CHAR-002
+        line: "璃音，这里的每一具枯骨……"
+      - speaker: CHAR-002
+        line: "生前都是足以震动一方的人物。"
+    transition_to_next: dissolve
+
+  # ── SEG03 · 剑修石像 ──
+  - shot_id: EP05-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣）【图2】裴衍 CHAR-002-L01（灰色长袍，手持泛黄古卷）【图3】万剑墓 SCENE-007。仰拍 固定：墓道尽头矗立一尊巨型石像——上古剑修持剑而立，面容已被岁月磨蚀但剑姿仍透出凌厉气势，石像脚下散落着更密集的残剑其中几把隐约泛着暗金色光泽，图2展开手中泛黄的古卷与石像对比，图1仰望石像。石像脚下一把暗金色残剑突然亮了一瞬，微弱的金红光芒如脉搏般跳动一次随即熄灭，图1腰间佩剑同时发出一声低吟。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "残卷上说，墓主人是万剑之祖。"
+      - speaker: CHAR-002
+        line: "他穷尽一生，试图开辟一条新路。一条……没有人走过的路。"
+      - speaker: CHAR-001
+        line: "什么路？"
+      - speaker: CHAR-002
+        line: "古卷只记了三个字——'万剑墓'。其余的，被抹去了。"
+      - speaker: CHAR-001
+        line: "万剑之祖……他也曾想打破桎梏吗。"
+        type: inner_monologue
+    props:
+      - PROP-001
+    sfx: ancient tomb ambient, faint sword resonance hum
+    transition_to_next: hard_cut
+
+  # ── SEG04 · 断剑共鸣 ──
+  - shot_id: EP05-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/断剑归尘/PROP-001.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣，腰间佩断剑·归尘 PROP-001与凡铁剑 PROP-003）【图2】万剑墓 SCENE-007【图3】断剑·归尘 PROP-001。特写→中景：图1腰间的断剑·归尘突然开始震动发出低沉嗡鸣，半截剑身上裂纹亮起微弱的金红色光芒，与周围残剑的幽蓝剑气形成鲜明冷暖对比，而旁边的凡铁剑纹丝不动沉默如死，图1握住剑柄被一股力量牵引，目光转向墓穴最深处。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+        - file: PROP-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "归尘……它在震动。"
+      - speaker: CHAR-002
+        line: "什么样的震动？"
+      - speaker: CHAR-001
+        line: "像是……回应。有什么在叫我。"
+      - speaker: CHAR-001
+        line: "在那个方向。"
+    transition_to_next: hard_cut
+
+  # ── SEG05 · 石棺密室 ──
+  - shot_id: EP05-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣，手握断剑）【图2】裴衍 CHAR-002-L01（灰色长袍，一手按在药箱上）【图3】万剑墓 SCENE-007。全景→中景：最深处密室，中央一座漆黑石棺，棺面刻满上古封印符文符文已大半暗淡，石棺周围残剑排列成圆形如同祭坛，断剑·归尘的光芒越来越强烈金红色脉动如心跳，图2紧跟在图1身后。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "封印已经衰弱了……至少万年。"
+      - speaker: CHAR-001
+        line: "归尘的光越来越强。"
+      - speaker: CHAR-001
+        line: "这股力量……不是灵力，是更古老的东西。"
+        type: inner_monologue
+      - speaker: CHAR-002
+        line: "小心。未知之物，未必友善。"
+    transition_to_next: dissolve
+
+  # ── SEG06 · 凤凰苏醒 ──
+  - shot_id: EP05-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-006-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/断剑归尘/PROP-001.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣，手持断剑）【图2】凤鸣 CHAR-006-L01（拳头大小金红色火焰凤凰，两点金色眼睛）【图3】万剑墓 SCENE-007。特写：图1将断剑·归尘靠近石棺——金红光芒从剑身裂纹中猛烈爆发，一道火焰从断剑中飞出在空中盘旋，火焰约拳头大小有隐约的凤凰轮廓——翅翼、尾羽、凤冠——由活生生的金红色火焰构成，两点金色光点是它的眼睛，它颤抖着落在断剑剑尖上。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+        - file: PROP-001
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-006
+        line: "等你……等了很久了。"
+      - speaker: CHAR-001
+        line: "你是什么？"
+      - speaker: CHAR-006
+        line: "本座……名凤鸣。万年前沉睡于此。"
+      - speaker: CHAR-002
+        line: "凤凰残魂……古卷没有骗人。"
+      - speaker: CHAR-001
+        line: "断剑中的剑意……在回应它。"
+        type: inner_monologue
+    transition_to_next: dissolve
+
+  # ── SEG07 · 万年残魂 ──
+  - shot_id: EP05-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-002-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-006-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣）【图2】裴衍 CHAR-002-L01（灰色长袍，手按药箱）【图3】凤鸣 CHAR-006-L01（金红色火焰凤凰，落在断剑上）【图4】万剑墓 SCENE-007。近景：图3落在断剑上，两点金色眼睛仔细打量图1，火焰忽明忽暗每一次跳动都像是在喘息，图1蹲下身与图3平视，图2在旁观察手仍未离开药箱，密室被图3的金红光芒照亮温暖取代了阴冷。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-007
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-006
+        line: "仙骨碎裂，灵根散尽……"
+      - speaker: CHAR-006
+        line: "嗯？有意思。"
+      - speaker: CHAR-001
+        line: "有意思？我如今不过是个凡人。"
+      - speaker: CHAR-006
+        line: "凡人？小丫头，你的剑心还在。"
+      - speaker: CHAR-002
+        line: "剑心是什么？"
+    transition_to_next: hard_cut
+
+  # ── SEG08 · 剑心未灭 ──
+  - shot_id: EP05-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-006-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣）【图2】凤鸣 CHAR-006-L01（金红色火焰凤凰，在断剑上盘旋）【图3】万剑墓 SCENE-007。双人近景→特写：图2的火焰在断剑上跳跃围绕剑身缓缓盘旋，镜头推近图1的面庞——她听到“剑心”二字时眼中闪过一丝光芒，那是坠落以来第一次出现希望，图2的火焰映在她瞳孔中金红色跳动。微钩：图2火焰突然剧烈摇晃，密室角落石棺符文闪了一下暗金光随即熄灭，图2火焰缩小了一圈。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "心，是剑的根。骨碎了不算什么。"
+      - speaker: CHAR-006
+        line: "剑心在，根就在。"
+      - speaker: CHAR-001
+        line: "剑心……我还能握剑？"
+      - speaker: CHAR-006
+        line: "何止握剑。小丫头，你的路……才刚开始。"
+      - speaker: CHAR-002
+        line: "碎骨为基……凤凰火为引……"
+    transition_to_next: dissolve
+
+  # ── SEG09 · 凤羽现世 ──
+  - shot_id: EP05-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-006-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+      prop_urls:
+        PROP-005: https://drama-reference-images.tos-cn-beijing.volces.com/props/断剑归尘/PROP-005.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣）【图2】凤鸣 CHAR-006-L01（金红色火焰凤凰，火焰明显变弱）【图3】凤羽 PROP-005（金红色羽毛，散发温热光芒）【图4】万剑墓 SCENE-007。特写：图2的火焰中飘出一根金红色羽毛——凤羽，散发温热光芒在空中缓缓旋转，图2的火焰在交出凤羽后明显变弱火苗缩小了一半，凤羽悬浮在图1面前映照出她眼中的决心，光线以凤羽为光源中心暖金色充满画面。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: PROP-005
+          role: reference_image
+          label: 图3
+        - file: SCENE-007
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-006
+        line: "这是本座仅存的凤羽。拿好了。"
+      - speaker: CHAR-006
+        line: "凡骨为基、凤火为引——铸一条新路。"
+      - speaker: CHAR-001
+        line: "什么路？"
+      - speaker: CHAR-006
+        line: "凡骨剑道。从来没人走过的路。"
+    transition_to_next: hard_cut
+
+  # ── SEG10 · 无人成功 ──
+  - shot_id: EP05-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-002-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-006-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣，手握凤羽）【图2】裴衍 CHAR-002-L01（灰色长袍，面色凝重）【图3】凤鸣 CHAR-006-L01（金红色火焰凤凰，火焰微弱颤抖）【图4】万剑墓 SCENE-007。中景：图1握住凤羽站起身与图2交换了一个眼神，图2面色凝重眉头微蹙，图3的火焰在断剑上微微颤抖密室中的光影随它的颤抖而明灭不定，石棺上古剑修的符文在暗处若隐若现仿佛在无声警告。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-007
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-002
+        line: "从来没人成功过？"
+      - speaker: CHAR-006
+        line: "上一个尝试的人……"
+      - speaker: CHAR-001
+        line: "怎么了？"
+      - speaker: CHAR-006
+        line: "万剑墓的主人。他失败了。尸骨无存。"
+    transition_to_next: dissolve
+
+  # ── SEG11 · 万年等待 ──
+  - shot_id: EP05-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-006-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣，手持凤羽与断剑，腰间垂挂凡铁剑 PROP-003）【图2】凤鸣 CHAR-006-L01（金红色火焰凤凰，火焰微弱但稳定）【图3】万剑墓 SCENE-007。特写 缓推：图2的两点金色眼睛注视图1，火焰微弱但稳定——万年的等待凝聚在这两点金光中，图1低头看着手中的凤羽和断剑长久沉默，腰间凡铁剑沉默垂在腿侧与手中灵物形成鲜明对比，镜头缓缓推近她的面部——从犹豫到坚定一层层褪去杂念，图2在身后注视没有说话。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "万年沉寂，本座等的就是这一刻。"
+      - speaker: CHAR-006
+        line: "小丫头，你愿意吗？"
+      - speaker: CHAR-001
+        line: "我要走这条路。做第一个成功的人。"
+    transition_to_next: dissolve
+
+  # ── SEG12 · 裴衍之忧 ──
+  - shot_id: EP05-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-002-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-006-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣）【图2】裴衍 CHAR-002-L01（灰色长袍）【图3】凤鸣 CHAR-006-L01（金红色火焰凤凰，在两人之间跳动）【图4】万剑墓 SCENE-007。双人中景：图2走到图1身侧，目光中有担忧但更多是理解，图3的火焰在两人之间跳动，图1侧头看向图2——他的表情让她想起了幽谷中递来药汤的那个下午，密室的阴冷光线中两人之间的空间被图3的暖光照亮。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-007
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-002
+        line: "璃音……你想清楚了？"
+      - speaker: CHAR-001
+        line: "裴衍，你救我的时候……"
+      - speaker: CHAR-001
+        line: "我告诉自己，不是苟活，是活出意义。"
+      - speaker: CHAR-002
+        line: "……那就走吧。我替你护航。"
+      - speaker: CHAR-006
+        line: "你们年轻人就是性急。不过……本座喜欢。"
+    transition_to_next: hard_cut
+
+  # ── SEG13 · 凤鸣入剑 ──
+  - shot_id: EP05-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-002-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-006-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/断剑归尘/PROP-001.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣，握紧断剑）【图2】裴衍 CHAR-002-L01（灰色长袍）【图3】凤鸣 CHAR-006-L01（金红色火焰凤凰，缓缓融入断剑）【图4】万剑墓 SCENE-007。特写→中景：图3的火焰缓缓融入断剑·归尘，金红色光芒沿剑身裂纹流淌如同血脉重新贯通，断剑微微震动后归于平静剑身纹路中隐约可见凤凰轮廓，密室被金红光芒充盈石壁上的上古符文短暂亮起后熄灭。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-007
+          role: reference_image
+          label: 图4
+        - file: PROP-001
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-001
+        line: "断剑未凉，人心未死。"
+      - speaker: CHAR-006
+        line: "小丫头，记住今天的选择。"
+      - speaker: CHAR-006
+        line: "明日开始，本座教你以凡骨承载天道。"
+      - speaker: CHAR-002
+        line: "残卷没写的……你自己去写。"
+    transition_to_next: dissolve
+
+  # ── SEG14 · 墓主之影 ──
+  - shot_id: EP05-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-002-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/断剑归尘/CHAR-006-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/断剑归尘/SCENE-007.png
+    api:
+      text: "【图1】沈璃音 CHAR-001-L02（素色麻布衣，腰间断剑发出微弱金红光）【图2】裴衍 CHAR-002-L01（灰色长袍）【图3】凤鸣 CHAR-006-L01（声音从剑中传出）【图4】万剑墓 SCENE-007。全景 缓推：两人转身离开密室，镜头没有跟随而是缓缓推向石棺——棺面上古剑修的符文突然闪过一道暗金光随即熄灭，石棺深处似乎有一个模糊的轮廓在注视他们的背影，图1腰间断剑发出微弱但稳定的金红光芒，黑屏。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-007
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-006
+        line: "他当年……也说过一样的话。"
+      - speaker: CHAR-001
+        line: "凤鸣，你在说什么？"
+      - speaker: CHAR-006
+        line: "没什么。走吧，小丫头。"
+      - speaker: CHAR-002
+        line: "这座墓……好像在看我们。"
+    transition_to_next: fade
