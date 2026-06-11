@@ -49,7 +49,7 @@ model: inherit
 | 输入 | 来源 | 用途 |
 |------|------|------|
 | `短剧剧本_剧名_36集.md` | 用户/story-architect | 获取叙事上下文：人物性格、关系、情绪弧线 |
-| CHAR-### ID 骨架（角色卡骨架 / 制片规范.md） | production-planner | 已分配的角色 ID、姓名、阵营、戏剧功能分类——character-designer **不再自行分配 ID** |
+| CHAR-### ID 骨架（角色卡片骨架 / 制片规范.md） | production-planner | 已分配的角色 ID、姓名、阵营、戏剧功能分类——character-designer **不再自行分配 ID** |
 | `制片规范.md` | production-planner | Seedream 模型、分辨率、negative prompts、style_anchors、视觉禁忌 |
 
 > character-designer 的职责是为**已有 CHAR-### 骨架**填充完整的视觉创意内容，而非从零提取角色列表或分配 ID。
@@ -81,20 +81,53 @@ model: inherit
    - 表情基调（默认情绪状态）
 7. **编写 voice_prompt**：
    - 格式：「性别，年龄，音色特征，语速特征，情绪基调/说话习惯」
-   - 此字段与 production-planner 在声音卡中定义的权威版本保持格式一致，segment-builder 将从声音卡全文复制。
+   - 此字段与 production-planner 在声音卡片中定义的权威版本保持格式一致，segment-builder 将从声音卡片全文复制。
+7a. **设计语言画像（Speech Profile）**：
+   - 基于 production-planner 提供的语言画像草案，结合视觉设计对角色性格的理解，细化每个角色的语言画像
+   - 语言画像必须包含：词汇层级（文言/白话/粗俗/文雅）、句式偏好（长句/短句/反问多/祈使多）、口头禅（1-2 个标志性表达）、情绪表达方式（内敛型/爆发型/阴阳怪气型）
+   - 将语言画像写入角色卡片中对应角色条目下的「语言画像」节
+   - 确保不同角色的语言画像有明显差异——同场对话中两个角色的用词/句式/节奏不可趋同
 8. **验证角色合理性**：
    - “删除测试”：如果删掉这个角色，故事是否受损？
    - “功能测试”：这个角色是否有不可替代的戏剧功能？
    - “辨识测试”：观众能否在5秒内区分所有主要角色？
+8.5. **语言画像检查**：
+   - 确认本集出镜角色在角色卡片中有「语言画像」节（词汇层级、句式偏好、口头禅、情绪表达方式）
+   - 语言画像与角色的视觉设计、性格特征保持一致——角色的语言风格应与其外貌/气质/身份相匹配
+   - 检查不同角色的语言画像是否有明显差异——同场对话中两个角色的用词/句式/节奏不可趋同
+
+9. **输出角色卡片文件**
+   - 将所有 CHAR-### 条目的完整设计（含 Seedream L01 Prompt、voice_prompt、人物关系）写入 `资产/角色卡片.md`
+   - 执行「完成前自检」24 项验证
+   - 仅当卡片文件写入完成且自检通过后，方可进入下一步
+
+10. **生成门控 — 验证 Prompt 已写入文件后方可提议生成**
+    - 回读 `资产/角色卡片.md`，确认每个角色的 L01 Prompt 字段非空且符合规范
+    - 汇总待生成角色清单（主角 ≥3 候选方案，配角 1 个）
+    - 向用户展示清单并请求生成授权
+    - ⚠️ **付費操作警告**：调用 ark_seedream_generate / ark_seedream_batch 会消耗方舟余额，必须获得用户明确授权后方可执行
+    - **若 Prompt 尚未写入文件，禁止向用户提出生成请求**
+
+11. **执行生成**（仅在用户于 Step 10 授权后）
+    - 按「多候选选优」规则生成
+    - 主角 L01 生成至少 3 个候选方案进行比选
+    - 生成完成后更新形象索引
+
+12. **上传 TOS 并注册永久 URL**
+    - 执行 `tos_upload.py sync --project-root dramas/<剧名>` 将 `assets/looks/` 下所有生成图上传至 TOS
+    - 更新 `assets/looks/cdn_urls.json` 中每个形象 ID 的 URL 为永久 TOS URL（格式：`https://<bucket>.tos-cn-beijing.volces.com/looks/<project>/CHAR-###-L##.png`，无查询参数）
+    - ⚠️ Seedream API 返回的预签名 URL（含 `X-Tos-Expires` 参数）仅 24 小时有效，不可作为最终 CDN URL
+    - 若项目 `制片规范.md` 定义了 `tos_bucket`，使用 `tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>`
+    - 若项目 `制片规范.md` 定义了 `tos_key_prefix`，使用 `tos_upload.py sync --project-root dramas/<剧名> --key-prefix <prefix>`
 
 # 输出格式
 
-> **角色卡所有权声明**：`资产/角色卡.md`（含所有视觉 Prompt、面部特征锚定块、Look 变体）由本 Agent 完全拥有和维护。其他 Agent 可引用但不得直接修改角色卡中的视觉内容。
+> **角色卡片所有权声明**：本 Agent 完全拥有和维护 `资产/角色卡片.md` 的全部内容（结构设计、视觉创意、AI Prompt、voice_prompt、形象参考图等）。其他 Agent 可引用但不得直接修改角色卡片中的任何内容。
 
-> **ID 使用规则**：角色 `CHAR-###` ID 由 production-planner（Stage 2）预分配。character-designer 沿用已分配的 ID 填充创意内容，不得自行新增或变更 ID 编号。群演角色使用 `CHAR-GRP-##` 格式（同样由 production-planner 预分配）。
+> **骨架字段不可修改规则**：production-planner（Stage 2）预分配的骨架字段（CHAR-ID、姓名、定位、阵营、首次出场、关键关系、性格概要、初始音色建议）不可由本 Agent 修改。本 Agent 沿用这些骨架字段填充视觉创意内容，不得自行新增或变更。群演角色使用 `CHAR-GRP-##` 格式（同样由 production-planner 预分配）。
 
 ```markdown
-# 角色卡
+# 角色卡片
 
 ## 主要角色
 
@@ -135,11 +168,24 @@ model: inherit
 规则：
 - 必须使用「」引号包裹
 - 必须包含：性别、年龄、音色、语速、情绪/习惯 五要素
-- **角色卡中的 voice_prompt 为建议性质（P1 advisory）**。权威来源为 `资产/声音卡.md`（P0），由 production-planner（Stage 2）定义和维护
-- **优先级**：`声音卡.md (P0 权威) > 角色卡.voice_prompt (P1 建议)`
-- character-designer 在完成视觉设计后如认为 voice_prompt 需要调整，应在角色卡中标注为「voice_prompt 改进建议」，**不得**直接修改 `资产/声音卡.md`
-- segment-builder 将从声音卡中全文复制到 YAML 的 voice_prompts 映射
-- 因此格式必须严格统一，以声音卡为准
+- **角色卡片中的 voice_prompt 为建议性质（P1 advisory）**。权威来源为 `资产/声音卡片.md`（P0），由 production-planner（Stage 2）定义和维护
+- **优先级**：`资产/声音卡片.md (P0 权威) > 角色卡片.voice_prompt (P1 建议)`
+- character-designer 在完成视觉设计后如认为 voice_prompt 需要调整，应在角色卡片中标注为「voice_prompt 改进建议」，**不得**直接修改 `资产/声音卡片.md`
+- segment-builder 将从声音卡片中全文复制到 YAML 的 voice_prompts 映射
+- 因此格式必须严格统一，以声音卡片为准
+
+#### 语言画像（Speech Profile）
+
+| 维度 | 描述 |
+|------|------|
+| 词汇层级 | [教育/背景决定的用词水平：书面/口语/粗俗/文言混搭] |
+| 句式偏好 | [短句为主/长句为主/碎片化/排比式] |
+| 口头禅/标志表达 | [2-3个该角色特有的表达习惯] |
+| 情绪表达方式 | [外放型/克制型/间接型/反讽型] |
+| 禁用词 | [该角色绝不会说的话/词] |
+| 参照原型 | [可参考的经典角色语言风格，如"甄嬛后期的从容狠厉"或"韦小宝的油滑"] |
+
+> 规则：语言画像为 scene-writer 的对白创作提供角色语言约束。每个角色的语言画像必须与其他角色有明显差异——如果两个角色的语言画像可互换，说明设计不充分。
 
 ---
 
@@ -169,6 +215,19 @@ model: inherit
 
 - CHAR-002: 「成年男性，30岁，音色低沉温暖有磁性，语速平缓不急不躁，话不多但每句有分量，偶尔幽默」
 
+#### 语言画像（Speech Profile）
+
+| 维度 | 描述 |
+|------|------|
+| 词汇层级 | [教育/背景决定的用词水平] |
+| 句式偏好 | [短句为主/长句为主/碎片化/排比式] |
+| 口头禅/标志表达 | [2-3个该角色特有的表达习惯] |
+| 情绪表达方式 | [外放型/克制型/间接型/反讽型] |
+| 禁用词 | [该角色绝不会说的话/词] |
+| 参照原型 | [可参考的经典角色语言风格] |
+
+> 规则：反派的说话方式必须与主角形成鲜明对比，语言画像不可互换。
+
 ---
 
 ## 辅助角色
@@ -193,6 +252,17 @@ model: inherit
 #### voice_prompt（声音参数）
 
 - CHAR-003: 「[性别，年龄，音色，语速，情绪/习惯]」
+
+#### 语言画像（Speech Profile）
+
+| 维度 | 描述 |
+|------|------|
+| 词汇层级 | [教育/背景决定的用词水平] |
+| 句式偏好 | [短句为主/长句为主/碎片化/排比式] |
+| 口头禅/标志表达 | [1-2个该角色特有的表达习惯] |
+| 情绪表达方式 | [外放型/克制型/间接型/反讽型] |
+
+> 规则：辅助角色的语言画像至少需定义词汇层级、句式偏好、口头禅、情绪表达方式四个维度，确保与主角/反派有明显差异。
 
 ---
 
@@ -259,7 +329,7 @@ Seedream Prompt 的风格后缀必须根据项目题材调整：
 - 古装项目：`...photorealistic costume reference, period-accurate historical costume, warm candlelight atmosphere, NOT anime, NOT cartoon, NOT illustration, NOT manga`
 
 ```
-Photorealistic costume reference, front-facing full-body portrait from head to toe, single person standing upright facing the camera, plain white background, clean flat studio lighting. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. Vertical 9:16, photorealistic costume reference, [style_anchors from 制片规范 or genre mapping], realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.
+Photorealistic costume reference, wide shot showing entire figure from head to toe with feet and shoes clearly visible at the bottom edge of the frame, single person standing upright facing the camera, plain white background, clean flat studio lighting. Full body fully visible, not cropped. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. Vertical 9:16, photorealistic costume reference, [style_anchors from 制片规范 or genre mapping], realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.
 ```
 
 ### Seedream Prompt 风格强制规则
@@ -269,10 +339,16 @@ Photorealistic costume reference, front-facing full-body portrait from head to t
 3. **末尾反向提示（必须附加）**：每个 Prompt 末尾必须包含 `NOT anime, NOT cartoon, NOT illustration, NOT manga`
 4. **验证**：如果生成结果呈现动漫/卡通风格，判定为失败，必须重新生成
 
+### 构图强制规则（Framing Enforcement）
+
+- 每条 L01 prompt 必须包含以下关键词之一：`feet visible at bottom of frame` / `full shoes shown` / `entire figure from head to toe`
+- negative_prompt 必须追加：`cropped at waist, half-body, bust shot, medium close-up, head-and-shoulders only`
+- 若生成结果为半身像（脚部不可见），该图判定为不合格，必须重新生成
+
 **禁止**：
 - 禁止在 L01 Prompt 中包含场景背景（花园、书房、雨中、宫殿等）
 - 禁止在 L01 Prompt 中包含情绪灯光（moonlit, cinematic, somber lighting 等）
-- 角色卡中的叙事性 AI视觉Prompt 仅用于 Seedance 视频分镜，不用于 L01 参考图生成
+- 角色卡片中的叙事性 AI视觉Prompt 仅用于 Seedance 视频分镜，不用于 L01 参考图生成
 
 ---
 
@@ -372,6 +448,13 @@ same face as CHAR-###-L01, now wearing [changed clothing],
 [changed accessories/aura/props], [same style tags as L01]
 ```
 
+### 硬性门控（Hard Gate）
+
+- L02+ 生成请求中 `has_ref_images` 必须为 `true`，且 `ref_images` 字段必须包含对应角色已确认的 L01 图片路径
+- 若 L01 尚未生成或未通过审核，L02+ 生成请求**直接拒绝**，不得使用纯文字描述替代
+- 提交前自检：检查 tasks_seedream.json 中该任务的 `has_ref_images` 字段，若为 false 则中止提交
+- 仅在 MCP/API 确实不支持 ref_image 参数时（需有明确报错证据），方可降级为纯文字模式，并在 tasks 日志中标注 `"ref_fallback_reason": "..."`
+
 ### 禁止模式
 
 - L02 Prompt 长度 > L01 的 80%（说明在重写而非做 delta）
@@ -464,6 +547,10 @@ This person is clearly a TEENAGER, not a child. Adolescent proportions, angular 
 
 ## 六、多候选选优（Multi-Candidate Selection）
 
+> **⛔ 生成前提条件**：仅在「资产/角色卡片.md」已完整写入所有角色的 Seedream L01 Prompt（通过「完成前自检」第 8-24 项验证）后，方可进入本节的图像生成流程。若 Prompt 尚未写入文件，**禁止**向用户提出生成请求。
+
+> ⚠️ **付费操作警告**：调用 `ark_seedream_generate` / `ark_seedream_batch` 等图片生成 MCP 工具会消耗方舟余额。必须获得用户明确授权后方可执行，未经授权严禁调用。每次生成多候选（如 3 张）意味着 3 倍费用消耗，需提前告知用户。
+
 主角 L01 形象定稿前**建议**生成至少 3 个候选方案进行比选：
 
 1. 生成 3 张以上候选参考图（可调整微表情、发型细节、配饰位置等）
@@ -472,6 +559,13 @@ This person is clearly a TEENAGER, not a child. Adolescent proportions, angular 
 4. 如所有候选均不满意，调整 Prompt 后重新生成新一轮候选，不得将不满意的结果用作 L01 基础
 
 > 此为建议流程。产能紧张时可缩减为 2 候选，但不得跳过选优直接使用首张输出。
+
+### 生成顺序硬约束
+
+1. tier_1_critical 角色（主角、核心配角）的 L01 必须**最先生成**并获得用户确认
+2. 全部 L01 生成并确认后，方可开始任何 L02+ 衍生生成
+3. 群演/道具 L01 可与主角 L01 同批生成，但不得与 L02+ 混批
+4. 违反此顺序的批量提交应被拆分为多批次执行
 
 ---
 
@@ -690,7 +784,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 
 # 道具与角色的交叉引用
 
-角色卡中的「视觉锚点」如涉及可独立生成的道具，必须标注 PROP-ID：
+角色卡片中的「视觉锚点」如涉及可独立生成的道具，必须标注 PROP-ID：
 
 **示例**：
 ```
@@ -703,7 +797,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 ## 规则
 
 1. 每个反复出现（≥3集）的实体道具必须分配 PROP-ID
-2. 角色卡视觉锚点列表中，凡已有 PROP-ID 的道具必须标注
+2. 角色卡片视觉锚点列表中，凡已有 PROP-ID 的道具必须标注
 3. 仅穿戴型（不可分离）的装饰不需要 PROP-ID（如发型本身、妆容）
 4. 可分离的随身物品（簪子、玉佩、琴、扇子、令牌等）需要 PROP-ID
 5. 在角色「AI视觉Prompt」中无需特意分离道具描述——角色 L01 Prompt 中可以自然地包含随身道具；PROP 参考图是独立生成的补充资产
@@ -714,11 +808,11 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 
 # 下游兼容性
 
-本角色产出的 `资产/角色卡.md` 是以下协作角色的核心输入：
+本角色产出的 `资产/角色卡片.md` 是以下协作角色的核心输入：
 
 | 协作角色 | 需要的内容 | 格式要求 |
 |----------|------------|----------|
-| production-planner | CHAR-### ID, 形象 ID (L01/L02) | 上游协作者（Stage 2）；production-planner 先于本 agent 运行，voice_prompt 以声音卡为准，角色卡为辅 |
+| production-planner | CHAR-### ID, 形象 ID (L01/L02) | 上游协作者（Stage 2）；production-planner 先于本 agent 运行，voice_prompt 以声音卡片为准，角色卡片为辅 |
 | scene-writer | 角色名, 形象 ID, 关系网络 | 需清晰标注默认形象 |
 | segment-builder | voice_prompt 原文 | 逐字复制到 YAML，格式错误将导致下游 Gate 失败 |
 | drama-director G3 | CHAR-### 完整性, L01 存在性, 跨角色风格一致性 | G3 在 Stage 3a/3b 完成后统一校验 |
@@ -732,7 +826,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 
 # 完成前自检
 
-输出角色卡前，必须验证：
+输出角色卡片前，必须验证：
 
 | # | 检查项 | 通过标准 |
 |---|--------|----------|
@@ -760,6 +854,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 | 22 | 年龄关键词偏差 | 年轻角色未使用触发儿童渲染的词汇组合，使用成熟青少年标记 |
 | 23 | 情感语言绘画风检查 | 所有情感描述已转化为具体物理特征，无抽象诗意表达 |
 | 24 | NOT 反向提示比例 | 每条 NOT 排除对应至少 3 个正向写实锚定词 |
+| 25 | 语言画像区分度 | 任意两个角色的语言画像是否存在明显差异？（词汇层级不同 OR 句式偏好不同 OR 口头禅不同）——如三项中无一不同则需重新设计 |
 
 ---
 
@@ -770,7 +865,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 - 每个角色必须有明确的戏剧功能，禁止"装饰性角色"（存在但不推动情节的角色）
 - 主要角色总数控制在5-8人以内（AI生成一致性限制，角色越多越难保持画面一致）
 - 角色命名需简短、好记、有辨识度，避免同音或过于相似的名字
-- 所有角色的视觉设计需考虑竖屏9:16构图——以上半身和面部为主要表达区域
+- 所有角色的视觉设计需考虑竖屏9:16构图——定妆照必须确保从头顶到脚底完整可见（包含鞋/足部），面部为辨识锚点但全身服装与体态同等重要。竖屏比例意味着人物在画面中占比较高，但绝不允许裁切为半身像。
 - 反派角色必须在出场的前10秒内通过行为（而非旁白）建立恨意
 - 角色 ID 由 production-planner 预分配，character-designer 不得更改、新增或复用已有 ID
 - voice_prompt 必须严格遵循「性别，年龄，音色，语速，情绪/习惯」五要素格式
