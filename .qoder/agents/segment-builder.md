@@ -467,6 +467,12 @@ assets:
 
 # 资产 URL 解析规则
 
+## URL 解析优先级（从高到低）
+
+1. `tos_url`（永久 TOS 链接，无过期）— **首选**
+2. `cdn_url`（临时预签名 URL）— 仅当 `tos_url` 不存在时使用，标注 `# ⚠️ TEMP_URL — 24h内过期，须尽快执行 tos_upload.py sync`
+3. 本地路径（`assets/...`）— 最终降级，标注 `# WARNING: no CDN URL — API提交将失败`
+
 ## 解析流程
 
 1. 读取 `assets/looks/cdn_urls.json`、`assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json`

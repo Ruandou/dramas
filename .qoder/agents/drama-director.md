@@ -338,12 +338,12 @@ G3 在 **Stage 3a（prop-designer）、Stage 3b（character-designer）和 Stage
 |--------|----------|----------|
 | 角色卡片完整 | `资产/角色卡片.md` 已创建，大纲中所有关键角色有定义 | 请求 character-designer 补充 |
 | L01 形象完整 | 每个角色至少有 L01 基础形象图（`assets/looks/CHAR-*-L01.png`） | 请求 character-designer 生成 |
-| 角色 CDN 注册 | `assets/looks/cdn_urls.json` 已生成，形象图有 URL 记录（永久 TOS URL 优先，临时 URL 可放行但标注 WARNING） | 请求重新上传 |
+| 角色 CDN 注册 | `assets/looks/cdn_urls.json` 已生成，所有条目必须含 `tos_url` 永久链接。临时预签名 URL（含 `X-Tos-Expires`）**不可放行** → 要求 character-designer 执行 `tos_upload.py sync` | 请求执行 TOS 上传 |
 | CHAR-ID 一致 | 角色卡片中 ID 与 production-planner 分配的 ID 一致 | 请求修正 |
 | 反派设计 | 反派角色有"速恨"设计（具体恶行描述） | 请求 character-designer 补充 |
 | EP01 场景图完整 | EP01 涉及的所有 SCENE-* 均有对应 `assets/scenes/SCENE-*.png` | 请求 scene-designer 补充 |
 | EP01 道具图完整 | EP01 涉及的所有 PROP-* 均有对应 `assets/props/PROP-*.png` | 请求 prop-designer 补充 |
-| 场景/道具 CDN 注册 | `assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json` 已生成，图片有 URL 记录（永久 TOS URL 优先，临时 URL 可放行但标注 WARNING） | 请求重新上传 |
+| 场景/道具 CDN 注册 | `assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json` 已生成，所有条目必须含 `tos_url` 永久链接。临时预签名 URL（含 `X-Tos-Expires`）**不可放行** → 要求对应设计师执行 `tos_upload.py sync` | 请求执行 TOS 上传 |
 | 文字渲染正确 | 含指定文字的场景/道具图文字逐字确认无误 | 请求 scene-designer / prop-designer 重新生成 |
 | 跨资产风格一致性 | 角色 L01 形象图、场景参考图、道具参考图三者在色调/光影/笔触上风格统一 | 请求调整不一致方重新生成 |
 | 分辨率合规 | 所有参考图分辨率符合制片规范要求 | 请求重新生成 |

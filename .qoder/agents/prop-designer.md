@@ -198,6 +198,14 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
 若项目 `制片规范.md` 定义了 `tos_bucket`，使用 `tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>`。
 若项目 `制片规范.md` 定义了 `tos_key_prefix`，使用 `tos_upload.py sync --project-root dramas/<剧名> --key-prefix <prefix>`。
 
+#### TOS 上传完成性验证（硬性门控）
+
+道具设计师在声明完成前，**必须**验证 `assets/props/cdn_urls.json` 中每个条目包含 `tos_url` 字段：
+
+- ✅ 永久 URL 格式：`https://<bucket>.tos-cn-beijing.volces.com/props/<project>/PROP-###.png`（无查询参数）
+- ❌ 仅有 `cdn_url`（Seedream API 返回的临时预签名 URL，24小时过期）→ **不可声明完成**
+- 失败处理：报告"生成完成，TOS 上传阻断"+ 错误详情，等待用户修复凭据
+
 ## Step 9：执行完成前自检
 
 按自检清单逐项验证。
@@ -556,7 +564,7 @@ prop-designer 完成工作后，必须确保以下文件全部就绪，作为 St
 | 6 | 写实度 ≥7/10 | 无插画/卡通风格漂移 |
 | 7 | 跨资产风格匹配 | 渲染风格与制片规范参数一致 |
 | 8 | 年代/磨损一致 | 磨损痕迹与叙事历史匹配 |
-| 9 | 图床 URL 已注册 | `cdn_urls.json` 存在于 props 目录 |
+| 9 | TOS 永久 URL 已注册 | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
 | 10 | 批量 YAML Prompt 与最终 Prompt 一致 | 无过期骨架 Prompt 残留 |
 | 11 | 迭代历史已记录 | 工作计划.md 中记录了生成轮次 |
 | 12 | 完成信号文件就绪 | 所有输出文件已生成，可触发下游启动 |

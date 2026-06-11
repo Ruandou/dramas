@@ -131,6 +131,23 @@ tools: [Read, Write, Grep, Glob, Bash]
     - 若项目 `制片规范.md` 定义了 `tos_bucket`，使用 `tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>`
     - 若项目 `制片规范.md` 定义了 `tos_key_prefix`，使用 `tos_upload.py sync --project-root dramas/<剧名> --key-prefix <prefix>`
 
+#### TOS 上传完成性验证（硬性门控）
+
+设计师在声明完成前，**必须**验证 `cdn_urls.json` 中每个条目包含 `tos_url` 字段：
+
+**通过条件**：
+- ✅ 每个已生成角色 ID 在 `cdn_urls.json` 中存在对应 key
+- ✅ 每个条目的 `tos_url` 字段为永久 URL（格式：`https://<bucket>.tos-cn-beijing.volces.com/looks/<project>/CHAR-###-L##.png`，无 `X-Tos-Expires` 参数）
+- ✅ `tos_url` 可通过 HTTP HEAD 请求验证可达
+
+**阻断条件**（不可声明完成）：
+- ❌ `cdn_urls.json` 中仅有 `cdn_url`（临时预签名 URL）而无 `tos_url`
+- ❌ `tos_url` 字段包含 `X-Tos-Expires` 或 `X-Tos-Signature` 查询参数
+- ❌ `tos_upload.py sync` 执行失败或未执行
+
+**失败处理**：
+若 `tos_upload.py sync` 因凭据缺失或网络问题失败 → 报告"图片生成完成，TOS 上传阻断"，附具体错误信息，等待用户处理凭据后重试。**不可跳过此步骤声明完成。**
+
 # 输出格式
 
 > **角色卡片所有权声明**：本 Agent 完全拥有和维护 `资产/角色卡片.md` 的全部内容（结构设计、视觉创意、AI Prompt、voice_prompt、形象参考图等）。其他 Agent 可引用但不得直接修改角色卡片中的任何内容。
@@ -1300,6 +1317,7 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 | 28 | 反派层级覆盖 | 根据题材确认所需的反派层级数，各层有明确时段和满足感编码 |
 | 29 | 痛点命中 | 主角命中目标受众 ≥2 个核心痛点 |
 | 30 | 角色预算 | 有名角色总数 ≤15，每个角色通过"有用+有记忆点"双重测试 |
+| 31 | TOS 永久 URL 验证 | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
 
 ---
 

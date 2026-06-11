@@ -250,6 +250,14 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 若项目 `制片规范.md` 定义了 `tos_bucket`，使用 `tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>`。
 若项目 `制片规范.md` 定义了 `tos_key_prefix`，使用 `tos_upload.py sync --project-root dramas/<剧名> --key-prefix <prefix>`。
 
+#### TOS 上传完成性验证（硬性门控）
+
+场景设计师在声明完成前，**必须**验证 `assets/scenes/cdn_urls.json` 中每个条目包含 `tos_url` 字段：
+
+- ✅ 永久 URL 格式：`https://<bucket>.tos-cn-beijing.volces.com/scenes/<project>/SCENE-###.png`（无查询参数）
+- ❌ 仅有 `cdn_url`（临时预签名 URL）→ **不可声明完成**
+- 失败处理：报告"生成完成，TOS 上传阻断"+ 错误详情，等待用户修复凭据
+
 ## Step 10：执行完成前自检
 
 按自检清单逐项验证。
@@ -706,7 +714,7 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 | 5 | 每个场景含题材视觉标记 | 至少 1 个/图 |
 | 6 | 写实度 ≥7/10 | 无插画/卡通风格漂移 |
 | 7 | 跨资产风格匹配 | 渲染风格与制片规范参数一致（若角色图已就绪则交叉比对） |
-| 8 | 图床 URL 已注册 | `cdn_urls.json` 存在于 scenes 目录 |
+| 8 | TOS 永久 URL 已注册 | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
 | 9 | 批量 YAML Prompt 与最终 Prompt 一致 | 无过期骨架 Prompt 残留 |
 | 10 | 场景色彩调性一致 | 同一项目场景间无风格断裂 |
 | 11 | 迭代历史已记录 | 工作计划.md 中记录了生成轮次 |
