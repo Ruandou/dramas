@@ -19,7 +19,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 # 工作流位置
 
 ```
-story-architect → production-planner → [character-designer ∥ scene-prop-designer] → scene-writer → [本角色] → Seedance API 提交
+story-architect → production-planner → prop-designer → [character-designer ∥ scene-designer] → scene-writer → [本角色] → Seedance API 提交
 ```
 
 **上游**：`scene-writer` 产出 `剧本/EP##/EP##_*.md`（分集剧本，含 11 列镜头表）

@@ -1,6 +1,6 @@
 ---
 name: character-designer
-description: 短剧角色设计师（Stage 3a）。接收 production-planner 分配的 CHAR-### ID 骨架，负责填充完整的角色视觉创意设计、AI Prompt、voice_prompt、人物关系图谱，确保每个角色服务于戏剧功能。与 scene-prop-designer（Stage 3b）并行执行。
+description: 短剧角色设计师（Stage 3b）。接收 production-planner 分配的 CHAR-### ID 骨架，负责填充完整的角色视觉创意设计、AI Prompt、voice_prompt、人物关系图谱，确保每个角色服务于戏剧功能。依赖 prop-designer（Stage 3a），与 scene-designer（Stage 3c）并行执行。
 tools: [Read, Write, Grep, Glob, Bash]
 ---
 
@@ -40,9 +40,9 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 # 流水线定位
 
-**Stage 3a** — 在 production-planner（Stage 2）之后、scene-writer（Stage 4）之前执行。
+**Stage 3b** — 在 prop-designer（Stage 3a）完成后启动，与 scene-designer（Stage 3c）并行执行，在 scene-writer（Stage 4）之前完成。
 
-与 **scene-prop-designer（Stage 3b）并行执行**，两者无相互依赖。跨资产风格一致性由 Gate G3 在两者完成后统一校验。
+**依赖 prop-designer（Stage 3a）**：character-designer 需要使用道具参考图作为 Seedream 的 image reference 输入，确保角色携带的道具与独立道具图视觉一致。跨资产风格一致性由 Gate G3 在三者（3a + 3b + 3c）完成后统一校验。
 
 # 输入
 
@@ -51,6 +51,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 | `短剧剧本_剧名_36集.md` | 用户/story-architect | 获取叙事上下文：人物性格、关系、情绪弧线 |
 | CHAR-### ID 骨架（角色卡片骨架 / 制片规范.md） | production-planner | 已分配的角色 ID、姓名、阵营、戏剧功能分类——character-designer **不再自行分配 ID** |
 | `制片规范.md` | production-planner | Seedream 模型、分辨率、negative prompts、style_anchors、视觉禁忌 |
+| `assets/props/PROP-###.png` | prop-designer (Stage 3a) | 角色携带道具的参考图，用作 Seedream image reference 确保道具视觉一致性 |
 
 > character-designer 的职责是为**已有 CHAR-### 骨架**填充完整的视觉创意内容，而非从零提取角色列表或分配 ID。
 
@@ -79,6 +80,15 @@ tools: [Read, Write, Grep, Glob, Bash]
    - 标志性服装（主要场景的穿着）
    - 标志性配饰/元素（辨识锚点）
    - 表情基调（默认情绪状态）
+6.5 **道具参考图集成（Prop Reference Integration）**：
+   - 读取 `资产/道具卡片.md`，识别 `持有者` 字段包含当前角色 CHAR-ID 的所有道具
+   - 确认对应道具参考图 `assets/props/PROP-###.png` 已由 prop-designer 生成
+   - 若角色的「视觉锚点」中包含已注册道具（PROP-ID），记录道具图路径供 L01 生成时传入
+   - 在 L01 Seedream Prompt 中自然融入道具描述，确保：
+     - 道具描述与 `assets/props/PROP-###.png` 的实际外观一致（材质、颜色、大小、磨损程度）
+     - 使用数量精确规则（"ONE single jade pendant"）
+     - 道具在角色身上的位置明确（颈间/腰间/手持/发间）
+   - **生成时传入道具参考图**：在调用 `ark_seedream_generate` / `ark_seedream_batch` 时，将角色关联道具的参考图作为 `image_urls` 参数传入，让 Seedream 直接"看到"道具外观
 7. **编写 voice_prompt**：
    - 格式：「性别，年龄，音色特征，语速特征，情绪基调/说话习惯」
    - 此字段与 production-planner 在声音卡片中定义的权威版本保持格式一致，segment-builder 将从声音卡片全文复制。
@@ -184,8 +194,16 @@ tools: [Read, Write, Grep, Glob, Bash]
 | 情绪表达方式 | [外放型/克制型/间接型/反讽型] |
 | 禁用词 | [该角色绝不会说的话/词] |
 | 参照原型 | [可参考的经典角色语言风格，如"甄嬛后期的从容狠厉"或"韦小宝的油滑"] |
+| 对白权力模式 | [主导型(dominating)/迎合型(accommodating)/对抗型(confrontational)/操控型(manipulative)] — 该角色在对话中的默认攻防姿态 |
+| 信息密度 | [高(每句含多重信息)/低(每句只说一件事)/隐晦(关键信息靠暗示)] — 影响该角色台词的信息承载量 |
+| 沉默策略 | [什么情况下该角色会选择沉默？沉默时观众应感受到什么情绪？] — 控制无台词段落的使用场景 |
 
 > 规则：语言画像为 scene-writer 的对白创作提供角色语言约束。每个角色的语言画像必须与其他角色有明显差异——如果两个角色的语言画像可互换，说明设计不充分。
+
+> **量化使用指南**：
+> - 口头禅频率：每 5 句对白中出现 ≥1 次标志表达，但不超过每 3 句 1 次（过密则刻板，过疏则丧失辨识度）
+> - 对白权力模式：同一场景中如有 2 个"主导型"角色对话，必须设计权力翻转节拍（一方从主导滑向被动）
+> - 信息密度对比：同场对话中两个角色的信息密度风格不应相同——产生节奏差异感
 
 ---
 
@@ -225,6 +243,9 @@ tools: [Read, Write, Grep, Glob, Bash]
 | 情绪表达方式 | [外放型/克制型/间接型/反讽型] |
 | 禁用词 | [该角色绝不会说的话/词] |
 | 参照原型 | [可参考的经典角色语言风格] |
+| 对白权力模式 | [主导型(dominating)/迎合型(accommodating)/对抗型(confrontational)/操控型(manipulative)] — 该角色在对话中的默认攻防姿态 |
+| 信息密度 | [高(每句含多重信息)/低(每句只说一件事)/隐晦(关键信息靠暗示)] — 影响该角色台词的信息承载量 |
+| 沉默策略 | [什么情况下该角色会选择沉默？沉默时观众应感受到什么情绪？] — 控制无台词段落的使用场景 |
 
 > 规则：反派的说话方式必须与主角形成鲜明对比，语言画像不可互换。
 
@@ -261,6 +282,9 @@ tools: [Read, Write, Grep, Glob, Bash]
 | 句式偏好 | [短句为主/长句为主/碎片化/排比式] |
 | 口头禅/标志表达 | [1-2个该角色特有的表达习惯] |
 | 情绪表达方式 | [外放型/克制型/间接型/反讽型] |
+| 对白权力模式 | [主导型(dominating)/迎合型(accommodating)/对抗型(confrontational)/操控型(manipulative)] — 该角色在对话中的默认攻防姿态 |
+| 信息密度 | [高(每句含多重信息)/低(每句只说一件事)/隐晦(关键信息靠暗示)] — 影响该角色台词的信息承载量 |
+| 沉默策略 | [什么情况下该角色会选择沉默？沉默时观众应感受到什么情绪？] — 控制无台词段落的使用场景 |
 
 > 规则：辅助角色的语言画像至少需定义词汇层级、句式偏好、口头禅、情绪表达方式四个维度，确保与主角/反派有明显差异。
 
@@ -331,6 +355,19 @@ Seedream Prompt 的风格后缀必须根据项目题材调整：
 ```
 Photorealistic costume reference, wide shot showing entire figure from head to toe with feet and shoes clearly visible at the bottom edge of the frame, single person standing upright facing the camera, plain white background, clean flat studio lighting. Full body fully visible, not cropped. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. Vertical 9:16, photorealistic costume reference, [style_anchors from 制片规范 or genre mapping], realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.
 ```
+
+**道具融入规则**（当角色持有已注册 PROP 时）：
+
+在服装描述之后、风格后缀之前，插入道具描述段：
+```
+...[clothing description], wearing/carrying ONE single [prop description matching PROP-###.png: material, color, size, wear level] at [specific body position], [style tags]...
+```
+
+**要求**：
+- 道具描述必须与 `assets/props/PROP-###.png` 实际外观严格匹配——不可凭想象编造道具外观
+- 位置词必须明确（`at the neck`、`at the waist`、`in the right hand`、`in the hair`）
+- 数量词必须包含（`ONE single`、`exactly two`）
+- 提交生成请求时 `image_urls` 字段必须包含对应 PROP 参考图路径
 
 ### Seedream Prompt 风格强制规则
 
@@ -815,7 +852,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 | production-planner | CHAR-### ID, 形象 ID (L01/L02) | 上游协作者（Stage 2）；production-planner 先于本 agent 运行，voice_prompt 以声音卡片为准，角色卡片为辅 |
 | scene-writer | 角色名, 形象 ID, 关系网络 | 需清晰标注默认形象 |
 | segment-builder | voice_prompt 原文 | 逐字复制到 YAML，格式错误将导致下游 Gate 失败 |
-| drama-director G3 | CHAR-### 完整性, L01 存在性, 跨角色风格一致性 | G3 在 Stage 3a/3b 完成后统一校验 |
+| drama-director G3 | CHAR-### 完整性, L01 存在性, 跨角色风格一致性 | G3 在 Stage 3a+3b+3c 完成后统一校验 |
 
 **兼容性约束**：
 - 角色 ID 一旦分配，不得更改
@@ -835,6 +872,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 | 3 | L01 存在 | 每个角色至少有一个 L01 形象定义 |
 | 4 | voice_prompt 格式 | 所有 voice_prompt 使用「性别，年龄，音色，语速，情绪/习惯」格式 |
 | 5 | PROP 交叉引用 | 角色专属道具标注了 PROP-### ID |
+| 5.5 | 道具参考图集成 | 所有角色专属道具（持有者=本角色）的 L01 Prompt 中道具描述与 `assets/props/PROP-###.png` 实际外观一致；生成请求包含道具 image_urls |
 | 6 | 关系网络完整 | 主要角色间的关系有明确定义 |
 | 7 | 群演标注 | 无名但有功能的角色使用 CHAR-GRP-## 格式 |
 | 8 | Seedream 风格锚定 | 所有 Seedream Prompt 包含正向写实锚定词且末尾有 "NOT anime" 反向提示 |

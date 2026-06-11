@@ -14,18 +14,19 @@
 ## 流水线阶段
 
 ```
-概念 → [Stage 1] → G1 → [Stage 2] → G2 → ┌─[Stage 3a]─┐ → G3 → [Stage 4] → G4 → [Stage 5] → G5
-         故事架构          制片规范         │  角色设计   │        分镜编剧         分镜构建
-                                           └─[Stage 3b]─┘
-                                              场景道具设计
+概念 → [Stage 1] → G1 → [Stage 2] → G2 → [Stage 3a] → ┌─[Stage 3b]─┐ → G3 → [Stage 4] → G4 → [Stage 5] → G5
+         故事架构          制片规范          道具设计     │  角色设计   │        分镜编剧         分镜构建
+                                                        └─[Stage 3c]─┘
+                                                           场景设计
 ```
 
 | Stage | Agent | 职责 | 核心产出 |
 |-------|-------|------|----------|
 | 1 | `story-architect`（故事架构师） | 36集故事大纲、情绪弧线、钩子矩阵 | `短剧剧本_<剧名>_36集.md` |
 | 2 | `production-planner`（制片结构注册师） | ID 系统、资产骨架、分段规则 | `制片规范.md` + `资产/` 骨架卡 |
-| 3a | `character-designer`（角色设计师） | 角色视觉设计、形象图生成 | `资产/角色卡片.md` + `assets/looks/` |
-| 3b | `scene-prop-designer`（场景道具设计师） | 场景/道具视觉设计、参考图 | `资产/场景卡片.md` + `assets/scenes/` |
+| 3a | `prop-designer`（道具设计师） | 道具视觉设计、参考图生成 | `assets/props/` + CDN URLs |
+| 3b | `character-designer`（角色设计师） | 角色视觉设计、形象图生成（使用道具参考图） | `资产/角色卡片.md` + `assets/looks/` |
+| 3c | `scene-designer`（场景设计师） | 场景视觉设计、参考图生成（使用道具参考图） | `assets/scenes/` + CDN URLs |
 | 4 | `scene-writer`（分镜编剧） | 分集剧本、镜头表 | `剧本/EP##/EP##_*.md` |
 | 5 | `segment-builder`（分镜构建师） | YAML 生成供 API 提交 | `剧本/EP##/EP##_shots.yaml` + `EP##_segments.yaml` |
 
@@ -39,7 +40,7 @@
 |------|------|------|
 | G1 | Stage 1 → Stage 2 | 大纲完整性校验 |
 | G2 | Stage 2 → Stage 3 | 制片规范 + ID 系统就绪 |
-| G3 | Stage 3 → Stage 4 | 角色/场景资产就绪 |
+| G3 | Stage 3 → Stage 4 | 道具/角色/场景资产就绪 |
 | G4 | Stage 4 → Stage 5 | 分集剧本定稿 |
 | G5 | Stage 5 完成 | YAML 合规校验 |
 
