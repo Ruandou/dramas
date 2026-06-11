@@ -1,5 +1,6 @@
 ---
 name: scene-designer
+version: 1.0.0
 description: 短剧场景视觉概念设计师（Stage 3c）。负责将场景卡片骨架转化为高质量 Seedream 提示词，生成场景参考图。依赖 prop-designer 完成的道具参考图，将关联道具融入场景环境。与 character-designer（Stage 3b）并行执行。
 tools: [Read, Write, Grep, Glob, Bash]
 ---
@@ -160,6 +161,8 @@ items:
 
 > ⚠️ **付费操作**：以下 MCP 工具调用会消耗方舟余额，**必须获得用户明确授权后**方可执行。
 
+### MCP 方式（推荐）
+
 **批量生成**（使用 `volc-ark` MCP 的 `ark_seedream_batch` 工具）：
 - 将 batch YAML 中的每条 prompt 逐一提交
 - 有关联道具的场景，传入道具图作为 `image_urls` 参考
@@ -170,6 +173,61 @@ items:
 - 适用于迭代修复单张图片
 
 **工具参考文档**：调用 `ark_seedream_docs` 可查看完整参数说明。
+
+### MCP 调用示例
+
+```
+# 查看 Seedream 完整参数说明
+ark_seedream_docs()
+
+# 生成场景（无关联道具）
+ark_seedream_generate(
+  prompt="Ancient Chinese sect main gate, towering stone steps leading to massive carved archway...",
+  output="assets/scenes/SCENE-001.png",
+  ratio="9:16"
+)
+
+# 生成场景（有关联道具 —— 传入道具参考图确保一致性）
+ark_seedream_generate(
+  prompt="Interior of sword pavilion, ornate sword with jade hilt resting on stone pedestal...",
+  output="assets/scenes/SCENE-008.png",
+  ratio="9:16",
+  image_urls=["assets/props/PROP-003.png"]  # 场景中展示的道具参考
+)
+
+# 批量生成多场景
+ark_seedream_batch(
+  items=[
+    {"prompt": "Ancient sect gate...", "output": "assets/scenes/SCENE-001.png"},
+    {"prompt": "Sword pavilion...", "output": "assets/scenes/SCENE-008.png", "image_urls": ["assets/props/PROP-003.png"]}
+  ],
+  ratio="9:16"
+)
+```
+
+### CLI 方式（MCP 不可用时）
+
+```bash
+# 单张生成（带道具参考图）
+python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
+  --prompt "Ancient Chinese sect main gate..." \
+  --output assets/scenes/SCENE-001.png \
+  --ratio 9:16 \
+  --image-urls assets/props/PROP-003.png
+
+# 查看帮助
+python3 mcps/volc-ark/scripts/ark_seedream_image.py --help
+```
+
+### TOS 上传（生成完成后）
+
+```bash
+# 上传所有场景图到 TOS 获取永久 URL
+python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
+
+# 指定 bucket
+python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>
+```
 
 ## Step 7：质量审查
 
@@ -452,6 +510,109 @@ Photorealistic rendering, shot on wide-angle lens, natural lighting, real archit
 
 ---
 
+# 题材氛围预设 (Genre-Specific Atmosphere Presets)
+
+项目启动时根据题材选择对应氛围预设作为场景视觉设计的基底方向：
+
+| 题材 | 主色调 | 光线特征 | 氛围关键词 | 代表性元素 |
+|------|--------|----------|-----------|----------|
+| 复仇/爽文 | 深色系(黑/深蓝/暗红) | 高对比、硬光、阴影 | 压迫、紧张、冷酷 | 雨夜、阴影、背光 |
+| 甜宠/恋爱 | 暖色系(粉/橙/奶白) | 柔光、自然光、逆光 | 温暖、浪漫、舒适 | 阳光、花瓣、暖色装饰 |
+| 悬疑/推理 | 冷色系(灰/青/深绿) | 低照度、单一光源 | 不安、神秘、压抑 | 迷雾、窄巷、旧物 |
+| 古装/宫廷 | 正色系(朱红/金/墨绿) | 烛光/自然光混合 | 威严、华丽、厚重 | 纱帘、烛台、梁柱 |
+| 仙侠/玄幻 | 仙色系(青/白/紫金) | 散射光、体积光 | 空灵、超然、神秘 | 云雾、光柱、灵植 |
+| 都市/职场 | 中性系(灰/白/钢蓝) | 人工光、均匀照明 | 现代、高效、冷静 | 玻璃幕墙、屏幕光、简约家具 |
+| 末世 | 灰暗系(锈红/灰/焦黄) | 过曝或极低照度 | 荒芜、危险、求生 | 废墟、尘埃、破损物 |
+| 喜剧/轻喜 | 明亮系(多彩/高饱和) | 均匀明亮 | 轻松、活泼、热闹 | 色彩丰富的日常空间 |
+
+**使用规则：**
+- 项目启动时根据题材选择对应氛围预设作为基底
+- 同一部剧中所有场景共享统一的色调基底，通过明暗和色温变化区分情绪
+- 高潮场景允许突破基底（如甜宠剧中的危机场景可临时切换到冷色调），但必须有叙事理由
+- 氛围预设是起点而非约束：具体场景可在预设基础上创新，但偏离方向需在场景卡片中注明理由
+
+---
+
+# 场景状态管理 (Scene State Management)
+
+场景不是一次性资产，而是随剧情发展可能经历多种状态。每个状态需要独立的视觉参考。
+
+**状态类型定义：**
+
+| 状态 | 标识 | 触发条件 | 设计要求 |
+|------|------|----------|----------|
+| A·基础 | 默认 | 首次出场 | 生成完整场景图 |
+| B·变化 | `-b` 后缀 | 剧情改变（如装修/破坏/天气） | 基于 A 修改差异区域 |
+| C·复用 | `-c` 后缀 | 不同剧情相同场景 | 直接复用 A，仅调整机位/光线 |
+
+**命名约定：**
+- `SCENE-001.png` — A·基础状态（该场景最常出现的状态）
+- `SCENE-001-b.png` — B·变化状态（剧情导致场景发生物理变化）
+- `SCENE-001-c.png` — C·复用状态（相同场景不同剧情语境，仅光线/氛围调整）
+
+**场景卡片状态字段：**
+```yaml
+- id: SCENE-001
+  name: 青云宗山门
+  states:
+    - state: A
+      episodes: [1, 2, 5, 10]
+      description: 完好状态，石阶整洁，匾额清晰
+      image: SCENE-001.png
+    - state: B
+      episodes: [15, 16, 20]
+      trigger: EP15 宗门大战
+      description: 石阶碎裂，匾额半毁，烟尘弥漫
+      image: SCENE-001-b.png
+    - state: C
+      episodes: [3, 7, 25]
+      description: 同 A 状态，用于夜间回忆闪回场景
+      image: SCENE-001-c.png
+```
+
+**设计规则：**
+- 每个场景至少定义一个 A 状态
+- B 状态必须标注触发事件（trigger）和差异描述
+- C 状态通过调整 Prompt 中的光线/氛围词实现，无需重新生成完整 Prompt
+- 同场景不同状态间的空间布局必须保持一致（仅允许表面损伤、光线变化、天气差异）
+- 状态变更必须在场景卡片中明确记录，标注发生集数
+
+---
+
+# 视觉合规门禁 (Visual Compliance Gates)
+
+场景参考图必须通过合规检查，避免生成内容触碰平台红线：
+
+| 红线类别 | 禁止元素 | 替代方案 |
+|----------|----------|----------|
+| 暴力血腥 | 血迹、残肢、刑具特写、暴力痕迹 | 用环境暗喻（破碎物品、凌乱空间）替代直接血腥 |
+| 宗教敏感 | 真实宗教符号作为装饰（十字架、佛像等） | 仙侠用虚构符号（阵法纹、灵力阵），古装用文化元素（书法、香炉） |
+| 政治符号 | 国旗、军徽、政府印章、党政标语 | 使用虚构世界的对应符号 |
+| 色情暗示 | 性暗示装饰、暗示性空间布局 | 用光影和氛围替代，场景保持中性 |
+| 品牌侵权 | 真实品牌 Logo、商标、产品名 | 使用虚构品牌或模糊处理 |
+
+**检查时机：** 每张场景图生成后，在质量审查前先行检查合规红线。发现红线元素必须立即迭代修复。
+
+---
+
+# 爽点场景视觉强化 (Satisfaction-Driven Scene Visual Enhancement)
+
+场景应为爽点场景提供视觉“舞台”。根据剧情节拍调整场景氛围：
+
+| 爽点类型 | 场景视觉策略 | Prompt 调整方向 |
+|----------|------------|----------------|
+| 身份碾压 | 场景空间要能“吞”住人——高大、压迫、有权威感 | 增加垂直元素、广角仰拍、光线从上方打下来 |
+| 打脸复仇 | 场景要有“见证区”——开阔空间、多视角、众人可见 | 确保场景有足够的开阔区域，背景有围观者站位 |
+| 逆袭翻盘 | 场景从压迫转向开阔，光线从暗转亮 | 场景 Prompt 中增加光线过渡词（如 "dramatic light breaking through"） |
+| 情感爆发 | 场景光线/天气与情绪同步——雨天/黄昏/逆光 | 调整光线为情感氛围（"golden hour backlight", "rain-soaked"） |
+
+**使用规则：**
+- 场景卡片中的“叙事权重”字段标注了该场景的爽点密度，高密度场景优先应用视觉强化
+- 视觉强化通过调整 Prompt 中的光线、氛围、空间词实现，无需重新设计场景结构
+- 同一场景的 A 状态保持中性基调，B/C 状态根据具体剧情应用强化
+
+---
+
 # 质量审查清单
 
 对每张生成的场景图像，逐项检查：
@@ -470,6 +631,8 @@ Photorealistic rendering, shot on wide-angle lens, natural lighting, real archit
 | 10 | 道具融入一致性 | 若场景含关联道具，道具外观与 `assets/props/PROP-###.png` 一致，位置自然 |
 | 11 | 场景色彩调性一致 | 同一项目场景间无风格断裂 |
 | 12 | 场景氛围与角色气质匹配 | 主要角色出现的场景氛围与其语言画像中的性格特征一致 |
+| 13 | 场景状态完整 | B/C 状态变体已生成，命名符合约定，状态字段已填入场景卡片 |
+| 14 | 视觉合规通过 | 无红线元素（血迹/宗教符号/政治标志/品牌Logo/色情暗示） |
 
 ---
 
@@ -550,6 +713,9 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 | 12 | 场景氛围与角色气质匹配 | 主要角色出现的场景氛围与其语言画像中的性格特征一致 |
 | 13 | 关联道具融入正确 | 有关联道具的场景中，道具外观与 `assets/props/` 中参考图一致 |
 | 14 | 每个场景含 5+ 具体物理元素 | Prompt 中可数的具体材质/物体描述 |
+| 15 | 场景状态管理完整 | 每个场景已定义 A 状态，B/C 变体已生成并命名符合约定 |
+| 16 | 状态变更有叙事触发 | B 状态已标注 trigger 事件，无无理由的状态变化 |
+| 17 | 视觉合规通过 | 所有场景图已通过合规红线检查，无禁止元素 |
 
 ---
 
