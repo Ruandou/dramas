@@ -268,8 +268,48 @@ Prop reference photograph, single object isolated on warm neutral silk backgroun
 ### 书籍/卷轴/符箓类
 - 半展开状态，展示封面或核心内容区域
 - 材质：竹简 / 绢帛 / 宣纸 / 皮革封面
-- 文字处理遵循场景文字渲染规则（精确中文字符 + 书体指定）
+- 文字处理：详见下方「道具文字渲染强制规则」专节
 - 年代痕迹：泛黄、卷边、虫蛀、墨迹晕染
+
+---
+
+### 道具文字渲染强制规则
+
+当道具包含可见文字（书名、铭文、刻字、标签、符箓文字等）时，Prompt 中**必须**使用精确中文字符，**严禁**使用英文翻译或描述性占位。
+
+#### 格式要求
+
+**正确写法**（中文字符 + 双引号 + 书体）：
+- ✅ `ancient leather-bound tome with the title characters "混沌初解" in regular script (楷书) prominently displayed on the cover`
+- ✅ `jade pendant engraved with the characters "凌霄内门" in seal script (篆书)`
+- ✅ `talisman paper with the characters "敕令" brushed in bold running script (行书) in cinnabar red ink`
+- ✅ `wooden plaque with the characters "归去来" painted in bold black ink in running script`
+
+**错误写法**（禁止）：
+- ❌ `titled Primordial Chaos Unveiled`（英文翻译）
+- ❌ `engraved with four Chinese characters reading Lingxiao Inner Sect`（英文描述）
+- ❌ `with sect name inscribed`（占位描述）
+- ❌ `book with Chinese title`（模糊指代）
+- ❌ `inscribed with the protagonist's name`（角色指代而非实际文字）
+
+#### 规则
+
+| # | 规则 | 说明 |
+|---|------|------|
+| 1 | 精确字符 | 文字内容必须使用精确中文汉字，放入英文双引号内 |
+| 2 | 书体指定 | 必须注明书法/字体风格：楷书(regular)、篆书(seal)、行书(running)、草书(cursive)、隶书(clerical) |
+| 3 | 字数限制 | 单次渲染 2-4 个汉字为佳，超过 4 字时拆为多行或采用后期合成 |
+| 4 | 权重前置 | 文字描述放在 Prompt **前半段**（主体描述之后、风格参数之前）以获得更高权重 |
+| 5 | 防幻觉后缀 | 末尾追加 `NOT inscribed with any other characters or text besides what is specified` |
+| 6 | 失败协议 | 2 次生成文字仍不清晰 → 回退为无文字版本 + 标注"文字后期合成" |
+
+#### 质量自检追加项
+
+在现有质量审查清单基础上，增加以下检查：
+- [ ] 所有含文字道具的 Prompt 使用了精确中文字符（非英文翻译）
+- [ ] 文字内容与道具卡片描述完全一致
+- [ ] 已指定书体风格
+- [ ] 单次文字不超过 4 个汉字
 
 ---
 

@@ -370,6 +370,27 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 - 数量词必须包含（`ONE single`、`exactly two`）
 - 提交生成请求时 `image_urls` 字段必须包含对应 PROP 参考图路径
 
+### 角色身上文字渲染规则
+
+当角色携带/佩戴含可见文字的物品（刻字玉佩、绣字长袍、宗门令牌、题字扇面等）时，L01 Prompt 中**必须**使用精确中文字符。
+
+**正确写法**：
+- ✅ `wearing a jade pendant engraved with the characters "天道" in seal script`
+- ✅ `robe with the characters "青云" embroidered in gold thread on the left chest`
+- ✅ `holding a folding fan with the characters "风月" written in running script`
+
+**错误写法**（禁止）：
+- ❌ `wearing a jade pendant with sect name engraved`
+- ❌ `robe with embroidered characters reading Heaven's Path`
+- ❌ `fan with Chinese calligraphy`
+
+**规则**：
+1. 精确中文字符放入英文双引号内
+2. 必须指定书体（楷书/篆书/行书/草书/隶书）
+3. 单物品文字限 2-4 个汉字
+4. 若角色同时携带多个文字物品，优先渲染最显眼的 1 个，其余标注"后期合成"
+5. 文字描述的内容须与道具卡片中对应道具的文字完全一致
+
 ### Seedream Prompt 风格强制规则
 
 1. **正向锚定词（必须包含至少2个）**：`photorealistic` / `realistic photograph` / `cinematic portrait` / `live-action film still` / `studio photography`
