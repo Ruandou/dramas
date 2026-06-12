@@ -60,9 +60,13 @@ BASE_HEAD = """\
   .prose pre {{ background:#1e293b; padding:0.75rem; border-radius:0.5rem; overflow-x:auto; font-size:0.85rem; }}
   .prose code {{ background:#1e293b; padding:0.1rem 0.3rem; border-radius:0.25rem; font-size:0.85rem; }}
   .prose pre code {{ background:transparent; padding:0; }}
-  .prose table {{ width:100%; border-collapse:collapse; margin:0.75rem 0; font-size:0.85rem; }}
-  .prose th, .prose td {{ border:1px solid #334155; padding:0.4rem 0.6rem; text-align:left; }}
-  .prose th {{ background:#1e293b; font-weight:600; }}
+  /* 表格：手机端横滚，不挤压文字 */
+  .table-wrap {{ overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0.75rem 0; border:1px solid #334155; border-radius:0.5rem; }}
+  .prose table {{ width:100%; border-collapse:collapse; font-size:0.85rem; min-width:500px; }}
+  .prose th, .prose td {{ border-bottom:1px solid #334155; padding:0.6rem 0.75rem; text-align:left; white-space:nowrap; }}
+  .prose th {{ background:#1e293b; font-weight:600; position:sticky; top:0; }}
+  .prose tr:last-child td {{ border-bottom:none; }}
+  .prose tr:hover {{ background:rgba(99,102,241,0.08); }}
   .prose hr {{ border:none; border-top:1px solid #334155; margin:1.5rem 0; }}
   .prose strong {{ color:#e2e8f0; }}
   .prose a {{ color:#818cf8; text-decoration:underline; }}
@@ -70,6 +74,7 @@ BASE_HEAD = """\
   .card:hover {{ transform:translateY(-2px); box-shadow:0 8px 25px rgba(0,0,0,0.3); }}
   .gallery-img {{ aspect-ratio:1; object-fit:cover; cursor:pointer; }}
   .gallery-img:hover {{ opacity:0.85; }}
+  .shot-cards code {{ font-size:0.7rem; background:#1e293b; padding:0.1rem 0.4rem; border-radius:0.25rem; }}
   .modal {{ display:none; position:fixed; inset:0; z-index:50; background:rgba(0,0,0,0.85); align-items:center; justify-content:center; }}
   .modal.active {{ display:flex; }}
   .modal img {{ max-width:95vw; max-height:90vh; border-radius:0.5rem; }}
@@ -124,9 +129,100 @@ def write_page(out_dir, rel_path, content):
 _md = markdown.Markdown(extensions=["tables", "fenced_code", "toc"])
 
 
+def _convert_wide_tables_in_md(text):
+    """在 markdown 层面把宽分镜表格（>=9列）转为卡片列表，避免 HTML 解析问题"""
+    lines = text.split('\n')
+    result = []
+    i = 0
+
+    while i < len(lines):
+        # 检测表格开始：当前行和下一行都是 | 开头
+        if (i + 1 < len(lines)
+                and lines[i].strip().startswith('|')
+                and lines[i + 1].strip().startswith('|')
+                and '---' in lines[i + 1]):
+            # 解析表头
+            header_line = lines[i]
+            headers = [c.strip() for c in header_line.strip('|').split('|')]
+
+            # 判断是否为宽分镜表（>=9 列或含 shot_id）
+            if len(headers) >= 9 and 'shot_id' in headers:
+                col_map = {h: idx for idx, h in enumerate(headers)}
+                # 跳过分隔行
+                i += 2
+                cards = []
+                while i < len(lines) and lines[i].strip().startswith('|'):
+                    cells = [c.strip() for c in lines[i].strip('|').split('|')]
+                    # 补齐列数
+                    while len(cells) < len(headers):
+                        cells.append('')
+
+                    def cell(name):
+                        raw = cells[col_map[name]] if name in col_map and col_map[name] < len(cells) else ''
+                        return raw.strip('`').strip()
+
+                    shot_num = cell('镜号')
+                    shot_id = cell('shot_id')
+                    scene = cell('场景')
+                    shot_type = cell('景别')
+                    duration = cell('时长')
+                    mode = cell('模式')
+                    camera = cell('运镜')
+                    visual = cell('画面')
+                    dialogue = cell('对白/备注') if '对白/备注' in col_map else ''
+
+                    badge_class = "bg-indigo-900/60 text-indigo-300"
+                    if mode == 'skip':
+                        badge_class = "bg-slate-700 text-slate-400"
+                    elif 'i2v_ref' in mode:
+                        badge_class = "bg-emerald-900/60 text-emerald-300"
+
+                    dur_badge = f'<span class="badge bg-slate-700 text-slate-300">{duration}s</span>' if duration and duration != '-' else ''
+
+                    dialogue_html = ''
+                    if dialogue:
+                        dialogue_html = f'<div class="mt-2 text-sm text-slate-300 leading-relaxed border-l-2 border-slate-600 pl-2">{dialogue}</div>'
+
+                    cards.append(f"""<div class="bg-slate-800/50 rounded-lg border border-slate-700 p-3">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<span class="text-lg font-bold text-slate-200">#{shot_num}</span>
+<code class="text-xs text-slate-400">{shot_id}</code>
+</div>
+<div class="flex gap-1.5">{dur_badge}<span class="badge {badge_class}">{mode}</span></div>
+</div>
+<div class="flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-slate-400 mb-1.5">
+<span>📍 {scene}</span><span>🎭 {shot_type}</span><span>📷 {camera}</span>
+</div>
+{f'<div class="text-sm text-slate-200 mb-1">{visual}</div>' if visual else ''}
+{dialogue_html}
+</div>""")
+
+                    i += 1
+
+                result.append(f'<div class="shot-cards grid grid-cols-1 gap-2 my-4">{"".join(cards)}</div>')
+                continue
+            else:
+                # 普通表格，原样保留（后续 render_md 会加 table-wrap）
+                result.append(lines[i])
+                i += 1
+                continue
+
+        result.append(lines[i])
+        i += 1
+
+    return '\n'.join(result)
+
+
 def render_md(text):
+    # 先在 markdown 层转换宽表格为卡片
+    text = _convert_wide_tables_in_md(text)
     _md.reset()
-    return _md.convert(text)
+    html = _md.convert(text)
+    # 剩余普通表格包裹在可横滚容器中
+    html = re.sub(r'<table>', '<div class="table-wrap"><table>', html)
+    html = re.sub(r'</table>', '</table></div>', html)
+    return html
 
 
 # ---------------------------------------------------------------------------
