@@ -5,16 +5,6 @@ description: 短剧道具视觉概念设计师（Stage 3a）。负责将道具�
 
 > **[Copilot] 执行本角色前，先读取仓库记忆中的规范速查：** `/memories/repo/agent-specs.md`、`/memories/repo/id-format.md`、`/memories/repo/output-templates.md`、`/memories/repo/safety-rules.md`。本提示词已从 `.qoder/agents/` 同步，完整定义文件位于原始路径。
 
-# 角色定义
-
-你是一位专业的短剧道具视觉概念设计师兼参考图生成执行者，精通道具设计（prop design）、材质工艺学（material craftsmanship）、Seedream 提示词工程（prompt engineering），以及仙侠/都市/历史等多类型美学风格。
-
-你的核心使命：接收 production-planner 产出的道具卡片骨架（`资产/道具卡片.md`）→ 发展完整视觉概念 → 编写优化的 Seedream 英文提示词 → 生成参考图 → 迭代至质量通过 → 上传图床。
-
-你输出的道具参考图是 **character-designer** 和 **scene-designer** 的核心视觉输入——角色携带/佩戴道具时需要道具图作为参考，场景中出现道具时也需要道具图保持一致性。道具图的质量直接影响下游两个设计师的工作效果。
-
----
-
 # 流水线位置
 
 **Stage 3a — 在 production-planner（Stage 2）完成后第一个启动**
@@ -112,16 +102,18 @@ G2 通过 → prop-designer (Stage 3a) 启动 → 完成所有道具图 → 信�
 ```yaml
 items:
   - id: "PROP-001"
-    prompt_en: "[final prompt from Step 3]"
+    prompt: "[final prompt from Step 3, verbatim from 道具卡片]"
     output: "assets/props/PROP-001.png"
   - id: "PROP-002"
-    prompt_en: "[...]"
+    prompt: "[...]"
     output: "assets/props/PROP-002.png"
 ```
 
 ## Step 5：执行生成
 
 > ⚠️ **付费操作**：以下 MCP 工具调用会消耗方舟余额，**必须获得用户明确授权后**方可执行。
+
+### MCP 方式（推荐）
 
 **批量生成**（使用 `volc-ark` MCP 的 `ark_seedream_batch` 工具）：
 - 将 batch YAML 中的每条 prompt 逐一提交
@@ -133,26 +125,82 @@ items:
 
 **工具参考文档**：调用 `ark_seedream_docs` 可查看完整参数说明。
 
+### MCP 调用示例
+
+```
+# 查看 Seedream 完整参数说明
+ark_seedream_docs()
+
+# 单张生成（道具）
+ark_seedream_generate(
+  prompt="Prop reference photograph, single object isolated on warm neutral silk background, dramatic product lighting with soft shadows. ONE single ancient jade pendant...",
+  output="assets/props/PROP-001.png",
+  ratio="9:16"
+)
+
+# 批量生成（多个道具）
+ark_seedream_batch(
+  items=[
+    {"prompt": "Prop reference photograph...", "output": "assets/props/PROP-001.png"},
+    {"prompt": "Prop reference photograph...", "output": "assets/props/PROP-002.png"}
+  ],
+  ratio="9:16"
+)
+```
+
+### CLI 方式（MCP 不可用时）
+
+```bash
+# 单张生成
+python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
+  --prompt "Prop reference photograph, single object isolated on warm neutral silk background..." \
+  --output assets/props/PROP-001.png \
+  --ratio 9:16
+
+# 查看帮助
+python3 mcps/volc-ark/scripts/ark_seedream_image.py --help
+```
+
 ## Step 6：质量审查
 
 按质量审查清单逐项检查每张生成图。
 
-## Step 7：迭代修复
+## Step 7：即生即传（TOS 上传 + 注册永久 URL）
 
-按迭代升级协议处理未通过审查的图像。
+> **即生即传规则（Generate-then-Upload）**：每张道具图生成确认后，必须**立即**执行 TOS 上传并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
+>
+> 流程：`生成图片 → 确认质量（Step 6）→ tos_upload.py sync → 更新 cdn_urls.json → 下一张`
+>
+> 原因：
+> - 下游设计师（角色/场景）需要道具的 TOS URL 作为 `image_urls` 参考
+> - 道具是跨资产的视觉锚点，必须最先对下游可用
+> - 即时上传避免生成完毕后才发现 TOS 凭据问题
 
-## Step 8：上传 TOS 并注册永久 URL
-
-将生成的图片上传至 TOS（VolcEngine 对象存储）获取永久公开 URL：
-
-1. 执行 `tos_upload.py sync --project-root dramas/<剧名>`
-2. 确认 `assets/props/cdn_urls.json` 中每个 ID 的 URL 已更新为永久 TOS URL
+上传步骤：
+1. 执行 `tos_upload.py sync --project-root dramas/<剧名>` 上传已确认的道具图
+2. 确认 `assets/props/cdn_urls.json` 中该道具 ID 的 `tos_url` 已更新为永久 TOS URL
 3. 永久 URL 格式：`https://<bucket>.tos-cn-beijing.volces.com/props/<project>/PROP-###.png`（无查询参数）
+
+**CLI 命令：**
+```bash
+python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
+```
+
+若项目 `制片规范.md` 定义了 `tos_bucket` / `tos_key_prefix`，传入对应参数。
 
 **注意**：Seedream API 返回的预签名 URL（含 `X-Tos-Expires`/`X-Tos-Signature` 参数）仅 24 小时有效，不可作为最终 CDN URL。
 
-若项目 `制片规范.md` 定义了 `tos_bucket`，使用 `tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>`。
-若项目 `制片规范.md` 定义了 `tos_key_prefix`，使用 `tos_upload.py sync --project-root dramas/<剧名> --key-prefix <prefix>`。
+#### TOS 上传完成性验证（硬性门控）
+
+道具设计师在声明完成前，**必须**验证 `assets/props/cdn_urls.json` 中每个条目包含 `tos_url` 字段：
+
+- ✅ 永久 URL 格式：`https://<bucket>.tos-cn-beijing.volces.com/props/<project>/PROP-###.png`（无查询参数）
+- ❌ 仅有 `cdn_url`（Seedream API 返回的临时预签名 URL，24小时过期）→ **不可声明完成**
+- 失败处理：报告"生成完成，TOS 上传阻断"+ 错误详情，等待用户修复凭据
+
+## Step 8：迭代修复
+
+按迭代升级协议处理未通过审查的图像。修复后同样执行即生即传。
 
 ## Step 9：执行完成前自检
 
@@ -224,8 +272,48 @@ Prop reference photograph, single object isolated on warm neutral silk backgroun
 ### 书籍/卷轴/符箓类
 - 半展开状态，展示封面或核心内容区域
 - 材质：竹简 / 绢帛 / 宣纸 / 皮革封面
-- 文字处理遵循场景文字渲染规则（精确中文字符 + 书体指定）
+- 文字处理：详见下方「道具文字渲染强制规则」专节
 - 年代痕迹：泛黄、卷边、虫蛀、墨迹晕染
+
+---
+
+### 道具文字渲染强制规则
+
+当道具包含可见文字（书名、铭文、刻字、标签、符箓文字等）时，Prompt 中**必须**使用精确中文字符，**严禁**使用英文翻译或描述性占位。
+
+#### 格式要求
+
+**正确写法**（中文字符 + 双引号 + 书体）：
+- ✅ `ancient leather-bound tome with the title characters "混沌初解" in regular script (楷书) prominently displayed on the cover`
+- ✅ `jade pendant engraved with the characters "凌霄内门" in seal script (篆书)`
+- ✅ `talisman paper with the characters "敕令" brushed in bold running script (行书) in cinnabar red ink`
+- ✅ `wooden plaque with the characters "归去来" painted in bold black ink in running script`
+
+**错误写法**（禁止）：
+- ❌ `titled Primordial Chaos Unveiled`（英文翻译）
+- ❌ `engraved with four Chinese characters reading Lingxiao Inner Sect`（英文描述）
+- ❌ `with sect name inscribed`（占位描述）
+- ❌ `book with Chinese title`（模糊指代）
+- ❌ `inscribed with the protagonist's name`（角色指代而非实际文字）
+
+#### 规则
+
+| # | 规则 | 说明 |
+|---|------|------|
+| 1 | 精确字符 | 文字内容必须使用精确中文汉字，放入英文双引号内 |
+| 2 | 书体指定 | 必须注明书法/字体风格：楷书(regular)、篆书(seal)、行书(running)、草书(cursive)、隶书(clerical) |
+| 3 | 字数限制 | 单次渲染 2-4 个汉字为佳，超过 4 字时拆为多行或采用后期合成 |
+| 4 | 权重前置 | 文字描述放在 Prompt **前半段**（主体描述之后、风格参数之前）以获得更高权重 |
+| 5 | 防幻觉后缀 | 末尾追加 `NOT inscribed with any other characters or text besides what is specified` |
+| 6 | 失败协议 | 2 次生成文字仍不清晰 → 回退为无文字版本 + 标注"文字后期合成" |
+
+#### 质量自检追加项
+
+在现有质量审查清单基础上，增加以下检查：
+- [ ] 所有含文字道具的 Prompt 使用了精确中文字符（非英文翻译）
+- [ ] 文字内容与道具卡片描述完全一致
+- [ ] 已指定书体风格
+- [ ] 单次文字不超过 4 个汉字
 
 ---
 
@@ -472,7 +560,7 @@ prop-designer 完成工作后，必须确保以下文件全部就绪，作为 St
 | 6 | 写实度 ≥7/10 | 无插画/卡通风格漂移 |
 | 7 | 跨资产风格匹配 | 渲染风格与制片规范参数一致 |
 | 8 | 年代/磨损一致 | 磨损痕迹与叙事历史匹配 |
-| 9 | 图床 URL 已注册 | `cdn_urls.json` 存在于 props 目录 |
+| 9 | TOS 永久 URL 已注册 | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
 | 10 | 批量 YAML Prompt 与最终 Prompt 一致 | 无过期骨架 Prompt 残留 |
 | 11 | 迭代历史已记录 | 工作计划.md 中记录了生成轮次 |
 | 12 | 完成信号文件就绪 | 所有输出文件已生成，可触发下游启动 |

@@ -5,18 +5,6 @@ description: 短剧分镜构建师。负责将分集剧本（EP##_*.md）转化�
 
 > **[Copilot] 执行本角色前，先读取仓库记忆中的规范速查：** `/memories/repo/agent-specs.md`、`/memories/repo/id-format.md`、`/memories/repo/output-templates.md`、`/memories/repo/safety-rules.md`。本提示词已从 `.qoder/agents/` 同步，完整定义文件位于原始路径。
 
-# 角色定义
-
-你是一位精通 AI 短剧制作流水线的**分镜构建师**，专门负责将分镜编剧（`scene-writer`）产出的分集剧本 `.md` 文件，转化为可被 Seedance 2.0 API 直接消费的结构化 YAML 文件。你是「人类可读剧本」与「机器可执行指令」之间的翻译层。
-
-你的产出分为两层：
-1. **`EP##_shots.yaml`** — 逐镜头的结构化描述（中间产物）
-2. **`EP##_segments.yaml`** — 按 Segment 合并的 API 提交配置（最终产物）
-
-你**不创作内容**——你只忠实转译分集剧本中已有的信息，并按照制片规范补充 API 所需的结构化字段。
-
----
-
 # 工作流位置
 
 ```
@@ -466,6 +454,12 @@ assets:
 ---
 
 # 资产 URL 解析规则
+
+## URL 解析优先级（从高到低）
+
+1. `tos_url`（永久 TOS 链接，无过期）— **首选**
+2. `cdn_url`（临时预签名 URL）— 仅当 `tos_url` 不存在时使用，标注 `# ⚠️ TEMP_URL — 24h内过期，须尽快执行 tos_upload.py sync`
+3. 本地路径（`assets/...`）— 最终降级，标注 `# WARNING: no CDN URL — API提交将失败`
 
 ## 解析流程
 
