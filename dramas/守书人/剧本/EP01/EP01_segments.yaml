@@ -1,0 +1,321 @@
+# === EP01 segments.yaml — Seedance API 提交配置 ===
+# 源文件: 剧本/EP01/EP01_废物守书人.md
+# 总段数: 13 | 总镜头: 27 | 总时长: 141s
+# ⚠️ CDN URL 警告: 所有 image_urls 当前使用本地路径
+#   cdn_urls.json 中的 URL 含 X-Tos-Expires 参数（预签名临时链接，24h过期）
+#   提交 Seedance API 前须执行 tos_upload.py sync 替换为永久 TOS URL
+# voice_prompts 来源: 资产/声音卡片.md (P0)
+
+episode_id: EP01
+source_md: 剧本/EP01/EP01_废物守书人.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio"
+  negative_prompt: "modern clothing, modern buildings, smartphones, computers, electric lights, neon signs, western fantasy elements, anime style, cartoon, chibi, low quality, blurry, deformed hands, extra fingers, watermark, text overlay, logo, bright saturated colors, plastic skin, western medieval armor, guns, firearms, contemporary objects, Japanese kimono, Korean hanbok, overly sexualized, nudity, gore, excessive blood"
+
+voice_prompts:
+  CHAR-001: "青年男性，18岁，声线清朗偏低沉，语速偏慢，前期隐忍克制常停顿，后期沉稳有分量；愤怒时压低声音沉默寡言，领悟时语调上扬充满光彩"
+  CHAR-003: "青年男性，22岁，声线明亮傲气，语速偏快，命令式口吻；嘲讽时声音上扬带刺，恐惧时反而压低声线沉默；后期倒戈后声音低沉迟疑，带悔恨"
+  CHAR-006: "老年男性，外貌60余岁，声线慈祥浑厚，语速缓慢温和；伪装期为长辈式关怀口吻；暴露真实身份后声线转为古风厚重如千年回响，情感如洪水倾泻"
+  旁白: "成年男性，声线沉稳有磁性，语速偏慢，叙述者口吻；带有知识沉淀感和轻微的感伤，如同翻开一本古老的书"
+
+# ── 全局负面提示词锚点（每段完整引用） ──
+x-negative_prompt: &NEG >-
+  modern clothing, modern buildings, smartphones, computers, electric lights,
+  neon signs, western fantasy elements, anime style, cartoon, chibi, low quality,
+  blurry, deformed hands, extra fingers, watermark, text overlay, logo, bright
+  saturated colors, plastic skin, western medieval armor, guns, firearms,
+  contemporary objects, Japanese kimono, Korean hanbok, overly sexualized,
+  nudity, gore, excessive blood
+
+segments:
+  # ═══════════════════════════════════════════
+  # SEG01 — 灵根测试（碎片式·紧张→羞耻）
+  # ═══════════════════════════════════════════
+  - segment_id: SEG01
+    shot_ids: [EP01-S01, EP01-S02]
+    scene_id: SCENE-001
+    duration: 10
+    ratio: "9:16"
+    model: doubao-seedance-2-0-fast
+    generate_audio: true
+    prompt: |
+      竖屏9比16连贯叙事。仙侠宗门演武广场，日间外景，日光刺眼。
+      镜头1（5秒）近景 镜头推近：日光刺眼的演武广场，三丈高的白色测灵碑矗立中央，图1灰白外门袍排在弟子队列末尾，在华丽弟子中格外扎眼，攥紧拳头指节发白。
+      镜头2（5秒）特写 固定镜头：图1手掌按上测灵碑冰冷光滑表面，碑身巨大光带层中最底下一层亮起一缕微弱残光便熄灭，四周弟子投来嘲讽目光有人掩嘴窃笑。
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio
+    negative_prompt: *NEG
+    image_urls:
+      - assets/looks/CHAR-001-L01.png
+      - assets/scenes/SCENE-001.png
+
+  # ═══════════════════════════════════════════
+  # SEG02 — 当众羞辱·赵元朗发难
+  # ═══════════════════════════════════════════
+  - segment_id: SEG02
+    shot_ids: [EP01-S03, EP01-S04]
+    scene_id: SCENE-001
+    duration: 11
+    ratio: "9:16"
+    model: doubao-seedance-2-0-fast
+    generate_audio: true
+    prompt: |
+      竖屏9比16连贯叙事。仙侠宗门演武广场，日间外景。
+      镜头1（5秒）近景 固定镜头：图1缓缓收回手，咬紧牙关盯着碑面那缕消逝的残光，嘴唇紧抿成一条线，眼眶微红但没有泪，周围嘲笑声如潮水涌入画面。
+      镜头2（6秒）中景 固定镜头：图2从人群中大步走出，白金内门袍在阳光下耀眼夺目，腰间白玉令牌随步伐晃动，歪头打量图1，嘴角挂着不屑的弧度，身后几名弟子附和窃笑。
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio
+    negative_prompt: *NEG
+    image_urls:
+      - assets/looks/CHAR-001-L01.png
+      - assets/looks/CHAR-003-L01.png
+      - assets/scenes/SCENE-001.png
+
+  # ═══════════════════════════════════════════
+  # SEG03 — 羞辱升级
+  # ═══════════════════════════════════════════
+  - segment_id: SEG03
+    shot_ids: [EP01-S05, EP01-S06]
+    scene_id: SCENE-001
+    duration: 10
+    ratio: "9:16"
+    model: doubao-seedance-2-0-fast
+    generate_audio: true
+    prompt: |
+      竖屏9比16连贯叙事。仙侠宗门演武广场，日间外景。
+      镜头1（5秒）近景 固定镜头：图1逼近图2面前，高出半个头的身形投下阴影，抬起下巴俯视，手指戳向远处灵气缭绕的仙鹤台，语气从嘲讽转为刻意的怜悯。
+      镜头2（5秒）特写 缓推：图2垂下眼帘，牙关咬得咯咯作响，拳头攥紧又松开指甲在掌心留下半月形红痕，周围哄笑声震耳，始终没有抬头。
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio
+    negative_prompt: *NEG
+    image_urls:
+      - assets/looks/CHAR-003-L01.png
+      - assets/looks/CHAR-001-L01.png
+      - assets/scenes/SCENE-001.png
+
+  # ═══════════════════════════════════════════
+  # SEG04 — 赵元朗收场（权力翻转）
+  # ═══════════════════════════════════════════
+  - segment_id: SEG04
+    shot_ids: [EP01-S07, EP01-S08, EP01-S09]
+    scene_id: SCENE-001
+    duration: 12
+    ratio: "9:16"
+    model: doubao-seedance-2-0-fast
+    generate_audio: true
+    prompt: |
+      竖屏9比16连贯叙事。仙侠宗门演武广场，日间外景，人群渐散。
+      镜头1（4秒）中景 固定镜头：图1转身面向围观弟子们，双臂微张如表演者谢幕，嘴角冷笑扩大，腰间令牌在日光下一闪。
+      镜头2（4秒）近景 固定镜头：图1背对图2大步离去，白金袍摆随风翻动，侧头丢下一句，声音里是纯粹的志得意满，身后弟子们簇拥跟随。
+      镜头3（4秒）特写 固定镜头：图2独自站在人群散去后的空旷广场，测灵碑的影子拉得很长正好罩住他，缓缓抬头，目光不是愤怒——是一种比愤怒更沉的东西。
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio
+    negative_prompt: *NEG
+    image_urls:
+      - assets/looks/CHAR-003-L01.png
+      - assets/looks/CHAR-001-L01.png
+      - assets/scenes/SCENE-001.png
+
+  # ═══════════════════════════════════════════
+  # SEG05 — 陈守一请缨
+  # ═══════════════════════════════════════════
+  - segment_id: SEG05
+    shot_ids: [EP01-S10, EP01-S11]
+    scene_id: SCENE-001
+    duration: 11
+    ratio: "9:16"
+    model: doubao-seedance-2-0-fast
+    generate_audio: true
+    prompt: |
+      竖屏9比16连贯叙事。仙侠宗门演武广场，日间外景，赵元朗刚离去。
+      镜头1（6秒）中景 镜头跟随：图1从人群中走出，深棕色长老袍，手持磨光竹杖，步伐缓慢却方向明确，花白胡须随微风飘动，向远处长老席拱了拱手，面容慈和。
+      镜头2（5秒）近景 固定镜头：图1转身面向图2方向，缓缓蹲下与其平视，眼角笑纹舒展开来，目光温暖如冬日暖阳，竹杖搁在膝旁，双手轻轻搭在前方人肩上。
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio
+    negative_prompt: *NEG
+    image_urls:
+      - assets/looks/CHAR-006-L01.png
+      - assets/looks/CHAR-001-L01.png
+      - assets/scenes/SCENE-001.png
+
+  # ═══════════════════════════════════════════
+  # SEG06 — 交付钥匙（蓄力式·试探→接受→交付）
+  # ═══════════════════════════════════════════
+  - segment_id: SEG06
+    shot_ids: [EP01-S12, EP01-S13]
+    scene_id: SCENE-001
+    duration: 11
+    ratio: "9:16"
+    model: doubao-seedance-2-0-fast
+    generate_audio: true
+    prompt: |
+      竖屏9比16连贯叙事。仙侠宗门演武广场，日间外景。
+      镜头1（5秒）特写 固定镜头：图2终于抬起头，红着眼眶对上图1慈祥的目光，嘴角动了动像是想说什么又咽了回去，灰白外门袍领口被汗湿了一片。
+      镜头2（6秒）近景 固定镜头：图1从袖中取出一枚墨铁古旧钥匙，柄端微型书本雕刻在阳光下隐约可见，双手将钥匙递到图2面前，嘴角含笑，图2颤抖着伸手接过。
+      道具：墨铁古旧钥匙，柄端雕刻微型书本图案，暗色金属光泽。
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio
+    negative_prompt: *NEG
+    image_urls:
+      - assets/looks/CHAR-006-L01.png
+      - assets/looks/CHAR-001-L01.png
+      - assets/scenes/SCENE-001.png
+
+  # ═══════════════════════════════════════════
+  # SEG07 — 走向禁书阁（独白递进·荒凉→孤注一掷）
+  # 🔀 转场：audio_bridge（远处古旧木门吱呀声先于画面切入）
+  # ═══════════════════════════════════════════
+  - segment_id: SEG07
+    shot_ids: [EP01-S14, EP01-S15]
+    scene_id: SCENE-002
+    duration: 11
+    ratio: "9:16"
+    model: doubao-seedance-2-0-fast
+    generate_audio: true
+    prompt: |
+      竖屏9比16连贯叙事。仙侠宗门偏僻角落，暮色外景，远处古旧木门轮廓。
+      镜头1（5秒）全景 镜头拉远：暮色中，三层古旧的禁书阁木楼孤零零矗立，图1一人的身影在阁门前显得格外渺小，门上积尘厚重，台阶石板缝里长着杂草。
+      镜头2（6秒）近景 固定镜头：图1抬头仰望紧闭的阁门，门板木纹被岁月侵蚀得斑驳，深吸一口气，将墨铁钥匙插入门锁，锁芯转动的声响在寂静中格外清晰。
+      道具：墨铁古旧钥匙插入古旧门锁。
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio
+    negative_prompt: *NEG
+    image_urls:
+      - assets/looks/CHAR-001-L01.png
+      - assets/scenes/SCENE-002.png
+
+  # ═══════════════════════════════════════════
+  # SEG08 — 禁书阁初探（独白递进·震撼→孤独→安顿）
+  # 🔀 转场：dissolve（门外暮色→阁内烛火）
+  # ═══════════════════════════════════════════
+  - segment_id: SEG08
+    shot_ids: [EP01-S16, EP01-S17]
+    scene_id: SCENE-002
+    duration: 11
+    ratio: "9:16"
+    model: doubao-seedance-2-0-fast
+    generate_audio: true
+    prompt: |
+      竖屏9比16连贯叙事。禁书阁内部，三层木结构古楼，烛火照明，暮色从门外透入。
+      镜头1（5秒）全景 镜头推近：沉重的阁门推开，浮尘在暮光中飞舞，三层巨大空间展开——书架直达穹顶消失在暗影中，铁烛台上的蜡烛逐一亮起，金色墨色粒子在烛光中游弋，古旧木地板上刻着模糊的同心圆纹路。
+      镜头2（6秒）中景 镜头跟随：图1走进外厅中央，脚步声在空旷中回荡，环顾四周——书架上的古籍偶有微弱光芒一闪而逝像有生命般呼吸，放下随身粗布包袱在最近的木桌旁坐下。
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio
+    negative_prompt: *NEG
+    image_urls:
+      - assets/looks/CHAR-001-L01.png
+      - assets/scenes/SCENE-002.png
+
+  # ═══════════════════════════════════════════
+  # SEG09 — 独守长夜（独白递进·孤独→自嘲→觉察异样）
+  # ═══════════════════════════════════════════
+  - segment_id: SEG09
+    shot_ids: [EP01-S18, EP01-S19]
+    scene_id: SCENE-002
+    duration: 10
+    ratio: "9:16"
+    model: doubao-seedance-2-0-fast
+    generate_audio: true
+    prompt: |
+      竖屏9比16连贯叙事。禁书阁内部，夜深，数支蜡烛照明，暖黄烛光与暗影对比。
+      镜头1（5秒）中景 固定镜头：夜色深沉，图1伏在桌上，下巴搁在交叠的手臂上，烛火映出半明半暗的面容，目光空洞地望向无尽书架。
+      镜头2（5秒）近景 缓推：图1缓缓起身在书架间缓步行走，指尖拂过泛黄的书脊，有些书脊上闪过微弱的金色字迹，停在一排古籍前目光被什么吸引。
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio
+    negative_prompt: *NEG
+    image_urls:
+      - assets/looks/CHAR-001-L01.png
+      - assets/scenes/SCENE-002.png
+
+  # ═══════════════════════════════════════════
+  # SEG10 — 古籍异动（蓄力式·好奇→紧张→惊骇）
+  # ═══════════════════════════════════════════
+  - segment_id: SEG10
+    shot_ids: [EP01-S20, EP01-S21]
+    scene_id: SCENE-002
+    duration: 12
+    ratio: "9:16"
+    model: doubao-seedance-2-0-fast
+    generate_audio: true
+    prompt: |
+      竖屏9比16连贯叙事。禁书阁内部，烛火照明，金色超自然光源渐起。
+      镜头1（6秒）特写 镜头推近：书架中层，一本金色封面薄册——《混沌初解》——封面中央混沌纹开始缓缓旋转发光，金色微光从书页缝隙渗出越来越亮，照亮了图1的半张脸。
+      镜头2（6秒）近景 固定镜头：图1不由自主地靠近书架伸出手——又在半空停住，《混沌初解》书页自行翻开，金色文字如液体在页面上流动，图1后退一步呼吸变得急促。
+      道具：《混沌初解》，金色封面薄册，封面中央混沌纹旋转发光，书页内金色流动文字。
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio
+    negative_prompt: *NEG
+    image_urls:
+      - assets/looks/CHAR-001-L01.png
+      - assets/scenes/SCENE-002.png
+
+  # ═══════════════════════════════════════════
+  # SEG11 — 文字苏醒（碎片式·惊恐→被锁定）
+  # ═══════════════════════════════════════════
+  - segment_id: SEG11
+    shot_ids: [EP01-S22, EP01-S23]
+    scene_id: SCENE-002
+    duration: 11
+    ratio: "9:16"
+    model: doubao-seedance-2-0-fast
+    generate_audio: true
+    prompt: |
+      竖屏9比16连贯叙事。禁书阁内部，烛火与金色超自然光交织。
+      镜头1（5秒）特写 固定镜头：《混沌初解》完全翻开悬浮在书架前，金色文字从纸面脱离化为细小光蛇在空气中蜿蜒游动，数十条文字蛇齐齐转向图1方向仿佛锁定了猎物。
+      镜头2（6秒）近景 固定镜头：图1瞪大眼睛身体僵硬，金色文字蛇从书页中源源不断涌出在烛光中拖着细长金色尾迹径直朝他飞来，张嘴想喊喉咙却像被什么扼住。
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio
+    negative_prompt: *NEG
+    image_urls:
+      - assets/looks/CHAR-001-L01.png
+      - assets/scenes/SCENE-002.png
+
+  # ═══════════════════════════════════════════
+  # SEG12 — 文字缠臂（蓄力式·缠绕→灼痛→困惑）
+  # ═══════════════════════════════════════════
+  - segment_id: SEG12
+    shot_ids: [EP01-S24, EP01-S25]
+    scene_id: SCENE-002
+    duration: 11
+    ratio: "9:16"
+    model: doubao-seedance-2-0-fast
+    generate_audio: true
+    prompt: |
+      竖屏9比16连贯叙事。禁书阁内部，金色文字光源叠加烛火，超自然光笼罩。
+      镜头1（5秒）特写 固定镜头：金色文字蛇缠绕上图1的左手臂一条接一条如活物般紧密缠绕，文字在皮肤表面发出温暖金光映照出惊恐的瞳孔倒影。
+      镜头2（6秒）近景 缓推：图1惊恐地盯着自己的手臂——文字正在一条一条渗入皮肤如同被吸收，金光明灭闪烁，面部肌肉在恐惧与某种奇异温暖之间挣扎。
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio
+    negative_prompt: *NEG
+    image_urls:
+      - assets/looks/CHAR-001-L01.png
+      - assets/scenes/SCENE-002.png
+
+  # ═══════════════════════════════════════════
+  # SEG13 — 书在读人（碎片式·惊骇→认知颠覆→切断）
+  # ═══════════════════════════════════════════
+  - segment_id: SEG13
+    shot_ids: [EP01-S26, EP01-S27]
+    scene_id: SCENE-002
+    duration: 10
+    ratio: "9:16"
+    model: doubao-seedance-2-0-fast
+    generate_audio: true
+    prompt: |
+      竖屏9比16连贯叙事。禁书阁内部，金色光芒最盛，超自然光笼罩一切。
+      镜头1（5秒）大特写 缓推：图1手臂特写——最后一行金色文字缓缓沉入皮肤留下淡金色纹路痕迹，镜头缓缓推近面部，瞳孔中映出翻飞的书页和流动的金色光芒。
+      镜头2（5秒）特写 固定镜头：图1瞳孔中金色文字倒影旋转，嘴唇颤抖着张开，画面骤然切入黑屏——黑暗中只剩急促的呼吸声。
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。Chinese ink-wash painting style blended with photorealistic rendering, xianxia cultivation world aesthetic, cinematic lighting, 85mm portrait lens, ethereal ink particles floating in air, ancient Chinese calligraphy motifs, muted ink-black and gold color palette with indigo and vermillion accents, volumetric fog, 8K detail, dramatic chiaroscuro lighting, film grain, vertical composition 9:16 aspect ratio
+    negative_prompt: *NEG
+    image_urls:
+      - assets/looks/CHAR-001-L01.png
+      - assets/scenes/SCENE-002.png
