@@ -107,7 +107,7 @@ seedance_defaults:
   model: doubao-seedance-2-0-fast
   ratio: "9:16"
   resolution: 720p
-  image_resolution: 1024×1024（Seedream 参考图）
+  image_resolution: 1600×2848（Seedream 参考图，9:16 竖屏）
   duration_sec: "8-10"
   generate_audio: true
 ---

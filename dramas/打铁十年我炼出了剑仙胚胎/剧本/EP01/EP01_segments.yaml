@@ -1,0 +1,438 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP01/EP01_那一剑.md
+# Source segments: 15 (SEG01 to SEG15)
+# Output segments: 15 (EP01-SEG01 to EP01-SEG15)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 158s
+# Output total duration: 158s
+# Gate status: G1 ✅ PASS | G2 ❌ FAIL (declared 29 shots, actual 33) | G3 ✅ PASS | G4 ❌ FAIL (剑仙 no voice_prompt)
+# ⚠️ GATE2_WARNING: Source declares 29 shots but table contains 33. Proceeding with 33 actual shots across 15 segments.
+# ⚠️ GATE4_WARNING: 剑仙 appears as speaker in SEG06/SEG07/SEG08/SEG11 but has no voice_prompt in 资产/声音卡片.md. Placeholder used; production-planner MUST add 剑仙 voice_prompt before API submission.
+# ⚠️ TOTAL_WARNINGS: 2 gate failures. Manual review recommended before Seedance API submission.
+
+episode_id: EP01
+source_md: 剧本/EP01/EP01_那一剑.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。cinematic lighting, photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, film grain, 35mm lens quality, high detail, 8K quality"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。cinematic lighting, photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, film grain, 35mm lens quality, high detail, 8K quality"
+  negative_prompt: "modern, western, skyscraper, car, phone, watch, glasses, neon lights, anime style, cartoon, 3D render, plastic texture, unrealistic proportions, cyborg, robot, gun, modern military, jeans, T-shirt, sneakers, electric light, concrete building, glass curtain wall"
+
+voice_prompts:
+  CHAR-001: "成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。"
+  旁白: "成年男性，声线沉稳有磁性，不偏不倚的叙述感——既不是高高在上的说书人也不是煽情的画外音。语速适中，在关键信息点（如『那一剑劈开了半座山』）会微微停顿制造重量感。不需要强烈情绪渲染——让事实本身说话。"
+  剑仙: "⚠️ PLACEHOLDER — GATE4 FAIL: 剑仙 not found in 资产/声音卡片.md. production-planner MUST add 剑仙 voice_prompt before Seedance API submission. Suggested cues from script: 气若游丝·沙哑, 气声·像在辨认, 苦笑, 自嘲, 极轻·像自言自语, 气声·快速."
+
+segments:
+  - segment_id: EP01-SEG01
+    shot_ids: [EP01-S01]
+    duration_sec: 5
+    speakers: [旁白]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+    api:
+      text: |
+        【图1】断剑崖 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）远景 固定镜头：断剑崖全景，万丈绝壁斜插入云，岩壁上密布数十道巨大的剑斩痕迹，像被巨兽的爪子撕开的伤疤。天空高远苍茫，晨光从云隙洒下，崖底散落着碎石和铁矿石。一个少年的身影在崖下弯腰捡拾——渺小得近乎消失在画面中。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（旁白，成年男性，声线沉稳有磁性，不偏不倚的叙述感——既不是高高在上的说书人也不是煽情的画外音。语速适中，在关键信息点（如『那一剑劈开了半座山』）会微微停顿制造重量感。不需要强烈情绪渲染——让事实本身说话。）：「有人说，真正的剑——你只需要见一次，就再也忘不掉。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: SCENE-001, role: reference_image, label: 图1 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG02
+    shot_ids: [EP01-S02, EP01-S03]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — Stage 3b not yet completed
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+    api:
+      text: |
+        【图1】秦铁 CHAR-001-L02（粗布短褐，袖口磨白，手指粗糙）【图2】断剑崖 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 缓推：图1蹲在碎石堆旁，用一块扁石撬起一块拳头大的铁矿石。粗布短褐，袖口磨得发白，手指粗糙但干净。图1把矿石凑近眼前，对着光看纹路——嘴角微微弯了一下。旁边竹篓已装满大半。
+        镜头2（5秒）近景 固定镜头：图1将矿石扔进竹篓，直起腰擦汗。抬头看天——天很蓝，什么都没有。但图1皱眉了。不是看见什么，是感觉到什么——一种极低沉的震动从脚底传上来，像山在深处叹气。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「这块含铁高。爹说过，断剑崖的石头是天底下最硬的——被仙人砍过。」
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「……地动了？不对——不是从下面。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG03
+    shot_ids: [EP01-S04, EP01-S05, EP01-S06]
+    duration_sec: 12
+    speakers: [旁白, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — Stage 3b not yet completed
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+    api:
+      text: |
+        【图1】秦铁 CHAR-001-L02（粗布短褐）【图2】断剑崖 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）远景 镜头推近：高空。云层被一道极快的黑影撕开——像一颗坠落的流星，但轨迹是歪斜的。黑影拖出的气流在天空中切出一条长长的白色伤疤。它在往下掉，不是在飞。
+        镜头2（4秒）近景 固定镜头：图1仰头，瞳孔骤缩。嘴唇微张，喉结上下滚动——图1在吞咽恐惧。竹篓从肩上滑落，矿石哗啦散了一地。双腿在发抖，但图1没有跑。图1的手不自觉按上胸口——那里什么都没有，只是一种本能。
+        镜头3（4秒）特写 固定镜头：图1的眼睛。一个十五岁凡人少年的眼睛——没有灵力波动，没有任何修炼痕迹。但此刻，这双眼睛里有一道光——不是灵根的光，是更原始的东西。是穷人家孩子看到暴风雨时既恐惧又忍不住想看的那种光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（旁白，成年男性，声线沉稳有磁性，不偏不倚的叙述感——既不是高高在上的说书人也不是煽情的画外音。语速适中，在关键信息点（如『那一剑劈开了半座山』）会微微停顿制造重量感。不需要强烈情绪渲染——让事实本身说话。）：「那不是流星。那是一个人——在坠。」
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「跑。跑啊。腿为什么不听——」
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「……人？那是——人？」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S07, EP01-S08]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — Stage 3b not yet completed
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+    api:
+      text: |
+        【图1】秦铁 CHAR-001-L02（粗布短褐，额角有碎石划伤）【图2】断剑崖 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景 镜头跟随：黑影砸入断剑崖上方——在半空被一道看不见的力量托了一下，减速，然后重重坠在崖顶平台上。坠落激起的气浪掀起漫天碎石和尘土，地面砸出一个三丈宽的浅坑。坑中，一个浑身是血的身影蜷缩着。白发散落，被血染成暗红。
+        镜头2（5秒）中景 缓推：图1被气浪掀翻。爬起来时满脸尘土，捂着被碎石划破的额角——血从指缝渗出。图1看着坑中那个人，眼睛一动不动，像被钉住了。图1的身体在后退——不是怕那个人的样子，是怕自己会走过去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「别过去……那种人——那不是你该碰的人。爹说过，碰了仙人的事，命就没了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG05
+    shot_ids: [EP01-S09, EP01-S10]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — Stage 3b not yet completed
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+    api:
+      text: |
+        【图1】秦铁 CHAR-001-L02（粗布短褐，额角血迹）【图2】断剑崖 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头推近：图1还是走了过去。脚步很慢——每一步都在碎石上发出沙沙的摩擦声，像一个不会武功的人在深夜走近一只受伤的猛兽。图1跪在坑边，看着坑底的人：白发老者，青色道袍被血浸透，胸口有一道贯穿伤——是剑伤，不是坠落造成的。
+        镜头2（5秒）特写 固定镜头：剑仙的手——满是血污，指节发白——死死攥着一块拳头大的黑色铁块。铁块粗糙，没有光泽，没有任何符文，看起来就是一块废铁。但那只手握它的样子，像握着自己最后的孩子。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「他胸口那个洞——那不是摔的。是被人……他是被人追杀。」
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「临死还攥着的东西——一块废铁？他在保护它……」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG06
+    shot_ids: [EP01-S11, EP01-S12, EP01-S13]
+    duration_sec: 12
+    speakers: [剑仙, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — Stage 3b not yet completed
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+    api:
+      text: |
+        【图1】秦铁 CHAR-001-L02（跪姿，粗布短褐）【图2】断剑崖 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）大特写 固定镜头：剑仙睁开眼。一双灰色的眼睛——像将熄的炭火，眼白布满血丝。但看向图1的一瞬间，那双眼底最深处有什么东西亮了一下。不是灵力——灵力早就耗尽了。是认出什么了。
+        镜头2（4秒）近景 固定镜头：图1跪着往前挪了半步。图1的手指在地上无意识地抠着碎石，指甲里全是泥土。图1不敢抬头，但图1能感觉到那双眼睛——那是一种奇怪的"轻"，像冬天里最后一点太阳照在脸上。不像一个将要杀人的人。
+        镜头3（4秒）特写 固定镜头：剑仙的左手——满是伤痕和血污——缓缓伸向图1的脸。手指停在图1眼前三寸处，没有碰图1。指尖微微颤抖，像一个盲人在"摸"一张脸。他的眼睛盯着图1的眼睛——看了很久。太久。久到不正常。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（剑仙，⚠️ PLACEHOLDER — GATE4 FAIL: 剑仙 not found in 资产/声音卡片.md. production-planner MUST add 剑仙 voice_prompt before Seedance API submission. Suggested cues from script: 气若游丝·沙哑, 气声·像在辨认, 苦笑, 自嘲, 极轻·像自言自语, 气声·快速。）：「你……过来。」
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「老……老先生……您——」
+        对白（剑仙，⚠️ PLACEHOLDER — GATE4 FAIL: 剑仙 not found in 资产/声音卡片.md. production-planner MUST add 剑仙 voice_prompt before Seedance API submission. Suggested cues from script: 气若游丝·沙哑, 气声·像在辨认, 苦笑, 自嘲, 极轻·像自言自语, 气声·快速。）：「你的眼睛……」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG07
+    shot_ids: [EP01-S14, EP01-S15, EP01-S16]
+    duration_sec: 12
+    speakers: [剑仙, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — Stage 3b not yet completed
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+    api:
+      text: |
+        【图1】秦铁 CHAR-001-L02（跪姿，额角血迹）【图2】断剑崖 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）大特写 固定镜头：剑仙收回手。他笑了——不是欣慰的笑，是苦笑。嘴角牵动伤口，血又从胸口渗出。他的目光从图1的眼睛上移开，看向天空——追兵的遁光越来越近了。
+        镜头2（4秒）近景 固定镜头：图1完全听不懂。图1只是跪在那里，额角的血还在流，看着这个浑身是血的人像看着一个谜。但那个人看图1的眼神让图1觉得——他不是在看一个路人。是在看一个答案。一个连那个人自己都在找的答案。
+        镜头3（4秒）特写 固定镜头：剑仙低头，看自己手中那块黑色残铁。拇指摩挲着铁块表面——铁块粗糙，没有光泽，没有任何灵力波动。他苦笑得更深了——笑里有千言万语，但没有时间说了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（剑仙，⚠️ PLACEHOLDER — GATE4 FAIL: 剑仙 not found in 资产/声音卡片.md. production-planner MUST add 剑仙 voice_prompt before Seedance API submission. Suggested cues from script: 气若游丝·沙哑, 气声·像在辨认, 苦笑, 自嘲, 极轻·像自言自语, 气声·快速。）：「……不对。不是灵根。你身上没有任何灵力。」
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「什么叫'不是灵根'——他在找什么？他为什么看我的眼睛……」
+        对白（剑仙，⚠️ PLACEHOLDER — GATE4 FAIL: 剑仙 not found in 资产/声音卡片.md. production-planner MUST add 剑仙 voice_prompt before Seedance API submission. Suggested cues from script: 气若游丝·沙哑, 气声·像在辨认, 苦笑, 自嘲, 极轻·像自言自语, 气声·快速。）：「……百年修行。百年恩怨。最后剩下的——是这块打不动的铁。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG08
+    shot_ids: [EP01-S17, EP01-S18, EP01-S19]
+    duration_sec: 12
+    speakers: [剑仙, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — Stage 3b not yet completed
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+      prop_urls:
+        PROP-001: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/02178123633448185c9a7acb047d6dabbfa02bbf3a2b67b4588e9_0.jpeg  # ⚠️ TEMP_URL: 预签名链接（24h过期），提交 Seedance 前须替换为永久 TOS URL
+    api:
+      text: |
+        【图1】秦铁 CHAR-001-L02（跪姿，粗布短褐，手掌粗糙）【图2】断剑崖 SCENE-001【图3】剑仙残铁 PROP-001（拳头大小，黑色铁块，表面坑坑洼洼粗糙无光泽，无符文，比看起来重得多）。
+        角色分工：仅图1可手持图3残铁。
+        道具：黑色残铁（PROP-001），拳头大小，表面粗糙坑洼，无光泽无符文，质感如陨铁，重量异常。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）特写 固定镜头：剑仙将图3残铁塞进图1手里。他的手覆盖着图1的手——一只满是老茧和血污的苍老手掌，包着一只粗糙但年轻的少年手掌。图3残铁冰凉，比看起来重得多——重得不正常，像一小块陨落的星星。
+        镜头2（4秒）近景 固定镜头：图1低头看掌心的图3残铁。铁块沉甸甸的，表面坑坑洼洼。图1不明白——一个将死的人，为什么要给图1一块废铁。图1抬头想问——剑仙已经站了起来。那个浑身是血、胸口被贯穿的人，站起来了。白发逆风飞扬，青色道袍鼓荡，不再像一个将死之人。
+        镜头3（4秒）中景 固定镜头：图1的身体比脑子快——图1已经退到了三丈外。手死死攥着图3残铁，攥到指节发白。图1知道接下来要发生什么了。不是知道——是感觉到了。空气在变重。脚底的石头在嗡嗡响。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（剑仙，⚠️ PLACEHOLDER — GATE4 FAIL: 剑仙 not found in 资产/声音卡片.md. production-planner MUST add 剑仙 voice_prompt before Seedance API submission. Suggested cues from script: 气若游丝·沙哑, 气声·像在辨认, 苦笑, 自嘲, 极轻·像自言自语, 气声·快速。）：「拿着。别让任何人看到。别卖。别熔。别——别把它当废铁。」
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「……他不是站不起来的吗？他刚才明明——」
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「他要出剑。他要——」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG09
+    shot_ids: [EP01-S20, EP01-S21]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — Stage 3b not yet completed
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+    api:
+      text: |
+        【图1】秦铁 CHAR-001-L02（粗布短褐，手中紧攥残铁）【图2】断剑崖 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）全景 镜头推近：剑仙以手为剑——没有剑，但他的右臂就是剑。体内最后的光芒从胸口贯穿伤处喷涌而出，沿着右臂汇聚到指尖。那不是灵力——是燃烧。整个人像一支正在被点燃的火把，从内到外迸发出刺目的白光。白发根根竖立，空气被高温扭曲，地面碎石开始悬浮。
+        镜头2（4秒）中景 固定镜头：图1被剑压压得趴在地上。脸贴着碎石地面，眼睛被白光刺得流泪，但图1拼命睁着——图1不想错过哪怕一瞬。图1的心跳快得不像在跳，像在敲。像锤子敲在铁上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「别眨眼。别眨眼。别——眨——眼——」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG10
+    shot_ids: [EP01-S22, EP01-S23]
+    duration_sec: 12
+    speakers: [旁白, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — Stage 3b not yet completed
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+    api:
+      text: |
+        【图1】秦铁 CHAR-001-L02（趴地，脸上尘土泪痕）【图2】断剑崖 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）远景 镜头拉远：剑仙一剑斩出。剑光不是一条线——是一道墙。白色剑光从崖顶向斜上方劈去，划过整座断剑崖的半边山体。山体被剑光切过的地方像豆腐一样整齐地裂开，碎石还没开始下落——在那一瞬间，世界是静止的。然后，半座山开始滑动。
+        镜头2（4秒）大特写 固定镜头：图1的眼睛。瞳孔里倒映着那道正在劈开山体的剑光——白色的光在图1虹膜上划出一条弧线，像一道永远不会消失的闪电。图1的嘴张着，但没有声音。不是不想喊——是忘了怎么呼吸。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（旁白，成年男性，声线沉稳有磁性，不偏不倚的叙述感——既不是高高在上的说书人也不是煽情的画外音。语速适中，在关键信息点（如『那一剑劈开了半座山』）会微微停顿制造重量感。不需要强烈情绪渲染——让事实本身说话。）：「那一剑劈开了半座山。三日后，剑气还挂在天上。」
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「……原来人可以这样。原来剑可以这样。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG11
+    shot_ids: [EP01-S24, EP01-S25]
+    duration_sec: 10
+    speakers: [剑仙, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — Stage 3b not yet completed
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+    api:
+      text: |
+        【图1】秦铁 CHAR-001-L02（膝盖流血，满脸尘土泪痕）【图2】断剑崖 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 缓推：剑仙斩出那一剑后，整个人像一束燃尽的纸。他站在那里，保持着挥剑的姿势，但身体正在化为细密的光点——从指尖开始，然后是手臂、肩膀。不是消散——是归还。像铁回到炉子里，但这次不会再被锻打了。
+        镜头2（5秒）近景 固定镜头：图1从地上爬起来。膝盖在流血，脸上全是尘土和泪痕——图1不知道自己什么时候哭了。图1朝剑仙跑过去，伸出手想抓住什么，但只抓住了一把光。光从图1的指缝漏出去，变成细碎的金色微粒，被风吹向断剑崖深处。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（剑仙，⚠️ PLACEHOLDER — GATE4 FAIL: 剑仙 not found in 资产/声音卡片.md. production-planner MUST add 剑仙 voice_prompt before Seedance API submission. Suggested cues from script: 气若游丝·沙哑, 气声·像在辨认, 苦笑, 自嘲, 极轻·像自言自语, 气声·快速。）：「……够了。」
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「等一下——你还没告诉我——这块铁是干什么的——你是谁——为什么给我——」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG12
+    shot_ids: [EP01-S26, EP01-S27]
+    duration_sec: 9
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — Stage 3b not yet completed
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+    api:
+      text: |
+        【图1】秦铁 CHAR-001-L02（独立坑边，右手攥残铁）【图2】断剑崖 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）全景 镜头拉远：断剑崖恢复了寂静。坑还在，血还在，但人不见了。只剩下被劈开的山体在缓缓滑落碎石。天空中，五道遁光在犹豫——他们不确定剑仙是否真的死了，不敢立刻降落。
+        镜头2（5秒）中景 缓推：图1独自站在坑边。右手攥着剑仙塞给图1的残铁——铁块还是冰凉的，但图1的手在发烫。图1低头看着掌心的残铁，看了很久。一只十五岁的手，握着一块不知道是什么的黑色铁块——一个承诺图1还没理解就接下了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「你给了一个连灵根都没有的人。你是疯了——还是看到了什么我没看到的东西。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG13
+    shot_ids: [EP01-S28, EP01-S29]
+    duration_sec: 9
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — Stage 3b not yet completed
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+    api:
+      text: |
+        【图1】秦铁 CHAR-001-L02（跪姿，额角伤口粘灰）【图2】断剑崖 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定镜头：图1跪了下来。不是恐惧——是把残铁放在地上，双手撑在它两侧，像一个跪在师父面前即将学艺的学徒。额头贴地，灰尘粘在额角伤口上。图1想起剑仙看图1的那个眼神——在找什么。找了一辈子，临死前在路人眼里看到的。图1决定不让那个眼神落空。
+        镜头2（4秒）特写 固定镜头：图1抬起头。眼里没有泪了。那些眼泪刚才已经流完了。现在剩下的是别的什么——一个穷人家孩子第一次决定做一件没人相信图1能做到的事。图1的嘴唇动了一下，只说了一句话。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「我没有灵根。」
+        对白（秦铁，成年男性，30岁，声线低沉粗粝略带沙哑，常年炉火熏烤后的嗓音质感，语速偏慢，字与字之间有明显停顿，像每个字都是锤子敲出来的。情绪越强话越少，愤怒时语速反而更慢更低。偶尔带铁匠行话时语调会微微上扬——那是他唯一兴奋的时刻。）：「但我能打铁。铁不认人——只认火候。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG14
+    shot_ids: [EP01-S30, EP01-S31]
+    duration_sec: 10
+    speakers: [旁白]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL — Stage 3b not yet completed
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+    api:
+      text: |
+        【图1】秦铁 CHAR-001-L02（残铁揣入怀中，背竹篓）【图2】断剑崖 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 缓推：图1站起来。将残铁揣进怀里——贴身的麻布内衬，贴着胸口。残铁冰凉，像冰，但贴着皮肤久了之后和体温融为一体。图1背起散落在地的竹篓，最后看了一眼断剑崖——被劈开的山体裂缝中，夕阳的光穿透过来，像一道金色的剑痕悬在天上。
+        镜头2（5秒）远景 镜头拉远：图1转身，沿着来时的路下山。背影在断剑崖巨大的山体映衬下显得极小——一个拿着铁矿石的凡人少年，身后是剑仙陨落之地。天空中五道遁光终于开始缓缓下降，停在崖顶，围在剑仙消散的位置商议着什么。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（旁白，成年男性，声线沉稳有磁性，不偏不倚的叙述感——既不是高高在上的说书人也不是煽情的画外音。语速适中，在关键信息点（如『那一剑劈开了半座山』）会微微停顿制造重量感。不需要强烈情绪渲染——让事实本身说话。）：「十年。他花了十年——用同一块残铁，打同一柄剑。」
+        对白（旁白，成年男性，声线沉稳有磁性，不偏不倚的叙述感——既不是高高在上的说书人也不是煽情的画外音。语速适中，在关键信息点（如『那一剑劈开了半座山』）会微微停顿制造重量感。不需要强烈情绪渲染——让事实本身说话。）：「打了一万三千锤。每一锤都在追那个画面——」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, 写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG15
+    shot_ids: [EP01-S32, EP01-S33]
+    duration_sec: 11
+    speakers: []
+    refs:
+      scene_id: SCENE-001
+    assets:
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL — Stage 3c not yet completed
+      prop_urls:
+        PROP-001: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/02178123633448185c9a7acb047d6dabbfa02bbf3a2b67b4588e9_0.jpeg  # ⚠️ TEMP_URL: 预签名链接（24h过期），提交 Seedance 前须替换为永久 TOS URL
+    api:
+      text: |
+        【图1】断剑崖 SCENE-001【图2】剑仙残铁 PROP-001（拳头大小，黑色铁块，表面有不起眼的裂缝，微弱暖光从裂缝渗出）。
+        道具：黑色残铁（PROP-001），拳头大小，表面粗糙坑洼，一道不起眼的裂缝中有极微弱的暖光渗出——像呼吸，像心跳。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定镜头：秦铁胸口衣襟下——图2残铁贴着皮肤的那一面——忽然发出一道极微弱的暖光。光从铁块表面一道不起眼的裂缝里渗出来，像呼吸。像心跳。就一下。秦铁没有察觉，继续走着。
+        镜头2（6秒）全景 镜头拉远：断剑崖远景——暮色中，五个模糊剪影围在剑仙消散的坑边。一人俯身捡拾，一人抬手指向山下秦铁离去的方向。第三个人摇头——但第一个抬手的没有转头，一直盯着那个方向。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。cinematic lighting, photorealistic xianxia, Tang-Song dynasty hybrid clothing and architecture, ancient Chinese fantasy aesthetic, film grain, 35mm lens quality, high detail, 8K quality。
+      content_roles:
+        - { file: SCENE-001, role: reference_image, label: 图1 }
+        - { file: PROP-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
