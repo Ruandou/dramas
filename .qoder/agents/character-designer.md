@@ -90,6 +90,26 @@ tools: [Read, Write, Grep, Glob, Bash]
      - 使用数量精确规则（"ONE single jade pendant"）
      - 道具在角色身上的位置明确（颈间/腰间/手持/发间）
    - **生成时传入道具参考图**：在调用 `ark_seedream_generate` / `ark_seedream_batch` 时，将角色关联道具的参考图作为 `image_urls` 参数传入，让 Seedream 直接"看到"道具外观
+   - **⚠️ TOS URL 优先**：`image_urls` 必须使用 `assets/props/cdn_urls.json` 中的 `tos_url`（`https://` 永久链接），而非本地路径。详见下方「TOS URL 强制规则」
+
+### TOS URL 强制规则
+
+> **TOS URL 优先规则**：当 `cdn_urls.json` 中已有道具的 `tos_url` 永久链接时，`image_urls` 字段**必须**使用 TOS URL 而非本地路径。TOS URL 直接通过 `resolve_image_url()` 传递（无 base64 编码开销），比本地路径（需 base64 转 data URI，每图增加 ~1MB payload）更高效。
+>
+> - ✅ `image_urls: ["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"]`
+> - ❌ `image_urls: ["assets/props/PROP-001.png"]`（仅在 TOS URL 不可用时降级使用）
+>
+> **提交前 image_urls 检查（硬性门控）**：提交任何 Seedream 批次生成前，必须逐条检查 batch YAML 中所有 `image_urls` 字段：
+>
+> | 检查项 | 通过条件 | 失败处理 |
+> |--------|---------|----------|
+> | URL 格式 | 所有非空 `image_urls` 必须以 `https://` 开头 | 本地路径（`assets/...`）→ 先上传 TOS 再替换 |
+> | URL 可达 | TOS URL 可通过 HTTP HEAD 验证 | 重新上传 |
+> | 道具覆盖 | 所有有关联道具的条目 `image_urls` 非空 | 从 `cdn_urls.json` 查找 TOS URL 填入 |
+> | L02+ 依赖 | 所有 L02+ 条目 `image_urls` 包含已确认 L01 的 TOS URL | 阻塞：L01 未生成或未上传 |
+>
+> **阻断条件**：任何非空 `image_urls` 不以 `https://` 开头 → **禁止提交**，必须先完成 TOS 上传。
+
 7. **编写 voice_prompt**：
    - 格式：「性别，年龄，音色特征，语速特征，情绪基调/说话习惯」
    - 此字段与 production-planner 在声音卡片中定义的权威版本保持格式一致，segment-builder 将从声音卡片全文复制。
@@ -112,6 +132,40 @@ tools: [Read, Write, Grep, Glob, Bash]
    - 执行「完成前自检」24 项验证
    - 仅当卡片文件写入完成且自检通过后，方可进入下一步
 
+   > **Prompt 权威来源与执行配置分离**：
+   > - `资产/角色卡片.md` 中的 Seedream Prompt 是**权威来源**（source of truth）
+   > - `assets/seedream_batch_characters.yaml` 是**执行配置文件**（execution config），其 prompt 字段必须与卡片中的 Prompt 完全一致
+   > - dry-run 时，必须**先**将完整 Prompt 写入角色卡片文件，**再**生成 batch YAML
+   > - 生成前门控：回读卡片确认每个角色的 L01 Prompt 非空
+
+9.5. **组装批量生成配置**
+   - 输出：`assets/seedream_batch_characters.yaml`（中间工作文件，生成完成后可清理）
+
+   > **⚠️ 字段名强制**：批量 YAML 中参考图字段必须为 `image_urls`，提示词字段必须为 `prompt`。CLI (`ark_seedream_image.py`) 仅读取 `image_urls` / `image_url` 和 `prompt` / `prompt_en` 字段。使用 `prop_ref`、`ref_images` 等名称将被 CLI 忽略，导致生成时无参考图输入。
+
+   > **⚠️ TOS URL 强制**：所有 `image_urls` 必须使用 `https://` TOS 永久链接，不得使用本地路径。详见上方「TOS URL 强制规则」。
+
+   L01 基础形象格式：
+   ```yaml
+   items:
+     - id: "CHAR-001-L01"
+       name: "苏霜心 · 银发银瞳·剑灵态"
+       prompt: "[final prompt, verbatim from 角色卡片]"
+       image_urls:
+         - "https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"  # TOS URL
+       output: "assets/looks/CHAR-001-L01.png"
+   ```
+
+   L02+ 变体格式（需 L01 已生成 + TOS 已上传）：
+   ```yaml
+     - id: "CHAR-001-L02"
+       name: "苏霜心 · 透明化态"
+       based_on: "CHAR-001-L01"
+       image_urls: []  # ← L01 TOS upload后填入 L01 的 TOS URL
+       prompt: "[delta prompt, verbatim from 角色卡片]"
+       output: "assets/looks/CHAR-001-L02.png"
+   ```
+
 10. **生成门控 — 验证 Prompt 已写入文件后方可提议生成**
     - 回读 `资产/角色卡片.md`，确认每个角色的 L01 Prompt 字段非空且符合规范
     - 汇总待生成角色清单（主角 ≥3 候选方案，配角 1 个）
@@ -119,17 +173,27 @@ tools: [Read, Write, Grep, Glob, Bash]
     - ⚠️ **付費操作警告**：调用 ark_seedream_generate / ark_seedream_batch 会消耗方舟余额，必须获得用户明确授权后方可执行
     - **若 Prompt 尚未写入文件，禁止向用户提出生成请求**
 
-11. **执行生成**（仅在用户于 Step 10 授权后）
+11. **执行生成 + 即生即传**（仅在用户于 Step 10 授权后）
+
+    > **即生即传规则（Generate-then-Upload）**：每张参考图生成确认后，必须**立即**执行 TOS 上传并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
+    >
+    > 流程：`生成图片 → 确认质量 → tos_upload.py sync → 更新 cdn_urls.json → 下一张`
+    >
+    > 原因：
+    > - L02+ 变体需要 L01 的 TOS URL 作为 `image_urls` 参考
+    > - 下游设计师（场景）可能需要角色 TOS URL
+    > - 即时上传避免生成完毕后才发现 TOS 凭据问题
+
     - 按「多候选选优」规则生成
     - 主角 L01 生成至少 3 个候选方案进行比选
-    - 生成完成后更新形象索引
-
-12. **上传 TOS 并注册永久 URL**
-    - 执行 `tos_upload.py sync --project-root dramas/<剧名>` 将 `assets/looks/` 下所有生成图上传至 TOS
-    - 更新 `assets/looks/cdn_urls.json` 中每个形象 ID 的 URL 为永久 TOS URL（格式：`https://<bucket>.tos-cn-beijing.volces.com/looks/<project>/CHAR-###-L##.png`，无查询参数）
+    - **L01 确认后，立即 TOS 上传**：
+      1. 执行 `tos_upload.py sync --project-root dramas/<剧名>` 上传已确认的 L01 图
+      2. 确认 `assets/looks/cdn_urls.json` 中该形象 ID 的 `tos_url` 已更新为永久 TOS URL
+      3. 更新形象索引中对应条目的状态和 CDN URL
     - ⚠️ Seedream API 返回的预签名 URL（含 `X-Tos-Expires` 参数）仅 24 小时有效，不可作为最终 CDN URL
-    - 若项目 `制片规范.md` 定义了 `tos_bucket`，使用 `tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>`
-    - 若项目 `制片规范.md` 定义了 `tos_key_prefix`，使用 `tos_upload.py sync --project-root dramas/<剧名> --key-prefix <prefix>`
+    - 若项目 `制片规范.md` 定义了 `tos_bucket` / `tos_key_prefix`，传入对应参数
+
+    > **L01→L02+ 桥接步骤**：全部 L01 生成 + TOS 上传完成后，编辑 batch YAML 将所有 L02+ 条目的 `image_urls` 从 `[]` 更新为对应 L01 的 **TOS URL**，方可提交 L02+ 批次生成。L02+ 生成后同样执行即生即传。
 
 #### TOS 上传完成性验证（硬性门控）
 
@@ -385,7 +449,7 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 - 道具描述必须与 `assets/props/PROP-###.png` 实际外观严格匹配——不可凭想象编造道具外观
 - 位置词必须明确（`at the neck`、`at the waist`、`in the right hand`、`in the hair`）
 - 数量词必须包含（`ONE single`、`exactly two`）
-- 提交生成请求时 `image_urls` 字段必须包含对应 PROP 参考图路径
+- 提交生成请求时 `image_urls` 字段必须包含对应 PROP 参考图的 **TOS URL**（从 `assets/props/cdn_urls.json` 的 `tos_url` 获取）
 
 ### 角色身上文字渲染规则
 
@@ -1228,26 +1292,26 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 # 查看 Seedream 完整参数说明
 ark_seedream_docs()
 
-# 生成角色 L01 基础形象（带道具参考图）
+# 生成角色 L01 基础形象（带道具 TOS URL 参考图）
 ark_seedream_generate(
   prompt="Character reference sheet, full body front view, white background. Young male, 25 years old...",
   output="assets/looks/CHAR-001-L01.png",
   ratio="9:16",
-  image_urls=["assets/props/PROP-001.png"]  # 角色持有的道具参考图
+  image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"]  # TOS URL
 )
 
-# 生成角色 L02 衍生形象
+# 生成角色 L02 衍生形象（使用 L01 的 TOS URL）
 ark_seedream_generate(
   prompt="Character reference sheet, full body front view, white background. Same character in formal attire...",
   output="assets/looks/CHAR-001-L02.png",
   ratio="9:16",
-  image_urls=["assets/looks/CHAR-001-L01.png"]  # 基于 L01 的衍生
+  image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑骨霜心/CHAR-001-L01.png"]  # L01 TOS URL
 )
 
-# 批量生成多角色
+# 批量生成多角色（使用 TOS URL）
 ark_seedream_batch(
   items=[
-    {"prompt": "Character reference sheet...", "output": "assets/looks/CHAR-001-L01.png", "image_urls": ["assets/props/PROP-001.png"]},
+    {"prompt": "Character reference sheet...", "output": "assets/looks/CHAR-001-L01.png", "image_urls": ["https://...tos.../PROP-001.png"]},
     {"prompt": "Character reference sheet...", "output": "assets/looks/CHAR-002-L01.png"}
   ],
   ratio="9:16"
@@ -1257,21 +1321,21 @@ ark_seedream_batch(
 ### CLI 方式（MCP 不可用时）
 
 ```bash
-# 单张生成（带参考图）
+# 单张生成（带 TOS URL 参考图）
 python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
   --prompt "Character reference sheet, full body front view, white background..." \
   --output assets/looks/CHAR-001-L01.png \
   --ratio 9:16 \
-  --image-urls assets/props/PROP-001.png
+  --image-urls "https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"
 
 # 查看帮助
 python3 mcps/volc-ark/scripts/ark_seedream_image.py --help
 ```
 
-### TOS 上传（生成完成后）
+### TOS 上传（即生即传，每张图确认后立即执行）
 
 ```bash
-# 上传所有角色形象到 TOS 获取永久 URL
+# 上传已确认的角色形象到 TOS 获取永久 URL
 python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
 
 # 指定 bucket（如制片规范定义了 tos_bucket）

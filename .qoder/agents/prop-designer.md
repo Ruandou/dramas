@@ -112,10 +112,10 @@ G2 通过 → prop-designer (Stage 3a) 启动 → 完成所有道具图 → 信�
 ```yaml
 items:
   - id: "PROP-001"
-    prompt_en: "[final prompt from Step 3]"
+    prompt: "[final prompt from Step 3, verbatim from 道具卡片]"
     output: "assets/props/PROP-001.png"
   - id: "PROP-002"
-    prompt_en: "[...]"
+    prompt: "[...]"
     output: "assets/props/PROP-002.png"
 ```
 
@@ -175,28 +175,30 @@ python3 mcps/volc-ark/scripts/ark_seedream_image.py --help
 
 按质量审查清单逐项检查每张生成图。
 
-## Step 7：迭代修复
+## Step 7：即生即传（TOS 上传 + 注册永久 URL）
 
-按迭代升级协议处理未通过审查的图像。
+> **即生即传规则（Generate-then-Upload）**：每张道具图生成确认后，必须**立即**执行 TOS 上传并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
+>
+> 流程：`生成图片 → 确认质量（Step 6）→ tos_upload.py sync → 更新 cdn_urls.json → 下一张`
+>
+> 原因：
+> - 下游设计师（角色/场景）需要道具的 TOS URL 作为 `image_urls` 参考
+> - 道具是跨资产的视觉锚点，必须最先对下游可用
+> - 即时上传避免生成完毕后才发现 TOS 凭据问题
 
-## Step 8：上传 TOS 并注册永久 URL
-
-将生成的图片上传至 TOS（VolcEngine 对象存储）获取永久公开 URL：
-
-1. 执行 `tos_upload.py sync --project-root dramas/<剧名>`
-2. 确认 `assets/props/cdn_urls.json` 中每个 ID 的 URL 已更新为永久 TOS URL
+上传步骤：
+1. 执行 `tos_upload.py sync --project-root dramas/<剧名>` 上传已确认的道具图
+2. 确认 `assets/props/cdn_urls.json` 中该道具 ID 的 `tos_url` 已更新为永久 TOS URL
+3. 永久 URL 格式：`https://<bucket>.tos-cn-beijing.volces.com/props/<project>/PROP-###.png`（无查询参数）
 
 **CLI 命令：**
 ```bash
 python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
 ```
 
-3. 永久 URL 格式：`https://<bucket>.tos-cn-beijing.volces.com/props/<project>/PROP-###.png`（无查询参数）
+若项目 `制片规范.md` 定义了 `tos_bucket` / `tos_key_prefix`，传入对应参数。
 
 **注意**：Seedream API 返回的预签名 URL（含 `X-Tos-Expires`/`X-Tos-Signature` 参数）仅 24 小时有效，不可作为最终 CDN URL。
-
-若项目 `制片规范.md` 定义了 `tos_bucket`，使用 `tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>`。
-若项目 `制片规范.md` 定义了 `tos_key_prefix`，使用 `tos_upload.py sync --project-root dramas/<剧名> --key-prefix <prefix>`。
 
 #### TOS 上传完成性验证（硬性门控）
 
@@ -205,6 +207,10 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
 - ✅ 永久 URL 格式：`https://<bucket>.tos-cn-beijing.volces.com/props/<project>/PROP-###.png`（无查询参数）
 - ❌ 仅有 `cdn_url`（Seedream API 返回的临时预签名 URL，24小时过期）→ **不可声明完成**
 - 失败处理：报告"生成完成，TOS 上传阻断"+ 错误详情，等待用户修复凭据
+
+## Step 8：迭代修复
+
+按迭代升级协议处理未通过审查的图像。修复后同样执行即生即传。
 
 ## Step 9：执行完成前自检
 
