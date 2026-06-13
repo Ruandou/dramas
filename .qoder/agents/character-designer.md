@@ -129,8 +129,18 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 9. **输出角色卡片文件**
    - 将所有 CHAR-### 条目的完整设计（含 Seedream L01 Prompt、voice_prompt、人物关系）写入 `资产/角色卡片.md`
-   - 执行「完成前自检」24 项验证
+   - 执行「完成前自检」32 项验证
    - 仅当卡片文件写入完成且自检通过后，方可进入下一步
+
+   > **⛔ Prompt 身体描述必须从卡片表提取，不得手写**：
+   > L01 Prompt 中的物理描述部分（性别、年龄、身高、体型、脸型、皮肤、发型、眼睛、眉毛、鼻子、嘴唇、气质）**必须**从该角色 `### 外貌描写（L01 校园日常）` 表格中的描述翻译/转换而来，**严禁**凭记忆或手动编写。
+   >
+   > 原因：当同时为多个角色编写 Prompt 时，手动编写极易将 A 角色的描述错放到 B 角色的 Prompt 中（如将父亲的外貌写进女儿的 Prompt）。
+   >
+   > 正确做法：
+   > 1. 先填写 `外貌描写` 表（中文）
+   > 2. 将表格中每个维度的描述翻译为英文，按模板组装为 Prompt
+   > 3. 执行自检 #32 验证 Prompt 与表格一一对应
 
    > **Prompt 权威来源与执行配置分离**：
    > - `资产/角色卡片.md` 中的 Seedream Prompt 是**权威来源**（source of truth）
@@ -755,7 +765,7 @@ This person is clearly a TEENAGER, not a child. Adolescent proportions, angular 
 
 ## 六、多候选选优（Multi-Candidate Selection）
 
-> **⛔ 生成前提条件**：仅在「资产/角色卡片.md」已完整写入所有角色的 Seedream L01 Prompt（通过「完成前自检」第 8-24 项验证）后，方可进入本节的图像生成流程。若 Prompt 尚未写入文件，**禁止**向用户提出生成请求。
+> **⛔ 生成前提条件**：仅在「资产/角色卡片.md」已完整写入所有角色的 Seedream L01 Prompt（通过「完成前自检」第 8-32 项验证，其中 **#32 Prompt-卡片身份一致性为必过项**）后，方可进入本节的图像生成流程。若 Prompt 尚未写入文件，**禁止**向用户提出生成请求。
 
 > ⚠️ **付费操作警告**：调用 `ark_seedream_generate` / `ark_seedream_batch` 等图片生成 MCP 工具会消耗方舟余额。必须获得用户明确授权后方可执行，未经授权严禁调用。每次生成多候选（如 3 张）意味着 3 倍费用消耗，需提前告知用户。
 
@@ -1382,6 +1392,7 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 | 29 | 痛点命中 | 主角命中目标受众 ≥2 个核心痛点 |
 | 30 | 角色预算 | 有名角色总数 ≤15，每个角色通过"有用+有记忆点"双重测试 |
 | 31 | TOS 永久 URL 验证 | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
+| 32 | **Prompt-卡片身份一致性** | L01 Prompt 中的物理描述（性别、年龄、身高、体型、脸型、发色/发型、肤色）必须与该角色 `外貌描写（L01 校园日常）` 表中的描述**逐一对应**。具体检查：(a) Prompt 中 "Chinese man/woman" 与卡片性别一致；(b) 年龄数值匹配；(c) 身高数值匹配；(d) 脸型关键词匹配（如 oval/round/square/melon）；(e) 发型描述匹配。**任一不一致即为阻断项**。 |
 
 ---
 
