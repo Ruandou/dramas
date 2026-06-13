@@ -142,8 +142,16 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 > **Prompt 权威来源与执行配置分离**：
 > - `资产/场景卡片.md` 中的 Seedream Prompt 是**权威来源**（source of truth）
 > - `assets/seedream_batch_scenes.yaml` 是**执行配置文件**（execution config），其 prompt 字段必须与卡片中的 Prompt 完全一致
-> - dry-run 时，必须**先**将完整 Prompt 写入场景卡片文件，**再**生成 batch YAML
+> - 必须**先**将完整 Prompt 写入场景卡片文件，**再**生成 batch YAML（无论是否 dry-run）
 > - 生成前门控：回读卡片确认每个场景的 Prompt 非空
+>
+> #### Prompt 持久化完成性验证（硬性门控）
+>
+> 场景设计师在组装 batch YAML 前，**必须**验证 `资产/场景卡片.md` 中每个条目包含 Seedream Prompt：
+>
+> - ✅ Prompt 非空且为英文
+> - ❌ Prompt 为空或缺失 → **禁止进入 batch YAML 组装**
+> - 失败处理：补充 Prompt 后重新验证
 
 输出：
 - `assets/seedream_batch_scenes.yaml`

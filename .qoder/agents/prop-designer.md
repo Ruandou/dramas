@@ -100,8 +100,27 @@ G2 通过 → prop-designer (Stage 3a) 启动 → 完成所有道具图 → 信�
    - 佩戴类（戒指/项链/令牌）：平视，展示细节
    - 书籍/卷轴类：半展开状态，展示内容或封面
 4. **编写最终英文 Seedream Prompt** → 产品摄影打光 + 温暖中性丝绸背景
+5. **将 Prompt 写入道具卡片** → 编辑 `资产/道具卡片.md`，在对应 `PROP-###` 条目中添加 `Seedream Prompt` 字段
+   - 更新「参考图」字段为 `已生成`
+   - Prompt 以行内代码格式写入表格行
+
+> **Prompt 权威来源与执行配置分离**：
+> - `资产/道具卡片.md` 中的 Seedream Prompt 是**权威来源**（source of truth）
+> - `assets/seedream_batch_props.yaml` 是**执行配置文件**（execution config），其 prompt 字段必须与卡片中的 Prompt 完全一致
+> - 必须**先**将完整 Prompt 写入道具卡片文件，**再**生成 batch YAML
+> - 生成前门控：回读卡片确认每个道具的 Seedream Prompt 非空
+
+#### Prompt 持久化完成性验证（硬性门控）
+
+道具设计师在组装 batch YAML 前，**必须**验证 `资产/道具卡片.md` 中每个条目包含 Seedream Prompt：
+
+- ✅ Prompt 非空且为英文
+- ❌ Prompt 为空或缺失 → **禁止进入 Step 4（组装 batch YAML）**
+- 失败处理：补充 Prompt 后重新验证
 
 ## Step 4：组装批量生成配置
+
+> ⚠️ **前置条件**：仅在所有道具的 Seedream Prompt 已写入 `资产/道具卡片.md` 后，方可组装 batch YAML。
 
 输出：
 - `assets/seedream_batch_props.yaml`
@@ -112,7 +131,7 @@ G2 通过 → prop-designer (Stage 3a) 启动 → 完成所有道具图 → 信�
 ```yaml
 items:
   - id: "PROP-001"
-    prompt: "[final prompt from Step 3, verbatim from 道具卡片]"
+    prompt: "[final prompt, verbatim from 道具卡片]"
     output: "assets/props/PROP-001.png"
   - id: "PROP-002"
     prompt: "[...]"
