@@ -2,14 +2,7 @@
 
 本仓库采用 Agent 驱动的 6 阶段制作流水线，由 `drama-director`（总导演）统一调度。
 
-> **[Copilot] Agent 规范已同步至 VS Code Copilot 的 `/memories/repo/`**，Copilot 对话时自动加载上下文（其他工具不会读取此路径）。详见：
-> - `pipeline.md` — 流水线阶段、门控、并行规则
-> - `agent-specs.md` — 各 Agent 核心规范速查
-> - `id-format.md` — ID 格式、命名规范、项目结构
-> - `output-templates.md` — 关键输出格式与模板
-> - `safety-rules.md` — 安全禁止规则、题材约束
-> 
-> 完整 Agent 定义文件位于 `.qoder/agents/` 目录（Qoder/Cline 专用，Copilot 通过 `/memories/repo/` 读取）。
+> 完整 Agent 定义文件位于 `.qoder/agents/` 目录。
 
 ## 流水线阶段
 
@@ -22,7 +15,7 @@
 
 | Stage | Agent | 职责 | 核心产出 |
 |-------|-------|------|----------|
-| 1 | `story-architect`（故事架构师） | 36集故事大纲、情绪弧线、钩子矩阵 | `短剧剧本_<剧名>_36集.md` |
+| 1 | `story-architect`（故事架构师） | 72集故事大纲、情绪弧线、钩子矩阵 | `短剧剧本_<剧名>_72集.md` |
 | 2 | `production-planner`（制片结构注册师） | ID 系统、资产骨架、分段规则 | `制片规范.md` + `资产/` 骨架卡 |
 | 3a | `prop-designer`（道具设计师） | 道具视觉设计、参考图生成 | `assets/props/` + CDN URLs |
 | 3b | `character-designer`（角色设计师） | 角色视觉设计、形象图生成（使用道具参考图） | `资产/角色卡片.md` + `assets/looks/` |
@@ -45,7 +38,7 @@
 | G5 | Stage 5 完成 | YAML 合规校验 |
 
 **审查节点**：
-- **R1**（G1 之后）：`script-reviewer` 审查 36 集大纲，≥15/25 分放行
+- **R1**（G1 之后）：`script-reviewer` 审查 72 集大纲，≥15/25 分放行
 - **R2**（G4 之后）：`script-reviewer` 审查单集剧本，EP01 ≥21/30 硬门控
 - **R2 视觉资产模式**：当 Stage 3a/3b 视觉资产可用时，满分调整为 35 分（新增"视觉资产匹配度"维度），EP01 硬门槛调整为 ≥25/35
 
@@ -68,7 +61,7 @@ dramas/<剧名>/
 │   └── scenes/        ← 场景参考图
 ├── 制片规范.md        ← 项目"宪法"（ID 系统、分段规则）
 ├── 工作计划.md        ← 流水线状态追踪
-└── 短剧剧本_<剧名>_36集.md  ← 36集大纲
+└── 短剧剧本_<剧名>_72集.md  ← 72集大纲
 ```
 
 ## MCP 工具链
