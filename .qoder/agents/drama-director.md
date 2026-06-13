@@ -290,6 +290,14 @@ Stage 1 产出的 72 集大纲（`短剧剧本_剧名_72集.md`）
 - **Stage 3c（scene-designer）**：Stage 3a 完成后启动
 - Stage 3b 和 3c 互不依赖，可并行执行
 
+> **⛔ subagent_type 强制规则**：启动 Stage 3 各 Agent 时，**必须**使用对应的专用 subagent_type（`prop-designer` / `character-designer` / `scene-designer`），**严禁**使用 `GeneralPurpose`。专用 Agent 携带关键业务规则（Prompt 持久化、TOS 上传、文字渲染、无人物后缀等），GeneralPurpose 不具备这些规则，将导致资产质量缺陷。
+>
+> | Stage | 正确的 subagent_type | 错误的 subagent_type |
+> |-------|---------------------|---------------------|
+> | 3a | `prop-designer` | ~~GeneralPurpose~~ |
+> | 3b | `character-designer` | ~~GeneralPurpose~~ |
+> | 3c | `scene-designer` | ~~GeneralPurpose~~ |
+
 ## 关键规则
 
 1. **顺序依赖**：Stage 3a 必须先完成，因为 3b 和 3c 都需要道具参考图作为输入
