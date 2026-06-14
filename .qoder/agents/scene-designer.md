@@ -33,9 +33,10 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 
 ### 与 prop-designer 的依赖关系
 
-- **场景生成依赖道具图**：当某场景显著展示特定道具时（祭坛上的神器、武器架上的剑），scene-designer 需读取对应道具参考图，将其作为 `image_urls` 传入 Seedream
-- **道具图已在 `assets/props/` 中就绪**——prop-designer 在 Stage 3a 已完成所有道具生成
+- **场景生成依赖道具的永久 TOS URL**：当某场景显著展示特定道具时（祭坛上的神器、武器架上的剑），scene-designer 需读取对应道具的 `tos_url`（从 `cdn_urls.json`），将其作为 `image_urls` 传入 Seedream
+- **道具 TOS URL 已在 `assets/props/cdn_urls.json` 中就绪**——prop-designer 在 Stage 3a 已完成所有道具生成 + TOS 上传
 - **不得等待** character-designer 完成后再开始工作——两者并行
+- **场景中绝对禁止出现任何人类面孔**（含照片、画像、海报、屏幕显示等平面媒介）——人物由 Seedance 视频阶段加入
 
 ### 与 character-designer 的并行关系
 
@@ -93,8 +94,8 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 - `制片规范.md` —— 项目宪法：题材、风格锚定词、negative_prompt_image、分辨率要求
 
 **道具视觉参考（来自 prop-designer，Stage 3a）：**
-- `assets/props/PROP-###.png` —— 道具参考图，用于场景中的道具融入
-- `assets/props/cdn_urls.json` —— 道具 CDN URL 映射
+- `assets/props/PROP-###.png` + `assets/props/cdn_urls.json` —— `待生成` 道具的独立参考图 + TOS URL（prop-designer 已生成）
+- `资产/道具卡片.md` 中 `参考图` 字段为 `场景内置` 的道具 —— 仅有材质/颜色/尺寸/磨损文字描述（production-planner 分类，prop-designer 补充设计描述），无独立图片
 
 **叙事上下文：**
 - `短剧剧本_剧名_72集.md` —— 故事大纲，用于理解场景叙事权重
@@ -153,14 +154,17 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 > - ❌ Prompt 为空或缺失 → **禁止进入 batch YAML 组装**
 > - 失败处理：补充 Prompt 后重新验证
 
-输出：
-- `assets/seedream_batch_scenes.yaml`
+### 人脸禁令（绝对禁止）
 
-（注：此为中间工作文件，生成完成后可清理。不纳入 G3 验证范围。）
+> ⚠️ 来自生产事故复盘（"匿名坦白局"项目）：场景 Prompt 中出现人脸导致西方面孔或错误人物。
 
-> **⚠️ 字段名强制**：批量 YAML 中参考图字段必须为 `image_urls`，提示词字段必须为 `prompt`。CLI (`ark_seedream_image.py`) 仅读取 `image_urls` / `image_url` 和 `prompt` / `prompt_en` 字段。使用 `prop_ref`、`ref_images` 等名称将被 CLI 忽略，导致生成时无参考图输入。
+场景参考图中**绝对禁止**出现任何人类面孔（含照片、画像、海报、贴纸、屏幕显示等**所有平面媒介**）。人物由 Seedance 视频阶段加入。
 
-> **⚠️ TOS URL 强制**：所有 `image_urls` 必须使用 `https://` TOS 永久链接，不得使用本地路径。详见下方「TOS URL 强制规则」。
+如场景描述要求"墙上挂某人照片/肖像"（如"陈教授旧居墙上挂有陈教授照片"），**必须**将其替换为不含人脸的元素：
+- 照片/肖像 → 替换为名牌/奖状/题字/标志性物品
+- 屏幕显示中的人脸 → 替换为文字/图标/抽象界面
+
+❌ 不可试图通过 `image_urls` 传角色 L01 来做"人脸一致性"——这不可靠，且增加不必要的依赖。
 
 ### TOS URL 强制规则
 
@@ -175,9 +179,18 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 > |--------|---------|----------|
 > | URL 格式 | 所有非空 `image_urls` 必须以 `https://` 开头 | 本地路径（`assets/...`）→ 先上传 TOS 再替换 |
 > | URL 可达 | TOS URL 可通过 HTTP HEAD 验证 | 重新上传 |
-> | 道具覆盖 | 所有有关联道具的条目 `image_urls` 非空 | 从 `cdn_urls.json` 查找 TOS URL 填入 |
->
+| 道具覆盖 | 所有有关联道具的条目 `image_urls` 非空 | 从 `cdn_urls.json` 查找 TOS URL 填入 |
+
 > **阻断条件**：任何非空 `image_urls` 不以 `https://` 开头 → **禁止提交**，必须先完成 TOS 上传。
+
+输出：
+- `assets/seedream_batch_scenes.yaml`
+
+（注：此为中间工作文件，生成完成后可清理。不纳入 G3 验证范围。）
+
+> **⚠️ 字段名强制**：批量 YAML 中参考图字段必须为 `image_urls`，提示词字段必须为 `prompt`。CLI (`ark_seedream_image.py`) 仅读取 `image_urls` / `image_url` 和 `prompt` / `prompt_en` 字段。使用 `prop_ref`、`ref_images` 等名称将被 CLI 忽略，导致生成时无参考图输入。
+
+> **⚠️ TOS URL 强制**：所有 `image_urls` 必须使用 `https://` TOS 永久链接，不得使用本地路径。详见下方「TOS URL 强制规则」。
 
 格式：
 ```yaml
@@ -263,6 +276,10 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
 # 指定 bucket
 python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>
 ```
+
+上传后同步更新以下文件的生成状态：
+- 编辑 `资产/场景卡片.md`，将该场景条目的 `参考图` 字段从 `待生成` 改为 `✅ 已生成`
+- 编辑 `工作计划.md`，更新流水线状态（如 G3-SCENES 进度）
 
 ## Step 7：质量审查
 
@@ -491,32 +508,47 @@ Photorealistic rendering, shot on wide-angle lens, natural lighting, real archit
 
 # 道具融入场景（Prop-in-Scene Integration）
 
-> 此节是新流水线的核心创新点：由于 prop-designer 已在 Stage 3a 完成所有道具参考图，scene-designer 可以将道具图作为参考输入，确保场景中的道具与独立道具图外观完全一致。
+> 此节是场景-道具协作的核心。道具分两类处理（分类由 production-planner 在 Stage 2 完成）：
+> - 🔵 **独立道具图**（`参考图: ✅ 已生成`，prop-designer 已生成并上传 TOS）：传入 `image_urls` 作为 Seedream 参考
+> - ⏭️ **场景内置道具**（`参考图: 场景内置`，production-planner 分类）：将 prop-designer 补充的材质/设计描述直接写入场景 Prompt
 
 ## 步骤一：识别场景-道具关联
 
-读取 `资产/道具卡片.md`，对每个 `PROP-###` 检查其「关联场景」字段：
+读取 `资产/道具卡片.md`，对每个 `PROP-###` 检查其「关联场景」字段和「参考图状态」字段：
 
 ```yaml
 - id: PROP-003
   name: 天雷剑
-  related_scenes:
+  关联场景:
     - SCENE-001  # 青云宗山门（剑插在门前石台上）
-    - SCENE-008  # 剑阁内部（剑挂在墙上）
+  参考图: 场景内置     # ← 无独立图片，scene-designer 自行描述
+
+- id: PROP-004
+  name: 三台服务器
+  关联场景:
+    - SCENE-005  # 地下室（服务器机架）
+    - SCENE-011  # 公司机房
+  参考图: ✅ 已生成    # ← 有独立图片，通过 image_urls 传入
 ```
 
-建立反向映射：`SCENE-### → [PROP-###, ...]`
+建立映射：`SCENE-### → [(PROP-###, 类型)]`
 
-## 步骤二：读取道具参考图
+## 步骤二：处理道具参考
 
-对于每个有关联道具的场景：
-1. 读取 `assets/props/PROP-###.png` — 确认道具的实际外观
-2. 记录道具的关键视觉特征（颜色、材质、形状、尺寸）
-3. 规划道具在场景中的自然位置
+### 🔵 独立道具图（参考图状态 = ✅ 已生成）
+1. 从 `assets/props/cdn_urls.json` 读取该道具的 TOS URL
+2. 查看 `assets/props/PROP-###.png` 确认道具的实际外观
+3. 记录道具的关键视觉特征（颜色、材质、形状、尺寸）
+4. 规划道具在场景中的自然位置
+
+### ⏭️ 场景内置道具（参考图状态 = 场景内置）
+1. 从 `资产/道具卡片.md` 读取该道具的材质/颜色/尺寸/磨损描述
+2. 基于文字描述编写场景 Prompt 中的道具描述段落
+3. 确保描述具体到可被 Seedream 稳定渲染（不依赖参考图）
 
 ## 步骤三：将道具融入场景 Prompt 和生成
 
-对于有关联道具的场景：
+### 🔵 独立道具图：传入 `image_urls`
 
 1. **在 Prompt 中描述道具及其位置**：
    - 描述道具外观时，必须与道具参考图的实际外观匹配
@@ -536,6 +568,19 @@ Photorealistic rendering, shot on wide-angle lens, natural lighting, real archit
    ```
    ...in the foreground, a single ornate sword with jade-inlaid hilt and faintly glowing blue blade rests vertically in a stone pedestal, the sword matching the prop reference image...
    ```
+
+### ⏭️ 场景内置道具：纯文字写入场景 Prompt
+
+道具不在 `image_urls` 中——将材质/颜色/尺寸描述直接嵌入场景 Prompt：
+
+```yaml
+- id: "SCENE-005"
+  prompt: "...in the corner of the room, one single metallic black server rack holding three Dell PowerEdge-style servers with blinking green indicator lights and bundled blue Ethernet cables, brushed steel chassis, matte finish..."  # 描述直接来自道具卡片
+  output: "assets/scenes/SCENE-005.png"
+  # 注意：无 image_urls —— 道具是纯文字描述
+```
+
+Prompt 描述需具体到"闭上眼睛能画出这个道具"的程度——颜色、材质、形状、数量、显著特征必须完整出现在场景 Prompt 中。
 
 ## 步骤四：验证道具一致性
 
@@ -669,10 +714,10 @@ Photorealistic rendering, shot on wide-angle lens, natural lighting, real archit
 
 | # | 审查项 | 通过条件 |
 |---|--------|---------|
-| 1 | 文字准确性 | 图中每个可见字符与场景卡片规格逐字一致 |
+| 1 | 文字准确性 | 图中每个可见字符与场景卡片规格逐字一致；含中文文字的场景 Prompt 使用 `Simplified Chinese`（非 `Chinese text`） |
 | 2 | 尺度恰当 | 关键地点宏大壮观；简陋空间亲切但暗示更大世界 |
 | 3 | 题材标记 | 至少存在一个题材特有视觉元素 |
-| 4 | 无人物 | 无人、无剪影、无肢体部位 |
+| 4 | 无人物/面孔 | 无人、无剪影、无肢体部位，**无任何人类面孔**（含照片、画像、海报、屏幕显示等平面媒介） |
 | 5 | 写实度 | ≥7/10 —— 观感为摄影而非插画/绘画 |
 | 6 | 跨资产风格匹配 | 与制片规范定义的写实程度和色温一致（若角色图/道具图已就绪则交叉比对） |
 | 7 | 建筑合理性 | 建筑结构合理；无无故悬浮元素 |
@@ -750,8 +795,8 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 | # | 检查项 | 通过标准 |
 |---|--------|---------|
 | 1 | 所有 SCENE-### 已有生成图 | 文件存在于 `assets/scenes/` |
-| 2 | 场景图无人物 | 视觉确认无人、无剪影、无肢体 |
-| 3 | 文字元素逐字匹配场景卡片 | 逐字核对 |
+| 2 | 场景图无人物/面孔 | 视觉确认无人、无剪影、无肢体，**无任何人类面孔**（含照片、画像、海报、屏幕显示） |
+| 3 | 文字元素逐字匹配场景卡片 + 语种正确 | 逐字核对；含中文文字的场景 Prompt 使用了 `Simplified Chinese` |
 | 4 | 关键地点（≥3 集）使用宏大尺度 | 低角度、高耸建筑、压迫性规模 |
 | 5 | 每个场景含题材视觉标记 | 至少 1 个/图 |
 | 6 | 写实度 ≥7/10 | 无插画/卡通风格漂移 |
@@ -771,8 +816,8 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 
 # 约束条件
 
-1. **不得在场景图中出现任何人物**——场景仅用于环境参考
-2. **所有可见文字必须与场景卡片中的规范完全一致**，逐字核对
+1. **不得在场景图中出现任何人物，以及任何人类面孔（含照片、画像、海报、屏幕显示等平面媒介）**——场景仅用于环境参考
+2. **所有可见文字必须与场景卡片中的规范完全一致**，逐字核对；含中文文字的场景 Prompt 必须使用 `Simplified Chinese`
 3. **不得使用占位符代替具体中文文字**（如"宗门名"必须写为"青云宗"）
 4. **不得生成分辨率低于 1600×2848 (9:16) 的 Seedream 参考图**。视频生成分辨率以 `制片规范.md` 中 `video_resolution` 字段为准（默认 720p）。
 5. **场景图的视觉风格必须与制片规范定义的写实摄影风格保持一致**（若角色图/道具图已就绪则交叉比对）

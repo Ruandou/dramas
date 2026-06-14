@@ -28,10 +28,10 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 ```
 概念 → [Stage 1] → G1 → [Stage 2] → G2 → [Stage 3a] → ┌─[Stage 3b]─┐ → G3 → [Stage 4 Loop] → G4 → [Stage 5 Loop] → G5 → [Stage 6] → G6
-         故事架构          制片规范          道具设计     │  角色设计   │        分集编剧               分镜构建       标题/封面/简介合规
-                                                        │  (PARALLEL) │
-                                                        └─[Stage 3c]─┘
-                                                           场景设计
+         故事架构          制片规范          道具设计      │  角色设计   │        分集编剧               分镜构建       标题/封面/简介合规
+                                                          │  (PARALLEL) │
+                                                          └─[Stage 3c]─┘
+                                                             场景设计
 ```
 
 **阶段顺序约束**：`1 → 2 → 3a → [3b ∥ 3c] → 4 → 5 → 6`
@@ -224,11 +224,13 @@ Stage 1 产出的 72 集大纲（`短剧剧本_剧名_72集.md`）
 ## 验证
 
 道具设计完成后进行快速验证（不等待 G3），确认：
-- 所有 EP01 涉及的 PROP 已有生成图
+- 所有 `待生成` PROP 已有生成图（`场景内置`/`角色内置` 道具不生成独立图片，跳过此检查）
 - 道具图为单物体 + 丝绸背景格式
-- CDN URL 已注册
+- **道具图中无人类面孔**（人脸禁令）
+- **道具图已上传 TOS**（`assets/props/cdn_urls.json` 中每个已生成 PROP 含 `tos_url` 永久链接）
+- 卡片状态已更新（`资产/道具卡片.md` 中 `待生成` 条目 `参考图` 已改为 `✅ 已生成`；`场景内置`/`角色内置` 条目已补充设计描述，状态不变）
 
-验证通过后立即通知 Stage 3b 和 3c 可以启动。
+验证通过后立即通知 Stage 3b 和 3c 可以启动。**TOS 上传必须在 3b/3c 启动前完成**，因为 3b/3c 需要 `待生成` 道具的 TOS URL 作为 `image_urls` 参考。`场景内置`/`角色内置` 道具无需 TOS URL — 下游设计师通过文字描述内嵌。
 
 ---
 
@@ -254,7 +256,7 @@ Stage 1 产出的 72 集大纲（`短剧剧本_剧名_72集.md`）
 
 > **Stage 3b 内部时序约束**：character-designer 必须先完成角色卡片文件写入及自检，再向用户提议 Seedream 生成。若用户在卡片文件中尚看不到完整 Prompt 时就收到生成请求，视为流程违规。
 
-> **道具参考图使用**：character-designer 在生成角色 L01 时，将角色持有的道具参考图（`assets/props/PROP-###.png`）作为 Seedream 的 `image_urls` 参数传入，确保角色身上的道具与独立道具参考图视觉一致。
+> **道具参考图使用**：character-designer 在生成角色 L01 时，将角色持有的道具的 TOS URL（从 `assets/props/cdn_urls.json` 读取）作为 Seedream 的 `image_urls` 参数传入，确保角色身上的道具与独立道具参考图视觉一致。禁止使用本地路径。
 
 ---
 
@@ -277,7 +279,7 @@ Stage 1 产出的 72 集大纲（`短剧剧本_剧名_72集.md`）
 
 场景设计的质量在 G3 中统一检查，具体项目见 G3 表。
 
-> **道具融入场景**：当 `资产/道具卡片.md` 的 `关联场景` 字段指定某道具在某场景中显著展示时，scene-designer 将该道具参考图作为 Seedream 的 `image_urls` 传入，确保场景中的道具外观与独立道具参考图一致。
+> **道具融入场景**：当 `资产/道具卡片.md` 的 `关联场景` 字段指定某道具在某场景中显著展示时，scene-designer 将该道具的 TOS URL 作为 Seedream 的 `image_urls` 传入，确保场景中的道具外观与独立道具参考图一致。**场景中不得出现人类面孔**——道具融入仅限物品。
 
 ---
 
@@ -286,8 +288,9 @@ Stage 1 产出的 72 集大纲（`短剧剧本_剧名_72集.md`）
 ## 启动条件
 
 - **Stage 3a（prop-designer）**：G2 通过后立即启动
-- **Stage 3b（character-designer）**：Stage 3a 完成后启动
-- **Stage 3c（scene-designer）**：Stage 3a 完成后启动
+- **Stage 3a 内执行 TOS 上传**：道具图生成确认后，立即执行 `tos_upload.py sync` 并更新 `cdn_urls.json`
+- **Stage 3b（character-designer）**：Stage 3a 完成后 + TOS 上传完成后启动
+- **Stage 3c（scene-designer）**：Stage 3a 完成后 + TOS 上传完成后启动
 - Stage 3b 和 3c 互不依赖，可并行执行
 
 > **⛔ subagent_type 强制规则**：启动 Stage 3 各 Agent 时，**必须**使用对应的专用 subagent_type（`prop-designer` / `character-designer` / `scene-designer`），**严禁**使用 `GeneralPurpose`。专用 Agent 携带关键业务规则（Prompt 持久化、TOS 上传、文字渲染、无人物后缀等），GeneralPurpose 不具备这些规则，将导致资产质量缺陷。
@@ -300,21 +303,22 @@ Stage 1 产出的 72 集大纲（`短剧剧本_剧名_72集.md`）
 
 ## 关键规则
 
-1. **顺序依赖**：Stage 3a 必须先完成，因为 3b 和 3c 都需要道具参考图作为输入
+1. **顺序依赖**：Stage 3a 必须先完成 + TOS 上传完成，因为 3b 和 3c 都需要道具的永久 TOS URL 作为 `image_urls` 输入
 2. **并行独立**：Stage 3b 不需要 Stage 3c 的输出，Stage 3c 也不需要 Stage 3b 的输出
 3. **独立完成**：如果一方先完成，另一方继续独立工作，无需等待
 4. **统一门控**：G3 等待 **3a + 3b + 3c 三方都完成**后才进行验证
-5. **道具视觉一致性**：character-designer 和 scene-designer 都使用 prop-designer 产出的同一组道具参考图，确保角色身上的道具和场景中的道具外观完全一致
+5. **道具视觉一致性**：character-designer 和 scene-designer 都使用 prop-designer 产出的同一组道具 TOS URL，确保角色身上的道具和场景中的道具外观完全一致
+6. **场景/道具人脸禁令**：场景参考图和道具参考图中**绝对禁止**出现任何人类面孔（含照片、画像、贴纸、屏幕显示等平面媒介）。人物由 Seedance 视频阶段加入
 
-## 为什么 Stage 3a 必须先行
+## 为什么 Stage 3a → TOS 必须先行
 
-- character-designer 需要道具参考图作为 Seedream 的 image reference，确保角色携带的配饰/武器/道具在形象图中外观一致
-- scene-designer 需要道具参考图作为 Seedream 的 image reference，确保场景中陈列/展示的道具与独立道具图外观一致
-- 如果不先生成道具图，角色和场景中的道具外观将各自独立生成，导致视觉不一致（这是原有架构的核心问题）
+- character-designer 需要道具的**永久 TOS URL** 作为 Seedream 的 `image_urls` 参考，确保角色携带的配饰/武器/道具在形象图中外观一致
+- scene-designer 需要道具的**永久 TOS URL** 作为 Seedream 的 `image_urls` 参考，确保场景中陈列/展示的道具与独立道具图外观一致
+- 如果不在 3b/3c 启动前完成 TOS 上传，3b/3c 的 `image_urls` 只能使用本地路径（需 base64 编码，每图 ~1MB 开销），且可能因路径问题导致引用失败
 
 ## 失败独立处理
 
-- Stage 3a 失败 → 重跑 prop-designer，成功后 3b 和 3c 方可启动
+- Stage 3a 失败 → 重跑 prop-designer，重新生成 + TOS 上传完成后 3b 和 3c 方可启动
 - Stage 3b 失败 → 仅重跑 character-designer，不影响已完成的 Stage 3a 和 3c
 - Stage 3c 失败 → 仅重跑 scene-designer，不影响已完成的 Stage 3a 和 3b
 
@@ -351,9 +355,11 @@ G3 在 **Stage 3a（prop-designer）、Stage 3b（character-designer）和 Stage
 | CHAR-ID 一致 | 角色卡片中 ID 与 production-planner 分配的 ID 一致 | 请求修正 |
 | 反派设计 | 反派角色有"速恨"设计（具体恶行描述） | 请求 character-designer 补充 |
 | EP01 场景图完整 | EP01 涉及的所有 SCENE-* 均有对应 `assets/scenes/SCENE-*.png` | 请求 scene-designer 补充 |
-| EP01 道具图完整 | EP01 涉及的所有 PROP-* 均有对应 `assets/props/PROP-*.png` | 请求 prop-designer 补充 |
+| EP01 道具图完整 | EP01 涉及的所有 `待生成` PROP-* 均有对应 `assets/props/PROP-*.png`（`场景内置`/`角色内置` 道具无独立图片，跳过此检查） | 请求 prop-designer 补充 |
 | 场景/道具 CDN 注册 | `assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json` 已生成，所有条目必须含 `tos_url` 永久链接。临时预签名 URL（含 `X-Tos-Expires`）**不可放行** → 要求对应设计师执行 `tos_upload.py sync` | 请求执行 TOS 上传 |
-| 文字渲染正确 | 含指定文字的场景/道具图文字逐字确认无误 | 请求 scene-designer / prop-designer 重新生成 |
+| 文字渲染正确 | 含指定文字的场景/道具图文字逐字确认无误，中文大段文字使用 `Simplified Chinese` | 请求 scene-designer / prop-designer 重新生成 |
+| **场景/道具人脸禁令** | 所有场景图和道具图中**无任何人类面孔**（含照片、画像、贴纸、屏幕显示等平面媒介）。人物仅由 Seedance 视频阶段加入 | 请求对应设计师移除人脸并重新生成 |
+| 卡片状态已更新 | `资产/道具卡片.md`、`资产/场景卡片.md`、`资产/角色卡片.md`、`资产/形象索引.md` 中所有 `待生成` 条目的状态为 `✅ 已生成`（非 `待生成`；`场景内置`/`角色内置` 条目不参与此检查），SKIP 道具卡片已补充设计描述 | 请求对应设计师更新 |
 | 跨资产风格一致性 | 角色 L01 形象图、场景参考图、道具参考图三者在色调/光影/笔触上风格统一 | 请求调整不一致方重新生成 |
 | 分辨率合规 | 所有参考图分辨率符合制片规范要求 | 请求重新生成 |
 
@@ -668,7 +674,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 启动 EP(N>01) 的 Stage 4 前，drama-director 须验证：
 1. 大纲中 EP(N) 新增角色已录入角色卡片并完成 L01 生成
 2. EP(N) 新增场景已录入场景卡片并完成参考图生成
-3. EP(N) 新增道具已录入道具卡片并完成参考图生成
+3. EP(N) 新增道具已录入道具卡片；`待生成` 道具已完成参考图生成，`场景内置`/`角色内置` 道具已补充设计描述
 4. 所有新增资产已上传 CDN 并注册 cdn_urls.json
 
 未通过则阻塞 Stage 4，由 drama-director 调度相应设计师补充。

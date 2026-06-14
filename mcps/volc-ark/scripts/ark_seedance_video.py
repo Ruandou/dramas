@@ -232,6 +232,9 @@ def role_file_to_path(shot: dict, file_key: str) -> str | None:
     scenes = assets.get("scene_urls") or {}
     if file_key in scenes:
         return scenes[file_key]
+    props = assets.get("prop_urls") or {}
+    if file_key in props:
+        return props[file_key]
     return None
 
 
@@ -283,6 +286,8 @@ def validate_shot_assets(shot: dict, project_root: Path) -> list[str]:
     for mapping in (assets.get("look_urls") or {}).values():
         paths.append(mapping)
     for mapping in (assets.get("scene_urls") or {}).values():
+        paths.append(mapping)
+    for mapping in (assets.get("prop_urls") or {}).values():
         paths.append(mapping)
     for rel in paths:
         p = project_root / rel if not Path(rel).is_absolute() else Path(rel)

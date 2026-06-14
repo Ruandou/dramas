@@ -52,7 +52,8 @@ tools: [Read, Write, Grep, Glob, Bash]
 | `短剧剧本_剧名_72集.md` | 用户/story-architect | 获取叙事上下文：人物性格、关系、情绪弧线 |
 | CHAR-### ID 骨架（角色卡片骨架 / 制片规范.md） | production-planner | 已分配的角色 ID、姓名、阵营、戏剧功能分类——character-designer **不再自行分配 ID** |
 | `制片规范.md` | production-planner | Seedream 模型、分辨率、negative prompts、style_anchors、视觉禁忌 |
-| `assets/props/PROP-###.png` | prop-designer (Stage 3a) | 角色携带道具的参考图，用作 Seedream image reference 确保道具视觉一致性 |
+| `assets/props/PROP-###.png` | prop-designer (Stage 3a) | `待生成` 道具的参考图，用作 Seedream image reference 确保道具视觉一致性 |
+| `资产/道具卡片.md` | production-planner (Stage 2) | `角色内置` 道具的材质/设计描述文本（无独立图片），直接嵌入角色 Prompt |
 
 > character-designer 的职责是为**已有 CHAR-### 骨架**填充完整的视觉创意内容，而非从零提取角色列表或分配 ID。
 
@@ -83,13 +84,19 @@ tools: [Read, Write, Grep, Glob, Bash]
    - 表情基调（默认情绪状态）
 6.5 **道具参考图集成（Prop Reference Integration）**：
    - 读取 `资产/道具卡片.md`，识别 `持有者` 字段包含当前角色 CHAR-ID 的所有道具
-   - 确认对应道具参考图 `assets/props/PROP-###.png` 已由 prop-designer 生成
-   - 若角色的「视觉锚点」中包含已注册道具（PROP-ID），记录道具图路径供 L01 生成时传入
-   - 在 L01 Seedream Prompt 中自然融入道具描述，确保：
-     - 道具描述与 `assets/props/PROP-###.png` 的实际外观一致（材质、颜色、大小、磨损程度）
-     - 使用数量精确规则（"ONE single jade pendant"）
-     - 道具在角色身上的位置明确（颈间/腰间/手持/发间）
-   - **生成时传入道具参考图**：在调用 `ark_seedream_generate` / `ark_seedream_batch` 时，将角色关联道具的参考图作为 `image_urls` 参数传入，让 Seedream 直接"看到"道具外观
+   - **分类处理**（`参考图` 字段值由 production-planner 在 Stage 2 确定）：
+
+   **🔵 `待生成` 道具**（有独立 .png + TOS URL）：
+   - 确认对应 `assets/props/PROP-###.png` 已由 prop-designer 生成
+   - 在 L01 Seedream Prompt 中自然融入道具描述，描述与 `.png` 实际外观一致（材质、颜色、大小、磨损程度）
+   - 使用数量精确规则（"ONE single jade pendant"），位置明确（颈间/腰间/手持/发间）
+   - **生成时传入道具参考图**：`image_urls` 使用 `assets/props/cdn_urls.json` 中 TOS URL
+
+   **⏭️ `角色内置` 道具**（无独立图片，仅有设计描述文本）：
+   - 读取 `资产/道具卡片.md` 中该 PROP-### 的设计描述（材质/颜色/尺寸/磨损）
+   - 将设计描述文本直接嵌入角色 L01 Prompt（无需 .png 或 TOS URL）
+   - 不传 `image_urls` 给该道具
+
    - **⚠️ TOS URL 优先**：`image_urls` 必须使用 `assets/props/cdn_urls.json` 中的 `tos_url`（`https://` 永久链接），而非本地路径。详见下方「TOS URL 强制规则」
 
 ### TOS URL 强制规则
@@ -109,6 +116,15 @@ tools: [Read, Write, Grep, Glob, Bash]
 > | L02+ 依赖 | 所有 L02+ 条目 `image_urls` 包含已确认 L01 的 TOS URL | 阻塞：L01 未生成或未上传 |
 >
 > **阻断条件**：任何非空 `image_urls` 不以 `https://` 开头 → **禁止提交**，必须先完成 TOS 上传。
+
+### 种族强制规则
+
+> ⚠️ 来自生产事故复盘（"匿名坦白局"项目）：角色 Prompt 中未指定种族导致生成西方面孔。
+
+所有角色 L01/L02+ Prompt **必须**包含明确的种族标识：
+- ✅ `Chinese man` / `Chinese woman` / `East Asian features`
+- ❌ `a man`、`a woman`、`a person` — Seedream 默认渲染西方面孔
+- 此规则与自检 #32 中的 `Chinese man/woman` 一致性检查互补：#32 验证卡片与 Prompt 一致，本规则确保 Prompt 本身包含种族标识
 
 7. **编写 voice_prompt**：
    - 格式：「性别，年龄，音色特征，语速特征，情绪基调/说话习惯」
@@ -448,7 +464,9 @@ Seedream Prompt 的风格后缀必须根据项目题材调整：
 Photorealistic costume reference, wide shot showing entire figure from head to toe with feet and shoes clearly visible at the bottom edge of the frame, single person standing upright facing the camera, plain white background, clean flat studio lighting. Full body fully visible, not cropped. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. Vertical 9:16, photorealistic costume reference, [style_anchors from 制片规范 or genre mapping], realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.
 ```
 
-**道具融入规则**（当角色持有已注册 PROP 时）：
+**道具融入规则**（当角色持有已注册 PROP 时，分类由 production-planner 在 Stage 2 确定）：
+
+**🔵 `待生成` 道具**（有独立参考图 + TOS URL）：
 
 在服装描述之后、风格后缀之前，插入道具描述段：
 ```
@@ -460,6 +478,18 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 - 位置词必须明确（`at the neck`、`at the waist`、`in the right hand`、`in the hair`）
 - 数量词必须包含（`ONE single`、`exactly two`）
 - 提交生成请求时 `image_urls` 字段必须包含对应 PROP 参考图的 **TOS URL**（从 `assets/props/cdn_urls.json` 的 `tos_url` 获取）
+
+**⏭️ `角色内置` 道具**（无独立图片，仅有设计描述文本）：
+
+直接将 prop-designer 补充的设计描述文本嵌入角色 Prompt：
+```
+...[clothing description], wearing/carrying ONE single [design description from 资产/道具卡片.md] at [specific body position], [style tags]...
+```
+
+**要求**：
+- 道具描述直接取自 `资产/道具卡片.md` 的「设计描述」字段——不可凭想象编造
+- 位置词、数量词规则同上
+- **不传 `image_urls`**（该道具无独立图片，无需 Seedream 参考）
 
 ### 角色身上文字渲染规则
 
@@ -1302,7 +1332,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 # 查看 Seedream 完整参数说明
 ark_seedream_docs()
 
-# 生成角色 L01 基础形象（带道具 TOS URL 参考图）
+# 生成角色 L01 基础形象（待生成 道具传 TOS URL；角色内置 道具不传图）
 ark_seedream_generate(
   prompt="Character reference sheet, full body front view, white background. Young male, 25 years old...",
   output="assets/looks/CHAR-001-L01.png",
@@ -1352,6 +1382,11 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
 python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>
 ```
 
+上传后同步更新以下文件的生成状态：
+- 编辑 `资产/角色卡片.md`，将该角色条目的 `形象图` 字段从 `待生成` 改为 `✅ 已生成`
+- 编辑 `资产/形象索引.md`，更新对应 L01/L02 的「生成」列状态
+- 编辑 `工作计划.md`，更新流水线状态（如 G3-CHARS 进度）
+
 ---
 
 # 完成前自检
@@ -1365,7 +1400,7 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 | 3 | L01 存在 | 每个角色至少有一个 L01 形象定义 |
 | 4 | voice_prompt 格式 | 所有 voice_prompt 使用「性别，年龄，音色，语速，情绪/习惯」格式 |
 | 5 | PROP 交叉引用 | 角色专属道具标注了 PROP-### ID |
-| 5.5 | 道具参考图集成 | 所有角色专属道具（持有者=本角色）的 L01 Prompt 中道具描述与 `assets/props/PROP-###.png` 实际外观一致；生成请求包含道具 image_urls |
+| 5.5 | 道具参考图集成 | `待生成` 道具：L01 Prompt 中道具描述与 `.png` 实际外观一致，`image_urls` 含 TOS URL；`角色内置` 道具：描述取自道具卡片「设计描述」字段，不传 `image_urls` |
 | 6 | 关系网络完整 | 主要角色间的关系有明确定义 |
 | 7 | 群演标注 | 无名但有功能的角色使用 CHAR-GRP-## 格式 |
 | 8 | Seedream 风格锚定 | 所有 Seedream Prompt 包含正向写实锚定词且末尾有 "NOT anime" 反向提示 |
@@ -1399,6 +1434,7 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 # 约束条件
 
 - AI视觉Prompt必须用英文书写，格式为可直接用于Midjourney/Stable Diffusion/即梦等平台的描述
+- **所有角色 L01/L02+ Prompt 必须包含明确的种族标识**：`Chinese man` / `Chinese woman` / `East Asian features`；不得使用 `a man` / `a woman` 等无种族描述（Seedream 默认渲染西方面孔）
 - 外貌描述需保持跨场景一致性——固定发型、服装风格、配饰等标志物
 - 每个角色必须有明确的戏剧功能，禁止"装饰性角色"（存在但不推动情节的角色）
 - 主要角色总数控制在5-8人以内（AI生成一致性限制，角色越多越难保持画面一致）

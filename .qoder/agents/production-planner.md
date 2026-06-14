@@ -193,7 +193,7 @@ seedance_defaults:
 | 说明 | [一句话描述功能/意义] |
 | 叙事功能 | [推动情节/象征意义/伏笔] |
 | 关联场景 | `SCENE-###`（[陈列/展示方式说明]）；无则留空 |
-| 参考图 | `assets/props/PROP-001.png`（待生成） |
+| 参考图 | `待生成` / `场景内置` / `角色内置`（production-planner 在 Step 3.5 按分类决策表判定，见下方规则） |
 ```
 
 #### 道具卡片必须输出字段
@@ -202,11 +202,12 @@ seedance_defaults:
 |------|------|
 | ID | `PROP-###` 格式，编号只增不删 |
 | 道具名 | 中文名称 |
-| 持有者 | CHAR-ID，含转移关系（如 `CHAR-002→CHAR-001`） |
+| 持有者 | CHAR-ID，含转移关系（如 `CHAR-002→CHAR-001`）。单角色持有 vs 多角色持有 决定是否为跨角色锚定 |
 | 首次出场 | EP## |
 | 说明 | 一句话描述功能/意义 |
 | 叙事功能 | 推动情节/象征意义/伏笔 |
-| 关联场景 | `SCENE-###`（[位置/展示方式]）。道具作为环境一部分出现在某场景中时填写（如剑架上的剑、祭台上的玉佩）。仅持有者经过的场景不算。 |
+| 关联场景 | `SCENE-###`（[位置/展示方式]）。道具作为环境一部分出现在某场景中时填写。**仅一个场景 vs 多个场景** 决定道具是否需要独立参考图。 |
+| 参考图 | production-planner 在提取时分类：`待生成`（跨场景/跨角色/Seedance 引用，prop-designer 生成后更新为 `✅ 已生成`）/ `场景内置`（单场景专属，scene-designer 内嵌）/ `角色内置`（单角色专属，character-designer 内嵌）。无视觉上下文的道具不收录。 |
 
 #### 与制片规范的关系
 
@@ -412,13 +413,48 @@ dramas/剧名/
 - 规划每集的 segment 划分（遵循 4-12 秒规则）
 - 识别跨集复用的场景 → 输出 `资产/场景卡片.md`
 
-### Step 3.5：识别关键道具 → 分配 PROP-ID
+### Step 3.5：识别关键道具 → 分配 PROP-ID → 分类参考图策略
 
 - 提取反复出现（≥3集）的实体道具，分配 `PROP-###`
 - 确认持有者和转移关系
-- 填写结构元数据 → 输出 `资产/道具卡片.md`
+- 确认关联场景（道具作为环境一部分出现的 SCENE-###）
+- **对每个 PROP-### 执行分类决策表**，确定 `参考图` 字段值
+- 填写结构元数据 → 输出 `资产/道具卡片.md`（含已分类的 `参考图` 字段）
 
-> production-planner 对 SCENE/PROP ID 分配、格式校验、跨文件一致性拥有最终所有权。Prompt 创意由 prop-designer（道具）和 scene-designer（场景）负责。
+#### 道具参考图分类决策表（Prop Classification Decision Table）
+
+> ⚠️ **硬性规则**：此分类在道具提取时同步完成，不得留空或标记为「待确定」。
+
+对每个 `PROP-###`，按以下优先级从上至下匹配，命中即停：
+
+```
+For each PROP-###:
+├── appears in 2+ distinct SCENE-###                   → 🔵 待生成 (cross-scene anchor)
+├── held by 2+ distinct CHAR-###                        → 🔵 待生成 (cross-character anchor)
+├── appears in ≥1 scene AND held by ≥1 character        → 🔵 待生成 (dual-end appearance)
+├── referenced as prop_urls in Seedance shots.yaml      → 🔵 待生成 (video-level visual lock)
+├── exclusive to ONE scene only, never held by a char   → ⏭️ 场景内置 (scene-designer bakes into scene prompt)
+├── exclusive to ONE character only, never standalone   → ⏭️ 角色内置 (character-designer bakes into char prompt)
+└── no scene, no character                              → ❌ 不收录 (prop has no visual context — do not create card)
+```
+
+#### 分类字段值说明
+
+| `参考图` 值 | 含义 | 下游处理 |
+|-------------|------|---------|
+| `待生成` | 需要 prop-designer 生成独立参考图 | prop-designer 生成后更新为 `✅ 已生成` |
+| `场景内置` | 道具外观由 scene-designer 内嵌到场景 Prompt | prop-designer 仅补充材质/设计文字描述 |
+| `角色内置` | 道具外观由 character-designer 内嵌到角色 Prompt | prop-designer 仅补充材质/设计文字描述 |
+
+#### 分类依据记录
+
+每个道具的分类依据必须可追溯。在道具卡片中，`关联场景` 字段和 `持有者` 字段的内容即为分类证据：
+- `关联场景` 列出 2+ 个 SCENE-### → 证明 cross-scene → `待生成`
+- `持有者` 含 2+ 个 CHAR-### → 证明 cross-character → `待生成`
+- 仅 1 个 SCENE + 0 CHAR → `场景内置`
+- 仅 1 个 CHAR + 0 SCENE → `角色内置`
+
+> production-planner 对 SCENE/PROP ID 分配、格式校验、跨文件一致性和**道具分类决策**拥有最终所有权。Prompt 创意由 prop-designer（道具）和 scene-designer（场景）负责。
 
 ### Step 3.6：角色语言画像草案
 
@@ -451,11 +487,13 @@ production-planner 完成 Step 2 + 3 + 3.5 后，同时向两个下游消费者�
 
 #### B. 移交给 prop-designer（Stage 3a）
 
-**输出**：`资产/道具卡片.md`（含 ID、道具名、持有者、关联场景、首次出场、叙事功能）
+**输出**：`资产/道具卡片.md`（含 ID、道具名、持有者、关联场景、首次出场、叙事功能、**已分类的 `参考图` 字段**）
 
-**prop-designer 填充**：英文 Prompt、生成状态、参考图路径、迭代备注
+**prop-designer 职责**：
+- `待生成` 道具：发展视觉概念、编写英文 Prompt、生成参考图、上传 TOS、更新状态为 `✅ 已生成`
+- `场景内置` / `角色内置` 道具：补充材质/颜色/尺寸/磨损描述文本（供 scene-designer / character-designer 内嵌）
 
-**不可修改**：PROP-### ID、必填元数据字段、道具持有者/转移关系
+**不可修改**：PROP-### ID、必填元数据字段、道具持有者/转移关系、**`参考图` 分类结果**（由 production-planner 决定）
 
 ---
 
@@ -661,6 +699,7 @@ production-planner 完成所有步骤后，必须通过以下结构完整性门�
 - [ ] 所有场景是否已分配 SCENE-ID 并有完整结构元数据？
 - [ ] 所有关键道具是否已分配 PROP-ID 并在道具卡片中有结构元数据？
 - [ ] 道具卡片与制片规范中的关键道具 ID 表是否一一对应？
+- [ ] 所有道具的 `参考图` 字段是否已分类（`待生成` / `场景内置` / `角色内置`，无「待确定」）？
 - [ ] 形象索引骨架是否已创建（ID 占位，待 character-designer 填充）？
 - [ ] 目录结构是否已创建？
 - [ ] 分集 YAML 头模板是否已确定？

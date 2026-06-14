@@ -130,13 +130,17 @@ shots:
       scene_id: SCENE-001
       look_ids:
         - CHAR-001-L01
+      prop_ids:              # 本镜头中显著出现的道具（可选）
+        - PROP-003           # 电动车
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
       scene_urls:
         SCENE-001: assets/scenes/SCENE-001.png
+      prop_urls:              # 道具参考图（可选，用于锁定道具外观）
+        PROP-003: assets/props/PROP-003.png
     api:
-      text: "【图1】CHAR-001-L01【图2】SCENE-001。镜头特写，..."
+      text: "【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-003。镜头特写，..."
       content_roles:
         - file: CHAR-001-L01
           role: reference_image
@@ -144,6 +148,9 @@ shots:
         - file: SCENE-001
           role: reference_image
           label: 图2
+        - file: PROP-003     # 道具参考图（可选）
+          role: reference_image
+          label: 图3
     dialogue:
       - speaker: CHAR-001
         line: "台词内容"
@@ -160,12 +167,16 @@ shots:
 | `duration_sec` | int | 单镜头时长（≥4 秒） |
 | `refs.scene_id` | string | 所在场景 ID |
 | `refs.look_ids` | list | 出镜角色形象 ID 列表 |
+| `refs.prop_ids` | list | 本镜头中显著出现的道具 ID 列表（可选） |
 | `assets.look_urls` | map | 形象 ID → 本地路径或 CDN URL |
 | `assets.scene_urls` | map | 场景 ID → 本地路径或 CDN URL |
+| `assets.prop_urls` | map | 道具 ID → 本地路径或 CDN URL（可选，用于锁定道具外观） |
 | `api.text` | string | 单镜头 Prompt（shots 级别较简略） |
 | `api.content_roles` | list | 参考图绑定 |
 | `dialogue` | list | 本镜台词（speaker + line） |
 | `transition_to_next` | enum | 可选。到下一镜头的转场类型：`hard_cut`（默认）/ `dissolve` / `fade` / `audio_bridge` |
+
+> **参考图数量限制**：TOS URL 模式下每镜头 ≤ 6 张参考图（base64 模式下 ≤ 3 张）。典型配置：1 场景 + 1~2 角色 + 0~2 道具 = 3~5 张。道具参考图仅在该道具本镜头中**显著可见且需外观锁定**时添加——勿为背景中出现的小物品添加。
 
 ## mode 选择规则
 
@@ -634,11 +645,11 @@ segments:
 
 | 检查项 | 规则 | 触发条件 |
 |---|---|---|
-| **角色-参考图一致性** | segment 的 prompt 中提及的角色（按 CHAR-ID 或角色名匹配）必须与该 segment 的 `ref_image` 列表中的角色参考图对应 | prompt 提及 CHAR-001 但 ref_image 仅含 CHAR-002 的图 → WARN |
+| **角色-参考图一致性** | segment 的 prompt 中提及的角色（按 CHAR-ID 或角色名匹配）必须与该 segment 的 `refs.look_ids` 列表中的角色参考图对应 | prompt 提及 CHAR-001 但 refs 仅含 CHAR-002 的图 → WARN |
 | **场景-描述对齐** | segment 标注的 SCENE-ID 的场景属性（室内/室外、明暗、空间类型）应与 prompt 描述的视觉环境一致 | SCENE-005 定义为"識海空間（虚空/黑暗）"但 prompt 描述阳光普照的花园 → WARN |
 | **时间连贯性** | 同一集内连续 segment 的时间线不应矛盾 | segment N prompt 含"晨曦" / segment N+1 prompt 含"月色" 且中间无时间跳转标注 → WARN |
-| **道具存在性** | prompt 中提及的 PROP-ID 对应的参考图应包含在该 segment 的资产引用中 | prompt 提及 PROP-001（葫芦）但 segment 无 prop ref_image → WARN |
-| **角色数量一致性** | prompt 描述的在场角色数量应与 ref_image 中的角色参考图数量大致匹配 | prompt 描述"三人对峙"但 ref_image 仅含2个角色图 → WARN |
+| **道具存在性** | prompt 中提及的 PROP-ID 对应的参考图应包含在该 segment 的资产引用中 | prompt 提及 PROP-001（葫芦）但 segment 无 prop refs → WARN |
+| **角色数量一致性** | prompt 描述的在场角色数量应与 refs.look_ids 中的角色参考图数量大致匹配 | prompt 描述"三人对峙"但 refs 仅含2个角色图 → WARN |
 
 ## 执行规则
 
