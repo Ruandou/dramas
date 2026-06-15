@@ -4,6 +4,32 @@
 
 > 完整 Agent 定义文件位于 `.qoder/agents/` 目录。
 
+## Agent 定义索引
+
+本仓库定义了 9 个专业 Agent，采用**单一真相源**架构：
+
+| 位置 | 格式 | 用途 |
+|------|------|------|
+| `.qoder/agents/` | `.md` | 🔴 权威定义源（完整内容） |
+| `.cursor/agents/` | `.md`（symlink） | 🟢 Cursor `/name` subagent 入口，指向 `.qoder/agents/` |
+| `.github/prompts/` | `.prompt.md` | 🔵 GitHub 工作流引用（链接指向权威源） |
+
+在 Cursor Agent 对话中可用 `/drama-director`、`/scene-writer` 等显式调用 subagent（独立上下文窗口）；也可用自然语言「用 drama-director subagent …」委派。
+
+### Agent 列表
+
+| Agent | 角色 | 职责描述 |
+|-------|------|---------|
+| `drama-director` | 总导演 | 驱动完整制作流水线、管理门控、状态追踪 |
+| `story-architect` | 故事架构师 | 72集故事大纲、情绪弧线、钩子矩阵设计 |
+| `production-planner` | 制片结构注册师 | ID 系统建立、资产骨架、元数据提取 |
+| `prop-designer` | 道具视觉设计师 | 道具参考图生成（Stage 3a，优先执行） |
+| `character-designer` | 角色设计师 | 角色卡片填充、形象参考图生成（Stage 3b） |
+| `scene-designer` | 场景设计师 | 场景参考图生成、道具融合（Stage 3c） |
+| `scene-writer` | 分镜编剧 | 分集剧本编写、对白设计、分镜指导 |
+| `segment-builder` | 分镜构建师 | YAML 生成、API 提交配置转换 |
+| `script-reviewer` | 剧本审核师 | 质量门控（R1/R2）、合规审查 |
+
 ## 流水线阶段
 
 ```
