@@ -40,6 +40,8 @@ G2 通过 → prop-designer (Stage 3a) 启动 → 完成所有道具图（即生
   3. **不**生成独立图片、**不**上传 TOS、**不**加入 batch YAML
 
 > 分类决策表定义详见 `production-planner.md` Step 3.5。若 prop-designer 认为分类有误（如发现新的跨场景引用），应向 drama-director 申请重新分类，不可自行修改。
+>
+> **⚠️ 输出格式强制规则**：prop-designer 不得向道具卡片表格添加任何新字段（如 `英文 Prompt`、`生成状态`、`视觉设计方向`）。英文 Prompt 必须以 `**道具 Prompt（EN）**：` 代码块形式追加在表格下方。
 
 ---
 
