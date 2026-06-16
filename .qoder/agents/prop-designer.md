@@ -684,7 +684,7 @@ prop-designer 完成工作后，必须确保以下文件全部就绪，作为 St
 |-----------|-----------|----------|
 | character-designer | 道具图用于角色携带/佩戴道具的参考 | `assets/props/PROP-###.png` |
 | scene-designer | 道具图用于场景中道具展示的参考 | `assets/props/PROP-###.png` |
-| segment-builder | 道具图床 URL 用于 Seedance `i2v_ref` | `assets/props/cdn_urls.json` |
+| segment-builder | 道具图床 URL 写入 `shots.yaml` 的 `prop_urls`（API 层映射为 Seedance 参考图输入） | `assets/props/cdn_urls.json` |
 | scene-writer | 道具视觉参考用于剧本描写 | `assets/props/PROP-###.png` 图片文件 |
 | production-planner | 生成状态用于 Gate 验证 | 工作计划.md 中的状态字段 |
 | drama-director | Gate G3 通过证据 | 所有道具图片 + 图床 URL |

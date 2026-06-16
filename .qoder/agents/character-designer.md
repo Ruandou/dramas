@@ -511,6 +511,7 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 3. 单物品文字限 2-4 个汉字
 4. 若角色同时携带多个文字物品，优先渲染最显眼的 1 个，其余标注"后期合成"
 5. 文字描述的内容须与道具卡片中对应道具的文字完全一致
+6. **文字语种锚定**：Prompt 中含中文文字时，必须标注 `Simplified Chinese`（非 `Chinese text`，否则会出繁体），与 prop-designer / scene-designer 的规则保持一致
 
 ### Seedream Prompt 风格强制规则
 

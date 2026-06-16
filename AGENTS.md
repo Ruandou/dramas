@@ -97,7 +97,7 @@ Step → Verify → [有问题? → Fix → Verify (循环至干净)] → Next S
 
 每个 prompt 逐条检查：
 - [ ] **场景/道具人脸禁令**：场景和道具图中**严禁**出现任何人类面孔（含照片、画像、贴纸、屏幕显示等平面媒介）。人物由 Seedance 视频阶段加入。角色卡要求"墙上挂照片"时，改用物品替代（名牌/奖状/标志性物件）
-- [ ] **文字语种**：如需出现中文必须写 `Simplified Chinese`，不能只写 `Chinese text`（会出繁体）
+- [ ] **文字语种**：场景/道具/角色物品（刻字玉佩、绣字长袍等）如需出现中文，必须写 `Simplified Chinese`，不能只写 `Chinese text`（会出繁体）
 - [ ] **文字内容**：所有需要的标签、铭文、手写内容必须**完整拼出**在 prompt 中
 
 ### B. 道具交叉引用检查（生成前 — director 必须执行）
@@ -129,10 +129,10 @@ Stage 3a（道具，含即生即传） → [验证 cdn_urls.json] → Stage 3b�
 
 ### D. 生成后验证（每批次生成后立即执行）
 
-1. [ ] **TOS 上传**：`tos_upload.py upload-dir --dir assets/{type}/ --prefix "{type}/剧名"`
-2. [ ] **更新 registry**：`tos_upload.py update-registry --project-root .`
-3. [ ] **更新卡片状态**：道具卡片.md、角色卡片.md、场景卡片.md、形象索引.md 中所有 `待生成` → `✅ 已生成`
-4. [ ] **更新工作计划.md** 流水线状态
+1. [ ] **TOS 上传 + 更新 registry**：`tos_upload.py sync --project-root dramas/<剧名>`
+   （`sync` 内部已自动上传 + 更新 `cdn_urls.json`，等价于底层 `upload-dir` + `update-registry` 两步；与 prop/character/scene-designer 的命令一致）
+2. [ ] **更新卡片状态**：道具卡片.md、角色卡片.md、场景卡片.md、形象索引.md 中所有 `待生成` → `✅ 已生成`
+3. [ ] **更新工作计划.md** 流水线状态
 
 ### E. 场景/道具人脸禁令
 
@@ -169,6 +169,10 @@ dramas/<剧名>/
 ├── 工作计划.md        ← 流水线状态追踪
 └── 短剧剧本_<剧名>_72集.md  ← 72集大纲
 ```
+
+> **注**：`资产/`（中文）= 卡片 markdown（角色卡片/场景卡片/道具卡片/形象索引/声音卡片）；
+> `assets/`（英文）= 生成的二进制素材（props/looks/scenes 下的 png + cdn_urls.json）。
+> 两者是不同目录，不是别名。
 
 ## MCP 工具链
 
