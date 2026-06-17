@@ -1390,6 +1390,33 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 
 ---
 
+# 迭代升级协议
+
+## 通用升级路径
+
+| 轮次 | 触发条件 | 执行措施 |
+|------|---------|---------|
+| R1 | 任何审查项未通过 | 调整具体外貌/服装描述符或打光方案 |
+| R2 | R1 修复后同一问题持续 | 对失败元素进行完整 Prompt 重写 |
+| R3 | R2 修复后同一问题持续 | 切换 Prompt 语言（CN ↔ EN）+ 极端 negative prompt + 更换镜头角度/构图 |
+| R4 | 3 轮失败同一问题 | 标记为需人工干预 |
+
+## 角色专属失败模式修复
+
+| 情况 | 处理 |
+|------|------|
+| 渲染过幼 / 低龄化 | 调整年龄描述符（如 "early 30s" → "mid 30s, mature facial structure"）+ 强化骨骼感描述（"defined jawline, sculpted cheekbones"）；两次后仍幼态见 :763 升级措施 |
+| 半身像（脚部不可见） | 追加 "full-body shot, head to toe visible, standing on ground" + negative "cropped, half-body, knee-cut"；构图改为全身站位参考图 |
+| 插画/卡通风格 | 追加写实锚定块 `shot on 85mm lens, professional portrait photography, natural skin texture, photorealistic rendering`；移除诗意/情感语言；确保 3+ 具体物理材质描述 |
+| 道具被复制（角色手持物） | 追加 "there is exactly [N] of this prop, no duplicates" + negative "duplicates, multiple objects"（见 :1040） |
+| 风格不一致（L02 与 L01 漂移） | 必须修改 Prompt 并重新生成，L02 验证通过前不得进入下游（见 :946） |
+
+## 生成轮次跟踪
+
+每轮生成结果和修复措施必须记录在 `工作计划.md` 中，确保可追溯。R4 触发后必须明确上报用户，不得无限重试消耗配额。
+
+---
+
 # 完成前自检
 
 输出角色卡片前，必须验证：
