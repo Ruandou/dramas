@@ -1,0 +1,316 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP10/EP10_大会.md
+# Source shots: 11 (EP10-S01 to EP10-S11)
+# Output segments: 8 (EP10-SEG01 to EP10-SEG08)
+# Mapping: 1:1 shot preservation within segments (no insertions, no deletions, no reordering)
+# Source total duration: 82s (computed: 10+10+8+12+10+12+10+10)
+# Output total duration: 82s
+# Gate status: G1 ✅ | G2 ✅ | G3 ✅ | G4 ⚠️ (CHAR-GRP-02A/B no voice_prompt in 声音卡片.md — recommend production-planner add)
+# ⚠️ SEMANTIC_WARNING: CHAR-GRP-02A/B have 2 spoken lines in SEG01 but no voice_prompt source exists.
+#   These are whispered background lines. Production-planner should add CHAR-GRP-02 to 声音卡片.md
+#   with a voice_prompt like: 「年轻女性，约20岁，声线压低如耳语，语速偏快，带着好奇和紧张」
+
+episode_id: EP10
+source_md: 剧本/EP10/EP10_大会.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality"
+  negative_prompt: "modern objects, brand logos, urban architecture, electric lights, glass windows, plastic materials, concrete buildings, vehicles, modern clothing, jeans, t-shirts, sneakers, wristwatches, mobile phones, anime style, cartoon style, chibi, low quality, blurry, deformed, extra limbs, bad anatomy, western fantasy armor, medieval European style"
+
+voice_prompts:
+  CHAR-001: "成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻"
+  CHAR-003: "成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机"
+
+# ⚠️ CHAR-GRP-02 (A/B) — NO voice_prompt source in 声音卡片.md, 角色卡片.md, or 制片规范.md.
+#   2 whispered lines in SEG01. Placeholder used pending production-planner update.
+
+segments:
+  # ═══════════════════════════════════════════════
+  # SEG01 — 劫后赴会 (SCENE-007 · 太阴宗大殿 · 日间 · 内景)
+  # ═══════════════════════════════════════════════
+  - segment_id: EP10-SEG01
+    shot_ids: [EP10-S01, EP10-S02]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-GRP-02A, CHAR-GRP-02B]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-007.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，面具蓝紫灵纹最低功耗脉动几乎不发光，头微垂）【图2】太阴宗宗门大殿 SCENE-007（日间，十六根巨型石柱分列两排需三人合抱，柱身浮雕盘龙从底座盘旋至顶端，深蓝银色丝绸长幡从梁顶垂落在灵气中缓缓飘动，青铜火盆沿柱排列暖黄火焰在冷蓝紫灵气雾中跳荡，大殿尽头高台上空着的宗主宝座，宝座下古铜照妖镜 PROP-007 置于青铜架上镜面如水，数百弟子按等级排列成同心半圆——内圈紫袍内门弟子、中圈蓝袍核心弟子、外圈浅蓝外门弟子挤在石柱阴影区）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景→全景 固定镜头→缓推：图1随外门弟子队列步入大殿。他的深靛法袍在人群中不起眼——周围全是浅蓝外门弟子服，头微垂，脚步统一。面具上的蓝紫灵纹以最低功耗脉动——几乎不发光。他抬眼——镜头从他肩后推向前方：大殿在他们面前展开如一座石雕峡谷。十六根巨型石柱分列两排。深蓝与银色的丝绸长幡从高不可见的梁顶垂落，缓缓飘动。青铜火盆沿柱排列，暖黄火焰在冷蓝紫的灵气雾中跳荡。大殿尽头——高台之上空着的宗主宝座，宝座下古铜圆镜置于青铜架上。图1被引到最偏远的角落——外门弟子的站位。从这里看高台——需要仰头。
+        镜头2（5秒）全景→中景 固定镜头：全景俯瞰——大殿地面上数百名弟子按等级排列成同心半圆。内圈紫袍内门弟子三十余人站姿笔挺。中圈蓝袍核心弟子百余人。外圈浅蓝外门弟子人数最多挤在石柱之间的阴影区。图1在最外缘——背靠石柱，左侧是两位低声交谈的外门女弟子。她们的声音压得很低——但在石柱回音中偶尔飘出几个字。图1侧头——他在听。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「莫尚华没有追问。他退了一步——转身就走。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「就像EP05他看到了金光——然后什么都没说。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「他不是在帮我。他在守他自己的秘密——而我还没查出来那是什么。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「今天是宗门大会。先活过今天——再查莫尚华。」
+        对白（外门弟子甲，⚠️ CHAR-GRP-02 voiceless — 年轻女性约20岁低声耳语语气带着好奇和紧张，语速偏快）：「听说今天赵长老会亲自主持——」
+        对白（外门弟子乙，⚠️ CHAR-GRP-02 voiceless — 年轻女性约20岁低声耳语语气带着惊讶和疑惑，语速偏快）：「赵凌烟长老？她不是一直在闭关吗？」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「赵凌烟——太阴宗第一长老。千年前便已成名。从不公开露面——今天破例了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════
+  # SEG02 — 紫金降临 (SCENE-007 · 太阴宗大殿 · 日间 · 内景)
+  # ═══════════════════════════════════════════════
+  # ✨ CHAR-003 DEBUT: 赵凌烟首次登场。voice_prompt confirmed from 声音卡片.md (赵凌烟阶段 EP10–EP55).
+  #    tos_url confirmed: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-003-L01.png
+  - segment_id: EP10-SEG02
+    shot_ids: [EP10-S03]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-007.png
+    api:
+      text: |
+        【图1】赵凌烟 CHAR-003-L01（紫金法袍·金凤刺绣在青铜火光照耀下仿佛缓缓展翅，高髻盘发上金冠镶嵌紫玉在灵气光中折出棱角分明的冷光，凤眼微挑深棕瞳孔中偶尔闪过一丝不自然的金色，薄唇挂着完美的对称的不变的微笑，背脊与椅背始终保持一掌距离，双手交叠置于膝上指尖对齐）【图2】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，站在最偏远角落，手不自觉地握紧袖口）【图3】太阴宗宗门大殿 SCENE-007（日间，冷蓝调大殿，青铜火盆暖黄火焰与蓝紫灵气雾对比，深蓝银幡垂落，弟子队列自动分开让路）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）全景→中景→近景 镜头推近：图1从侧门步入大殿。全景：紫金法袍在冷蓝调的殿中如同一团移动的晚霞——深紫底色上的金凤刺绣在青铜火光照耀下仿佛在缓缓展翅。她的步伐不快——每一步落地的时间完全一致，裙摆在地面扫过的幅度完全相同。弟子的队列在她经过时自动分开——不是命令，是本能。中景：她走上高台的台阶。高髻盘发上的金冠镶嵌紫玉，在灵气光中折出棱角分明的冷光。凤眼微挑——深棕瞳孔中偶尔闪过一丝不自然的金色，快到来不及确认。薄唇挂着微笑——完美的、对称的、不变的微笑。近景：她在宗主宝座右侧的次座上落座——背脊与椅背之间始终保持一掌的距离，双手交叠置于膝上，指尖对齐。她缓缓扫视殿下数百弟子——目光没有停留在任何人身上，却让每个人都觉得自己被单独看穿了。图2在角落中——他的手不自觉地握紧了袖口。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「这个人——」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「气质不对。不是久居高位的那种威压——是更深的东西。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「她的微笑——每一帧都是一样的。真正的情绪不可能在每一个瞬间都保持同样的弧度。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「那不是微笑。那是——面具。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════
+  # SEG03 — 大会进行 (SCENE-007 · 太阴宗大殿 · 日间 · 内景)
+  # ═══════════════════════════════════════════════
+  - segment_id: EP10-SEG03
+    shot_ids: [EP10-S04]
+    duration_sec: 8
+    speakers: [CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-007.png
+    api:
+      text: |
+        【图1】赵凌烟 CHAR-003-L01（紫金法袍·金凤刺绣，双手交叠置于膝上，左手食指上深紫色储物戒指——戒面刻着极细的古代封印纹，每一个手势精确到指尖角度，每一次转头刚好让金冠折射同一块光影）【图2】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，视线在大殿中移动——从高台到内门弟子圈，盯着图1戒指上的纹路）【图3】柳清月 CHAR-002-L01（素白法袍在紫色海洋中如同一片雪，站得笔直，杏仁眼专注看高台，银色发簪在灵气光中微微发亮，她没有看图2）【图4】太阴宗宗门大殿 SCENE-007（日间，殿内紫袍内门弟子圈中柳清月素白身影，冷蓝紫灵气雾）。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）近景 固定镜头→快切：图1开始主持大会——声音端庄从容。图2没有在听内容。他的视线在大殿中移动——从高台移到内门弟子圈。在一排紫袍弟子中他看到了图3——素白法袍在紫色海洋中如同一片雪。她站得笔直——杏仁眼专注地看着高台，银色发簪在灵气光中微微发亮。她没有看图2。快切：图2的视线回到图1身上。图1的每一个手势都精确到指尖的角度，每一次转头都刚好让金冠折射出同一块光影。图2盯着她交叠的双手——左手食指上有一枚深紫色的储物戒指，戒面刻着极细的纹路——太远了看不清，但图2认出那是古代封印纹。同一类纹路——和他冰棺上的一模一样。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「……本座闭关三年，今日出关——只为两件事。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「第一，向诸位通报宗门近况。第二——」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「那枚戒指上的纹路——」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「是古代封印纹。和我冰棺上的——同一体系。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「她不是普通的太阴宗长老。她接触过千年前的封印术。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-007, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════
+  # SEG04 — 不可能的信号 (SCENE-007 · 太阴宗大殿 · 日间 · 内景)
+  # ═══════════════════════════════════════════════
+  - segment_id: EP10-SEG04
+    shot_ids: [EP10-S05, EP10-S06]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-007.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，瞳孔骤缩薄唇微张下颌肌肉绷紧，右手五指攥紧指节泛白，身体纹丝不动但手指发抖——千年训练压住了身体但压不住手指）【图2】赵凌烟 CHAR-003-L01（紫金法袍·金凤刺绣，丹田位置紫袍之下有一颗温暖跳动的金色内核——被半透明阴灵气薄膜包裹囚禁，膜在脉动压制金光）【图3】太阴宗宗门大殿 SCENE-007（日间，数百弟子笼罩在蓝紫阴灵光中——深蓝淡紫银白全部阴灵气变体，唯独高台上一抹异常的金色）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景→特写 固定镜头：近景——图1的瞳孔骤缩。面具遮住了他上半张脸——但他薄唇微张的幅度、下颌肌肉突然绷紧的线条——暴露了他感受到了什么。特写：他的右手——垂在身侧，五指猛地攥紧，指节泛白。他强迫自己松开——指甲在掌心留下四道浅白的月牙印。他的神识在向他尖叫——一个他从未在这个世界上感应到的信号。不是残留。不是痕迹。是活的阳气——正在被什么东西压制着。就在这里。就在大殿里。
+        镜头2（6秒）中景 固定镜头→主观镜头：图1的神识在大殿中扫描。他的视角——大殿中的每个人都笼罩在蓝紫色的阴属性灵光中——这是正常的。数百个光点——深蓝、淡紫、银白——阴灵气的所有变体。然后他的神识扫过高台——定住了。主观镜头：图2的身影从蓝紫光晕中浮现——但她的丹田位置——在层层紫袍之下——有一颗金色的核。不是蓝紫。不是银白。是金色。温暖的、跳动的、活的——金色。像一个微型的太阳被包裹在一层半透明的阴灵气薄膜里。那层膜在脉动——每一次脉动都在压制金光的亮度。不是消灭它——是囚禁它。中景回到客观视角：图1的身体纹丝不动——但他的手指在发抖。千年训练让他不会在公共场合失控——但他的身体在替他的大脑做出反应。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「——阳气。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「活的阳气。不是残留——不是痕迹。是正在运转的。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「就在这个大殿里——」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「不可能。阳绝之后——整个修仙界已经不存在任何活的阳气源。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「除非——这里有人和我一样。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「丹田——金光——」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「她是女修。女修体内不可能有阳气。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「除非——那不是她的。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「有人把阳气封在了她体内。用一个——容器。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════
+  # SEG05 — 阳元容器 (SCENE-007 · 太阴宗大殿 · 日间 · 内景)
+  # ═══════════════════════════════════════════════
+  - segment_id: EP10-SEG05
+    shot_ids: [EP10-S07]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-007.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，眼瞳微微颤动——大脑在高速运转做心算，瞳孔从灵视中退出重新聚焦在现实中的赵凌烟身上）【图2】太阴宗宗门大殿 SCENE-007（日间，冷蓝紫灵气雾中高台上赵凌烟的身影，深紫灵气海中漂浮一枚球形法器——约拳头大半透明琥珀薄壳，表面刻满古代封印纹，内部封着一缕翻涌的金色光芒——撞击镇压撞击镇压周而复始）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写 固定镜头：大特写——图1的眼——深棕近黑的瞳孔在面具眼洞中微微颤动。他在脑海中拼图——镜头以极慢的推近进入他的瞳孔，过渡为抽象的灵视画面：一片深紫的灵气海中，漂浮着一枚球形法器。约拳头大小。表面刻满复杂的古代封印纹——与冰棺上的更接近。球体本身是半透明的——像一层琥珀色的薄壳，内部封着一缕不断翻涌的金色光芒。那金光在壳内撞击——每一次撞击都让球体表面的封印纹亮起，然后将金光压回暗处。撞击。镇压。撞击。镇压——周而复始。这不是一个储存阳气的容器——这是一个囚禁阳气的牢笼。图1的意识从灵视中退出——他的瞳孔重新聚焦在现实中的赵凌烟身上。她在微笑。她不知道他看到了什么。还是——她知道？
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「球形法器——表面有封印纹。和冰棺上的——同一个远古流派。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「内部封着一缕阳气。活性极高。被封印压制——但没被消灭。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「这不是天然生成的。这是人造的——有人采集了阳气，用古代封印术封存，植入她的丹田。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「用途是什么？储存？研究？还是——武器？」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「赵凌烟——你到底是谁？」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════
+  # SEG06 — 对望 (SCENE-007 · 太阴宗大殿 · 日间 · 内景)
+  # ═══════════════════════════════════════════════
+  - segment_id: EP10-SEG06
+    shot_ids: [EP10-S08, EP10-S09]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-007.png
+    api:
+      text: |
+        【图1】赵凌烟 CHAR-003-L01（紫金法袍·金凤刺绣，凤眼从内门弟子方向移开越过中圈蓝袍越过石柱落在最远端角落，微笑弧度完全不变，瞳孔中闪过一丝不自然的金色，缓步走到高台边缘站在照妖镜 PROP-007 青铜架旁——古铜镜面映出她半边身影镜中镜外微笑完全相同）【图2】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，脊背僵硬体温骤降半度，低头低得太快——训练了千年的应激反应出卖了他）【图3】太阴宗宗门大殿 SCENE-007（日间，数百弟子同时屏息所有目光转向角落的图2，从高台到角落的漫长距离，冷蓝紫灵气雾）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定镜头：图1的话音未停——她正在说宗门各峰的资源调配。但她的头——在几乎不可察觉的弧度中——偏转了一个角度。她的凤眼从内门弟子的方向移开——越过中圈蓝袍——越过石柱——落在最远端的角落。落在图2身上。她的微笑没有变化——嘴角的弧度、唇线的张力、眼角的细纹——完全一致。但她看他的方式——不同于扫视其他弟子。她看其他人是掠过。看他——是停留。一息。两息。她的瞳孔中闪过一丝不自然的金色——比之前更快，快到只有直盯着她眼睛的人才能看到。图2看到了。他的脊背僵硬——不是动作，是温度。他的体温在那一瞬间降了半度。
+        镜头2（6秒）中景→近景 固定镜头：图1从次座上站起身。殿下数百弟子同时屏息——她站起来意味着她要单独说话。她缓步走到高台边缘——紫金法袍的裙摆拖在深色石台上，像一抹缓慢流动的熔金。她停在照妖镜的青铜架旁边——古铜镜面映出她半边身影，镜中的她与镜外的她微笑完全相同。她看向角落——看向图2——然后开口。声音比之前柔了半度——柔得让人更不安。整个大殿的目光同时转向角落。数百双眼睛——内门、核心、外门——全部钉在图2身上。图2低下头——不是恭敬，是藏住眼睛。然后图1说了两个字——带着那种让人无法判断是善意还是威胁的微笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「她感觉到了。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「我的神识回收——那么微小——她还是捕捉到了。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「你是新来的弟子？」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「……有趣。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「她知道——」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「不。她不知道全部。她在试探——她在确认。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「我体内的阳气有匿息面具镇压——她的神识扫过来只会看到一片空白。但一个外门弟子——灵力一片空白——本身就在告诉她——有人在藏。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════
+  # SEG07 — 秘境令 (SCENE-007 · 太阴宗大殿 · 日间 · 内景)
+  # ═══════════════════════════════════════════════
+  - segment_id: EP10-SEG07
+    shot_ids: [EP10-S10]
+    duration_sec: 10
+    speakers: [CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-007.png
+    api:
+      text: |
+        【图1】赵凌烟 CHAR-003-L01（紫金法袍·金凤刺绣，抬起右手广袖在灵气中展开金凤刺绣仿佛展翅，声音突然变得庄严——宣布不可更改的判决时才使用的语调，微笑收敛）【图2】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，跪在角落动作慢了半拍，头低着眼睛往上翻透过面具边缘盯着高台，手按在膝盖上指节再次泛白，喉结上下滚动——在计算秘境灵力对阳气的影响）【图3】太阴宗宗门大殿 SCENE-007（日间，数百弟子同时单膝跪地衣料摩擦石面如潮水回荡，灵气随话音流动加速深蓝银幡被推到更高角度）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景→近景→特写 固定镜头→快切：中景——图1转身面向全殿，抬起右手。紫金法袍的广袖在灵气中展开，金凤刺绣在青铜火光照耀下仿佛展开了翅膀。她的声音突然变得庄严——不再是之前那种带着微笑的从容，而是一种宣布不可更改的判决时才使用的语调。大殿中的灵气随着她的话音流动加速——深蓝银幡被推到更高的角度。殿下数百弟子同时单膝跪地——衣料摩擦石面的声音在殿中回荡如潮水。图2也跟着跪下——动作慢了半拍。近景——图2跪在角落，头低着，但眼神往上翻，透过面具边缘盯着高台。特写——图2的手按在膝盖上——指节再次泛白。他的喉结上下滚动了一次。他在计算——他必须计算。秘境——灵力浓缩的空间。匿息面具的压制能力是和外界灵力环境匹配的。在正常环境中——他能控制。在灵力浓郁的环境中——阳气会被放大。面具会过载。他藏不住。快切回图1——她的微笑在宣读完毕后重新浮现。她又扫了角落一眼——这次更快，快到只有图2能确认——她确实在看。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「奉宗主之命。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「太阴秘境——将于三日后开启。秘境中灵力浓郁，可大幅提升修为。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「所有新入宗门未满一年的弟子——必须参加。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「秘境——灵力浓缩空间——」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「灵力被放大——阳气就会被放大。匿息面具会过载。我会失控——在大庭广众之下——」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「不能拒绝。拒绝等于承认——我有不能让人看到的东西。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「这是死局。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════
+  # SEG08 — 倒计时 (SCENE-007 · 太阴宗大殿 · 日间 · 内景)
+  # ═══════════════════════════════════════════════
+  - segment_id: EP10-SEG08
+    shot_ids: [EP10-S11]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-007.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，深靛法袍在蓝白相间的人潮中是唯一一块暗色，脚步比周围所有人都慢，跨过殿门最后一步回头——全剧第一次主动回头，后背从颈椎到尾椎一片冰凉）【图2】赵凌烟 CHAR-003-L01（紫金法袍·金凤刺绣在青铜火光中明灭，坐在次座上未离开，头微微偏向图1的方向，微笑还在——右手食指轻轻敲了一下座椅扶手——一次仅仅一次像是在计数或者倒计时）【图3】太阴宗宗门大殿 SCENE-007（日间，外门弟子队列缓缓向殿门移动，冷蓝灵气雾在图1脚踝处翻涌被步伐搅动出细小漩涡，殿外冷白色阳光——太阴宗的天空永远笼罩薄云阳光不带温度）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）全景→近景 固定镜头：全景——外门弟子队列缓缓向殿门移动。蓝白相间的人潮中，图1的深靛法袍是唯一一块暗色——像水流中的一块礁石。他起身——跟在队列末端——脚步比周围所有人都慢。大殿的冷蓝灵气雾在他脚踝处翻涌，被他的步伐搅动出细小的漩涡。近景——他在跨过殿门的最后一步——鬼使神差地——回头看了一眼。高台上。图2还未离开。她坐在次座上——紫金法袍的金凤在青铜火光中明灭。她的头——微微偏向图1的方向。那个微笑还在。那个完美的、对称的、每一帧弧度都一模一样的——微笑。她的右手食指轻轻敲了一下座椅扶手——一次。仅仅一次。像是在计数——或者倒计时。图1转过头。踏出殿门。殿外的阳光是冷白色的——太阴宗的天空永远笼罩着一层薄云，阳光打下来不带温度。但他的后背——从颈椎到尾椎——一片冰凉。三日后。秘境。无处可逃。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「三日。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「三日后——我会走进秘境。秘境的灵力会放大我体内每一丝阳气。匿息面具——撑不住。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「而她——她知道有东西在藏。她不知道是我——但她知道有人。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「她那个微笑——不是在欢迎新弟子。她是在数——猎物。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

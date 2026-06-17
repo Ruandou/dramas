@@ -1,0 +1,518 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP07/EP07_遗迹.md
+# Source shots: 14 (EP07-S01 to EP07-S14)
+# Output shots: 14 (EP07-S01 to EP07-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 84s (computed: 5+5+8+5+6+5+6+6+5+5+5+6+5+12)
+# Output total duration: 84s
+# Gate status: G1✅ G2✅ G3✅ G4⚠️ (CHAR-GRP-02 voice_prompt derived, not in 声音卡片.md)
+
+episode_id: EP07
+source_md: 剧本/EP07/EP07_遗迹.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality"
+  negative_prompt: "modern objects, brand logos, urban architecture, electric lights, glass windows, plastic materials, concrete buildings, vehicles, modern clothing, jeans, t-shirts, sneakers, wristwatches, mobile phones, anime style, cartoon style, chibi, low quality, blurry, deformed, extra limbs, bad anatomy, western fantasy armor, medieval European style"
+
+shots:
+  # ═══════════════════════════════════
+  # SEG01 — 后山集结
+  # ═══════════════════════════════════
+  - shot_id: EP07-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-003.png
+    api:
+      text: |
+        【图1】柳清月 CHAR-002-L01（素白法袍，霜晶纹绣，银色发簪半束发）【图2】太阴宗外门广场 SCENE-003（晨，晨光冷白，石板蒙薄雾，山门飞檐被晨雾缭绕）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：晨光初透，广场石板上蒙薄雾。图1站在七八名外门弟子面前，素白法袍在冷白晨光中如冰雕般挺括，左手持竹简。身后山门飞檐被晨雾缭绕，蓝紫灵阵纹路在石柱上泛柔和光。她的杏仁眼扫过每张脸，在图2身上停了一瞬——比看别人多了一息，然后移开。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "后山断崖下发现一处远古洞府，入口被塌方的碎石封了至少数百年——昨夜的暴雨冲开了裂缝。"
+      - speaker: CHAR-002
+        line: "你们的任务：清理碎石、标记阵纹、记录碑文。里面的东西——"
+      - speaker: CHAR-002
+        line: "不要乱碰。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-003.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，领口微竖，银色半面具蓝紫灵纹微弱如呼吸，垂肩黑发）【图2】太阴宗外门广场 SCENE-003（晨，晨风从山门灌入，蓝紫灵阵微光）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定镜头：图1站在队伍后排，深靛法袍领口微竖——晨风灌入吹起垂肩黑发。银色面具表面蓝紫灵纹微弱如呼吸。身边两个外门弟子小声交谈——图1没有参与。他的目光落在柳清月合上的竹简上——草图画得潦草，但洞府入口位置、山势走向、灵脉标记——在他眼中拼出了另一样东西。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "断崖下。背阴面。灵脉分岔处——千年前有人故意把洞府修在灵脉节点上。"
+      - speaker: CHAR-001
+        line: "药园也是。这个洞府也是。这些位置不是偶然。"
+      - speaker: CHAR-GRP-02
+        line: "苏师姐你说里面会不会真有远古法器——"
+      - speaker: CHAR-001
+        line: "……不知道。"
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════
+  # SEG02 — 洞府初探
+  # ═══════════════════════════════════
+  - shot_id: EP07-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-004.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图2】柳清月 CHAR-002-L01（素白法袍，举火把——火光将侧脸切成明暗两半）【图3】远古修士洞府 SCENE-004（火把暖黄光在粗粝石壁投下跳动影子，中央扁平石台覆盖厚灰白尘土，四周有规整人工凿痕，穹顶裂缝漏入一缕极细白光如琴弦，蓝紫灵气从岩壁孔隙稀薄断续渗出像被压制，千年尘封干燥气味混着矿物腥气）。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）全景→中景 缓推：洞府内部——几支火把插在岩壁裂缝中，暖黄火光在粗粝石壁上投下跳动影子。空气弥漫千年尘封的干燥气味混着岩石和微弱的矿物腥气。中央一块扁平石台——约半人高，三掌宽，覆盖厚灰白尘土看不清原本颜色。四周石壁隐约可见规整凿痕——非天然钟乳纹理而是人工开凿。穹顶最高处一道发丝裂缝，一缕晨光漏入在洞府中央投下细如琴弦的白线。蓝紫灵气从岩壁孔隙渗出来——稀薄、断续，像被什么压制着。图2站在入口举火把，火光将她侧脸切成明暗两半。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "至少一千年。凿痕不是近代的风格——是阳绝之前的。"
+      - speaker: CHAR-002
+        line: "两人一组，先清表层的碎石和尘土。遇到阵纹或文字——先报告，不要碰。"
+      - speaker: CHAR-001
+        line: "这里的灵气——在衰减。不是自然逸散——是被什么东西吸走了。"
+      - speaker: CHAR-001
+        line: "千年未动的洞府。灵脉节点。石台上的尘土厚度不对——有人清理过这个台子。不是最近。但比一千年晚。"
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════
+  # SEG03 — 异常感应
+  # ═══════════════════════════════════
+  - shot_id: EP07-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-004.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，手持铜铲）【图2】远古洞府东侧岩壁 SCENE-004（火把暖黄光，灰白岩面下半道模糊楔形刻痕入石约半指深，整面岩壁被厚尘和蛛网覆盖，尘土下有规则纹路凸起如糊了灰泥的浮雕）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：图1蹲在东侧角落，铜铲撬起碎石——露出灰白岩面上半道模糊刻痕，截面楔形入石约半指深，非天然裂纹而是凿子凿出。他抬头——火把光中整面岩壁被厚尘蛛网覆盖，尘土下隐约有规则纹路凸起，像被糊了灰泥的浮雕。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "……这面墙是被人故意封住的。"
+      - speaker: CHAR-001
+        line: "不是时间堆的灰——是有人用泥浆抹上去的。为了盖住下面的东西。"
+      - speaker: CHAR-001
+        line: "千年。有人来过——在洞府被封之后。那人不想让人看到这面墙。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-004.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，摘下手套以手掌贴岩壁，面具蓝紫灵纹突然亮了一瞬，深棕瞳孔微缩）【图2】远古洞府东侧岩壁刻痕 SCENE-004（火把光中半道刻痕）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景→特写 镜头推近：图1放下铜铲，摘下左手手套，伸出手掌贴在岩壁上——掌心贴着那半道刻痕。闭眼。一息。两息。猛地睁开——不是看到什么，是感觉到了。深棕瞳孔在火把光中微缩。面具蓝紫灵纹突然亮了一瞬——不是阴灵气太浓，而是感应到了相反的东西。他收回手看掌心——没有任何变化。但表情变了。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "这堵墙后面——有阳气。"
+      - speaker: CHAR-001
+        line: "不是活的。是残留。被封在石壁里——封了一千年。"
+      - speaker: CHAR-001
+        line: "能残留千年的阳气——只有金丹期以上修士的本源力量。"
+      - speaker: CHAR-001
+        line: "……这里面死过一个金丹修士。"
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════
+  # SEG04 — 石壁文字
+  # ═══════════════════════════════════
+  - shot_id: EP07-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-004.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，手持火把逐行照亮石壁）【图2】远古洞府东侧石壁 SCENE-004（泥水冲刷后露出深深刻入岩石的古篆体文字——每个字约孩童拳头大小，笔画如刀削斧凿转折棱角分明是剑气所刻，火把暖黄光逐行照亮，笔画边缘挂着未干泥水如黑泪滴落）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景→近景 固定镜头：泥水冲刷后岩壁露出深深刻入岩石的文字。每个字约孩童拳头大小，笔画如刀削斧凿转折棱角分明——用的不是笔墨是剑气。千年前古篆体在火把跳跃暖黄光芒中清晰可辨。图1举火把靠近——火光照亮石壁从左往右。第一行七个字从阴影浮现，笔画边缘挂着未干泥水如黑泪缓缓滴落。他的呼吸声忽然变得很轻。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "阳——未——绝——"
+      - speaker: CHAR-001
+        line: "阵——已——成——"
+      - speaker: CHAR-001
+        line: "吾等……皆棋子。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-004.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具——蓝紫灵纹完全凝固纹丝不动，深棕瞳孔紧缩如针，手指无意识握紧火把木柄指节泛白）【图2】远古洞府石壁 SCENE-004（火把光中石壁上「棋子」二字刻得比其他字更深——写字的人在这两个字上加了一剑。不是愤怒的一剑。是绝望的一剑）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定镜头：镜头推到图1面具——火把光在银白面具上跳动，蓝紫灵纹完全凝固纹丝不动。深棕瞳孔在火光照不到的暗处紧缩如针。面具下嘴唇微张又合上。手指无意识握紧火把木柄，指节泛白。石壁上「棋子」二字刻得比其他字更深——写字的人在这两个字上加了一剑。不是愤怒的一剑。是绝望的一剑。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "阳绝——不是天灾。"
+      - speaker: CHAR-001
+        line: "是阵法。有人在千年前就布下了。"
+      - speaker: CHAR-001
+        line: "刻这行字的人——他知道。但他什么都做不了。所以他写了——"
+      - speaker: CHAR-001
+        line: "'棋子'。金丹修士——只是一枚棋子。"
+      - speaker: CHAR-001
+        line: "那布阵的人——是谁？"
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════
+  # SEG05 — 阳元令牌
+  # ═══════════════════════════════════
+  - shot_id: EP07-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-004.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/修仙界唯一的男人/PROP-003.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，用袖子小心翼翼层层剥去石台薄土）【图2】远古洞府中央石台 SCENE-004（墨色玄武岩石台光滑如镜触手冰凉——非洞府其他灰白岩石，石台中央浅圆形凹槽恰好掌心大小，凹槽底部半埋一枚金色令牌，穹顶裂缝漏入日光恰好落在令牌上——一束白光穿过千年黑暗照亮一片金色）【图3】阳元令牌 PROP-003（掌心大小圆形金色令牌，十二道尖芒从中心太阳圆盘辐射而出，外圈云纹雕花，内敛暖金微光）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：图1走到石台前，用袖子扫去表面薄土——不是粗暴地拂，是小心翼翼地一层层剥。尘土刮开后露出石台真正材质：不是洞府其他岩石的灰白色，而是完整墨色玄武岩——光滑如镜触手冰凉。石台中央有浅浅圆形凹槽——恰好掌心大小。凹槽底部半埋尘土中有一枚令牌。日光从穹顶裂缝漏入恰好落在令牌上——一束白光穿过千年黑暗照亮一片金色。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: PROP-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "玄武岩台——这不是修士修炼用的。这是祭坛。"
+      - speaker: CHAR-001
+        line: "令牌——"
+      - speaker: CHAR-001
+        line: "有人把它留在这里。和那行字一起。是同一个人的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-004.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/修仙界唯一的男人/PROP-003.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，指尖悬在令牌上方半寸——瞳孔中映出十二道太阳纹路，手指开始颤抖）【图2】远古洞府石台凹槽 SCENE-004（穹顶裂缝白光落在令牌上）【图3】阳元令牌 PROP-003（掌心大小圆形金色令牌——表面十二道尖芒从中心太阳圆盘辐射而出外圈环绕精细云纹雕花，不反光古金材质在裂缝白光中散发内敛暖金微光像正在呼吸的太阳，边缘有数百年摩挲留下的细微磨损和柔和包浆）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定镜头：镜头推到石台凹槽中的图3——掌心大小圆形金色令牌，表面刻十二道尖芒从中心太阳圆盘辐射而出，外圈环绕精细云纹雕花。令牌材质为不反光古金，在裂缝漏下白光中散发内敛暖金微光——不是被照亮，是自己发光，像一枚正在呼吸的太阳。边缘有数百年摩挲留下的细微磨损和柔和包浆。图1指尖悬在令牌上方半寸——没有碰。瞳孔中映出十二道太阳纹路。然后手指开始颤抖。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: PROP-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "这个纹路——"
+      - speaker: CHAR-001
+        line: "十二芒日轮。云纹锁边——"
+      - speaker: CHAR-001
+        line: "和师父的标记一模一样。每一道芒——每一条云纹——连收刀的弧度都分毫不差。"
+      - speaker: CHAR-001
+        line: "不是巧合。不是相似。是同一个模具——同一个人的手笔。"
+      - speaker: CHAR-001
+        line: "师父。你到底——在这局里扮演了什么？"
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════
+  # SEG06 — 金光爆发
+  # ═══════════════════════════════════
+  - shot_id: EP07-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-004.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/修仙界唯一的男人/PROP-003.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具——蓝紫灵纹全部熄灭不是衰减是暴毙，面具只剩一片死灰银白）【图2】远古洞府中央石台 SCENE-004（令牌触碰瞬间洞府内所有火把被无形力量压低火焰贴着木柄只剩蓝色火苗，石壁尘土簌簌落下，墨色玄武石台在令牌光芒中映出自身倒影如金黑镜子）【图3】阳元令牌 PROP-003（十二道日轮纹逐层从中心向外点燃速度快得来不及眨眼）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定镜头：图1指尖触碰到图3的一瞬间——令牌上十二道日轮纹路同时亮起，一道一道从中心太阳向外逐层点燃，速度快得来不及眨眼。他缩手——来不及了。洞府内所有火把在同一刹那被无形力量压低——火焰贴着木柄只剩蓝色火苗。石壁上尘土簌簌落下。墨色玄武石台在令牌光芒中映出自身倒影——一面金黑色的镜子。图1面具蓝紫灵纹全部熄灭——不是衰减，是暴毙。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: PROP-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "——不好！"
+      - speaker: CHAR-001
+        line: "它在吸——它在吸我的阳气！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-004.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/修仙界唯一的男人/PROP-003.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍被金光照透布料纹理露出衣料下隐约人身轮廓，面具彻底暗淡死灰银白，影子在身后石壁上被拉成三丈长巨人，偏头被强光刺眼）【图2】远古洞府内室 SCENE-004（刺目金色光芒十二道尖锐芒刺状光束从令牌射出打在每面岩壁上——整个洞府从幽暗暖黄瞬间变为灼目金色，每个人影被拉成黑色剪影投射在刻着「棋子」二字的石壁上）【图3】阳元令牌 PROP-003（爆发刺目金色光芒，十二道尖锐芒刺光束射出）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：刺目金色光芒从图3上爆发——不是扩散性漫射，而是十二道尖锐芒刺般光束从令牌射出打在洞府每面岩壁上。整个洞府从幽暗暖黄瞬间变成灼目金色——每个人影被拉成黑色剪影投射在刻着「棋子」二字的石壁上。图1站在光芒正中心——深靛法袍被金光照透布料纹理露出衣料下隐约的人身轮廓。面具彻底失去灵纹——只剩一片死灰银白。他的影子在身后石壁上被拉成三丈长巨人。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: PROP-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "——停！停下！"
+      - speaker: CHAR-001
+        line: "糟了——这道光——"
+      - speaker: CHAR-001
+        line: "整个洞府都在震动——外面的人——"
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════
+  # SEG07 — 外面
+  # ═══════════════════════════════════
+  - shot_id: EP07-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-004.png
+    api:
+      text: |
+        【图1】柳清月 CHAR-002-L01（素白法袍，霜晶纹绣，蹲在岩壁前手指轻触半磨损古阵纹）【图2】远古洞府外室通道 SCENE-004（岩廊深处涌出金光将岩壁冷灰照成熔金，地面震动碎石从穹顶裂缝掉落）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：外室——图1蹲在岩壁前手指轻触半磨损古阵纹。突然——指尖下阵纹微光一闪又灭了。岩廊深处涌出金光将岩壁冷灰照成熔金。地面震动碎石从穹顶裂缝掉落。一名外门弟子手中陶片被震落摔碎在脚边。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "退后——所有人退后！"
+      - speaker: CHAR-002
+        line: "这不是阵法——是法器。有人在里面触发了法器。"
+      - speaker: CHAR-002
+        line: "……金色。不是阴灵气的颜色。"
+      - speaker: CHAR-GRP-02
+        line: "柳师姐——里面还有人！苏师姐还在里面——"
+      - speaker: CHAR-002
+        line: "你们守在这里。别跟来。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-004.png
+    api:
+      text: |
+        【图1】柳清月 CHAR-002-L01（素白法袍霜晶纹绣在金光中第一次反射暖色——冷白法袍被金光染成暖调，杏仁眼在金光反射中变浅琥珀色，提起法袍下摆快步走——猎人的步伐，在转角处被极强金光迎面打中闭上眼睫毛在金光中微颤）【图2】远古洞府岩廊转角 SCENE-004（金光从内室涌出照亮整个岩廊）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定镜头：图1提起法袍下摆朝内室快步走去——猎人的步伐。杏仁眼在金光反射中变成浅琥珀色。金光掠过素白法袍上的霜晶纹绣——冷光中银白的纹路第一次变成暖色。她穿过岩廊在转角处被极强金光迎面打中——闭上眼。闭眼那一瞬感受到从未体验过的灵力波动——不是阴不是中性不是任何一种她学过的灵气。睫毛在金光中微颤。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "这种感觉——"
+      - speaker: CHAR-002
+        line: "不是禁制。不是阵法。是——"
+      - speaker: CHAR-002
+        line: "苏尘——！"
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════
+  # SEG08 — 包围
+  # ═══════════════════════════════════
+  - shot_id: EP07-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+      prop_ids:
+        - PROP-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-004.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/修仙界唯一的男人/PROP-003.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍被金光穿透布料显出人身轮廓，面具彻底暗淡死灰银白，咬牙试图甩掉令牌甩不掉——十二道日轮金光顺手掌经脉向上蔓延在手腕处形成金色脉纹）【图2】柳清月 CHAR-002-L01（素白法袍被映成金色，一手挡在眼前遮光，一手按在腰间法剑剑柄上——未拔，瞳孔在金光中收缩）【图3】远古洞府内室 SCENE-004（金光脉冲如巨大心脏跳动，金光与火把光交界处图2身影出现，岩廊方向传来急促脚步声衣料擦过岩壁窸窣声碎石被踢开的声响，嗡鸣声充满整个洞府）【图4】阳元令牌 PROP-003（金色脉冲持续，十二道日轮金光顺苏尘掌心经脉向上蔓延，令牌锁定无法甩脱——被设计为陷阱诱饵主动飞入阳气持有者掌心并向外发送信号）。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中景 固定镜头：金光脉冲中——图1低头看着手中的图4，十二道日轮金光顺掌心经脉向上蔓延，在手腕处形成金色脉纹。深靛法袍被金光穿透布料露出衣料下隐约人身轮廓。面具彻底暗淡——只剩死灰银白。他咬牙试图甩掉令牌——甩不掉。岩廊方向传来急促脚步声，衣料擦过岩壁的窸窣声、碎石被踢开的声响。洞口——火把光和金光的交界处，图2身影出现。素白法袍被映成金色，一手挡在眼前遮光，一手按在腰间法剑剑柄上。瞳孔在金光中收缩——她看到一个站在金光正中心的身影，手中握着令她所有经脉都发出警报的东西。嗡鸣声充满整个洞府。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+        - { file: PROP-003, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "收——给我收——"
+      - speaker: CHAR-001
+        line: "不行。令牌不听我的——它是故意被触发的。是一道陷阱——那个人留下的不是遗言，是诱饵。"
+      - speaker: CHAR-002
+        line: "——那是什么？"
+      - speaker: CHAR-001
+        line: "……别过来。"
+      - speaker: CHAR-002
+        line: "苏尘——你手里拿的——那是阳气。"
+    transition_to_next: hard_cut

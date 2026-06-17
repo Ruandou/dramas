@@ -57,11 +57,11 @@ story-architect → production-planner → prop-designer → [character-designer
 
 计算源 `.md` 中所有镜头的 `时长` 列之和。
 
-- **≥ 140s 且 ≤ 200s**：通过，继续
-- **＜ 140s**：❌ 停止。报告：“源文件总时长 Xs，低于 140s 门槛，差 Ys。请 scene-writer 扩充后重试。”
-- **＞ 200s**：❌ 停止。报告：“源文件总时长 Xs，超过 200s 上限，超出 Ys。请 scene-writer 精简后重试。”
+- **≥ 75s 且 ≤ 120s**（EP01: ≥ 90s 且 ≤ 120s）：通过，继续
+- **＜ 75s**（EP01: ＜ 90s）：❌ 停止。报告：“源文件总时长 Xs，低于下限门槛，差 Ys。请 scene-writer 扩充后重试。”
+- **＞ 120s**：❌ 停止。报告：“源文件总时长 Xs，超过 120s 上限，超出 Ys。请 scene-writer 精简后重试。”
 
-> **Gate 1 计算规则**：将源 .md 镜头表中所有镜头的「时长」列数值逐个相加。禁止使用 VALIDATION 块中的 `total_duration` 声称值作为 Gate 1 判断依据。如果逐项求和 < 140s，即使 VALIDATION 块标记为 ✅，仍必须触发 Gate 1 停止。
+> **Gate 1 计算规则**：将源 .md 镜头表中所有镜头的「时长」列数值逐个相加。禁止使用 VALIDATION 块中的 `total_duration` 声称值作为 Gate 1 判断依据。如果逐项求和 < 75s（EP01: < 90s），即使 VALIDATION 块标记为 ✅，仍必须触发 Gate 1 停止。
 
 ## Gate 2：镜头数一致性
 
@@ -130,13 +130,17 @@ shots:
       scene_id: SCENE-001
       look_ids:
         - CHAR-001-L01
+      prop_ids:              # 本镜头中显著出现的道具（可选）
+        - PROP-003           # 电动车
     assets:
       look_urls:
         CHAR-001-L01: assets/looks/CHAR-001-L01.png
       scene_urls:
         SCENE-001: assets/scenes/SCENE-001.png
+      prop_urls:              # 道具参考图（可选，用于锁定道具外观）
+        PROP-003: assets/props/PROP-003.png
     api:
-      text: "【图1】CHAR-001-L01【图2】SCENE-001。镜头特写，..."
+      text: "【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-003。镜头特写，..."
       content_roles:
         - file: CHAR-001-L01
           role: reference_image
@@ -144,6 +148,9 @@ shots:
         - file: SCENE-001
           role: reference_image
           label: 图2
+        - file: PROP-003     # 道具参考图（可选）
+          role: reference_image
+          label: 图3
     dialogue:
       - speaker: CHAR-001
         line: "台词内容"
@@ -160,12 +167,16 @@ shots:
 | `duration_sec` | int | 单镜头时长（≥4 秒） |
 | `refs.scene_id` | string | 所在场景 ID |
 | `refs.look_ids` | list | 出镜角色形象 ID 列表 |
+| `refs.prop_ids` | list | 本镜头中显著出现的道具 ID 列表（可选） |
 | `assets.look_urls` | map | 形象 ID → 本地路径或 CDN URL |
 | `assets.scene_urls` | map | 场景 ID → 本地路径或 CDN URL |
+| `assets.prop_urls` | map | 道具 ID → 本地路径或 CDN URL（可选，用于锁定道具外观） |
 | `api.text` | string | 单镜头 Prompt（shots 级别较简略） |
 | `api.content_roles` | list | 参考图绑定 |
 | `dialogue` | list | 本镜台词（speaker + line） |
 | `transition_to_next` | enum | 可选。到下一镜头的转场类型：`hard_cut`（默认）/ `dissolve` / `fade` / `audio_bridge` |
+
+> **参考图数量限制**：TOS URL 模式下每镜头 ≤ 6 张参考图（base64 模式下 ≤ 3 张）。典型配置：1 场景 + 1~2 角色 + 0~2 道具 = 3~5 张。道具参考图仅在该道具本镜头中**显著可见且需外观锁定**时添加——勿为背景中出现的小物品添加。
 
 ## mode 选择规则
 
@@ -426,8 +437,9 @@ assets:
 | 理想时长 | 8–10 秒 | 最佳生成效果 |
 | 每 segment 镜头数 | 1–3（最多 3） | 超出必须拆分 |
 | 每 segment 说话人 | ≤2 | 超出必须拆分 |
-| 全集总时长 | ≥ 140 秒 且 ≤ 200 秒（理想 150–180 秒） | 约 2.5–3 分钟 |
-| 全集 segment 数 | 12–15 段 | 合理密度 |
+| 全集总时长 | ≥ 75 秒 且 ≤ 120 秒（EP01: 90–120 秒） | 90 秒（默认） |
+| 全集 segment 数 | 6–10 段 | 合理密度 |
+| 每集镜头数 | 8–12 镜 | 对应每集 6–10 段 × 1–3 镜/段 |
 
 ### 超时拆分规则
 
@@ -633,11 +645,11 @@ segments:
 
 | 检查项 | 规则 | 触发条件 |
 |---|---|---|
-| **角色-参考图一致性** | segment 的 prompt 中提及的角色（按 CHAR-ID 或角色名匹配）必须与该 segment 的 `ref_image` 列表中的角色参考图对应 | prompt 提及 CHAR-001 但 ref_image 仅含 CHAR-002 的图 → WARN |
+| **角色-参考图一致性** | segment 的 prompt 中提及的角色（按 CHAR-ID 或角色名匹配）必须与该 segment 的 `refs.look_ids` 列表中的角色参考图对应 | prompt 提及 CHAR-001 但 refs 仅含 CHAR-002 的图 → WARN |
 | **场景-描述对齐** | segment 标注的 SCENE-ID 的场景属性（室内/室外、明暗、空间类型）应与 prompt 描述的视觉环境一致 | SCENE-005 定义为"識海空間（虚空/黑暗）"但 prompt 描述阳光普照的花园 → WARN |
 | **时间连贯性** | 同一集内连续 segment 的时间线不应矛盾 | segment N prompt 含"晨曦" / segment N+1 prompt 含"月色" 且中间无时间跳转标注 → WARN |
-| **道具存在性** | prompt 中提及的 PROP-ID 对应的参考图应包含在该 segment 的资产引用中 | prompt 提及 PROP-001（葫芦）但 segment 无 prop ref_image → WARN |
-| **角色数量一致性** | prompt 描述的在场角色数量应与 ref_image 中的角色参考图数量大致匹配 | prompt 描述"三人对峙"但 ref_image 仅含2个角色图 → WARN |
+| **道具存在性** | prompt 中提及的 PROP-ID 对应的参考图应包含在该 segment 的资产引用中 | prompt 提及 PROP-001（葫芦）但 segment 无 prop refs → WARN |
+| **角色数量一致性** | prompt 描述的在场角色数量应与 refs.look_ids 中的角色参考图数量大致匹配 | prompt 描述"三人对峙"但 refs 仅含2个角色图 → WARN |
 
 ## 执行规则
 
@@ -672,7 +684,7 @@ segments:
 | 9 | CDN URL 解析 | 已从 `cdn_urls.json` 解析，缺失处有 WARNING 注释 |
 | 9b | URL 永久性标记 | 所有临时预签名 URL（含 `X-Tos-Expires`）已标注 `# ⚠️ TEMP_URL` 警告注释 |
 | 10 | shot_ids 一致 | segments 中引用的 shot_ids 均存在于 shots.yaml |
-| 11 | 总时长 | 所有 segment `duration_sec` 之和 ≥ 140 秒 且 ≤ 200 秒（理想范围 150–180 秒） |
+| 11 | 总时长 | 所有 segment `duration_sec` 之和 ≥ 75 秒 且 ≤ 120 秒（EP01: 90–120 秒） |
 | 12 | Segment ID 命名 | 均为 `EP##-SEG##` 或 `EP##-SEG##a/b` |
 | 13 | 不跨场景 | 每个 segment 内所有 shot 属于同一 SCENE-### |
 | 14 | 镜头数一致 | shots.yaml 的 shot 数量 == 源 .md 镜头表行数 |
@@ -696,7 +708,7 @@ segments:
 2. **禁止改写对白** — 包括但不限于：缩略、润色、合并两句为一句、拆分一句为两句、移动到其他 segment、翻译、删除。
 3. **禁止发明对白** — 输出中的每一行 `「台词」` 必须在源 `.md` 对应镜头的"对白/备注"列中找到**逐字逐标点**对应。
 4. **禁止忽略角色** — 源 `.md` 中出现的所有 speaker（包括 `CHAR-GRP-##`）必须在 YAML 的 dialogue 中保留其台词。
-5. **禁止自行填充时长** — 当源 `.md` 总时长不足 140s 时，禁止通过加长单镜头时长或增加镜头数来补足。必须触发 Gate 1 停止。
+5. **禁止自行填充时长** — 当源 `.md` 总时长不足 75s（EP01: 90s）时，禁止通过加长单镜头时长或增加镜头数来补足。必须触发 Gate 1 停止。
 6. **禁止改写 voice_prompt** — 必须从声音卡片中全文复制「」内的文字内容（不含「」符号本身），不得简化、改写、翻译、缩写。
 7. **禁止忽略 ID 冲突** — 当源 `.md` 中的 SCENE/CHAR/PROP ID 定义与资产卡片不一致时，不得默默采用其中一个。必须触发 Gate 3 停止。
 8. **禁止重排叙事顺序** — 镜头在 YAML 中的顺序必须严格按照源 `.md` 镜头表从上到下的顺序，不得调换。
@@ -710,7 +722,7 @@ segments:
 
 | 层 | 文件 | 角色 |
 |----|------|------|
-| 1 | `短剧剧本_剧名_36集.md` | story-architect |
+| 1 | `短剧剧本_剧名_72集.md` | story-architect |
 | 2 | `剧本/EP##/EP##_*.md` | scene-writer |
 | **3** | **`剧本/EP##/EP##_shots.yaml`** | **segment-builder（本角色）** |
 | **4** | **`剧本/EP##/EP##_segments.yaml`** | **segment-builder（本角色）** |

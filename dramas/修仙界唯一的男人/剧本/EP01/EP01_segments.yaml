@@ -1,0 +1,444 @@
+episode_id: EP01
+source_md: 剧本/EP01/EP01_冰裂.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality"
+  negative_prompt: "modern objects, brand logos, urban architecture, electric lights, glass windows, plastic materials, concrete buildings, vehicles, modern clothing, jeans, t-shirts, sneakers, wristwatches, mobile phones, anime style, cartoon style, chibi, low quality, blurry, deformed, extra limbs, bad anatomy, western fantasy armor, medieval European style"
+
+voice_prompts:
+  CHAR-001: "成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻"
+  CHAR-GRP-01: "成年女性，28岁，声线冷厉有力，语速适中，带有军人般的命令感和警觉性"  # ⚠️ DERIVED: not in 声音卡片.md, derived from 角色卡片.md description
+  旁白: "成年男性旁白，声线浑厚深沉，语速适中，带有叙事感和史诗感，情绪克制但有力"
+
+segments:
+  # ─── SEG01: 冰裂（碎片式·悬念→震惊）───
+  - segment_id: EP01-SEG01
+    shot_ids: [EP01-S01]
+    duration_sec: 8
+    speakers: [CHAR-001, 旁白]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图2】冰棺古墓 SCENE-001。
+        道具：半透明冰晶棺椁（约2.5米长，表面刻满远古封印纹路，散发微弱金光），位于冰洞中央。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）特写→近景 缓推：幽暗冰洞深处，半透明冰晶棺椁静卧中央，表面远古封印纹路散发微弱金光。棺身震颤，一道裂纹从中央蔓延，金光沿裂缝渗出。冰棺盖碎裂弹开，碎冰纷飞。棺内图1面容从冰霜中显现，睫毛微颤，缓缓睁开双眼，瞳孔由涣散逐渐聚焦。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（旁白，成年男性旁白，声线浑厚深沉，语速适中，带有叙事感和史诗感，情绪克制但有力）：「千年前，他被封入此棺。」
+        对白（旁白，成年男性旁白，声线浑厚深沉，语速适中，带有叙事感和史诗感，情绪克制但有力）：「千年后——棺碎了。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「……这是……」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格， ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones with warm gold accents, volumetric mist, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ─── SEG02: 起身（独白递进·困惑→不安）───
+  - segment_id: EP01-SEG02
+    shot_ids: [EP01-S02]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图2】冰棺古墓 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 固定镜头：图1双手撑住棺沿，指节发白，用力坐起。碎冰从发间滑落，深靛色敛息法袍沾满霜花，银色半面具微倾。站起时膝盖微颤，环顾冰洞——空无一人，冰壁折射幽蓝冷光，千年积霜覆盖地面，呼吸化为浓重白雾。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「……灵力……」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「师父的封印……怎么碎了。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「我……睡了多久。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones with warm gold accents, volumetric mist, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ─── SEG03: 回忆碎片（独白递进·追忆→迷茫）───
+  - segment_id: EP01-SEG03
+    shot_ids: [EP01-S03]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图2】冰棺古墓 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）特写→中景 镜头跟随：图1面部特写——银色半面具下目光迷茫，冰晶折射的蓝紫光斑在脸上游移。闭眼蹙眉回忆片刻，指尖无意识触碰棺沿封印纹路。随即跌跌撞撞走向冰洞通道，脚步踉跄踩过碎冰，扶着冰壁前行，每步呼出浓重白雾。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「封入冰棺前，师父说了什么……」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「只记得一道阵法，和师父的脸。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「……到底发生了什么。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones with warm gold accents, volumetric mist, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ─── SEG04: 走向光（蓄力式·期待→紧张）───
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S04]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图2】冰棺古墓 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景→全景 缓推：图1在冰洞通道中蹒跚前行，冷白光线从洞口涌入照亮半边身子。冰壁上封印纹路金光已全部熄灭，只剩暗淡刻痕。一步步走向光芒，深靛法袍被光线勾勒出轮廓，身影从暗处走入光中，最终被白光完全吞没。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「不管外面变成了什么样……」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「总比困死在这里强。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「……可万一外面，是个不认识的世界。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones with warm gold accents, volumetric mist, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: fade
+
+  # ─── SEG05: 初见异世（独白递进·震撼→警觉）───
+  - segment_id: EP01-SEG05
+    shot_ids: [EP01-S05]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图2】极北冰原 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）远景→特写 镜头拉远：图1站在冰崖洞口边缘，眼前是无尽的冰封荒原。灰蓝天空低压，寒风卷起细雪扑面，渺小如蚁立于苍茫天地间。远处地平线上偶有蓝紫色灵气光柱闪烁。镜头推近至伸出的手——蓝紫色灵气丝缕缠绕指间，皱眉，目光从迷茫转为凝重。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「这就是……外面。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「灵力充沛，但全是阴寒之气……」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「全变了。一丝阳气都没有。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ─── SEG06: 异响（刺探式·疑惑→不安）───
+  - segment_id: EP01-SEG06
+    shot_ids: [EP01-S06]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图2】极北冰原 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景→近景 固定镜头：远处天际忽然炸起一声尖锐爆响，一道蓝紫色光柱冲天而起。图1猛然抬头，目光锐利望向灵力波动方向。细雪被冲击波震散，冰面嗡鸣。闭目运功以神识探出，面部从警觉逐渐转为疑惑——眉心微蹙，银色面具上蓝紫纹路微微闪动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「有人在使用法术。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「神识尚在……那个方向，有灵力波动。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「灵力运转的方式……很陌生。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones, volumetric mist, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ─── SEG07a: 猎兽（蓄力式·观察）───
+  - segment_id: EP01-SEG07a
+    shot_ids: [EP01-S07]
+    duration_sec: 8
+    speakers: [CHAR-GRP-01]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-GRP-01-L01: assets/looks/CHAR-GRP-01-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】女修巡逻队 CHAR-GRP-01-L01（深蓝法袍巡逻甲）【图2】极北冰原 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）全景→中景 固定镜头：冰原远景，三名身着深蓝法袍的女修正围攻一头黑色妖兽。剑光与蓝紫色灵力交织成网，兽吼声震碎附近冰柱。三名女修身形矫健配合默契，阵法攻守有序。队长居中指挥，两名队员分列两翼包抄。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（女修巡逻队，成年女性，28岁，声线冷厉有力，语速适中，带有军人般的命令感和警觉性）：「左翼封路，别让它遁入冰缝。」
+        对白（女修巡逻队，成年女性，28岁，声线冷厉有力，语速适中，带有军人般的命令感和警觉性）：「师姐放心，封住了。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones, volumetric mist, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ─── SEG07b: 震惊（碎片式·确认→disbelief）───
+  - segment_id: EP01-SEG07b
+    shot_ids: [EP01-S08]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图2】极北冰原 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）近景 固定镜头：图1藏在冰岩后方，透过冰晶缝隙观察战斗。面部从好奇逐渐转为震惊——瞳孔骤缩，嘴唇微张，手指不自觉攥紧冰岩边缘。面具下的目光在女修们身上快速扫过，似在确认什么不敢相信的事。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「全是女修。一个男修都没有。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「怎么可能……」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones, volumetric mist, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ─── SEG08: 认知裂变（独白递进·分析→确信）───
+  - segment_id: EP01-SEG08
+    shot_ids: [EP01-S09]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图2】极北冰原 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）特写→近景 缓推：图1目光紧锁战场，眼中倒映蓝紫色剑光。微微眯眼，手指轻叩冰岩——思考时的习惯动作。随即收回目光，背靠冰岩缓缓坐下，低头审视自己双手——指间隐有一丝极微弱的金色暖光流转，与周围蓝紫阴气格格不入。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「她们的功法……全是纯阴路数。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「连灵力属性都没有阳气。整个世界——变了。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「有意思。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「我身上这缕阳气，恐怕是此界最后一丝。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ─── SEG09: 被发现（碎片式·紧张→恐惧）───
+  - segment_id: EP01-SEG09
+    shot_ids: [EP01-S10]
+    duration_sec: 8
+    speakers: [CHAR-GRP-01, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-GRP-01-L01: assets/looks/CHAR-GRP-01-L01.png  # WARNING: no CDN URL
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】女修巡逻队 CHAR-GRP-01-L01（深蓝法袍巡逻甲）【图2】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图3】极北冰原 SCENE-001。
+        角色分工：图1持剑搜索；图2藏匿不动。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景→近景 固定镜头：妖兽轰然倒地化为黑雾消散。一名女修忽然抬头，目光如鹰扫向图2藏身的冰岩方向，向队长拱手示意。图2身体一僵，本能后缩半步——碎冰在脚下发出细微脆响。迅速压低身形，双手按在冰面上稳住重心，面具下目光急速转动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（女修巡逻队，成年女性，28岁，声线冷厉有力，语速适中，带有军人般的命令感和警觉性）：「队长，冰岩后面有气息。」
+        对白（女修巡逻队，成年女性，28岁，声线冷厉有力，语速适中，带有军人般的命令感和警觉性）：「戒备。随我过去。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「被发现了。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「这副身子还虚着，打不过。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones, volumetric mist, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ─── SEG10a: 逼近（刺探式·压迫）───
+  - segment_id: EP01-SEG10a
+    shot_ids: [EP01-S11]
+    duration_sec: 8
+    speakers: [CHAR-GRP-01]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-GRP-01-L01: assets/looks/CHAR-GRP-01-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】女修巡逻队 CHAR-GRP-01-L01（深蓝法袍巡逻甲）【图2】极北冰原 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 镜头跟随：女修队长拔出短剑，向冰岩方向稳步走来。两名队员紧随其后分列两翼包抄。剑刃上蓝紫色灵光明灭闪烁，每一步踩在雪地上留下清晰脚印。目光冷厉如冰，短剑直指冰岩方向。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（女修巡逻队，成年女性，28岁，声线冷厉有力，语速适中，带有军人般的命令感和警觉性）：「出来。别让我们动手。」
+        对白（女修巡逻队，成年女性，28岁，声线冷厉有力，语速适中，带有军人般的命令感和警觉性）：「否则——格杀勿论。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones, volumetric mist, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ─── SEG10b: 抉择（独白递进·冷静→决断）───
+  - segment_id: EP01-SEG10b
+    shot_ids: [EP01-S12]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图2】极北冰原 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）特写 固定镜头：图1深吸一口气，闭眼片刻。睁眼时目光已恢复沉稳——缓缓攥紧拳头又松开，指间那缕金光被强行压入体内。嘴角微微抿出一条线，面具下表情冷峻如冰。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「逃不了，也打不了。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「那就……只剩一条路。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones with warm gold accents, volumetric mist, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ─── SEG11a: 喝问（权力翻转·压迫）───
+  - segment_id: EP01-SEG11a
+    shot_ids: [EP01-S13]
+    duration_sec: 8
+    speakers: [CHAR-GRP-01]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-GRP-01-L01: assets/looks/CHAR-GRP-01-L01.png  # WARNING: no CDN URL
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】女修巡逻队 CHAR-GRP-01-L01（深蓝法袍巡逻甲）【图2】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图3】极北冰原 SCENE-001。
+        角色分工：图1持剑包围审问；图2被困不反抗。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 固定镜头：女修队长绕过冰岩，短剑直指图2面门。蓝紫剑光照亮银色面具。两名队员从两侧合围封死退路。图2在三柄剑的包围下缓缓站起——比她们所有人都高出半个头。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（女修巡逻队，成年女性，28岁，声线冷厉有力，语速适中，带有军人般的命令感和警觉性）：「何人。报上宗门。」
+        对白（女修巡逻队，成年女性，28岁，声线冷厉有力，语速适中，带有军人般的命令感和警觉性）：「为何鬼鬼祟祟藏在此处。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones, volumetric mist, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ─── SEG11b: 沉默（悬念钩·切断）───
+  - segment_id: EP01-SEG11b
+    shot_ids: [EP01-S14]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图2】极北冰原 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）近景 固定镜头：图1面对三名女修的剑锋，目光在三柄剑之间快速扫过。面具下的嘴唇微微动了动，又闭上。风从冰原灌入，吹动沾满霜花的长发。微微抬起下巴，目光从剑锋移到队长的眼睛——似在衡量什么。全场只剩风声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「说错一个字……就是死。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「我根本不知道，这个世界变成了什么样。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「……有意思。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones, volumetric mist, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: fade
+
+  # ─── SEG11c: 终幕定格 ───
+  - segment_id: EP01-SEG11c
+    shot_ids: [EP01-S15]
+    duration_sec: 8
+    speakers: [旁白]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+        CHAR-GRP-01-L01: assets/looks/CHAR-GRP-01-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具）【图2】女修巡逻队 CHAR-GRP-01-L01（深蓝法袍巡逻甲）【图3】极北冰原 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）远景 镜头拉远：冰原远景——三名女修持剑围住一个深靛法袍的身影。银色面具在蓝紫剑光中明灭。寒风卷起细雪模糊了画面边缘。渺小人影立于苍茫天地间，如同千年前被封印时一样孤独。画面缓缓暗去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（旁白，成年男性旁白，声线浑厚深沉，语速适中，带有叙事感和史诗感，情绪克制但有力）：「千年沉睡后醒来，他面对的第一件事……」
+        对白（旁白，成年男性旁白，声线浑厚深沉，语速适中，带有叙事感和史诗感，情绪克制但有力）：「是如何在一个陌生的世界里，活过今天。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠风格，ancient Chinese cultivation world, ethereal and mystical atmosphere, cinematic lighting, cool blue-purple ambient tones, volumetric mist, film grain, 85mm portrait lens, 竖屏9比16，无品牌Logo，无现代物品。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

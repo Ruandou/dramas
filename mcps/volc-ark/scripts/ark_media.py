@@ -4,9 +4,12 @@ from __future__ import annotations
 
 import base64
 import json
+import logging
 import mimetypes
 from pathlib import Path
 from typing import Any
+
+_logger = logging.getLogger(__name__)
 
 MIME_BY_SUFFIX = {
     ".png": "image/png",
@@ -58,6 +61,13 @@ def resolve_media_url(
         raise ValueError("媒体路径为空")
     if s.startswith(("http://", "https://", "data:")):
         return s
+    # --- LOCAL PATH FALLBACK (base64 encoding) ---
+    _logger.warning(
+        "[TOS_MISSING] image_urls contains local path '%s'. "
+        "Prefer uploading to TOS first (tos_upload.py sync) and using the "
+        "permanent https:// URL. Falling back to data URI (~1MB overhead per image).",
+        s,
+    )
     p = Path(s).expanduser()
     if not p.is_absolute() and project_root is not None:
         p = project_root / p
