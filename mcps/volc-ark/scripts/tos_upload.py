@@ -474,12 +474,12 @@ def cmd_update_registry(args: argparse.Namespace) -> int:
 
 
 def _update_registry_for_project(cfg: dict[str, str], project_root: Path) -> None:
-    """Update cdn_urls.json in looks/ and scenes/ with tos_url fields."""
+    """Update cdn_urls.json in looks/, scenes/ and props/ with tos_url fields."""
     assets_dir = project_root / "assets"
     project_name = project_root.name
     kp = cfg.get("key_prefix", "")
 
-    for subdir in ("looks", "scenes"):
+    for subdir in ("looks", "scenes", "props"):
         registry_path = assets_dir / subdir / "cdn_urls.json"
         if not registry_path.is_file():
             print(f"  No {subdir}/cdn_urls.json found, skipping.")

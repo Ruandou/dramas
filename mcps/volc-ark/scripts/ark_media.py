@@ -114,6 +114,14 @@ def load_cdn_registry(
                 continue
             if isinstance(entry, dict):
                 merged[key] = entry
+            else:
+                # 非 dict 值（含空字符串、None、纯 URL、手误写入）一律 WARNING：
+                # 合法的"待生成"占位应是 dict（如 {"status": "待生成"}）或干脆缺省该 key，
+                # 而非空字符串。静默会掩盖整文件损坏（如 9 个 asset 全空）。
+                _logger.warning(
+                    "registry %s 的 key %r 值为 %s（应为 dict 或缺省），已跳过。请检查该文件 schema。",
+                    p, key, type(entry).__name__,
+                )
     return merged
 
 
