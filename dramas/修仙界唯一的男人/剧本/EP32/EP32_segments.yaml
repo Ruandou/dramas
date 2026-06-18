@@ -1,0 +1,338 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP32/EP32_小胜.md
+# Source shots: 16 (EP32-S01 to EP32-S16)
+# Output segments: 8 (EP32-SEG01 to EP32-SEG08)
+# Total duration: 95s
+# Gate status: G1✅ G2✅ G3✅ G4✅ G5✅ (2 WARN — see below)
+# ⚠️ SEMANTIC_WARNING: CHAR-006-L02 and CHAR-GRP-03-L01 have no CDN/tos_url in cdn_urls.json — using local paths as fallback
+# ⚠️ SEMANTIC_WARNING: SCENE-003 reference image is 太阴宗山门 (gate/plaza) but EP32 uses sub-locations "太阴宗外围山林藏身洞" (forest cave) and "太阴宗地底暗卫指挥室" (underground command room) — scene image may not precisely match narrative environment
+
+episode_id: EP32
+source_md: 剧本/EP32/EP32_小胜.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality"
+  negative_prompt: "modern objects, brand logos, urban architecture, electric lights, glass windows, plastic materials, concrete buildings, vehicles, modern clothing, jeans, t-shirts, sneakers, wristwatches, mobile phones, anime style, cartoon style, chibi, low quality, blurry, deformed, extra limbs, bad anatomy, western fantasy armor, medieval European style"
+
+voice_prompts:
+  CHAR-001: "成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻"
+  CHAR-002: "成年女性，25岁，声线清冷柔和，知性冷静，语速适中，情感激动时语速加快且声音微颤，平时说话带有追问分析感"
+  CHAR-003: "成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机"
+  CHAR-006: "年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢"
+  CHAR-GRP-03: "成年女性，外观约30岁，声线冷峻干脆，语速偏快，命令式口吻，气场压迫"
+
+segments:
+  - segment_id: EP32-SEG01
+    shot_ids: [EP32-S01, EP32-S02]
+    duration_sec: 12
+    speakers: [CHAR-006, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-006-L02: assets/looks/CHAR-006-L02.png  # WARNING: no CDN URL — CHAR-006-L02 not in cdn_urls.json
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+        CHAR-GRP-03-L01: assets/looks/CHAR-GRP-03-L01.png  # WARNING: no CDN URL — CHAR-GRP-03-L01 not in cdn_urls.json
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-003.png
+    api:
+      text: |
+        【图1】冯小柔 CHAR-006-L02（暗卫制服·深藏青近黑色·低马尾束紧·肩线被夜露打湿泛冷铁微光）【图2】苏尘 CHAR-001-L01（深靛法袍·裸面——剑眉高颧骨薄唇紧抿·领口逸出极淡金色阳气）【图3】暗卫 CHAR-GRP-03-L01（暗卫制服·刀已出鞘·刃口在晨光中成排寒线）【图4】太阴宗外围山林藏身洞 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景→全景 固定镜头→缓拉：青灰晨光穿过松针在地面打出细长影。图1站在洞口二十步外，右手握着刀柄拇指反复摩挲缠绳。图3在图1身后一字排开，刀已出鞘。全景：洞口藤蔓仍在，藤蔓后面一个人影——图2裸面深靛法袍站在洞口，晨光从侧面打在他的脸上。柳清月靠着洞壁站立。图2向前迈一步从洞口走进晨光。
+        镜头2（6秒）近景 固定镜头：图1看着图2看了三息，圆脸上大眼睛里是一种被搞糊涂了的困惑。她给他一整夜他选择留下。图2的回答没有停顿，声音平稳不是挑衅是陈述——他解释不是为自己是为她。图1听到后手从刀柄上滑下来垂在身侧。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「……天亮了。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「搜——」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「……你没走。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「没走。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「为什么。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「我给你时间——」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「知道。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「跑了——他们还会追。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「还会派你来。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「所以你要——」
+        画面全程无任何文字、字幕、标题、水印。
+        太阴宗外围密林藏身洞外，清晨破晓写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-03-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP32-SEG02
+    shot_ids: [EP32-S03, EP32-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-006, CHAR-002, CHAR-GRP-03]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-006-L02: assets/looks/CHAR-006-L02.png  # WARNING: no CDN URL
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-002-L01.png
+        CHAR-GRP-03-L01: assets/looks/CHAR-GRP-03-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-003.png
+    api:
+      text: |
+        【图1】冯小柔 CHAR-006-L02（暗卫制服·拔刀·刀锋在晨光中是极窄银线）【图2】苏尘 CHAR-001-L01（深靛法袍·左袖三道裂口翻卷如残旗·裸面）【图3】柳清月 CHAR-002-L01（素白法袍·左臂深靛布带包扎·银色发簪）【图4】暗卫 CHAR-GRP-03-L01（暗卫制服·短刃已出鞘·交叉绞杀走位）【图5】太阴宗外围山林藏身洞 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景→中景 固定镜头：图2开口两个字——「不降。」不是威胁是拒绝。图1的脸闭上了——不是愤怒是不得不执行命令的绝望被她压回喉咙。她缓缓拔出短刃。图2叫她的名字——「小柔。」像EP05那样叫她的名字。图1的刀尖在那一声里向下沉了一寸。图3在洞口看着图1的刀尖在下沉，声线清冷但平稳。
+        镜头2（6秒）全景→中景 固定镜头→快切：图1左手两指向前一划——暗卫进攻信号。两名图4从图2左右两侧同时突进，交叉绞杀走位。图2动了——不是闪避是穿过。身体侧转深靛法袍如靛色水流转过左边暗卫刀锋外侧，左掌拍在刀背往下一带——短刃脱手翻转两圈插进三丈外泥土。同一瞬间右脚后跟踩住右边暗卫前脚掌，右手手肘向后轻撞肩窝——不是击打是推开——暗卫滑出五步背撞树干，针叶簌簌落下。两招三息，没有金光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「不降。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「苏师兄——最后一次。跟我回去。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「这是命令。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「小柔。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「你不是我的对手。」
+        对白（柳清月，成年女性，25岁，声线清冷柔和，知性冷静，语速适中，情感激动时语速加快且声音微颤，平时说话带有追问分析感）：「……苏尘。她不会收手的。」
+        对白（暗卫，成年女性，外观约30岁，声线冷峻干脆，语速偏快，命令式口吻，气场压迫）：「……我没受伤？」
+        画面全程无任何文字、字幕、标题、水印。
+        太阴宗外围密林藏身洞外，清晨写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-GRP-03-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-003, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP32-SEG03
+    shot_ids: [EP32-S05, EP32-S06]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-006, CHAR-002, CHAR-GRP-03]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+        CHAR-006-L02: assets/looks/CHAR-006-L02.png  # WARNING: no CDN URL
+        CHAR-GRP-03-L01: assets/looks/CHAR-GRP-03-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-003.png
+    api:
+      text: |
+        【图1】苏尘 CHAR-001-L01（深靛法袍·袍角落定·右手抬起五指张开掌心对着冲来的暗卫）【图2】冯小柔 CHAR-006-L02（暗卫制服·刀尖在晨光中静止·握刀的手渐渐松开）【图3】暗卫 CHAR-GRP-03-L01（暗卫制服·被冲击波推倒在苔藓上·爬起来检查身体·毫发无伤）【图4】太阴宗外围山林藏身洞 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景→全景 固定镜头→缓推：图1站直法袍袍角缓缓落定。他看着图2和最后两名图3，开口——给她们最后一次选择。图2没有回答。两名图3对看一眼同时冲上去——是不顾一切。图1没有移动，抬起右手五指张开掌心对着冲来的两人——释放。一道环形金色冲击波从他掌心扩散，不是EP30的毁灭性冲击——是压缩到刚好推倒人而不伤筋骨的精准力度。冲击波穿过两名图3，她们被抬起向后飞出落在三丈外厚苔藓上。刀在半空中脱手插进树干正好避开她们的身体。两人爬起来先摸自己的胸口——毫发无伤甚至不疼。
+        镜头2（6秒）近景→特写 固定镜头→缓推：图2看着自己的四名暗卫——全都在检查身体全都不敢相信。然后她看向图1——他站在晨光中手心仍有余光，淡金色像被晨曦染色的雾。他本来可以用EP30那样的力量——那道冲天的金色光柱。但他刻意压缩了，把力量压到刚好够推开人，压到不伤。这是比全力一击更难的控制。图2握刀的手松开了——不是放下是松开了三个手指只剩拇指和食指夹着刀柄。她开口——不是命令不是质问。图1的回答四个字——「你不是敌人。」图2听到了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「还要继续吗。」
+        对白（暗卫，成年女性，外观约30岁，声线冷峻干脆，语速偏快，命令式口吻，气场压迫）：「……你受伤了吗。」
+        对白（暗卫，成年女性，外观约30岁，声线冷峻干脆，语速偏快，命令式口吻，气场压迫）：「……没有。你呢。」
+        对白（暗卫，成年女性，外观约30岁，声线冷峻干脆，语速偏快，命令式口吻，气场压迫）：「……也没有。」
+        对白（柳清月，成年女性，25岁，声线清冷柔和，知性冷静，语速适中，情感激动时语速加快且声音微颤，平时说话带有追问分析感）：「他没有伤任何人。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「你明明可以——」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「那道光——EP30——金色光柱——你能用那种力量。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「为什么不用。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「你不是敌人。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「……我不是敌人。」
+        画面全程无任何文字、字幕、标题、水印。
+        太阴宗外围密林藏身洞外，晨光从淡金转明黄，松针露珠蒸腾，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-03-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP32-SEG04
+    shot_ids: [EP32-S07, EP32-S08]
+    duration_sec: 12
+    speakers: [CHAR-006, CHAR-001, CHAR-GRP-03]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-006-L02: assets/looks/CHAR-006-L02.png  # WARNING: no CDN URL
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-003.png
+    api:
+      text: |
+        【图1】冯小柔 CHAR-006-L02（暗卫制服·收刀入鞘动作很慢·刀尖在落叶上压碎一片枯叶）【图2】苏尘 CHAR-001-L01（深靛法袍·裸面·向前迈半步不是逼近是缩短传话距离）【图3】柳清月 CHAR-002-L01（素白法袍·左臂深靛布带·从洞口走到苏尘身侧）【图4】太阴宗外围山林藏身洞 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定镜头：图1收刀——刀刃归鞘的最后一声金属撞击在晨林中回荡。她深吸一口气开口——不是命令是一个她憋了一整夜的问题。她接到命令时被告知图2是宗门威胁，但她亲眼看到的图2——那个宁愿被追捕也不伤人的男人。图2的回答没有犹豫——说出了他从EP24怀疑EP26确认EP30公开以来的判断。图1听到「宗主令」三个字瞳孔骤然收缩。暗卫只听命于宗主，如果宗主令被假传——那意味着有人在她和宗主之间插了一只手。
+        镜头2（6秒）近景→中景 固定镜头→缓拉：图2向前迈了半步，声音压低——郑重。他说出了他从EP26照妖镜碎裂后就一直在等待时机说出的话——「替我转告宗主。我不是敌人。真正的敌人——在太阴宗内部。」图1听着，脸在晨光中没有表情——不是不在意是在用力记住每一个字。然后她点了一下头——极轻——侧身让开了通往密林深处的路。四名暗卫在她身后自动分开。图3从洞口走出来走到图2身侧，素白法袍擦过他的深靛袍角，然后跟着图2走向密林深处。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「命令说你——说你是宗门威胁。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「威胁——会像你这样——」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「——不伤人吗。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「宗主令——是假的。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「有人假传宗主令。利用暗卫——追杀我。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「……假传宗主令——」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「替我转告宗主。」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「我不是敌人。真正的敌人——」
+        对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「——在太阴宗内部。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「收队。」
+        对白（暗卫，成年女性，外观约30岁，声线冷峻干脆，语速偏快，命令式口吻，气场压迫）：「统领——」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「我说——收队。回去复命。」
+        画面全程无任何文字、字幕、标题、水印。
+        太阴宗外围密林藏身洞外，晨光从淡金转明黄，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP32-SEG05
+    shot_ids: [EP32-S09, EP32-S10]
+    duration_sec: 11
+    speakers: [CHAR-006, CHAR-GRP-03]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-006-L02: assets/looks/CHAR-006-L02.png  # WARNING: no CDN URL
+        CHAR-GRP-03-L01: assets/looks/CHAR-GRP-03-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-003.png
+    api:
+      text: |
+        【图1】冯小柔 CHAR-006-L02（暗卫制服·转身面对队员·眼角残留余震·右手整只手在抖·用力握紧刀柄指节发白）【图2】暗卫 CHAR-GRP-03-L01（暗卫制服·揉着肩膀·肩窝被苏尘肘推过·刀已归鞘）【图3】太阴宗外围密林小径 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景→近景 固定镜头→缓推：图1转身面对四名暗卫，脸在恢复暗卫统领的沉稳但眼角还残留刚才的余震。图2捂着肩膀先开口——不是质疑是真诚的困惑。图1没有回答她的问题——她回答的是另一件更重要的事。她的声音沉稳命令式没有任何多余情绪——但她避开了每一个人的眼睛。她知道自己在说谎，她知道她们知道她在说谎。她们没有揭穿她。
+        镜头2（5秒）近景特写 固定镜头→缓推：四名暗卫转身沿小径往回走。图1留在最后——在转身之前又看了一眼苏尘消失的方向。密林深处阳光穿过树冠碎成千万道金色光束，已经看不到任何人的影子。图1的手握着刀柄又颤了——不是微颤是整只手都在抖。她用力握紧刀柄指节发白直到颤抖被压住。她开口——不是对任何人是对自己。然后她转身跟上队员，暗卫制服背影在晨光中被树影切割成明暗交错的条纹。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（暗卫，成年女性，外观约30岁，声线冷峻干脆，语速偏快，命令式口吻，气场压迫）：「统领——他刚才——他明明可以——」
+        对白（暗卫，成年女性，外观约30岁，声线冷峻干脆，语速偏快，命令式口吻，气场压迫）：「他为什么——」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「因为他不是威胁。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「回去复命——就说追丢了。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「地形复杂——目标移动速度超出预期——暗卫小队全力追击——未能捕获。」
+        对白（暗卫，成年女性，外观约30岁，声线冷峻干脆，语速偏快，命令式口吻，气场压迫）：「是。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「苏师兄……你说的内部敌人——」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「我会查。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「但首先——我要把今天的报告——」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「——写成追丢了。」
+        画面全程无任何文字、字幕、标题、水印。
+        太阴宗外围密林小径，晨光明黄，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-03-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP32-SEG06
+    shot_ids: [EP32-S11, EP32-S12]
+    duration_sec: 12
+    speakers: [CHAR-003, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-003-L01.png
+        CHAR-006-L02: assets/looks/CHAR-006-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-003.png
+    api:
+      text: |
+        【图1】赵凌烟 CHAR-003-L01（紫金法袍·金色发冠·斜靠高背椅·右手肘搁扶手上手指撑太阳穴·左手无名指紫玉指环·左手指尖在案面极轻敲着——一下两下三下·凤眼深不可测·微笑在冷蓝光中像一朵不该开在这里的花）【图2】冯小柔 CHAR-006-L02（暗卫制服·肩上露水干透后留下浅色水渍·脚步在看到赵凌烟那一刻停住了·拳心里全是汗·视线落在案面边缘不敢看赵凌烟眼睛）【图3】太阴宗地底暗卫指挥室 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景→中景 固定镜头→缓推：太阴宗地底暗卫指挥室——圆形石室约三丈直径，穹顶嵌一圈冷光符洒下幽蓝光，让所有人的脸色泛着不健康的灰蓝。正对门厚重黑铁木案后——图1斜靠高背椅，紫金法袍在冷蓝光下泛着不协调暖金。铁木门被推开——图2走进来，脚步在看到图1的那一刻停住了——只僵了半息然后强迫自己继续走。走到案前三步站定抱拳。身后四名暗卫在短廊中候命未进入指挥室。
+        镜头2（6秒）近景→特写 固定镜头→缓推：图2开口报告——声音平稳语速适中，每个字都经过排练。但她的视线落在图1案面边缘不敢看她的眼睛。图1听着没有打断，左手敲案面的节奏没有变——一下两下三下。等图2说完最后一个字，图1的手指停在了半空中。然后她笑了——不是嘲弄是被逗到了。图1站起来缓慢地从椅子上起身，紫金法袍从椅面上滑过，绕过案面走到图2面前停在她身侧几乎贴着肩膀。然后她说了一句让图2血液在瞬间凝固的话。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「回来了。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「……赵长老。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「任务如何。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「禀长老——目标移动速度超出预期——山林地形复杂——暗卫小队全力追击——」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「——未能捕获。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「追丢了。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「……是。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「小柔——你知道暗卫对谎报军情的处罚吗。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「……知道。」
+        画面全程无任何文字、字幕、标题、水印。
+        太阴宗地底暗卫指挥室，冷蓝光穹顶，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP32-SEG07
+    shot_ids: [EP32-S13, EP32-S14]
+    duration_sec: 12
+    speakers: [CHAR-003, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-003-L01.png
+        CHAR-006-L02: assets/looks/CHAR-006-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-003.png
+    api:
+      text: |
+        【图1】赵凌烟 CHAR-003-L01（紫金法袍·食指轻点冯小柔下巴推高逼她看自己·凤眼中金光不是反射冷光符的光是从眼底自己发出来的·左手无名指紫玉指环——凤凰眼暗金宝石正在发出稳定微弱金色光芒）【图2】冯小柔 CHAR-006-L02（暗卫制服·下巴被推高·血色从嘴唇开始褪去·瞳孔骤缩·盯着紫玉指环上那道金光——开始懂了）【图3】太阴宗地底暗卫指挥室 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景→特写 固定镜头→缓推：图1停在图2正对面——近到图2能闻到她法袍上的龙涎香。图1抬起右手食指伸出极轻地在图2下巴上点了一下——不是托是点，像在逗一只不愿意看她的猫。图2的下巴被那根手指轻轻推高，被迫看着图1的眼睛。图1开口——「你放走了他。」三个字。图2的脸在那三个字落下的瞬间血色从嘴唇开始褪去——不是惊讶是被揭穿时的绝望。图1收回手指微笑加深——然后说出了图2从未对任何人说过的事。
+        镜头2（6秒）特写→近景 固定镜头：图1没有立刻回答，转过身走向案面拿起案上的暗卫调令铜牌翻过来翻过去像在把玩一件小玩具。然后放下铜牌转身面对图2，抬起了她的左手。无名指上紫玉指环——戒面是一只展翅凤凰，凤凰眼睛是一颗极小的暗金色宝石。那颗宝石此刻不是暗金色——是亮的，金色的，像一颗微型的被囚禁在紫玉里的星辰。图2的视线被那颗宝石吸住了，看着那道光——然后她开始明白。图1看着她的表情变化像在看一朵花慢慢开放。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「你放走了他。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「我没——」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「不用否认。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「苏尘——那个男人。你让他走了。你没有追——因为你不想追。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「你还在他面前收了刀。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「……你怎么——」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「你想问——我怎么知道。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「看到这个了吗。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「……它在闪。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「对。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「它在告诉你——从你踏进这个据点的那一刻起——你身上的追踪蛊就在告诉我一切。」
+        画面全程无任何文字、字幕、标题、水印。
+        太阴宗地底暗卫指挥室，冷蓝光穹顶，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP32-SEG08
+    shot_ids: [EP32-S15, EP32-S16]
+    duration_sec: 12
+    speakers: [CHAR-006, CHAR-003]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-006-L02: assets/looks/CHAR-006-L02.png  # WARNING: no CDN URL
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-003.png
+    api:
+      text: |
+        【图1】冯小柔 CHAR-006-L02（暗卫制服·手在身侧五指张开又收拢握住了空气·脸从震惊到理解到一种比悲伤更深的绝望·右脸颊一颗泪从眼角滑到下颌滴在领口上没有擦·冷光符幽蓝光下的侧脸）【图2】赵凌烟 CHAR-003-L01（紫金法袍·微笑加深·声音温柔但每一个字都在剜心·转身走回高背椅坐下双手交叠在膝上·紫玉指环凤凰眼暗金宝石仍在持续闪烁——那是追踪蛊的「工作指示灯」）【图3】太阴宗地底暗卫指挥室 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写→近景 固定镜头：图1的手在身侧五指张开又收拢——握住了空气。她抬头看着图2——嘴唇张开闭上又张开。她有太多问题但她只问了一个——「什么时候。」图2等这个问题已经等了很久，她的微笑不是残忍的是满足的——像一个收藏家终于可以向人展示她最得意的藏品。图1想起了EP22——那一次图2叫她单独去偏殿，问起苏尘的日常问起他的习惯，她以为那是长老对后辈的关心。她不知道——她每多说一个字图2就在她体内多织了一层网。
+        镜头2（6秒）近景→特写 固定镜头→缓推：图1的脸在图2最后一句话里彻底塌了——不是表情塌了是灵魂塌了。她想起自己每一次汇报——「苏师兄今天在药园」「苏师兄灵力稳定」「苏师兄对师妹们很好」——每一次她都以为自己在保护他，每一次她都在把他的位置他的习惯他的弱点亲手交给图2。她的右手那只一直在颤抖的手此刻反而停了——不是不颤了是已经没有力气颤了。她开口——声音不是哭是一根弦断了之后的寂静。特写：图1的脸——冷光符幽蓝光下的侧脸——眼泪终于滑下来只有一颗从左眼角滑到下颌没有擦。图2微笑——转身走回黑铁木案后的高背椅坐下，紫金法袍拖过石地，双手交叠在膝上看着图1。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「什么时候——」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「你什么时候——」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「你想问——什么时候种的。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「从你第一次单独来见我。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「你跟我汇报苏尘的行踪——他的修炼——他的习惯——」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「你每说一个字——蛊就多长一毫。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「你以为你在帮他——」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「其实——是你在帮我追踪他。从一开始。」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「我以为——」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「我在保护他——」
+        对白（冯小柔，年轻女性，19岁，声线沉稳坚定，语速适中偏慢，语气果敢）：「……是我。一直在暴露他。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「你确实在保护他——用你没有想到的方式。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「从现在起——他走到哪里，我就知道哪里。」
+        对白（赵凌烟，成年女性，外观30岁，声线端庄威严，语速从容偏慢，始终带微笑语气暗藏杀机）：「谢谢你——小柔。」
+        画面全程无任何文字、字幕、标题、水印。
+        太阴宗地底暗卫指挥室，冷蓝光穹顶，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
