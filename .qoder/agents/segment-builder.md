@@ -115,7 +115,7 @@ defaults:
   model: doubao-seedance-2-0-fast  # 版本号以制片规范中声明为准
   ratio: "9:16"
   resolution: 720p
-  duration: 5
+  duration: 5  # Seedance API 模型默认视频长度（秒）；非单镜头时长。每段实际时长见 shot.duration_sec，须保证全集合计落入 75-120s（见 Gate 1）
   generate_audio: false  # shots 为中间产物，无需独立音频合成
   watermark: false
   prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。现代都市住宅环境。"
