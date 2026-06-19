@@ -12,9 +12,14 @@
 |------|------|------|
 | `.qoder/agents/` | `.md` | 🔴 权威定义源（完整内容） |
 | `.cursor/agents/` | `.md`（symlink） | 🟢 Cursor `/name` subagent 入口，指向 `.qoder/agents/` |
+| `.zcode/cli/agents/` | `.md`（symlink） | 🟣 ZCode 占位（**当前版本不直接生效**，见下注） |
 | `.github/prompts/` | `.prompt.md` | 🔵 GitHub 工作流引用（链接指向权威源） |
 
 在 Cursor Agent 对话中可用 `/drama-director`、`/scene-writer` 等显式调用 subagent（独立上下文窗口）；也可用自然语言「用 drama-director subagent …」委派。
+
+> **⚠️ ZCode 兼容性现状（2026-06 逆向确认）**：当前 ZCode 版本（`zcode` CLI v0.14.8，opencode fork）**不支持** Cursor 式的 markdown subagent（`frontmatter + 提示词`）。ZCode 自有的「agent」机制是 **Workflow 脚本**（`.zcode/workflows/*.workflow.js`，以 `export const meta = { name, description, phases }` 开头），通过 `/expert <task>` 或 Workflow 工具调用 —— 与 Cursor 的 markdown 提示词模型不兼容，无法直接复用 `.qoder/agents/*.md`。
+>
+> `.zcode/cli/agents/` 下的 symlink 为**占位/未来兼容**而保留：当 ZCode 官方新增 markdown subagent 支持时可立即生效，无需重建。如需在 ZCode 中真正调用这些短剧 agent，需将 `.md` 逐一转写为 `.workflow.js`（遵循 ZCode 内置的 `workflow.md` DSL）。
 
 ### Agent 列表
 
@@ -136,9 +141,27 @@ Stage 3a（道具，含即生即传） → [验证 cdn_urls.json] → Stage 3b�
 
 ### E. 场景/道具人脸禁令
 
-场景参考图和道具参考图中**绝对禁止**出现任何人类面孔（含照片、画像、海报、贴纸、屏幕显示等平面媒介）。如制作规范或卡片要求"墙上挂某人照片"，**必须将其替换为物品**（如名牌、奖状、标志性物品）—— 不可试图通过 `image_urls` 传角色 L01 来做"人脸一致性"，这不可靠。
+场景参考图和道具参考图中**绝对禁止**出现任何人类面孔（含照片、画像、海报、贴纸、屏幕显示等平面媒介）。如制作规范或卡片要求“墙上挂某人照片”，**必须将其替换为物品**（如名牌、奖状、标志性物品）—— 不可试图通过 `image_urls` 传角色 L01 来做“人脸一致性”，这不可靠。
 
-### F. 事故速查表（跳过后会发生什么）
+### F. L02+ 面部一致性硬门控
+
+L02+ 衍生形象**必须**通过 `image_urls`（CLI: `--image-url`）传入对应角色 L01 的 TOS URL 作为面部参考图。
+
+- [ ] **L01 参考图必须传入**：`image_urls` 包含 L01 的 `https://` TOS URL，不得为空 `[]`
+- [ ] **Prompt 必须包含面部一致性指令**："SAME person as the reference image"、"Keep the SAME face"
+- [ ] **禁止仅靠文本 FACE ANCHOR**：Seedream 无法从文本描述复现同一张脸，即使一字不差的 FACE ANCHOR 也会生成不同人脸
+
+**事故复盘**：《修仙界唯一的男人》CHAR-006-L02 首次生成时仅用文本 FACE ANCHOR（未传 L01 参考图），导致生成完全不同的人脸。重新生成时传入 L01 `--image-url` 后问题解决。
+
+CLI 示例：
+```bash
+python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
+  --image-url "https://drama-reference-images.tos-cn-beijing.volces.com/looks/<剧名>/CHAR-XXX-L01.png" \
+  --prompt "The SAME person as the reference image..." \
+  --output "dramas/<剧名>/assets/looks/CHAR-XXX-L02.png"
+```
+
+### G. 事故速查表（跳过后会发生什么）
 
 | 跳过此项 | 结果 |
 |---------|------|
@@ -146,7 +169,8 @@ Stage 3a（道具，含即生即传） → [验证 cdn_urls.json] → Stage 3b�
 | 文字语种检查 | 简体内容出现繁体文字（PROP-011 商业计划书） |
 | 道具交叉引用检查 | 道具与场景不匹配 |
 | 串行门控 | 道具/角色/场景并行生成，无法使用 `image_urls` 交叉引用 |
-| 生成后验证 | 卡片状态卡在"待生成"，下游阶段缺少 TOS URL |
+| 生成后验证 | 卡片状态卡在“待生成”，下游阶段缺少 TOS URL |
+| L02+ 面部一致性门控 | L02 生成完全不同的人脸（CHAR-006-L02 事故），必须重新生成 |
 
 ## ID 格式
 

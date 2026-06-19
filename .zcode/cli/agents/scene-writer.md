@@ -1,0 +1,1 @@
+../../../.qoder/agents/scene-writer.md

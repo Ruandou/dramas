@@ -1,0 +1,1 @@
+../../../.qoder/agents/drama-director.md

@@ -1,0 +1,1 @@
+../../../.qoder/agents/segment-builder.md

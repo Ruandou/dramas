@@ -1,0 +1,1 @@
+../../../.qoder/agents/story-architect.md

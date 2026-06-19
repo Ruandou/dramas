@@ -187,10 +187,24 @@ tools: [Read, Write, Grep, Glob, Bash]
      - id: "CHAR-001-L02"
        name: "苏霜心 · 透明化态"
        based_on: "CHAR-001-L01"
-       image_urls: []  # ← L01 TOS upload后填入 L01 的 TOS URL
+       image_urls:
+         - "https://drama-reference-images.tos-cn-beijing.volces.com/looks/<剧名>/CHAR-001-L01.png"  # ← 必须填入 L01 TOS URL
        prompt: "[delta prompt, verbatim from 角色卡片]"
        output: "assets/looks/CHAR-001-L02.png"
    ```
+
+   > **🚫 L02+ 面部一致性硬门控（HARD GATE）**：
+   > L02+ 衍生形象**必须**在 `image_urls` 中传入对应角色 L01 的 TOS URL 作为面部参考图。
+   > **禁止**仅靠文本 FACE ANCHOR 描述来维持面部一致性——Seedream 无法从文本描述复现同一张脸。
+   >
+   > | 检查项 | 通过条件 | 失败处理 |
+   > |--------|---------|----------|
+   > | L01 参考图 | `image_urls` 包含 L01 的 `https://` TOS URL | **阻塞：禁止提交生成** |
+   > | Prompt 面部指令 | Prompt 包含 "SAME person as the reference image" | 补充面部一致性指令 |
+   >
+   > **事故复盘**：CHAR-006-L02 首次生成时未传 L01 参考图，仅靠文本 FACE ANCHOR，导致生成了完全不同的人脸。重新生成时传入 L01 `--image-url` 后问题解决。
+   >
+   > CLI 等价：`ark_seedream_image.py generate --image-url "<L01 TOS URL>" --prompt "..."`
 
 10. **生成门控 — 验证 Prompt 已写入文件后方可提议生成**
     - 回读 `资产/角色卡片.md`，确认每个角色的 L01 Prompt 字段非空且符合规范
