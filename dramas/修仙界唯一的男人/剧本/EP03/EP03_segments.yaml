@@ -23,6 +23,8 @@ defaults:
 voice_prompts:
   CHAR-001: "成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻"
   CHAR-GRP-01: "成年女性，外观约28岁，声线干脆利落有行伍之气，语速适中偏快，质问时语气锐利如刀，日常对话轻松直率"
+  CHAR-GRP-06: "年轻女性，外观约22岁，声线清脆明亮，语速稍快，语气活泼随意，对上级称呼师姐"
+  CHAR-GRP-07: "年轻女性，外观约24岁，声线温暖亲切，语速适中偏快，语气热络直率，好奇心强"
 
 segments:
   # ═══════════════════════════════════════════════
@@ -64,7 +66,7 @@ segments:
   - segment_id: EP03-SEG02
     shot_ids: [EP03-S02, EP03-S03]
     duration_sec: 10
-    speakers: [CHAR-001, CHAR-GRP-01]
+    speakers: [CHAR-001, CHAR-GRP-01, CHAR-GRP-06]
     refs:
       scene_id: SCENE-002
       prop_ids:
@@ -73,15 +75,16 @@ segments:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
         CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-GRP-01-L01.png
+        CHAR-GRP-06-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-GRP-06-L01.png
       scene_urls:
         SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-002.png
     api:
       text: |
-        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，站姿笔直）【图2】城镇入口 SCENE-002（暮色，验灵石立于城门右侧石座上，城门石柱阴影投落）。
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，站姿笔直）【图2】守门女修队长 CHAR-GRP-01-L01（深蓝巡逻甲，短剑，年长严肃）【图3】年轻守门女修 CHAR-GRP-06-L01（深蓝巡逻甲，年轻面孔）【图4】城镇入口 SCENE-002（暮色，验灵石立于城门右侧石座上，城门石柱阴影投落）。
         道具：验灵石（PROP-011），约八十公分高深灰玄武岩，表面光滑，顶部有手掌凹陷，底座刻有远古护符纹路，检测灵力时发出白光或金光。
         竖屏9比16连贯叙事。
         镜头1（5秒）近景 固定镜头：图1睁眼，将右掌按入验灵石顶部凹陷。深灰玄武岩沉寂片刻——然后一丝极微弱的白光从石心渗出，如烛火般摇曳不稳。白光闪烁三次，每次将灭未灭，最后勉强稳定为奶白色微光。面具上的蓝紫灵纹随之明灭——似在替石面分担压力。
-        镜头2（5秒）中景 固定镜头：验灵石旁，两名守门女修（CHAR-GRP-01巡逻队）交换眼神。年长的一位皱眉凑近石面，手指在剑柄上轻敲一下。图1不动声色收回手掌——白光瞬间熄灭。他垂手而立，站姿笔直，比两位女修都高出大半个头。暮色中，深靛法袍与城门石柱阴影融为一体。
+        镜头2（5秒）中景 固定镜头：验灵石旁，两名守门女修（图2年长队长、图3年轻队员）交换眼神。年长的一位皱眉凑近石面，手指在剑柄上轻敲一下。图1不动声色收回手掌——白光瞬间熄灭。他垂手而立，站姿笔直，比两位女修都高出大半个头。暮色中，深靛法袍与城门石柱阴影融为一体。
         [以下对白仅供语音合成，严禁在画面中显示任何文字]
         对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「白光了……虽然微弱。」
         对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「差一点就是金光。」
@@ -91,7 +94,9 @@ segments:
         photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
     transition_to_next: hard_cut
 
   # ═══════════════════════════════════════════════
@@ -100,7 +105,7 @@ segments:
   - segment_id: EP03-SEG03
     shot_ids: [EP03-S04, EP03-S05]
     duration_sec: 12
-    speakers: [CHAR-001, CHAR-GRP-01]
+    speakers: [CHAR-001, CHAR-GRP-01, CHAR-GRP-06]
     refs:
       scene_id: SCENE-002
       prop_ids:
@@ -109,21 +114,22 @@ segments:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
         CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-GRP-01-L01.png
+        CHAR-GRP-06-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-GRP-06-L01.png
       scene_urls:
         SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-002.png
     api:
       text: |
-        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，法袍高领遮住喉结，呼出白雾）【图2】城镇入口 SCENE-002（暮色，验灵石恢复深灰沉寂，城门通道在后方）。
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，法袍高领遮住喉结，呼出白雾）【图2】守门女修队长 CHAR-GRP-01-L01（深蓝巡逻甲，短剑，年长严肃）【图3】年轻守门女修 CHAR-GRP-06-L01（深蓝巡逻甲，年轻面孔）【图4】城镇入口 SCENE-002（暮色，验灵石恢复深灰沉寂，城门通道在后方）。
         竖屏9比16连贯叙事。
-        镜头1（6秒）中景 固定镜头：年长女修（CHAR-GRP-01队长）绕到图1侧面，目光上下打量他面具下的身形——在法袍高领处停顿一瞬。另一名年轻女修手按剑柄从右侧靠近，封住退路。图1纹丝不动，只微微偏头迎上年长者的视线，呼出的白雾在两人之间短暂停留后消散。
-        镜头2（6秒）近景 固定镜头：年轻女修耸耸肩，收回按剑的手。年长者又看了看已经恢复深灰的验灵石表面——石头没有任何异常。她退后一步让出通道，但目光仍带着审视。图1微微颔首，从两人之间穿过。法袍下摆擦过石座边缘，发出一声极轻的摩擦声。
+        镜头1（6秒）中景 固定镜头：年长女修（图2队长）绕到图1侧面，目光上下打量他面具下的身形——在法袍高领处停顿一瞬。另一名年轻女修（图3）手按剑柄从右侧靠近，封住退路。图1纹丝不动，只微微偏头迎上年长者的视线，呼出的白雾在两人之间短暂停留后消散。
+        镜头2（6秒）近景 固定镜头：年轻女修（图3）耸耸肩，收回按剑的手。年长者（图2）又看了看已经恢复深灰的验灵石表面——石头没有任何异常。她退后一步让出通道，但目光仍带着审视。图1微微靖首，从两人之间穿过。法袍下摆擦过石座边缘，发出一声极轻的摩擦声。
         [以下对白仅供语音合成，严禁在画面中显示任何文字]
         对白（女修队长，成年女性，外观约28岁，声线干脆利落有行伍之气，语速适中偏快，质问时语气锐利如刀，日常对话轻松直率）：「修炼的是什么功法？」
         对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「偏门功法。荒漠那边传下来的。」
         对白（女修队长，成年女性，外观约28岁，声线干脆利落有行伍之气，语速适中偏快，质问时语气锐利如刀，日常对话轻松直率）：「偏门？灵力波动不太稳……」
-        对白（女修队长，成年女性，外观约28岁，声线干脆利落有行伍之气，语速适中偏快，质问时语气锐利如刀，日常对话轻松直率）：「师姐，你看这灵力波动。」
-        对白（年轻女修，成年女性，外观约28岁，声线干脆利落有行伍之气，语速适中偏快，质问时语气锐利如刀，日常对话轻松直率）：「荒漠散修？难怪。那边传承乱得很。」
-        对白（年轻女修，成年女性，外观约28岁，声线干脆利落有行伍之气，语速适中偏快，质问时语气锐利如刀，日常对话轻松直率）：「石头没亮金色就行。放吧。」
+        对白（年轻女修，年轻女性，外观约22岁，声线清脆明亮，语速稍快，语气活泼随意，对上级称呼师姐）：「师姐，你看这灵力波动。」
+        对白（年轻女修，年轻女性，外观约22岁，声线清脆明亮，语速稍快，语气活泼随意，对上级称呼师姐）：「荒漠散修？难怪。那边传承乱得很。」
+        对白（年轻女修，年轻女性，外观约22岁，声线清脆明亮，语速稍快，语气活泼随意，对上级称呼师姐）：「石头没亮金色就行。放吧。」
         对白（女修队长，成年女性，外观约28岁，声线干脆利落有行伍之气，语速适中偏快，质问时语气锐利如刀，日常对话轻松直率）：「进去吧。别在城里惹事。」
         对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「多谢。」
         对白（女修队长，成年女性，外观约28岁，声线干脆利落有行伍之气，语速适中偏快，质问时语气锐利如刀，日常对话轻松直率）：「走吧走吧。」
@@ -132,7 +138,9 @@ segments:
         photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
     transition_to_next: audio_bridge
 
   # ═══════════════════════════════════════════════
@@ -203,28 +211,28 @@ segments:
   - segment_id: EP03-SEG06
     shot_ids: [EP03-S09, EP03-S10]
     duration_sec: 10
-    speakers: [CHAR-001, CHAR-GRP-01]
+    speakers: [CHAR-001, CHAR-GRP-07]
     refs:
       scene_id: SCENE-002
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-001-L01.png
-        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-GRP-01-L01.png
+        CHAR-GRP-07-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/修仙界唯一的男人/CHAR-GRP-07-L01.png
       scene_urls:
         SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/修仙界唯一的男人/SCENE-002.png
     api:
       text: |
-        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，比周围人高出半个头）【图2】清溪镇街角 SCENE-002（暮色，小巷口，灵光灯笼暖黄光晕）。
+        【图1】苏尘 CHAR-001-L01（深靛色敛息法袍，银色半面具，比周围人高出半个头）【图2】采药路人女修 CHAR-GRP-07-L01（橄榄绿平民服，背药篓，友善面孔）【图3】清溪镇街角 SCENE-002（暮色，小巷口，灵光灯笼暖黄光晕）。
         竖屏9比16连贯叙事。
-        镜头1（5秒）中景 固定镜头：图1在街角驻足，环顾四周寻找客栈方向。一个背着药篓的女修（CHAR-GRP-01路人）从巷子里疾步转出，险些撞上图1胸口。女修踉跄后退，抬头看清图1的身高后愣了一瞬——头顶堪堪到他下巴。她仰着脸，药篓里的灵草晃动作响。
-        镜头2（5秒）近景 固定镜头：女修稳住药篓，好奇地打量图1的面具和法袍。她指了指东街方向，语气热络而直率。图1微微颔首道谢，女修挥挥手重新钻入巷子。图1目送她消失在巷口，紧绷的肩膀松了一线——女修全程没有多看他面具一眼，只是对他的身高好奇了一瞬。
+        镜头1（5秒）中景 固定镜头：图1在街角驻足，环顾四周寻找客栈方向。一个背着药篓的女修（图2）从巷子里疾步转出，险些撞上图1胸口。女修跟跄后退，抬头看清图1的身高后愣了一瞬——头顶堪堪到他下巴。她仰着脸，药篓里的灵草晃动作响。
+        镜头2（5秒）近景 固定镜头：女修（图2）稳住药篓，好奇地打量图1的面具和法袍。她指了指东街方向，语气热络而直率。图1微微靖首道谢，女修挥挥手重新钻入巷子。图1目送她消失在巷口，紧绷的肩膀松了一线——女修全程没有多看他面具一眼，只是对他的身高好奇了一瞬。
         [以下对白仅供语音合成，严禁在画面中显示任何文字]
-        对白（路人女修，成年女性，外观约28岁，声线干脆利落有行伍之气，语速适中偏快，质问时语气锐利如刀，日常对话轻松直率）：「借过——哎哟！」
-        对白（路人女修，成年女性，外观约28岁，声线干脆利落有行伍之气，语速适中偏快，质问时语气锐利如刀，日常对话轻松直率）：「不好意思啊道友。咦——你好高。」
+        对白（采药路人女修，年轻女性，外观约24岁，声线温暖亲切，语速适中偏快，语气热络直率，好奇心强）：「借过——哎哟！」
+        对白（采药路人女修，年轻女性，外观约24岁，声线温暖亲切，语速适中偏快，语气热络直率，好奇心强）：「不好意思啊道友。咦——你好高。」
         对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「无妨。」
-        对白（路人女修，成年女性，外观约28岁，声线干脆利落有行伍之气，语速适中偏快，质问时语气锐利如刀，日常对话轻松直率）：「北方来的？还是极西？」
+        对白（采药路人女修，年轻女性，外观约24岁，声线温暖亲切，语速适中偏快，语气热络直率，好奇心强）：「北方来的？还是极西？」
         对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「极西。」
-        对白（路人女修，成年女性，外观约28岁，声线干脆利落有行伍之气，语速适中偏快，质问时语气锐利如刀，日常对话轻松直率）：「极西？！那地方还有人——行吧，客栈在东街，往那边走。」
+        对白（采药路人女修，年轻女性，外观约24岁，声线温暖亲切，语速适中偏快，语气热络直率，好奇心强）：「极西？！那地方还有人——行吧，客栈在东街，往那边走。」
         对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「多谢。」
         对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「只是好奇身高。没有怀疑。」
         对白（苏尘，成年男性，外观约25岁，语调平缓偏低沉，带有古朴内敛气质，语速偏慢，说话时常停顿，惜字如金，愤怒时声音反而更轻）：「……暂时安全。」
@@ -232,7 +240,8 @@ segments:
         photorealistic xianxia style, ancient Chinese cultivation world, ethereal and mystical atmosphere, Tang-Song dynasty inspired architecture and costumes, cinematic lighting, cool blue-purple ambient tones with warm gold accents for yang energy scenes, high detail fabric textures, volumetric mist and spiritual energy particles, film grain, 85mm portrait lens, 9:16 vertical aspect ratio, 720p resolution, masterpiece quality
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-07-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
     transition_to_next: hard_cut
 
   # ═══════════════════════════════════════════════
