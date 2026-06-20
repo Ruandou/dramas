@@ -1,0 +1,307 @@
+episode_id: EP01
+source_md: 剧本/EP01/EP01_金像奖之夜.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
+  CHAR-003: "成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次"
+  CHAR-004: "成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰"
+  CHAR-GRP-17: "成年男性或女性，40–50岁，声线庄重有仪式感，语速偏慢，宣布获奖名单时制造悬念的停顿感"
+  旁白: "成年女性，30岁，声线温暖有叙述感，语速中等偏慢，旁白语调沉稳有情感穿透力，像在讲述一个关于勇气与真相的故事"
+
+segments:
+  - segment_id: EP01-SEG01
+    shot_ids: [EP01-S01, EP01-S02]
+    duration_sec: 12
+    speakers: [CHAR-GRP-17, CHAR-003]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: |
+        【图1】方芷晴 CHAR-003-L01（酒红色丝绒西装裙，深棕色大波浪卷发披肩，金色耳环）【图2】金像奖颁奖典礼大厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景 缓推：金像奖颁奖大厅全景，水晶吊灯璀璨，红色地毯延伸至舞台，大银幕上金色奖杯图案闪烁，聚光灯从顶部切下穿过薄雾照亮舞台中央，台下数百个座位几乎坐满衣香鬓影。
+        镜头2（6秒）中景 固定镜头：图1身穿酒红色丝绒西装裙优雅起身，完美微笑浮上嘴角，向周围点头致意后款步走向舞台，聚光灯追随她的身影，金色耳环在灯光下闪烁。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（颁奖嘉宾，成年男性或女性，40–50岁，声线庄重有仪式感，语速偏慢，宣布获奖名单时制造悬念的停顿感）：「最佳女主角——方芷晴。」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「谢谢。」
+        画面全程无任何文字、字幕、标题、水印。
+        金像奖颁奖典礼，华丽仪式氛围，写实娱乐圈风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG02
+    shot_ids: [EP01-S03, EP01-S04]
+    duration_sec: 12
+    speakers: [CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: |
+        【图1】方芷晴 CHAR-003-L01（酒红色丝绒西装裙，金色耳环）【图2】苏念晚 CHAR-001-L02（黑色修身连衣裙，长黑发披肩，银色耳钉）【图3】金像奖颁奖典礼大厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定镜头：图1双手接过金色奖杯站在麦克风前，聚光灯从侧面打亮她半边脸另一半隐在暗处，她低头看了一眼奖杯玫瑰豆沙色唇微微上扬，然后抬眼望向台下——目光掠过某个方向笑意更深。
+        镜头2（6秒）特写 镜头推近：图2坐在观众席中段，聚光灯余光映在她脸上大杏眼微微眯起，镜头缓慢推近她嘴角浮起一丝自嘲的弧度，手指无意识攥紧了膝上的手包。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「感谢每一位评委。」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「这个奖，我等了整整十年。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「十年……她说得好像等的人只有她。」
+        画面全程无任何文字、字幕、标题、水印。
+        金像奖颁奖典礼，华丽仪式氛围，写实娱乐圈风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP01-SEG03
+    shot_ids: [EP01-S05]
+    duration_sec: 6
+    speakers: [旁白, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L03.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L03（白色棉质连衣裙，长黑发扎高马尾系白色发带，18岁少女）【图2】金像奖颁奖典礼大厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：【低饱和暖色调闪回】18岁的图1双手捧着金色奖杯举到胸前，笑容明媚得像太阳，聚光灯下少女的眼睛亮晶晶的，满脸是对未来的无限期待。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（旁白，成年女性，30岁，声线温暖有叙述感，语速中等偏慢，旁白语调沉稳有情感穿透力，像在讲述一个关于勇气与真相的故事）：「十年前，十八岁的苏念晚——三冠影后，所有人说她是天才。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「那时候……以为会一直站在光里。」
+        画面全程无任何文字、字幕、标题、水印。
+        低饱和暖色复古调性，柔和光晕，2010年代服装质感，轻微颗粒胶片纹理，怀旧氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S06]
+    duration_sec: 6
+    speakers: [CHAR-001, 旁白]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L03.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L03（白色连衣裙，18岁少女）【图2】金像奖颁奖典礼大厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定镜头：【闪回续·暗调】无数相机闪光灯疯狂闪烁光线刺眼，18岁的图1低着头白色连衣裙在混乱中显得格格不入，一滴泪从脸颊滑落下巴微微颤抖，闪光灯此起彼伏像审讯室的灯。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「丑闻……背叛……一夜之间，所有门都关上了。」
+        对白（旁白，成年女性，30岁，声线温暖有叙述感，语速中等偏慢，旁白语调沉稳有情感穿透力，像在讲述一个关于勇气与真相的故事）：「一场丑闻，天才陨落。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「那一夜之后，什么都没了。」
+        画面全程无任何文字、字幕、标题、水印。
+        低饱和暖色复古调性，柔和光晕，2010年代服装质感，轻微颗粒胶片纹理，怀旧氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP01-SEG05
+    shot_ids: [EP01-S07, EP01-S08]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（黑色修身连衣裙，长黑发披肩，银色耳钉）【图2】金像奖颁奖典礼大厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头跟随：图1起身离席，黑色修身连衣裙在暗处几乎融入背景，她穿过掌声未息的观众席独自走向大厅出口，远处舞台上灯光依然辉煌，方芷晴的身影在大银幕上微笑，图1没有回头。
+        镜头2（5秒）全景 固定镜头：大厅门外走廊暖黄灯光变暗，图1推开门一个人走在空旷的走廊上，高跟鞋声回荡在大理石地面，身影被拉出一道长长的影子，门外是城市夜灯她停下脚步深吸一口气。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「有意思……十年前我站的那个位置，现在站着她。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「她笑得真完美……像排练过一千遍。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「方芷晴……你在那个位置上站了十年，站得稳吗。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市，金像奖典礼散场氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG06
+    shot_ids: [EP01-S09, EP01-S10]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（黑色修身连衣裙，长黑发披肩）【图2】苏念晚公寓 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：图1公寓客厅简约温馨，书架上一排旧书暖色台灯亮着，电视屏幕播放着颁奖典礼回放方芷晴捧杯画面反复出现，图1换下高跟鞋赤脚踩在木地板上，拿起茶几上的手机——屏幕显示陈姐来电。
+        镜头2（6秒）近景 镜头推近：图1坐在米色沙发上手机贴在耳边，镜头缓慢推近她的脸——表情从疲惫逐渐变为微妙的审视，她下意识攥紧了沙发扶手的布料指节泛白。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「小晚，别挂。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「姐，颁奖我看了。恭喜她。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「少跟我阴阳怪气。有人匿名寄了份加密文件给我。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「什么文件。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市公寓，暖色台灯与冷色屏幕光对撞，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG07
+    shot_ids: [EP01-S11, EP01-S12]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（黑色修身连衣裙，长黑发披肩）【图2】苏念晚公寓 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定镜头：图1面部特写，手机屏幕的冷蓝光映在她半边脸上另一半隐在台灯暖光里，她的瞳孔微微放大呼吸变得克制——像一个猎人闻到了猎物的气息。
+        镜头2（5秒）近景 固定镜头：图1猛地坐直身体手机差点从手中滑落，她另一只手撑住茶几目光定在某个虚空的点上，表情从震惊缓缓过渡到一种危险的冷静。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「十年前的丑闻……可能不是意外。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「有人精心策划的，小晚。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「你确定。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「文件转发你了。看完咱们见面谈。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「……好。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「别慌，有姐在。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市公寓，暖色台灯与冷色屏幕光对撞，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: fade
+
+  - segment_id: EP01-SEG08
+    shot_ids: [EP01-S13, EP01-S14]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/满级影后她装新人/PROP-001.png
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/满级影后她装新人/PROP-002.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（黑色修身连衣裙，长黑发披肩）【图2】苏念晚公寓 SCENE-008【图3】加密文件 PROP-001【图4】握手照片 PROP-002。
+        道具：牛皮纸信封标注红色绝密字样（PROP-001），放在电脑屏幕画面中；泛黄老照片显示昏暗灯光下两双手紧紧握在一起（PROP-002）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 镜头跟随：图1走到木书桌前坐下打开笔记本电脑，屏幕亮起的冷白光照亮她的脸，桌上散放着几本书和一个旧相框（相框朝下放着），她点开邮箱找到陈姐转发的附件——文件图标上标着红色绝密字样。
+        镜头2（6秒）特写 固定镜头：电脑屏幕上展开一张泛黄老照片——昏暗灯光下两双手紧紧握在一起，照片下方一行手写文字，图1的手指悬在触摸板上方微微颤抖，屏幕光映在她瞳孔里像两颗冷星。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「十年了……终于有人记得那件事。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「方芷晴……你跟谁握的手。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「冰山一角……那水面下面，还藏着什么。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市公寓，冷色屏幕光与暖色台灯对撞，悬疑氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG09
+    shot_ids: [EP01-S15]
+    duration_sec: 7
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（黑色修身连衣裙，长黑发披肩）【图2】苏念晚公寓 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）近景 固定镜头：图1缓缓合上电脑站起来走向窗前，公寓在高层窗外城市灯火璀璨如银河倒挂，她的侧脸映在玻璃窗上——眼中有泪光但没有落下，她双手慢慢攥成拳头指甲嵌进掌心。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「十八岁那年……我以为世界是公平的。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「天真。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「妈……你说过，真相不会永远被埋。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市公寓高层夜景，城市灯火璀璨，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG10
+    shot_ids: [EP01-S16]
+    duration_sec: 6
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（黑色修身连衣裙，长黑发披肩）【图2】苏念晚公寓 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头推近：图1转过身面对镜头，窗城市光在她身后勾出一道轮廓，她的目光从悲伤变为坚定嘴角浮起一丝危险的笑意——这不是脆弱的笑是猎人锁定猎物的笑，镜头缓推到她的面部特写眼神锐利如刀。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「十年了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「够了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「该回来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市公寓高层夜景，紧张弦乐氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
