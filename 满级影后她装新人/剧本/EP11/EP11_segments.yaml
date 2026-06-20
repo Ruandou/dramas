@@ -1,0 +1,99 @@
+# EP11 段落 API 配置 — 意外出圈
+# 8 segments · 11 shots · 86s total
+# model: doubao-seedance-2-0-fast
+# ratio: 9:16
+
+seedance_defaults:
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration_sec: "8-10"
+  generate_audio: true
+  prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
+  CHAR-005: "年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳"
+  CHAR-007: "成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接"
+  CHAR-009: "年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意"
+  # 以下 [待补] 群演的 voice_prompt 由 production-planner 在集间群演回补子循环中分配正式 ID 后，由 segment-builder 补充
+  # CHAR-GRP-PENDING-A ([待补：练习生A]): 年轻女性，20岁，声线直率活泼，语速中等，说话带新人的好奇和惊叹感
+  # CHAR-GRP-PENDING-B ([待补：练习生B]): 年轻女性，21岁，声线沉稳略带技术感，语速偏慢，说话带认真分析的语气
+  # CHAR-GRP-PENDING-C ([待补：肖铭远助理]): 年轻男性，28岁，声线恭敬利落，语速偏快，说话简洁有效率，下属对上司的职业语气
+
+look_refs:
+  CHAR-001-L01: "assets/looks/CHAR-001-L01.png"
+  CHAR-005-L01: "assets/looks/CHAR-005-L01.png"
+  CHAR-007-L01: "assets/looks/CHAR-007-L01.png"
+  CHAR-009-L01: "assets/looks/CHAR-009-L01.png"
+  # [待补] 群演 look_refs 由 character-designer 在回补循环中生成后补充
+
+scene_refs:
+  SCENE-004: "assets/scenes/SCENE-004.png"
+  SCENE-003: "assets/scenes/SCENE-003.png"
+
+segments:
+  - segment_id: SEG01
+    label: "展映前的低压"
+    transition_out: "hard_cut"
+    duration_sec: 10
+    shot_ids: [EP11-S01]
+    characters: [CHAR-005, CHAR-001]
+    prompt: "Dance training studio turned screening room, fluorescent tube lighting on light oak floor, a white projection screen lowered on the far wall. A 20-year-old Chinese girl with space buns and pink hoodie excitedly pulls a 28-year-old Chinese woman in simple white top and grey cardigan toward folding chairs. The older woman has a calm face but her eyes betray hidden worry, glancing at her phone. Rows of empty folding chairs, institutional bright lighting, competitive academic atmosphere. Vertical 9:16 frame, photorealistic, cinematic lighting."
+
+  - segment_id: SEG02
+    label: "平庸的对照"
+    transition_out: "hard_cut"
+    duration_sec: 12
+    shot_ids: [EP11-S02, EP11-S03]
+    characters: [CHAR-005, CHAR-001]
+    prompt: "Split scene in a trainee training room screening session. First: projection screen displaying an amateur short film — shaky camera, flat composition, poor lighting. A 20-year-old Chinese girl in pink hoodie with space buns watches proudly. Second: she turns to a 28-year-old Chinese woman in grey cardigan sitting nearby, asking about her film order. Trainees in folding chairs, some on phones, bored and distracted atmosphere. Cold fluorescent lighting, institutional setting. Vertical 9:16 frame, photorealistic, cinematic lighting."
+
+  - segment_id: SEG03
+    label: "才华漏光"
+    transition_out: "hard_cut"
+    duration_sec: 12
+    shot_ids: [EP11-S04, EP11-S05]
+    characters: [CHAR-001]
+    prompt: "Dramatic shift in a training room screening. First: a projection screen now showing a professionally crafted short film — precise symmetrical composition, layered lighting, cinematic dolly movement that far exceeds trainee level. Young female trainees watching with wide eyes and slack jaws, the room has fallen into stunned silence. Second: close-up of a 28-year-old Chinese woman in simple clothes, head lowered, fingers subtly curling on her knees in tension. The stark contrast between the amateur films seen earlier and this professional-grade work creates a 'hidden master revealed' moment. Vertical 9:16 frame, photorealistic, cinematic mood lighting, screen glow on faces."
+
+  - segment_id: SEG04
+    label: "拙劣的掩饰"
+    transition_out: "hard_cut"
+    duration_sec: 10
+    shot_ids: [EP11-S06]
+    characters: [CHAR-001]
+    prompt: "Training room after a short film screening, applause just ended. A 28-year-old Chinese woman in simple grey cardigan is surrounded by several young female trainees crowding around her chair, talking excitedly and asking technical questions. She maintains a polite 'overwhelmed newbie' smile with slightly raised eyebrows and innocent tone, but her eyes show rapid calculation. The eager trainees lean in with genuine admiration while she plays dumb, creating a 'hidden master among novices' dynamic. Bright fluorescent lighting, folding chairs, institutional training room. Vertical 9:16 frame, photorealistic, cinematic lighting."
+
+  - segment_id: SEG05
+    label: "身份的暗影"
+    transition_out: "hard_cut"
+    duration_sec: 10
+    shot_ids: [EP11-S07]
+    characters: [CHAR-005, CHAR-001]
+    prompt: "Training room after the crowd disperses, quiet atmosphere. A 20-year-old Chinese girl with space buns and pink hoodie excitedly shows her phone to a 28-year-old Chinese woman in grey cardigan sitting beside her. On the phone screen: a chat group interface. The older woman glances at it, expression perfectly calm but her breath pauses almost imperceptibly — a micro-moment of fear beneath composure. Cold fluorescent lighting, empty training room, two figures sitting close together in contrast. Vertical 9:16 frame, photorealistic, cinematic mood lighting."
+
+  - segment_id: SEG06
+    label: "操盘手的决定"
+    transition_out: "dissolve"
+    duration_sec: 12
+    shot_ids: [EP11-S08, EP11-S09]
+    characters: [CHAR-007]
+    prompt: "Modern CEO office with floor-to-ceiling glass curtain wall showing city skyline, cool blue-grey corporate aesthetic. A 35-year-old Chinese man in tailored navy suit with gold-rimmed glasses sits in a dark leather office chair, a tablet on the desk before him. He watches a short film on the tablet, removes his glasses to polish them, expression unreadable yet calculating. Then he turns to a young male assistant standing beside the desk, a gentle smile on his face that doesn't reach his eyes. Polished marble surfaces, cold corporate lighting, power center atmosphere. Vertical 9:16 frame, photorealistic, cinematic mood lighting."
+
+  - segment_id: SEG07
+    label: "A组的门槛"
+    transition_out: "hard_cut"
+    duration_sec: 10
+    shot_ids: [EP11-S10]
+    characters: [CHAR-001]
+    prompt: "Institutional corridor of a training facility, cold fluorescent lighting on painted walls. A 28-year-old Chinese woman in plain white button-up shirt and dark blue pinafore dress with canvas messenger bag walks toward a door labeled 'A Group Training Room'. She pauses briefly in front of the door, hand reaching for the handle, taking a deep breath. Through the glass window panel, silhouettes of people inside are visible. The corridor stretches empty behind her, creating a sense of isolation and impending confrontation. Vertical 9:16 frame, photorealistic, cinematic lighting."
+
+  - segment_id: SEG08
+    label: "熟悉的敌人"
+    transition_out: "fade"
+    duration_sec: 10
+    shot_ids: [EP11-S11]
+    characters: [CHAR-009, CHAR-001]
+    prompt: "Spacious A Group training room with floor-to-ceiling mirror walls reflecting fluorescent lights, twice the size of regular training rooms. A 21-year-old Chinese woman in designer-style pink ensemble with light brown long straight hair, flawless makeup, and arrogant posture stands with arms crossed in the center of the room. She turns with a provocative smirk as a 28-year-old Chinese woman in simple student-style outfit enters through the door. Five meters between them, the air frozen with tension and rivalry. Mirror reflections create visual depth showing both figures from multiple angles. Vertical 9:16 frame, photorealistic, cinematic lighting, cool institutional tones."

@@ -1,0 +1,87 @@
+# EP12 段落 API 配置 — 危险的A组
+# 7 segments · 11 shots · 78s total
+# model: doubao-seedance-2-0-fast
+# ratio: 9:16
+
+seedance_defaults:
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration_sec: "8-10"
+  generate_audio: true
+  prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
+  CHAR-005: "年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳"
+  CHAR-007: "成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接"
+  CHAR-009: "年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意"
+  __PENDING_ASSISTANT__: "[待补：肖铭远助理] 年轻女性，28岁，声线恭顺礼貌，语速中等，职业化语气带微笑感"
+
+look_refs:
+  CHAR-001-L01: "assets/looks/CHAR-001-L01.png"
+  CHAR-005-L01: "assets/looks/CHAR-005-L01.png"
+  CHAR-007-L01: "assets/looks/CHAR-007-L01.png"
+  CHAR-009-L01: "assets/looks/CHAR-009-L01.png"
+
+scene_refs:
+  SCENE-003: "assets/scenes/SCENE-003.png"
+  SCENE-004: "assets/scenes/SCENE-004.png"
+
+segments:
+  - segment_id: SEG01
+    label: "A组的见面礼"
+    transition_out: "hard_cut"
+    duration_sec: 10
+    shot_ids: [EP12-S01]
+    characters: [CHAR-001, CHAR-009]
+    prompt: "Spacious dance training studio with full-height mirror walls and cool white fluorescent tube lighting. Light oak hardwood floor with dance scuff marks. A 28-year-old Chinese woman with black shoulder-length hair in simple trainee outfit (white t-shirt, dark navy pinafore dress, canvas sneakers) pushes open the door. A 21-year-old Chinese woman with light brown long straight hair, pink designer mini bag, stands arms crossed before the mirror with arrogant chin-up posture. Tense confrontation atmosphere between two women in the empty studio. Vertical 9:16 frame, photorealistic, institutional competitive lighting."
+
+  - segment_id: SEG02
+    label: "乐安的担心"
+    transition_out: "hard_cut"
+    duration_sec: 10
+    shot_ids: [EP12-S02]
+    characters: [CHAR-005, CHAR-001]
+    prompt: "Training camp corridor, cool institutional fluorescent lighting. A 20-year-old Chinese girl with twin space buns and bright pink crewneck sweatshirt runs over on white sneakers, grabbing a 28-year-old Chinese woman in simple navy pinafore dress by the arm. The younger one's face shows worried excitement, the older woman remains calmly reassuring. A few curious young trainees peek from the corridor end. Vertical 9:16 frame, photorealistic, natural youthful interaction lighting."
+
+  - segment_id: SEG03
+    label: "CEO的传唤"
+    transition_out: "hard_cut"
+    duration_sec: 10
+    shot_ids: [EP12-S03]
+    characters: [CHAR-001, CHAR-005]
+    prompt: "Modern corporate headquarters corridor with cool blue-white LED strip lighting along ceiling, polished marble floor, glass curtain wall showing city skyline. A young female staff member in professional business attire walks up to two young women. One (20, pink sweatshirt, space buns) looks nervous, the other (28, simple navy pinafore dress) remains calm and composed. Professional corporate atmosphere. Vertical 9:16 frame, photorealistic, cinematic corporate lighting."
+
+  - segment_id: SEG04
+    label: "温柔的试探"
+    transition_out: "hard_cut"
+    duration_sec: 12
+    shot_ids: [EP12-S04, EP12-S05]
+    characters: [CHAR-007, CHAR-001]
+    prompt: "Executive office with floor-to-ceiling windows showing panoramic city view. Dark wood desk with minimalist desk lamp. A 35-year-old Chinese man in gold-rimmed glasses, navy suit with patterned tie, sits behind desk with a warm but calculating smile. A 28-year-old Chinese woman in simple trainee clothes sits across, back straight. Then close-up of the man's face — he leans back, perfect smile, sharp eyes glinting behind glasses, desk lamp casting dramatic shadows. Every inch the calculating CEO. Vertical 9:16 frame, photorealistic, cinematic office lighting with warm desk lamp."
+
+  - segment_id: SEG05
+    label: "十年前的名字"
+    transition_out: "hard_cut"
+    duration_sec: 12
+    shot_ids: [EP12-S06, EP12-S07]
+    characters: [CHAR-007, CHAR-001]
+    prompt: "Executive office, tense interrogation atmosphere. Close-up of a 35-year-old Chinese man in gold-rimmed glasses slowly removing his glasses, polishing them with cloth, putting them back — deliberate action creating pressure. Dramatic chiaroscuro lighting from desk lamp. Then reverse shot: a 28-year-old Chinese woman in simple trainee clothes, her pupils momentarily contracting with shock before regaining composure, eyes locked on the man. The charged space between them. Vertical 9:16 frame, photorealistic, dramatic shadow play lighting."
+
+  - segment_id: SEG06
+    label: "他是关键"
+    transition_out: "hard_cut"
+    duration_sec: 12
+    shot_ids: [EP12-S08, EP12-S09]
+    characters: [CHAR-001]
+    prompt: "Modern corporate corridor with glass curtain wall showing city skyline, cool blue-white LED lighting. A 28-year-old Chinese woman in simple trainee clothes walks out of an office, her expression shifting from obedient composure to sharp awareness. Then close-up: she stops at a corner, hand on glass wall, eyes deep and calculating. City skyline's cold blue light flows across the glass. The contrast between her plain exterior and sharp intelligence is striking. Vertical 9:16 frame, photorealistic, cinematic cool corporate lighting."
+
+  - segment_id: SEG07
+    label: "抽屉里的照片"
+    transition_out: "fade"
+    duration_sec: 12
+    shot_ids: [EP12-S10, EP12-S11]
+    characters: [CHAR-007]
+    prompt: "Executive office in quiet aftermath. A 35-year-old Chinese man in gold-rimmed glasses sits alone, his warm smile faded to calculating coldness. He opens a bottom drawer revealing a yellowed old photograph. He pulls it out. Then extreme close-up of the vintage photo: two young Chinese women — one about 18 with high ponytail in white dress, the other about 22 with elegant features — arms around each other, bright sunny smiles. A man's fingertip traces the edge, gold-rimmed glasses corner visible. Warm nostalgic photo tones against cool office light. Vertical 9:16 frame, photorealistic, cinematic lighting contrast between warm photo and cold office."

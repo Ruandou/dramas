@@ -1,0 +1,272 @@
+episode_id: EP05
+source_md: 剧本/EP05/EP05_宿舍风波.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
+  CHAR-005: "年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳"
+  CHAR-009: "年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意"
+
+segments:
+  - segment_id: EP05-SEG01
+    shot_ids: [EP05-S01, EP05-S02]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-005.png
+    api:
+      text: |
+        【图1】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙+白色帆布鞋）【图2】乔乐安 CHAR-005-L01（双丸子头，粉色卫衣+浅蓝色百褶短裙）【图3】练习生宿舍 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：宿舍夜灯亮着暖黄的光，图1坐在下铺床沿背靠墙壁双手抱着膝盖，手机屏幕的冷白光照亮她半张脸，窗外城市灯火隐约，书桌上的小台灯照着翻开的笔记本，她眉头微蹙指尖在手机边缘来回摩挲。
+        镜头2（6秒）近景 镜头推近：宿舍门被推开图2蹦跳着进来双丸子头在灯光下晃悠着，一手抓着一包薯片一手拿着饮料瓶，她把零食举到图1面前圆脸上写满邀功的得意，图1被她的闯入拉回现实嘴角浮起一丝真实的微笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「走廊尽头那双眼睛……到底听到了多少。」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「小晚。看我给你带了什么——楼下711最后两包限定薯片。」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「你脸色好差……是不是还在想陆老师那事？」
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「没事。他什么都没听到。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生宿舍夜间暖黄色调，温馨私密氛围，姐妹谈心感，写实娱乐圈风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG02
+    shot_ids: [EP05-S03, EP05-S04]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-005.png
+    api:
+      text: |
+        【图1】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙）【图2】乔乐安 CHAR-005-L01（双丸子头，粉色卫衣）【图3】练习生宿舍 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：两人并排坐在床沿薯片袋放在中间，暖黄台灯在墙上投出两人交叠的影子，图2盘腿坐着神情突然变得认真双手捧着饮料瓶像在组织语言，图1侧头看她手里捏着一片薯片悬在半空。
+        镜头2（5秒）特写 固定镜头：图1说着说着眼神变了从陪聊变成了教学，她手指不自觉地比划起来目光专注而深邃十年的专业功底从每个细微的停顿和强调中渗出来，暖黄灯光勾勒出她侧脸的轮廓。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「对了姐姐……我有个事想不通。老师说表演要用情感记忆——可我越想哭，越哭不出来。」
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「那就别想哭。」
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「找记忆中最痛的那个瞬间。还原场景——那天什么温度、什么光线、他说的每个字。」
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「不能演情绪，要演事实。」
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「技巧是冷的，但引信必须是热的。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生宿舍夜间暖黄色调，温馨谈心氛围，演技教学感，写实娱乐圈风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG03
+    shot_ids: [EP05-S05, EP05-S06]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-005.png
+    api:
+      text: |
+        【图1】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙）【图2】乔乐安 CHAR-005-L01（双丸子头，粉色卫衣）【图3】练习生宿舍 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 镜头推近：图1先是愣住然后眼睛越来越亮嘴张成了O型，薯片举到嘴边都忘了吃，目光里满是惊叹和崇拜，双丸子头随着前倾的动作像两只兔子耳朵。
+        镜头2（5秒）特写 固定镜头：图1的手在半空中僵住了瞳孔微缩0.3秒的慌乱在眼底闪过，她低下头薯片在指尖轻轻捻碎用这个动作争取到两秒的缓冲时间，再抬头时脸上挂着新人特有的谦虚笑容但眼底深处一闪而过的是猎人的警觉。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「哇……姐姐你也太厉害了吧！比之前表演课的老师讲得还清楚！你真的只是新人吗？」
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「糟了……不知不觉说太多了。」
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「啊？哪有……都是看影评学的。我天天刷深度解析，背了好多呢。」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「真的吗。那你推荐几个，我也要背。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生宿舍夜间暖黄色调，意外露馅的紧张感，温馨中带警觉，写实娱乐圈风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP05-SEG04
+    shot_ids: [EP05-S07, EP05-S08]
+    duration_sec: 11
+    speakers: [CHAR-009, CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-009-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】周瑶 CHAR-009-L01（浅棕色长直发+粉色名牌小包+白色短上衣+高腰粉色短裙+白色低跟鞋）【图2】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙+白色帆布鞋）【图3】乔乐安 CHAR-005-L01（双丸子头，粉色卫衣+浅蓝色百褶短裙）【图4】练习生训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：训练营走廊日光从落地窗倾泻而入公告栏前围着几个练习生，图1站在最前面浅棕色长直发侧分粉色名牌小包挂在肩上，下巴微抬扫视名单嘴角挂着志得意满的笑，手指在A组名单上弹了一下。
+        镜头2（5秒）近景 固定镜头：走廊另一端图3踮着脚看了看名单肩膀慢慢塌下去B组，她低下头指甲抠着书包带子，图2站在她身边没动目光越过人群落在远处图2的表情平淡但眼中有一丝冷意一闪而过。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「AB分组出来了。A组——我带的。」
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「B组那些人，自己心里没点数吗。」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「小晚……我们是B组。」
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「B组怎么了。分组而已。」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「可A组是周瑶带队……她会笑话死我的……」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生训练营走廊日间明亮，公告栏分组场景，冷白自然光营造公开冲突的暴露感，写实娱乐圈风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG05
+    shot_ids: [EP05-S09, EP05-S10]
+    duration_sec: 11
+    speakers: [CHAR-009, CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-009-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】周瑶 CHAR-009-L01（浅棕色长直发+粉色名牌小包+白色短上衣）【图2】乔乐安 CHAR-005-L01（双丸子头，粉色卫衣+浅蓝色百褶短裙）【图3】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙）【图4】练习生训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头跟随：图1踩着白色低跟鞋走过来目光上下打量着图2的穿着洗得有些发白的粉色卫衣略显褪色的百褶短裙，她故意绕着图2走了半圈嘴角挂着夸张的怜悯笑容，身后两个跟班练习生捂着嘴笑，图2低着头恨不得钻进地缝。
+        镜头2（5秒）近景 固定镜头：图2的脸涨得通红眼眶里有泪花打转但硬撑着没掉下来，她的手攥着书包带子指节泛白，图3站在她身侧表情平静如水面但垂在身侧的手指缓缓收拢成拳，走廊里的其他练习生都安静了目光聚焦在这几人身上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「乔乐安，你进B组真不冤——看看你穿的。地摊淘的吧？」
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「天哪，你们B组是收容所吗？穷成这样还当练习生？」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「这……这是我最好的……」
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「忍。没必要跟这种人计较。」
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「不——有些线，跨了就不能忍。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生训练营走廊日间明亮，霸凌对峙氛围，冷白自然光下的公开羞辱，写实娱乐圈风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG06
+    shot_ids: [EP05-S11, EP05-S12]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙）【图2】周瑶 CHAR-009-L01（浅棕色长直发，粉色名牌小包）【图3】练习生训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：图1往前迈了一步不动声色地挡在身后，她的站姿依然放松肩膀甚至没有绷紧但她的目光变了不再是新人林小晚的眼神而是三冠影后苏念晚在颁奖台上俯视对手的冷光，图2的笑意僵了一下。
+        镜头2（5秒）特写 镜头推近：图1的正面特写日光从落地窗打在她半边脸上瞳孔里映着窗口的方光，她的嘴角没有笑但也没有怒只有一种冷静到可怕的穿透力，每个字都像一颗钉子稳稳地钉在空气里，图2被她看得后退了半步。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「说完了？」
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「衣服可以换——」
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「教养换不了。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生训练营走廊日间明亮，打脸反击的高光时刻，冷白自然光下的对峙感，写实娱乐圈风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG07
+    shot_ids: [EP05-S13, EP05-S14]
+    duration_sec: 10
+    speakers: [CHAR-009, CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-009-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】周瑶 CHAR-009-L01（浅棕色长直发，粉色名牌小包+粉色短裙）【图2】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙）【图3】乔乐安 CHAR-005-L01（双丸子头，粉色卫衣）【图4】练习生训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定镜头：图1的笑容凝固在脸上然后像瓷器上的裂纹一样炸开，她瞪大眼睛嘴唇张了张却一时找不到反击的话，两边的跟班练习生面面相觑不敢出声，走廊安静得能听见日光灯的嗡鸣。
+        镜头2（5秒）中景 固定镜头：图2没有回头她拉起图3的手腕转身准备离开动作从容得像什么都没发生过，图3被她拉着走了一步眼眶红红地抬头看她目光里满是感激和崇拜，几个旁观练习生窃窃私语。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「你……你说什么？！你知道我爸是谁吗！」
+        对白（林小晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「靠别人撑腰的人——永远站不直。」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「小晚……」
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「林小晚。你给我站住——。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生训练营走廊日间明亮，千金受辱后的尴尬与愤怒，旁观者窃语氛围，写实娱乐圈风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG08
+    shot_ids: [EP05-S15, EP05-S16]
+    duration_sec: 10
+    speakers: [CHAR-009]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】周瑶 CHAR-009-L01（浅棕色长直发，粉色名牌小包+粉色短裙）【图2】练习生训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：图2和乔乐安的背影消失在走廊转角，图1站在原地脸色铁青手指攥着包带指节发白，她咬了咬嘴唇胸口气得起伏了几下然后猛地掏出手机翻到通讯录拨出电话，她走到落地窗前背对着人群。
+        镜头2（5秒）近景 固定镜头：图1把手机贴到耳边表情从愤怒切换成委屈像变脸一样熟练，落地窗外的阳光在她脸上投下半明半暗的光她的声音压低了但字字清晰，镜头缓推到她的侧脸特写嘴角浮起一丝阴冷的弧度。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「林小晚……你等着。」
+         对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「爸——你们公司训练营有个新人，不知天高地厚。」
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「你帮我处理一下，就现在。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生训练营走廊日间明亮，电话告状的阴冷氛围，暴风雨前的宁静感，写实娱乐圈风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
