@@ -176,6 +176,7 @@ python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
 
 - **镜头 ID**：`EP##-S##`（两段式：集号-镜号）
 - **角色 ID**：`CHAR-###`
+- **群演 ID**：`CHAR-GRP-##` / `CHAR-GRP-##-L01` — 每个不同视觉角色独立 ID + L01（按需创建，无上限，仅受 API 参考图配额每 segment ≤6 张约束）。ID 由 `production-planner` 统一分配；`scene-writer` 写作中发现未分配群演时用 `[待补：描述]` 占位 + 「待补群演清单」，触发「集间群演回补子循环」由 `production-planner` 分配 ID + `character-designer` 回补 L01（详见各 agent 定义）
 - **场景 ID**：`SCENE-###`
 - **道具 ID**：`PROP-###`
 

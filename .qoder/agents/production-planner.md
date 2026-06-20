@@ -32,7 +32,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 | -------- | --------------------------------- | ----------------- | -------------------------------- |
 | **角色** | `CHAR-###`                        | `CHAR-001`        | 对白、关系、选角（谁）           |
 | **形象** | `CHAR-###-L##`                    | `CHAR-001-L01`    | 出图、妆造、分镜视觉（长什么样） |
-| 群演     | `CHAR-GRP-##` / `CHAR-GRP-##-L01` | `CHAR-GRP-01-L01` | 通用脸型一套即可                 |
+| 群演     | `CHAR-GRP-##` / `CHAR-GRP-##-L01` | `CHAR-GRP-01-L01` | 每个不同角色独立 ID + L01（按需创建，无上限） |
 | 场景     | `SCENE-###`                       | `SCENE-002`       | 布景                             |
 | 道具     | `PROP-###`                        | `PROP-001`        | 关键道具                         |
 | 分集     | `EP##`                            | `EP01`            | 分集文件                         |
@@ -43,7 +43,8 @@ tools: [Read, Write, Grep, Glob, Bash]
 - 编号**连续、不跳号**
 - 新建角色：先在 `资产/角色索引.md` 登记 `CHAR-###`，再由 character-designer（Stage 3b）建 `L01` 基础形象
 - 新建换装/阶段形象：**只加 `L02+` 衍生形象**，并写明 `based_on: CHAR-xxx-L01`
-- 群演分级：有名字+跨segment出现→独立CHAR-###；纯背景无台词→CHAR-GRP
+- **群演按需创建，不设数量上限**：有名字+跨 segment 出现 → 独立 `CHAR-###`；纯背景无台词但需视觉区分 → `CHAR-GRP-##`。每个 `CHAR-GRP-##` 都必须分配独立 ID 和 L01 形象。唯一约束是 API 参考图配额（每 segment ≤6 张，TOS URL 模式）——超出时按 segment-builder 优先级裁减
+- 同一 CHAR-GRP-## 可跨集复用（如"守卫甲"在 EP01-03 都出现），但不同视觉角色不可共用同一 ID（如"队长"与"年轻守卫"必须是 GRP-01 和 GRP-02 两个 ID）
 
 ### 形象层级结构定义
 
@@ -399,7 +400,8 @@ dramas/剧名/
   - 关键关系（如「CHAR-001 之女」「CHAR-003 的师傅」）
   - 性格特征/情感弧线（供 character-designer 理解角色气质）
   - 初始音色建议（基于性格/年龄推断 voice_prompt 初稿）
-- 群演分级：有名字+跨 segment 出现 → 独立 CHAR-###；纯背景无台词 → CHAR-GRP
+- 群演分级：有名字+跨 segment 出现 → 独立 CHAR-###；纯背景无台词 → CHAR-GRP（但每个视觉不同角色仍需独立 ID）
+- scene-writer 在剧本中标注的新群演（`[待补：...]`）由本 Agent 在**集间群演回补子循环**统一分配 `CHAR-GRP-##` ID（从已有最大编号+1），并建声音卡片条目（含 voice_prompt）+ 角色索引条目 + 形象索引骨架行（`CHAR-GRP-##-L01` 7 列骨架，ID/类型/适用预填，其余留空）；L01 形象图 + 角色卡片段落 + 形象索引填充由 character-designer 回补。回补完成（G3 增量验证通过）后该群演方可进入 segment-builder（子循环详见 drama-director）
 - 生成**角色卡片骨架**：
   - 包含：CHAR-ID、姓名、角色定位、阵营/派系、首次出场、关键关系、性格概要
   - **不包含**：外貌描写、AI Prompt、生成参数 —— 这些由 character-designer 填充

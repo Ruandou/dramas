@@ -256,7 +256,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 > **角色卡片所有权声明**：本 Agent 完全拥有和维护 `资产/角色卡片.md` 的全部内容（结构设计、视觉创意、AI Prompt、voice_prompt、形象参考图等）。其他 Agent 可引用但不得直接修改角色卡片中的任何内容。
 
-> **骨架字段不可修改规则**：production-planner（Stage 2）预分配的骨架字段（CHAR-ID、姓名、定位、阵营、首次出场、关键关系、性格概要、初始音色建议）不可由本 Agent 修改。本 Agent 沿用这些骨架字段填充视觉创意内容，不得自行新增或变更。群演角色使用 `CHAR-GRP-##` 格式（同样由 production-planner 预分配）。
+> **骨架字段不可修改规则**：production-planner（Stage 2，以及集间群演回补子循环补群演时）预分配的骨架字段（CHAR-ID、姓名、定位、阵营、首次出场、关键关系、性格概要、初始音色建议）不可由本 Agent 修改。本 Agent 沿用这些骨架字段填充视觉创意内容，不得自行新增或变更。群演角色使用 `CHAR-GRP-##` 格式（ID 由 production-planner 统一分配；本 Agent 负责补 L01 + 填角色卡片/形象索引，不自行建 ID）。
 
 ```markdown
 # 角色卡片
@@ -412,15 +412,25 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 ---
 
-## 群演角色（如需要）
+## 群演角色（按需创建，不设数量上限）
 
-### CHAR-GRP-01 · [群演描述，如"宫女群"]
+> **原则**：每个在镜头中有台词、互动、或需要视觉区分的背景角色，必须分配独立 `CHAR-GRP-##` ID 和 L01 形象。唯一约束是 API 参考图配额。不同视觉角色禁止共用同一 ID。
+
+> **ID 分配归属**：`CHAR-GRP-##` ID 由 production-planner 统一分配（Stage 2 预分配，或集间群演回补子循环时补分配）；本 Agent 不自行建 ID，仅在 ID 分配后回补 L01 + 填写本卡片段落（见上文「骨架字段不可修改规则」）。scene-writer 写作中发现未分配群演时用 `[待补：...]` 占位，不直接建 ID。
+
+### CHAR-GRP-01 · [群演描述，如"女修队长"]
 
 | 字段 | 内容 |
 |------|------|
 | ID | `CHAR-GRP-01` |
 | 功能 | [信息传递/氛围营造/...] |
-| AI视觉Prompt | [English, 可描述群体特征] |
+| 首次出场 | EP## |
+| 复用集数 | EP##-EP##（可跨集复用） |
+| Seedream Prompt | [完整英文 prompt，套用上文「Seedream Prompt 模板」+「风格强制规则」] |
+
+### CHAR-GRP-02 · [另一个独立角色，如"年轻守卫"]
+
+> 不同视觉角色必须用不同 ID，即使都是"守卫"。例如：年长队长=GRP-01，年轻守卫=GRP-02，采药路人=GRP-03
 
 ---
 
@@ -828,7 +838,8 @@ This person is clearly a TEENAGER, not a child. Adolescent proportions, angular 
 1. tier_1_critical 角色（主角、核心配角）的 L01 必须**最先生成**并获得用户确认
 2. 全部 L01 生成并确认后，方可开始任何 L02+ 衍生生成
 3. 群演/道具 L01 可与主角 L01 同批生成，但不得与 L02+ 混批
-4. 违反此顺序的批量提交应被拆分为多批次执行
+4. **所有 `CHAR-GRP-##` ID 都必须生成 L01**——即使只有 1 张图，也不能留为"待生成"。套用「Seedream Prompt 模板」+「风格强制规则」生成，确保每个群演有独特面孔
+5. 违反此顺序的批量提交应被拆分为多批次执行
 
 ---
 
@@ -1310,7 +1321,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 | 核心角色 | 3-5 人 | 主角 + 主要对手 + 情感线核心 |
 | 功能角色 | 最多 10 人 | 每人必须服务明确剧情功能 |
 | 总上限 | 15 个有名角色 | 72 集剧不超过 |
-| 群演/背景 | 不计入上限 | 不给名字、不给特写 |
+| 群演/背景 | 不计入有名角色上限 | 每个独立视觉角色必须有独立 ID + L01，禁止多人共用一脸 |
 
 ### "有用 + 有记忆点"双重测试
 

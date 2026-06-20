@@ -76,6 +76,7 @@ story-architect → production-planner → prop-designer → [character-designer
 
 - **全部一致**：通过
 - **存在冲突**（如源 .md 定义 SCENE-002 为"古铜镜镜面"，但场景卡片定义为"林泽书店"）：❌ 停止。列出冲突清单，请用户或 production-planner 修正。
+- **`[待补：描述]` 占位群演**（非 `CHAR-###`/`CHAR-GRP-##` 正式 ID）：不视为 Gate 3 冲突，转触发「集间群演回补子循环」（见升级协议 + drama-director）——由 production-planner 分配 `CHAR-GRP-##` + character-designer 回补 L01 后恢复。**不要**将占位误报为"ID 不在角色卡片中"。
 
 ## Gate 4：voice_prompt 来源验证
 
@@ -87,6 +88,7 @@ story-architect → production-planner → prop-designer → [character-designer
 
 - **全部可追溯**：通过
 - **某角色无 voice_prompt 来源**：❌ 停止。报告缺失角色，请 production-planner 补充声音卡片。
+- **`[待补：描述]` 占位群演**（尚无正式 ID/声音卡片条目）：不视为 Gate 4 缺失，与 Gate 3 同步触发「集间群演回补子循环」——production-planner 建声音卡片条目 + 分配 `CHAR-GRP-##` 后，其 voice_prompt 即可追溯。**不要**将占位误报为"voice_prompt 缺失"。
 
 ---
 
@@ -365,9 +367,9 @@ segments:
 |--------|------|------|
 | P0 | 主角形象 | 必须保证 |
 | P1 | 对话角色形象 | 有互动则必须 |
-| P2 | 场景参考图 | 保证环境一致性 |
+| P2 | 场景参考图 + 同镜头有台词/互动的群演 | 保证环境一致性；群演有对白或互动时与场景同级 |
 | P3 | 道具参考图 | 有余量时加入 |
-| P4 | 群演/次要角色 | 最后考虑 |
+| P4 | 纯背景群演（无台词无互动） | 最后考虑，但只要有配额就必须加入 |
 
 ---
 
@@ -507,8 +509,9 @@ assets:
 ```
 
 - CDN URL 缺失：添加 `# WARNING: no CDN URL` 注释，使用本地路径
-- 形象 ID 完全不存在（角色卡片中无此 ID）：**停止生成，报告缺口**
-- 若镜头涉及多角色组合参考图（CHAR-GRP-## 格式），按同一 CDN 路径规则解析：`assets/looks/CHAR-GRP-##.png`。如项目未使用分组参考图，忽略此条。
+- 形象 ID 完全不存在（角色卡片中无此 ID，且非 `[待补：...]` 占位）：**停止生成，报告缺口**
+- speaker / 角色列为 `[待补：描述]` 占位（scene-writer 标注的新群演，尚未回补 L01）：**停止生成，报告缺口**——这是「集间群演回补子循环」的触发条件（见 drama-director），由 production-planner 分配 `CHAR-GRP-##` + character-designer 回补 L01 后恢复；**不要**跳过占位继续生成
+- 若镜头涉及多个群演角色（CHAR-GRP-## 格式），每个独立角色使用自己的 CDN 路径：`assets/looks/CHAR-GRP-##.png`。每个不同群演角色必须有独立 L01 形象，禁止共用同一 face ID
 
 ---
 
@@ -692,7 +695,7 @@ segments:
 | 16 | voice_prompt 全文一致 | YAML 中的 voice_prompt == 声音卡片/角色卡片原文（逐字） |
 | 17 | 无凭空镜头 | YAML 中不存在源 .md 中没有的 shot_id |
 | 18 | 忠实度证明块 | shots.yaml 顶部包含 SOURCE FIDELITY PROOF 注释块 |
-| 19 | 全部说话人保留 | 源 .md 中的所有 speaker（含 CHAR-GRP）在 YAML 中有对白 |
+| 19 | 全部说话人保留 | 源 .md 中的所有 speaker（含 CHAR-GRP）在 YAML 中有对白。若 speaker 为 `[待补：...]` 占位（新群演未回补 L01）→ **本项判定未通过**，触发「集间群演回补子循环」（见升级协议），停止生成、不输出 YAML |
 | 20 | 资产 ID 一致 | YAML 中使用的 SCENE/CHAR/PROP ID 与资产卡片定义一致 |
 | 21 | prompt_suffix_silent | defaults 块包含 prompt_suffix_silent 且内容以"本段无对白无语音"开头 |
 | 22 | 语义验证层已执行 | 所有 WARN 已标注于 YAML |
@@ -707,7 +710,7 @@ segments:
 1. **禁止发明镜头** — 输出的 shot 数量必须与源 `.md` 镜头表行数完全一致。不得增加、删除、拆分、合并镜头。
 2. **禁止改写对白** — 包括但不限于：缩略、润色、合并两句为一句、拆分一句为两句、移动到其他 segment、翻译、删除。
 3. **禁止发明对白** — 输出中的每一行 `「台词」` 必须在源 `.md` 对应镜头的"对白/备注"列中找到**逐字逐标点**对应。
-4. **禁止忽略角色** — 源 `.md` 中出现的所有 speaker（包括 `CHAR-GRP-##`）必须在 YAML 的 dialogue 中保留其台词。
+4. **禁止忽略角色** — 源 `.md` 中出现的所有 speaker（包括 `CHAR-GRP-##`）必须在 YAML 的 dialogue 中保留其台词。**例外**：`[待补：...]` 占位 speaker 尚无正式 ID/L01，按上文"停止生成，报告缺口"处理（触发集间群演回补子循环），不得将其对白写入 YAML，也不得视为"忽略角色"。
 5. **禁止自行填充时长** — 当源 `.md` 总时长不足 75s（EP01: 90s）时，禁止通过加长单镜头时长或增加镜头数来补足。必须触发 Gate 1 停止。
 6. **禁止改写 voice_prompt** — 必须从声音卡片中全文复制「」内的文字内容（不含「」符号本身），不得简化、改写、翻译、缩写。
 7. **禁止忽略 ID 冲突** — 当源 `.md` 中的 SCENE/CHAR/PROP ID 定义与资产卡片不一致时，不得默默采用其中一个。必须触发 Gate 3 停止。
@@ -754,6 +757,7 @@ segments:
    - 镜头数不一致 → `scene-writer` 修正元数据或补充镜头
    - ID 冲突 → `production-planner` 更新资产卡片
    - voice_prompt 缺失 → `production-planner` 补充声音卡片
+   - speaker 为 `[待补：描述]` 占位（新群演未回补 L01） → 触发**集间群演回补子循环**（drama-director 路由）：`production-planner` 分配 `CHAR-GRP-##` + 建声音卡片/角色索引 → `character-designer` 回补 L01 + 填角色卡片/形象索引 → 过 G3（增量）→ `scene-writer` 用正式 ID 替换占位 → 恢复 Stage 5
 4. **等待确认** — 在用户或上游修复后，重新执行完整流程（重新读取所有前置文件）
 
 **禁止**：
