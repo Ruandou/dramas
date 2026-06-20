@@ -1,113 +1,235 @@
-# EP13 Segments - 新星计划
-# 7 segments, 79s total (12 shots)
-# Seedance API configuration
+episode_id: EP13
+source_md: 剧本/EP13/EP13_新星计划.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
+  CHAR-002: "成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感"
+  CHAR-003: "成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次"
+  CHAR-005: "年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳"
+  CHAR-013: "成年男性，40岁，声线职业化平稳，语速中等，说话有导演指令感，简洁有力"
 
 segments:
-  - segment_id: "EP13-SEG01"
-    shots: ["EP13-S01", "EP13-S02"]
-    scene_id: "SCENE-004"
-    total_duration_sec: 12
-    description: "新星计划公告——乔乐安兴奋拉着苏念晚看公告，导演宣布评委包括陆景深和方芷晴"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 8
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-005", "CHAR-001", "CHAR-013"]
-    transition: "hard_cut"
-    continuity_notes: "从上集肖铭远查看照片硬切到训练营公告现场"
+  - segment_id: EP13-SEG01
+    shot_ids: [EP13-S01, EP13-S02]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-013]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-013-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】乔乐安 CHAR-005-L01（粉色圆领卫衣，双丸子头）【图2】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙）【图3】选拔导演 CHAR-013-L01（深灰色拉链夹克+黑T恤+黑框眼镜）【图4】训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中全景 镜头跟随：训练营公告栏前挤满练习生。图1拉着图2挤到最前面，手指着公告栏上红底金色的"新星计划"海报。荧光灯管照亮整面墙。
+        镜头2（6秒）中近景 固定镜头：图3站在公告栏旁宣布评委名单。图2站在人群中，眼神从海报上移开，垂眸沉思。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「天哪天哪天哪！新星计划！姐姐你快看！」
+        对白（选拔导演，成年男性，40岁，声线职业化平稳，语速中等，说话有导演指令感，简洁有力）：「本次评委包括陆景深先生和方芷晴女士。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市娱乐公司训练营，公告栏前热闹氛围，冷白荧光灯，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-013-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
 
-  - segment_id: "EP13-SEG02"
-    shots: ["EP13-S03", "EP13-S04"]
-    scene_id: "SCENE-004"
-    total_duration_sec: 12
-    description: "乔乐安拉苏念晚报名，苏念晚内心计算要得第七名保持低调"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 8
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-005", "CHAR-001"]
+  - segment_id: EP13-SEG02
+    shot_ids: [EP13-S03, EP13-S04]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】乔乐安 CHAR-005-L01（粉色圆领卫衣，双丸子头）【图2】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙，黑色齐肩短发）【图3】训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：图1从人群中挤出来，手里挥舞着一张报名表，脸颊因为兴奋红扑扑的。图2接过报名表，指尖微微捏紧纸张边缘。
+        镜头2（6秒）特写 缓推：图2低头看着报名表，睫毛低垂。她嘴角微扬，但笑意没到眼底——像是在算一道精密的数学题。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「姐姐我们一起报吧！以你的实力肯定第一！」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「不一定。大家都很强。」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「哪有！你上次……」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「第七名。不多不少。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市娱乐公司训练营，报名表与公告栏，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
 
-  - segment_id: "EP13-SEG03"
-    shots: ["EP13-S05", "EP13-S06"]
-    scene_id: "SCENE-004"
-    total_duration_sec: 12
-    description: "苏念晚初赛表演刻意保留实力，陆景深看穿她在藏拙，方芷晴写评语"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 10
-      generate_audio: true
-      prompt_suffix: ", vibrant stage lighting, high saturation, spotlight effects, colorful LED background, live audience atmosphere, broadcast quality, photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-001", "CHAR-002", "CHAR-003"]
+  - segment_id: EP13-SEG03
+    shot_ids: [EP13-S05, EP13-S06]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙）【图2】陆景深 CHAR-002-L01（黑色高领毛衣+深灰色长大衣）【图3】方芷晴 CHAR-003-L01（酒红色丝绒西装裙，金色耳环）【图4】训练营舞台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：舞台聚光灯打在图1身上。她站在舞台中央，深吸一口气——刻意放慢呼吸节奏，让自己的独白表演显得"情感不够饱满"。手腕微微颤抖（假装的）。
+        镜头2（6秒）中近景 固定镜头：评委席。图3低头写评语，表情淡淡的，酒红色西装裙在舞台灯光下泛着暗光。图2靠在椅背上，双臂交叉，目光如手术刀般锁住舞台上的图1。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「我……不知道该怎么面对。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「方芷晴在台下。不能让她看到真实水平。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「也许……这就是命吧。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「节奏慢了三拍。她在收。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市训练营舞台，聚光灯与评委席，选拔紧张氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
 
-  - segment_id: "EP13-SEG04"
-    shots: ["EP13-S07", "EP13-S08"]
-    scene_id: "SCENE-004"
-    total_duration_sec: 10
-    description: "方芷晴以评委身份点评苏念晚，暗示'你让我想起一个人'——苏念晚内心警觉"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 8
-      generate_audio: true
-      prompt_suffix: ", vibrant stage lighting, high saturation, spotlight effects, colorful LED background, live audience atmosphere, broadcast quality, photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-003", "CHAR-001"]
-    transition: "hard_cut"
+  - segment_id: EP13-SEG04
+    shot_ids: [EP13-S07, EP13-S08]
+    duration_sec: 10
+    speakers: [CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙）【图2】方芷晴 CHAR-003-L01（酒红色丝绒西装裙，精致妆容）【图3】训练营舞台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中近景 镜头推近：图2抬头，露出精心排练过的温暖微笑。她将评语板搁在桌上，身体前倾，语气像在和妹妹说话。图1站在台上，恭敬地微微低头。
+        镜头2（5秒）中景 固定镜头：图1抬头，眼神谦逊。图2靠在椅背上，歪头打量她，嘴角带着若有所思的弧度。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「基本功不错。但情绪……还差一点。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「谢谢方老师。」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「你让我想起一个人。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「她认出来了？不可能。别自己吓自己。」
+        画面全程无任何文字、字幕、标题、水印。
+        训练营舞台评委席与台上对峙，温暖灯光下暗藏杀机，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
 
-  - segment_id: "EP13-SEG05"
-    shots: ["EP13-S09", "EP13-S10"]
-    scene_id: "SCENE-004"
-    total_duration_sec: 11
-    description: "晋级名单公布——苏念晚以第七名晋级，精确如她所料"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 8
-      generate_audio: true
-      prompt_suffix: ", vibrant stage lighting, high saturation, spotlight effects, colorful LED background, live audience atmosphere, broadcast quality, photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-005", "CHAR-001"]
+  - segment_id: EP13-SEG05
+    shot_ids: [EP13-S09, EP13-S10]
+    duration_sec: 11
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】乔乐安 CHAR-005-L01（粉色圆领卫衣，双丸子头）【图2】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙）【图3】训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头跟随：大屏幕公布晋级名单。图1跳起来抓住图2的手臂。屏幕上"林小晚"排在第七位。
+        镜头2（5秒）近景 固定镜头：图2看了一眼排名，嘴角微微放松——精确如预期。图1抱着她又蹦又跳，图2轻轻拍她的背。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「姐姐你进了！第七名！」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「嗯。晋级就好。」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「你好淡定啊！我紧张死了！」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市训练营，大屏幕晋级名单公布，喜悦与克制对比，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
 
-  - segment_id: "EP13-SEG06"
-    shots: ["EP13-S11"]
-    scene_id: "SCENE-004"
-    total_duration_sec: 10
-    description: "陆景深在侧台注视着苏念晚，意味深长地说'表现不错'——苏念晚内心警惕"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 10
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-002", "CHAR-001"]
+  - segment_id: EP13-SEG06
+    shot_ids: [EP13-S11]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色高领毛衣+深灰色长大衣）【图2】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙）【图3】训练营舞台侧台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：舞台侧台。图1背倚墙壁，深灰色大衣在昏暗光线中几乎与阴影融为一体。他双手插兜，目光越过人群锁住正欲离开的图2。她转身时与他对上视线，脚步微顿。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「表现不错。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「谢谢陆老师。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他的眼神……不对。他看出来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        训练营舞台侧台，昏暗光线中两人对峙，悬疑紧张氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
 
-  - segment_id: "EP13-SEG07"
-    shots: ["EP13-S12"]
-    scene_id: "SCENE-003"
-    total_duration_sec: 12
-    description: "⚡ 陆景深在走廊拦住苏念晚——'你在藏拙'。苏念晚心头一紧。"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 12
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-001", "CHAR-002"]
-    cliffhanger: true
+  - segment_id: EP13-SEG07
+    shot_ids: [EP13-S12]
+    duration_sec: 12
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色高领毛衣+深灰色长大衣）【图2】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙）【图3】星耀总部走廊 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中景 缓推：星耀总部走廊，落地窗外暮色沉沉。图2快步走过玻璃幕墙长廊。身后传来低沉的脚步声和一声呼唤。她转身——图1从逆光中走来，停在几步之外，眼神锐利如刀。图2瞳孔微缩，指尖不自觉地攥紧衣角。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「林小晚。你在藏拙。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「陆老师说什么？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他看穿了。」
+        画面全程无任何文字、字幕、标题、水印。
+        星耀总部走廊，落地窗暮色，逆光对峙，悬疑紧张氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: fade

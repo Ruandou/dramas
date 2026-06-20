@@ -1,0 +1,272 @@
+episode_id: EP21
+source_md: 剧本/EP21/EP21_公益短片.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, film studio soft lighting, modern film set, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, film studio soft lighting, modern film set, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
+  CHAR-002: "成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感"
+  CHAR-GRP-24: "成年男性，35岁，声线专业简洁，语速中等，片场工作人员的职业语气"  # ⏳ 待分配正式ID+voice_prompt
+
+segments:
+  - segment_id: EP21-SEG01
+    shot_ids: [EP21-S01, EP21-S02]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-015.png
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色高领毛衣+深灰长款大衣）【图2】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图3】电影片场 SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：摄影棚内，灯光师调试柔光箱。图1站在折叠导演椅旁，手里拿着拍摄脚本。图2走到他面前，脸上带着疑惑。
+        镜头2（5秒）近景 固定镜头：图1翻开脚本封面。他的手指在片名上停留了一秒，然后抬头看着图2。他的表情比平日更认真——不是冷面，是肃穆。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「你说有项目想谈——就是这个？」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「一支公益短片。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「拍的是我师父。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「你师父？」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「张维远。」
+        画面全程无任何文字、字幕、标题、水印。
+        电影片场准备工作氛围，柔光灯箱与摄影棚顶灯混合光线，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-015, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG02
+    shot_ids: [EP21-S03, EP21-S04]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-015.png
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色高领毛衣+深灰长款大衣）【图2】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图3】电影片场 SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景 缓推：图1靠在摄影器材箱边，目光落在远处。他说话的声音比平时更低——像在讲述一个还没愈合的伤口。图2安静地站在对面，没有催促，只是听着。
+        镜头2（5秒）大特写 固定镜头：图1的下颌线绷紧了一瞬。他没有移开视线，但眼中的寒意几乎穿透镜头。他很少一次性说这么多话——更少谈及自己的过去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「他是国内最好的文艺片导演。十年前提携过我。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「五年前——有人举报他收受贿赂、潜规则演员。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「是真的吗？」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「全是假的。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「舆论一起，投资方撤资。圈内人避之不及。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「他扛了八个月——心梗走的。」
+        画面全程无任何文字、字幕、标题、水印。
+        电影片场私密对话，沉重回忆氛围，混合光线柔和，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-015, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG03
+    shot_ids: [EP21-S05, EP21-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-015.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图2】陆景深 CHAR-002-L01（黑色高领毛衣+深灰长款大衣）【图3】电影片场 SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定镜头：图1在听完'心梗走的'四个字后，瞳孔骤缩了一下。她的喉咙动了一下，手指在身侧不自觉地捏紧了衣角。
+        镜头2（5秒）中近景 固定镜头：图1脱口而出——说到一半猛然意识到差点说漏了嘴。她紧急改口，但改口的痕迹太明显。图2看了她一眼，但没有追问。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「心梗……因为舆论压力导致的心梗。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「和我当年……」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「你觉得你师父的事和我——」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「——和那类事件，有没有关系？」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「你是说——舆论逼死人这种事？」
+        画面全程无任何文字、字幕、标题、水印。
+        电影片场震惊与差点暴露的紧张时刻，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-015, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG04
+    shot_ids: [EP21-S07, EP21-S08]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-015.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图2】陆景深 CHAR-002-L01（黑色高领毛衣+深灰长款大衣）【图3】电影片场 SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：灯光准备到位。图2和图1走到布光区域——一面白墙前，两把简单的椅子。气氛从私密谈话转为专业拍摄。图1坐下来，调整了一下呼吸。
+        镜头2（6秒）近景 固定镜头：两人面对面坐下拍摄对话戏——图1以采访者身份，图2以讲述者身份。她看着他的眼睛，他的目光里没有表演——全都是真实的痛。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（摄影师，成年男性，35岁，声线专业简洁，语速中等，片场工作人员的职业语气）：「灯光好了，可以走位了。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「这支短片——我想让大家知道他是被冤枉的。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「你觉得——真相会被看到吗？」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「我相信会。」
+        画面全程无任何文字、字幕、标题、水印。
+        电影片场专业拍摄布光，白墙前椅子对坐，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-015, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG05
+    shot_ids: [EP21-S09, EP21-S10]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-015.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图2】陆景深 CHAR-002-L01（黑色高领毛衣+深灰长款大衣）【图3】电影片场 SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：拍摄暂停。图2走到监视器前看回放。图1也凑过来——她不自觉地用专业眼光审视画面构图。反应过来后立刻收敛了审视表情。
+        镜头2（5秒）近景 固定镜头：图1没有继续追问。他低头翻看脚本，嘴角有一个几乎不可察觉的弧度。翻到脚本最后一页——那里有一行手写的字。他的表情变得复杂。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「这段镜头如果换个角度拍情绪会更——」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「——更自然吧。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「你很懂镜头。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「看多了就懂了嘛。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「差点又说漏了。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「还有一场——我一个人的独白。」
+        画面全程无任何文字、字幕、标题、水印。
+        电影片场拍摄间隙，监视器冷光与棚内暖光混合，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-015, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG06
+    shot_ids: [EP21-S11, EP21-S12]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-015.png
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色高领毛衣+深灰长款大衣）【图2】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图3】电影片场 SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景 缓推：图1独自坐在白墙前的椅子上。单灯从侧上方打下，在他脸上形成半明半暗的光影。他看着镜头——直接看向观众的方向。他的表情平静，但眼底有深不见底的东西。
+        镜头2（5秒）特写→近景 固定镜头：图1的目光微微一晃，但很快稳住了。他继续对着镜头说——声音里没有表演的痕迹，每句话都像从心底硬生生拔出来的。图2站在监视器后面，胸口像被什么撞了一下。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「我师父走的那天，我在外地拍戏。没赶上。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「他走之前给我打过一个电话——我没接到。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「我找了五年了。找那个举报他的人。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「五年……他找了五年。」
+        画面全程无任何文字、字幕、标题、水印。
+        电影片场单灯独白，半明半暗光影，宿命感氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-015, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG07
+    shot_ids: [EP21-S13, EP21-S14]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-015.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图2】电影片场 SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定镜头：图1站在监视器后面，手指无意识地搭在屏幕边缘。她盯着画面中图2的脸——他说'举报'两个字时的神态，和她说起'十年前'时的表情一模一样。
+        镜头2（5秒）大特写 固定镜头：图1的睫毛颤了一下。一个念头从她脑中闪过——如此清晰，让她几乎不敢确认。她低声喃喃自语。她抬头看向正在从椅子上站起来的图2，眼神变了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「举报——舆论——含冤而死。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「和我的遭遇……一模一样。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「如果他师父的事和我的事——是同一批人做的呢？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「那我们就找到了同盟。」
+        画面全程无任何文字、字幕、标题、水印。
+        监视器冷光照亮的推理串联时刻，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-015, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG08
+    shot_ids: [EP21-S15, EP21-S16]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-015.png
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色高领毛衣+深灰长款大衣）【图2】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图3】电影片场 SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中近景 固定镜头：图1从椅子上站起来，走到监视器旁。他看着回放画面，然后转向图2。她还没完全从思绪中抽离，迎上他的目光时带着一丝来不及收回的审视。
+        镜头2（6秒）近景 固定镜头：图1没有立刻回答。他看着图2的眼睛，像是在衡量什么。然后他说了三个字——语气平静，但分量极重。图2在那一刻确定了一件事：他们的命运，从更早的时候就交织在一起了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「你觉得怎么样？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「……很好。很有力量。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「那个举报你师父的人——你查到什么了？」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「查到了——还差一步。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「如果那个人和害我的人是同一个——那我们就站在同一条战线上。」
+        画面全程无任何文字、字幕、标题、水印。
+        电影片场同盟确认，弦乐渐强的收束氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-015, role: reference_image, label: 图3 }
+    transition_to_next: fade

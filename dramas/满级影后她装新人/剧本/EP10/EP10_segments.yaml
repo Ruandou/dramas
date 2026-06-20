@@ -1,15 +1,15 @@
-# EP10 段落 API 配置 — 影后的正面交锋
-# 8 segments · 12 shots · 82s total
-# model: doubao-seedance-2-0-fast
-# ratio: 9:16
+episode_id: EP10
+source_md: 剧本/EP10/EP10_影后的正面交锋.md
 
-seedance_defaults:
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
   ratio: "9:16"
   resolution: 720p
-  duration_sec: "8-10"
   generate_audio: true
-  prompt_suffix: ", vibrant stage lighting, high saturation, spotlight effects, colorful LED background, live audience atmosphere, broadcast quality, photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, film grain subtle"
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle, vibrant stage lighting, spotlight effects, broadcast quality"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle, vibrant stage lighting, spotlight effects, broadcast quality"
   negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
 
 voice_prompts:
@@ -19,77 +19,239 @@ voice_prompts:
   CHAR-006: "年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差"
   CHAR-GRP-04: "年轻女性，28岁，声线恭顺谨慎，语速中等偏快，说话小心翼翼，下属对大明星的紧张语气"
 
-look_refs:
-  CHAR-001-L01: "assets/looks/CHAR-001-L01.png"
-  CHAR-003-L01: "assets/looks/CHAR-003-L01.png"
-  CHAR-005-L01: "assets/looks/CHAR-005-L01.png"
-  CHAR-006-L01: "assets/looks/CHAR-006-L01.png"
-  CHAR-GRP-04-L01: "assets/looks/CHAR-GRP-04-L01.png"
-
-scene_refs:
-  SCENE-006: "assets/scenes/SCENE-006.png"
-
 segments:
-  - segment_id: SEG01
-    label: "暴风雨前的平静"
-    transition_out: "hard_cut"
-    duration_sec: 10
+  - segment_id: EP10-SEG01
     shot_ids: [EP10-S01]
-    characters: [CHAR-001]
-    prompt: "Backstage corridor of a TV variety show recording studio, cold fluorescent overhead lighting on grey cement walls. A 28-year-old Chinese woman in plain trainee outfit (white t-shirt, grey knit cardigan, canvas sneakers) with black shoulder-length hair leans against the wall looking at her phone, screen glow on her face. She lowers the phone, closes her eyes, takes a deep breath with determined expression. Cold blue-white institutional lighting, empty corridor atmosphere. Vertical 9:16 frame, photorealistic, cinematic mood lighting."
-
-  - segment_id: SEG02
-    label: "导师登场"
-    transition_out: "hard_cut"
     duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白色T恤外搭浅灰色针织开衫，黑色披肩直发，帆布鞋，学员装扮）【图2】综艺录制棚后台走廊 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：图1靠在后台走廊灰色水泥墙边，头顶冷白色荧光灯投下清冷光线，她低头看手机，屏幕光映在脸上。她收起手机，闭眼深吸一口气，睁眼时目光冰冷坚定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「张记者的那条动态…已经三万转了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「方芷晴就在这个棚里。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「越近，越能看到真相。」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚后台，冷色调机构光线，写实娱乐圈风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG02
     shot_ids: [EP10-S02, EP10-S03]
-    characters: [CHAR-006, CHAR-003]
-    prompt: "High-energy TV variety show stage with curved LED wall displaying electric blue and magenta geometric patterns, professional stage lighting rig with moving-head spotlights and beam lights through theatrical haze. A 26-year-old Chinese male host in light blue denim jacket, bright smile. Then a 32-year-old Chinese woman in wine-red velvet blazer dress with deep brown wavy hair walks onto stage with commanding presence, perfect stage smile. Vertical 9:16 frame, photorealistic, vibrant stage lighting, broadcast quality."
-
-  - segment_id: SEG03
-    label: "点评时刻"
-    transition_out: "hard_cut"
     duration_sec: 10
+    speakers: [CHAR-006, CHAR-003]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-006-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】沈逸辰 CHAR-006-L01（浅蓝色牛仔夹克内搭白色T恤，阳光帅气笑容）【图2】方芷晴 CHAR-003-L01（酒红色丝绒西装裙，深棕色大波浪卷发，尖头高跟鞋，完美职业微笑）【图3】综艺录制棚舞台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：图1站在综艺舞台中央，身后弧形LED墙显示亮蓝紫色几何图案，聚光灯和光束灯穿过薄雾，他手持麦克风面对镜头露出灿烂笑容，身后练习生列队可见。
+        镜头2（5秒）中远景 跟随镜头：图2从舞台侧翼登场，聚光灯追随她的身影，高跟鞋敲击舞台地面节奏分明，深棕色大波浪发丝在灯光下泛着光泽，完美职业微笑，目光从容扫过全场。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「各位！今天有位重磅嘉宾——我们的特别导师，方芷晴老师！」
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「掌声欢迎！」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「大家好，我是方芷晴。很荣幸来看大家的表演。」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚舞台，高饱和LED灯光，直播综艺氛围，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG03
     shot_ids: [EP10-S04]
-    characters: [CHAR-003, CHAR-001]
-    prompt: "Variety show stage, a 32-year-old glamorous Chinese woman in wine-red velvet dress with deep brown wavy hair walks slowly along a line of young trainees. She nods and smiles professionally, then pauses as her eyes land on one trainee — her perfect smile freezes for a split second, eyes narrowing with sudden alert scrutiny. Warm stage lights, glossy black stage floor reflecting lights. Vertical 9:16 frame, photorealistic, cinematic 85mm portrait lens."
-
-  - segment_id: SEG04
-    label: "暗涌的表演"
-    transition_out: "hard_cut"
     duration_sec: 10
+    speakers: [CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】方芷晴 CHAR-003-L01（酒红色丝绒西装裙，深棕色大波浪卷发）【图2】综艺录制棚舞台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 缓推：图1沿着练习生队列缓步走过，对前面几位点头微笑，当她目光落在队列中段一人身上时——完美笑容凝固了不到一秒，眼神骤然锐利，随即恢复从容。镜头推近她的面部，捕捉那一丝微妙的表情变化。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「情感很充沛，收放再练练会更好。」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「你叫…？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「林小晚，方老师。」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「林小晚…不错。继续加油。」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚舞台，温暖舞台灯光，黑色光面地板反射灯光，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG04
     shot_ids: [EP10-S05, EP10-S06]
-    characters: [CHAR-001, CHAR-003]
-    prompt: "Split scene: First, a 28-year-old Chinese woman with black shoulder-length hair in plain trainee clothes stands under a spotlight on stage, performing a dramatic monologue with restrained but emotionally charged expression, warm golden LED backdrop. Second, close-up of a 32-year-old Chinese woman in wine-red velvet dress sitting in a judge seat, her relaxed posture slowly tensing as she watches the performance, pupils contracting with dawning recognition. Vertical 9:16 frame, photorealistic, cinematic stage lighting."
-
-  - segment_id: SEG05
-    label: "台下的涟漪"
-    transition_out: "hard_cut"
     duration_sec: 10
+    speakers: [CHAR-006, CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白色T恤外搭浅灰色针织开衫，黑色披肩直发）【图2】方芷晴 CHAR-003-L01（酒红色丝绒西装裙，深棕色大波浪卷发）【图3】综艺录制棚舞台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：图1站在舞台表演区中央，聚光灯打在她身上，LED背景屏切换为暖金色，他开始一段独白表演——表情克制但眼神充满故事，细节处微微颤动显得真实，他在收着演但基本功对训练有素的人显而易见。
+        镜头2（5秒）特写 固定镜头：图2坐在导师席，舞台灯光在她脸上投下变幻的阴影，她原本放松后靠，随着表演进行慢慢坐直——瞳孔微缩，手指在扶手上轻叩一下，只有特写镜头才能捕捉到的微妙反应。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「让我们看看林小晚的表演——请！」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「不能过…六分就好。」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「这个眼神…不对。」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「这种基本功…不可能是新人。」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚舞台，戏剧性灯光，LED暖金色背景，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG05
     shot_ids: [EP10-S07]
-    characters: [CHAR-005, CHAR-001]
-    prompt: "Stage floor near the trainee formation, a 20-year-old Chinese girl with space buns and bright pink hoodie whispers excitedly to a 28-year-old Chinese woman in plain grey cardigan. The younger one's face is full of animated excitement while the older remains calmly composed, her gaze fixed forward. Colorful stage LED backdrop, warm ambient lighting. Vertical 9:16 frame, photorealistic, natural interaction lighting."
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】乔乐安 CHAR-005-L01（亮粉色卫衣，丸子头/space buns发型，青春活泼）【图2】苏念晚 CHAR-001-L01（浅灰色针织开衫，黑色披肩直发）【图3】综艺录制棚舞台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：表演结束，练习生回到队列。图1挤到图2身边，粉色卫衣和丸子头让她格外显眼，她兴奋地侧身耳语。图2保持冷静，目光注视着导师区。乔乐安的活泼与苏念晚的沉静形成鲜明对比。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「小晚姐！刚才方老师点评你的时候多说了两句诶！」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「专心。」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「她点评前面的人都没说这么多…」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「所以更要专心。」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚舞台，彩色LED背景，温暖环境光，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
 
-  - segment_id: SEG06
-    label: "正面交锋"
-    transition_out: "hard_cut"
-    duration_sec: 12
+  - segment_id: EP10-SEG06
     shot_ids: [EP10-S08, EP10-S09]
-    characters: [CHAR-003, CHAR-001]
-    prompt: "Intense face-off on a variety show stage. A glamorous 32-year-old Chinese woman in wine-red velvet dress and stilettos faces a composed 28-year-old Chinese woman in simple trainee clothes, two steps apart. Warm stage light hits both from the side creating symmetrical shadows. Then tight close-up of both faces in frame — one with perfect red lipstick and flawless makeup studying intently, the other with natural minimal makeup and unwavering gaze. The air between them charged with unspoken tension. Vertical 9:16 frame, photorealistic, cinematic 85mm portrait lens."
-
-  - segment_id: SEG07
-    label: "裂痕的种子"
-    transition_out: "hard_cut"
     duration_sec: 12
-    shot_ids: [EP10-S10, EP10-S11]
-    characters: [CHAR-003, CHAR-GRP-04]
-    prompt: "Backstage corridor of recording studio, cold fluorescent lighting casting harsh shadows. A 32-year-old Chinese woman in wine-red velvet dress walks rapidly with urgent stiletto clicks, her stage smile gone replaced by cold brooding expression. A young female assistant in professional attire hurries after her. Then close-up: the older woman stops and turns, face half in shadow, voice light but commanding. The assistant grips her phone nervously. Vertical 9:16 frame, photorealistic, cold cinematic lighting."
+    speakers: [CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】方芷晴 CHAR-003-L01（酒红色丝绒西装裙，深棕色大波浪卷发，尖头高跟鞋）【图2】苏念晚 CHAR-001-L01（白色T恤外搭浅灰色针织开衫，黑色披肩直发，淡妆素颜）【图3】综艺录制棚舞台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 跟随镜头：录制间歇，图1从导师席起身，踩着高跟鞋径直走向练习生区域，其他练习生紧张地让路。她在图2面前两步远处停下，暖色舞台光从侧面同时照亮两人，形成对称光影构图，两人之间的气氛充满电流般的张力。
+        镜头2（6秒）特写 固定镜头：9比16竖屏分切构图——图1完美红唇和精致妆容在一侧，图2素颜淡妆和坚定眼神在另一侧。图1微微侧头，像在鉴定一件古董的真伪。图2不动声色，维持得体的微笑。空气凝固。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「林小晚。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「方老师。」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「你让我想起一个故人。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「是吗？」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「你和她…有一样的东西。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「那是我的荣幸。能被方老师记住的人，一定很特别。」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚舞台，侧面暖色灯光，紧张对峙氛围，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
 
-  - segment_id: SEG08
-    label: "已知的风暴"
-    transition_out: "fade"
-    duration_sec: 8
+  - segment_id: EP10-SEG07
+    shot_ids: [EP10-S10, EP10-S11]
+    duration_sec: 12
+    speakers: [CHAR-003, CHAR-GRP-04]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+        # CHAR-GRP-04-L01: ⏳ 待生成（方芷晴助理，无 TOS URL）
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】方芷晴 CHAR-003-L01（酒红色丝绒西装裙，深棕色大波浪卷发，舞台笑容消失换上冷峻沉思表情）【图2】综艺录制棚后台走廊 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：图1快步走出录制大厅，高跟鞋节奏急促而尖锐，温暖的舞台微笑已经消失——取而代之的是冰冷阴沉的表情，眉间带着压抑的威胁感。一名年轻女助理小跑着追赶她。
+        镜头2（6秒）特写 固定镜头：图1停步转身面对助理，走廊顶灯在她脸上投下阴影，她语气轻描淡写但每个字都分量千钧。助理不自觉地攥紧手机。特写捕捉图1冰冷的眼神和助理紧张的吞咽动作。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「小张。」
+        对白（方芷晴助理，年轻女性，28岁，声线恭顺谨慎，语速中等偏快，说话小心翼翼，下属对大明星的紧张语气）：「方老师？」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「查一下林小晚的完整背景。」
+        对白（方芷晴助理，年轻女性，28岁，声线恭顺谨慎，语速中等偏快，说话小心翼翼，下属对大明星的紧张语气）：「方老师，她有什么问题吗？」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「太干净了。干净得不正常。」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚后台走廊，冷色调荧光灯光，压抑紧张氛围，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG08
     shot_ids: [EP10-S12]
-    characters: [CHAR-001]
-    prompt: "Stage corner of a TV variety show set, a 28-year-old Chinese woman in simple trainee clothes stands alone watching the direction someone left. Colorful LED backdrop shifts behind her, crew members busy in background. Her expression is calm but her eyes hold deep emotion — ten years of waiting surfacing. A faint knowing smile curves at her lips. Warm and cool mixed stage lighting. Vertical 9:16 frame, photorealistic, cinematic mood lighting."
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白色T恤外搭浅灰色针织开衫，黑色披肩直发）【图2】综艺录制棚舞台角落 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）近景 固定镜头：图1独自站在舞台角落，身后彩色LED背景屏缓缓变换，工作人员在背景忙碌走动。她凝视着方芷晴离开的方向，面容平静但眼神深处翻涌着某种东西——十年的等待、隐忍、准备，终于触及目标。嘴角浮起一丝了然的微笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「开始了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「方芷晴…我来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚舞台角落，冷暖混合灯光，孤独而坚定的氛围，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    transition_to_next: fade

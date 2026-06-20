@@ -1,15 +1,15 @@
-# EP12 段落 API 配置 — 危险的A组
-# 7 segments · 11 shots · 78s total
-# model: doubao-seedance-2-0-fast
-# ratio: 9:16
+episode_id: EP12
+source_md: 剧本/EP12/EP12_危险的A组.md
 
-seedance_defaults:
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
   ratio: "9:16"
   resolution: 720p
-  duration_sec: "8-10"
   generate_audio: true
-  prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
   negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
 
 voice_prompts:
@@ -17,71 +17,229 @@ voice_prompts:
   CHAR-005: "年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳"
   CHAR-007: "成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接"
   CHAR-009: "年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意"
-  CHAR-GRP-22: "年轻女性，28岁，声线恭顺礼貌，语速中等，职业化语气带微笑感，对上司指令执行利落"
-
-look_refs:
-  CHAR-001-L01: "assets/looks/CHAR-001-L01.png"
-  CHAR-005-L01: "assets/looks/CHAR-005-L01.png"
-  CHAR-007-L01: "assets/looks/CHAR-007-L01.png"
-  CHAR-009-L01: "assets/looks/CHAR-009-L01.png"
-
-scene_refs:
-  SCENE-003: "assets/scenes/SCENE-003.png"
-  SCENE-004: "assets/scenes/SCENE-004.png"
+  CHAR-GRP-22: "年轻女性，28岁，声线恭顺礼貌，语速中等，职业化语气带微笑感，对上司指令执行利落" # ⏳ 待生成
 
 segments:
-  - segment_id: SEG01
-    label: "A组的见面礼"
-    transition_out: "hard_cut"
-    duration_sec: 10
+  - segment_id: EP12-SEG01
     shot_ids: [EP12-S01]
-    characters: [CHAR-001, CHAR-009]
-    prompt: "Spacious dance training studio with full-height mirror walls and cool white fluorescent tube lighting. Light oak hardwood floor with dance scuff marks. A 28-year-old Chinese woman with black shoulder-length hair in simple trainee outfit (white t-shirt, dark navy pinafore dress, canvas sneakers) pushes open the door. A 21-year-old Chinese woman with light brown long straight hair, pink designer mini bag, stands arms crossed before the mirror with arrogant chin-up posture. Tense confrontation atmosphere between two women in the empty studio. Vertical 9:16 frame, photorealistic, institutional competitive lighting."
-
-  - segment_id: SEG02
-    label: "乐安的担心"
-    transition_out: "hard_cut"
     duration_sec: 10
+    speakers: [CHAR-009, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白色T恤+深蓝色背带裙，黑色齐肩短发）【图2】周瑶 CHAR-009-L01（浅棕色长直发，精致妆容，粉色品牌风迷你包）【图3】A组训练室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：A组训练室，全镜面墙壁反射空间，冷白荧光灯管照亮浅橡木地板上的舞鞋磨痕。图1推门进入，图2双臂环抱站在镜墙前，下巴微抬傲慢姿态，两人相隔数米，气氛冰冷紧张。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「哟，新人来了？A组可不是什么人都能待的地方。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「我知道。」
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「知道就好。别以为进了A组就了不起了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「嗯。」
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「你——」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市娱乐公司A组训练室，冷白荧光灯，对峙紧张氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP12-SEG02
     shot_ids: [EP12-S02]
-    characters: [CHAR-005, CHAR-001]
-    prompt: "Training camp corridor, cool institutional fluorescent lighting. A 20-year-old Chinese girl with twin space buns and bright pink crewneck sweatshirt runs over on white sneakers, grabbing a 28-year-old Chinese woman in simple navy pinafore dress by the arm. The younger one's face shows worried excitement, the older woman remains calmly reassuring. A few curious young trainees peek from the corridor end. Vertical 9:16 frame, photorealistic, natural youthful interaction lighting."
-
-  - segment_id: SEG03
-    label: "CEO的传唤"
-    transition_out: "hard_cut"
     duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】乔乐安 CHAR-005-L01（粉色圆领卫衣，双丸子头，白色运动鞋）【图2】苏念晚 CHAR-001-L01（深蓝色背带裙+白色T恤）【图3】训练室走廊 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：训练营走廊拐角，冷色机构灯光。图1穿粉色卫衣白色运动鞋跑来，抓住图2的手臂，满脸担忧激动。图2保持冷静，轻拍她的手安抚。走廊尽头几名好奇的练习生探头张望。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「小晚姐！听说周瑶在A组等你半天了——她没把你怎么样吧？！」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「她能把我怎么样？」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「她爸可是股东！上次你怼了她，她肯定记仇的……」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「别担心。我不惹事，也不怕事。」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「姐姐你也太帅了吧……！」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市娱乐公司走廊，冷色荧光灯，姐妹情谊氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP12-SEG03
     shot_ids: [EP12-S03]
-    characters: [CHAR-001, CHAR-005]
-    prompt: "Modern corporate headquarters corridor with cool blue-white LED strip lighting along ceiling, polished marble floor, glass curtain wall showing city skyline. A young female staff member in professional business attire walks up to two young women. One (20, pink sweatshirt, space buns) looks nervous, the other (28, simple navy pinafore dress) remains calm and composed. Professional corporate atmosphere. Vertical 9:16 frame, photorealistic, cinematic corporate lighting."
+    duration_sec: 10
+    speakers: [CHAR-GRP-22, CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（深蓝色背带裙+白色T恤）【图2】星耀总部走廊 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：星耀总部走廊，冷蓝白LED灯带沿天花板延伸，玻璃幕墙透出城市天际线。一名职业装女助理快步走来，图1身旁穿粉色卫衣的女孩面露紧张。图1从容应答，助理微笑引路。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（肖铭远助理，年轻女性，28岁，声线恭顺礼貌，语速中等，职业化语气带微笑感，对上司指令执行利落）：「林小晚？肖总请你过去一趟。」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「肖总？！他找你干嘛呀……」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「好。我这就去。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「没事。」
+        对白（肖铭远助理，年轻女性，28岁，声线恭顺礼貌，语速中等，职业化语气带微笑感，对上司指令执行利落）：「请跟我来。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市企业总部走廊，冷蓝白LED灯带，玻璃幕墙，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - segment_id: SEG04
-    label: "温柔的试探"
-    transition_out: "hard_cut"
-    duration_sec: 12
+  - segment_id: EP12-SEG04
     shot_ids: [EP12-S04, EP12-S05]
-    characters: [CHAR-007, CHAR-001]
-    prompt: "Executive office with floor-to-ceiling windows showing panoramic city view. Dark wood desk with minimalist desk lamp. A 35-year-old Chinese man in gold-rimmed glasses, navy suit with patterned tie, sits behind desk with a warm but calculating smile. A 28-year-old Chinese woman in simple trainee clothes sits across, back straight. Then close-up of the man's face — he leans back, perfect smile, sharp eyes glinting behind glasses, desk lamp casting dramatic shadows. Every inch the calculating CEO. Vertical 9:16 frame, photorealistic, cinematic office lighting with warm desk lamp."
-
-  - segment_id: SEG05
-    label: "十年前的名字"
-    transition_out: "hard_cut"
     duration_sec: 12
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-007-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（深蓝色背带裙+白色T恤）【图2】肖铭远 CHAR-007-L01（深蓝色修身西装+白衬衫+暗纹领带，金丝眼镜）【图3】星耀总部CEO办公室 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：CEO办公室，落地窗全景城市视野，深色木质书桌极简台灯。图2穿深蓝西装金丝眼镜坐在转椅上，温和而算计的微笑。他示意对面座位，图1坐下背部挺直双手放膝，表情恭顺但不卑微。
+        镜头2（6秒）特写 固定镜头：图2面部特写，金丝眼镜反射台灯侧光。他靠向椅背，一只手轻敲扶手，完美微笑中眼神锐利算计。每句话都像谈判中精心措辞的棋子。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「坐。别紧张，就是随便聊聊。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「谢谢肖总。」
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「你拍的那个短片我看了。」
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「镜头的节奏、光线的运用……很惊艳。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「谢谢，我是在网上看教程学的。」
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「教程？呵呵。在这个行业——」
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「运气和实力，有时候很难分清楚。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市CEO办公室，台灯侧光明暗对比，心理博弈氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP12-SEG05
     shot_ids: [EP12-S06, EP12-S07]
-    characters: [CHAR-007, CHAR-001]
-    prompt: "Executive office, tense interrogation atmosphere. Close-up of a 35-year-old Chinese man in gold-rimmed glasses slowly removing his glasses, polishing them with cloth, putting them back — deliberate action creating pressure. Dramatic chiaroscuro lighting from desk lamp. Then reverse shot: a 28-year-old Chinese woman in simple trainee clothes, her pupils momentarily contracting with shock before regaining composure, eyes locked on the man. The charged space between them. Vertical 9:16 frame, photorealistic, dramatic shadow play lighting."
-
-  - segment_id: SEG06
-    label: "他是关键"
-    transition_out: "hard_cut"
     duration_sec: 12
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-007-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（深蓝色背带裙+白色T恤）【图2】肖铭远 CHAR-007-L01（金丝眼镜，深蓝色西装）【图3】星耀总部CEO办公室 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 缓推：图2摘下金丝眼镜用布擦拭，慢慢重新戴上。刻意缓慢的动作制造压力。眼镜复位后他的目光重新聚焦在对面的人身上，表情从温和转为审视。台灯侧光在他脸上投下明暗对比。
+        镜头2（6秒）中近景 固定镜头：反打镜头——图1面部微表情一震，瞳孔瞬间收缩后恢复镇定。她端坐不动但目光紧紧锁定对面的人。图2在画面边缘像鉴赏古董般观察她的反应，两人之间的空间充满电荷。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「你知道这个行业最大的秘密是什么吗？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「……什么？」
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「没有秘密。只有说出来的人和没说出来的人。」
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「十年前……」
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「有件事，让公司损失了一个很有潜力的艺人。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他在试探我——」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「是吗？我从没听人说过。」
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「有些事……不是没人知道。是没人敢说。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他知道。肖铭远一定知道真相。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市CEO办公室，台灯侧光明暗对比，心理博弈高峰，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP12-SEG06
     shot_ids: [EP12-S08, EP12-S09]
-    characters: [CHAR-001]
-    prompt: "Modern corporate corridor with glass curtain wall showing city skyline, cool blue-white LED lighting. A 28-year-old Chinese woman in simple trainee clothes walks out of an office, her expression shifting from obedient composure to sharp awareness. Then close-up: she stops at a corner, hand on glass wall, eyes deep and calculating. City skyline's cold blue light flows across the glass. The contrast between her plain exterior and sharp intelligence is striking. Vertical 9:16 frame, photorealistic, cinematic cool corporate lighting."
-
-  - segment_id: SEG07
-    label: "抽屉里的照片"
-    transition_out: "fade"
     duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（深蓝色背带裙+白色T恤，黑色齐肩短发）【图2】星耀总部走廊 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头跟随：图1走出办公室，玻璃门在身后缓缓关闭。冷走廊灯光照在她脸上，表情瞬间从恭顺转为锐利警觉。她沿玻璃幕墙走廊行走，城市倒影与她的身影重叠。
+        镜头2（6秒）特写 固定镜头：图1在走廊拐角停步，一只手放在冰冷的玻璃幕墙上。她的眼神变得深邃锐利，像在快速计算。城市天际线的冷蓝光流过玻璃表面，她的倒影凝固在窗中。朴素练习生外表与眼中锋锐智慧的对比极为强烈。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他故意提到十年前的事——」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「在钓我。看我反应。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他什么都知道。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「肖铭远——是解开十年前真相的关键人物。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「有意思。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市企业走廊，玻璃幕墙城市倒影，冷色调悬疑氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP12-SEG07
     shot_ids: [EP12-S10, EP12-S11]
-    characters: [CHAR-007]
-    prompt: "Executive office in quiet aftermath. A 35-year-old Chinese man in gold-rimmed glasses sits alone, his warm smile faded to calculating coldness. He opens a bottom drawer revealing a yellowed old photograph. He pulls it out. Then extreme close-up of the vintage photo: two young Chinese women — one about 18 with high ponytail in white dress, the other about 22 with elegant features — arms around each other, bright sunny smiles. A man's fingertip traces the edge, gold-rimmed glasses corner visible. Warm nostalgic photo tones against cool office light. Vertical 9:16 frame, photorealistic, cinematic lighting contrast between warm photo and cold office."
+    duration_sec: 12
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-007-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/满级影后她装新人/PROP-002.png
+    api:
+      text: |
+        【图1】肖铭远 CHAR-007-L01（金丝眼镜，深蓝色西装）【图2】星耀总部CEO办公室 SCENE-003【图3】握手老照片 PROP-002。
+        道具：泛黄老照片显示两个年轻女性亲密合影，阳光明媚笑容灿烂，一人约18岁高马尾白裙，另一人约22岁精致面容。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景 缓推：访客离开后图2独坐办公室，温和微笑缓缓消退，取而代之的是算计的冰冷。他低头看向书桌，打开底层抽屉——里面整齐归档的文件上方放着一张泛黄老照片。他取出照片，暖黄纸张色调与冷色办公灯光形成对比。
+        镜头2（6秒）大特写 固定镜头：泛黄老照片特写——两名年轻中国女性亲密合影，笑容明媚。一名男子指尖轻抚照片边缘，画面角落出现男子脸部局部——金丝眼镜反射窗光，嘴角浮起不可读的微笑。暖黄怀旧照片色调。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「林小晚……你到底是谁。」
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「十年前那个案子……」
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「有意思……」
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「越来越有意思了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市CEO办公室，泛黄照片怀旧色调与冷色办公灯光对比，悬疑氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: fade

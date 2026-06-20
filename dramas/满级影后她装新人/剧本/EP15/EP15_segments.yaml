@@ -1,328 +1,256 @@
-# EP15_segments.yaml — 段落 API 配置
-# 数据源：EP15_身份危机.md
-# 注意：对白必须与分集剧本引号内字面一致
-# 8 segments, 88s total (12 shots)
+episode_id: EP15
+source_md: 剧本/EP15/EP15_身份危机.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
+  CHAR-003: "成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次"
+  CHAR-004: "成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性"
+  CHAR-007: "成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接"
+  CHAR-GRP-19: "年轻男性或女性，25岁，声线恭敬礼貌，语速中等，职业化服务语气带微笑感"  # ⏳ 待生成
 
 segments:
-  # ===== SEG01 — 文章危机 =====
-  - segment_id: SEG01
-    shots: ["EP15-S01", "EP15-S02"]
-    scene_id: SCENE-002
-    total_duration_sec: 12
-    description: "文章危机——陈姐告知文章虽下架但截图疯传，3000+转发，备用身份已准备好"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 10
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-004", "CHAR-001"]
-    voiceover:
-      - character_id: CHAR-004
-        voice_prompt: "成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，表达关心时故意用严厉语气掩饰"
-      - character_id: CHAR-001
-        voice_prompt: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
-    dialogue_lines:
-      - speaker: CHAR-004
-        line: "文章是撤了。但截图已经传疯了。"
-        emotion: "紧迫·压低声音"
-        type: spoken
-      - speaker: CHAR-004
-        line: "三个小时，三千多转发。评论区全在猜。"
-        emotion: "咬牙·报数"
-        type: spoken
-      - speaker: CHAR-001
-        line: "有多疯？"
-        emotion: "平静·反问"
-        type: spoken
-      - speaker: CHAR-004
-        line: "备用身份我准备好了。随时可以走。"
-        emotion: "命令式·掏信封"
-        type: spoken
-      - speaker: CHAR-001
-        line: "十天……比我想的快。"
-        emotion: "内心·冷静"
-        type: inner
-    transition: "audio_bridge"
-    continuity_notes: "从上集陈姐来电'出事了'的尾音延续到本集——audio_bridge转场"
-    tension_level: "high"
+  - segment_id: EP15-SEG01
+    shot_ids: [EP15-S01, EP15-S02]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-002.png
+    api:
+      text: |
+        【图1】陈姐 CHAR-004-L01（银灰色短发+深色职业套装）【图2】苏念晚 CHAR-001-L01（白衬衫领口微松+深蓝背带裙）【图3】咖啡馆 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景 固定镜头：咖啡馆私密卡座，暖色吊灯在深木桌面投下光圈。图1手机屏幕朝上推过来——手机屏幕显示社交媒体文章截图界面，评论区数字不断跳动。她银灰色短发利落，但眉间皱纹比平时更深，表情紧迫压低声说话。
+        镜头2（6秒）中景 固定镜头：图2坐在卡座对面，齐肩短发，白衬衫领口微松，表情平静得反常地看着手机。图1从座位旁取出一个牛皮纸信封推到桌子中间，信封表面可见字样。暖色低照度光线在两人之间形成柔和分层。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈姐，成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性）：「文章是撤了。但截图已经传疯了。」
+        对白（陈姐，成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性）：「三个小时，三千多转发。评论区全在猜。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「有多疯？」
+        对白（陈姐，成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性）：「备用身份我准备好了。随时可以走。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「十天……比我想的快。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市咖啡馆卡座，暖色吊灯低照度，紧迫危机氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
 
-  # ===== SEG02 — 方芷晴入驻 =====
-  - segment_id: SEG02
-    shots: ["EP15-S03", "EP15-S04"]
-    scene_id: SCENE-002
-    total_duration_sec: 12
-    description: "方芷晴入驻——陈姐告知方芷晴加入新星计划常驻，苏念晚决定不退"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 10
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-004", "CHAR-001"]
-    voiceover:
-      - character_id: CHAR-004
-        voice_prompt: "成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，表达关心时故意用严厉语气掩饰"
-      - character_id: CHAR-001
-        voice_prompt: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
-    dialogue_lines:
-      - speaker: CHAR-004
-        line: "还有一个坏消息。"
-        emotion: "急促·低声"
-        type: spoken
-      - speaker: CHAR-004
-        line: "方芷晴刚宣布加入新星计划。常驻。"
-        emotion: "一字一顿"
-        type: spoken
-      - speaker: CHAR-001
-        line: "我不走。"
-        emotion: "平静·坚定"
-        type: spoken
-      - speaker: CHAR-004
-        line: "你得想清楚。她来了，你的风险翻倍。"
-        emotion: "画外音·急"
-        type: spoken
-      - speaker: CHAR-001
-        line: "她越近，我越不能退。"
-        emotion: "内心·冷"
-        type: inner
-    continuity_notes: "同场景续接SEG01"
-    tension_level: "high"
+  - segment_id: EP15-SEG02
+    shot_ids: [EP15-S03, EP15-S04]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-002.png
+    api:
+      text: |
+        【图1】陈姐 CHAR-004-L01（银灰色短发+深色职业套装）【图2】苏念晚 CHAR-001-L01（白衬衫领口微松+深蓝背带裙）【图3】咖啡馆 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景 镜头推近：图1把牛皮纸信封推到图2手边，手指按在信封边缘，表情急切。暖色吊灯光线聚焦在信封上。图2指尖搭在信封表面但没有打开它。两人之间的空气凝重，咖啡杯在旁边搁着。
+        镜头2（6秒）特写 缓推：图2面容特写，暖色侧光勾勒出她精致骨相轮廓。手指在信封上停住，然后抬眼——瞳孔里有一瞬的波动，不是恐惧而是某种冷静到危险的光芒。她将信封轻轻推回。齐肩发丝垂在脸侧，表情从迟疑转为坚定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈姐，成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性）：「还有一个坏消息。」
+        对白（陈姐，成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性）：「方芷晴刚宣布加入新星计划。常驻。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「我不走。」
+        对白（陈姐，成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性）：「你得想清楚。她来了，你的风险翻倍。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「她越近，我越不能退。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市咖啡馆卡座，牛皮纸信封与暖色灯光，危机抉择氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
 
-  # ===== SEG03 — 发布会宣布 =====
-  - segment_id: SEG03
-    shots: ["EP15-S05", "EP15-S06"]
-    scene_id: SCENE-003
-    total_duration_sec: 12
-    description: "发布会宣布——肖铭远宣布方芷晴担任新星计划特别导师，苏念晚内心警觉"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 10
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-007", "CHAR-001"]
-    voiceover:
-      - character_id: CHAR-007
-        voice_prompt: "成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗"
-      - character_id: CHAR-001
-        voice_prompt: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
-    dialogue_lines:
-      - speaker: CHAR-007
-        line: "今天要宣布一个好消息。"
-        emotion: "微笑·宣布"
-        type: spoken
-      - speaker: CHAR-007
-        line: "方芷晴女士将担任新星计划的特别导师。"
-        emotion: "微笑·从容"
-        type: spoken
-      - speaker: CHAR-001
-        line: "特别导师。来盯着我的。"
-        emotion: "内心·冷"
-        type: inner
-      - speaker: CHAR-001
-        line: "方芷晴……你终于来了。"
-        emotion: "内心·暗涌"
-        type: inner
-    transition: "dissolve"
-    continuity_notes: "从咖啡馆暖光dissolve到发布会厅冷调光线——场景切换"
-    tension_level: "medium"
+  - segment_id: EP15-SEG03
+    shot_ids: [EP15-S05, EP15-S06]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: |
+        【图1】肖铭远 CHAR-007-L01（深色西装+金丝眼镜）【图2】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图3】星耀发布会厅 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：发布会厅，深蓝色背景墙配金色立体字。图1站在讲台后，金丝眼镜反射着舞台聚光灯，嘴角挂着职业化的温和微笑，姿态从容。台下几排记者和工作人员，冷调玻璃幕墙光从侧面照进大厅。
+        镜头2（6秒）中近景 固定镜头：图2站在人群后方，朴素白衬衫配深蓝背带裙，与周围工作人员形成对比。听到名字时，她瞳孔微缩但面部没有更多表情变化。她微微侧头，目光穿过人群投向讲台方向。冷调环境光从玻璃幕墙照射进来，脸上有硬朗的光影。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「今天要宣布一个好消息。」
+        对白（肖铭远，成年男性，35岁，语调平稳自信带微笑感，声线温润有说服力，语速中等不疾不徐，说话像在谈判滴水不漏，威胁时语气依然温和却令人不寒而栗，撕破脸后语调骤然冰冷直接）：「方芷晴女士将担任新星计划的特别导师。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「特别导师。来盯着我的。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「方芷晴……你终于来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市娱乐公司发布会厅，深蓝色背景墙与金色灯光，冷调玻璃幕墙，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
 
-  # ===== SEG04 — 目光交汇 =====
-  - segment_id: SEG04
-    shots: ["EP15-S07", "EP15-S08"]
-    scene_id: SCENE-003
-    total_duration_sec: 12
-    description: "目光交汇——方芷晴走向苏念晚，意味深长说'新剧本，喜欢吗'"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 10
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-003", "CHAR-001"]
-    voiceover:
-      - character_id: CHAR-003
-        voice_prompt: "成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意"
-      - character_id: CHAR-001
-        voice_prompt: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
-    dialogue_lines:
-      - speaker: CHAR-003
-        line: "我们又见面了。"
-        emotion: "微笑·优雅"
-        type: spoken
-      - speaker: CHAR-003
-        line: "听说你表现很亮眼。"
-        emotion: "微笑·打量"
-        type: spoken
-      - speaker: CHAR-001
-        line: "方老师过奖了。"
-        emotion: "克制·垂眸"
-        type: spoken
-      - speaker: CHAR-003
-        line: "新剧本，喜欢吗？"
-        emotion: "轻笑·意味深长"
-        type: spoken
-      - speaker: CHAR-001
-        line: "这个笑容……她知道多少？"
-        emotion: "内心·警觉"
-        type: inner
-    continuity_notes: "同场景续接SEG03"
-    tension_level: "high"
+  - segment_id: EP15-SEG04
+    shot_ids: [EP15-S07, EP15-S08]
+    duration_sec: 12
+    speakers: [CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: |
+        【图1】方芷晴 CHAR-003-L01（酒红色丝绒西装裙，大波浪卷发）【图2】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图3】星耀发布会厅 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头跟随：发布会结束，人群散开。图1从讲台走下来，酒红色丝绒西装裙在冷调灯光下泛着暗光，大波浪卷发垂在一侧。她径直穿过人群，方向明确地走向站在角落穿白衬衫的图2。周围有人侧目看她们。
+        镜头2（6秒）近景 固定镜头：图2和图1面对面，两人之间距离不过两米。图1歪头微笑，妆容精致的脸上看不出任何敌意但眼底有审视的光芒。图2回以克制微笑，指尖在身侧轻轻攥紧又松开。冷调侧光从玻璃幕墙一侧照射，在两人之间形成微妙的光影分隔。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「我们又见面了。」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「听说你表现很亮眼。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「方老师过奖了。」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「新剧本，喜欢吗？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「这个笑容……她知道多少？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市发布会厅走廊，冷调灯光与玻璃幕墙光影，暗藏锋芒的对话，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
 
-  # ===== SEG05 — 拿到剧本 =====
-  - segment_id: SEG05
-    shots: ["EP15-S09"]
-    scene_id: SCENE-003
-    total_duration_sec: 8
-    description: "拿到剧本——工作人员分发灰色剧本，苏念晚感觉封面眼熟，内心疑惑"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 8
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-001", "CHAR-GRP-19"]
-    voiceover:
-      - character_id: CHAR-001
-        voice_prompt: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
-      - character_id: CHAR-GRP-19
-        voice_prompt: "年轻女性，25岁，声线职业化平稳，语速中等，下属对练习生的职业语气"
-    dialogue_lines:
-      - speaker: CHAR-001
-        line: "谢谢。"
-        emotion: "低头·接过"
-        type: spoken
-      - speaker: CHAR-GRP-19
-        line: "这是您的剧本，林老师。"
-        emotion: "职业化·礼貌"
-        type: spoken
-      - speaker: CHAR-001
-        line: "这个封面……怎么有点眼熟。"
-        emotion: "内心·疑惑"
-        type: inner
-      - speaker: CHAR-001
-        line: "灰皮封面……深色标题……在哪见过？"
-        emotion: "内心·翻找"
-        type: inner
-    continuity_notes: "同场景续接SEG04"
-    tension_level: "medium"
+  - segment_id: EP15-SEG05
+    shot_ids: [EP15-S09]
+    duration_sec: 8
+    speakers: [CHAR-001, CHAR-GRP-19]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图2】星耀走廊 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 固定镜头：发布会散场后走廊里。一位年轻工作人员穿着深色星耀制服，抱着一摞灰色封面的剧本走来分发给选手。图1接过一本，指尖刚触到纸张，某种奇怪的熟悉感让她动作顿了一下，低头看封面。冷调走廊灯光从上方照射，灰色封面在光线下显得朴素。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「谢谢。」
+        对白（工作人员，年轻男性或女性，25岁，声线恭敬礼貌，语速中等，职业化服务语气带微笑感）：「这是您的剧本，林老师。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「这个封面……怎么有点眼熟。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「灰皮封面……深色标题……在哪见过？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市娱乐公司走廊，冷调灯光与灰色剧本封面，悬疑氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  # ===== SEG06 — 发现 =====
-  - segment_id: SEG06
-    shots: ["EP15-S10"]
-    scene_id: SCENE-003
-    total_duration_sec: 12
-    description: "发现——苏念晚翻开剧本看到《暗夜回响》标题，认出是自己十八岁写的作品，手指颤抖"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 12
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-001"]
-    voiceover:
-      - character_id: CHAR-001
-        voice_prompt: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
-    dialogue_lines:
-      - speaker: CHAR-001
-        line: "《暗夜回响》……"
-        emotion: "轻颤·低语"
-        type: spoken
-      - speaker: CHAR-001
-        line: "这是我十八岁那年写的剧本。"
-        emotion: "内心·难以置信"
-        type: inner
-      - speaker: CHAR-001
-        line: "十年前亲手敲完的。每个字都是。每个。"
-        emotion: "内心·碎片"
-        type: inner
-      - speaker: CHAR-001
-        line: "不可能……这不可能。"
-        emotion: "内心·崩塌"
-        type: inner
-    continuity_notes: "同场景续接SEG05"
-    tension_level: "peak"
-    hook_type: "H-SUS（悬念钩——自己的剧本在仇人手中）"
+  - segment_id: EP15-SEG06
+    shot_ids: [EP15-S10]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图2】星耀走廊 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）大特写 缓推：极端特写——灰色封面的剧本翻开第一页，标题页上印着深色字。一只年轻女子的手停在纸张边缘，微微颤抖，指尖泛白。缓慢推近的过程中焦点锁定在标题文字上，能看见纸张的纹理和轻微的阴影。冷调光线从上方照射，标题投射出细微阴影。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「《暗夜回响》……」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「这是我十八岁那年写的剧本。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「十年前亲手敲完的。每个字都是。每个。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「不可能……这不可能。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市走廊，灰色剧本封面特写，震惊与难以置信，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  # ===== SEG07 — 她在看着我 =====
-  - segment_id: SEG07
-    shots: ["EP15-S11"]
-    scene_id: SCENE-003
-    total_duration_sec: 12
-    description: "她在看着我——苏念晚抬头看到方芷晴在评委席微笑看她，意识到对方从一开始就知道一切"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 12
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-001"]
-    voiceover:
-      - character_id: CHAR-001
-        voice_prompt: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
-      - character_id: CHAR-003
-        voice_prompt: "成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意"
-    dialogue_lines:
-      - speaker: CHAR-003
-        line: "喜欢这个剧本吗？"
-        emotion: "画外音·轻声·绵里藏针"
-        type: spoken
-      - speaker: CHAR-001
-        line: "怎么会……在她手里。"
-        emotion: "低语·恍然"
-        type: spoken
-      - speaker: CHAR-001
-        line: "她不仅知道我是谁。她连我的剧本都拿走了。"
-        emotion: "内心·咬牙"
-        type: inner
-      - speaker: CHAR-001
-        line: "她从头到尾都知道。"
-        emotion: "内心·冷"
-        type: inner
-      - speaker: CHAR-001
-        line: "……她在等我反应。"
-        emotion: "内心·收紧"
-        type: inner
-    continuity_notes: "同场景续接SEG06"
-    tension_level: "peak"
-    hook_type: "H-EMO + H-INF（情感钩+信息钩——方芷晴知道一切）"
+  - segment_id: EP15-SEG07
+    shot_ids: [EP15-S11]
+    duration_sec: 12
+    speakers: [CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图2】星耀走廊 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）特写 固定镜头：图1面容特写，她缓缓从剧本上抬头，目光越过走廊里人群的后脑勺，落在远方的评委席方向。她的表情从震惊逐渐变为一种冷静的清醒。冷调环境光在她的脸上留下硬朗的光影，眼神中有清醒的危机意识。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「喜欢这个剧本吗？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「怎么会……在她手里。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「她不仅知道我是谁。她连我的剧本都拿走了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「她从头到尾都知道。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「……她在等我反应。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市走廊，冷调光影与震惊觉醒，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  # ===== SEG08 — 静音段·震颤（Cliffhanger） =====
-  - segment_id: SEG08
-    shots: ["EP15-S12"]
-    scene_id: SCENE-003
-    total_duration_sec: 8
-    description: "静音段钩子——特写苏念晚的手紧紧握着剧本，指节发白，方芷晴模糊身影在景深外微笑。无对白，紧张弦乐crescendo后骤止"
-    seedance_params:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 8
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    characters: ["CHAR-001"]
-    voiceover: []
-    dialogue_lines: []
-    silent_music_cue: "紧张弦乐crescendo → 骤止"
-    continuity_notes: "同场景续接SEG07，全集唯一无对白segment，方芷晴在景深外模糊但可辨"
-    tension_level: "peak"
-    hook_type: "H-SUS + H-EMO（悬念钩+情感钩——四重危机凝缩在一个镜头中）"
-    silent: true
-    cliffhanger: true
-    transition: "fade"
+  - segment_id: EP15-SEG08
+    shot_ids: [EP15-S12]
+    duration_sec: 8
+    speakers: []
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白衬衫+深蓝背带裙）【图2】星耀走廊 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）大特写 固定镜头：极端特写——一只苍白年轻女子的手，纤细手指紧紧握着灰色剧本的边角，指节发白泛红，纸张边缘被捏出明显的褶皱和折痕。画面焦点从手部开始，缓慢上移拉远——背景中评委席方向，一个身穿酒红色西装裙的女性身影在景深外模糊成一个暗色影子，但那个微笑的轮廓在失焦的背景下依然可辨。冷调光线，紧张氛围。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    transition_to_next: fade

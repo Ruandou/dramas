@@ -1,161 +1,265 @@
-# EP14 Segments - 天台的秘密
-# Generated from EP14_天台的秘密.md
-# 8 segments, 16 shots, 86s total
-
 episode_id: EP14
-episode_title: 天台的秘密
-duration_sec: 86
-season: S1
+source_md: 剧本/EP14/EP14_天台的秘密.md
 
-seedance_defaults:
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
   ratio: "9:16"
   resolution: 720p
-  image_resolution: 1600x2848
-  duration_sec: "8-10"
   generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
+  CHAR-002: "成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感"
+  CHAR-004: "成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性"
+  CHAR-010: "成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力"
 
 segments:
-  - segment_id: SEG01
-    title: "天台对峙"
+  - segment_id: EP14-SEG01
     shot_ids: [EP14-S01, EP14-S02]
-    scene_id: SCENE-007
-    location: "陆景深天台"
-    time: "夜"
-    interior: false
-    total_duration_sec: 12
-    characters: [CHAR-001, CHAR-002]
-    looks: [CHAR-001-L01, CHAR-002-L01]
-    props: []
-    transition_in: hard_cut
-    transition_out: hard_cut
-    summary: "陆景深在天台当面质问苏念晚为何藏拙，苏念晚否认。"
-    emotion: "压迫→抵抗"
-    prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle, night rooftop, city skyline background, cool blue ambient light with warm city glow"
-    negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+    duration_sec: 12
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-007.png
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色高领毛衣+深灰色长大衣）【图2】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙）【图3】天台 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中全景 缓推：天台，城市夜景在身后铺开如星海。图1背靠栏杆，深灰色大衣被夜风轻掀。图2站在几步外，双手紧握身前的背包带，夜风吹起她额前碎发。两人之间隔着一段沉默的距离。
+        镜头2（6秒）中近景 固定镜头：图1向前走了一步，皮鞋踩在天台地面发出细微声响。图2下意识后退了半步——不是因为恐惧，是因为他说得太准了。天台的风吹动他大衣下摆。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「我在问你——为什么藏拙。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「……陆老师，我真的不知道你在说什么。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「你知道。从我们第一次见面你就知道我在说什么。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他全都看穿了。从什么时候开始的？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市天台夜景，城市灯火璀璨，夜风微凉，悬疑紧张氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
 
-  - segment_id: SEG02
-    title: "三秒入戏"
+  - segment_id: EP14-SEG02
     shot_ids: [EP14-S03, EP14-S04]
-    scene_id: SCENE-007
-    location: "陆景深天台"
-    time: "夜"
-    interior: false
-    total_duration_sec: 10
-    characters: [CHAR-001, CHAR-002]
-    looks: [CHAR-001-L01, CHAR-002-L01]
-    props: []
-    transition_in: hard_cut
-    transition_out: hard_cut
-    summary: "陆景深指出苏念晚综艺三秒入戏的事实，苏念晚说是巧合。"
-    emotion: "层层逼近"
-    prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle, night rooftop, city skyline background, cool blue ambient light with warm city glow"
-    negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-007.png
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色高领毛衣+深灰色长大衣）【图2】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙）【图3】天台 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定镜头：图1的目光锁住她，眉骨在路灯下投出阴影。他的声音不高，但每个字都像石子落入水面，清晰而笃定。
+        镜头2（5秒）近景 缓推：图2的睫毛微颤了一下——那是她唯一泄露的情绪。她咬住下唇内侧，像在组织一个足够可信的谎言。城市灯光在她瞳孔里碎成一片星点。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「综艺那次。三秒入戏。你闭眼——再睁眼，眼泪就下来了。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「那不是新人能做到的事。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「那是……巧合。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他看到了那次。全部细节。他一直在看我。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市天台夜景，路灯与城市光斑，两人对峙氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
 
-  - segment_id: SEG03
-    title: "舞台恐惧症"
+  - segment_id: EP14-SEG03
     shot_ids: [EP14-S05, EP14-S06]
-    scene_id: SCENE-007
-    location: "陆景深天台"
-    time: "夜"
-    interior: false
-    total_duration_sec: 12
-    characters: [CHAR-001, CHAR-002]
-    looks: [CHAR-001-L01, CHAR-002-L01]
-    props: []
-    transition_in: hard_cut
-    transition_out: hard_cut
-    summary: "陆景深继续追问，苏念晚编造舞台恐惧症理由。"
-    emotion: "防御→暴露"
-    prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle, night rooftop, city skyline background, cool blue ambient light with warm city glow"
-    negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+    duration_sec: 12
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-007.png
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色高领毛衣+深灰色长大衣）【图2】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙）【图3】天台 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景 固定镜头：图1嘴角微微动了一下——不是笑，是"你又来了"的表情。他侧头看向远处的城市灯火，又转回来，目光深邃。
+        镜头2（6秒）中近景 固定镜头：图2深吸一口气，像是做了一个决定。她抬起头，眼眶微微泛红——不是演的，是真的被逼到角落的紧张。夜风吹过她耳边的发丝。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「巧合一次是巧合。次次都是巧合——就不是了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他咬住不放了。怎么办。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「我有舞台恐惧症。人一多就紧张。紧张就喘不上气。表演的时候……会不自觉地收。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「舞台恐惧症。这借口我自己都不信。但他会信吗。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市天台夜景，情感博弈与谎言编织，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
 
-  - segment_id: SEG04
-    title: "你的秘密我不会说"
+  - segment_id: EP14-SEG04
     shot_ids: [EP14-S07, EP14-S08]
-    scene_id: SCENE-007
-    location: "陆景深天台"
-    time: "夜"
-    interior: false
-    total_duration_sec: 10
-    characters: [CHAR-001, CHAR-002]
-    looks: [CHAR-001-L01, CHAR-002-L01]
-    props: []
-    transition_in: hard_cut
-    transition_out: dissolve
-    summary: "陆景深选择相信苏念晚的借口，说'你的秘密我不会说'——两人达成微妙信任。"
-    emotion: "沉默→信任"
-    prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle, night rooftop, city skyline background, warm golden ambient light from city"
-    negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-007.png
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色高领毛衣+深灰色长大衣）【图2】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙）【图3】天台 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：沉默。天台只有风声。图1深深看了她一眼——那眼神像在读取她的全部信息。然后他垂下眼，像是做出了一个选择。
+        镜头2（5秒）近景 固定镜头：图1转身走了两步，在栏杆前停下，背对着她。城市灯火在他背影上镶了一道金边。他微微侧头。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「听起来像真的。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他……不追问了？」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「你的秘密——我不会说。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「……为什么？」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「每个人都有不能说的理由。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「这三个月来——第一次有人对我说这句话。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市天台夜景，城市灯火金边，两人之间微妙的信任与感动，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
 
-  - segment_id: SEG05
-    title: "记者的发现"
+  - segment_id: EP14-SEG05
     shot_ids: [EP14-S09, EP14-S10]
-    scene_id: SCENE-002
-    location: "咖啡馆"
-    time: "夜"
-    interior: true
-    total_duration_sec: 10
-    characters: [CHAR-010]
-    looks: [CHAR-010-L01]
-    props: []
-    transition_in: dissolve
-    transition_out: hard_cut
-    summary: "张记者在咖啡馆发布文章《林小晚到底是谁？十个细节指向退圈影后苏念晚》。"
-    emotion: "确认→发布"
-    prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle, evening cafe interior, warm ambient table lamp light, cozy intimate atmosphere"
-    negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+    duration_sec: 10
+    speakers: [CHAR-010]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-010-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-002.png
+    api:
+      text: |
+        【图1】张记者 CHAR-010-L01（深色格纹衬衫+老花镜）【图2】咖啡馆 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：咖啡馆角落，老旧的台灯投下一圈暖光。图1戴着老花镜，电脑屏幕蓝光映在他脸上。桌上放着两张打印出来的照片——一张是林小晚的综艺截图，一张是十年前的苏念晚。他来回对比，眉头紧锁。
+        镜头2（5秒）特写 固定镜头：鼠标悬停在"发布"按钮上。图1的手在空中悬了一秒——然后按下。屏幕上显示"发布成功"。他摘下眼镜揉了揉眼睛，露出十年老记者终于等到大新闻的表情。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「像。太像了。」
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「林小晚到底是谁？十个细节指向退圈影后苏念晚。」
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「挖了三个月。终于等到今天。」
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「这篇发出去——整个圈子都要炸。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市咖啡馆角落，暖色台灯与电脑蓝光，悬疑揭秘氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-010-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
 
-  - segment_id: SEG06
-    title: "文章浮现"
+  - segment_id: EP14-SEG06
     shot_ids: [EP14-S11, EP14-S12]
-    scene_id: SCENE-008
-    location: "苏念晚公寓"
-    time: "深夜"
-    interior: true
-    total_duration_sec: 10
-    characters: [CHAR-001]
-    looks: [CHAR-001-L01]
-    props: []
-    transition_in: hard_cut
-    transition_out: hard_cut
-    summary: "苏念晚回到公寓看到张记者的文章推送，表情凝固。"
-    emotion: "平静→警觉"
-    prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle, late night apartment, dim warm desk lamp, phone screen blue glow on face, tense atmosphere"
-    negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙）【图2】公寓客厅 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：公寓客厅，一盏暖色台灯是唯一光源。图1刚从天台回来，外套还没脱，坐在沙发边缘。手机屏幕亮起——推送通知弹出。她随手拿起手机，表情从疲惫瞬间凝固。
+        镜头2（5秒）大特写 镜头推近：手机屏幕光映在图1脸上，照亮她渐渐收紧的表情。她快速滑动文章，看到一张对比图——左边林小晚，右边十年前的她。文章标题加粗：十个细节。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「……」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「张记者的文章。发出来了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「十个细节……」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他对比了妆容、神态、说话方式。比我预想的更细致。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市公寓深夜，暖色台灯与手机蓝光，紧张悬疑氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - segment_id: SEG07
-    title: "舆论发酵"
+  - segment_id: EP14-SEG07
     shot_ids: [EP14-S13, EP14-S14]
-    scene_id: SCENE-008
-    location: "苏念晚公寓"
-    time: "深夜"
-    interior: true
-    total_duration_sec: 10
-    characters: [CHAR-001]
-    looks: [CHAR-001-L01]
-    props: []
-    transition_in: hard_cut
-    transition_out: hard_cut
-    summary: "苏念晚滑动评论区，越来越多网友表示'我也觉得像'，危机逼近。"
-    emotion: "紧张扩大"
-    prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle, late night apartment, dim ambient light, phone screen glow, tense atmosphere, solitary figure"
-    negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙）【图2】公寓客厅 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定镜头：图1滑动手机评论区。她咬着下唇，指尖悬在屏幕上方没有落下。表情从紧张变成凝重——评论区的风向超出了她的预期。
+        镜头2（5秒）中景 固定镜头：图1站起来走向窗边，手机还握在手里。落地窗外城市灯火璀璨，但她背对着光，脸上的表情藏在阴影中。她另一只手不自觉地攥紧衣角。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「'我也觉得像……眼睛一模一样。'」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「'从第一期就觉得她不简单。'」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「评论风向在转。太快了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「再这样下去——」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「三天。最多三天就会被人肉出来。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市公寓深夜，窗边城市灯火与阴影中人物，危机逼近氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - segment_id: SEG08
-    title: "陈姐来电"
+  - segment_id: EP14-SEG08
     shot_ids: [EP14-S15, EP14-S16]
-    scene_id: SCENE-008
-    location: "苏念晚公寓"
-    time: "深夜"
-    interior: true
-    total_duration_sec: 12
-    characters: [CHAR-001, CHAR-004]
-    looks: [CHAR-001-L01]
-    props: []
-    transition_in: hard_cut
-    transition_out: hard_cut
-    summary: "陈姐来电说出事，文章十分钟转发过万压不住。身份危机全面爆发。"
-    emotion: "爆发→切断"
-    prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle, late night apartment, dim ambient light, phone screen glow, urgent atmosphere, solitary figure"
-    negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白T恤+深蓝色背带裙）【图2】公寓客厅 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景 缓推：手机震动。图1低头看屏幕——来电显示"陈姐"。她犹豫了一秒，接起放到耳边。没有寒暄，电话那头的声音直接而急促。
+        镜头2（6秒）近景 固定镜头：图1握着手机的手指微微泛白。她睁开眼，看向窗外的城市——那么多灯火，但没有一盏是为她亮的。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「姐。」
+        对白（陈姐，成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性）：「出事了。文章你看到了？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「看到了。」
+        对白（陈姐，成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性）：「压不住了。十分钟转发过万。评论都在扒你以前的作品。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「……我知道。」
+        对白（陈姐，成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性）：「小晚——这次是真的出事了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市公寓深夜，电话急促与身份危机爆发，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: fade

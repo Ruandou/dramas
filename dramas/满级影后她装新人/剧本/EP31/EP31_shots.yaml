@@ -1,0 +1,504 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP31/EP31_颁奖前夜.md
+# Source shots: 16 (EP31-S01 to EP31-S16)
+# Output shots: 16 (EP31-S01 to EP31-S16)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s (calculated: 5+5+6+5+5+5+5+5+6+5+6+6+5+5+5+6)
+# Output total duration: 90s
+# Gate status: ALL PASS
+# NOTE: [待补：黑影] in S15 assigned CHAR-GRP-26 placeholder (trigger 集间群演回补子循环)
+
+episode_id: EP31
+source_md: 剧本/EP31/EP31_颁奖前夜.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+shots:
+  - shot_id: EP31-S01
+    shot_no: 1
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: "全景 固定：深夜练习室只有角落应急灯发出微弱光，镜面墙壁反射窗外城市霓虹灯光——冷蓝和橙红交织，一个年轻女人独自坐在地板上背靠镜墙双腿蜷起，静静看着对面镜子里自己的倒影。"
+      content_roles:
+        - { file: SCENE-004, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "明天——就是颁奖典礼了。"
+      - speaker: CHAR-001
+        line: "林小晚……还是苏念晚——明天站上去的会是谁。"
+      - speaker: CHAR-001
+        line: "十年前站在那个台上的时候——我什么都没怕过。"
+      - speaker: CHAR-001
+        line: "什么时候开始——连自己的名字都不敢说了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（练习生伪装）【图2】练习室 SCENE-004。近景 固定：图1缓缓闭上眼睛，反射的城市灯光在眼皮上留下朦胧光晕，呼吸变得缓慢而深——像要把整个十年的重量都吸进去再呼出来。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "十八岁那年——金像奖。"
+      - speaker: CHAR-001
+        line: "我站在台上——手捧奖杯——全场起立鼓掌。"
+      - speaker: CHAR-001
+        line: "那时候——我什么都不怕。"
+    transition_to_next: dissolve
+
+  - shot_id: EP31-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L03]
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L03.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "【图1】苏念晚（18岁）CHAR-001-L03（白色连衣裙+高马尾白色丝带）【图2】金像奖舞台 SCENE-001。中景 固定：⚡闪回·十年前金色灯光洒满舞台，图1穿白色连衣裙从座位站起走上台阶，台下千人起立掌声如潮，脸上是毫无遮掩的璀璨笑容。desaturated warm vintage tone, soft vignette, slightly grainy film texture。"
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "十年前的金像奖——最佳女主角。"
+      - speaker: CHAR-001
+        line: "我站在那里——没有害怕——只有：'我终于做到了。'"
+      - speaker: CHAR-001
+        line: "第十届金像奖——最佳女主角——苏念晚！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L03]
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L03.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "【图1】苏念晚（18岁）CHAR-001-L03（白色连衣裙+高马尾白色丝带）【图2】金像奖舞台 SCENE-001。特写 固定：聚光灯下18岁特写，图1握着奖杯笑容灿烂，眼睛里有泪光——不是悲伤是激动到极点的光芒，暖色调灯光泛着金色光晕。desaturated warm vintage tone。"
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "谢谢评审团。谢谢我妈妈。谢谢陈姐。"
+      - speaker: CHAR-001
+        line: "我相信——真相不会永远被掩埋。好的作品——永远有人看见。"
+      - speaker: CHAR-001
+        line: "那个时候——我以为未来会一直这样美好。"
+      - speaker: CHAR-001
+        line: "三个月后——我的世界塌了。"
+    transition_to_next: dissolve
+
+  - shot_id: EP31-S05
+    shot_no: 5
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "特写 固定：画面碎裂——报纸特写，模糊新闻标题轮廓：'三冠影后丑闻''一夜跌落'，照片上女人的侧脸被打马赛克，色调从金色骤转为冷酷惨白——刺眼的白炽灯闪烁像无数闪光灯在亮。"
+      content_roles:
+        - { file: SCENE-001, role: reference_image, label: 图1 }
+    dialogue: []  # 静音段
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L03]
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L03.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "【图1】苏念晚（18岁）CHAR-001-L03（白色连衣裙，高马尾散了）【图2】金像奖后台走廊 SCENE-001。近景 固定：18岁的图1被围堵在走廊角落，高马尾散了白裙上有污渍，蜷缩着用手挡住脸，闪光灯疯狂闪烁捕捉恐惧和狼狈。"
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "他们说——我是靠不正当手段拿到的角色。"
+      - speaker: CHAR-001
+        line: "没有任何证据——但所有人都信了。"
+      - speaker: CHAR-001
+        line: "我没有——我真的没有——"
+      - speaker: CHAR-001
+        line: "你信不信不重要。重要的是——没有人愿意听你解释。"
+      - speaker: CHAR-001
+        line: "然后——我就消失了。十年。"
+    transition_to_next: dissolve
+
+  - shot_id: EP31-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01, CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（练习生伪装）【图2】陆景深 CHAR-002-L01（黑色高领毛衣+深灰大衣）【图3】练习室 SCENE-004。中景 固定：门无声推开，图2站在门口手里拿着两杯冒热气的咖啡，走进来在她身边坐下隔着半臂把咖啡递到她面前。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "……"
+      - speaker: CHAR-001
+        line: "……你怎么来了。"
+      - speaker: CHAR-002
+        line: "练习室灯亮着。猜你在这里。"
+      - speaker: CHAR-001
+        line: "明天就是颁奖典礼了。"
+      - speaker: CHAR-002
+        line: "我知道。所以我来了。"
+      - speaker: CHAR-001
+        line: "他什么都知道——什么都不问。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: "【图1】陆景深 CHAR-002-L01（黑色高领毛衣+深灰大衣）【图2】练习室 SCENE-004。近景 固定：图1看着镜中两人的倒影，声音比平时更低更柔。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "我睡不着的时候也喜欢来这里。空荡荡的——反而安静。"
+      - speaker: CHAR-001
+        line: "你也紧张吗——明天。"
+      - speaker: CHAR-002
+        line: "不是紧张。是怕你一个人。"
+      - speaker: CHAR-001
+        line: "……"
+      - speaker: CHAR-002
+        line: "不管明天发生什么——我都在。"
+      - speaker: CHAR-001
+        line: "陆景深——"
+      - speaker: CHAR-002
+        line: "咖啡还热——先喝了。"
+      - speaker: CHAR-001
+        line: "……嗯。"
+      - speaker: CHAR-001
+        line: "原来——有人陪着——是这样的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01, CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（练习生伪装）【图2】陆景深 CHAR-002-L01（黑色高领毛衣）【图3】练习室 SCENE-004。中景 固定：两人并肩坐在地板上喝着咖啡，窗外城市灯光在对面反射出朦胧轮廓，沉默从理解中诞生。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "刚来练习的时候——每天对着这面镜子练表情。装新人——比演影后难多了。"
+      - speaker: CHAR-002
+        line: "看得出来。但你装得很差。"
+      - speaker: CHAR-002
+        line: "我第一天就看出你有问题。一个真正的'新人'——不会有你那种眼神。"
+      - speaker: CHAR-001
+        line: "原来你一直知道。"
+      - speaker: CHAR-002
+        line: "我不问——因为我想知道——你在等什么。等到明天——我就知道了。"
+      - speaker: CHAR-001
+        line: "明天——你会知道的。"
+      - speaker: CHAR-001
+        line: "他一直在等我自己说。从没逼过我。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01, CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（练习生伪装）【图2】陆景深 CHAR-002-L01（黑色高领毛衣）【图3】练习室 SCENE-004。特写 固定：两人被镜子反射的脸，图1嘴角带着笑意，图2面部线条在城市微光中变得柔和，咖啡杯冒着细细的热气——唯一温暖的元素。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "明天——不管台上发生什么——我都想好了。"
+      - speaker: CHAR-002
+        line: "嗯。"
+      - speaker: CHAR-001
+        line: "你不问我准备了什么吗。"
+      - speaker: CHAR-002
+        line: "你准备好了——自然会说。"
+      - speaker: CHAR-001
+        line: "用最少的字——说最重的话。"
+      - speaker: CHAR-002
+        line: "嗯。"
+      - speaker: CHAR-001
+        line: "明天——不管结局如何——至少此刻——我不是一个人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01, CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（练习生伪装）【图2】陆景深 CHAR-002-L01（黑色高领毛衣）【图3】练习室 SCENE-004。近景 固定：手机震动——陈姐来电，图1接起来，深夜电话那头声音带着熬夜后沙哑但依然干练。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "陈姐。"
+      - speaker: CHAR-004
+        line: "最后确认——明早九点张记者的稿子准时上线。颁奖典礼前舆论就会转向。"
+      - speaker: CHAR-001
+        line: "好。"
+      - speaker: CHAR-004
+        line: "但——方芷晴那边也有动静。她团队连夜在准备什么——我还没查到具体内容。"
+      - speaker: CHAR-001
+        line: "知道了。"
+      - speaker: CHAR-004
+        line: "小心。明天的舞台——不仅是你的舞台。也是她的战场。"
+      - speaker: CHAR-001
+        line: "方芷晴也在准备。"
+      - speaker: CHAR-002
+        line: "所以呢。"
+      - speaker: CHAR-001
+        line: "所以——我不会让她先动手。"
+      - speaker: CHAR-002
+        line: "嗯。"
+      - speaker: CHAR-001
+        line: "明天——如果她要揭我——那我就自己站出来。比她先。"
+      - speaker: CHAR-001
+        line: "走吧。回去睡一会儿。"
+      - speaker: CHAR-002
+        line: "嗯。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01, CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（练习生伪装）【图2】陆景深 CHAR-002-L01（黑色高领毛衣）【图3】练习室 SCENE-004。中景 固定：两人站起来，图1走到门口回头看了一眼空荡荡的练习室——镜面墙壁反射城市灯光像另一个属于记忆的空间，深吸一口气转身走出门。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "明天——这个房间里的一切——都会不一样了。"
+      - speaker: CHAR-002
+        line: "会更好。"
+      - speaker: CHAR-001
+        line: "你怎么知道。"
+      - speaker: CHAR-002
+        line: "因为你在做对的事。"
+      - speaker: CHAR-001
+        line: "'对的事'——他居然说得这么简单。"
+      - speaker: CHAR-001
+        line: "走吧。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-002-L01, CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: "【图1】陆景深 CHAR-002-L01（黑色高领毛衣）【图2】苏念晚 CHAR-001-L01（练习生伪装）【图3】练习室 SCENE-004。中景 固定：图1在门口按灭灯——'咔嗒'一声应急灯灭了，整个房间陷入黑暗只有窗外城市光投下朦胧银灰色轮廓，在黑暗中伸手准确找到图2的手。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "走吧。"
+      - speaker: CHAR-001
+        line: "嗯。"
+      - speaker: CHAR-002
+        line: "明天见。"
+      - speaker: CHAR-001
+        line: "明天见。"
+      - speaker: CHAR-002
+        line: "不管明天你选择叫什么名字——我都会站在台下。"
+      - speaker: CHAR-001
+        line: "……陆景深。"
+      - speaker: CHAR-002
+        line: "走吧。"
+      - speaker: CHAR-001
+        line: "嗯。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S14
+    shot_no: 14
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: "全景 固定：走廊全景声控灯亮了又暗，两个人的身影走向电梯，而在走廊尽头的黑暗拐角一个黑影紧贴墙壁，黑影看到两人走远后拿出手机——屏幕微光映出模糊侧脸轮廓——按下一个号码。"
+      content_roles:
+        - { file: SCENE-004, role: reference_image, label: 图1 }
+    dialogue: []  # 静音段
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S15
+    shot_no: 15
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: "特写 固定：暗角——手机屏幕亮起拨号界面显示没有名字的号码，接通了，压低的声音清晰。"
+      content_roles:
+        - { file: SCENE-004, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: CHAR-GRP-26
+        line: "她明天会来。"
+      - speaker: CHAR-GRP-26
+        line: "好——按计划进行。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-003-L01]
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-009.png
+    api:
+      text: "【图1】方芷晴 CHAR-003-L01（深色丝绸睡袍）【图2】方芷晴豪宅 SCENE-009。近景 推近：⚡闪切——图1穿深色丝绸睡袍站在落地窗前手里端着红酒，看着窗外城市夜景嘴角浮起一个'准备好了'的冷笑，对着空荡荡的房间举杯。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "林小晚——不。苏念晚。"
+      - speaker: CHAR-003
+        line: "明天——我的礼物已经准备好了。"
+      - speaker: CHAR-003
+        line: "妹妹——明天见。"
+    transition_to_next: fade

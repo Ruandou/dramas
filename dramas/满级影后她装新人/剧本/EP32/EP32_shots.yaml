@@ -1,0 +1,429 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP32/EP32_身份曝光.md
+# Source shots: 16 (EP32-S01 to EP32-S16)
+# Output shots: 16 (EP32-S01 to EP32-S16)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 86s (calculated: 5+6+5+6+5+6+5+6+5+5+6+6+5+5+6+4)
+# NOTE: .md VALIDATION claims 90s but actual shot sum is 86s (.md arithmetic error)
+# Output total duration: 86s
+# Gate status: ALL PASS
+
+episode_id: EP32
+source_md: 剧本/EP32/EP32_身份曝光.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+shots:
+  - shot_id: EP32-S01
+    shot_no: 1
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "全景 固定：金像奖颁奖典礼大厅全景，巨大水晶吊灯投下璀璨光芒，红色地毯从舞台延伸到观众席，大屏幕滚动入围名单动画，观众席坐满穿礼服的明星，舞台上灯光聚焦颁奖台，一位穿黑色礼服的颁奖嘉宾站在话筒前手持信封。"
+      content_roles:
+        - { file: SCENE-001, role: reference_image, label: 图1 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S02
+    shot_no: 2
+    mode: t2v
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "全景 跟随：观众席快速扫描——第三排靠走道一位穿白色衬衫黑长裤的女性平静端坐手在膝上微微握紧，隔几排一位穿深灰西装的男性侧头看向她的方向，第一排一位穿酒红色丝绒西装的女性带着完美微笑眼底有期待。"
+      content_roles:
+        - { file: SCENE-001, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: CHAR-GRP-16
+        line: "第十一届金像奖——最佳新人奖。入围的有——"
+      - speaker: CHAR-001
+        line: "来了。"
+      - speaker: CHAR-001
+        line: "不管发生什么——站上去。走下去。"
+      - speaker: CHAR-003
+        line: "妹妹——准备好了吗。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（白色衬衫+黑色长裤）【图2】金像奖典礼大厅 SCENE-001。近景 固定：图1坐在座位上看着舞台，大屏幕提名片段结束，颁奖嘉宾撕开信封的动作被舞台大屏幕放大，图1的手指在膝盖上不自觉地收紧。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-GRP-16
+        line: "获得——第十一届金像奖——最佳新人奖的是——"
+      - speaker: CHAR-001
+        line: "……不管是林小晚还是苏念晚——这一刻——我在这里。"
+      - speaker: CHAR-001
+        line: "十年了。我又回到了这个舞台。不管用什么名字——我回来了。"
+      - speaker: CHAR-001
+        line: "这就够了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（白色衬衫+黑色长裤）【图2】金像奖典礼大厅 SCENE-001。全景 固定：颁奖嘉宾看着卡片微笑对着话筒宣布，大屏幕闪出获奖者照片和名字，聚光灯在观众席扫动最终锁定在图1身上，全场掌声响起。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-GRP-16
+        line: "——林小晚！"
+      - speaker: CHAR-001
+        line: "……不管是林小晚还是苏念晚——这一刻——我在这里。"
+      - speaker: CHAR-001
+        line: "十年了。我又回到了这个舞台。不管用什么名字——我回来了。"
+      - speaker: CHAR-001
+        line: "这就够了。"
+      - speaker: CHAR-003
+        line: "去吧……上台去。然后——"
+      - speaker: CHAR-003
+        line: "看看我给你准备了什么。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（白色衬衫+黑色长裤）【图2】金像奖典礼大厅 SCENE-001。中景 跟随：图1站起来整了整衣领，沿着过道走向舞台，每一步踩在红毯上被镜头放大，周围是掌声和各种情绪交织的注视，图1表情平静。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "从座位到舞台——三十七步。"
+      - speaker: CHAR-001
+        line: "第一步——十年前我站上领奖台。"
+      - speaker: CHAR-001
+        line: "第二步——被记者围堵的那个夜晚。"
+      - speaker: CHAR-001
+        line: "第三步——出租车上哭着摘下奖杯。第四步——离开这座城市。第五步——"
+      - speaker: CHAR-001
+        line: "——在无数个深夜对着镜子练习表情。"
+      - speaker: CHAR-001
+        line: "——告诉自己——'你可以回去的'。"
+      - speaker: CHAR-001
+        line: "我回来了。"
+      - speaker: CHAR-001
+        line: "以林小晚的名字——站在苏念晚曾经站过的地方。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（白色衬衫+黑色长裤）【图2】金像奖典礼大厅 SCENE-001。近景 固定：图1站在话筒前，颁奖嘉宾将金色奖杯递给她，她接过奖杯低头看了一眼底座刻字，眼眶微微泛红但嘴角上扬。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "……谢谢。"
+      - speaker: CHAR-001
+        line: "谢谢评审团。谢谢导演。谢谢剧组的所有人。"
+      - speaker: CHAR-001
+        line: "还要谢谢一个人——"
+      - speaker: CHAR-001
+        line: "谢谢——有人告诉我——不管发生什么——他都在。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（白色衬衫+黑色长裤）【图2】金像奖典礼大厅 SCENE-001。近景 固定：图1握着奖杯正要开口说话，大屏幕上画面骤然切换——一张泛黄老照片出现——18岁女孩白色连衣裙高马尾手捧三座金色奖杯笑容灿烂，观众席开始骚动窃窃私语，图1转头看向大屏幕。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "……"
+      - speaker: CHAR-001
+        line: "……她动手了。"
+      - speaker: CHAR-001
+        line: "方芷晴——这就是你的'礼物'。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S08
+    shot_no: 8
+    mode: t2v
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "全景 固定：典礼现场全景，大屏幕上林小晚照片与十年前苏念晚照片形成对比——同样五官不同造型，观众席彻底炸开，记者们站起来往前挤，闪光灯此起彼伏，有人惊呼有人捂嘴有人拿手机疯狂拍照，全场一片混乱。"
+      content_roles:
+        - { file: SCENE-001, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "林小晚——不。苏念晚——欢迎回到金像奖。"
+      - speaker: CHAR-003
+        line: "这次——你是以'骗子'的身份站上去的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S09
+    shot_no: 9
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "全景 固定：记者群混乱，好几个记者离开座位冲到舞台前，保安尽力拦截，闪光灯像暴雨一样闪烁将舞台笼罩在刺眼白光中，明星嘉宾有的面露震惊有的交头接耳有的拿出手机录制。"
+      content_roles:
+        - { file: SCENE-001, role: reference_image, label: 图1 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01, CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（白色衬衫+黑色长裤）【图2】陆景深 CHAR-002-L01（深灰西装）【图3】金像奖典礼大厅 SCENE-001。近景 固定：舞台聚光灯打在图1身上，她站在风暴中心握着奖杯背对大屏幕上的旧照片，表情是超乎寻常的平静，台下图2站了起来看着台上的她目光穿过混乱人群。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "……"
+      - speaker: CHAR-001
+        line: "来了。这一刻——终于来了。"
+      - speaker: CHAR-001
+        line: "十年前——我是在后台被包围的。我逃了。"
+      - speaker: CHAR-001
+        line: "十年后——我站在台上。我不会再逃了。"
+      - speaker: CHAR-001
+        line: "……他在。"
+      - speaker: CHAR-001
+        line: "够了。有这句话——就够了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（白色衬衫+黑色长裤）【图2】金像奖典礼大厅 SCENE-001。近景 推近：图1走到话筒前，将奖杯放在讲台上双手扶住话筒架微微低头，漫长的沉默——全场渐渐安静，所有人都在等她开口。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "……"
+      - speaker: CHAR-001
+        line: "是有话要说。"
+      - speaker: CHAR-001
+        line: "首先——这个奖杯——"
+      - speaker: CHAR-001
+        line: "我很感激。不管我叫什么名字——这个奖是我应得的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（白色衬衫+黑色长裤）【图2】金像奖典礼大厅 SCENE-001。特写 固定：聚光灯正面打在图1脸上，每一丝表情被放大给全场看，眼睛里没有恐惧只有超越恐惧阶段的平静，缓缓开口每个字像经过十年打磨。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "是的——我就是苏念晚。"
+      - speaker: CHAR-001
+        line: "十年前的金像奖最佳女主角。三座影后奖杯的获得者。"
+      - speaker: CHAR-001
+        line: "也是十年前——被一条丑闻——逼到退圈的苏念晚。"
+      - speaker: CHAR-001
+        line: "而我有话要说——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S13
+    shot_no: 13
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "全景 固定：快速闪切全场反应——记者群疯了一样往前涌，女明星捂住嘴眼睛瞪得滚圆，男导演站起来表情复杂，保安组成人墙阻止记者冲上舞台，整个大厅变成沸腾的火山口。"
+      content_roles:
+        - { file: SCENE-001, role: reference_image, label: 图1 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-003-L01]
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "【图1】方芷晴 CHAR-003-L01（酒红色丝绒西装裙）【图2】金像奖典礼大厅 SCENE-001。近景 固定：图1坐在第一排一动不动，周围人都在站起来看热闹，她的微笑完全消失取而代之是冰冷的算计表情，手指在座椅扶手上轻轻扣了一下——极少露出的不安信号。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "……"
+      - speaker: CHAR-003
+        line: "她承认了——她居然承认了——"
+      - speaker: CHAR-003
+        line: "她要说什么——她手里有什么——她不可能有——"
+      - speaker: CHAR-003
+        line: "……不对。这个走向不对。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L01（白色衬衫+黑色长裤）【图2】金像奖典礼大厅 SCENE-001。近景 推近：图1站在聚光灯下握着话筒，全场混乱在身周涌动但目光坚定，微微侧头看了一眼大屏幕上自己十年前的照片然后转回来对着台下开口。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "十年前——我没能说出口。"
+      - speaker: CHAR-001
+        line: "今天——我不会再沉默了。"
+      - speaker: CHAR-001
+        line: "而我有话要说——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S16
+    shot_no: 16
+    mode: skip
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-001
+      look_ids: []
+    assets: {}
+    api:
+      text: "全黑画面。后期添加字幕：'我必须说出——这十年所有的真相。'字幕消失后黑屏持续，声音只有前段话语的余音在黑暗中回荡两秒——然后完全寂静。"
+      content_roles: []
+    dialogue: []
+    transition_to_next: fade
