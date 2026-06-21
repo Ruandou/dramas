@@ -1,0 +1,294 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP45/EP45_三步计划.md
+# Source shots: 12 (EP45-S01 to EP45-S12)
+# Output segments: 9 (EP45-SEG01a/b to EP45-SEG06a/b)
+# Source total duration: 75s
+# Output total duration: 75s
+# Gate status: ALL PASS
+
+episode_id: EP45
+source_md: 剧本/EP45/EP45_三步计划.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
+  CHAR-002: "成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感"
+  CHAR-004: "成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰"
+
+segments:
+  - segment_id: EP45-SEG01a
+    shot_ids: [EP45-S01]
+    duration_sec: 7
+    speakers: [CHAR-004, CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-002.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白衬衫深蓝背带裙）【图2】陈姐 CHAR-004-L01（银灰短发黑职业套装）【图3】陆景深 CHAR-002-L01（深灰大衣黑高领毛衣）【图4】咖啡馆 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）中景 固定：咖啡馆角落暖黄吊灯低垂。三人围坐在深色木桌旁陆景深面前摊着笔记本电脑陈姐面前摆着手机和记事本三人的咖啡都已凉透。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「录音笔我做了三份备份。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「怎么用，你们说。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「分三步走。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「第一步，化妆师公开证词——引发舆论关注。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban cafe setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP45-SEG01b
+    shot_ids: [EP45-S02]
+    duration_sec: 7
+    speakers: [CHAR-002, CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-002.png
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（深灰大衣黑高领毛衣）【图2】苏念晚 CHAR-001-L01【图3】咖啡馆 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）近景 固定：图1伸出第二根、第三根手指。图2专注地看着他眼神像在核对作战地图。窗外午后阳光斜射进来在桌面上投下窗格的影子。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「第二步，录音全网引爆——让方芷晴无法辩驳。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「第三步，金像奖颁奖典礼——放出全部证据。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「一步都不能跳。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「发布时间线呢。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban cafe setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP45-SEG02a
+    shot_ids: [EP45-S03]
+    duration_sec: 7
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-002.png
+    api:
+      text: |
+        【图1】陈姐 CHAR-004-L01（银灰短发黑职业套装）【图2】苏念晚 CHAR-001-L01【图3】咖啡馆 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）中景 固定：图1从包里拿出平板快速滑动屏幕语速飞快像在布置战役方案。图2认真听着偶尔点头。木桌上散落着几张打印资料——媒体清单和发布排期。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「媒体我已经联系好了。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「刘姐证词视频+文字稿同步首发。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「方芷晴团队一定会第一时间否认。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「否认得越快——反转的时候就越响。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban cafe setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP45-SEG02b
+    shot_ids: [EP45-S04]
+    duration_sec: 7
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-002.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01【图2】陆景深 CHAR-002-L01【图3】咖啡馆 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）特写 固定：双人同框特写。图1微微前倾看向图2两人目光在暖色灯光下交汇。她压低声音带着猎手特有的冷静。图2嘴角浮起一丝极淡的弧度。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「金像奖那一步，就看你的了。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「颁奖流程我拿到了。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「会有一个特殊环节。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「多大。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「够大。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban cafe setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP45-SEG03
+    shot_ids: [EP45-S05, EP45-S06]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白衬衫深蓝背带裙）【图2】公寓 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：傍晚图1坐在公寓书桌前。笔记本电脑屏幕亮着她目光凝在屏幕上的一张已编辑好的声明稿件上。手指在键盘上悬停了一秒然后按下回车键——发送。窗外暮色从淡蓝渐变成暗紫。
+        镜头2（6秒）近景 固定：图1靠在椅背上盯着屏幕手机亮了——陈姐的消息：「发出去了。三分钟后见报。」她放下手机脸上的表情是紧张期待和一丝释然的混合。屏幕光在她脸上跳动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「[内心]第一步……开始了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「[内心]刘姐的证词——现在全网都看到了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「[内心]方芷晴，你会怎么接。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban apartment setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP45-SEG04
+    shot_ids: [EP45-S07, EP45-S08]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白衬衫深蓝背带裙）【图2】公寓 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：深夜台灯照亮书桌一角。图1不断刷新手机屏幕社交媒体页面上的数字在快速跳动——转发评论话题热度都在暴涨。她的表情在手机冷光中明灭不定。
+        镜头2（5秒）特写 固定：图1的特写。屏幕冷蓝光照亮半边脸话题标签在眼前流动。她轻轻咬了一下下唇——不是紧张是一种克制的期待。眼中有光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「[内心]在涨了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「[内心]热度前十……还在往上冲。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「方芷晴，全网的视线都在你身上了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「看你怎么回应。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban apartment setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP45-SEG05
+    shot_ids: [EP45-S09, EP45-S10]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01【图2】公寓 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：手机铃声响起。图1接起是陈姐。她听着听着表情没有任何变化——像是早就预料到了。窗外城市夜景在玻璃上映出她的倒影。
+        镜头2（6秒）特写 固定：图1缓缓站起身走向窗前。夜幕下万家灯火铺展开来。她的眼神从等待的平静变为猎手锁定目标的锐利。声音很低但每个字都有分量。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「[电话]方芷晴团队两分钟前发了声明。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「念。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「[电话]'不实指控、无中生有、将追究法律责任'。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「意料之中。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「否认得好。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「否认得越坚决，反转冲击力就越大。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「[电话]你早料到了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「方芷晴的套路，我太熟了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban apartment setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP45-SEG06a
+    shot_ids: [EP45-S11]
+    duration_sec: 6
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01【图2】公寓 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1转身走回书桌手指轻轻拂过桌上那封母亲的信封边缘——这是从EP43后一直放在那里的。她低头看着信封声音轻而坚定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「[电话]第二步什么时候放。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「等她再跳一会儿。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「跳得越高——摔得越惨。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「好戏，才刚开始。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban apartment setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP45-SEG06b
+    shot_ids: [EP45-S12]
+    duration_sec: 7
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（白衬衫深蓝背带裙）【图2】公寓 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）特写 镜头推近：图1的特写。台灯暖光照亮她半张脸另外半张隐在暗处。她握着手机指尖轻轻收紧。嘴角那丝弧度一直没消失。她抬眼看向窗外又收回目光落在信封上——像是在跟谁做无声的对话。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「[内心]妈，第一步走完了。我不会停的。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「第二步……我要让所有人都听到那段录音。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban apartment setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: fade

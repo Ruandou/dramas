@@ -1,0 +1,381 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP59/EP59_真相的重量.md
+# Source shots: 10 (EP59-S01 to EP59-S10)
+# Output shots: 10 (EP59-S01 to EP59-S10)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 86s
+# Output total duration: 86s
+# Gate status: ALL PASS
+# NOTE: SEG01 in source (16s) split into 2 segments (8s+8s) per 12s limit
+
+episode_id: EP59
+source_md: 剧本/EP59/EP59_真相的重量.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: 「成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力」
+  CHAR-002: 「成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感」
+  CHAR-004: 「成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰」
+
+shots:
+  - shot_id: EP59-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L02（深色针织开衫+宽松长裤，长发披肩，一夜未眠的略微憔悴）【图2】阳台 SCENE-008（苏念晚公寓·清晨）。中景 固定：清晨的公寓阳台，苏念晚双手撑在栏杆上，她没有换衣服——显然一夜没睡。远处的城市被晨雾笼罩，阳光正在慢慢冲破云层。她面前的手机屏幕上闪烁着新闻推送——星耀娱乐暴跌的股市数据在闪烁。她的表情很平静，是一种剧烈风暴过后精疲力竭的平静。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "天亮了。"
+      - speaker: CHAR-001
+        line: "星耀跌了百分之三十。"
+      - speaker: CHAR-001
+        line: "十年——换一个百分之三十。"
+      - speaker: CHAR-001
+        line: "我以为我会开心。结果就是——不累。也不开心。"
+      - speaker: CHAR-001
+        line: "就是……空。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L02（深色针织开衫）【图2】陆景深 CHAR-002-L01（深灰色长大衣，头发微乱——一夜没睡连夜赶来）【图3】阳台 SCENE-008。近景 固定：苏念晚身后的阳台门被推开。陆景深走出来，站在她身边，没有马上说话，只是和她一起看着远处的晨光。沉默了几秒——那种不需要言语的默契。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "听说你一夜没睡。"
+      - speaker: CHAR-001
+        line: "睡不着。"
+      - speaker: CHAR-001
+        line: "脑子里太多东西。"
+      - speaker: CHAR-002
+        line: "好消息。还是坏消息。"
+      - speaker: CHAR-001
+        line: "赢的消息。"
+      - speaker: CHAR-001
+        line: "但赢了之后——发现还有下一局。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】陆景深 CHAR-002-L01【图2】苏念晚 CHAR-001-L02【图3】阳台 SCENE-008。中景 固定：陆景深向前一步，从背后轻轻抱住苏念晚。他的双臂环过她的腰，下巴搁在她的肩头。她先是僵了一下——然后整个人在他的怀抱中松了下来。她闭上眼，靠在他身上，像终于找到了可以卸下所有盔甲的地方。晨光在他们身上洒下一层金色的薄纱。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "结束了。"
+      - speaker: CHAR-002
+        line: "十年——结束了。"
+      - speaker: CHAR-001
+        line: "嗯。"
+      - speaker: CHAR-001
+        line: "结束了。"
+      - speaker: CHAR-002
+        line: "你做到了。"
+      - speaker: CHAR-002
+        line: "我为你骄傲。"
+      - speaker: CHAR-001
+        line: "谢谢。"
+      - speaker: CHAR-001
+        line: "谢谢你——一直在。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L02【图2】陆景深 CHAR-002-L01【图3】阳台 SCENE-008。近景 镜头推近：苏念晚在他怀里沉默了许久。然后她睁开眼——目光从疲惫变得清澈而坚定。她从他的怀抱中微微抬起头，望向远处已经完全亮起来的城市。她的声音很轻，但每一个字都很稳。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "还没结束。"
+      - speaker: CHAR-001
+        line: "还有一件事——我要做。"
+      - speaker: CHAR-002
+        line: "什么事。"
+      - speaker: CHAR-001
+        line: "我不想让任何人——再经历我经历过的事。"
+      - speaker: CHAR-001
+        line: "我要让这个行业——公平一点。"
+      - speaker: CHAR-002
+        line: "……好。"
+      - speaker: CHAR-002
+        line: "我陪你。"
+      - speaker: CHAR-001
+        line: "嗯。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L02【图2】陆景深 CHAR-002-L01【图3】客厅 SCENE-008（公寓·晨光渐亮）。中景 固定：公寓客厅内，苏念晚和陆景深坐在沙发上。茶几上放着两杯已经凉掉的水。苏念晚拿着手机，刚刚打通了陈姐的电话——外放模式。窗外晨光越来越亮。陈姐的声音从电话那头传来（CHAR-004仅声音出场）。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "念晚！你看到了吗？星耀直接跌停了！方芷晴那边——她刚被约谈了。"
+      - speaker: CHAR-004
+        line: "还有——张记者那篇深度报道，阅读量已经过五千万了。幕后大佬的所有关系网——全被扒出来了。"
+      - speaker: CHAR-001
+        line: "陈姐。我想做一件事。"
+      - speaker: CHAR-004
+        line: "你说。"
+      - speaker: CHAR-001
+        line: "我要发起一个行业倡议。建立一个艺人保护机制——让被冤枉的演员，有地方可以申诉。"
+      - speaker: CHAR-004
+        line: "……念晚。你妈如果听到这句话——她会为你骄傲的。"
+      - speaker: CHAR-001
+        line: "那就好。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L02（长发披肩）【图2】陆景深 CHAR-002-L01【图3】客厅 SCENE-008（落地窗前·阳光透过窗帘）。中景 固定：苏念晚挂断电话，站起来走到落地窗前。阳光透过窗帘洒进客厅，在她身上镀上一层金色。陆景深也站起来，走到她身边，和她并肩站在窗前。两人都没有说话——就这样看着窗外的城市开始新的一天。城市在晨光中苏醒，远处高楼的玻璃幕墙反射着金色的光芒。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "今天——好像是这十年来——第一个真正的好天气。"
+      - speaker: CHAR-002
+        line: "嗯。"
+      - speaker: CHAR-002
+        line: "以后——都会是好天气。"
+      - speaker: CHAR-001
+        line: "嗯。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L02【图2】陆景深 CHAR-002-L01【图3】客厅 SCENE-008。近景 固定：苏念晚低头看手机——收到了一条消息。她盯着屏幕，表情复杂。陆景深侧头看了一眼屏幕——没有问是谁发的，只是安静地等她。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "是乔乐安。"
+      - speaker: CHAR-001
+        line: "'姐姐——我看到新闻了。你赢了。真的赢了。'"
+      - speaker: CHAR-001
+        line: "这孩子——她还记得我。"
+      - speaker: CHAR-001
+        line: "她说——她想考表演学院。问我还收不收学生。"
+      - speaker: CHAR-002
+        line: "你收吗。"
+      - speaker: CHAR-001
+        line: "收。如果有天赋的话。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】陆景深 CHAR-002-L01【图2】苏念晚 CHAR-001-L02【图3】客厅 SCENE-008（晨光中）。近景 固定：陆景深轻轻扳过她的肩膀，让她面对自己。他看着她——目光认真而温柔。晨光照在他脸上，分明了他棱角分明的轮廓。他的声音很低，但每一个字都像承诺。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "接下来——你想做什么，我都支持你。"
+      - speaker: CHAR-002
+        line: "你想改变行业——我陪你。你想开表演课——我陪你。你想休息——我也陪你。"
+      - speaker: CHAR-001
+        line: "你什么时候变得这么会说话了。"
+      - speaker: CHAR-002
+        line: "遇到你之后——学的。"
+      - speaker: CHAR-001
+        line: "傻子。"
+      - speaker: CHAR-002
+        line: "嗯。你的傻子。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L02【图2】陆景深 CHAR-002-L01【图3】落地窗 SCENE-008（城市天际线晨光）。全景 镜头拉远：全景镜头——落地窗前，陆景深从背后轻轻抱住苏念晚。两人一起面对窗外已经完全亮起来的城市。晨光在他们身上镀上金色的轮廓。城市的车流开始涌动——新的一天开始了。镜头缓缓拉远，将两人的剪影和城市的天际线一起收入画面。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "十年前——我以为我的故事结束了。"
+      - speaker: CHAR-001
+        line: "现在我才知道——它才刚刚开始。"
+      - speaker: CHAR-002
+        line: "嗯。一起。"
+      - speaker: CHAR-001
+        line: "一起。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】苏念晚 CHAR-001-L02【图2】客厅 SCENE-008（晨光中）。特写 镜头推近：苏念晚的面部特写——她在晨光中睁开眼，目光清澈而坚定。那是一种'决定了就不再回头'的眼神。她轻轻靠在陆景深身上，但她的眼睛望着远方——那里有她要去的地方。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "一个人的平反——不够。我要让这个行业——再也不能随便毁掉任何人。"
+      - speaker: CHAR-001
+        line: "这件事——我一定要做到。"
+      - speaker: CHAR-002
+        line: "那——开始吧。"
+      - speaker: CHAR-001
+        line: "嗯。开始吧。"
+    transition_to_next: hard_cut

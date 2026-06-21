@@ -1,0 +1,225 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP55/EP55_暗流.md
+# Source shots: 12 (EP55-S01 to EP55-S12)
+# Output segments: 7
+# Total duration: 82s
+# Gate status: ALL PASS
+
+episode_id: EP55
+source_md: 剧本/EP55/EP55_暗流.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。vibrant stage lighting, high saturation, spotlight effects, awards ceremony atmosphere, live audience atmosphere, photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。vibrant stage lighting, high saturation, spotlight effects, awards ceremony atmosphere, live audience atmosphere, photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
+  CHAR-002: "成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感"
+  CHAR-003: "成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次"
+  CHAR-GRP-09: "成年男性或女性，25–40岁，声线急切有攻击性，语速快，追问式语调，新闻发布会的嘈杂感"
+  CHAR-GRP-10: "成年男性，60岁，声线庄重有仪式感，语速偏慢，宣布式语调庄严有力"
+
+segments:
+  - segment_id: EP55-SEG01
+    shot_ids: [EP55-S01, EP55-S02]
+    duration_sec: 12
+    speakers: [CHAR-GRP-10, CHAR-002]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色礼服，领结）【图2】颁奖舞台 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：金像奖舞台中央，组委会主席站在立式麦克风前，金色聚光灯从上方打下，身后巨大LED屏幕显示金色奖杯图案，主席翻开金色信封，台下千名嘉宾屏息等待。
+        镜头2（6秒）中全景 镜头跟随：追光灯扫过全场锁定观众席中缓缓站起的陆景深，他穿着剪裁完美的黑色礼服表情冷峻如冰，扣上西装纽扣步伐沉稳走向舞台台阶。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（组委会主席，成年男性，60岁，声线庄重有仪式感，语速偏慢，宣布式语调庄严有力）：「最佳男主角——获奖者是…陆景深·《暗涌》。请上台领奖。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「师父…你看到了吗。今晚——我要替你说出那句话。」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-024, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP55-SEG02
+    shot_ids: [EP55-S03, EP55-S04]
+    duration_sec: 12
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色礼服）【图2】颁奖舞台 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：陆景深从主席手中接过金色奖杯，低头看了一眼金属表面反射着温暖的光，他扶着麦克风抬眼扫过全场最终停留在观众席苏念晚坐的位置。
+        镜头2（7秒）特写 镜头推近：陆景深面部特写，他握着奖杯的手指微微收紧指节泛白，停顿了整整两秒，抬眼目光变得锋利，台下第一排苏念晚微微坐直，观众席后方方芷晴端香槟杯的手停在半空。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「谢谢组委会。感谢《暗涌》所有演职人员。还有——这个奖，我想献给一个人。我的师父。张维远。一个被冤枉了十年的导演。今天——我想替他说一句他一直没机会说的话。他是被陷害的。真相——不应该永远被掩埋。」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-024, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP55-SEG03
+    shot_ids: [EP55-S05, EP55-S06]
+    duration_sec: 12
+    speakers: [CHAR-003, CHAR-GRP-09, CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】方芷晴 CHAR-003-L01（深紫色亮面礼服）【图2】苏念晚 CHAR-001-L02（黑色修身连衣裙）【图3】陆景深 CHAR-002-L01（黑色礼服）【图4】颁奖典礼 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）近景 固定：方芷晴坐在观众席第二排原本优雅地端着香槟杯，当'张维远'三个字响起她笑容瞬间冻结，端杯子的手悬在半空目光变得慌乱。
+        镜头2（5秒）中景 固定：远景陆景深鞠躬下台走过观众席时脚步微顿，苏念晚安静坐在座位上，两人视线穿过人群交汇，他微不可见地点头她回以微笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「张维远…他怎么会…他不可能知道。」
+        对白（记者群，成年男性或女性，25–40岁，声线急切有攻击性，语速快，追问式语调，新闻发布会的嘈杂感）：「张维远——十年前含冤自杀的那个导演！陆景深的师父是他？！」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「我去趟后台。别跟着。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他做到了。张维远导演…你的徒弟，很强。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「轮到你了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「嗯。轮到我了。」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-024, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP55-SEG04
+    shot_ids: [EP55-S07, EP55-S08]
+    duration_sec: 12
+    speakers: [CHAR-003]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】方芷晴 CHAR-003-L01（深紫色礼服）【图2】颁奖后台走廊 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头跟随：方芷晴快步走在后台走廊，高跟鞋急促敲击地面，边走边掏手机拨号无人接听，走廊尽头冷白灯光在脸上投下不安阴影。
+        镜头2（6秒）近景 镜头推近：方芷晴挂断电话靠在走廊墙上深呼吸试图平复，闭上眼睛手指掐进掌心，转身准备回前厅——却在转身瞬间整个人僵住。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「接电话…快接电话…王姐！你这个时候——不可能…他们不可能有证据。冷静。冷静。什么都没有发生。只是提了一个名字——」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-024, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP55-SEG05
+    shot_ids: [EP55-S09]
+    duration_sec: 12
+    speakers: [CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（黑色修身连衣裙）【图2】方芷晴 CHAR-003-L01（深紫色礼服）【图3】后台走廊 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中景 固定：走廊另一头苏念晚安静地站在那里穿着黑色修身连衣裙表情从容，两人之间隔着七八步冷白灯光形成明暗分界线，方芷晴后退半步苏念晚从容向前两步停在阴影边缘微笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「你…在这里做什么。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「路过。方老师脸色不太好。需要叫个医生吗？急着去哪？」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「不用。让开。你以为你赢了？一个破奖感言——能证明什么？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「我说过我赢了吗？张维远的名字——你听得很清楚，对吧。那只是第一枪。」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-024, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP55-SEG06
+    shot_ids: [EP55-S10, EP55-S11]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（黑色连衣裙）【图2】方芷晴 CHAR-003-L01（深紫色礼服）【图3】后台走廊 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：苏念晚从容从方芷晴身边走过高跟鞋声有节奏回荡，走出几步停下来没有回头，方芷晴僵硬站在原地手包从手中滑落嘭的一声落在地上。
+        镜头2（6秒）近景 镜头推近：方芷晴独自站在走廊里，手包掉在地上没去捡，她缓缓转头看向苏念晚消失的方向，眼神里混合恐惧和难以置信，走廊冷白灯光把妆容照得惨白。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「十年前你做的事——你以为永远不会有人知道。但今晚——每一枪，都会准时响起。」
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「第一枪…她说的…她什么都知道…怎么…怎么可能…」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-024, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP55-SEG07
+    shot_ids: [EP55-S12]
+    duration_sec: 10
+    speakers: [CHAR-003]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】方芷晴 CHAR-003-L01（深紫色礼服，崩溃状态）【图2】后台走廊 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写 固定：方芷晴独自倚在墙上，走廊空无一人远处传来主持人声音'接下来是我们的特别环节'，她听到'致敬华语电影十年'瞳孔猛地放大，扶着墙的手开始不由自主颤抖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「十年…致敬…特殊的演员…不…你们不能…」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-024, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

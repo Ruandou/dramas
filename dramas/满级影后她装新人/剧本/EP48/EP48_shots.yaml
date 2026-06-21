@@ -1,0 +1,364 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP48/EP48_真相大白.md
+# Source shots: 14 (EP48-S01 to EP48-S14)
+# Output shots: 14 (EP48-S01 to EP48-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 84s
+# Output total duration: 84s
+# Gate status: ALL PASS
+
+episode_id: EP48
+source_md: 剧本/EP48/EP48_真相大白.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+shots:
+  - shot_id: EP48-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-004-L01]
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】CHAR-004-L01【图2】SCENE-008。近景 固定：清晨公寓晨光透过白纱帘柔和洒入，陈姐坐沙发上手机举耳边接电话，表情专注一手拿手机另一只手空中比划确认要点，晨光照在银灰短发上"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "全部证据——时间线、证人证词、录音文字版、财务记录……好。发吧。他说——稿子写好了。十分钟后上线。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-001-L02, CHAR-004-L01]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】CHAR-001-L02【图2】CHAR-004-L01【图3】SCENE-008。中景 固定：苏念晚从厨房走过来端着一杯热茶，白色亚麻衬衫长发松松挽在脑后，听到陈姐话脚步顿了一下，晨光在她低垂眼睫上投下浅影"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "十年了。我等的就是这一分钟。"
+      - speaker: CHAR-004
+        line: "会写得很扎实。张记者——他是你见过的最较真的人。"
+      - speaker: CHAR-001
+        line: "我知道。所以我才把王姐的材料都给了他。"
+      - speaker: CHAR-004
+        line: "这一枪——你用他的笔开的。"
+      - speaker: CHAR-001
+        line: "这一枪——不是我开的。是真相自己开的。"
+    transition_to_next: audio_bridge
+
+  - shot_id: EP48-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-004-L01]
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】CHAR-004-L01【图2】SCENE-008。近景 固定：陈姐手机疯狂响起微信提示音和来电震动，她站在窗边低头看手机屏幕瞳孔放大，报道发布十分钟内阅读量破百万，晨光在她轮廓上勾出金边"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "上了。十分钟——阅读量破百万。转发里——有陆景深。"
+      - speaker: CHAR-001
+        line: "他转发了？"
+      - speaker: CHAR-004
+        line: "'真相总会水落石出。迟到的正义不是不正义。'——这是他写的。三分钟——他的转发又多了二十万。"
+      - speaker: CHAR-001
+        line: "他没必要……这时候表态。"
+      - speaker: CHAR-004
+        line: "他就是要这时候表态。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】CHAR-001-L02【图2】SCENE-008。特写 固定：苏念晚低头看手机上陆景深的转发，拇指在屏幕上方悬停没有点开评论区，眼眶微微泛红没有落泪，深吸一口气把手机翻面扣在桌上，晨光在她侧脸上滑过温暖光晕"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "他这个人……话少。但每次开口——都挑最关键的时候。好了。轮到我了。"
+      - speaker: CHAR-004
+        line: "你准备好了吗。"
+      - speaker: CHAR-001
+        line: "十年前我没机会说。今天——我终于能说一句。真相不会永远被掩埋。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-006
+      look_ids: [CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】SCENE-006。中景 固定：陆景深坐办公室落地窗外城市天际线，黑色高领毛衣外套搭椅背上，手机屏幕亮着显示刚转发的那条报道，嘴角带着极淡笑意，晨光在棱角分明侧脸上投下锐利光影"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "迟到的正义不是不正义……这话——十年前就该有人对她说了。嗯。就这样。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-006
+      look_ids: [CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】SCENE-006。特写 固定：陆景深手指按下发送键屏幕光在冷冽脸颊上映出蓝光，放下手机端起咖啡杯喝了一口目光投向窗外，咖啡热气和他微微放松的嘴角泄露此刻心情"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "你发了那条消息。接下来的路——我来帮你铺。金像奖那天——他会到场的。我也会。"
+    transition_to_next: audio_bridge
+
+  - shot_id: EP48-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】CHAR-001-L02【图2】SCENE-008。特写 镜头推近：苏念晚坐公寓书桌前午后阳光从侧面照在脸上，面前手机屏幕显示社交媒体编辑页面，光标在输入框中闪烁，她没有急着打字安静坐了一会儿"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "说点什么呢。十年来第一次能开口说话——反而不知道从哪一句开始了。那就说一句就够了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】CHAR-001-L02【图2】SCENE-008。特写 固定：苏念晚手指在手机屏幕上打完最后一个字按下发送键，屏幕光映在她脸上她呼出一口气像是十年来第一次呼吸，放下手机看向窗外夕阳，橘金色光铺满房间在她侧脸上形成温暖轮廓光"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "真相不会永远被掩埋。不会。今天——我终于能说出这句话了。但说出真相只是开始。让那些人付出代价——才是结束。"
+    transition_to_next: dissolve
+
+  - shot_id: EP48-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-003-L02]
+    assets:
+      look_urls:
+        CHAR-003-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L02.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-009.png
+    api:
+      text: "【图1】CHAR-003-L02【图2】SCENE-009。中景 固定：方芷晴瘫坐在白色沙发上穿着精致丝绸睡袍但妆容花掉，眼镜红肿睫毛膏晕开，面前手机显示热搜#苏念晚十年冤案#带\"爆\"字，伸手去拿酒杯手指颤抖得几乎握不住杯柄"
+      content_roles:
+        - { file: CHAR-003-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "爆了……热搜第一……他怎么能……张记者……他怎么敢写……那些事情不是都处理干净了吗！不是说那个化妆师不敢说话吗！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-003-L02]
+    assets:
+      look_urls:
+        CHAR-003-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L02.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-009.png
+    api:
+      text: "【图1】CHAR-003-L02【图2】SCENE-009。特写 固定：方芷晴蜷缩在沙发角落里大波浪长发散乱遮住半边脸，手机屏幕显示评论区清一色声讨，嘴唇颤抖眼泪和睫毛膏混在一起在脸上留下黑色痕迹，看了几条后猛地将手机翻面扣在沙发上大口喘气"
+      content_roles:
+        - { file: CHAR-003-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "滚出娱乐圈……还影后公道……十年黑幕……怎么会……怎么突然就……苏念晚……都过去十年了……你为什么还要回来……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-003-L02]
+    assets:
+      look_urls:
+        CHAR-003-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L02.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-009.png
+    api:
+      text: "【图1】CHAR-003-L02【图2】SCENE-009。近景 固定：方芷晴蜷缩沙发上手机突然响起屏幕上显示没有备注的号码，身体僵住伸手去拿手机动作从绝望变成颤抖的希望，按下接听键声音从歇斯底里变为小心翼翼的顺从"
+      content_roles:
+        - { file: CHAR-003-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "……是你。我……我知道错了。但事情已经——"
+      - speaker: CHAR-003
+        line: "可是热搜全部——"
+      - speaker: CHAR-003
+        line: "什么机会。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-003-L02]
+    assets:
+      look_urls:
+        CHAR-003-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L02.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-009.png
+    api:
+      text: "【图1】CHAR-003-L02【图2】SCENE-009。特写 固定：方芷晴面部特写听到\"金像奖\"三个字时瞳孔猛烈收缩，听到\"让她永远闭嘴\"时呼吸停滞一秒，放下手机屏幕冷光照在惨白脸上，表情从崩溃变成绝望之后的疯狂"
+      content_roles:
+        - { file: CHAR-003-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "金像奖……永远闭嘴……她一定要拿回那个奖杯吗……那个奖杯本来就是我的……那就让她在金像奖上……再一次消失。"
+    transition_to_next: dissolve
+
+  - shot_id: EP48-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-001-L02, CHAR-004-L01]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】CHAR-001-L02【图2】CHAR-004-L01【图3】SCENE-008。中景 固定：傍晚公寓夕阳将整个房间染成橘金色，苏念晚坐沙发上手机放一旁，陈姐坐对面手里拿一杯茶，两人之间是暴风雨后的宁静"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "热搜第一……已经挂了六个小时了。你那条声明——底下全是支持你的人。"
+      - speaker: CHAR-001
+        line: "我知道。十年——终于有人愿意听我说话了。"
+      - speaker: CHAR-004
+        line: "接下来呢。"
+      - speaker: CHAR-001
+        line: "接下来——让写报道的人继续写。让热搜继续挂着。让舆论继续发酵。然后——等那个人坐不住。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-008
+      look_ids: [CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】CHAR-001-L02【图2】SCENE-008。特写 镜头推近：苏念晚侧脸特写夕阳在她清冷侧脸上镀上温暖橘色，目光投向窗外城市在暮色中亮起灯火，伸手拿起手机看到陆景深那条转发看了很久轻轻锁屏"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "迟到的正义不是不正义……这次——我不想再等另一个十年了。金像奖——我会去的。不是为了领奖——是为了让所有人看到。正义——也可以自己走过来。"
+    transition_to_next: hard_cut

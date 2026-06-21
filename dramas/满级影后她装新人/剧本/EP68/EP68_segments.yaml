@@ -1,0 +1,187 @@
+episode_id: EP68
+source_md: 剧本/EP68/EP68_十年后的影后.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+voice_prompts:
+  CHAR-001: 「成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力」
+  CHAR-002: 「成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感」
+  CHAR-004: 「成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰」
+  CHAR-GRP-16: 「成年男性或女性，40–50岁，声线庄重有仪式感，语速偏慢，宣布获奖名单时制造悬念的停顿感」  # ⏳ 待生成（颁奖嘉宾，无参考图）
+  CHAR-GRP-03: 「年轻男性，25岁，声线恭敬利落，语速偏快，说话简洁有效率，下属对上司的职业语气」  # ⏳ 待生成（陆景深助理，无参考图）
+segments:
+  - segment_id: EP68-SEG01
+    shot_ids: [EP68-S01, EP68-S02]
+    duration_sec: 12
+    speakers: [CHAR-GRP-16, CHAR-001]
+    refs: {scene_id: SCENE-001}
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png}
+    api:
+      text: |
+        【图1】颁奖舞台 SCENE-001（聚光灯聚焦，大屏幕金色LOGO旋转）【图2】苏念晚 CHAR-001-L02（黑色修身连衣裙，嘉宾席）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：金像奖舞台，聚光灯聚焦在颁奖嘉宾身上。大屏幕金色LOGO缓缓旋转。台下数百位观众安静下来，颁奖嘉宾展开手中的信封，全场屏住呼吸。
+        镜头2（7秒）特写 镜头推近：嘉宾席上的图2听到自己的名字，微微闭上眼，深吸了一口气——不是紧张，是在确认这一切不是梦。镜头缓缓推近，她睁眼，目光沉静如水，嘴角浮起一个极淡的微笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（颁奖嘉宾，成年男性或女性，40–50岁，声线庄重有仪式感，语速偏慢，宣布获奖名单时制造悬念的停顿感）：「最佳女主角——最后一个提名。苏念晚——《逆光》。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle
+      content_roles:
+        - {file: SCENE-001, role: reference_image, label: 图1}
+        - {file: CHAR-001-L02, role: reference_image, label: 图2}
+    transition_to_next: hard_cut
+  - segment_id: EP68-SEG02
+    shot_ids: [EP68-S03, EP68-S04]
+    duration_sec: 12
+    speakers: [CHAR-GRP-16, CHAR-001]
+    refs: {scene_id: SCENE-001}
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png}
+    api:
+      text: |
+        【图1】颁奖舞台 SCENE-001（颁奖嘉宾拆信封）【图2】苏念晚 CHAR-001-L02（黑色连衣裙，双手交握放在膝上）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：颁奖嘉宾拆开信封，取出卡片。她低头看了一眼，嘴角浮起一个意味深长的笑。她抬眼看向台下，停顿了三秒——这是金像奖最长的三秒。全场安静得能听见心跳声。
+        镜头2（6秒）特写 固定：图2的双手交握放在膝上，指关节微微泛白。她看着舞台，目光像是穿过十年时光落在同一个地方——十年前，她坐在这里的观众席看别人获奖。今天，她不再是观众。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（颁奖嘉宾，成年男性或女性，40–50岁，声线庄重有仪式感，语速偏慢，宣布获奖名单时制造悬念的停顿感）：「获得本届最佳女主角的是——」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「十年前……也是这样的灯。这样的掌声。但这一次……」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle
+      content_roles:
+        - {file: SCENE-001, role: reference_image, label: 图1}
+        - {file: CHAR-001-L02, role: reference_image, label: 图2}
+    transition_to_next: hard_cut
+  - segment_id: EP68-SEG03
+    shot_ids: [EP68-S05, EP68-S06]
+    duration_sec: 12
+    speakers: [CHAR-GRP-16]
+    refs: {scene_id: SCENE-001}
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png}
+    api:
+      text: |
+        【图1】颁奖舞台 SCENE-001（大屏幕炸开金色庆祝特效）【图2】苏念晚 CHAR-001-L02（石化，眼眶瞬间红了，手背掩嘴）。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）近景 固定：颁奖嘉宾终于说出那个名字——声音在空旷的大厅里回荡。与此同时，大屏幕上炸开金色的庆祝特效。
+        镜头2（8秒）特写 缓推：图2在听到自己名字的那一刻，石化了整整两秒。然后——她的眼眶瞬间红了。她低下头，用手背掩住嘴，肩膀轻轻颤抖。周围人开始鼓掌，呼声如潮水般涌来，但她听不见。她只听见自己心跳的声音。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（颁奖嘉宾，成年男性或女性，40–50岁，声线庄重有仪式感，语速偏慢，宣布获奖名单时制造悬念的停顿感）：「苏念晚——《逆光》！」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle
+      content_roles:
+        - {file: SCENE-001, role: reference_image, label: 图1}
+        - {file: CHAR-001-L02, role: reference_image, label: 图2}
+    transition_to_next: hard_cut
+  - segment_id: EP68-SEG04
+    shot_ids: [EP68-S07]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-004]
+    refs: {scene_id: SCENE-001}
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+      scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png}
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色西装，第一个站起来鼓掌）【图2】观众席 SCENE-001（全场起立）【图3】陈姐 CHAR-004-L01（角落，哭得说不出话，拼命鼓掌）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：观众席中，图1第一个站起来，开始鼓掌。周围嘉宾一个接一个起立。角落里的图3已经哭得说不出话，拼命鼓掌泪流满面。两个人隔着人群，目光汇聚在同一个方向——舞台上的苏念晚。全场起立，掌声如雷鸣经久不息。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「嗯。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「晚晚……」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle
+      content_roles:
+        - {file: CHAR-002-L01, role: reference_image, label: 图1}
+        - {file: SCENE-001, role: reference_image, label: 图2}
+        - {file: CHAR-004-L01, role: reference_image, label: 图3}
+    transition_to_next: hard_cut
+  - segment_id: EP68-SEG05
+    shot_ids: [EP68-S08, EP68-S09]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs: {scene_id: SCENE-001}
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png}
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（从座位上起身，穿过站立的人群）【图2】舞台 SCENE-001（聚光灯，金色奖杯在灯光下反光）。
+        竖屏9比16连贯叙事。
+        道具：金色奖杯（PROP-003），与EP01闪回中的影后奖杯同款。
+        镜头1（7秒）中景 镜头跟随：图1从座位上起身，走过一排排站立的同行，每一个人都在为她鼓掌。她走上台阶，走向舞台中央。颁奖嘉宾将金色奖杯（PROP-003）递到她手中。她双手接过，低头看着它——金色的奖杯在灯光下反着光，和十年前一模一样。
+        镜头2（5秒）特写 固定：图1站在麦克风前，金色奖杯在手中。全场安静下来，等她的获奖感言。她沉默了很久——五秒、六秒、七秒。时间在那一刻拉长。她没有低头看稿，而是看着台下那些目光。全场的静默——安静得能听到呼吸声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「十年了……这个奖杯，终于等到了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle
+      content_roles:
+        - {file: CHAR-001-L02, role: reference_image, label: 图1}
+        - {file: SCENE-001, role: reference_image, label: 图2}
+    transition_to_next: hard_cut
+  - segment_id: EP68-SEG06
+    shot_ids: [EP68-S10, EP68-S11]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs: {scene_id: SCENE-001}
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png}
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（站在麦克风前，泪光闪烁但声音沉稳）【图2】舞台 SCENE-001（聚光灯，掌声雷动）。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）特写 缓推：沉默之后，图1终于开口。她的声音有些沙哑，但每一个字都清晰有力。她没有哭腔，反而是一种深沉的平静——十年的重量都装在这三个字里。全场爆发的掌声如雷鸣。
+        镜头2（5秒）中景 固定：图1说完这三个字后，泪水终于滑落。她微微仰头，不让妆花得太厉害，然后对着台下深深鞠了一躬。掌声经久不息，许多人都在擦眼泪。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「我回来了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「谢谢你们……让我回家。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle
+      content_roles:
+        - {file: CHAR-001-L02, role: reference_image, label: 图1}
+        - {file: SCENE-001, role: reference_image, label: 图2}
+    transition_to_next: hard_cut
+  - segment_id: EP68-SEG07
+    shot_ids: [EP68-S12]
+    duration_sec: 8
+    speakers: [CHAR-002, CHAR-GRP-03]
+    refs: {scene_id: SCENE-001}
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-001.png}
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色西装，站在后台走廊，看着舞台上她的背影）【图2】后台走廊 SCENE-001（暗调光线，掌声隐隐传来）。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 固定：后台走廊，掌声从大厅隐隐传来。图1站在那里，看着舞台上她的背影。他没有回头，对身后的助理说了一句话。助理微微一愣，然后郑重点头。图1的目光不离舞台，嘴角浮起一个不太明显的笑——不是平时的克制，是带着紧张和期待的温柔。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「准备好了吗？」
+        对白（助理，年轻男性，25岁，声线恭敬利落，语速偏快，说话简洁有效率，下属对上司的职业语气）：「准备好了，陆总。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「嗯。开始吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle
+      content_roles:
+        - {file: CHAR-002-L01, role: reference_image, label: 图1}
+        - {file: SCENE-001, role: reference_image, label: 图2}
+    transition_to_next: hard_cut

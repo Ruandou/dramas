@@ -1,10 +1,25 @@
-# === SEGMENTS ===
+# === SOURCE FIDELITY PROOF ===
 # Source: 剧本/EP07/EP07_综艺初舞台.md
-# 8 segments, 16 shots total
-# Total duration: 87s
+# Source shots: 16 (EP07-S01 to EP07-S16)
+# Output shots: 16 (EP07-S01 to EP07-S16)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 87s
+# Output total duration: 87s
+# Gate status: ALL PASS (G1✅ G2✅ G3✅ G4✅)
 
 episode_id: EP07
 source_md: 剧本/EP07/EP07_综艺初舞台.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
 
 voice_prompts:
   CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
@@ -12,248 +27,268 @@ voice_prompts:
   CHAR-006: "年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差"
   CHAR-GRP-15: "成年男性，35岁，声线职业化快节奏，语速快，现场调度的紧迫感"
 
-defaults:
-  model: doubao-seedance-2-0-fast
-  ratio: "9:16"
-  resolution: 720p
-  generate_audio: false
-  watermark: false
-  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-
 segments:
   - segment_id: EP07-SEG01
-    segment_no: 1
-    summary: "出发通告——乔乐安兴奋谈论综艺录制，苏念晚暗自紧张"
-    scene_id: SCENE-003
+    shot_ids: [EP07-S01, EP07-S02]
     duration_sec: 10
-    shot_ids:
-      - EP07-S01
-      - EP07-S02
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: |
+        【图1】乔乐安 CHAR-005-L01（双丸子头，粉色圆领卫衣+浅蓝百褶短裙+白色运动鞋）【图2】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙+白色帆布鞋）【图3】星耀娱乐总部大厅 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：清晨阳光透过玻璃幕墙洒入大厅，图1扎着双丸子头兴奋地拉着图2的手臂蹦跳，表情充满期待，图2表情克制但眼底藏着一丝紧张，两人站在落地窗前。
+        镜头2（5秒）近景 固定镜头：图2对画外微笑了一下，目光飘向落地窗外城市天际线在晨光中清晰，她的手指无意识地摩挲着背带裙的边缘——紧张时的微动作，玻璃上映出她的齐肩短发侧影。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「姐姐！《星光少年》！我从小学就追的节目！」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「听说沈逸辰超会搞气氛的，今天肯定好玩！」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「姐姐你不紧张吗？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「还好。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「综艺录制——全场都是镜头。别出错。」
+        画面全程无任何文字、字幕、标题、水印。
+        星耀娱乐总部大厅，清晨阳光透过玻璃幕墙，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
     transition_to_next: audio_bridge
-    dialogue:
-      - speaker: CHAR-005
-        line: "姐姐！《星光少年》！我从小学就追的节目！"
-        shot_id: EP07-S01
-      - speaker: CHAR-005
-        line: "听说沈逸辰超会搞气氛的，今天肯定好玩！"
-        shot_id: EP07-S01
-      - speaker: CHAR-005
-        line: "姐姐你不紧张吗？"
-        shot_id: EP07-S02
-      - speaker: CHAR-001
-        line: "还好。"
-        shot_id: EP07-S02
-      - speaker: CHAR-001
-        type: inner
-        line: "综艺录制——全场都是镜头。别出错。"
-        shot_id: EP07-S02
 
   - segment_id: EP07-SEG02
-    segment_no: 2
-    summary: "录制现场——导演组紧张调度，苏念晚在侧台平复心情"
-    scene_id: SCENE-006
+    shot_ids: [EP07-S03, EP07-S04]
     duration_sec: 10
-    shot_ids:
-      - EP07-S03
-      - EP07-S04
+    speakers: [CHAR-GRP-15, CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙）【图2】乔乐安 CHAR-005-L01（双丸子头，粉色卫衣）【图3】综艺录制棚 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 镜头跟随：综艺录制棚后台灯光透过舞台缝隙扫进来，空气中飘着干冰薄雾，工作人员快步穿梭对着对讲机喊话，图1和图2站在等候区能看到前方舞台的彩色LED屏幕闪烁着动感图案。
+        镜头2（5秒）近景 固定镜头：图1透过侧台幕布缝隙看向舞台——炫目的舞台灯光巨大LED屏幕观众席暗处影影绰绰的人影，她的呼吸微微加快手心有汗，她闭上眼默数了三个数再睁眼时已恢复平静。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（综艺导演组，成年男性，35岁，声线职业化快节奏，语速快，现场调度的紧迫感）：「练习生先等在侧台，互动环节再上！」
+        对白（综艺导演组，成年男性，35岁，声线职业化快节奏，语速快，现场调度的紧迫感）：「主持人就位！三分钟倒计时！」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「见过比这大十倍的舞台。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「只是那时候……不用装。」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚后台与侧台，舞台灯光炫目LED屏幕闪烁，高饱和综艺舞台氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-GRP-15
-        line: "练习生先等在侧台，互动环节再上！"
-        shot_id: EP07-S03
-      - speaker: CHAR-GRP-15
-        line: "主持人就位！三分钟倒计时！"
-        shot_id: EP07-S03
-      - speaker: CHAR-001
-        type: inner
-        line: "见过比这大十倍的舞台。"
-        shot_id: EP07-S04
-      - speaker: CHAR-001
-        type: inner
-        line: "只是那时候……不用装。"
-        shot_id: EP07-S04
 
   - segment_id: EP07-SEG03
-    segment_no: 3
-    summary: "沈逸辰登场——阳光主持人控场，随机点名苏念晚上台互动"
-    scene_id: SCENE-006
+    shot_ids: [EP07-S05, EP07-S06]
     duration_sec: 11
-    shot_ids:
-      - EP07-S05
-      - EP07-S06
+    speakers: [CHAR-006, CHAR-005]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】沈逸辰 CHAR-006-L01（纹理烫蓬松短发，浅蓝牛仔外套+白T恤+黑色休闲裤+白色运动鞋+银色链饰）【图2】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙）【图3】综艺录制棚舞台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：图1大步走上舞台笑容灿烂手持麦克风，纹理烫蓬松短发随着步伐微微弹动，背后LED大屏切换成动感金色特效，他自带综艺主持人的控场气场目光扫过全场。
+        镜头2（6秒）中景 镜头拉远后固定：图1走到练习生侧台区域目光扫过几个练习生脸庞，他伸出手像随机抽选的动作指向图2，全场灯光跟随他的手指聚焦在图2身上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「《星光少年》现场的朋友们——掌声给自己好吗！」
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「好久不见，想我了吗？——肯定想了，不然你们不会坐在这儿对不对！」
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「今天有星耀的练习生朋友在现场对吧！来来来——互动环节，就你了！」
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「这位同学，上来上来！」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「姐姐！叫你呢！」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚舞台，炫目舞台灯光动感LED大屏，高饱和综艺氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-006
-        line: "《星光少年》现场的朋友们——掌声给自己好吗！"
-        shot_id: EP07-S05
-      - speaker: CHAR-006
-        line: "好久不见，想我了吗？——肯定想了，不然你们不会坐在这儿对不对！"
-        shot_id: EP07-S05
-      - speaker: CHAR-006
-        line: "今天有星耀的练习生朋友在现场对吧！来来来——互动环节，就你了！"
-        shot_id: EP07-S06
-      - speaker: CHAR-006
-        line: "这位同学，上来上来！"
-        shot_id: EP07-S06
-      - speaker: CHAR-005
-        line: "姐姐！叫你呢！"
-        shot_id: EP07-S06
 
   - segment_id: EP07-SEG04
-    segment_no: 4
-    summary: "电影揭晓——苏念晚认出是自己获奖的《归途》，内心挣扎后决定演但要收敛"
-    scene_id: SCENE-006
+    shot_ids: [EP07-S07, EP07-S08]
     duration_sec: 11
-    shot_ids:
-      - EP07-S07
-      - EP07-S08
+    speakers: [CHAR-006, CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙+帆布鞋）【图2】沈逸辰 CHAR-006-L01（牛仔外套+白T恤+麦克风）【图3】综艺录制棚舞台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：图1被推着走上舞台站在图2旁边，舞台灯光洒在她脸上她保持着礼貌的微笑但有些僵硬，图2侧身对着大屏幕双手一拍LED屏切换成经典电影画面——泛黄暖色调一位女演员含泪的侧脸特写。
+        镜头2（5秒）特写 镜头推近：图1看向大屏幕的瞬间瞳孔猛地收缩——画面上那个含泪的侧脸是她自己十八岁的她，她的呼吸停滞了一秒指尖微不可察地颤抖了一下但表情只僵硬了不到一秒就恢复。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「经典模仿环节——来，请看大屏幕！」
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「这段哭戏出自当年横扫各大奖项的电影《归途》——有人看过吗？——没看过也没关系，看就看这位同学怎么演！」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「……是《归途》。是我拍的那场戏。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「拒绝——等于告诉所有人我有问题。演——等于可能暴露。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「演。但要演得……像一个新人。」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚舞台，炫目舞台灯光大屏幕播放经典电影画面，高饱和综艺氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-006
-        line: "经典模仿环节——来，请看大屏幕！"
-        shot_id: EP07-S07
-      - speaker: CHAR-006
-        line: "这段哭戏出自当年横扫各大奖项的电影《归途》——有人看过吗？——没看过也没关系，看就看这位同学怎么演！"
-        shot_id: EP07-S07
-      - speaker: CHAR-001
-        type: inner
-        line: "……是《归途》。是我拍的那场戏。"
-        shot_id: EP07-S08
-      - speaker: CHAR-001
-        type: inner
-        line: "拒绝——等于告诉所有人我有问题。演——等于可能暴露。"
-        shot_id: EP07-S08
-      - speaker: CHAR-001
-        type: inner
-        line: "演。但要演得……像一个新人。"
-        shot_id: EP07-S08
 
   - segment_id: EP07-SEG05
-    segment_no: 5
-    summary: "三秒入戏——苏念晚闭眼三秒后泪落，全场死寂，不可能时刻"
-    scene_id: SCENE-006
+    shot_ids: [EP07-S09, EP07-S10]
     duration_sec: 11
-    shot_ids:
-      - EP07-S09
-      - EP07-S10
+    speakers: [CHAR-001, CHAR-006, CHAR-005]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-006-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙）【图2】沈逸辰 CHAR-006-L01（牛仔外套+白T恤+麦克风）【图3】乔乐安 CHAR-005-L01（双丸子头，粉色卫衣）【图4】综艺录制棚舞台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 镜头推近：图1站在舞台中央聚光灯打在她一个人身上，她深吸一口气闭上眼睛，一秒两秒三秒——她睁开了眼睛泪水已经从眼眶无声滑落在舞台灯光下闪着光，全场从喧哗中安静下来。
+        镜头2（5秒）中景 固定镜头：图2手中的咖啡杯停在半空忘了喝嘴微微张开表情从综艺笑脸变成真实惊讶，侧台的图3双手捂住嘴眼睛瞪得圆圆的，现场气氛从喧闹转为安静。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「三秒。够了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「你说过——春天会来的。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「可我等了三个春天了。」
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「……这么快？」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「天哪……」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚舞台，聚光灯聚焦单人全身安静转为震撼，高饱和综艺氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-001
-        type: inner
-        line: "三秒。够了。"
-        shot_id: EP07-S09
-      - speaker: CHAR-001
-        line: "你说过——春天会来的。"
-        shot_id: EP07-S09
-      - speaker: CHAR-001
-        line: "可我等了三个春天了。"
-        shot_id: EP07-S09
-      - speaker: CHAR-006
-        type: inner
-        line: "……这么快？"
-        shot_id: EP07-S10
-      - speaker: CHAR-005
-        type: inner
-        line: "天哪……"
-        shot_id: EP07-S10
-      - speaker: CHAR-GRP-15
-        line: "这孩子……有东西啊。"
-        shot_id: EP07-S10
 
   - segment_id: EP07-SEG06
-    segment_no: 6
-    summary: "刻意收敛——苏念晚用新人感的设计收尾，沈逸辰带头鼓掌"
-    scene_id: SCENE-006
+    shot_ids: [EP07-S11, EP07-S12]
     duration_sec: 11
-    shot_ids:
-      - EP07-S11
-      - EP07-S12
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙，泪痕在灯光下闪光）【图2】沈逸辰 CHAR-006-L01（牛仔外套+白T恤+银色链饰）【图3】综艺录制棚舞台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定镜头：图1继续表演身体在微微颤抖——一半是角色需要一半是她在刻意控制让声音比真实水平多了一分颤音让停顿比专业演员长了一拍让手的动作幅度大了一丝，展现出新人感的青涩设计。
+        镜头2（5秒）近景 固定镜头：图2已经放下了咖啡杯双手不自觉在身前合拢，他的表情不再是综艺式夸张而是一种真实的被打动的沉默，他安静地看了几秒然后缓缓带头鼓起掌来。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他们说你再也不会回来了……」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他们说——要我忘了你。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「可春天来了又走……我还是在等。」
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「好。」
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「真的好。」
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「来，掌声送给她！」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚舞台，聚光灯下表演收尾掌声渐起，高饱和综艺氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-001
-        line: "他们说你再也不会回来了……"
-        shot_id: EP07-S11
-      - speaker: CHAR-001
-        line: "他们说——要我忘了你。"
-        shot_id: EP07-S11
-      - speaker: CHAR-001
-        line: "可春天来了又走……我还是在等。"
-        shot_id: EP07-S11
-      - speaker: CHAR-006
-        line: "好。"
-        shot_id: EP07-S12
-      - speaker: CHAR-006
-        line: "真的好。"
-        shot_id: EP07-S12
-      - speaker: CHAR-006
-        line: "来，掌声送给她！"
-        shot_id: EP07-S12
 
   - segment_id: EP07-SEG07
-    segment_no: 7
-    summary: "录制结束——后台乔乐安激动，沈逸辰认真称赞苏念晚"
-    scene_id: SCENE-006
+    shot_ids: [EP07-S13, EP07-S14]
     duration_sec: 11
-    shot_ids:
-      - EP07-S13
-      - EP07-S14
+    speakers: [CHAR-005, CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-006.png
+    api:
+      text: |
+        【图1】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙）【图2】乔乐安 CHAR-005-L01（双丸子头，粉色卫衣）【图3】沈逸辰 CHAR-006-L01（牛仔外套+白T恤已换下舞台外套，恢复日常轻松姿态）【图4】综艺录制棚后台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：后台走廊录制结束后的嘈杂声渐远，图1用纸巾轻轻擦拭眼角残留的泪痕，图2在旁边激动地说个不停，灯光从头顶洒下在图1脸上投下淡淡的疲惫阴影。
+        镜头2（6秒）中景 固定镜头：图3从走廊另一头快步走来到图1面前停下，没有用综艺腔调而是用了认真语气目光里带着好奇和欣赏。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「姐姐你看到沈逸辰的表情了吗！他都被你震住了！」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「你不是说你是新人吗？新人怎么可能演成这样！」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「可能……刚好有共鸣吧。」
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「林小晚是吧？刚才那段——真的可以。」
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「你以前学过表演？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「没有……就是看电影看多了。」
+        对白（沈逸辰，年轻男性，26岁，声线阳光开朗有感染力，语速快节奏跳跃，综艺感强自带笑点语气，说话常自问自答，正经时突然变得沉稳有力形成强烈反差）：「看电影看多可演不出那种东西。你有点东西，保留一下。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「谢谢沈老师。」
+        画面全程无任何文字、字幕、标题、水印。
+        综艺录制棚后台走廊，录制结束后嘈杂渐散灯光洒落，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-005
-        line: "姐姐你看到沈逸辰的表情了吗！他都被你震住了！"
-        shot_id: EP07-S13
-      - speaker: CHAR-005
-        line: "你不是说你是新人吗？新人怎么可能演成这样！"
-        shot_id: EP07-S13
-      - speaker: CHAR-001
-        line: "可能……刚好有共鸣吧。"
-        shot_id: EP07-S13
-      - speaker: CHAR-006
-        line: "林小晚是吧？刚才那段——真的可以。"
-        shot_id: EP07-S14
-      - speaker: CHAR-006
-        line: "你以前学过表演？"
-        shot_id: EP07-S14
-      - speaker: CHAR-001
-        line: "没有……就是看电影看多了。"
-        shot_id: EP07-S14
-      - speaker: CHAR-006
-        line: "看电影看多可演不出那种东西。你有点东西，保留一下。"
-        shot_id: EP07-S14
-      - speaker: CHAR-001
-        line: "谢谢沈老师。"
-        shot_id: EP07-S14
 
   - segment_id: EP07-SEG08
-    segment_no: 8
-    summary: "网络发酵——片段两小时50万播放量，评论区开始质疑身份，悬念钩"
-    scene_id: SCENE-003
+    shot_ids: [EP07-S15, EP07-S16]
     duration_sec: 12
-    shot_ids:
-      - EP07-S15
-      - EP07-S16
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: |
+        【图1】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙，表情凝固）【图2】乔乐安 CHAR-005-L01（双丸子头，粉色卫衣，表情从兴奋变为犹豫）【图3】星耀大厅 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头推近：傍晚的星耀大厅落地窗外华灯初上，图1和图2坐在大厅休息区，图1低头看手机原本放松的表情在看到某个数据后凝固了手指在屏幕上方静止，图2凑过来看倒吸一口气。
+        镜头2（6秒）特写转近景 镜头推近：图1滑动手机屏幕评论区飞速滚过，前几排是好评但然后她停下了——一条高赞评论出现在屏幕中央，图2看到后欢呼声也戛然而止，大厅日光灯发出微弱嗡鸣声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「两小时——五十万播放量？！」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「姐姐！你的片段上热门了！」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「这么快？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「太快了……比我想象的快太多了。」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「"这个新人……怎么演得像那年那个人？"——底下有人回——」
+        对白（乔乐安，年轻女性，20岁，声线甜美活泼明亮，语速快说话像机关枪，语气充满活力和天真感，紧张时语速更快声音微颤，背叛后说话变得小心翼翼声音压低，赎罪后恢复开朗但多了一份沉稳）：「"你是说……苏念晚？"」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「……开始了。」
+        画面全程无任何文字、字幕、标题、水印。
+        星耀娱乐总部大厅傍晚，落地窗外城市华灯初上，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-005
-        line: "两小时——五十万播放量？！"
-        shot_id: EP07-S15
-      - speaker: CHAR-005
-        line: "姐姐！你的片段上热门了！"
-        shot_id: EP07-S15
-      - speaker: CHAR-001
-        line: "这么快？"
-        shot_id: EP07-S15
-      - speaker: CHAR-001
-        type: inner
-        line: "太快了……比我想象的快太多了。"
-        shot_id: EP07-S15
-      - speaker: CHAR-005
-        line: '"这个新人……怎么演得像那年那个人？"——底下有人回——'
-        shot_id: EP07-S16
-      - speaker: CHAR-005
-        line: '"你是说……苏念晚？"'
-        shot_id: EP07-S16
-      - speaker: CHAR-001
-        type: inner
-        line: "……开始了。"
-        shot_id: EP07-S16

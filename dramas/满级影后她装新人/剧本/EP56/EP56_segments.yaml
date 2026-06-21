@@ -1,0 +1,221 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP56/EP56_致敬环节.md
+# Source shots: 12 (EP56-S01 to EP56-S12)
+# Output segments: 7
+# Total duration: 82s
+# Gate status: ALL PASS
+
+episode_id: EP56
+source_md: 剧本/EP56/EP56_致敬环节.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。vibrant stage lighting, high saturation, spotlight effects, awards ceremony atmosphere, live audience atmosphere, photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。vibrant stage lighting, high saturation, spotlight effects, awards ceremony atmosphere, live audience atmosphere, photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
+  CHAR-002: "成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感"
+  CHAR-003: "成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次"
+  CHAR-004: "成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰"
+  CHAR-GRP-10: "成年男性，60岁，声线庄重有仪式感，语速偏慢，宣布式语调庄严有力"
+
+segments:
+  - segment_id: EP56-SEG01
+    shot_ids: [EP56-S01, EP56-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（黑色修身连衣裙）【图2】陆景深 CHAR-002-L01（黑色礼服）【图3】颁奖典礼大厅 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景 固定：颁奖典礼大厅灯光缓缓暗下，全场安静，大LED屏幕亮起柔和暖光，一行标题浮现'致敬华语电影十年'，金色光芒在屏幕流淌倒映在台下千名嘉宾礼服上。
+        镜头2（6秒）近景 固定：大屏幕光芒映在苏念晚脸上，表情从平静变成微微紧张，陆景深悄悄伸出手在座椅扶手上覆住她的手，她微微一怔没有抽回。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「这是…我没准备…看到这个。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「不用准备。看着就好。」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-024, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP56-SEG02
+    shot_ids: [EP56-S03, EP56-S04]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（黑色连衣裙）【图2】颁奖典礼大厅 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）全景 固定：大屏幕上出现十年前的金像奖舞台，年轻的苏念晚（18岁高马尾白色连衣裙）站在领奖台上手捧最佳女主角奖杯，笑容明媚灿烂，画面缓缓放大她年轻的脸庞越来越清晰。
+        镜头2（7秒）特写 镜头推近：苏念晚面部特写，大屏幕光芒在她脸上变幻，她看着十年前的自己眼眶渐渐泛红，陆景深握紧她的手，她眼角的泪水顺着脸颊无声滑落。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「那时候…笑得真开心。还不知道后面会发生什么。但十年后…我回来了。妈，你看到了吗…我回来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-024, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP56-SEG03
+    shot_ids: [EP56-S05, EP56-S06]
+    duration_sec: 12
+    speakers: [CHAR-002, CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（黑色连衣裙）【图2】陆景深 CHAR-002-L01（黑色礼服）【图3】陈姐 CHAR-004-L01（黑色套装）【图4】颁奖典礼 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：视频最后屏幕上出现分屏，左边十八岁苏念晚领奖右边现在苏念晚坐观众席中，两张脸隔空对视，全场寂静三秒然后第一排有人站起来鼓掌。
+        镜头2（6秒）全景 镜头拉远：第一位老演员缓缓起身鼓掌，然后第二排、第三排，越来越多的人站起来，全场起立雷鸣般掌声从四面八方汇成一片。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「站起来。这是你的时刻。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「丫头…十年了。你做到了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「妈…我好像…真的做到了。」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-024, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP56-SEG04
+    shot_ids: [EP56-S07]
+    duration_sec: 12
+    speakers: [CHAR-003]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】方芷晴 CHAR-003-L01（深紫色礼服）【图2】颁奖典礼观众席 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）近景 固定：观众席后排，方芷晴没有站起来独自坐在一片站起的人群中，冰凉的手紧握香槟杯指节发白，大屏幕还在播放苏念晚的画面每一帧都像扇在她脸上的耳光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「为什么…为什么他们要做这个。十年前就该结束了…一切都该结束了。不行…我要走。我不能待在这里…不能…」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-024, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP56-SEG05
+    shot_ids: [EP56-S08, EP56-S09]
+    duration_sec: 12
+    speakers: [CHAR-GRP-10]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（黑色连衣裙泪痕未干）【图2】方芷晴 CHAR-003-L01（深紫色礼服）【图3】颁奖典礼 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）中景 固定：掌声中组委会主席走上舞台接过麦克风，抬手示意掌声停下，全场渐渐安静，他清了清嗓子翻开手中金色信封。
+        镜头2（5秒）全景 固定：主席打开信封全场能听到针落地的声音，后排方芷晴已经站起来准备离开脚步凝固在半空，前排苏念晚站在坐席间泪痕未干，主席抬眼看着苏念晚方向微笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（组委会主席，成年男性，60岁，声线庄重有仪式感，语速偏慢，宣布式语调庄严有力）：「各位——今晚我们做了一个临时决定。经过组委会一致同意——我们决定增设一个特别奖项。十年贡献奖。获奖者——苏念晚。十年贡献奖——获奖者，苏念晚。」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-024, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP56-SEG06
+    shot_ids: [EP56-S10, EP56-S11]
+    duration_sec: 12
+    speakers: [CHAR-003]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】方芷晴 CHAR-003-L01（深紫色礼服）【图2】颁奖典礼 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：方芷晴站在观众席后排听到'苏念晚'三个字那一刻手中香槟杯无力滑落碎裂在地板上，酒液和玻璃碎片飞溅，她低头看着碎玻璃眼神空洞。
+        镜头2（6秒）中景 镜头跟随：方芷晴踉跄转身快步走向后门，高跟鞋踩在碎玻璃上发出刺耳声音，推开那扇沉重的门然后整个人僵住，门口站着两个穿深色西装的人表情平静目光不容置疑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方芷晴，成年女性，32岁，声线优雅柔和表面温暖，语速中等偏慢如演讲节奏，咬字清晰得体，每句话都带着精心设计的温柔感，暗含攻击时语调微微上扬带笑意，崩溃时语速加快声音尖锐语无伦次）：「十年贡献奖…给她…哈…哈哈…这世界真会开玩笑。你们…是组委会的人？我要出去。你们不能拦我。让我——走——」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-024, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP56-SEG07
+    shot_ids: [EP56-S12]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-024
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-024: assets/scenes/SCENE-024.png  # ⏳ 待补充场景图
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L02（黑色连衣裙泪痕未干）【图2】陆景深 CHAR-002-L01（黑色礼服）【图3】颁奖典礼舞台 SCENE-024。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 镜头跟随：舞台中央聚光灯亮起一束温暖光芒打在通往舞台通道上，苏念晚站在坐席间泪痕未干，陆景深轻轻松开她的手低声说了一句，她点头深吸一口气迈出步伐走向那束光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「去吧。这是你的舞台。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「十年前我在这里跌倒。十年后——我要在这里站起来。」
+        画面全程无任何文字、字幕、标题、水印。
+        舞台/颁奖典礼场景，高饱和度，聚光灯效果，颁奖仪式氛围，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-024, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

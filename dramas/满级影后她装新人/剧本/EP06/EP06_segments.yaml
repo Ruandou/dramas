@@ -1,224 +1,274 @@
-# === SEGMENTS ===
+# === SOURCE FIDELITY PROOF ===
 # Source: 剧本/EP06/EP06_考核危机.md
-# 8 segments, 16 shots total
-# Total duration: 83s
+# Source shots: 16 (EP06-S01 to EP06-S16)
+# Output shots: 16 (EP06-S01 to EP06-S16)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 83s
+# Output total duration: 83s
+# Gate status: ALL PASS (G1✅ G2✅ G3✅ G4✅)
 
 episode_id: EP06
 source_md: 剧本/EP06/EP06_考核危机.md
 
 defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
   ratio: "9:16"
   resolution: 720p
-  generate_audio: false
+  generate_audio: true
   watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
   negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
+  CHAR-002: "成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感"
+  CHAR-009: "年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意"
+  CHAR-GRP-02: "成年男性或女性，35–50岁，声线专业权威，语速中等，点评式语调客观冷静"
+  CHAR-GRP-03: "年轻男性，25岁，声线恭敬利落，语速偏快，说话简洁有效率，下属对上司的职业语气"
 
 segments:
   - segment_id: EP06-SEG01
-    segment_no: 1
-    summary: "考核陷阱——周瑶宣布特别考核内容，苏念晚警觉"
-    scene_id: SCENE-004
+    shot_ids: [EP06-S01, EP06-S02]
     duration_sec: 10
-    shot_ids:
-      - EP06-S01
-      - EP06-S02
+    speakers: [CHAR-009, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-009-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】周瑶 CHAR-009-L01（浅棕色长直发，粉色名牌小包+白色短上衣+高腰粉色短裙）【图2】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙+白色帆布鞋）【图3】练习生训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：训练营考核区三排折叠椅整齐排列，对面是一小块舞台区域镜面墙壁反射着日光灯的白光，图1站在练习生队伍前方手里拿着一张考核名单，下巴微抬嘴角带着志在必得的笑意，浅棕色长直发在灯光下反光。
+        镜头2（5秒）近景 镜头推近：练习生队伍中图2微微蹙眉，她注意到图1的目光特意在她身上多停留了一秒那眼神里有算计，旁边几个练习生紧张地交头接耳，日光灯发出细微的嗡鸣声房间安静得异常。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「今天不做日常考核——公司临时加了特别环节。」
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「每人一段三分钟独白，难度升级。考的是真本事。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「临时加的？还是专门为我准备的。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「不管什么题——演到六成就够了。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生训练营考核区，冷白荧光灯均匀照明，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-009
-        line: "今天不做日常考核——公司临时加了特别环节。"
-        shot_id: EP06-S01
-      - speaker: CHAR-009
-        line: "每人一段三分钟独白，难度升级。考的是真本事。"
-        shot_id: EP06-S01
-      - speaker: CHAR-001
-        type: inner
-        line: "临时加的？还是专门为我准备的。"
-        shot_id: EP06-S02
-      - speaker: CHAR-001
-        type: inner
-        line: "不管什么题——演到六成就够了。"
-        shot_id: EP06-S02
 
   - segment_id: EP06-SEG02
-    segment_no: 2
-    summary: "独白命题——周瑶点名苏念晚，命题《我演过的角色》"
-    scene_id: SCENE-004
+    shot_ids: [EP06-S03, EP06-S04]
     duration_sec: 10
-    shot_ids:
-      - EP06-S03
-      - EP06-S04
+    speakers: [CHAR-009, CHAR-GRP-02, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-009-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】周瑶 CHAR-009-L01（浅棕色长直发，粉色名牌小包）【图2】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙）【图3】练习生训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：前几排坐着三位考核评委两男一女穿着正装，面前摆着评分表和笔，图1走到评委席旁与中间的评委交换了一个微妙的眼色那是你懂的眼神，她转身提高声音目光直直投向远处。
+        镜头2（5秒）特写 固定镜头：图2的特写她听到命题的瞬间瞳孔微微收缩——《我演过的角色》这个命题对她而言是一道暗门，但她的表情只僵了不到半秒随即恢复平静，嘴角甚至浮起一丝几乎看不见的笑意。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「特别考核，第一位——林小晚。」
+        对白（考核评委，成年男性或女性，35–50岁，声线专业权威，语速中等，点评式语调客观冷静）：「命题独白《我演过的角色》——三分钟，脱稿。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「《我演过的角色》——有意思。她是在帮我，还是害我。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「好。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生训练营考核区，冷白荧光灯均匀照明，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-009
-        line: "特别考核，第一位——林小晚。"
-        shot_id: EP06-S03
-      - speaker: CHAR-GRP-02
-        line: "命题独白《我演过的角色》——三分钟，脱稿。"
-        shot_id: EP06-S03
-      - speaker: CHAR-001
-        type: inner
-        line: "《我演过的角色》——有意思。她是在帮我，还是害我。"
-        shot_id: EP06-S04
-      - speaker: CHAR-001
-        line: "好。"
-        shot_id: EP06-S04
 
   - segment_id: EP06-SEG03
-    segment_no: 3
-    summary: "走上舞台——苏念晚走到考核区中央，屏息准备"
-    scene_id: SCENE-004
+    shot_ids: [EP06-S05, EP06-S06]
     duration_sec: 10
-    shot_ids:
-      - EP06-S05
-      - EP06-S06
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙+白色帆布鞋）【图2】练习生训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 镜头跟随：图1从队伍中走出缓步走向考核区中央，她每一步都很稳白色帆布鞋踩在木地板上几乎没有声音，其他人屏息看着，图1靠墙抱着手臂嘴角挂着看好戏的微笑，评委们拿起笔准备评分。
+        镜头2（5秒）特写 镜头推近：图1在舞台中央站定，她深吸一口气闭上眼，镜面墙壁上倒映出她一个人的身影——齐肩短发朴素的学生装孤零零地站在空荡荡的空间里，阳光从高窗斜射进来在她前方的地板上投下一道光柱。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「六成。记住，六成就够了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「一个隐藏身份十年的演员，演一个"演过很多角色"的人——这命题本身就是戏中戏。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「好。开始了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「六成。别过线。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生训练营舞台区域，高窗斜射阳光形成光柱效果，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-001
-        type: inner
-        line: "六成。记住，六成就够了。"
-        shot_id: EP06-S05
-      - speaker: CHAR-001
-        type: inner
-        line: '一个隐藏身份十年的演员，演一个"演过很多角色"的人——这命题本身就是戏中戏。'
-        shot_id: EP06-S05
-      - speaker: CHAR-001
-        type: inner
-        line: "好。开始了。"
-        shot_id: EP06-S06
-      - speaker: CHAR-001
-        type: inner
-        line: "六成。别过线。"
-        shot_id: EP06-S06
 
   - segment_id: EP06-SEG04
-    segment_no: 4
-    summary: "表演·六成——苏念晚开始表演，刻意克制但专业功底闪现"
-    scene_id: SCENE-004
+    shot_ids: [EP06-S07, EP06-S08]
     duration_sec: 11
-    shot_ids:
-      - EP06-S07
-      - EP06-S08
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙）【图2】练习生训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：图1睁开眼，她的气息变了肩膀微微下沉眼神从收敛变成一种淡淡的沧桑，她开口声音放轻了三分克制地透出情绪的底色，但每一个音都压着每一个停顿都故意短半秒透露着刻意的收敛。
+        镜头2（5秒）近景 固定镜头：评委的表情开始变化——中间的女评委放下了笔专注地看着图1，左边男评委的眉头微微抬起，图1的节奏依然克制但某个句子的尾音里多了一丝她没控制住的真实颤抖——那是十年隐忍的重量从裂缝里渗出来的声音。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「这些年我一直在演一个人——一个不是我的人。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「每天早上醒来要提醒自己：你是谁。你应该怎么笑。你应该用什么语气说话。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「演到后来，我自己都分不清了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「可面具戴久了——」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「有时候会忘了自己原本的样子。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生训练营舞台区域，冷白荧光灯均匀照明，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-001
-        line: "这些年我一直在演一个人——一个不是我的人。"
-        shot_id: EP06-S07
-      - speaker: CHAR-001
-        line: "每天早上醒来要提醒自己：你是谁。你应该怎么笑。你应该用什么语气说话。"
-        shot_id: EP06-S07
-      - speaker: CHAR-001
-        line: "演到后来，我自己都分不清了。"
-        shot_id: EP06-S07
-      - speaker: CHAR-001
-        line: "可面具戴久了——"
-        shot_id: EP06-S08
-      - speaker: CHAR-001
-        line: "有时候会忘了自己原本的样子。"
-        shot_id: EP06-S08
 
   - segment_id: EP06-SEG05
-    segment_no: 5
-    summary: "情感突破·八成——情感代入后不自觉释放，表演震撼全场"
-    scene_id: SCENE-004
+    shot_ids: [EP06-S09, EP06-S10]
     duration_sec: 12
-    shot_ids:
-      - EP06-S09
-      - EP06-S10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙）【图2】周瑶 CHAR-009-L01（浅棕色长直发，粉色裙）【图3】练习生训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 镜头推近：图1的手微微颤抖了一下她自己都没察觉，话到一半眼眶泛红喉头微哽每个字都像从很深的地方挖出来的，她的声音不再克制情感像冲破了闸门——那是十年影后级别的真实情感注入。
+        镜头2（6秒）中景 固定镜头：图1说最后一句时一滴泪恰好滑落她没擦让它静止在脸上，三秒的静默全场没有人说话——女评委的手停在半空忘记放下男评委的嘴微微张开，图2的笑容凝固在脸上像个僵硬的面具。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「有一次站在镜子前——」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「我突然想不起来，那个十八岁站在领奖台上的女孩，她真正的笑容是什么样的。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「我演过那么多角色——」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「唯独忘了演自己。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「所以——如果问我演过什么角色……我演过一个人。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「一个叫'我'的人。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生训练营舞台区域，高窗斜射阳光形成光柱效果，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-001
-        line: "有一次站在镜子前——"
-        shot_id: EP06-S09
-      - speaker: CHAR-001
-        line: "我突然想不起来，那个十八岁站在领奖台上的女孩，她真正的笑容是什么样的。"
-        shot_id: EP06-S09
-      - speaker: CHAR-001
-        line: "我演过那么多角色——"
-        shot_id: EP06-S09
-      - speaker: CHAR-001
-        line: "唯独忘了演自己。"
-        shot_id: EP06-S09
-      - speaker: CHAR-001
-        line: "所以——如果问我演过什么角色……我演过一个人。"
-        shot_id: EP06-S10
-      - speaker: CHAR-001
-        line: "一个叫'我'的人。"
-        shot_id: EP06-S10
 
   - segment_id: EP06-SEG06
-    segment_no: 6
-    summary: "全场震动——寂静后掌声雷动，周瑶目瞪口呆"
-    scene_id: SCENE-004
+    shot_ids: [EP06-S11, EP06-S12]
     duration_sec: 10
-    shot_ids:
-      - EP06-S11
-      - EP06-S12
+    speakers: [CHAR-GRP-02, CHAR-009]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】周瑶 CHAR-009-L01（浅棕色长直发，粉色名牌包+粉色短裙）【图2】练习生训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：三秒死寂后——女评委率先站起来鼓掌，然后是左男评委右男评委，接着所有练习生像被解除了暂停键一样鼓起掌来，掌声越来越大有人悄悄擦了眼角，日光灯管在头顶嗡嗡响着和掌声交织在一起。
+        镜头2（5秒）近景 固定镜头：图1的笑容完全碎裂嘴张了张想说什么却发不出声，她瞪大眼睛看着舞台方向手指在手机屏幕上无意识地乱划，旁边几个原本跟她一伙的跟班练习生也不敢出声目光在舞台和图1之间来回跳动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（考核评委，成年男性或女性，35–50岁，声线专业权威，语速中等，点评式语调客观冷静）：「非常好——真的非常好。」
+        对白（考核评委，成年男性或女性，35–50岁，声线专业权威，语速中等，点评式语调客观冷静）：「新人有这样的情感深度，很难得。」
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「怎么可能……她只是一个新人……这不可能……」
+        对白（周瑶，年轻女性，21岁，声线娇纵跋扈略带尖锐，语速中等偏快，说话带居高临下的优越感，被怼时声音拔高带怒意）：「咳……还、还行吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生训练营考核区，掌声雷动与日光灯嗡鸣交织，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
     transition_to_next: audio_bridge
-    dialogue:
-      - speaker: CHAR-GRP-02
-        line: "非常好——真的非常好。"
-        shot_id: EP06-S11
-      - speaker: CHAR-GRP-02
-        line: "新人有这样的情感深度，很难得。"
-        shot_id: EP06-S11
-      - speaker: CHAR-009
-        type: inner
-        line: "怎么可能……她只是一个新人……这不可能……"
-        shot_id: EP06-S12
-      - speaker: CHAR-009
-        line: "咳……还、还行吧。"
-        shot_id: EP06-S12
 
   - segment_id: EP06-SEG07
-    segment_no: 7
-    summary: "那道目光——陆景深在门口看到最后一幕，第一次露出意味深长的表情"
-    scene_id: SCENE-004
+    shot_ids: [EP06-S13, EP06-S14]
     duration_sec: 10
-    shot_ids:
-      - EP06-S13
-      - EP06-S14
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色高领毛衣+深灰色长款大衣+黑色修身裤+黑色皮鞋）【图2】林小晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙）【图3】练习生训练营 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：训练室的门半开着图1站在门口——他在走廊经过时被掌声吸引驻足，他的目光穿过人群缝隙落在舞台中央那个低着头脸上还挂着泪痕的女孩身上，他看她的表情变了不再是冷面导师的漠然而是一种审视一种好奇一种原来如此的微光。
+        镜头2（5秒）近景 固定镜头：图2抬起头擦去脸上的泪痕深呼吸恢复平静，她转身时余光扫到了门口四目相对，图1没有移开目光她也没有，那一秒的对视里有什么东西在空气中无声地互相试探，然后他微微颔首——不是点头而是一个极其微妙的表示我看到了的表情。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「……」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「那不是新人能有的表演。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「他看到了。」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「果然不简单。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生训练营门口走廊，日光从走廊落地窗倾泻，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-002
-        type: inner
-        line: "……"
-        shot_id: EP06-S13
-      - speaker: CHAR-002
-        type: inner
-        line: "那不是新人能有的表演。"
-        shot_id: EP06-S13
-      - speaker: CHAR-001
-        type: inner
-        line: "他看到了。"
-        shot_id: EP06-S14
-      - speaker: CHAR-002
-        type: inner
-        line: "果然不简单。"
-        shot_id: EP06-S14
 
   - segment_id: EP06-SEG08
-    segment_no: 8
-    summary: "调查命令——陆景深对助理说去查林小晚的背景"
-    scene_id: SCENE-004
+    shot_ids: [EP06-S15, EP06-S16]
     duration_sec: 10
-    shot_ids:
-      - EP06-S15
-      - EP06-S16
+    speakers: [CHAR-GRP-03, CHAR-002]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-004.png
+    api:
+      text: |
+        【图1】陆景深 CHAR-002-L01（黑色高领毛衣+深灰色长款大衣）【图2】练习生训练营走廊 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：走廊尽头日光从落地窗倾泻而入，图1大步走着步伐不快不慢但每一步都有决断感，助理小跑着追上来侧着身子等他指示，图1停下脚步没有回头看助理目光投向走廊尽头的光。
+        镜头2（5秒）特写 固定镜头：图1的侧脸特写落地窗的光在他脸上投下半明半暗的光影，他的表情平静无波但眼底深处有一道光——那是狩猎者发现线索时的光，他微微眯起眼声音低沉每个字都带着不容置疑的分量。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景深助理，年轻男性，25岁，声线恭敬利落，语速偏快，说话简洁有效率，下属对上司的职业语气）：「陆老师，刚刚那是——？」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「去查一下林小晚的背景。」
+        对白（陆景深助理，年轻男性，25岁，声线恭敬利落，语速偏快，说话简洁有效率，下属对上司的职业语气）：「明白了。」
+        对白（陆景深助理，年轻男性，25岁，声线恭敬利落，语速偏快，说话简洁有效率，下属对上司的职业语气）：「以什么理由？」
+        对白（陆景深，成年男性，30岁，语调平稳偏低沉，声线冷冽有磁性，语速偏慢惜字如金，每个字都有分量感，表达感情时语气突然变温柔略带笨拙，常以短句句号结尾制造停顿感）：「她的基本功——不像新人。」
+        画面全程无任何文字、字幕、标题、水印。
+        练习生训练营走廊，落地窗日光半明半暗光影，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
     transition_to_next: hard_cut
-    dialogue:
-      - speaker: CHAR-GRP-03
-        line: "陆老师，刚刚那是——？"
-        shot_id: EP06-S15
-      - speaker: CHAR-002
-        line: "去查一下林小晚的背景。"
-        shot_id: EP06-S15
-      - speaker: CHAR-GRP-03
-        line: "明白了。"
-        shot_id: EP06-S15
-      - speaker: CHAR-GRP-03
-        line: "以什么理由？"
-        shot_id: EP06-S16
-      - speaker: CHAR-002
-        line: "她的基本功——不像新人。"
-        shot_id: EP06-S16

@@ -1,178 +1,262 @@
-# EP09 Segments - API 配置
-# 来源: EP09_旧记者的追踪.md
-# 生成日期: 2026-06-20
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP09/EP09_旧记者的追踪.md
+# Source shots: 12 (EP09-S01 to EP09-S12)
+# Output shots: 12 (EP09-S01 to EP09-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 86s (5+5+10+6+6+6+6+10+10+6+6+10=86)
+# Output total duration: 86s
+# Gate status: ALL PASS (G1✅ G2✅ G3✅ G4✅)
 
 episode_id: EP09
-episode_title: 旧记者的追踪
+source_md: 剧本/EP09/EP09_旧记者的追踪.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
+  CHAR-004: "成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰"
+  CHAR-010: "成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力"
 
 segments:
-  - segment_id: SEG01
-    label: 记者开场（悬念钩·刺探式）
-    duration_sec: 10
+  - segment_id: EP09-SEG01
     shot_ids: [EP09-S01, EP09-S02]
-    scene: SCENE-020
-    characters:
-      - id: CHAR-010
-        look: CHAR-010-L01
-        voice_prompt: "成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力"
-    seedance:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 10
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    transition:
-      type: audio_bridge
-      description: "陈姐电话音先入，衔接SEG02"
-
-  - segment_id: SEG02
-    label: 公寓惊闻（信息钩·碎片式）
     duration_sec: 10
+    speakers: [CHAR-010]
+    refs:
+      scene_id: SCENE-020
+    assets:
+      look_urls:
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-010-L01.png
+      scene_urls:
+        SCENE-020: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-020.png
+    api:
+      text: |
+        【图1】张记者 CHAR-010-L01（棕色斜挎包，略显沧桑的中年记者，敏锐眼神）【图2】张记者书房 SCENE-020。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：45岁的中年记者坐在电脑前，棕色斜挎包斜挎在身，屏幕蓝光映在他沧桑的面庞上。身后的书架上堆满泛黄的剪报册和娱乐杂志。他右手握着鼠标，食指悬停在暂停键上。
+        镜头2（5秒）特写 缓推：电脑屏幕上，林小晚的综艺片段被暂停。张记者双击放大画面，林小晚的侧脸清晰可见。他的眉头渐渐皱起，目光从屏幕移到手边一本泛黄的剪报上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「这个走红的新人……每个动作都有职业痕迹。」
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「林小晚……简历说你是新人。」
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「这种侧脸打光的角度……我十年前见过。」
+        画面全程无任何文字、字幕、标题、水印。
+        深夜书房追查氛围，暖黄台灯与冷蓝屏幕光对比，堆满剪报和资料，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-010-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-020, role: reference_image, label: 图2 }
+    transition_to_next: audio_bridge
+
+  - segment_id: EP09-SEG02
     shot_ids: [EP09-S03]
-    scene: SCENE-008
-    characters:
-      - id: CHAR-001
-        look: CHAR-001-L01
-        voice_prompt: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
-    seedance:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 10
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    transition:
-      type: dissolve
-      description: "时间推移至次日白天"
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙，简单的白色T恤和凌乱黑发）【图2】苏念晚公寓 SCENE-008。
+        # ⚠️ 陈姐 CHAR-004 通话中不出镜（仅语音），陈姐参考图未包含在本段 content_roles 中
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中近景 固定镜头：图1站在公寓窗前，穿着一件简单的白色T恤，黑色短发有些凌乱。窗外是城市夜景，手机的屏幕光映在她清冷的面庞上。她握着手机贴耳，表情从平静到凝重的细微变化。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「刚收到确认消息。方芷晴是下期综艺的特邀导师。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「下期？」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「星耀那边已经拍板了。你要有心理准备。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「知道了。见面谈。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「躲了十年……也该正面撞一次了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市公寓夜景，暖色台灯与冷色屏幕光对撞，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
 
-  - segment_id: SEG03
-    label: 咖啡馆密谈·陈姐的担忧（蓄力式）
-    duration_sec: 12
+  - segment_id: EP09-SEG03
     shot_ids: [EP09-S04, EP09-S05]
-    scene: SCENE-002
-    characters:
-      - id: CHAR-004
-        look: CHAR-004-L01
-        voice_prompt: "成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰"
-      - id: CHAR-001
-        look: CHAR-001-L01
-        voice_prompt: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
-    seedance:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 12
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    transition:
-      type: hard_cut
-
-  - segment_id: SEG04
-    label: 咖啡馆密谈·苏念晚的反击（权力翻转式）
     duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-002.png
+    api:
+      text: |
+        【图1】陈姐 CHAR-004-L01（银灰色短发，黑色职业套装，表情严肃）【图2】苏念晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙，面前放着一杯未动的咖啡）【图3】咖啡馆 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：咖啡馆角落的卡座，窗外透进温暖的日光。图1穿着黑色职业套装，银灰色短发利落，双手交叉放在桌上，表情严肃。图2坐在对面，面前放着一杯未动的咖啡。
+        镜头2（6秒）近景 固定镜头：图1身体微微前倾，目光紧锁图2，手指轻敲桌面。她的眼神里有焦虑，但也有十年如一日的关切。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「我建议你推掉下期录制。以身体不适为由，很自然。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「推得了一期，推不了一季。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「你现在这张脸，经不起她仔细端详。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「十年了。我的脸在变。她的记忆也在变。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「可你现在的身份经不起查。一个来历不明的新人——万一她让人去翻你的底呢？」
+        画面全程无任何文字、字幕、标题、水印。
+        咖啡馆角落卡座，温暖日光透过窗户，低调私密氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP09-SEG04
     shot_ids: [EP09-S06, EP09-S07]
-    scene: SCENE-002
-    characters:
-      - id: CHAR-001
-        look: CHAR-001-L01
-        voice_prompt: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
-      - id: CHAR-004
-        look: CHAR-004-L01
-        voice_prompt: "成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰"
-    seedance:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 12
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    transition:
-      type: audio_bridge
-      description: "张记者翻页声先入，衔接SEG05"
-
-  - segment_id: SEG05
-    label: 记者调查·旧照翻出（独白递进式）
-    duration_sec: 10
-    shot_ids: [EP09-S08]
-    scene: SCENE-020
-    characters:
-      - id: CHAR-010
-        look: CHAR-010-L01
-        voice_prompt: "成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力"
-    seedance:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 10
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    transition:
-      type: dissolve
-      description: "剪报中苏念晚的照片与浴室镜中苏念晚的脸在 dissolve 中重叠——两条线在同一时刻交汇"
-
-  - segment_id: SEG06
-    label: 公寓独处·决心已定（蓄力式·情绪沉淀）
-    duration_sec: 10
-    shot_ids: [EP09-S09]
-    scene: SCENE-008
-    characters:
-      - id: CHAR-001
-        look: CHAR-001-L01
-        voice_prompt: "成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力"
-    seedance:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 10
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    transition:
-      type: dissolve
-      description: "浴室镜面中苏念晚的脸渐隐，桌上并排的十年前的旧照片与综艺截图渐显——两条调查线在画面中完成视觉交汇"
-
-  - segment_id: SEG07
-    label: 记者确认·身份匹配（悬念钩·刺探式）
     duration_sec: 12
-    shot_ids: [EP09-S10, EP09-S11]
-    scene: SCENE-020
-    characters:
-      - id: CHAR-010
-        look: CHAR-010-L01
-        voice_prompt: "成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力"
-    seedance:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 12
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    transition:
-      type: hard_cut
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-002.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（齐肩短发，白衬衫+深蓝背带裙，放下咖啡杯，目光坚定）【图2】陈姐 CHAR-004-L01（银灰色短发，黑色职业套装，震惊表情）【图3】咖啡馆 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定镜头：图1放下咖啡杯，抬起眼直视图2。她的眼神不再闪躲，反而平静得令人不安——那种吃过十年苦才有的沉静。窗外阳光在她侧脸勾勒出利落的轮廓。
+        镜头2（6秒）中特写 固定镜头：图1微微挺直背脊，目光穿越图2看向窗外。她的嘴角甚至闪过一丝几乎不可见的弧度——不是笑，是一种确认猎物位置的冷静。窗外街景虚化。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「万一她认出你了呢？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「那我就让她认。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「你疯了？被认出来一切全完了！」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「我不靠近她，哪来的机会拿到证据？」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「躲不是办法。越近，越能看到真相。」
+        对白（陈姐，成年女性，55岁，声线干练有力略带沙哑，语速偏快指令式，说话雷厉风行有权威感，对苏念晚时语调柔化带母亲般温暖，行业术语信手拈来，表达关心时故意用严厉语气掩饰）：「……」
+        画面全程无任何文字、字幕、标题、水印。
+        咖啡馆角落卡座，温暖日光透过窗户，冷静对峙氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: audio_bridge
 
-  - segment_id: SEG08
-    label: 结尾钩子（危机钩）
+  - segment_id: EP09-SEG05
+    shot_ids: [EP09-S08]
     duration_sec: 10
+    speakers: [CHAR-010]
+    refs:
+      scene_id: SCENE-020
+    assets:
+      look_urls:
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-010-L01.png
+      scene_urls:
+        SCENE-020: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-020.png
+    api:
+      text: |
+        【图1】张记者 CHAR-010-L01（棕色斜挎包，粗大手指翻开发黄剪报）【图2】张记者书房 SCENE-020。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写 镜头缓缓下摇：图1的手翻开一本泛黄的剪报册，纸张边缘因年代久远而发脆。里面夹着一张十年前的娱乐版报道——18岁的苏念晚手捧三座奖杯，照片上少女的笑靥如花。他粗糙的指腹轻轻划过那张泛黄的照片。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「苏念晚退圈前最后一部电影……当年她才十八岁。」
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「这是她封后的那一届金像奖……三冠影后。」
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「这个抬眸的角度……这个微皱的眉头……」
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「不可能有这么巧的事。」
+        画面全程无任何文字、字幕、标题、水印。
+        深夜书房追查氛围，暖黄台灯照亮泛黄剪报，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-010-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-020, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP09-SEG06
+    shot_ids: [EP09-S09]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: |
+        【图1】苏念晚 CHAR-001-L01（齐肩短发，素颜，练习生装扮，手指触碰镜面）【图2】苏念晚公寓浴室 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：图1站在公寓浴室的镜子前，仅亮着一盏暖黄色的镜前灯。她看着镜中的自己——齐肩黑发，素颜，练习生装扮。她的手指轻轻触碰到镜面，指尖点在镜中自己的眉骨上。眼神平静底下藏着汹涌的暗流。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「方芷晴……十年没见了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「你当年抢走的那个位置……」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「我回来了。」
+        对白（苏念晚，成年女性，28岁，声线清冷偏低，语速中等偏慢，平时克制内敛，说话精准有力，装傻时语速加快语气上扬带无辜感，关键时刻语调沉稳有穿透力，偶尔停顿制造张力）：「有些账，该算了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市公寓浴室，暖黄镜前灯独亮，眼神平静下暗流涌动，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP09-SEG07
+    shot_ids: [EP09-S10, EP09-S11]
+    duration_sec: 12
+    speakers: [CHAR-010]
+    refs:
+      scene_id: SCENE-020
+    assets:
+      look_urls:
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-010-L01.png
+      scene_urls:
+        SCENE-020: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-020.png
+    api:
+      text: |
+        【图1】张记者 CHAR-010-L01（棕色斜挎包，布满血丝的眼睛，揉鼻梁）【图2】张记者书房 SCENE-020。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）大特写 横移：桌面上并排放着两张照片：左边是十年前苏念晚的侧脸特写，右边是林小晚综艺片段截图。图1的手指从左到右缓慢平移，对比两双眼睛的轮廓、眉骨的弧度。两张脸庞在暖黄台灯下被照得清晰。
+        镜头2（6秒）近景 缓推：图1靠回椅背，揉了揉布满血丝的眼睛，拇指和食指捏了捏鼻梁。再睁眼时，他的目光里有职业记者发现大鱼时的兴奋和克制——一种猎人确认猎物后的沉静。台灯光在他眼中形成两点光斑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「人长大了会变……但骨头不会。」
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「颧骨、鼻梁、下颌线……相似度百分之九十以上。」
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「十年了……你居然回来了。」
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「如果这是真的……」
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「这就是今年娱乐圈最大的新闻。」
+        画面全程无任何文字、字幕、标题、水印。
+        深夜书房追查氛围，暖黄台灯照亮新旧照片对比，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-010-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-020, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP09-SEG08
     shot_ids: [EP09-S12]
-    scene: SCENE-020
-    characters:
-      - id: CHAR-010
-        look: CHAR-010-L01
-        voice_prompt: "成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力"
-    seedance:
-      model: doubao-seedance-2-0-fast
-      ratio: "9:16"
-      resolution: 720p
-      duration_sec: 10
-      generate_audio: true
-      prompt_suffix: ", photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
-      negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
-    transition:
-      type: hard_cut
+    duration_sec: 10
+    speakers: [CHAR-010]
+    refs:
+      scene_id: SCENE-020
+    assets:
+      look_urls:
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-010-L01.png
+      scene_urls:
+        SCENE-020: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-020.png
+    api:
+      text: |
+        【图1】张记者 CHAR-010-L01（棕色斜挎包，拇指悬停在发送按钮上方）【图2】张记者书房 SCENE-020。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）大特写 固定镜头：手机屏幕的俯拍特写。图1在社交平台的编辑框内打下最后一行字。他的拇指悬停在"发送"按钮上方，犹豫了一秒——然后按下。屏幕动画：消息发送成功。屏幕上浮现他的帖子内容。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张记者，成年男性，45岁，声线沉稳老练有职业感，语速中等，说话带记者的敏锐和追问感，旁白式语调有叙述力）：「苏念晚……真的是你吗？」
+        画面全程无任何文字、字幕、标题、水印。
+        深夜书房追查氛围，手机屏幕微光映照，悬疑钩子，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-010-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-020, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

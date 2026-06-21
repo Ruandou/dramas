@@ -1,0 +1,299 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP60/EP60_新的开始.md
+# Source shots: 8 (EP60-S01 to EP60-S08)
+# Output shots: 8 (EP60-S01 to EP60-S08)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 78s
+# Output total duration: 78s
+# Gate status: ALL PASS
+
+episode_id: EP60
+source_md: 剧本/EP60/EP60_新的开始.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, modern urban setting, 9:16 vertical frame, high detail, natural skin texture, film grain subtle"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, low quality, blurry, deformed face, extra limbs, extra fingers, mutated hands, watermark, text overlay, brand logo, oversaturated skin, plastic skin, uncanny valley, 3D render, CGI look"
+
+shots:
+  - shot_id: EP60-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L02（黑色修身西装·长发披肩）【图2】SCENE-003（星耀发布会厅·演讲台）【图3】CHAR-004-L01（台侧·干练职业）。中景 固定：苏念晚站在演讲台后双手撑台，目光扫过全场，台下媒体座无虚席（远景模糊）。陈姐站台侧表情骄傲。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "十天前我站在金像奖舞台——揭露了十年前的真相。"
+      - speaker: CHAR-001
+        line: "今天——我不想再说我自己的故事了。"
+      - speaker: CHAR-001
+        line: "一个人被冤枉是一个人的悲剧。但这个行业不改——还会有下一个被冤枉的人。"
+      - speaker: CHAR-001
+        line: "这个倡议叫'苏念晚条款'。用我的名字——提醒所有人：有一个演员，用了十年才等到真相。下一个人——不该等这么久。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-GRP-11
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-GRP-11: assets/looks/CHAR-GRP-11.png  # ⏳ 待生成
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L02（黑色修身西装）【图2】SCENE-003。近景 固定：记者群中一位年轻女演员举手站起，穿白色衬衫，眼眶泛红。苏念晚看向她，微微点头示意。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-GRP-11
+        line: "苏老师——谢谢你。十年前我也被冤枉过——说我偷了剧本。没有人相信我，我差点退圈。"
+      - speaker: CHAR-GRP-11
+        line: "后来看到你的案子翻过来——我想，如果苏念晚都能等到真相——我也能。"
+      - speaker: CHAR-001
+        line: "谢谢你告诉我这些。这就是我站在这里的原因。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L02（黑色修身西装）【图2】SCENE-003。近景 镜头推近：记者举手提问。苏念晚双手撑台面，光从侧面照在她脸上——一半明亮一半柔和，她沉默片刻，嘴角浮起一丝通透的微笑。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-GRP-09
+        line: "苏念晚——当一切尘埃落定，你最大的感受是什么？"
+      - speaker: CHAR-001
+        line: "说实话吗？"
+      - speaker: CHAR-001
+        line: "一个人的平反——不够。"
+      - speaker: CHAR-001
+        line: "我赢了。但还有多少人——在等着真相？"
+      - speaker: CHAR-001
+        line: "我想要的不是一个人的胜利——是让这个行业再也不能随便毁掉任何人。"
+      - speaker: CHAR-004
+        line: "（无声鼓掌·骄傲的微笑）"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L02（黑色修身西装）【图2】SCENE-003【图3】CHAR-004-L01（干练职业）。中景 固定：发布会结束，媒体散去。苏念晚站在演讲台边低头看麦克风。陈姐走过来递给她一瓶水。会场灯光渐暗，暖色余光照在两人身上。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "你妈妈的在天之灵看到了。她一定在笑。"
+      - speaker: CHAR-001
+        line: "陈姐——谢谢你十年前把我从阳台上拉回来。没有你就没有今天的我。"
+      - speaker: CHAR-004
+        line: "傻孩子。好了。下一件事是什么。"
+      - speaker: CHAR-001
+        line: "不知道。但我想会是好事。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】CHAR-001-L02（宽松家居服）【图2】SCENE-008（公寓客厅·暮色暖橙天空）。中景 固定：暮色中的公寓客厅。苏念晚盘腿坐沙发上，落地窗外暖橙色天空。茶几上放着一杯冒热气的茶。她拿手机刷新闻——表情放松。手机震动，表情从随意变成惊讶再到感动的微笑。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "陈导？陈怀远导演？"
+      - speaker: CHAR-001
+        line: "'我正在筹备一部传记电影，讲述一位女性艺术家十年沉浮的故事。看到你的新闻后——这个角色，非你莫属。'"
+      - speaker: CHAR-001
+        line: "非我莫属。"
+      - speaker: CHAR-001
+        line: "妈——你看到了吗。有人要找我拍电影了。是电影。我真正想拍的那个。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】CHAR-001-L02（宽松家居服）【图2】SCENE-008（客厅·暮色）。近景 镜头推近：苏念晚沉浸在邮件带来的兴奋中——手机又亮了。看到发信人时嘴角先是一勾，然后看完消息内容愣住了。她轻声读出来，眼眶慢慢泛红。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "'周六晚上七点——不要安排任何事。我来接你。有一个地方——我想带你去。'"
+      - speaker: CHAR-001
+        line: "这个人——总是知道怎么让我开心。"
+      - speaker: CHAR-001
+        line: "十年前我以为我的人生结束了。十年后——我有了想改变的事业，有了想守护的人。从谷底爬出来之后——每一步，都是上坡路。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】CHAR-001-L02（宽松家居服）【图2】SCENE-008（客厅·暮色渐深）。近景 固定：苏念晚坐直身体，深呼吸，拿起手机拨出号码。电话接通时声音从激动变得从容。窗外暮色渐深，城市灯火在远处闪烁。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "喂，陈导？您好——我是苏念晚。谢谢您的邀请。"
+      - speaker: CHAR-001
+        line: "我想看看剧本。"
+      - speaker: CHAR-001
+        line: "嗯。我很有兴趣。因为这个角色——好像就是在等我。"
+      - speaker: CHAR-001
+        line: "我要回去演戏了。这一次——堂堂正正地演。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级影后她装新人/CHAR-001-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级影后她装新人/SCENE-008.png
+    api:
+      text: "【图1】CHAR-001-L02（宽松家居服）【图2】SCENE-008（公寓·窗外城市夜景）。特写 固定：苏念晚的脸，窗外城市灯火在她眼中闪烁。她轻轻呼出一口气，是满足也是期待。镜头缓缓上摇到窗外——整座城市的夜景，万家灯火。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "十年前——我失去了所有。十年后——我拥有了更多。"
+      - speaker: CHAR-001
+        line: "妈——你看到了吧。我不仅站起来了——还站得很稳。"
+      - speaker: 旁白
+        line: "苏念晚——三冠影后。消失十年——然后带着整个行业一起回来了。"
+      - speaker: 旁白
+        line: "她的故事——翻开了最精彩的一页。"
+    transition_to_next: hard_cut
