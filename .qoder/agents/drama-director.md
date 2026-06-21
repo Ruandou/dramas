@@ -468,7 +468,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 
 | 检查项 | 通过标准 | 失败处理 |
 |--------|----------|----------|
-| 总时长 | ≥ 75s 且 ≤ 120s（标准集目标 90s，EP01 目标 120s） | 时长不足请求 scene-writer 扩充镜头；超过 120s 请求 scene-writer 精简 |
+| 总时长 | 落在 `制片规范.md` → `episode_profile` 合规区间（示例 standard-72: ≥75s 且 ≤120s，EP01 90-120s；长集项目以实际 episode_profile 为准） | 时长不足或超限 → 要求 scene-writer **废弃当前稿、重写整集**（先做时长预算；禁止微调秒数补足，见 scene-writer 自检 1 红线） |
 | 镜头数一致 | 元数据声明镜数 == 实际镜头行数 | 请求修正元数据或补充镜头 |
 | Segment 数 | 6-10 段（EP01: 10-12 段），参见制片规范 episode_profile | 过少→拆分；过多→合并 |
 | 单段时长 | 每段 4-12s | 超出→拆分；不足→合并 |
@@ -541,7 +541,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 | 镜头数一致 | shots 数量 == 源 .md 镜头表行数 | 上游问题→回退 Stage 4；本层问题→重新生成 |
 | 对白逐字一致 | 每行对白可追溯到源 .md 逐字对应 | 请求 segment-builder 修正 |
 | voice_prompt 全文一致 | YAML voice_prompt == 声音卡片原文 | 请求修正 |
-| 时长合规 | 所有 segment 4-12s，总时长 ≥ 75s 且 ≤ 120s | 超出→检查是否上游时长问题 |
+| 时长合规 | 所有 segment 4-12s，总时长落在 `制片规范.md` → `episode_profile` 合规区间（示例 ≥75s 且 ≤120s） | 超出→检查是否上游时长问题 |
 | 不跨场景 | 每个 segment 内所有 shot 同一 SCENE | 请求拆分 |
 | content_roles 对应 | 【图N】 ↔ content_roles 一一对应 | 请求修正 |
 | 23 项自检清单 | 全部通过 | 逐项检查失败原因，判断是上游还是本层 |
@@ -777,7 +777,7 @@ EP03:                            Stage 4 → ...
 | G3 失败（场景问题） | Stage 3c | 请求 scene-designer 补充/重新生成场景参考图 |
 | G3 失败（道具问题） | Stage 3a | 请求 prop-designer 补充/重新生成道具参考图 |
 | G3 失败（跨资产风格不一致） | Stage 3a / 3b / 3c | 由 drama-director 判定哪方需调整 |
-| G4 失败 | Stage 4 | 请求 scene-writer 修正剧本 |
+| G4 失败 | Stage 4 | 请求 scene-writer 修正剧本。**时长不达标（低于 episode_profile 下限或高于上限）：重写整集，非局部修正**（见 scene-writer 自检 1 红线）。**scene-writer 3 稿仍不达标升级到 director → director 诊断根因**：若是单集写作问题 → 指导 scene-writer 调整叙事密度；若是大纲场景容量不足（如本集只规划了 2 个场景撑不起下限时长）→ 回退 Stage 1 请求 story-architect 补充该集场景 |
 | G5 失败（上游问题） | Stage 4 | 修正源 .md 后重跑 Stage 5 |
 | G5 失败（本层问题） | Stage 5 | 请求 segment-builder 重新生成 |
 | G5 失败（群演资产缺口） | Stage 2 → Stage 3b | scene-writer 在剧本中标注的 `[待补：...]` 新群演未回补 L01：①production-planner 分配 `CHAR-GRP-##` + 建声音卡片/角色索引/形象索引骨架条目 → ②character-designer 回补 L01 + 填角色卡片/形象索引 → ③该群演过 **G3**（仅增量资产）→ ④恢复 Stage 5。见「集间群演回补子循环」 |
@@ -789,6 +789,7 @@ EP03:                            Stage 4 → ...
 - ❌ 自行修补上游问题而不通知上游角色
 - ❌ 跳过门控直接进入下一阶段
 - ❌ 在同一门控连续失败 3 次后仍不升级报告
+- ❌ **通过加秒数凑时长**（如"某镜头 5s 改 8s 但不加对白/画面"）——视为造假，整集作废重写。剧本是流水线真相源，凑数会让下游 Seedance 按段扣费的视频生成全浪费（见 scene-writer 自检 1 + AGENTS.md「时长红线」）
 
 ---
 

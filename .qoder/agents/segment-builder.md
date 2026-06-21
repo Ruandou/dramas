@@ -57,11 +57,13 @@ story-architect → production-planner → prop-designer → [character-designer
 
 计算源 `.md` 中所有镜头的 `时长` 列之和。
 
-- **≥ 75s 且 ≤ 120s**（EP01: ≥ 90s 且 ≤ 120s）：通过，继续
-- **＜ 75s**（EP01: ＜ 90s）：❌ 停止。报告：“源文件总时长 Xs，低于下限门槛，差 Ys。请 scene-writer 扩充后重试。”
-- **＞ 120s**：❌ 停止。报告：“源文件总时长 Xs，超过 120s 上限，超出 Ys。请 scene-writer 精简后重试。”
+> **阈值来源**：以本集 `制片规范.md` → `episode_profile` 定义的 `duration_sec` 下限/上限为准（示例 standard-72: 75-120s，EP01 90-120s；长集项目如 140-200s 以实际 episode_profile 为准）。判定前先读本集 episode_profile 取阈值。
 
-> **Gate 1 计算规则**：将源 .md 镜头表中所有镜头的「时长」列数值逐个相加。禁止使用 VALIDATION 块中的 `total_duration` 声称值作为 Gate 1 判断依据。如果逐项求和 < 75s（EP01: < 90s），即使 VALIDATION 块标记为 ✅，仍必须触发 Gate 1 停止。
+- 落在 episode_profile 合规区间（示例 ≥75s 且 ≤120s，EP01 ≥90s）：通过，继续
+- **低于下限**（示例 <75s / EP01 <90s）：❌ 停止。报告："源文件总时长 Xs，低于 episode_profile 下限门槛，差 Ys。请 scene-writer **废弃当前稿、重写整集**后重试（禁止微调秒数补足，见 scene-writer 自检 1 红线）。"
+- **高于上限**（示例 >120s）：❌ 停止。报告："源文件总时长 Xs，超过 episode_profile 上限，超出 Ys。请 scene-writer **废弃当前稿、重写整集**后重试（禁止局部删秒数精简）。"
+
+> **Gate 1 计算规则**：将源 .md 镜头表中所有镜头的「时长」列数值逐个相加。禁止使用 VALIDATION 块中的 `total_duration` 声称值作为 Gate 1 判断依据。如果逐项求和低于 episode_profile 下限（示例 <75s / EP01 <90s），即使 VALIDATION 块标记为 ✅，仍必须触发 Gate 1 停止。
 
 ## Gate 2：镜头数一致性
 
@@ -439,7 +441,7 @@ assets:
 | 理想时长 | 8–10 秒 | 最佳生成效果 |
 | 每 segment 镜头数 | 1–3（最多 3） | 超出必须拆分 |
 | 每 segment 说话人 | ≤2 | 超出必须拆分 |
-| 全集总时长 | ≥ 75 秒 且 ≤ 120 秒（EP01: 90–120 秒） | 90 秒（默认） |
+| 全集总时长 | 落在 `制片规范.md` → `episode_profile` 合规区间（示例 ≥75s 且 ≤120s，EP01 90-120s；长集项目以实际为准） | 90 秒（standard-72 默认） |
 | 全集 segment 数 | 6–10 段 | 合理密度 |
 | 每集镜头数 | 8–12 镜 | 对应每集 6–10 段 × 1–3 镜/段 |
 
@@ -687,7 +689,7 @@ segments:
 | 9 | CDN URL 解析 | 已从 `cdn_urls.json` 解析，缺失处有 WARNING 注释 |
 | 9b | URL 永久性标记 | 所有临时预签名 URL（含 `X-Tos-Expires`）已标注 `# ⚠️ TEMP_URL` 警告注释 |
 | 10 | shot_ids 一致 | segments 中引用的 shot_ids 均存在于 shots.yaml |
-| 11 | 总时长 | 所有 segment `duration_sec` 之和 ≥ 75 秒 且 ≤ 120 秒（EP01: 90–120 秒） |
+| 11 | 总时长 | 所有 segment `duration_sec` 之和落在 `制片规范.md` → `episode_profile` 合规区间（示例 ≥75s 且 ≤120s，EP01 90-120s；长集项目以实际为准） |
 | 12 | Segment ID 命名 | 均为 `EP##-SEG##` 或 `EP##-SEG##a/b` |
 | 13 | 不跨场景 | 每个 segment 内所有 shot 属于同一 SCENE-### |
 | 14 | 镜头数一致 | shots.yaml 的 shot 数量 == 源 .md 镜头表行数 |
@@ -711,7 +713,7 @@ segments:
 2. **禁止改写对白** — 包括但不限于：缩略、润色、合并两句为一句、拆分一句为两句、移动到其他 segment、翻译、删除。
 3. **禁止发明对白** — 输出中的每一行 `「台词」` 必须在源 `.md` 对应镜头的"对白/备注"列中找到**逐字逐标点**对应。
 4. **禁止忽略角色** — 源 `.md` 中出现的所有 speaker（包括 `CHAR-GRP-##`）必须在 YAML 的 dialogue 中保留其台词。**例外**：`[待补：...]` 占位 speaker 尚无正式 ID/L01，按上文"停止生成，报告缺口"处理（触发集间群演回补子循环），不得将其对白写入 YAML，也不得视为"忽略角色"。
-5. **禁止自行填充时长** — 当源 `.md` 总时长不足 75s（EP01: 90s）时，禁止通过加长单镜头时长或增加镜头数来补足。必须触发 Gate 1 停止。
+5. **禁止自行填充/删减时长** — 当源 `.md` 总时长低于 `制片规范.md` → `episode_profile` 下限（示例 75s / EP01 90s）时，禁止通过加长单镜头时长或增加镜头数来补足；当总时长超过 episode_profile 上限（示例 120s）时，禁止通过缩短单镜头时长或删镜头来精简。两种情况都必须触发 Gate 1 停止、要求 scene-writer 重写整集。**同样禁止接受 scene-writer 通过纯加秒凑出的"达标"源 .md**——若发现镜头时长与对白/画面内容明显不匹配（如 10s 镜头只有 1 句短台词且无动作描写、多个镜头秒数偏高但对白稀薄），在 Gate 1 报告中标注 `suspected_padding: [镜号清单]` 并要求 scene-writer 重写整集，不得放行进入 YAML 生成。
 6. **禁止改写 voice_prompt** — 必须从声音卡片中全文复制「」内的文字内容（不含「」符号本身），不得简化、改写、翻译、缩写。
 7. **禁止忽略 ID 冲突** — 当源 `.md` 中的 SCENE/CHAR/PROP ID 定义与资产卡片不一致时，不得默默采用其中一个。必须触发 Gate 3 停止。
 8. **禁止重排叙事顺序** — 镜头在 YAML 中的顺序必须严格按照源 `.md` 镜头表从上到下的顺序，不得调换。
@@ -753,8 +755,9 @@ segments:
    - 差距：[Z]
    ```
 3. **建议修复路径** — 指出应由哪个上游角色修复：
-   - 时长不足 → `scene-writer` 扩充分集剧本
-   - 镜头数不一致 → `scene-writer` 修正元数据或补充镜头
+   - 时长不足 → `scene-writer` **重写整集**（先做时长预算，禁止在原稿加秒，见 scene-writer 自检 1 红线）
+   - 时长超限 → `scene-writer` **重写整集**（禁止局部删秒数精简）
+   - 镜头数不一致（元数据声明镜数 ≠ 实际镜头行数）→ `scene-writer` 修正元数据，或补齐缺失镜头行（**须带实质对白/画面，禁止加空镜凑数**，见 scene-writer 自检 1 红线）
    - ID 冲突 → `production-planner` 更新资产卡片
    - voice_prompt 缺失 → `production-planner` 补充声音卡片
    - speaker 为 `[待补：描述]` 占位（新群演未回补 L01） → 触发**集间群演回补子循环**（drama-director 路由）：`production-planner` 分配 `CHAR-GRP-##` + 建声音卡片/角色索引 → `character-designer` 回补 L01 + 填角色卡片/形象索引 → 过 G3（增量）→ `scene-writer` 用正式 ID 替换占位 → 恢复 Stage 5
