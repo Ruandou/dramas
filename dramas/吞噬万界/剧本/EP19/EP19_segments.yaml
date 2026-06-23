@@ -1,0 +1,307 @@
+# === SEGMENTS FIDELITY PROOF ===
+# Source: 剧本/EP19/EP19_古道.md
+# Source segments: 8 (SEG01-SEG08)
+# Output segments: 8 (EP19-SEG01 to EP19-SEG08)
+# Total duration: 82s (10+12+10+10+10+10+10+10)
+# Gate status: G1 PASS; G2 PASS; G3 CONDITIONAL; G4 CONDITIONAL
+# DRY-RUN: All CDN URLs are placeholders
+# ⚠️ PLACEHOLDER CHAR: CHAR-GRP-01 = [待补：古道山贼首领], needs production-planner allocation
+episode_id: EP19
+source_md: 剧本/EP19/EP19_古道.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: '"9:16"'
+  resolution: 720p
+  duration: 5
+  generate_audio: true
+  watermark: false
+  prompt_suffix: '"禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，荒凉古道黄沙场景。"'
+  prompt_suffix_silent: '"本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，荒凉古道黄沙场景。"'
+  negative_prompt: '"文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"'
+voice_prompts:
+  CHAR-001: 成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷
+  CHAR-004: 成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷
+  CHAR-GRP-01: 成年男性，约30岁，声线粗犷蛮横，语速快且嚣张，被击败后声音发抖恐惧  # ⚠️ PLACEHOLDER: voice_prompt not in 声音卡片.md, derived from character description. Needs production-planner confirmation.
+  旁白: 成年男性，声线沉稳中性，语速从容，叙述时带有暗示性和紧迫感
+segments:
+- segment_id: EP19-SEG01
+  shot_ids:
+  - EP19-S01
+  - EP19-S02
+  duration_sec: 10
+  speakers:
+  - CHAR-004
+  - CHAR-001
+  refs:
+    scene_id: SCENE-011
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-011: https://placeholder.example/SCENE-011.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边，掌心吞噬印记微弱闪动）【图2】沈墨 CHAR-004-L01（灰色长袍，凤眼半眯）【图3】荒凉古道 SCENE-011。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MLS 固定：荒凉古道全景——开裂灰色石板路延伸至远方，枯黄野草缝隙生长。图1白袍金边走在路中央，掌心吞噬印记微弱闪动。图2灰袍稍后半步，凤眼半眯环顾四周。正午顶光强烈偏白，空气中浮着细尘，远处山峦如锯齿，路旁残破灵石微泛蓝光。
+      镜头2（5秒）MCU 固定：古道中段——图2微微侧头看向图1，薄唇永恒半笑，凤眼中暗红光芒一闪即逝。图1金色瞳孔平静直视前方，白袍在微风中轻动。头顶正午阳光在两人之间投下清晰明暗分界。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「这条道上走了三天了。连个鬼影都没见着。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「不是还有你？」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「古道上的人越来越少……看来传闻不假。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「什么传闻？」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，荒凉古道黄沙场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-011, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+- segment_id: EP19-SEG02
+  shot_ids:
+  - EP19-S03
+  - EP19-S04
+  duration_sec: 12
+  speakers:
+  - CHAR-GRP-01
+  - CHAR-001
+  refs:
+    scene_id: SCENE-011
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-GRP-01: https://placeholder.example/CHAR-GRP-01.png  # ⚠️ PLACEHOLDER: L01 pending
+    scene_urls:
+      SCENE-011: https://placeholder.example/SCENE-011.png
+  # ⚠️ SEMANTIC_WARNING: CHAR-GRP-01 visual asset (L01) is placeholder only — no actual character sheet exists. API submission will produce inconsistent character appearance.
+  api:
+    text: |
+      【图1】山贼首领 CHAR-GRP-01（黑布蒙面，粗壮身材，破旧皮甲沾满尘土，手持生锈砍刀）【图2】林渊 CHAR-001-L02（白袍金边，金色瞳孔）【图3】沈墨 CHAR-004-L01（灰色长袍，靠在枯树上）【图4】荒凉古道 SCENE-011。
+      角色分工：仅图1持刀；图2单手抬起掌心发光；图3双臂环抱不触碰。
+      竖屏9比16连贯叙事。
+      镜头1（6秒）MS 固定：古道转弯处——三个山贼拦住去路。图1蒙黑布举刀挡在路中央，身后两人各持木棍和铁叉。图2停步在三步之外，白袍轻摆，金色瞳孔平静注视。图3在图2身后两步，抱臂靠在枯树上，嘴角若有若无的笑。
+      镜头2（6秒）MS 固定：古道上——图1挥刀砍来，图2不闪不避，右手轻轻抬起，掌心吞噬印记猛然亮起金光。一道金色漩涡从掌心展开，砍刀劈入漩涡瞬间被弹飞，图1连退五步摔倒在地。另外两个山贼扔掉武器转身就跑。尘土在午后阳光中扬起。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（山贼首领，成年男性，约30岁，声线粗犷蛮横，语速快且嚣张，被击败后声音发抖恐惧）：「留下买路钱！不然——」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「不然怎样？」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……吞噬之力还在。」
+      对白（山贼首领，成年男性，约30岁，声线粗犷蛮横，语速快且嚣张，被击败后声音发抖恐惧）：「修、修士……大人饶命！」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，荒凉古道黄沙场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-GRP-01, role: reference_image, label: 图1 }
+    - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+    - { file: SCENE-011, role: reference_image, label: 图4 }
+  transition_to_next: hard_cut
+- segment_id: EP19-SEG03
+  shot_ids:
+  - EP19-S05
+  - EP19-S06
+  duration_sec: 10
+  speakers:
+  - CHAR-001
+  - CHAR-GRP-01
+  refs:
+    scene_id: SCENE-011
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-GRP-01: https://placeholder.example/CHAR-GRP-01.png  # ⚠️ PLACEHOLDER: L01 pending
+    scene_urls:
+      SCENE-011: https://placeholder.example/SCENE-011.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边，金色瞳孔）【图2】山贼首领 CHAR-GRP-01（黑布蒙面，破旧皮甲，跌坐在地）【图3】荒凉古道 SCENE-011。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MCU 固定：古道上——图1低头看着跌坐在地的图2，金色瞳孔在正午阳光中闪烁。表情平静如水，白袍纹丝不动。图2满脸惊恐，双手撑地往后挪，砍刀落在三步外的石板上。尘土缓慢沉降。
+      镜头2（5秒）CU 固定：图1面部特写——微微侧头，金色瞳孔闪过若有所思。掌心吞噬印记光芒渐弱。他转身面向古道远方，风吹起白袍衣角和金色滚边。身后山贼首领连滚带爬逃走的声响在空旷古道上回荡。沈墨身影在图1身后出现，凤眼中暗红光芒一闪。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这附近……还有什么路可走？」
+      对白（山贼首领，成年男性，约30岁，声线粗犷蛮横，语速快且嚣张，被击败后声音发抖恐惧）：「前、前面岔路口……右边有古镇！左、左边……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「左边通哪？」
+      对白（山贼首领，成年男性，约30岁，声线粗犷蛮横，语速快且嚣张，被击败后声音发抖恐惧）：「噬、噬灵洞！别去那……会死人的……」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，荒凉古道黄沙场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+    - { file: CHAR-GRP-01, role: reference_image, label: 图2 }
+    - { file: SCENE-011, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+- segment_id: EP19-SEG04
+  shot_ids:
+  - EP19-S07
+  - EP19-S08
+  duration_sec: 10
+  speakers:
+  - CHAR-004
+  - CHAR-001
+  refs:
+    scene_id: SCENE-011
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-011: https://placeholder.example/SCENE-011.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍，凤眼偶尔暗红闪烁）【图3】荒凉古道 SCENE-011。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MS 固定：古道上——图1转身准备往岔路走。图2忽然抬手，一道暗红色灵力从指尖射出，擦着图1耳侧飞过。图1身后三步处，一个躲在碎石后的山贼被暗红灵力击中肩膀，惨叫着滚落路旁沟渠。暗红光芒在空气中消散。图2放下手，薄唇永恒半笑。
+      镜头2（5秒）MCU 固定：古道上——图2轻描淡写拂了拂袖口，灰色长袍在微风中轻动。凤眼半眯，薄唇永恒半笑中多了一丝意味深长。午后阳光从侧面照亮他苍白面容，半遮眼的黑发在风中微动。右手缓缓收回袖中，指尖残留微弱暗红余光。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「漏了一个。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……你用的什么？」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「一点小手段。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「你不需要知道。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，荒凉古道黄沙场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-011, role: reference_image, label: 图3 }
+  transition_to_next: dissolve
+- segment_id: EP19-SEG05
+  shot_ids:
+  - EP19-S09
+  - EP19-S10
+  duration_sec: 10
+  speakers:
+  - CHAR-001
+  - CHAR-004
+  refs:
+    scene_id: SCENE-012
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-012: https://placeholder.example/SCENE-012.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】古镇茶馆 SCENE-012。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MS 固定：古镇茶馆内——木质老楼，昏暗但温暖。图1和图2坐在靠窗木桌旁，桌上两杯粗茶冒着热气。窗外狭窄石板街偶有行人。纸灯笼发出暖橙色光芒，花生壳散落地上。后方砖灶上铁壶咕嘟冒汽，蒸汽在灯笼光中形成柔和光晕。
+      镜头2（5秒）MCU 固定：茶馆内——图2端着茶杯，凤眼从杯沿上方看向图1。薄唇微弯，永恒半笑中藏着深意。窗外阳光透过纸窗在苍白面容上画出柔和明暗。他放下茶杯，手指在桌面轻叩两下。图1金色瞳孔紧盯着他，等待回答。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「沈墨。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「嗯？」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「你对吞噬一族……知道多少？」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「你想知道？」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「时机未到……不过，你掌心的东西，我见过类似的。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，古镇茶馆暖光场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-012, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+- segment_id: EP19-SEG06
+  shot_ids:
+  - EP19-S11
+  - EP19-S12
+  duration_sec: 10
+  speakers:
+  - CHAR-004
+  refs:
+    scene_id: SCENE-012
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-012: https://placeholder.example/SCENE-012.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】古镇茶馆 SCENE-012。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MS 固定：茶馆内——图1和图2坐在桌旁。隔壁桌一个灰白胡须老茶客正在跟同伴说话，声音不大不小刚好传过来。老茶客穿粗布衣，满脸皱纹，说话时手舞足蹈。灯笼暖光在他布满老茧的手上摇曳。窗外石板街上一辆牛车吱呀驶过。
+      镜头2（5秒）MCU 固定：茶馆内——图2放下茶杯，薄唇微微上扬。凤眼在灯笼暖光中闪烁，目光从隔壁桌移向图1。他用手指蘸了茶水，在桌面上画了一个漩涡符号——形状与吞噬印记相似。图1低头看着那个符号，金色瞳孔微缩。窗外斜阳在图2身后投下长长的影子。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（旁白，成年男性，声线沉稳中性，语速从容，叙述时带有暗示性和紧迫感）：「……噬灵洞那地方，进去的人没一个活着出来。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「传说里面有吞噬属性的灵药。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「……或者，比灵药更重要的东西。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，古镇茶馆暖光场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-012, role: reference_image, label: 图3 }
+  transition_to_next: dissolve
+- segment_id: EP19-SEG07
+  shot_ids:
+  - EP19-S13
+  - EP19-S14
+  duration_sec: 10
+  speakers:
+  - CHAR-001
+  - CHAR-004
+  refs:
+    scene_id: SCENE-013
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边，掌心吞噬印记发光）【图2】沈墨 CHAR-004-L01（灰色长袍，融入阴影）【图3】噬灵洞 SCENE-013。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）LS 固定：噬灵洞入口——幽暗洞穴口如巨兽张开的嘴。图1站在入口处，白袍在洞内阴冷的风中微动。掌心吞噬印记微微发光，金色光点从洞内深处飘出，在他周围聚集。图2站在他身后半步，灰色长袍融入洞口阴影。洞壁隐约可见刻满的古老符文，部分发着暗淡金色微光。钟乳石从高处垂下，水滴声回荡。
+      镜头2（5秒）CU 固定：图1面部特写——他缓缓走入洞穴深处，金色瞳孔在黑暗中发出柔和的光。掌心吞噬印记光芒越来越亮，照亮坚毅面容。洞壁石刻符文的金色微光在他脸上投下流动光纹，像远古文字在皮肤上跳动。嘴角微抿，眼神专注而坚定。身后黑暗中图2身影若隐若现。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「它在……共鸣。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「进去。让它带你走。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「吞噬印记从没这么亮过……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这里面……一定有我要找的东西。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，噬灵洞永暗符文金色自发光场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-013, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+- segment_id: EP19-SEG08
+  shot_ids:
+  - EP19-S15
+  - EP19-S16
+  duration_sec: 10
+  speakers:
+  - CHAR-001
+  - CHAR-004
+  refs:
+    scene_id: SCENE-013
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+    prop_urls:
+      PROP-011: https://placeholder.example/PROP-011.png  # ⚠️ PROP-011 首次出场，scene-embedded
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边，掌心吞噬印记）【图2】沈墨 CHAR-004-L01（灰色长袍，凤眼暗红闪烁）【图3】噬灵洞 SCENE-013【图4】PROP-011 噬灵洞石壁符文（漩涡状吞噬符文密密麻麻刻于灰黑色花岗岩石壁）。
+      角色分工：仅图1伸出右手掌心朝向石壁；图2站立观察不触碰石壁。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MS 缓推：噬灵洞深处——图1站在巨大石壁前。石壁上密密麻麻刻满金色吞噬符文（PROP-011），数百个漩涡状符号排列如星辰图谱，大部分已暗淡但仍有零星几个发出微弱金光。图1伸出右手，掌心吞噬印记与石壁上最近的一个符文同时爆发出耀眼金光——两个符号一模一样。金色光柱从掌心和石壁同时射出，在空中交汇。洞内所有残余金色灵光同时亮起。
+      镜头2（5秒）MCU 固定：洞穴深处——图2从黑暗中走出，站在图1身后。凤眼注视着石壁符文，薄唇永恒半笑中第一次露出一丝近乎贪婪的神色，但转瞬即逝。金色符文光芒映在他苍白面容上，明暗交错。图1缓缓转身面对他，金色瞳孔中满是疑问。石壁上两个发光符文在两人身后持续闪烁。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这些符文……和我的印记——」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「一模一样。对吧？」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「你早就知道。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「我只知道……这条路有人走过。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「比你想的，久得多。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，噬灵洞永暗符文金色自发光场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-013, role: reference_image, label: 图3 }
+    - { file: PROP-011, role: reference_image, label: 图4 }
+  transition_to_next: hard_cut

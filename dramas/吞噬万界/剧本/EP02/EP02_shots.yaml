@@ -1,0 +1,547 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP02/EP02_坠崖.md
+# Source shots: 14 (EP02-S01 to EP02-S14)
+# Output shots: 14 (EP02-S01 to EP02-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: Gate 1 PASS (90s in [75s,100s]), Gate 2 PASS (14==14), Gate 3 PASS (IDs verified against asset cards), Gate 4 PASS (voice_prompts verified from 声音卡片.md)
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+# Note: No [待补] placeholders in this episode. PROP-001 ref images added to shots where jade pendant is prominently visible.
+# Note: PROP-002 (吞噬印记) first appears in S14, ref image added.
+
+episode_id: EP02
+source_md: 剧本/EP02/EP02_坠崖.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。"
+  negative_prompt: "任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格"
+
+shots:
+  - shot_id: EP02-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-001: https://placeholder.example/PROP-001.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L01（磨损灰色麻布袍，多处补丁，赤脚，颈挂裂纹翠绿玉佩）【图2】SCENE-002【图3】PROP-001（裂纹翠绿玉佩）。日间悬崖边，灰白天光笼罩崖顶，阴沉云层压低。图1盘坐在孤松旁岩石上，双手结印，眉心紧皱，额头冷汗，麻布袍在山风中翻卷。颈间玉佩裂纹中隐隐透出微弱金光。崖下云海翻涌。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+        - file: PROP-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "灵力……还是感应不到。"
+        emotion: "内心·挣扎"
+      - speaker: CHAR-001
+        line: "第三天了……再不突破，就真的完了。"
+        emotion: "内心·嘶哑"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L01（磨损灰色麻布袍）【图2】SCENE-002。面部特写。图1猛然睁眼，瞳孔映着灰白天光，眼神从祈求转为崩溃。牙关咬紧，下颌线条绷成刀锋，嘴唇微抖。汗珠从鬓角滑落。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "……不行。什么都感觉不到。"
+        emotion: "内心·破碎"
+      - speaker: CHAR-001
+        line: "完了。"
+        emotion: "气声"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（白色镶银边大师兄袍服，银冠束发高髻）【图2】CHAR-001-L01（磨损灰色麻布袍，赤脚，颈挂裂纹翠绿玉佩）【图3】SCENE-002。中远景 固定：图1从崖后小道走出，白色袍服在风中翻卷，双手抱胸，鹰目扫过盘坐的图2，嘴角勾起轻蔑弧度。崖边碎石在靴下咯吱作响。图2缓缓抬头，逆光中图1身影如高墙。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "三天到了。"
+        emotion: "轻蔑·拉长语调"
+      - speaker: CHAR-002
+        line: "突破了吗？"
+        emotion: "居高临下"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（白色镶银边大师兄袍服，银冠束发高髻）【图2】SCENE-002。面部特写。鹰目中满是戏谑，薄唇微微上扬，低头俯视姿态，像看一只待宰的羔羊。身后山风卷起袍角。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "废灵根嘛，给你三十年又如何？"
+        emotion: "冷笑·反问"
+      - speaker: CHAR-002
+        line: "废物，终究是废物。"
+        emotion: "定性"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-001: https://placeholder.example/PROP-001.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L01（磨损灰色麻布袍，赤脚，颈挂裂纹翠绿玉佩）【图2】SCENE-002【图3】PROP-001（裂纹翠绿玉佩）。侧面特写 固定。图1没有回应嘲讽，眼神从崩溃逐渐凝结为认命前最后的平静。下颌微收，嘴唇紧抿成线。黑发被冷汗浸湿贴在额角，缓缓低头看了一眼胸前玉佩。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+        - file: PROP-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "……随你。"
+        emotion: "低声"
+      - speaker: CHAR-001
+        line: "就算被赶出去，也不能丢掉母亲的玉佩。"
+        emotion: "内心"
+      - speaker: CHAR-002
+        line: "哑巴了？"
+        emotion: "画外·不耐"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-007-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-007-L01（粉白相间长裙，双丫髻系粉缎带）【图2】SCENE-002。中景 固定。图1从崖后小道跑来，粉白长裙在风中翻飞，双丫髻系着的粉缎带松散了一边。远远看到林渊坐在崖边、赵天行站在一旁，脚步骤然停下。双手攥紧袖口，眼眶泛红，嘴唇颤抖，想喊但声音卡在喉咙里。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-007
+        line: "林渊哥哥！"
+        emotion: "低声·颤抖"
+      - speaker: CHAR-007
+        line: "他又要对林渊哥哥……"
+        emotion: "内心"
+      - speaker: CHAR-007
+        line: "不……那里是悬崖边……"
+        emotion: "内心·恐惧"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-001: https://placeholder.example/PROP-001.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L01（磨损灰色麻布袍，赤脚，颈挂裂纹翠绿玉佩）【图2】SCENE-002【图3】PROP-001（裂纹翠绿玉佩，裂纹深处金光脉动）。大特写：图1胸前玉佩。裂纹深处金光突然剧烈脉动——如心跳般有节奏的强烈闪烁。金色光芒沿裂纹蔓延扩散，照亮图1下巴和锁骨。麻布袍领口被金光染成暖色。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+        - file: PROP-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "这——！"
+        emotion: "惊呼"
+      - speaker: CHAR-001
+        line: "金色光……比上次强太多了！"
+        emotion: "内心"
+      - speaker: CHAR-002
+        line: "什么？那块破玉……"
+        emotion: "画外·警觉"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（白色镶银边大师兄袍服）【图2】CHAR-001-L01（磨损灰色麻布袍，颈挂裂纹翠绿玉佩）【图3】SCENE-002。中景 固定。图1大步逼近，一把抓住图2衣领将他从岩石上拽起。鹰目中闪过狠厉，薄唇贴近图2耳边。崖边碎石因两人重量松动滚落消失在云海中。图2被拽起瞬间，玉佩金光在胸口剧烈跳动。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "那是什么东西？"
+        emotion: "恶毒·压低声"
+      - speaker: CHAR-002
+        line: "不管是什么——先把你解决了。"
+        emotion: "低声"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（白色镶银边大师兄袍服）【图2】CHAR-001-L01（磨损灰色麻布袍，颈挂裂纹翠绿玉佩）【图3】SCENE-002。中远景 固定。图1猛然发力一推——图2身体向后仰去，双脚离开崖沿，碎石纷纷坠落。图2黑发和麻袍在坠落瞬间被山风扬起如黑色旗帜。眼睛圆睁，瞳孔映出图1居高临下的冷笑。玉佩金光在胸口拉出一道金色残影。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "去死吧，废物！"
+        emotion: "发力·吼"
+      - speaker: CHAR-001
+        line: "……母亲……"
+        emotion: "内心·坠落"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-007-L01（粉白相间长裙，双丫髻系粉缎带）【图2】CHAR-002-L01（白色镶银边大师兄袍服）【图3】SCENE-002。中景 镜头拉远。图1目睹全过程，双手捂住嘴巴，泪水瞬间涌出，粉缎带在风中疯狂飘荡。身后图2面无表情拍了拍袍角，转身离去如扔掉一只破鞋。云海吞没了林渊坠落的身影，崖边只剩下几颗仍在滚落的碎石。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "林渊哥哥——！"
+        emotion: "尖叫·撕裂"
+      - speaker: CHAR-007
+        line: "不……不要啊！"
+        emotion: "哭腔"
+      - speaker: CHAR-002
+        line: "清净了。"
+        emotion: "背身·冷漠"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-003: https://placeholder.example/SCENE-003.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-001: https://placeholder.example/PROP-001.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L01（磨损灰色麻布袍，撕裂多处，浑身是血）【图2】SCENE-003【图3】PROP-001（裂纹翠绿玉佩，裂纹急速扩展中）。特写 缓推。绝对黑暗谷底，只有苔藓发出微弱青光。图1躺在碎石堆中浑身是血，麻布袍撕裂多处。右手摊开——掌中玉佩裂纹急速扩展发出越来越强金色光芒。玉佩在掌心无声碎裂为数片，碎片缝隙中涌出金色液体如活物般顺掌心纹路流淌渗入皮肤。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+        - file: PROP-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "我……还活着？"
+        emotion: "内心·恍惚"
+      - speaker: CHAR-001
+        line: "掌心……玉佩碎了？"
+        emotion: "内心·震惊"
+      - speaker: CHAR-001
+        line: "那金色的液体……在钻进我的经脉！"
+        emotion: "内心·震颤"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-003: https://placeholder.example/SCENE-003.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L01（磨损灰色麻布袍，撕裂多处）【图2】SCENE-003。大特写 固定。图1摊开的右掌心。金色液体已渗入大半，皮肤下经脉如金色闪电般脉动扩散——从掌心沿手臂蔓延。金色光芒在体内如新星诞生般愈发明亮，将周围数米黑暗驱散。碎裂玉佩残片在掌心化为金色光尘消散。图1整个身体微微悬浮离地数寸，金色灵气粒子从体内向外涌出如逆向雪花。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "这股力量……比整个青云宗的灵力加起来都强。"
+        emotion: "内心·震撼"
+      - speaker: CHAR-001
+        line: "是它在保护我……从一开始就在等这一天。"
+        emotion: "内心·顿悟"
+      - speaker: CHAR-001
+        line: "这就是母亲留给我的东西。"
+        emotion: "内心·颤抖"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-003: https://placeholder.example/SCENE-003.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L01（磨损灰色麻布袍）【图2】SCENE-003。面部特写 固定。黑屏一瞬——随后猛然切回图1面部特写。眼睛猛然睁开——瞳孔不再是漆黑而是纯粹的金色。金色瞳孔中如星辰般闪烁着细碎光点。金色光芒从瞳孔中射出照亮整个谷底黑暗空间。表情从茫然到清明，跨越生死之后的觉醒。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "……够了。"
+        emotion: "低语·冰冷"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-003: https://placeholder.example/SCENE-003.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L01（磨损灰色麻布袍，金色瞳孔）【图2】SCENE-003【图3】PROP-002（吞噬印记·暗金漩涡纹路）。中全景 镜头拉远。图1缓缓从碎石堆中撑起身体，金色瞳孔在黑暗中如两盏明灯。摊开右手——掌心已出现暗金色漩涡纹路吞噬印记，边缘隐约闪烁金光。周围金色灵气粒子持续涌出，谷底黑暗被撕开一个金色光域。画面定格在低头凝视掌心的侧脸。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+        - file: PROP-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "这笔账——"
+        emotion: "低沉"
+      - speaker: CHAR-001
+        line: "不用记了。现在就清。"
+        emotion: "冰冷·开口"
+    transition_to_next: hard_cut

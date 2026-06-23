@@ -1,0 +1,286 @@
+# === SEGMENTS YAML ===
+# Source: 剧本/EP04/EP04_试炼.md
+# Shots source: EP04_shots.yaml (15 shots, 1:1 mapping)
+# Segments: 8 (EP04-SEG01 to EP04-SEG08)
+# Total duration: 84s
+# DRY-RUN: All CDN URLs are placeholders
+# voice_prompts source: 资产/声音卡片.md (P0 authority)
+# ⚠️ SEMANTIC_WARNING: SCENE-004 场景卡片"出现集数"未含EP04（卡片数据滞后），EP04剧本为权威来源
+
+episode_id: EP04
+source_md: 剧本/EP04/EP04_试炼.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。"
+  negative_prompt: "任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格"
+
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-002: "成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖"
+  CHAR-005: "成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音"
+  CHAR-006: "成年男性，45岁左右，声线浑厚威严，语速沉稳，决策时语气坚定"
+
+segments:
+  - segment_id: EP04-SEG01
+    shot_ids: [EP04-S01, EP04-S02]
+    duration_sec: 10
+    speakers: [CHAR-006, CHAR-001, CHAR-002, CHAR-005]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】宗主 CHAR-006-L01（深蓝白袍，玉冠束发，鬓角微白）【图2】林渊 CHAR-001-L01（灰色撕裂麻袍，金色瞳孔隐约可见）【图3】赵天行 CHAR-002-L01（白色镶银边大师兄袍服）【图4】青云宗·试炼塔 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）远景 固定：青云宗试炼塔远景，七层八角古石塔巍然矗立于山巅，青灰色花岗岩塔身布满苔藓与岁月侵蚀，每层檐角微翘刻有不同属性灵纹。冷蓝色天光透过薄云照射塔身，塔周围是青云宗演武场，远处旗幡在风中无力垂落。灰白天光下，石阶上有四个人影正站在塔入口前。
+        镜头2（6秒）中特写 固定：试炼塔石门前，图1面朝图2，威严目光落在他身上。图2平静回视。右侧虚焦处图3白色袍服在人群中格外醒目，鹰目瞪大一脸震惊与不甘。背景是试炼塔布满符文的厚重石门，蓝白色灵纹微微发光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（宗主，成年男性，45岁左右，声线浑厚威严，语速沉稳，决策时语气坚定）：「试炼塔——前三层。过了，你留下。」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「不可能……那可是万丈深渊！」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「够了。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「年轻人……不懂天高地厚。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG02
+    shot_ids: [EP04-S03, EP04-S04]
+    duration_sec: 11
+    speakers: [CHAR-006, CHAR-001, CHAR-005, CHAR-002]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】宗主 CHAR-006-L01（深蓝白袍，玉冠束发，鬓角微白）【图2】林渊 CHAR-001-L01（灰色撕裂麻袍）【图3】陈道远 CHAR-005-L01（灰白长老袍，桃木拂尘）【图4】赵天行 CHAR-002-L01（白色镶银边大师兄袍服）【图5】青云宗·试炼塔 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中特写 固定：图1与图2面对面站立，相距不到两米。图1负手而立，深蓝白袍在微风中轻摆，玉质宗主冠在灰白天光下泛着沉稳光泽，面容威严不带恶意，目光审视落在图2身上。图2微微仰头回视，气场平静等待。背景是试炼塔石门上的蓝白符文，光芒微弱闪烁。
+        镜头2（6秒）中特写 固定：图3站在斜后方，慈祥面具纹丝不动，窄眼深处是精密算计——目光在林渊掌心位置停留一瞬，微微转动拂尘柄，嘴角向下微压掩饰一闪而过的恶意。身旁图4双拳紧握，鹰目充血，薄唇紧抿成一条直线。两人身后是远处低语的弟子。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（宗主，成年男性，45岁左右，声线浑厚威严，语速沉稳，决策时语气坚定）：「三日之期已过。但宗门不弃任何弟子。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「我接受。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「进了试炼塔，死在里面……也算合规矩。」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「凭什么给他机会？」
+        对白（宗主，成年男性，45岁左右，声线浑厚威严，语速沉稳，决策时语气坚定）：「试炼——即刻开始。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-004, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG03
+    shot_ids: [EP04-S05, EP04-S06]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】陈道远 CHAR-005-L01（灰白长老袍，桃木拂尘）【图2】林渊 CHAR-001-L01（灰色麻布袍，金色瞳孔）【图3】青云宗·试炼塔 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）特写 固定：图1面部在灰白天光下显得格外虚伪——嘴角微微下撇，窄眼中精光一闪即逝。手中桃木拂尘柄被攥得指节发白。低头看着林渊走向塔门的背影，眼中恶意短暂浮现又被完美的伪善盖住。背景虚焦处是试炼塔石门轮廓。
+        镜头2（6秒）中全景 镜头跟随：图2背对镜头，缓步走向试炼塔石门。灰色麻布袍在微风中轻摆，身影清瘦但背脊笔直。右手自然垂落，袖口微微卷起——掌心暗金漩涡印记在袖口下一闪即逝的金光。石门上蓝白符文随他靠近微微亮起。他没有回头，脚步沉稳一步不停。灰白天光照在背影上，拉出一道长长的影子。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「吞噬之力……如果他暴露出来，正好有理由除掉他。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「三日之期……我用实力证明。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「不是为了宗门——是为了不再有人叫我废物。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG04
+    shot_ids: [EP04-S07, EP04-S08]
+    duration_sec: 11
+    speakers: [CHAR-006, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色麻布袍，金色瞳孔在蓝白光芒中醒目）【图2】试炼塔内部 SCENE-004【图3】吞噬印记 PROP-002（状态A，暗金漩涡纹路）。
+        道具：掌心暗金漩涡印记（PROP-002），烙印在图1右手掌心，直径约8厘米，漩涡纹路由暗金向纯金过渡。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：试炼塔一层内部，巨大灰砂岩石室，墙壁上蓝白色符文脉络微弱发光，金色灵气如萤火般漂浮在空气中。图1站在石室中央，金色瞳孔在蓝白光芒中格外醒目。地面上一圈古老阵纹突然亮起蓝白色光芒——阵纹中央一只半透明灵兽正在凝聚成形，由纯粹灵力构成的巨狼形态，周身环绕淡金色光晕。
+        镜头2（6秒）中景 缓推：图1向前迈出一步，右掌伸出——掌心暗金漩涡猛然亮起，金色引力漩涡爆发。灵兽的灵力如金色溪流被撕裂吸向图1掌心，灵兽哀鸣一声灵力体逐渐透明缩小最终化为金色光尘被掌心吞噬殆尽。图1周身灵力暴涌金色粒子从体内逆向升腾。他闭眼一秒感受掌心印记传来的暖意然后睁眼——金色瞳孔中带着坚定的光。身后石阶通往第二层的门应声而开蓝白光芒大亮。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（宗主，成年男性，45岁左右，声线浑厚威严，语速沉稳，决策时语气坚定）：「第一层——破灵兽阵。击败方可上行。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「不是击败……是吞噬。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「掌心在叫……它饿了。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这试炼的规矩——该由我来改。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG05
+    shot_ids: [EP04-S09, EP04-S10]
+    duration_sec: 10
+    speakers: [CHAR-006, CHAR-002, CHAR-005]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】宗主 CHAR-006-L01（深蓝白袍，玉冠束发，鬓角微白）【图2】赵天行 CHAR-002-L01（白色镶银边大师兄袍服）【图3】陈道远 CHAR-005-L01（灰白长老袍，桃木拂尘）【图4】试炼塔 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中特写 固定：试炼塔外，图1与图2抬头望向塔身。塔壁上蓝白色符文逐层亮起——第一层大亮，第二层第三层接连亮起速度快得不可思议。图1威严面容上出现罕见震惊，目光紧紧跟随每一层光芒。身旁图2鹰目圆睁薄唇微张一脸不可置信。塔身蓝白光芒映照在两人脸上。
+        镜头2（5秒）特写 固定：图3面部在塔身蓝白光芒中——慈祥面具第一次出现真正裂痕，窄眼微微睁大眉头微蹙。死死盯着塔身亮起的第三层符文，手中拂尘微微颤抖。随后眼神再次沉入算计，嘴角浮现一丝不易察觉的冷笑——既震惊于林渊的速度又在重新计算自己的筹码。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（宗主，成年男性，45岁左右，声线浑厚威严，语速沉稳，决策时语气坚定）：「二层……三层……这么快？！」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「从来没有人……能在这个速度连破两层……」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「这速度……吞噬之力果然名不虚传。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「也好——让他暴露得越彻底，死得越干净。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG06
+    shot_ids: [EP04-S11]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色麻布袍，金色瞳孔）【图2】试炼塔内层 SCENE-004【图3】吞噬印记 PROP-002（状态A→接近状态B过渡，暗金漩涡纹路）。
+        道具：掌心暗金漩涡印记（PROP-002），烙印在图1右手掌心，每吞噬一只灵兽后光亮度增加，从暗金向纯金过渡。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 缓推：试炼塔更高层石室，墙壁符文光芒比底层更强烈。图1缓步向上攀登石阶，右手自然垂落，掌心暗金漩涡脉动着金色微光——每一层吸收的灵力都在让印记更加明亮。他走到第四层石室中央，一只比第一层更强大的灵兽从阵纹中凝聚而出，灵力体更浓密金色光晕更盛。图1没有停顿右掌伸出——金色引力漩涡再次爆发。灵兽哀鸣灵力体被撕裂吸尽化为金色光尘涌入掌心印记。第五层石门在金色灵力余波中应声而开。图1踏上石阶金色粒子环绕周身，掌心印记的光芒已从暗金向纯金过渡。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「第四层的灵兽……灵力是第一层的三倍。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「但对掌心的力量来说——还是不够。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「第五层。」
+        对白（宗主，成年男性，45岁左右，声线浑厚威严，语速沉稳，决策时语气坚定）：「第五层的灵兽……已有筑基之威。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG07
+    shot_ids: [EP04-S12, EP04-S13]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色麻布袍，金色瞳孔）【图2】试炼塔第六层 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中全景 固定：试炼塔第六层入口。图1站在一扇泛着白光的灵力屏障前——这道屏障与前五层石门完全不同，不是蓝白符文而是纯净的白色光幕，边缘微微波动如水面涟漪。图1皱眉凝视屏障，金色瞳孔中映出白色的光。他的右手微微抬起——掌心暗金漩涡突然剧烈脉动，金色光纹从掌心沿手臂微微蔓延，像在回应屏障后的什么。石室蓝白符文光芒在白色屏障照耀下显得暗淡。
+        镜头2（6秒）特写 固定：图1面部——金色瞳孔骤然收缩。屏障后方传来一个声音，苍老却中气十足低沉如古钟在整个塔内回荡。白色屏障表面泛起一圈圈涟漪仿佛有无形的手在另一侧轻轻触碰。图1的背脊猛然挺直，右掌心的暗金漩涡疯狂脉动——印记的跳动频率与那道声音完全同步。嘴唇微启眼中闪过一丝震动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这一层……不一样。」
+        对白（神秘声音，苍老，中气十足，低沉如古钟，在整个塔内回荡）：「进来……」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「掌心的印记……在回应它。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG08
+    shot_ids: [EP04-S14, EP04-S15]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色麻布袍，金色瞳孔）【图2】试炼塔第六层 SCENE-004【图3】吞噬印记 PROP-002（状态A，暗金漩涡纹路）。
+        道具：掌心暗金漩涡印记（PROP-002），烙印在图1右手掌心，脉动越来越剧烈，与屏障后方的声音产生共鸣。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）大特写 固定：图1的右掌心。掌心暗金漩涡印记的脉动越来越剧烈——每一次脉动都伴随一圈金色光晕向外扩散，与屏障的白色涟漪形成金白交织的光纹。掌心皮肤表面的金色光纹从漩涡中心向四周蔓延越来越亮，仿佛有什么力量正在从掌心深处苏醒。掌心上细碎的金色光点如星辰般跃动。
+        镜头2（6秒）特写 缓推：图1面部——金色瞳孔死死盯着屏障，瞳孔中映出白色光芒与金色脉动交织的画面。他缓缓握紧右拳——掌心的脉动让他感受到一种从未有过的牵引像是血脉深处有什么在呼唤。白色屏障的涟漪更加剧烈仿佛随时会打开。嘴唇紧抿眼神从震动转为决然——背脊挺得更直向前迈出半步。塔内蓝白符文在他身周骤然亮起仿佛整座塔都在回应那个声音。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（神秘声音，苍老，中气十足，低沉如古钟，在整个塔内回荡）：「进来……」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这声音……来自比第五层更深的地方。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「掌心的力量在告诉我——那里面，有我需要的答案。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「好。我进来。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

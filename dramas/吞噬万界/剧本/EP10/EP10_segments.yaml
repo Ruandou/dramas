@@ -1,0 +1,308 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP10/EP10_暗涌.md
+# Source shots: 12 (EP10-S01 to EP10-S12)
+# Output segments: 9 (SEG01-SEG05, SEG06a, SEG06b, SEG07-SEG08)
+# NOTE: Budget called for 8 segments, but SEG06 (S07+S08=15s) exceeds 12s hard limit.
+#       Split into SEG06a (S07, 10s) and SEG06b (S08, 5s) → 9 segments total.
+#       Cannot modify shot durations per absolute prohibition rule.
+# Source total duration: 91s (computed: 10+11+12+10+6+6+10+5+5+4+6+6=91)
+# Output total duration: 94s (SEG01:10+SEG02:11+SEG03:12+SEG04:10+SEG05:12+SEG06a:10+SEG06b:5+SEG07:9+SEG08:12=91... wait let me recompute)
+# SEG01=10, SEG02=11, SEG03=12, SEG04=10, SEG05=12, SEG06a=10, SEG06b=5, SEG07=9, SEG08=12 → 91s ✅
+# Gate status: Gate 1 PASS (91s within 75-120s), Gate 2 PASS (12==12), Gate 3 PASS, Gate 4 PASS
+# DRY-RUN: All CDN URLs are placeholders
+# ⚠️ [待补：天机阁联络人] in SEG01/SEG02 has no formal CHAR-ID or L01 — triggers group actor recovery cycle
+
+episode_id: EP10
+source_md: 剧本/EP10/EP10_暗涌.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-003: "成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力"
+  CHAR-004: "成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷"
+  CHAR-005: "成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音"
+  # ⚠️ PLACEHOLDER: [待补：天机阁联络人] — no formal CHAR-ID or voice card yet
+  # Pending: production-planner to assign CHAR-GRP-## + create voice card entry
+
+segments:
+  - segment_id: EP10-SEG01
+    shot_ids: [EP10-S01]
+    duration_sec: 10
+    speakers: ["[待补：天机阁联络人]", CHAR-005]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-006: https://placeholder.example/SCENE-006.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】陈道远 CHAR-005-L01（灰白长老袍）【图2】陈道远密室 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：地下密室，低矮石天花板压得人喘不过气。三盏铜油灯摇曳，橘黄火光在粗木梁上投下跳动的阴影。图1坐在木桌后，灰白长袍袖口微颤。桌对面坐着一个披暗紫斗篷的联络人，兜帽遮住大半张脸，只露出一截苍白下巴。桌上摊着一卷竹简，暗紫色蜡封已碎——天机阁印记。蛛网挂在房梁角落，铁箱上蒙着黑布。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（联络人，中年男性，披暗紫斗篷兜帽遮面，语调阴沉低沉，语速慢）：「七天。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「七日之期，老夫明白。」
+        对白（联络人，中年男性，披暗紫斗篷兜帽遮面，语调阴沉低沉，语速慢）：「他活着一天，你就多一分危险。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    transition_to_next: audio_bridge
+
+  - segment_id: EP10-SEG02
+    shot_ids: [EP10-S02]
+    duration_sec: 11
+    speakers: ["[待补：天机阁联络人]", CHAR-005]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-006: https://placeholder.example/SCENE-006.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】陈道远 CHAR-005-L01（灰白长老袍）【图2】陈道远密室 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）中近景 缓推：图1正面特写，油灯暖光映在他脸上，慈祥面具在半明半暗中逐渐碎裂——嘴角的笑僵住，捋胡须的手指关节泛白。联络人站起身，暗紫斗篷扫过桌面，转身向门口走去，身形融入阴影。桌上竹简暗紫蜡封的碎片在烛光下闪烁。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（联络人，中年男性，披暗紫斗篷兜帽遮面，语调阴沉低沉，语速慢）：「不把他埋在青云宗——就是你被埋在天机阁。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「此子……必须死得像意外。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「七日……够了。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG03
+    shot_ids: [EP10-S03]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-005: https://placeholder.example/SCENE-005.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-006: https://placeholder.example/PROP-006.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色麻布袍，右袖撕开露出前臂灼伤）【图2】苏瑶 CHAR-003-L01（白衣蓝边长裙，白玉发簪）【图3】药园 SCENE-005【图4】苏瑶药瓶 PROP-006（白色玉药瓶）。
+        角色分工：图2可触碰药瓶；图1双手自然放置。
+        道具：白色玉药瓶（高约10厘米，羊脂白玉质地），由图2右手持握。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中景 缓推：药园六角亭，柳荫如盖，晨露未干的灵草叶片在暖光中闪烁。图1坐在石凳上，灰色麻布袍右袖撕开，前臂紫黑灼伤清晰可见。他正低头检查伤势，眉头微蹙。图2从柳荫小径走来，左手提着竹篮，右手拿着白色玉药瓶。她走到亭前停步，目光先落在图1的伤臂上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「吞噬筑基期灵力……经脉果然还是承受不了。」
+        对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「让我看看。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……你怎么知道我在这？」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+        - { file: PROP-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG04
+    shot_ids: [EP10-S04]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-005: https://placeholder.example/SCENE-005.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-006: https://placeholder.example/PROP-006.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色麻布袍）【图2】苏瑶 CHAR-003-L01（白衣蓝边长裙）【图3】药园 SCENE-005【图4】苏瑶药瓶 PROP-006（白色玉药瓶）。
+        角色分工：仅图2可触碰药瓶；图1保持不动。
+        道具：白色玉药瓶（羊脂白玉，淡绿色灵药液体），图2指尖蘸取灵药涂抹于图1前臂。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中近景 固定：亭内石桌，图2将竹篮放下，取出白色玉瓶，拔开软木塞，淡绿色药液散发清凉药香。她用指尖蘸取灵药，轻轻涂抹在图1前臂灼伤处。药液接触伤面时泛起一圈淡蓝灵光，灼伤的紫黑色缓缓褪去。图1手臂微颤——不是痛，是药液太凉。二人之间只隔石桌一角，距离极近。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「别动。灵力灼伤越早处理越好。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……多谢。」
+        对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「你打赵天行时，下手太狠了。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+        - { file: PROP-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG05
+    shot_ids: [EP10-S05, EP10-S06]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-005: https://placeholder.example/SCENE-005.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】苏瑶 CHAR-003-L01（白衣蓝边长裙）【图2】林渊 CHAR-001-L01（灰色麻布袍）【图3】药园 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：图1面部特写，柳荫斑驳光影落在她清丽的面容上。她低头上药时睫毛微垂，神态专注温柔。但听到图2的话后，睫毛轻轻一颤，上药的手指停了半秒——随即恢复如常，继续涂抹药液。
+        镜头2（6秒）特写 缓推：图2面部特写，午后暖光从柳叶间隙洒落。他垂眼看图1上药，目光却不在伤处——而是落在她腰间一枚莲花环绕月牙的玉牌上。他的瞳孔微缩，不动声色地收回视线。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「你好像……对我的修炼方式很了解。」
+        对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「你身上那些伤——不是普通比试能造成的。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「那枚玉牌……师门信物。什么师门的信物，她从没说过。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「苏瑶，你师门……是做什么的？」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG06a
+    shot_ids: [EP10-S07]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-005: https://placeholder.example/SCENE-005.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色麻布袍）【图2】苏瑶 CHAR-003-L01（白衣蓝边长裙）【图3】药园 SCENE-005【图4】吞噬印记 PROP-002（掌心金色漩涡纹路）。
+        角色分工：仅图1可展示掌心印记；图2双手静止不触碰物品。
+        道具：吞噬印记（掌心金色漩涡纹路，直径约8厘米），图1卷起袖口露出掌心，印记在午后阳光下微微闪烁。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 缓推：亭内，二人隔着石桌对坐。图1卷起袖口，露出掌心——吞噬印记金色漩涡纹路在午后阳光下微微闪烁。他将掌心朝上放在石桌上，直视图2。图2涂药的手停住了，目光落在那道金色漩涡上，呼吸明显一滞。风吹过药园，灵草簌簌作响。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「你认得这个。」
+        对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「……认得。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「你怎么会认得？」
+        对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「师门有记载……吞噬之力。很久以前的记载。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG06b
+    shot_ids: [EP10-S08]
+    duration_sec: 5
+    speakers: [CHAR-004]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-005: https://placeholder.example/SCENE-005.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色麻布袍）【图2】沈墨 CHAR-004-L01（灰色长袍，黑发半遮一只凤眼）【图3】药园 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）全景 缓推：药园全景，图1独坐亭中低头看着掌心金色漩涡沉思。药园矮墙外的柳荫深处，图2灰色长袍的身影半隐在树后，凤眼注视着图1，薄唇的半笑在阴影中若隐若现。他没有走过来，只是远远看着，像在评估什么。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「苏瑶……你终于沉不住气了。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG07
+    shot_ids: [EP10-S09, EP10-S10]
+    duration_sec: 9
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-005: https://placeholder.example/SCENE-005.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色麻布袍）【图2】苏瑶 CHAR-003-L01（白衣蓝边长裙）【图3】药园 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1面部近景，暖光中他的表情从沉思转为警惕——他感觉到有人在注视。猛然回头，目光扫向矮墙方向。柳枝摇晃，空无一人。
+        镜头2（4秒）特写 缓推：图2面部特写，她站起身，暮色金光从身后打来，在她发间和白色衣领上勾出柔和的光晕。她的表情平静如水，但眼底深处有什么在涌动——不像犹豫，更像等了很久终于等到这一刻。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「陈道远要动手，苏瑶知道太多……这宗门里，谁都可以信？」
+        对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「你的伤——三天之内不要催动灵力。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG08
+    shot_ids: [EP10-S11, EP10-S12]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-005: https://placeholder.example/SCENE-005.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色麻布袍）【图2】苏瑶 CHAR-003-L01（白衣蓝边长裙）【图3】药园 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图2转身背对图1，白衣长裙在暮色微风中轻摆，向药园小径走去。走了三步，她停住。暮色金光将她的身影勾勒得如画中人。图1在亭中站起身，看着她的背影。
+        镜头2（6秒）中近景 固定：图1面部特写，暮色金光映在他脸上。听到那句话的瞬间，他的表情从困惑到震惊再到无法置信——瞳孔骤缩，嘴唇微张，整个人如遭雷击般僵在原地。远处图2的白衣身影在暮光中渐行渐远。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「苏瑶——」
+        对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「林渊。」
+        对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「你母亲……是我师祖。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }

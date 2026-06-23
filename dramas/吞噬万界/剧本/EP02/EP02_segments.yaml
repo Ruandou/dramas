@@ -1,0 +1,331 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP02/EP02_坠崖.md
+# Source shots: 14 (EP02-S01 to EP02-S14)
+# Output segments: 10 (EP02-SEG01 to EP02-SEG10)
+# Output total duration: 90s (10+10+8+8+8+10+9+9+9+9)
+# Gate status: ALL PASS
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+# Note: Scene transition between SEG07→SEG08 is hard_cut (崖顶→谷底空间跳转，黑屏一瞬暗示坠落撞击)
+# Note: PROP-002 (吞噬印记·暗金) first appears in SEG10 (S14), ref image included
+
+episode_id: EP02
+source_md: 剧本/EP02/EP02_坠崖.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。"
+  negative_prompt: "任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格"
+
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-002: "成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖"
+  CHAR-007: "少女，15-16岁，声线清脆甜美，语速快且活泼，情绪外放，哭腔时声音发颤"
+
+segments:
+  - segment_id: EP02-SEG01
+    shot_ids: [EP02-S01, EP02-S02]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-001: https://placeholder.example/PROP-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（磨损灰色麻布袍，多处补丁，赤脚，腰系磨损绳带，颈挂裂纹翠绿玉佩）【图2】青云宗后山悬崖 SCENE-002【图3】母亲玉佩 PROP-001（裂纹翠绿玉佩，和田玉质地，半透明，内有云絮状纹理，边缘磨损圆润）。
+        角色分工：仅图1可触碰玉佩。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：日间悬崖边，灰白色天光笼罩崖顶，阴沉云层压得很低。图1盘坐在孤松旁岩石上，双手结印，眉心紧皱，额头渗满冷汗。麻布袍在山风中翻卷。他周身没有半点灵力波动——身体像一块顽石。颈间翠绿玉佩裂纹中隐隐透出微弱金光。崖下云海翻涌，偶有风声呼啸。
+        镜头2（5秒）特写 缓推：图1面部特写。猛然睁眼，瞳孔中映着灰白天光，眼神从祈求转为崩溃。牙关咬紧，下颌线条绷成刀锋。嘴唇微微发抖——不是恐惧，是三年积压的屈辱在这一刻动摇了他的信念。风吹过，汗珠从鬓角滑落。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「灵力……还是感应不到。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「第三天了……再不突破，就真的完了。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……不行。什么都感觉不到。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「完了。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG02
+    shot_ids: [EP02-S03, EP02-S04]
+    duration_sec: 10
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】赵天行 CHAR-002-L01（白色镶银边大师兄袍服，银冠束发高髻）【图2】林渊 CHAR-001-L01（磨损灰色麻布袍，多处补丁，赤脚，腰系磨损绳带，颈挂裂纹翠绿玉佩）【图3】青云宗后山悬崖 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中远景 固定：图1从崖后小道走出，白色镶银边大师兄袍服在风中翻卷，银冠束发高髻。他双手抱胸，鹰目扫过盘坐的图2，嘴角勾起轻蔑的弧度。崖边碎石在靴下咯吱作响。图2缓缓抬头，逆光中图1的身影如一座高墙。
+        镜头2（5秒）特写 固定：图1面部特写。鹰目中满是戏谑，薄唇微微上扬。他低头俯视的姿态，像在看一只待宰的羔羊。身后山风卷起他的袍角。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「三天到了。」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「突破了吗？」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「废灵根嘛，给你三十年又如何？」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「废物，终究是废物。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG03
+    shot_ids: [EP02-S05]
+    duration_sec: 8
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-001: https://placeholder.example/PROP-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（磨损灰色麻布袍，多处补丁，赤脚，腰系磨损绳带，颈挂裂纹翠绿玉佩）【图2】青云宗后山悬崖 SCENE-002【图3】母亲玉佩 PROP-001（裂纹翠绿玉佩，和田玉质地，半透明，内有云絮状纹理，边缘磨损圆润）。
+        角色分工：仅图1可触碰玉佩。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）特写 固定：图1面部特写，从侧面拍摄。他没有回应赵天行的嘲讽。眼神从崩溃逐渐凝结——是认命前最后的平静。下颌微收，嘴唇紧抿成一条线。风吹过，几缕黑发贴在被冷汗浸湿的额角。他缓缓低头看了一眼胸前的玉佩。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……随你。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「就算被赶出去，也不能丢掉母亲的玉佩。」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「哑巴了？」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG04
+    shot_ids: [EP02-S06]
+    duration_sec: 8
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】柳青青 CHAR-007-L01（粉白相间长裙，双丫髻系粉缎带）【图2】青云宗后山悬崖 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 固定：图1从崖后小道跑来，粉白长裙在风中翻飞，双丫髻系着的粉缎带松散了一边。她远远看到林渊坐在崖边、赵天行站在一旁，脚步骤然停下。双手攥紧袖口，眼眶泛红，嘴唇颤抖。她想喊但声音卡在喉咙里。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（柳青青，少女，15-16岁，声线清脆甜美，语速快且活泼，情绪外放，哭腔时声音发颤）：「林渊哥哥！」
+        对白（柳青青，少女，15-16岁，声线清脆甜美，语速快且活泼，情绪外放，哭腔时声音发颤）：「他又要对林渊哥哥……」
+        对白（柳青青，少女，15-16岁，声线清脆甜美，语速快且活泼，情绪外放，哭腔时声音发颤）：「不……那里是悬崖边……」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG05
+    shot_ids: [EP02-S07]
+    duration_sec: 8
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-001: https://placeholder.example/PROP-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（磨损灰色麻布袍，多处补丁，赤脚，腰系磨损绳带，颈挂裂纹翠绿玉佩）【图2】青云宗后山悬崖 SCENE-002【图3】母亲玉佩 PROP-001（裂纹翠绿玉佩，裂纹深处金光剧烈脉动如心跳般强烈闪烁）。
+        角色分工：仅图1可触碰玉佩。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）大特写 固定：图1胸前玉佩大特写。裂纹深处金光突然剧烈脉动——不再是EP01末尾的微弱萤火，而是如心跳般有节奏的强烈闪烁。金色光芒沿着裂纹蔓延扩散，照亮图1的下巴和锁骨。玉佩表面温度骤升，麻布袍领口被金光染成暖色。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这——！」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「金色光……比上次强太多了！」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「什么？那块破玉……」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG06
+    shot_ids: [EP02-S08, EP02-S09]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】赵天行 CHAR-002-L01（白色镶银边大师兄袍服，银冠束发高髻）【图2】林渊 CHAR-001-L01（磨损灰色麻布袍，多处补丁，赤脚，腰系磨损绳带，颈挂裂纹翠绿玉佩）【图3】青云宗后山悬崖 SCENE-002。
+        角色分工：图1可抓住图2衣领将他拽起；图2被动受力。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1大步逼近，一把抓住图2衣领将他从岩石上拽起。他的鹰目中闪过狠厉，薄唇贴近图2耳边。崖边碎石因两人的重量而松动滚落，消失在云海中。图2被拽起的瞬间，玉佩金光在他胸口剧烈跳动。
+        镜头2（5秒）中远景 固定：图1猛然发力一推——图2的身体向后仰去，双脚离开崖沿，碎石纷纷坠落。图2的黑发和麻袍在坠落瞬间被山风扬起如黑色旗帜。他的眼睛圆睁，瞳孔中映出图1居高临下的冷笑。玉佩金光在他胸口拉出一道金色残影。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「那是什么东西？」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「不管是什么——先把你解决了。」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「去死吧，废物！」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……母亲……」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG07
+    shot_ids: [EP02-S10]
+    duration_sec: 9
+    speakers: [CHAR-007, CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-002: https://placeholder.example/SCENE-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】柳青青 CHAR-007-L01（粉白相间长裙，双丫髻系粉缎带）【图2】赵天行 CHAR-002-L01（白色镶银边大师兄袍服，银冠束发高髻）【图3】青云宗后山悬崖 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（9秒）中景 镜头拉远：图1目睹全过程，双手捂住嘴巴，泪水瞬间涌出。粉缎带在风中疯狂飘荡。身后图2面无表情地拍了拍袍角，转身离去如扔掉一只破鞋。云海吞没了林渊坠落的身影，崖边只剩下几颗仍在滚落的碎石。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（柳青青，少女，15-16岁，声线清脆甜美，语速快且活泼，情绪外放，哭腔时声音发颤）：「林渊哥哥——！」
+        对白（柳青青，少女，15-16岁，声线清脆甜美，语速快且活泼，情绪外放，哭腔时声音发颤）：「不……不要啊！」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「清净了。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG08
+    shot_ids: [EP02-S11]
+    duration_sec: 9
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-003: https://placeholder.example/SCENE-003.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-001: https://placeholder.example/PROP-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（磨损灰色麻布袍，撕裂多处，浑身是血）【图2】深渊谷底 SCENE-003【图3】母亲玉佩 PROP-001（裂纹翠绿玉佩，裂纹急速扩展，金色光芒脉动）。
+        角色分工：仅图1可触碰玉佩。
+        竖屏9比16连贯叙事。
+        镜头1（9秒）特写 缓推：绝对黑暗的谷底，只有苔藓发出微弱青光。图1躺在碎石堆中，浑身是血，麻布袍撕裂多处。他的右手摊开——掌中翠绿玉佩裂纹急速扩展，发出越来越强的金色光芒。随后，玉佩在掌心无声碎裂为数片，碎片缝隙中涌出金色液体。金色液体如活物般顺着他掌心纹路流淌，渗入皮肤。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「我……还活着？」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「掌心……玉佩碎了？」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「那金色的液体……在钻进我的经脉！」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG09
+    shot_ids: [EP02-S12]
+    duration_sec: 9
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-003: https://placeholder.example/SCENE-003.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（磨损灰色麻布袍，撕裂多处，浑身是血）【图2】深渊谷底 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（9秒）大特写 固定：图1摊开的右掌心。金色液体已渗入大半，皮肤下的经脉如金色闪电般脉动扩散——从掌心沿手臂蔓延。金色光芒在他体内如新星诞生般愈发明亮，将周围数米的黑暗驱散。碎裂的玉佩残片在他掌心化为金色光尘消散。图1的整个身体微微悬浮离地数寸，金色灵气粒子从他体内向外涌出如逆向雪花。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这股力量……比整个青云宗的灵力加起来都强。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「是它在保护我……从一开始就在等这一天。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这就是母亲留给我的东西。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG10
+    shot_ids: [EP02-S13, EP02-S14]
+    duration_sec: 9
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-003: https://placeholder.example/SCENE-003.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（磨损灰色麻布袍，撕裂多处，金色瞳孔，胸口金色残痕）【图2】深渊谷底 SCENE-003【图3】吞噬印记 PROP-002（暗金色漩涡纹路，直径约8厘米，边缘隐约闪烁金光）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：黑屏一瞬——随后猛然切回图1面部特写。他的眼睛猛然睁开——瞳孔不再是漆黑，而是纯粹的金色。金色瞳孔中如星辰般闪烁着细碎光点。金色光芒从瞳孔中射出，照亮了整个谷底黑暗的空间。他的表情从茫然到清明，是跨越了生死之后的觉醒。
+        镜头2（4秒）中全景 镜头拉远：图1缓缓从碎石堆中撑起身体，金色瞳孔在黑暗中如两盏明灯。他摊开右手——掌心已出现一个暗金色的漩涡纹路吞噬印记，边缘隐约闪烁金光。周围金色灵气粒子持续从他体内涌出，谷底的黑暗被撕开一个金色的光域。画面定格在他低头凝视掌心的侧脸。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……够了。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这笔账——」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「不用记了。现在就清。」
+        画面全程无任何文字、字幕、标题、水印。
+        写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素，写实风格，竖屏9比16，任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

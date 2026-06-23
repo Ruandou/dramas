@@ -1,0 +1,522 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP13/EP13_天机阁.md
+# Source shots: 14 (EP13-S01 to EP13-S14)
+# Output shots: 14 (EP13-S01 to EP13-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 78s (computed: 6+5+6+6+6+5+5+5+6+5+6+6+6+5=78)
+# Output total duration: 78s
+# Gate status: G1 PASS (78s within 75-120s); G2 PASS (14==14); G3 PASS (IDs verified, [待补：青云宗弟子群] placeholder noted); G4 PASS (CHAR-001/002/003/006 verified from 声音卡片.md; 韩冰 voiceover-only, voice from 声音卡片.md CHAR-011)
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+# ⚠️ PLACEHOLDER_ACTOR: [待补：青云宗弟子群] in S13 — no formal CHAR-GRP-## ID yet; triggers 集间群演回补子循环 before API submission
+
+episode_id: EP13
+source_md: 剧本/EP13/EP13_天机阁.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+shots:
+  - shot_id: EP13-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-006-L01（深蓝白宗主袍服，玉质宗主冠）【图2】CHAR-001-L02（白色修士长袍金边，金色滚边吞噬符文刺绣，黑色长发高束马尾玉石扣）【图3】SCENE-001。MS 固定镜头。演武场全景，劲风撕扯黑色备战旗，百人列阵石台下，阴云压顶，冷蓝灰光笼罩全场。图2站在前排中央，白色修士长袍金边在风中猎猎作响，金色瞳孔在阴影中格外醒目，脊背挺直如剑。高台上图1负手而立，深蓝白宗主袍服在风中展开如翼，玉质宗主冠映出灰暗天光，鬓角微白。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "三日前，陈道远的密信证实——天机阁将派人前来。"
+        emotion: "沉声·扫视全场"
+      - speaker: CHAR-001
+        line: "来了。从陈道远被押走那天起……就知道躲不掉。"
+        emotion: "画外·内心"
+      - speaker: CHAR-006
+        line: "他们的目标……是林渊的吞噬血脉。"
+        emotion: "目光落在林渊"
+    transition_to_next: hard_cut
+
+  - shot_id: EP13-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-006-L01（深蓝白宗主袍服，玉质宗主冠）【图2】SCENE-001。CU 缓推。图1面部特写，深邃的眼中闪过一丝痛楚，鬓角灰发在风中轻拂，嘴唇紧抿，喉结微动。身后水墨屏风般的阴云压在演武场上空，旗帜在风中疯狂翻卷。殿前石柱上青云宗徽在阴天光线下模糊不清。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-006
+        line: "天机阁使者……金丹期巅峰。三日后到。"
+        emotion: "压低声·沉重"
+      - speaker: CHAR-006
+        line: "林渊——你有什么要说的？"
+        emotion: "沉声"
+    transition_to_next: hard_cut
+
+  - shot_id: EP13-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（白色修士长袍金边，金色滚边吞噬符文刺绣，黑色长发高束马尾）【图2】SCENE-001。MCU 镜头推近。图1从队列中走出，白色修士长袍在阴风中翻飞，走到演武场中央石台上，面朝图2方向。掌心吞噬印记在袖口下微微透出金光。身后百名弟子的目光齐刷刷聚焦，阴云在他头顶形成巨大的灰色漩涡。金色瞳孔在暗沉天色下如两团冷火，脊背挺得笔直。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "宗主——这事因我而起。"
+        emotion: "沉声·铁令"
+      - speaker: CHAR-001
+        line: "天机阁要人，冲我来。青云宗……不必替我挡。"
+        emotion: "深吸一口气"
+    transition_to_next: hard_cut
+
+  - shot_id: EP13-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-003-L01（白衣如雪，浅蓝镶边，白玉发簪）【图2】SCENE-001。CU 固定镜头。图1站在弟子队列前排，白衣在灰暗人群中格外醒目。面容沉静，双手紧攥在袖中，指节发白。一缕黑发被风吹到面前，她没有去拂。眼神从远处图3方向的背影移向天边阴云，嘴唇微微翕动，最终化为一个极轻的叹息。白玉发簪花蕊上晨露在暗光中闪烁。"
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-003
+        line: "他又要一个人扛。"
+        emotion: "内心·碎裂"
+      - speaker: CHAR-003
+        line: "不行……那本秘籍，必须今天给他。"
+        emotion: "内心"
+      - speaker: CHAR-001
+        line: "三天——够了。让天机阁知道，青云宗不是他们想来就来的地方。"
+        emotion: "画外"
+    transition_to_next: dissolve
+
+  - shot_id: EP13-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-005: https://placeholder.example/SCENE-005.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-003-L01（白衣如雪，浅蓝镶边，白玉发簪）【图2】CHAR-001-L02（白色修士长袍金边，黑色长发高束马尾）【图3】SCENE-005。MS 固定镜头。黄昏药园，柳荫如盖，暖金色夕光透过枝叶在石板路上洒下斑驳。六角亭内石桌上一盏孤灯映着暖光。图1背对镜头站在亭柱旁，白衣在黄昏中泛着柔和暖色。图2坐在石凳上，白色修士长袍金边在夕阳下闪光，掌心吞噬印记微光与夕光交织。灵草在晚风中轻轻摇曳，蓝紫色花瓣上露珠折射出碎金光。"
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图2
+        - file: SCENE-005
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-003
+        line: "这个……你必须在三天内学会。"
+        emotion: "低声·递出紫色薄卷"
+      - speaker: CHAR-001
+        line: "噬魂术？"
+        emotion: "接过·翻开"
+      - speaker: CHAR-003
+        line: "专门克制魂魄和神识强的敌人。你师门没有这路数。"
+        emotion: "点头"
+    transition_to_next: hard_cut
+
+  - shot_id: EP13-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L02
+      prop_ids:
+        - PROP-008
+    assets:
+      look_urls:
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-005: https://placeholder.example/SCENE-005.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-008: https://placeholder.example/PROP-008.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L02（白色修士长袍金边）【图2】SCENE-005【图3】PROP-008（紫色封面薄卷，银线漩涡吞噬符文刺绣）。CU 镜头推近。图1低头翻看紫色封面薄卷，指尖拂过银线绣的漩涡吞噬符文——符文与他掌心吞噬印记产生共鸣，发出一圈极淡的金色涟漪。猛然抬头，金色瞳孔骤缩，夕光在瞳孔中如火焰跳动。身后图4的白衣虚影在光晕中若隐若现。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+        - file: PROP-008
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "这上面的符文……和吞噬天经同源。"
+        emotion: "震惊·压低声"
+      - speaker: CHAR-001
+        line: "你师门……怎么会吞噬一族的术法？"
+        emotion: "抬头看苏瑶"
+      - speaker: CHAR-003
+        line: "因为……我师祖，就是吞噬一族的人。"
+        emotion: "沉默两秒·低声"
+    transition_to_next: hard_cut
+
+  - shot_id: EP13-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-005: https://placeholder.example/SCENE-005.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-003-L01（白衣如雪，浅蓝镶边，白玉发簪）【图2】SCENE-005。MCU 固定镜头。图1面部特写，夕光从侧面打来，半张脸被暖金色照亮，另一半沉在柳荫阴影中。眼神复杂——有歉疚、有坚定、有某种隐忍的深情。白玉发簪在夕光中微微晃动，一缕黑发垂在脸侧。轻咬下唇，随后松开，像是做了一个艰难的决定。身后药园灵草在晚风中如波浪般起伏。"
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-003
+        line: "我师祖……就是你母亲。"
+        emotion: "低声·平静"
+      - speaker: CHAR-003
+        line: "她将噬魂术传给了我师门，让我们代代守护。"
+        emotion: "看着林渊"
+    transition_to_next: hard_cut
+
+  - shot_id: EP13-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-005: https://placeholder.example/SCENE-005.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（白色修士长袍金边）【图2】SCENE-005。CU 固定镜头。图1面部特写，夕光映在棱角分明的侧脸上。金色瞳孔中映着夕阳光斑，瞳孔微微颤动——震惊、困惑、痛苦，最终归于一种沉重的平静。下颌线紧绷，喉结滚动，吞回了所有疑问。掌心吞噬印记金光在颤动，如心跳的频率。缓缓闭上眼，深吸一口气，再睁开时已恢复冷静。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "母亲……你到底还留下了多少东西？"
+        emotion: "内心·碎裂"
+      - speaker: CHAR-001
+        line: "……不问了。秘籍我收下。"
+        emotion: "抬眼·沉声"
+    transition_to_next: hard_cut
+
+  - shot_id: EP13-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（朴素白色弟子服，布带束发，面容憔悴但仍魁梧）【图2】CHAR-001-L02（白色修士长袍金边，黑色长发高束马尾）【图3】SCENE-001。MS 固定镜头。黄昏演武场，残阳如血染红石台边缘。图2从药园方向走来，白色修士长袍金边在暮光中发暖。图1从廊柱阴影中走出，鹰目中昔日傲慢被一种复杂的恭顺取代。快步迎上图2，双拳抱胸，深深弯腰。两人身后几名弟子远远观望，交头接耳。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "林渊师弟——天机阁来袭，师兄愿听你调遣。"
+        emotion: "抱拳·低头"
+      - speaker: CHAR-002
+        line: "以往种种……是师兄的错。今日只想为宗门尽一份力。"
+        emotion: "诚恳"
+    transition_to_next: hard_cut
+
+  - shot_id: EP13-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（白色修士长袍金边）【图2】SCENE-001。CU 固定镜头。图1面部特写，金色瞳孔中映出图3俯首的影子。表情没有波动——不愤怒，不感动，只有一种冷到骨子里的审视。夕光在脸上投下半明半暗的阴影，下颌线如刀刻。沉默三秒，嘴角几乎不可察觉地抽动了一下——不是微笑，是某种被强压的警觉。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "嗯。"
+        emotion: "淡淡"
+      - speaker: CHAR-001
+        line: "备战去吧。"
+        emotion: "转身离开·不回头"
+      - speaker: CHAR-001
+        line: "赵天行……你太安静了。安静的人，要么在赎罪，要么在等刀落。"
+        emotion: "内心·冰冷"
+    transition_to_next: hard_cut
+
+  - shot_id: EP13-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（朴素白色弟子服，布带束发）【图2】SCENE-001。MCU 缓推。图1目送图3背影消失在暮色中，笑容从脸上一点点褪去，如面具碎裂。鹰目中闪过一丝痛苦，喉结滚动，双手在袖中微微发抖。暮色加深，身影在廊柱阴影中越来越模糊，只剩鹰目中一点寒光。身后石柱上青云宗徽在最后夕光中缓缓暗去。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "母亲……妹妹……她们还在天机阁手里。"
+        emotion: "内心·崩溃"
+      - speaker: CHAR-002
+        line: "三天。他们给我三天——交出林渊的弱点，否则……"
+        emotion: "内心·咬牙"
+      - speaker: CHAR-002
+        line: "我已经……没有退路了。"
+        emotion: "内心·颤抖"
+    transition_to_next: hard_cut
+
+  - shot_id: EP13-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（朴素白色弟子服）【图2】SCENE-001。CU 固定镜头。图1面部大特写，暮色中只有一丝残光从侧面打来，将脸劈成明暗两半。明亮的那半边是曾经傲慢的鹰目，此刻满是挣扎和自我厌恶；阴暗的那半边沉入无边黑暗，暗示正在滑向深渊。一滴汗珠从额角滑落，用袖口狠狠擦去，嘴角扭曲出一个自嘲的弧度。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "林渊……你信我，你会死。"
+        emotion: "内心·低沉"
+      - speaker: CHAR-002
+        line: "不信我……你也要死。"
+        emotion: "内心·自嘲"
+      - speaker: CHAR-002
+        line: "我赵天行……堂堂青云宗大师兄，竟成了棋子。"
+        emotion: "内心"
+    transition_to_next: hard_cut
+
+  - shot_id: EP13-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+        CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（白色修士长袍金边，黑色长发高束马尾）【图2】CHAR-006-L01（深蓝白宗主袍服，玉质宗主冠）【图3】SCENE-001。# ⚠️ PLACEHOLDER_ACTOR: [待补：青云宗弟子群] 背景仰头看天，面色苍白，无台词无互动，已省略参考图。MS 快切。天色骤暗，演武场上空乌云翻涌。一道巨大黑色剑光从天边劈来，如一条黑色闪电横贯天际，所过之处云层被撕裂成两半，黑色裂痕在天幕上炸开散成漫天黑色灵力碎片。碎片如墨雨般缓缓下落。场下弟子纷纷仰头，面色苍白。图1站在人群中央，白袍金边在黑色灵光中明灭不定，脊背挺直未动分毫。图2在高台上猛然转身，脸色剧变。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-011
+        line: "青云宗——"
+        emotion: "画外·冰冷如铁·传遍全场"
+      - speaker: CHAR-011
+        line: "三日后，天机阁亲临。交出吞噬者。"
+        emotion: "画外·压迫"
+      - speaker: CHAR-011
+        line: "否则——灭宗。"
+        emotion: "画外·杀意"
+    transition_to_next: hard_cut
+
+  - shot_id: EP13-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（白色修士长袍金边）【图2】SCENE-001。CU 固定镜头。图1面部特写，黑色灵力碎片如雪花般落在肩头白袍上，接触到金色滚边便无声消散。金色瞳孔映着天边那道缓缓弥合的黑色裂痕，瞳光比任何时候都亮。嘴唇微微张开又合上，最后嘴角勾起一丝冰冷的弧度——不是恐惧，是某种压抑了太久的战意终于找到了出口。掌心吞噬印记在袖口下猛然亮起金光，将周围下落的黑色碎片尽数吞噬消融。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "来了。"
+        emotion: "低沉·嘴角微扬"
+      - speaker: CHAR-001
+        line: "三天……够学一门新术了。"
+        emotion: "内心·冷冽"
+    transition_to_next: hard_cut

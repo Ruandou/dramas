@@ -1,0 +1,579 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP19/EP19_古道.md
+# Source shots: 16 (EP19-S01 to EP19-S16)
+# Output shots: 16 (EP19-S01 to EP19-S16)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 82s (computed: 5+5+6+6+5+5+5+5+5+5+5+5+5+5+5+5=82)
+# Output total duration: 82s
+# Gate status: G1 PASS (82s within 75-120s); G2 PASS (16 shots); G3 CONDITIONAL; G4 CONDITIONAL
+# G3 NOTE: [待补：古道山贼首领] mapped to CHAR-GRP-01 (placeholder, L01 pending)
+# G4 NOTE: CHAR-GRP-01 voice_prompt derived from placeholder, not in 声音卡片.md
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+episode_id: EP19
+source_md: 剧本/EP19/EP19_古道.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: '"9:16"'
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: '"禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，荒凉古道黄沙场景。"'
+  negative_prompt: '"文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"'
+shots:
+- shot_id: EP19-S01
+  shot_no: 1
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-011
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-011: https://placeholder.example/SCENE-011.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】SCENE-011。5秒 固定镜头：荒凉古道全景——开裂的灰色石板路延伸至远方，枯黄野草从缝隙中生长。图1白袍金边走在路中央，掌心吞噬印记微弱闪动。图2灰袍稍后半步，凤眼半眯环顾四周。正午顶光强烈偏白，空气中浮着细尘。远处山峦如锯齿，路旁一块残破灵石在阳光下微泛蓝光。两人身后，来路消失在热气蒸腾的薄雾中。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-011
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-004
+    line: 这条道上走了三天了。连个鬼影都没见着。
+    emotion: 侧目·随意
+  - speaker: CHAR-001
+    line: 不是还有你？
+    emotion: 目视前方·平静
+  transition_to_next: hard_cut
+- shot_id: EP19-S02
+  shot_no: 2
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-011
+    look_ids:
+    - CHAR-004-L01
+    - CHAR-001-L02
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+    scene_urls:
+      SCENE-011: https://placeholder.example/SCENE-011.png
+  api:
+    text: "【图1】沈墨 CHAR-004-L01（灰色长袍）【图2】林渊 CHAR-001-L02（白袍金边）【图3】SCENE-011。5秒 固定镜头：古道中段——图1微微侧头看向图2，薄唇永恒半笑。他凤眼中暗红光芒一闪即逝。图2金色瞳孔平静直视前方，白袍在微风中轻动。头顶正午阳光在两人之间投下清晰的明暗分界。路旁一棵枯死的歪脖子树投下短短的阴影。"
+    content_roles:
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图2
+    - file: SCENE-011
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-004
+    line: 古道上的人越来越少……看来传闻不假。
+    emotion: 微笑·意味深长
+  - speaker: CHAR-001
+    line: 什么传闻？
+    emotion: 微微皱眉
+  transition_to_next: hard_cut
+- shot_id: EP19-S03
+  shot_no: 3
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-011
+    look_ids:
+    - CHAR-GRP-01
+    - CHAR-001-L02
+    - CHAR-004-L01
+  assets:
+    look_urls:
+      CHAR-GRP-01: https://placeholder.example/CHAR-GRP-01.png  # ⚠️ PLACEHOLDER: [待补：古道山贼首领] mapped to CHAR-GRP-01, L01 pending
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-011: https://placeholder.example/SCENE-011.png
+  api:
+    text: "【图1】山贼首领 CHAR-GRP-01（黑布蒙面，破旧皮甲，手持生锈砍刀）【图2】林渊 CHAR-001-L02（白袍金边）【图3】沈墨 CHAR-004-L01（灰色长袍）【图4】SCENE-011。6秒 固定镜头：古道转弯处——三个山贼拦住去路。图1蒙着黑布，手持生锈砍刀，粗壮身材挡在路中央，身后两人各持木棍和铁叉。破旧皮甲上沾满尘土，脚下踩着碎石。图2停步在三步之外，白袍在风中轻摆，金色瞳孔平静注视。图3在图2身后两步，抱着双臂靠在路边枯树上，嘴角挂着若有若无的笑。"
+    content_roles:
+    - file: CHAR-GRP-01
+      role: reference_image
+      label: 图1
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图2
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图3
+    - file: SCENE-011
+      role: reference_image
+      label: 图4
+  dialogue:
+  - speaker: CHAR-GRP-01
+    line: 留下买路钱！不然——
+    emotion: 举刀·嚣张
+  - speaker: CHAR-001
+    line: 不然怎样？
+    emotion: 平静·打断
+  transition_to_next: hard_cut
+- shot_id: EP19-S04
+  shot_no: 4
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-011
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-GRP-01
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-GRP-01: https://placeholder.example/CHAR-GRP-01.png  # ⚠️ PLACEHOLDER: L01 pending
+    scene_urls:
+      SCENE-011: https://placeholder.example/SCENE-011.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边）【图2】山贼首领 CHAR-GRP-01（黑布蒙面，破旧皮甲）【图3】SCENE-011。6秒 固定镜头：古道上——图2挥刀砍来。图1不闪不避，右手轻轻抬起，掌心吞噬印记猛然亮起金光。一道金色漩涡从他掌心展开，砍刀劈入漩涡瞬间被弹飞，图2连退五步摔倒在地，满脸不可置信。另外两个山贼吓得扔掉武器转身就跑。尘土在午后的阳光中扬起。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-GRP-01
+      role: reference_image
+      label: 图2
+    - file: SCENE-011
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: "……吞噬之力还在。"
+    emotion: 低头看掌心·淡然
+  - speaker: CHAR-GRP-01
+    line: 修、修士……大人饶命！
+    emotion: 跌坐·发抖
+  transition_to_next: hard_cut
+- shot_id: EP19-S05
+  shot_no: 5
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-011
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-GRP-01
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-GRP-01: https://placeholder.example/CHAR-GRP-01.png  # ⚠️ PLACEHOLDER: L01 pending
+    scene_urls:
+      SCENE-011: https://placeholder.example/SCENE-011.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边）【图2】山贼首领 CHAR-GRP-01（黑布蒙面，破旧皮甲）【图3】SCENE-011。5秒 固定镜头：古道上——图1低头看着跌坐在地的图2，金色瞳孔在正午阳光中闪烁。他的表情平静如水，白袍纹丝不动。图2满脸惊恐，双手撑地往后挪，砍刀落在三步外的石板上。尘土在两人之间缓慢沉降。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-GRP-01
+      role: reference_image
+      label: 图2
+    - file: SCENE-011
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: 这附近……还有什么路可走？
+    emotion: 平静·低头
+  - speaker: CHAR-GRP-01
+    line: 前、前面岔路口……右边有古镇！左、左边……
+    emotion: 颤抖·指路
+  transition_to_next: hard_cut
+- shot_id: EP19-S06
+  shot_no: 6
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-011
+    look_ids:
+    - CHAR-001-L02
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+    scene_urls:
+      SCENE-011: https://placeholder.example/SCENE-011.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边）【图2】SCENE-011。5秒 固定镜头：图1面部特写——他微微侧头，金色瞳孔中闪过一丝若有所思。掌心吞噬印记光芒渐弱。他转身面向古道远方，风吹起他白袍的衣角和金色滚边。身后山贼首领连滚带爬逃走的声响在空旷古道上回荡。沈墨的身影在图1身后出现，凤眼中暗红光芒一闪。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: SCENE-011
+      role: reference_image
+      label: 图2
+  dialogue:
+  - speaker: CHAR-001
+    line: 左边通哪？
+    emotion: 转身·低声
+  - speaker: CHAR-GRP-01
+    line: 噬、噬灵洞！别去那……会死人的……
+    emotion: 画外·远处喊
+  transition_to_next: hard_cut
+- shot_id: EP19-S07
+  shot_no: 7
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-011
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-011: https://placeholder.example/SCENE-011.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】SCENE-011。5秒 固定镜头：古道上——图1转身准备往岔路走。图2忽然抬手，一道暗红色灵力从他指尖射出，擦着图1耳侧飞过。图1身后三步处，一个躲在碎石后的山贼被暗红灵力击中肩膀，惨叫着滚落路旁沟渠。暗红光芒在空气中消散，留下淡淡焦灼气息。图2放下手，薄唇挂永恒半笑，凤眼中暗红光芒已消失。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-011
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-004
+    line: 漏了一个。
+    emotion: 收手·微笑
+  - speaker: CHAR-001
+    line: "……你用的什么？"
+    emotion: 转身·皱眉
+  transition_to_next: hard_cut
+- shot_id: EP19-S08
+  shot_no: 8
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-011
+    look_ids:
+    - CHAR-004-L01
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-011: https://placeholder.example/SCENE-011.png
+  api:
+    text: "【图1】沈墨 CHAR-004-L01（灰色长袍）【图2】SCENE-011。5秒 固定镜头：古道上——图1轻描淡写地拂了拂袖口，灰色长袍在微风中轻动。他的凤眼半眯着看向林渊，薄唇永恒半笑，但笑意中多了一丝意味深长。午后的阳光从侧面照亮他苍白的面容，半遮眼的黑发在风中微动。他的右手缓缓收回袖中，指尖还残留着微弱的暗红余光。"
+    content_roles:
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图1
+    - file: SCENE-011
+      role: reference_image
+      label: 图2
+  dialogue:
+  - speaker: CHAR-004
+    line: 一点小手段。
+    emotion: 转身继续走·轻描淡写
+  - speaker: CHAR-004
+    line: 你不需要知道。
+    emotion: 低声·自语般
+  transition_to_next: dissolve
+- shot_id: EP19-S09
+  shot_no: 9
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-012
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-012: https://placeholder.example/SCENE-012.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】SCENE-012。5秒 固定镜头：古镇茶馆内——木质老楼，昏暗但温暖。图1和图2坐在靠窗的木桌旁，桌上两杯粗茶冒着热气。窗外狭窄石板街上偶有行人走过。纸灯笼发出暖橙色光芒，花生壳散落地上。几张桌子坐着零散茶客，低声交谈。后方砖灶上铁壶咕嘟冒汽，蒸汽在灯笼光中形成柔和光晕。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-012
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: 沈墨。
+    emotion: 低声·抿茶
+  - speaker: CHAR-004
+    line: 嗯？
+    emotion: 抬眼
+  - speaker: CHAR-001
+    line: 你对吞噬一族……知道多少？
+    emotion: 看着他
+  transition_to_next: hard_cut
+- shot_id: EP19-S10
+  shot_no: 10
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-012
+    look_ids:
+    - CHAR-004-L01
+    - CHAR-001-L02
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+    scene_urls:
+      SCENE-012: https://placeholder.example/SCENE-012.png
+  api:
+    text: "【图1】沈墨 CHAR-004-L01（灰色长袍）【图2】林渊 CHAR-001-L02（白袍金边）【图3】SCENE-012。5秒 固定镜头：茶馆内——图1端着茶杯，凤眼从杯沿上方看向图2。他的薄唇微弯，永恒半笑中藏着深意。窗外阳光透过纸窗在他苍白面容上画出柔和的明暗。他放下茶杯，手指在桌面上轻轻叩了两下。图2金色瞳孔紧盯着他，等待回答。"
+    content_roles:
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图2
+    - file: SCENE-012
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-004
+    line: 你想知道？
+    emotion: 放下茶杯·玩味
+  - speaker: CHAR-004
+    line: 时机未到……不过，你掌心的东西，我见过类似的。
+    emotion: 身体前倾·低声
+  transition_to_next: hard_cut
+- shot_id: EP19-S11
+  shot_no: 11
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-012
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-012: https://placeholder.example/SCENE-012.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】SCENE-012。5秒 固定镜头：茶馆内——图1和图2坐在桌旁。隔壁桌一个老茶客正在跟同伴说话，声音不大不小刚好传过来。老茶客灰白胡须，穿粗布衣，满脸皱纹，说话时手舞足蹈。灯笼暖光在他布满老茧的手上摇曳。窗外石板街上一辆牛车吱呀驶过。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-012
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: 旁白
+    line: "……噬灵洞那地方，进去的人没一个活着出来。"
+    emotion: 画外·隔壁桌老茶客
+  transition_to_next: hard_cut
+- shot_id: EP19-S12
+  shot_no: 12
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-012
+    look_ids:
+    - CHAR-004-L01
+    - CHAR-001-L02
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+    scene_urls:
+      SCENE-012: https://placeholder.example/SCENE-012.png
+  api:
+    text: "【图1】沈墨 CHAR-004-L01（灰色长袍）【图2】林渊 CHAR-001-L02（白袍金边）【图3】SCENE-012。5秒 固定镜头：茶馆内——图1放下茶杯，薄唇微微上扬。他的凤眼在灯笼暖光中闪烁，目光从隔壁桌移向图2。他用手指蘸了茶水，在桌面上画了一个简单的漩涡符号——形状与吞噬印记相似。图2低头看着那个符号，金色瞳孔微缩。窗外斜阳在图1身后投下长长的影子。"
+    content_roles:
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图2
+    - file: SCENE-012
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-004
+    line: 传说里面有吞噬属性的灵药。
+    emotion: 手指画符·低声
+  - speaker: CHAR-004
+    line: "……或者，比灵药更重要的东西。"
+    emotion: 抬眼·微笑
+  transition_to_next: dissolve
+- shot_id: EP19-S13
+  shot_no: 13
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-013
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】SCENE-013。5秒 固定镜头：噬灵洞入口——幽暗的洞穴口如巨兽张开的嘴。图1站在入口处，白袍在洞内阴冷的风中微动。他的掌心吞噬印记正在微微发光，金色光点从洞内深处飘出，在他周围聚集。图2站在他身后半步，灰色长袍融入洞口的阴影中。洞壁上隐约可见刻满的古老符文，部分发着暗淡的金色微光。钟乳石从高处垂下，水滴声在洞内回荡。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-013
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: 它在……共鸣。
+    emotion: 看着掌心·低声
+  - speaker: CHAR-004
+    line: 进去。让它带你走。
+    emotion: 轻声·意味深长
+  transition_to_next: hard_cut
+- shot_id: EP19-S14
+  shot_no: 14
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-013
+    look_ids:
+    - CHAR-001-L02
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边）【图2】SCENE-013。5秒 固定镜头：图1面部特写——他缓缓走入洞穴深处，金色瞳孔在黑暗中发出柔和的光。掌心吞噬印记的光芒越来越亮，照亮他坚毅的面容。洞壁上石刻符文的金色微光在他脸上投下流动的光纹，像是远古文字在他皮肤上跳动。他的嘴角微抿，眼神专注而坚定。身后黑暗中，沈墨的身影若隐若现。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: SCENE-013
+      role: reference_image
+      label: 图2
+  dialogue:
+  - speaker: CHAR-001
+    line: 吞噬印记从没这么亮过……
+    emotion: 内心·低沉
+  - speaker: CHAR-001
+    line: 这里面……一定有我要找的东西。
+    emotion: 内心
+  transition_to_next: hard_cut
+- shot_id: EP19-S15
+  shot_no: 15
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-013
+    look_ids:
+    - CHAR-001-L02
+    prop_ids:
+    - PROP-011
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+    prop_urls:
+      PROP-011: https://placeholder.example/PROP-011.png  # ⚠️ PROP-011 is scene-embedded (场景内置), placeholder for reference
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边）【图2】SCENE-013【图3】PROP-011。5秒 缓推镜头：噬灵洞深处——图1站在一面巨大的石壁前。石壁上密密麻麻刻满金色吞噬符文（PROP-011），数百个漩涡状符号排列如星辰图谱，大部分已暗淡但仍有零星几个发出微弱金光。图1伸出右手，掌心吞噬印记与石壁上最近的一个符文同时爆发出耀眼金光——两个符号一模一样。金色光柱从掌心和石壁同时射出，在空中交汇。洞内所有残余的金色灵光同时亮起。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: SCENE-013
+      role: reference_image
+      label: 图2
+    - file: PROP-011
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: 这些符文……和我的印记——
+    emotion: 震惊·看着掌心再看石壁
+  - speaker: CHAR-004
+    line: 一模一样。对吧？
+    emotion: 画外·幽暗中
+  transition_to_next: hard_cut
+- shot_id: EP19-S16
+  shot_no: 16
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-013
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】SCENE-013。5秒 固定镜头：洞穴深处——图2从黑暗中走出，站在图1身后。他的凤眼注视着石壁上的符文，薄唇永恒半笑中第一次露出一丝近乎贪婪的神色，但转瞬即逝。金色符文的光芒映在他苍白的面容上，明暗交错。图1缓缓转身面对他，金色瞳孔中满是疑问。石壁上两个发光的符文在两人身后持续闪烁。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-013
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: 你早就知道。
+    emotion: 转身·低声
+  - speaker: CHAR-004
+    line: 我只知道……这条路有人走过。
+    emotion: 微微一笑
+  - speaker: CHAR-004
+    line: 比你想的，久得多。
+    emotion: 看向石壁·声音更轻
+  transition_to_next: hard_cut

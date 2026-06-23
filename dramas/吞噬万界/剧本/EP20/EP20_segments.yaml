@@ -1,0 +1,302 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP20/EP20_灵兽.md
+# Source segments: 9 (EP20-SEG01 to EP20-SEG09)
+# Output segments: 9 (EP20-SEG01 to EP20-SEG09)
+# Shot mapping: 16 shots distributed across 9 segments (no insertions, no deletions)
+# Source total duration: 80s (computed: 10+10+10+8+8+8+12+5+4=80)
+# Output total duration: 80s
+# Gate status: G1 PASS (80s within 75-120s); G2 PASS (16 shots); G3 PASS; G4 PASS
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+# Semantic validation: ALL PASS (no warnings)
+episode_id: EP20
+source_md: 剧本/EP20/EP20_灵兽.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，幽暗洞穴场景。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，幽暗洞穴场景。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-004: "成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷"
+segments:
+- segment_id: EP20-SEG01
+  shot_ids: [EP20-S01, EP20-S02]
+  duration_sec: 10
+  speakers: [CHAR-001, CHAR-004]
+  refs:
+    scene_id: SCENE-013
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+      PROP-011: https://placeholder.example/PROP-011.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】噬灵洞深处 SCENE-013【图4】吞噬印记 PROP-002【图5】石壁符文 PROP-011。
+      角色分工：仅图1可触碰石壁和符文；图2在黑暗中观察不动。
+      道具：吞噬印记（掌心金色漩涡纹路），石壁符文（密集漩涡状刻痕组成同心圆阵）。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）特写 缓推：噬灵洞深处，图1面部特写，金色瞳孔在黑暗中如两盏灯。掌心吞噬印记爆发的金光从下方打亮他坚毅的面容，光纹在他脸上流动如水。石壁上密集的金色符文在他身后组成同心圆阵全部亮起，将整个洞穴染成金碧辉煌。金色灵气粒子如萤火虫般环绕在他周围。他的嘴唇微张，表情从震惊变为专注。
+      镜头2（5秒）中景 固定：图1伸出双手按在石壁上，掌心吞噬印记紧贴石壁中心最大的漩涡符文。两个符号严丝合缝地对齐，金光从接触点向外扩散如涟漪。石壁上数百个符文依次亮起，形成一条从中心向外螺旋展开的金色光路。图1身体微微颤抖，白袍被金色气流吹起。金色光点如瀑布般从石壁涌入他掌心。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「符文在向我传递信息……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「《吞噬天经》的残篇……就刻在这面石壁里。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「别抗拒。让它进来。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，幽暗洞穴场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-013, role: reference_image, label: 图3 }
+    - { file: PROP-002, role: reference_image, label: 图4 }
+    - { file: PROP-011, role: reference_image, label: 图5 }
+  transition_to_next: hard_cut
+- segment_id: EP20-SEG02
+  shot_ids: [EP20-S03, EP20-S04]
+  duration_sec: 10
+  speakers: [CHAR-004]
+  refs:
+    scene_id: SCENE-013
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+  api:
+    text: |
+      【图1】沈墨 CHAR-004-L01（灰色长袍）【图2】噬灵洞深处 SCENE-013。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）中景 固定：图1靠在一根断裂的石柱上，双手抱臂。金色符文的光芒映在他苍白的面容上，明暗交错如面具。他的凤眼紧紧盯着林渊的背影，薄唇永恒半笑，但眼底深处有暗红光芒一闪——比之前更明显。碎石和散落的骨骸铺满他脚下的地面。身后钟乳石从黑暗中垂下，如倒悬的剑。
+      镜头2（5秒）特写 固定：图1面部特写——金色符文光芒在他脸上流动。他的凤眼半眯着，薄唇弯出一个弧度，看似平静的微笑下藏着算计。一缕暗红光芒从他眼底深处涌出又被压制回去，黑色半遮眼的发丝在金色气流中轻轻飘动。他右手无意识地握紧了袖口，指节发白。背景是金色符文石壁的柔和光晕。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「第三重……来得真快。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「吞噬之力若能为我所用……我体内的魔血，就有救。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「有趣……当真有趣。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「快一点……再多吸收一些。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，幽暗洞穴场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+    - { file: SCENE-013, role: reference_image, label: 图2 }
+  transition_to_next: hard_cut
+- segment_id: EP20-SEG03
+  shot_ids: [EP20-S05, EP20-S06]
+  duration_sec: 10
+  speakers: [CHAR-001]
+  refs:
+    scene_id: SCENE-013
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边）【图2】噬灵洞深处 SCENE-013。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）中景 缓推：图1双手仍按在石壁上，身体剧烈颤抖。石壁符文的金光以肉眼可见的速度从石壁涌入他掌心，符文刻痕逐渐暗淡。图1周身的金色灵气从微弱转为耀眼，白袍猎猎作响。他紧咬牙关，太阳穴青筋微跳，金色瞳孔中光芒闪烁如星辰。吞噬印记在他掌心疯狂旋转，将符文中的术法信息逐一解码吸收。
+      镜头2（5秒）中景 固定：最后一波金色光流从石壁涌入图1掌心。石壁上所有符文同时暗灭，整个洞穴瞬间陷入黑暗，只剩图1掌心吞噬印记的纯金色光芒照亮他一人。他的身体停止颤抖，缓缓吐出一口浊气。金色瞳孔比之前更深邃，光芒内敛如深渊。他低头看着掌心，嘴角微微上扬。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「经脉在重塑……吞噬天经在改写我的灵力运转方式。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「第三重……不只是吞噬。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「吞噬之力，原来可以这样用。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，幽暗洞穴场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+    - { file: SCENE-013, role: reference_image, label: 图2 }
+  transition_to_next: hard_cut
+- segment_id: EP20-SEG04
+  shot_ids: [EP20-S07, EP20-S08]
+  duration_sec: 8
+  speakers: [CHAR-001, CHAR-004]
+  refs:
+    scene_id: SCENE-013
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+  api:
+    text: |
+      【图1】沈墨 CHAR-004-L01（灰色长袍）【图2】林渊 CHAR-001-L02（白袍金边）【图3】噬灵洞深处 SCENE-013。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）中景 固定：图1从石柱旁走出，踩着碎石和散落骨骸走向图2。洞穴已恢复黑暗，只有图2掌心的金色微光和图1凤眼中偶尔闪烁的暗红光芒照亮两人之间的距离。钟乳石上的水滴声在静默中格外清晰。图1走到图2身后三步处停下，薄唇微启。
+      镜头2（4秒）特写 固定：图1面部——听到"第三重"时，他的凤眼微微睁大，随即恢复永恒半笑。暗红光芒从他眼底涌出又被强行压下，喉结不自觉地滚动了一下。他低下头，刘海遮住半边面容，嘴角的笑意比平时更深一分——那不是善意的笑。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「感觉如何？」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「第三重。吞噬术法，再反震回去。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「很好。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「若是将这股力量引到我体内……魔血就能被净化。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，幽暗洞穴场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+    - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+    - { file: SCENE-013, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+- segment_id: EP20-SEG05
+  shot_ids: [EP20-S09, EP20-S10]
+  duration_sec: 8
+  speakers: [CHAR-001, CHAR-004]
+  refs:
+    scene_id: SCENE-013
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+    prop_urls:
+      PROP-011: https://placeholder.example/PROP-011.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】噬灵洞深处 SCENE-013【图4】石壁符文 PROP-011。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）中景 固定：图1转身面对图2，掌心金色微光映照两人。洞穴地面突然微微颤抖，碎石从高处滚落。图1低头看着脚下，皱眉。图2凤眼骤然变锐，看向洞穴更深处的黑暗。金色灵气粒子开始异常加速旋转，如暴风雨前的飞虫。深潭水面泛起涟漪——本该不起波澜的水面。
+      镜头2（4秒）全景 固定：震动加剧。高处的钟乳石开始断裂坠落，砸在地上碎成数截。石壁上早已暗灭的符文突然再次亮起——但这次不是金色，而是暗红色，如血液倒流。图1和图2同时后退一步。洞穴深处传来一声低沉的呼吸声，如巨兽在梦中翻动。一股腐朽而磅礴的气息从黑暗深处涌出，吹得两人白袍和灰袍同时猛烈翻飞。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「地在动……」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「别出声。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「走——」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，幽暗洞穴场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-013, role: reference_image, label: 图3 }
+    - { file: PROP-011, role: reference_image, label: 图4 }
+  transition_to_next: hard_cut
+- segment_id: EP20-SEG06
+  shot_ids: [EP20-S11, EP20-S12]
+  duration_sec: 8
+  speakers: [CHAR-004]
+  refs:
+    scene_id: SCENE-013
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】噬灵洞深处 SCENE-013。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）全景 固定：噬灵洞全景——整座洞穴剧烈摇晃。石壁上暗红符文的光芒如脉搏般跳动，照亮洞穴中悬浮的尘埃。地面裂开数道缝隙，金色灵气粒子被一股更强大的力量吸向洞穴深处。深潭的水开始沸腾翻涌，暗红色蒸汽升腾。远处黑暗中，两只巨大的血红色光点缓缓亮起——如两轮血月。那光点在逐渐升高，暗示一个庞然大物正在起身。
+      镜头2（4秒）特写 固定：图2面部——他的永恒半笑第一次完全消失，取而代之的是真实的恐惧。凤眼圆睁，瞳孔中映出远处那对血红光点。他的嘴唇发白，后退了两步，脚下踩到碎石差点绊倒。灰袍下摆沾满洞穴碎屑。他抓住林渊的手臂，指甲掐进衣料。暗红光芒从他眼底疯狂涌出——魔血在恐惧中失控。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「不可能……它醒了！」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「快跑！这是——」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「远古灵兽！元婴期！」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，幽暗洞穴场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-013, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+- segment_id: EP20-SEG07
+  shot_ids: [EP20-S13, EP20-S14]
+  duration_sec: 12
+  speakers: [CHAR-001, CHAR-004]
+  refs:
+    scene_id: SCENE-013
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】噬灵洞深处 SCENE-013【图4】吞噬印记 PROP-002。
+      角色分工：仅图1掌心有吞噬印记（金色漩涡纹路），图2无印记。
+      道具：吞噬印记（图1掌心金色漩涡，疯狂闪烁抵抗灵兽威压）。
+      竖屏9比16连贯叙事。
+      镜头1（6秒）中景 固定：噬灵洞深处——洞穴尽头的黑暗中，一双血红色巨眼完全睁开。灵兽的轮廓在暗红符文光芒中若隐若现——庞大如小山的身躯，覆盖着石灰色的鳞甲，四肢粗壮如石柱。元婴期的威压如实质化的暗流从它身上涌出，空气被压得扭曲变形。图1单膝跪地，膝盖撞在碎石上发出声响。他的白袍紧贴身体，被威压压得无法动弹。掌心吞噬印记疯狂闪烁金光，试图抵抗但如萤火撼大树。
+      镜头2（6秒）特写 固定：图1面部特写——他勉强抬头，金色瞳孔中映出那双血红色的巨眼。元婴期的威压如山岳倾覆，他的额头冒出冷汗，咬紧的牙关发出咯吱声。但他没有逃——眼神从最初的震惊转为不服输的倔强。掌心吞噬印记的金光在他脸上忽明忽暗。远处那双血红眼睛缓缓眨了一下，一声低沉的咆哮从洞穴深处传来，震得碎石在地上跳动。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「元婴期的……威压？」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「不能硬扛！它的威压能压碎筑基期修士的灵脉！」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「刚突破第三重……就要死在这？」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「不可能。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，幽暗洞穴场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-013, role: reference_image, label: 图3 }
+    - { file: PROP-002, role: reference_image, label: 图4 }
+  transition_to_next: hard_cut
+- segment_id: EP20-SEG08
+  shot_ids: [EP20-S15]
+  duration_sec: 5
+  speakers: [CHAR-001, CHAR-004]
+  refs:
+    scene_id: SCENE-013
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+  api:
+    text: |
+      【图1】沈墨 CHAR-004-L01（灰色长袍）【图2】林渊 CHAR-001-L02（白袍金边）【图3】噬灵洞深处 SCENE-013。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）中景 固定：图1连滚带爬退到图2身边，灰袍满是灰尘和碎屑。他试图拉起图2，但元婴期威压同样压得他难以行动。他的凤眼在恐惧中疯狂转动，暗红光芒从眼角溢出如血泪。远处灵兽的巨大身影在黑暗中移动，每一步都引发地面震动，碎石如雨落下。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「林渊！起来！现在不跑就来不及了！」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「腿……动不了。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，幽暗洞穴场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+    - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+    - { file: SCENE-013, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+- segment_id: EP20-SEG09
+  shot_ids: [EP20-S16]
+  duration_sec: 4
+  speakers: [CHAR-004]
+  refs:
+    scene_id: SCENE-013
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-013: https://placeholder.example/SCENE-013.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】噬灵洞深处 SCENE-013【图4】吞噬印记 PROP-002。
+      角色分工：仅图1掌心有吞噬印记（金色漩涡纹路），图2无印记。
+      道具：吞噬印记（图1掌心发出最后一道金光，灵兽巨眼死死盯住此光）。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）全景 缓推：噬灵洞全景——灵兽的全貌在暗红符文光芒中显露：石灰色鳞甲覆盖的巨兽，四肢撑地如小山，一双血红巨眼如两轮血月悬浮在黑暗中。它张开嘴，露出参差如钟乳石的利齿，一声咆哮震得整座洞穴簌簌落石。元婴期的威压如黑幕笼罩一切。画面正下方，图1跪在碎石中仰头看着灵兽，掌心吞噬印记发出最后一道金光；图2伏在他身旁，暗红光芒从眼角溢出。灵兽的巨眼死死盯住图1掌心的金光——它在看吞噬印记。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「噬灵洞的主人……沉睡了千年。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「你的吞噬之力……把它惊醒了。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，幽暗洞穴场景，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-013, role: reference_image, label: 图3 }
+    - { file: PROP-002, role: reference_image, label: 图4 }
+  transition_to_next: hard_cut

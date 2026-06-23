@@ -1,0 +1,541 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP12/EP12_揭穿.md
+# Source shots: 14 (EP12-S01 to EP12-S14)
+# Output shots: 14 (EP12-S01 to EP12-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 79s (computed: 6+6+6+6+6+6+6+4+6+6+6+5+5+5=79)
+# ⚠️ DURATION DISCREPANCY: Source .md VALIDATION block claims 89s, but actual shot durations sum to 79s (10s gap).
+#    The script's per-segment duration claims (12+12+12+10+12+11+10=89) don't match actual shot durations in the table.
+#    Segment durations computed from actual shots: 12+12+12+10+12+10+10=79. Upstream scene-writer should review.
+# Output total duration: 79s
+# Gate status: G1 PASS (79s within 75-120s); G2 PASS (14==14); G3 PASS (IDs verified, [待补：黑衣守卫] placeholder noted); G4 PASS with caveat (CHAR-001/003/004/005/006/007 verified from 声音卡片.md; [待补：黑衣守卫] has dialogue in S13 — placeholder voice_prompt used, requires production-planner resolution)
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+# ⚠️ PLACEHOLDER_ACTOR: [待补：黑衣守卫] in S13 has dialogue but no formal CHAR-GRP-## ID — triggers 集间群演回补子循环 before API submission
+
+episode_id: EP12
+source_md: 剧本/EP12/EP12_揭穿.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+shots:
+  - shot_id: EP12-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L01（灰色外门弟子服）【图2】CHAR-005-L01（灰白长老袍）【图3】CHAR-007-L01（粉色衣裙，双丫髻散乱，灵力绳索束缚）【图4】SCENE-008。MS 固定镜头。长老殿前小院，晨光从殿檐斜射入院，冷蓝色光芒映在石板地面上。图1站在院中央，灰色弟子袍在晨风中微摆，右拳紧攥。三步外图2负手而立，灰白长老袍在晨光中泛着冷光，一手捋着花白胡须，伪善微笑。两名黑衣持剑守卫站在两侧。角落灵力绳索束缚着图3，粉色衣裙沾尘，嘴被灵力封住，眼中满是不甘。殿前香炉中青烟袅袅。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-008
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-001
+        line: "放人。你想要的，我身上都有。"
+        emotion: "压低·冰冷"
+      - speaker: CHAR-005
+        line: "急什么。为了宗门大局——"
+        emotion: "捋须·伪善"
+      - speaker: CHAR-001
+        line: "宗门大局？还是你自己的命？"
+        emotion: "打断·咬牙"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-005-L01（灰白长老袍）【图2】SCENE-008。CU 缓推。图1的面部特写，伪善微笑在晨光中微微僵住。花白胡须在晨风中轻拂，捋须的手指停顿一瞬，眼中闪过一丝精光。身后长老殿的暗红石柱和金色铜箍隐约可见。殿内光线昏暗，与殿外晨光形成明暗交界。图1嘴唇微微张开，似乎在权衡措辞。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "小子，你信不信——老夫一声令下，青青这丫头，就回不去了？"
+        emotion: "压低声·威逼"
+      - speaker: CHAR-001
+        line: "试试。"
+        emotion: "画外·冰冷"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L01（灰色外门弟子服）【图2】SCENE-008。MCU 固定镜头。图1咬紧牙关，指节攥得发白。晨光映在紧绷的侧脸上，颧骨下方的阴影加深。袖口下掌心吞噬印记微微透出金光，在冷蓝晨色中格外刺眼。图1深吸一口气，目光扫过角落方向——图3正拼命摇头，泪珠从眼角滚落。图1闭了一下眼，再睁开时已恢复冷静。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "青青在他们手里……不能冲动。"
+        emotion: "内心·碎裂"
+      - speaker: CHAR-001
+        line: "陈道远——这笔账，今天当面清。"
+        emotion: "内心·冰冷"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-007-L01（粉色衣裙，灵力绳索束缚）【图2】SCENE-008。CU 固定镜头。图1被灵力绳索束缚在廊柱旁，粉色衣裙沾满尘土，双丫髻的粉色缎带被扯断散落。灵力封印下的嘴唇微张，拼命摇头，泪珠不断滚落在衣裙上。晨光映在泪痕斑驳的脸上，眼神满是焦急和心疼。灵力绳索发出微弱的暗红光，在手腕和脚踝处收紧。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-007
+        line: "嗯……嗯！"
+        emotion: "挣扎·闷声"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L01
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-007
+    assets:
+      look_urls:
+        CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-007: https://placeholder.example/PROP-007.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-003-L01（白衣如雪）【图2】CHAR-001-L01（灰色外门弟子服）【图3】CHAR-004-L01（灰色长袍，肩头沾夜露）【图4】SCENE-008【图5】PROP-007（加密竹简，暗紫色蜡封已碎裂）。MS 固定镜头。殿前小院左侧，图1白衣如雪站在图2身侧，一只手轻轻按在他肩头，面容沉静中带忧虑。身后图3从廊柱阴影中走出，灰色长袍肩头沾着夜露，凤眼微眯，半笑消失，手中握着竹简密信。晨光在三人之间投下冷暖交织的光影。"
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-008
+          role: reference_image
+          label: 图4
+        - file: PROP-007
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-003
+        line: "林渊，不要在这里动武。"
+        emotion: "沉静·低声"
+      - speaker: CHAR-004
+        line: "证据在这。省得费口舌。"
+        emotion: "懒散·递出竹简"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-007: https://placeholder.example/PROP-007.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L01（灰色外门弟子服）【图2】SCENE-008【图3】PROP-007（加密竹简）。MCU 镜头推近。图1接过竹简，低头扫了一眼，瞳孔骤缩。猛然抬头，眼中的怒火被某种冰冷取代。掌心吞噬印记金光一闪即逝，晨光映在紧绷的下颌线上。图1攥着竹简转身大步朝长老殿正门走去，灰色弟子袍下摆在晨风中翻飞。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+        - file: PROP-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "够了。"
+        emotion: "内心·冰冷"
+      - speaker: CHAR-001
+        line: "宗主——弟子有证呈上！"
+        emotion: "高声"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+      prop_ids:
+        - PROP-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-007: https://placeholder.example/PROP-007.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L01（灰色外门弟子服）【图2】CHAR-006-L01（深蓝白宗主袍服，玉质宗主冠）【图3】SCENE-008【图4】PROP-007（加密竹简）。MS 固定镜头。长老殿内，高窗晨光斜射入殿，穿过香炉青烟形成金色光柱。暗红石柱配金色铜箍支撑高耸穹顶，墨蓝幡旗垂挂。图2端坐在水墨屏风前的高背座椅上，深蓝白宗主袍服在晨光中泛着威严光泽。图1大步走到殿中央，双手将竹简密信举过头顶，晨光在身后形成逆光轮廓。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-008
+          role: reference_image
+          label: 图3
+        - file: PROP-007
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-001
+        line: "这是陈道远写给天机阁的回信！"
+        emotion: "高声·坚定"
+      - speaker: CHAR-001
+        line: "上面记着他出卖宗门弟子的计划——要用青青换我的血脉秘密。"
+        emotion: "一字一顿"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-005-L01（灰白长老袍）【图2】CHAR-006-L01（深蓝白宗主袍服）【图3】SCENE-008。CU 快切。图2接过竹简展开，目光扫过朱砂红墨标注的暗语。眉头骤然皱紧，嘴角下沉，鬓角微白在晨光中格外醒目。身后水墨屏风上的云山图在香炉烟雾中若隐若现。殿内空气仿佛凝固。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-008
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "他……他怎么会——"
+        emotion: "画外·脸色剧变"
+      - speaker: CHAR-006
+        line: "陈道远。这上面写的，可是真的？"
+        emotion: "低沉·威严"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-005-L01（灰白长老袍）【图2】SCENE-008。MCU 固定镜头。图1在殿中一侧，灰白长老袍在晨光中微微发抖。脸色铁青，伪善微笑完全消失，花白胡须在颤抖。双手下意识攥紧桃木拂尘，指节发白。高窗晨光在脸上投下半明半暗的阴影，汗珠从额角滑落。殿内暗红石柱将身影劈成碎片。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "宗主！那孩子身上的东西太危险，老夫所做一切——"
+        emotion: "急切·声线发抖"
+      - speaker: CHAR-005
+        line: "……都是为了宗门大局！"
+        emotion: "强行镇定"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-006-L01（深蓝白宗主袍服，玉质宗主冠）【图2】SCENE-008。CU 缓推。图1猛然站起，深蓝白宗主袍服在晨光中展开如翼。面容从沉稳变为震怒，厚实的手掌拍在座椅扶手上，发出沉闷的响声。殿内高窗光柱在身后投射出巨大的威压剪影。香炉青烟被震得四散。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-006
+        line: "够了！"
+        emotion: "暴喝·震怒"
+      - speaker: CHAR-006
+        line: "来人——将陈道远拿下！"
+        emotion: "冰冷·铁令"
+      - speaker: CHAR-006
+        line: "押入地牢，先废去修为，候审处置。"
+        emotion: "转向守卫"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-005-L01（灰白长老袍）【图2】CHAR-001-L01（灰色外门弟子服）【图3】SCENE-008。MS 快切。图1疯狂后退，双手猛然前推——一股暗红色灵力从掌心涌出，如蛇般扑向图2。暗红灵力在晨光中形成扭曲的光带，殿内香烟被冲散。图1的面容扭曲如恶鬼，灰白胡须在灵力风暴中飞舞，花白头发散落。两名黑衣守卫被灵力波及踉跄后退。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-008
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "既然如此——同归于尽！"
+        emotion: "疯狂·嘶吼"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L01（灰色外门弟子服）【图2】SCENE-008【图3】PROP-002（吞噬印记，掌心金色漩涡）。MCU 固定镜头。图1站在殿中央不动，缓缓抬起右手——掌心吞噬印记猛然亮起纯金漩涡光芒，金色光柱从掌心冲出，将图2的暗红灵力尽数吞噬。金光映满整个长老殿，暗红石柱反射出金色光斑，水墨屏风在金光中几乎透明。图1面容冷峻如铁，晨光与金光交织在脸上。暗红灵力如被吸入漩涡，瞬间消失殆尽。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+        - file: PROP-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "金丹期的灵力……也就这么多了。"
+        emotion: "冰冷·低沉"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-005-L01（灰白长老袍）【图2】SCENE-008。CU 固定镜头。图1跌倒在地，灰白长老袍沾满尘土，花白胡须凌乱不堪。浑身颤抖如筛糠，双手无力地撑着地面，眼中满是恐惧和不可置信。晨光在佝偻的背上投下一片凄惨的亮色。暗红灵力的残余如烟丝般从指尖消散。身后两名黑衣守卫上前，一左一右架住胳膊。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "不……不可能……我的修为……"
+        emotion: "颤抖·绝望"
+      - speaker: "[待补：黑衣守卫]"
+        line: "陈长老，请吧。"
+        emotion: "冷漠"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-008: https://placeholder.example/SCENE-008.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-005-L01（灰白长老袍，沾满尘土）【图2】CHAR-001-L01（灰色外门弟子服）【图3】CHAR-006-L01（深蓝白宗主袍服）【图4】SCENE-008。MS 固定镜头。两名守卫架着图1向殿门拖去，脚在石板地上拖出两道灰痕。经过图2身旁时，图1猛然抬头——面容扭曲，发出疯狂大笑。殿门外晨光刺眼，殿内金光与阴影交织。图2转身盯着他，掌心吞噬印记余光未散。图3在高台上脸色剧变。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-008
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-005
+        line: "哈哈哈……你以为——只有我一个？"
+        emotion: "疯狂大笑"
+      - speaker: CHAR-005
+        line: "天机阁的人，已经在路上了！"
+        emotion: "嘶吼"
+    transition_to_next: hard_cut

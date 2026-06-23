@@ -1,0 +1,415 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP06/EP06_对决赵天行.md
+# Source shots: 12 (EP06-S01 to EP06-S12)
+# Output shots: 12 (EP06-S01 to EP06-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s (computed: 5+10+5+5+5+5+10+5+10+10+5+5=80; source VALIDATION block claims 85s — discrepancy noted)
+# Output total duration: 80s
+# Gate status: Gate 1 PASS (80s in [75s,90s] EP06 target), Gate 2 PASS (12==12), Gate 3 PASS (IDs verified against asset cards), Gate 4 PASS (voice_prompts verified from 声音卡片.md)
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+
+episode_id: EP06
+source_md: 剧本/EP06/EP06_对决赵天行.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+shots:
+  - shot_id: EP06-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（白色宗门大师兄袍服，银色镶边）【图2】SCENE-004。中景 镜头推近。暖金色密室，古旧木架沿墙排列，残卷散落。法阵蓝光已熄，只剩墙缝灵光微闪。图1踏光而入，白色宗袍猎猎作响，鹰目扫过密室——直直钉在画面另一侧。嘴角勾起一抹冷笑。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "禁地。你也配来？"
+        emotion: "冷笑·踱步"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-004: https://placeholder.example/PROP-004.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L01（灰色粗布外门弟子服）【图2】SCENE-004【图3】PROP-004（《吞噬天经》残卷，古旧丝帛卷轴，淡金光泽，右半残缺）。中景 固定镜头。图1站在密室中央，右手将天经残卷悄然塞入怀中，左手自然垂下遮住掌心。吞噬印记暗金纹路在指缝间微闪。他抬头迎上目光，下颌微收，脊背挺直。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+        - file: PROP-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "我先到一步。"
+        emotion: "低声·不动声色"
+      - speaker: CHAR-002
+        line: "先到？"
+        emotion: "逼近一步"
+      - speaker: CHAR-001
+        line: "天经刚到手……不能让他看见。"
+        emotion: "内心·攥紧左手"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（白色宗门大师兄袍服，银色镶边）【图2】SCENE-004。中近景 缓推。图1歪头审视，鹰目微眯。他缓缓抬起右手，指尖凝出一缕淡蓝灵力试探——蓝光飘向图2三尺内时，忽然被一股无形之力扭曲偏转。图1眉头一皱。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "气息不对……你什么时候——"
+        emotion: "喃喃·困惑"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L01（灰色粗布外门弟子服）【图2】SCENE-004。特写 固定镜头。图1面无表情，但瞳孔微缩。汗珠从鬓角滑落，被暖金灯光照得发亮。他的左手在袖中攥得骨节发白，吞噬印记的暗金光纹顺着手腕向上蔓延，被袖口勉强遮住。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "他在试探气息……被他发现印记就完了。"
+        emotion: "内心·压低呼吸"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（白色宗门大师兄袍服，银色镶边）【图2】SCENE-004。中景 固定镜头。图1嘴角一挑——右手聚起一团拳头大小的蓝色灵力光球，灵光在掌中嗡鸣旋转，照亮他傲慢的面容。光球对准画面另一侧。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "炼气期的废物。受得住吗？"
+        emotion: "施压·冷笑"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L01（灰色粗布外门弟子服）【图2】SCENE-004【图3】PROP-002（吞噬印记·状态A，暗金漩涡纹路）。特写 镜头推近。蓝色光球骤然射来——图1瞳孔骤缩，本能举左手格挡。掌心吞噬印记猛然亮起纯金光芒，一道金色漩涡在掌前展开，将蓝色光球吞没！密室被金蓝交织的光照得忽明忽暗。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+        - file: PROP-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "吞噬……"
+        emotion: "脱口而出"
+    transition_to_next: dissolve
+
+  - shot_id: EP06-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（白色宗门大师兄袍服，银色镶边）【图2】SCENE-004。中景 固定镜头。图1猛然抽手——抽不回来。蓝色灵力如被无形漩涡牵引，持续从指尖涌向画面另一侧掌心。金色漩涡越转越大，将灵力一缕缕吞噬殆尽。图1脸色由红转白，额头青筋暴起，拼命向后挣。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "什么——？！"
+        emotion: "失声·挣扎"
+      - speaker: CHAR-002
+        line: "我的灵力被……抽走了！"
+        emotion: "恐惧·声音发颤"
+      - speaker: CHAR-001
+        line: "这就是……吞噬他人之力的感觉。"
+        emotion: "内心·瞳孔变深"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L01（灰色粗布外门弟子服）【图2】SCENE-004。特写 固定镜头。图1反手推出左掌——一道碗口粗的暗金色光柱从掌心喷涌而出，裹挟着蓝色灵力碎片，直直轰向画面另一侧。冲击波震得密室木架轰然倒塌，残卷纷飞。石壁碎裂，石屑飞溅。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "够了。"
+        emotion: "沉声·短促"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（白色宗门大师兄袍服，前襟碎裂，胸口暗金灼伤痕迹）【图2】SCENE-004。中景 缓推。图1从碎石中挣扎起身，嘴角溢出一线鲜血，白色宗袍前襟碎裂，胸口的暗金灼伤痕迹触目惊心。他单膝跪地，试图调动灵力——指尖只闪了几下便熄灭，蓝光混乱散逸。他抬头，第一次露出真正的恐惧。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "炼气期……怎么可能……"
+        emotion: "吐血·颤抖"
+      - speaker: CHAR-002
+        line: "你到底是什么修为？"
+        emotion: "抬头·目光恐惧"
+      - speaker: CHAR-001
+        line: "你配知道吗？"
+        emotion: "俯视·冷淡"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L01（灰色粗布外门弟子服）【图2】CHAR-002-L01（白色宗门大师兄袍服，前襟碎裂）【图3】SCENE-004。中近景 缓推。图1缓步走近，每一步踏在碎石上都发出清脆的碎裂声。吞噬印记在掌心缓缓流转暗金光芒。图1在图2面前三步处站定，低头俯视。图2想站起来，膝盖一软又跪了回去。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "废物？"
+        emotion: "平静·慢"
+      - speaker: CHAR-001
+        line: "废物也能咬人。"
+        emotion: "停顿一息·声音压低"
+      - speaker: CHAR-002
+        line: "那枚印记……是……吞噬之力？"
+        emotion: "喃喃·颤声"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（白色宗门大师兄袍服，前襟碎裂，胸口灼伤）【图2】SCENE-004。中景 固定镜头。图1踉跄起身，咬牙转身跑向白色光幕。光幕被他撞得剧烈摇晃，光屑纷飞。他消失前突然停步，回头看了画面另一侧一眼——那眼神不再是恐惧，而是刻入骨髓的恨意，嘴角甚至微微抽动。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "这笔账……我记下了。"
+        emotion: "回头·阴沉"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L01（灰色粗布外门弟子服）【图2】SCENE-004。特写 镜头推近。密室归于沉寂。图1低头看掌心——吞噬印记的光芒缓缓收敛，但他没有放松。他抬眼望向白色光幕方向，眉头紧锁。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "他的眼神……不对。"
+        emotion: "低声·冷"
+      - speaker: CHAR-001
+        line: "败走时那抹笑——是暗棋的信号。"
+        emotion: "内心·沉"
+    transition_to_next: hard_cut

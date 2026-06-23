@@ -1,0 +1,226 @@
+episode_id: EP09
+source_md: 剧本/EP09/EP09_对决.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-002: "成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖"
+  CHAR-004: "成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷"
+  CHAR-005: "成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音"
+
+segments:
+  - segment_id: EP09-SEG01
+    shot_ids: [EP09-S01]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色麻布袍多处碎裂，周身金色灵光收敛）【图2】赵天行 CHAR-002-L01（白色大师兄袍破碎不堪，嘴角溢血）【图3】演武场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 缓推：演武场中央石台，云雾翻涌。图1周身金色灵光缓缓收敛，低头俯视趴在地上的图2。图2嘴角溢血，双手撑地却使不上力，仰头看着图1的眼神从不可置信逐渐转为恐惧。石台碎裂的灵力残光在两人之间飘散。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「我……我是筑基期……你怎么可能……」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「废物……你刚才叫我什么？」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「……废物。我是废物。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP09-SEG02
+    shot_ids: [EP09-S02]
+    duration_sec: 12
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色麻布袍，周身金色灵光）【图2】赵天行 CHAR-002-L01（白色大师兄袍破碎）【图3】演武场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）全景 缓推：石台之上，图1站在碎裂的中央，金色灵光缓缓收敛。图2瘫倒在五步外的台面上，白色袍服碎裂。看台从远到近层层推进：最远的弟子们最先站了起来，惊愕张嘴；中排弟子交头接耳，声音如潮水般扩散。图2白色灵光碎裂飞溅的光点如萤火般在石台四周缓缓飘落。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「我打了那么多拳……每一拳……你都在吸……」
+        对白（看台弟子A，青年男性，声线颤抖惊愕）：「赵天行……跪下了？」
+        对白（看台弟子B，青年男性，声线震惊）：「那个废物……打败了大师兄？」
+        对白（看台弟子A，青年男性，声线颤抖惊愕）：「林渊……什么时候……这么强了？」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP09-SEG03
+    shot_ids: [EP09-S03]
+    duration_sec: 8
+    speakers: [CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】陈道远 CHAR-005-L01（灰白长老袍，手持桃木拂尘）【图2】演武场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 固定镜头：裁判高台，图1灰白长袍在风中微摆，手持拂尘盯着台下，慈祥笑容僵在脸上，捋胡须的手指微微发颤。他用灵识锁定台下掌心的金色漩涡纹路——那与古籍中记载的吞噬血脉一模一样。图1眼底闪过一丝恐惧，但迅速被伪善的微笑掩盖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「吞噬之力……他掌心的纹路是吞噬血脉！」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「此子……不能留。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP09-SEG04
+    shot_ids: [EP09-S04]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】陈道远 CHAR-005-L01（灰白长老袍，手持拂尘）【图2】林渊 CHAR-001-L01（灰色麻布袍多处碎裂）【图3】演武场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：裁判高台，图1强装镇定站起身，捋着胡须扫视全场，慈祥的笑容在风中微微僵硬。石台下，图2低头看着掌心金色漩涡纹路缓缓收敛，然后抬头看向图1，眼神平静如水。碎石和灵力残光在两人之间飘散。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「排位赛到此结束。感谢林渊……为大家奉献了一场精彩对决。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「感谢？当年你要把我逐出宗门的时候，可不是这副嘴脸。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「林渊，你终于没有辜负……本长老对你的期望。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「长老要保护谁？」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP09-SEG05
+    shot_ids: [EP09-S05]
+    duration_sec: 11
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】陈道远 CHAR-005-L01（灰白长老袍）【图2】林渊 CHAR-001-L01（灰色麻布袍）【图3】演武场 SCENE-001【图4】吞噬印记 PROP-002（金色漩涡纹路）。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）中景 缓推：图1笑容僵住一瞬——他想起当年要逐图2出宗门的事。但他很快恢复，轻咳一声。同时暗中催动灵识向图2探去。图2纹丝不动，但掌心吞噬印记微微一闪，图1灵识被一股陌生的金色漩涡震得一颤。图1后退半步，脸色终于变了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「什么……他体内这股力量，灵识竟然探不进去？」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「他在探我。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「好好休息……明日到我殿中，我为你安排庆功。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「庆功。堂堂长老，被一个炼气期的弟子震退了灵识。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「不急……让我看看，他到底藏着多少秘密。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP09-SEG06
+    shot_ids: [EP09-S06]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png  # DRY-RUN: 待生成
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】沈墨 CHAR-004-L01（灰色长袍，黑发半遮一只凤眼）【图2】陈道远 CHAR-005-L01（灰白长老袍）【图3】演武场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 缓推：看台最高处阴影中，图1半遮眼的黑发在风中微扬，薄唇带永恒的半笑，凤眼注视着图2与台下林渊的无声交锋。图2转身时面色铁青，脚步比来时快了三分。图1将这一切尽收眼底。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「陈长老……急了。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「吞噬血脉……这东西一旦成长起来……」
+        对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「这出戏……倒是越来越有意思了。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「必须在他羽翼未丰之前……除掉。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: audio_bridge
+
+  - segment_id: EP09-SEG07
+    shot_ids: [EP09-S07, EP09-S08]
+    duration_sec: 10
+    speakers: [CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】陈道远 CHAR-005-L01（灰白长老袍）【图2】演武场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 缓推：裁判台后方角落，云雾遮蔽，图1左右确认无人后，从袖中取出一枚黑色传讯符，灵力灌入，传讯符发出暗红光。他慈祥的面容此刻阴沉如铁，捋胡须的手不再颤抖。
+        镜头2（5秒）特写 固定镜头：图1面部大特写，细长双眼阴沉如渊，传讯符暗红光映在他眼底。他嘴角微动，一字一顿。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「速告总坛——青云宗出了吞噬血脉。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「此人……必须死在萌芽中。」
+        对白（旁白，中年男性，声线低沉沉稳，语速从容）：「他不知道，这一道传讯……将引来真正的风暴。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

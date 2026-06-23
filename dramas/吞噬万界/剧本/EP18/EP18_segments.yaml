@@ -1,0 +1,220 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP18/EP18_出发.md
+# Source shots: 16 (EP18-S01 to EP18-S16)
+# Output segments: 8 (EP18-SEG01 to EP18-SEG08)
+# Segment mapping: 2 shots per segment, 1:1 shot preservation
+# Source total duration: 90s (computed: 6+6+5+6+6+6+6+6+6+5+5+6+5+5+5+6=90)
+# Output total duration: 90s (computed: 12+11+12+12+11+11+10+11=90)
+# Gate status: G1 PASS (90s within 75-120s); G2 PASS (16 shots); G3 PASS; G4 PASS
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+episode_id: EP18
+source_md: 剧本/EP18/EP18_出发.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: '"9:16"'
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: '"禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗山门古建筑风格。"'
+  prompt_suffix_silent: '"本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗山门古建筑风格。"'
+  negative_prompt: '"文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"'
+voice_prompts:
+  CHAR-001: 成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷
+  CHAR-002: 成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖
+  CHAR-004: 成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷
+  CHAR-007: 少女，15-16岁，声线清脆甜美，语速快且活泼，情绪外放，哭腔时声音发颤
+  CHAR-008: 老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉
+  旁白: 低沉男声，沉稳大气，语速缓慢，带有史诗感和紧迫感
+segments:
+- segment_id: EP18-SEG01
+  shot_ids:
+  - EP18-S01
+  - EP18-S02
+  duration_sec: 12
+  speakers:
+  - CHAR-004
+  - CHAR-001
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+    scene_urls:
+      SCENE-010: https://placeholder.example/SCENE-010.png
+  api:
+    text: "【图1】沈墨 CHAR-004-L01（灰色长袍，肩长黑发半遮眼，永恒半笑）【图2】林渊 CHAR-001-L02（白袍金边，金色瞳孔）【图3】青云宗·山门 SCENE-010。\n竖屏9比16连贯叙事。\n镜头1（6秒）全景 固定：青云宗山门全景——巍峨石门矗立在山巅，古柏夹道，晨雾从山下云海中升腾笼罩石阶。图1灰袍背影站在石阶顶端，侧身面向图2。图2白袍金边站在石阶边缘，晨光从云层缝隙洒下，在他身上勾出金色轮廓。两人身后，青云宗的亭台楼阁在薄雾中若隐若现。石阶蜿蜒向下消失在白云深处。\n镜头2（6秒）中景 固定：石阶中段——图1与图2并肩而立。图1微侧身看向图2，凤眼中闪过暗红光芒，薄唇挂永恒半笑。图2面容平静，金色瞳孔望向远处。晨雾在石阶上缓缓流动，古柏投下斜长阴影。图1的灰色长袍在晨风中微动。\n[以下对白仅供语音合成，严禁在画面中显示任何文字]\n对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「这一步踏出去……就不算青云宗的人了。」\n对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「走吧。」\n对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「那个姑娘……没有来送你。」\n对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……嗯。」\n画面全程无任何文字、字幕、标题、水印。\n中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗山门古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。"
+    content_roles:
+    - {file: CHAR-004-L01, role: reference_image, label: 图1}
+    - {file: CHAR-001-L02, role: reference_image, label: 图2}
+    - {file: SCENE-010, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+- segment_id: EP18-SEG02
+  shot_ids:
+  - EP18-S03
+  - EP18-S04
+  duration_sec: 11
+  speakers:
+  - CHAR-001
+  - CHAR-007
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png
+    scene_urls:
+      SCENE-010: https://placeholder.example/SCENE-010.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边，金色瞳孔）【图2】沈墨 CHAR-004-L01（灰色长袍，凤眼）【图3】柳青青 CHAR-007-L01（粉白长裙，双丫髻粉缎带）【图4】青云宗·山门 SCENE-010。\n竖屏9比16连贯叙事。\n镜头1（5秒）中景 固定：石阶上方——图1迈步踏上石阶往下走。身后云海翻涌，晨光在石阶上画出一道道光影阶梯。他的白色长袍在晨风中微动，背影孤直。远处山门的石柱在晨雾中若隐若现。\n镜头2（6秒）中景 固定：石阶上方——图3从山门方向跑来，粉色衣裙在晨雾中若隐若现，双丫髻粉缎带在风中飞舞。她双手提着裙摆，脚步踉跄地踩着石阶往下跑。图2站在石阶旁，凤眼微眯看着她。图1在石阶中段停步，转身抬头。晨光在石阶上投下两人的长影。\n[以下对白仅供语音合成，严禁在画面中显示任何文字]\n对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「她说过，母亲是为了保护我才离开万界之渊。」\n对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「可我要走的路……恰恰是她最不想让我去的地方。」\n对白（柳青青，少女，15-16岁，声线清脆甜美，语速快且活泼，情绪外放，哭腔时声音发颤）：「林渊哥哥——！」\n对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……青青？」\n画面全程无任何文字、字幕、标题、水印。\n中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗山门古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。"
+    content_roles:
+    - {file: CHAR-001-L02, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: CHAR-007-L01, role: reference_image, label: 图3}
+    - {file: SCENE-010, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+- segment_id: EP18-SEG03
+  shot_ids:
+  - EP18-S05
+  - EP18-S06
+  duration_sec: 12
+  speakers:
+  - CHAR-007
+  - CHAR-001
+  - CHAR-004
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-010: https://placeholder.example/SCENE-010.png
+  api:
+    text: "【图1】柳青青 CHAR-007-L01（粉白长裙，双丫髻粉缎带）【图2】林渊 CHAR-001-L02（白袍金边，金色瞳孔）【图3】沈墨 CHAR-004-L01（灰色长袍，凤眼永恒半笑）【图4】青云宗·山门 SCENE-010。\n竖屏9比16连贯叙事。\n镜头1（6秒）中景 固定：石阶上——图1冲到图2面前，双手攥住他的衣袖，指节发白。她仰头看着他，泪水在晨光中闪烁，睫毛上挂着泪珠。图2低头看她，眉心微皱，金色瞳孔中有心疼但没有犹豫。晨光从侧面照亮两人，在石阶上投下交叠的长影。图1的粉缎带在晨风中飘动。\n镜头2（6秒）中景 固定：石阶旁——图3靠在山门石柱上，抱着双臂，凤眼半眯着看这一切。他的永恒半笑中有一丝不易察觉的意味——审视，或感慨。灰袍在晨风中微动。他的目光从图1身上移到图2背影上，凤眼中暗红光芒一闪即逝。远处图1的哭声在山门间回荡。\n[以下对白仅供语音合成，严禁在画面中显示任何文字]\n对白（柳青青，少女，15-16岁，声线清脆甜美，语速快且活泼，情绪外放，哭腔时声音发颤）：「你……你一定要回来。」\n对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「嗯，我会回来的。」\n对白（柳青青，少女，15-16岁，声线清脆甜美，语速快且活泼，情绪外放，哭腔时声音发颤）：「骗人……你每次都说会没事。」\n对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这次不骗你。」\n对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「他在青云宗……还有牵挂。」\n对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「牵挂越多，弱点越多。」\n画面全程无任何文字、字幕、标题、水印。\n中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗山门古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。"
+    content_roles:
+    - {file: CHAR-007-L01, role: reference_image, label: 图1}
+    - {file: CHAR-001-L02, role: reference_image, label: 图2}
+    - {file: CHAR-004-L01, role: reference_image, label: 图3}
+    - {file: SCENE-010, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+- segment_id: EP18-SEG04
+  shot_ids:
+  - EP18-S07
+  - EP18-S08
+  duration_sec: 12
+  speakers:
+  - CHAR-001
+  - CHAR-007
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png
+    scene_urls:
+      SCENE-010: https://placeholder.example/SCENE-010.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边，金色瞳孔）【图2】柳青青 CHAR-007-L01（粉白长裙，双丫髻粉缎带）【图3】青云宗·山门 SCENE-010。\n竖屏9比16连贯叙事。\n镜头1（6秒）中景 镜头推近：石阶上——图1伸手轻轻掰开图2攥着衣袖的手指，一根一根，动作极轻。他转身面对她，晨光从背后照亮他的身影，白色长袍在晨光中泛出淡淡金色。图2抬头看着他，泪痕在脸上闪光。古柏的阴影在两人身上移动。\n镜头2（6秒）中景 固定：图2松开手的瞬间，手指还在微微颤抖。图1右手轻轻按在她头顶，停了一瞬就收回。他转身面向石阶下方，背影孤直。图2站在原地，双手攥在胸前，粉白长裙在晨风中飘动，双丫髻缎带飞扬。石阶上晨雾流动，晨光在两人之间划出一道明暗分界线。\n[以下对白仅供语音合成，严禁在画面中显示任何文字]\n对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「好好修炼。」\n对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「替我……照顾好苏瑶姐姐。」\n对白（柳青青，少女，15-16岁，声线清脆甜美，语速快且活泼，情绪外放，哭腔时声音发颤）：「嗯……」\n对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「等我回来。」\n画面全程无任何文字、字幕、标题、水印。\n中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗山门古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。"
+    content_roles:
+    - {file: CHAR-001-L02, role: reference_image, label: 图1}
+    - {file: CHAR-007-L01, role: reference_image, label: 图2}
+    - {file: SCENE-010, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+- segment_id: EP18-SEG05
+  shot_ids:
+  - EP18-S09
+  - EP18-S10
+  duration_sec: 11
+  speakers:
+  - 旁白
+  - CHAR-004
+  - CHAR-008
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png
+      CHAR-008-L01: https://placeholder.example/CHAR-008-L01.png
+    scene_urls:
+      SCENE-010: https://placeholder.example/SCENE-010.png
+  api:
+    text: "【图1】柳青青 CHAR-007-L01（粉白长裙，双丫髻粉缎带）【图2】萧长老 CHAR-008-L01（白发白须，灰布衣，手持古木杖）【图3】青云宗·山门 SCENE-010。\n竖屏9比16连贯叙事。\n镜头1（6秒）中景 固定：石阶上方——图1目送两个身影沿石阶往下走。白色和灰色的袍角在云雾中时隐若现，渐行渐远。图1双手攥在胸前，泪流满面但没有追上去。山门古柏在晨风中沙沙作响，晨雾从云海中升腾，逐渐笼罩远去的身影。\n镜头2（5秒）中远景 固定：山门旁松林——晨光穿过松枝洒下斑驳光影。松林深处，图2白发苍苍的背影手持古木杖，静静站在阴影中。灰布衣在晨风中微动，身形清瘦挺拔。他面向石阶方向，似乎在注视远去的林渊。白发身影缓缓转身没入松林深处。\n[以下对白仅供语音合成，严禁在画面中显示任何文字]\n对白（旁白，低沉男声，沉稳大气，语速缓慢，带有史诗感和紧迫感）：「她没有再追。从这一刻起，她能做的……只有等。」\n对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「有些路，只能走到这。」\n对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「老夫……暗中护你一程。」\n画面全程无任何文字、字幕、标题、水印。\n中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗山门古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。"
+    content_roles:
+    - {file: CHAR-007-L01, role: reference_image, label: 图1}
+    - {file: CHAR-008-L01, role: reference_image, label: 图2}
+    - {file: SCENE-010, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+- segment_id: EP18-SEG06
+  shot_ids:
+  - EP18-S11
+  - EP18-S12
+  duration_sec: 11
+  speakers:
+  - CHAR-004
+  - CHAR-001
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+    scene_urls:
+      SCENE-010: https://placeholder.example/SCENE-010.png
+  api:
+    text: "【图1】沈墨 CHAR-004-L01（灰色长袍，凤眼永恒半笑）【图2】林渊 CHAR-001-L02（白袍金边，金色瞳孔，掌心吞噬印记）【图3】青云宗·山门 SCENE-010。\n竖屏9比16连贯叙事。\n镜头1（5秒）中景 固定：石阶中段——图1走在前面，忽然停下脚步，半回头望向松林方向。凤眼微微一眯，像是感应到了什么。他的永恒半笑消失了——表情变得若有所思。晨雾在他身后流动，古柏的阴影落在他灰色长袍上。他没有说什么，转身继续往下走。\n镜头2（6秒）中景 固定：石阶下方——图2回头最后看了一眼山门方向。石阶上方只剩柳青青一人的身影，粉色在晨雾中若隐若现。他的金色瞳孔中闪过一丝不舍，但很快收回目光。掌心吞噬印记微微闪了一下。图1已经走到前面几级台阶，没有回头等他。晨雾笼罩石阶，远处山门在雾中渐渐模糊。\n[以下对白仅供语音合成，严禁在画面中显示任何文字]\n对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「有人在看。」\n对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「不是敌人……但也不全是朋友。」\n对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「三个月……」\n对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「等我回来的时候，应该变强了吧。」\n画面全程无任何文字、字幕、标题、水印。\n中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗山门古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。"
+    content_roles:
+    - {file: CHAR-004-L01, role: reference_image, label: 图1}
+    - {file: CHAR-001-L02, role: reference_image, label: 图2}
+    - {file: SCENE-010, role: reference_image, label: 图3}
+  transition_to_next: dissolve
+- segment_id: EP18-SEG07
+  shot_ids:
+  - EP18-S13
+  - EP18-S14
+  duration_sec: 10
+  speakers:
+  - CHAR-002
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png
+    scene_urls:
+      SCENE-010: https://placeholder.example/SCENE-010.png
+    prop_urls:
+      PROP-010: https://placeholder.example/PROP-010.png
+  api:
+    text: "【图1】赵天行 CHAR-002-L01（白色大师兄袍，银镶边，玉质宗门腰牌）【图2】青云宗·山门松林 SCENE-010【图3】赵天行传讯符 PROP-010（淡黄色符纸，掌心大小，泛暗红光芒）。\n角色分工：仅图1可触碰图3（传讯符）。\n竖屏9比16连贯叙事。\n镜头1（5秒）中景 固定：山门上方松林边——图1站在大古松后面，只露出半个身子。晨光照亮他白色大师兄袍的银色镶边和腰间玉质宗门腰牌，但他的脸色阴沉，与晨光格格不入。他鹰目盯着石阶下方——两个身影已消失在云雾中。松林阴影半遮他的面容，嘴角微微下压。\n镜头2（5秒）中景 镜头推近：图1面部特写——他从怀中取出一枚泛着暗红光芒的传讯符（图3），符面隐约可见天机阁标记。他的鹰目中闪过一丝冷意，嘴角微微上扬。晨光从松枝缝隙中漏下，在他阴沉的面容上画出明暗交错的条纹。他的手指攥紧传讯符，指节因用力而发白。\n[以下对白仅供语音合成，严禁在画面中显示任何文字]\n对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「走了……」\n对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「天机阁的传讯符……该用了。」\n画面全程无任何文字、字幕、标题、水印。\n中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗山门古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。"
+    content_roles:
+    - {file: CHAR-002-L01, role: reference_image, label: 图1}
+    - {file: SCENE-010, role: reference_image, label: 图2}
+    - {file: PROP-010, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+- segment_id: EP18-SEG08
+  shot_ids:
+  - EP18-S15
+  - EP18-S16
+  duration_sec: 11
+  speakers:
+  - CHAR-002
+  - 旁白
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png
+    scene_urls:
+      SCENE-010: https://placeholder.example/SCENE-010.png
+    prop_urls:
+      PROP-010: https://placeholder.example/PROP-010.png
+  api:
+    text: "【图1】赵天行 CHAR-002-L01（白色大师兄袍，银镶边，玉质宗门腰牌）【图2】青云宗·山门松林 SCENE-010【图3】赵天行传讯符 PROP-010（淡黄色符纸，泛暗红光芒，天机阁标记）。\n角色分工：仅图1可操作图3（传讯符）。\n竖屏9比16连贯叙事。\n镜头1（5秒）中景 固定：松林古松后——图1将灵力注入传讯符（图3），符面亮起暗红光芒，映照在他阴沉的面容上。暗红色的光在他鹰目中跳动，像是两只暗红色的眼睛。他的白色大师兄袍在暗红光中染上一层不祥的色调。松林中晨风静止，只有暗红光在闪烁。\n镜头2（6秒）中景 镜头推近：图1面部大特写——传讯符（图3）悬浮在他掌心上方，暗红光芒越来越亮，映满他整个面容。他的嘴角微微上扬，鹰目中闪烁着阴冷的得意。符面上隐约浮现天机阁的标记——暗红色的旋涡纹路。暗红光从他掌心蔓延到手臂，在白色大师兄袍上画出诡异的光纹。松林中投下的晨光被暗红光吞没。\n[以下对白仅供语音合成，严禁在画面中显示任何文字]\n对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「他离开了青云宗……」\n对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「正是动手的好时机。」\n对白（旁白，低沉男声，沉稳大气，语速缓慢，带有史诗感和紧迫感）：「传讯符的暗红光穿透晨雾……消失在天边。」\n对白（旁白，低沉男声，沉稳大气，语速缓慢，带有史诗感和紧迫感）：「林渊不知道，他身后的青云宗……已经不再安全。」\n画面全程无任何文字、字幕、标题、水印。\n中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗山门古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。"
+    content_roles:
+    - {file: CHAR-002-L01, role: reference_image, label: 图1}
+    - {file: SCENE-010, role: reference_image, label: 图2}
+    - {file: PROP-010, role: reference_image, label: 图3}
+  transition_to_next: hard_cut

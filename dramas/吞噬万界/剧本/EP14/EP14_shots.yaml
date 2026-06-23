@@ -1,0 +1,553 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP14/EP14_韩冰.md
+# Source shots: 16 (EP14-S01 to EP14-S16)
+# Output shots: 16 (EP14-S01 to EP14-S16)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 85s (computed: 5+5+5+5+6+5+5+5+5+5+6+5+6+6+6+5=85)
+# Output total duration: 85s
+# Gate status: G1 PASS (85s within 75-120s); G2 PASS (16==16); G3 PASS (all IDs verified); G4 PASS (CHAR-001/003/006/011 verified from 声音卡片.md)
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+
+episode_id: EP14
+source_md: 剧本/EP14/EP14_韩冰.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+shots:
+  - shot_id: EP14-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+        CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（白色修士长袍金边，黑色长发高束马尾）【图2】CHAR-006-L01（深蓝白宗主袍服，玉质宗主冠）【图3】SCENE-001。MS 固定镜头。演武场全景，灰蓝阴云低压，石台周围防御阵法光柱升起，淡蓝色灵力屏障闪烁。图1站在中央石台前沿，白色长袍金边在狂风中猎猎作响，金色瞳孔直视天幕黑色裂痕。图2站在高台边缘，手紧握石台栏杆指节发白。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "他来了。"
+        emotion: "冷声·未回头"
+      - speaker: CHAR-006
+        line: "金丹期巅峰……我青云宗百年未遇此等强敌。"
+        emotion: "沉声"
+      - speaker: CHAR-001
+        line: "宗主——我出去。"
+        emotion: "转身·直视宗主"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-006-L01（深蓝白宗主袍服，玉质宗主冠）【图2】SCENE-001。CU 固定镜头。图1面部特写，深邃的眼中闪过担忧、不舍、无奈，最终化为沉重信任。鬓角灰发在风中轻拂，喉结滚动，目光从林渊眼睛移到右手掌心——袖口下微微泛暗金色光。缓缓点头，防御阵法蓝色光柱在脸上投下明暗交替条纹。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-006
+        line: "活着回来。"
+        emotion: "压低声·沉痛"
+      - speaker: CHAR-006
+        line: "以宗门之名——全宗等你。"
+        emotion: "低声"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-011-L01
+    assets:
+      look_urls:
+        CHAR-011-L01: https://placeholder.example/CHAR-011-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-011-L01（冰蓝长袍，银护肩霜纹刺绣，银护臂，冰蓝金属发扣）【图2】SCENE-001。LS 镜头拉远。天幕裂痕下方冰蓝色灵力凝聚成暴风涡旋，石台表面结出白霜。图1在涡旋中心缓缓降下，冰蓝长袍展开如冰蝶翅膀，银护肩反射冷厉寒光，冰蓝瞳孔毫无温度。脚尖触及石台瞬间一圈冰蓝波纹炸开，防御阵法屏障剧烈闪烁。"
+      content_roles:
+        - file: CHAR-011-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-011-L01
+    assets:
+      look_urls:
+        CHAR-011-L01: https://placeholder.example/CHAR-011-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-011-L01（冰蓝长袍，银色领口霜纹刺绣）【图2】SCENE-001。MCU 镜头推近。图1正面中特写，面容线条如刀刻锋利，薄唇微抿，冰蓝瞳孔居高临下扫过全场如审视蝼蚁。呼出的气息凝成白雾，微微抬起下巴，目光从高台宗主扫到石台前沿林渊后定格。冰蓝灵气如寒流蔓延，石台边缘灵草瞬间枯萎结冰。"
+      content_roles:
+        - file: CHAR-011-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-011
+        line: "谁是吞噬者？"
+        emotion: "冰冷·不疾不徐"
+      - speaker: CHAR-011
+        line: "自己站出来。省得我一个个查。"
+        emotion: "目光锁定林渊"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（白色修士长袍金边，黑色长发高束马尾）【图2】SCENE-001。MCU 固定镜头。图1正面中特写，白色长袍金边在冰蓝寒流中猎猎翻飞，黑色马尾被风吹横飞。金色瞳孔如两团冷火直视韩冰，冰霜在脚下蔓延但接触白靴底微微消退。脊背挺直如剑，下颌线紧绷。右手缓缓攥拳，掌心吞噬印记在袖口下泛暗金色微光。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "我。"
+        emotion: "沉声·不退半步"
+      - speaker: CHAR-001
+        line: "天机阁要人——冲我来。"
+        emotion: "直视韩冰"
+      - speaker: CHAR-001
+        line: "青云宗与你无冤无仇。"
+        emotion: "冷声"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-011-L01
+    assets:
+      look_urls:
+        CHAR-011-L01: https://placeholder.example/CHAR-011-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-011-L01（冰蓝长袍，银护肩霜纹刺绣）【图2】SCENE-001。CU 固定镜头。图1面部特写，冰蓝瞳孔中映出林渊身影，表情无丝毫波动——是林渊在他眼中根本不值得在意。薄唇微张，白气凝成冰晶碎屑，扫一眼林渊修为气息后眉头几不可察地皱了一下——嫌猎物太弱。银护肩霜纹刺绣泛冷蓝幽光。"
+      content_roles:
+        - file: CHAR-011-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-011
+        line: "筑基期？"
+        emotion: "嗤笑·极轻"
+      - speaker: CHAR-011
+        line: "阁主让我抓活的……就这？"
+        emotion: "摇头·冰冷"
+      - speaker: CHAR-011
+        line: "跪下。免你宗门之罪。"
+        emotion: "声音骤冷"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-011-L01
+    assets:
+      look_urls:
+        CHAR-011-L01: https://placeholder.example/CHAR-011-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-011-L01（冰蓝长袍，银护肩护臂霜纹刺绣）【图2】SCENE-001。MS 固定镜头。图1抬手，掌心凝聚拳头大小冰蓝灵力球，灵力压缩至极致发出尖锐嗡鸣，周围空气扭曲结冰。随手一推——冰蓝灵力球如炮弹朝图3方向轰去，所过之处石台表面炸开冰霜沟壑碎石飞溅。图1表情始终如冰雕，仿佛只是挥了挥手拂去灰尘。"
+      content_roles:
+        - file: CHAR-011-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（白色修士长袍金边）【图2】SCENE-001。MCU 镜头推近。图1双掌前推，金色灵力从掌心涌出形成薄薄金光护盾，护盾上吞噬符文隐约旋转。冰蓝灵力球轰击护盾，金光剧烈颤抖裂纹如蛛网蔓延。图1双脚被推得向后滑行，白靴在石台上刻出两道深痕，白色长袍被冲击波吹得紧贴身体。咬紧牙关，额头青筋暴起。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "这一击……随意出手就是金丹巅峰的灵力。"
+        emotion: "咬牙·内心"
+      - speaker: CHAR-001
+        line: "硬接……第三招了。还撑得住。"
+        emotion: "内心"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L02（白色修士长袍金边）【图2】SCENE-001【图3】PROP-002（掌心吞噬印记，暗金色漩涡纹路）。MLS 固定镜头。图1猛然发力，金色灵力护盾将冰蓝残余震碎，踏前一步右掌前推——掌心吞噬印记涌出暗金色漩涡光团，带低沉嗡鸣向韩冰轰去。光团所过之处石台冰霜被金色热浪融化蒸发，白雾升腾。图1白袍金边在金色光团映照下如燃烧白焰。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+        - file: PROP-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "跪不跪……不是你说了算。"
+        emotion: "冷声·低沉"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-011-L01
+    assets:
+      look_urls:
+        CHAR-011-L01: https://placeholder.example/CHAR-011-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-011-L01（冰蓝长袍，银护肩霜纹刺绣）【图2】SCENE-001。CU 固定镜头。图1面部特写，伸出右手单掌接住暗金色漩涡光团，金光与冰蓝在掌心交缠缠斗发出尖锐灵力碰撞声。眉头微皱——察觉掌心灵力正在被一丝一缕抽走。冰蓝瞳孔中终于闪过一丝异色，随即恢复冰冷。薄唇微动。"
+      content_roles:
+        - file: CHAR-011-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-011
+        line: "吞噬之力……果然是真的。"
+        emotion: "皱眉·自语"
+      - speaker: CHAR-011
+        line: "不过……太弱了。"
+        emotion: "握拳碾碎金光·冷笑"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-011-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-011-L01: https://placeholder.example/CHAR-011-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-011-L01（冰蓝长袍，银护肩护臂）【图2】CHAR-001-L02（白色修士长袍金边）【图3】SCENE-001。MS 快切。图1双手连挥，数十道冰蓝剑光如暴雨劈下，每道带金丹巅峰全力，密集形成冰蓝光幕笼罩整个石台。图2在光幕中左闪右避，金色护体灵光在连续冲击下出现蛛网裂纹，每中一击白袍多一道冰霜裂口。双臂发抖，虎口崩裂渗出血珠被寒气冻成暗红冰晶。石台下方苏瑶紧攥双拳面色苍白。"
+      content_roles:
+        - file: CHAR-011-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "十二……十三……第十四招了。"
+        emotion: "内心·急促"
+      - speaker: CHAR-001
+        line: "护体灵光……快撑不住了。"
+        emotion: "内心"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（白色修士长袍金边，多处冰霜裂口）【图2】SCENE-001。CU 固定镜头。图1面部特写，一道冰蓝剑光穿透护体灵光——白袍右肩被划开长口，鲜血涌出瞬间被寒气冻成暗红冰层。身体被冲击力带得踉跄后退两步膝盖微弯差点跪倒——咬牙挺住脊背重新绷直。额头汗珠与血珠混在一起沿下颌滴落，滴在石台上瞬间结冰。掌心吞噬印记在袖口下忽明忽暗闪烁。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "不能倒。"
+        emotion: "内心·咬牙"
+      - speaker: CHAR-001
+        line: "他还要……"
+        emotion: "内心"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-011-L01
+    assets:
+      look_urls:
+        CHAR-011-L01: https://placeholder.example/CHAR-011-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-011-L01（冰蓝长袍，银护肩霜纹完整无损）【图2】SCENE-001。MS 缓推。图1负手而立，冰蓝长袍没有一丝褶皱，银护肩霜纹完整——从头到尾没有认真过。看着遍体鳞伤的图3方向，冰蓝瞳孔中闪过一丝厌倦。缓缓抬起右手五指张开——掌心凝聚三尺冰蓝剑刃，通体由凝缩到极致的冰蓝灵力构成，剑身周围空气被冻得噼啪作响冰晶碎屑如雪飘落。石台地面以剑刃为圆心迅速结出厚冰蔓延。"
+      content_roles:
+        - file: CHAR-011-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-011
+        line: "够了。"
+        emotion: "厌倦·平淡"
+      - speaker: CHAR-011
+        line: "吞噬者……带活的太麻烦。"
+        emotion: "举剑·冰冷"
+      - speaker: CHAR-011
+        line: "半死的也行。"
+        emotion: "声音如宣判"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（白色修士长袍多处破裂，右肩暗红冰层）【图2】SCENE-001。MCU 固定镜头。图1半跪在结冰石台上，白袍多处破裂，右肩伤口暗红冰层在扩大。金色瞳孔映着越来越亮的冰蓝剑刃，瞳孔微缩但没有恐惧——只有绝境中被逼到极限的平静。右手掌心压在冰面上，吞噬印记在掌下透出微弱暗金色光，光芒比之前任何时候都更不稳定地跳动如即将爆炸的心脏。冰霜从四面八方蔓延几乎要将他整个人冻住。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "筑基期……对金丹巅峰。"
+        emotion: "内心·极低"
+      - speaker: CHAR-001
+        line: "如果今天死在这——"
+        emotion: "内心·咬碎牙"
+      - speaker: CHAR-001
+        line: "至少……站着死。"
+        emotion: "内心·最后一搏"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-011-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-011-L01: https://placeholder.example/CHAR-011-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-011-L01（冰蓝长袍，银护肩护臂）【图2】CHAR-001-L02（白色修士长袍多处破裂）【图3】SCENE-001。MS 固定镜头。图1挥剑——冰蓝剑光如冰川崩塌般向图2劈去，所过之处石台炸裂碎冰飞溅。剑光到达图2面前瞬间——图2右掌猛然亮起。吞噬印记从暗金暴涨至刺目纯金，金色光芒从掌心爆发化为急速扩张的金色漩涡。漩涡将冰蓝剑光卷入如巨鲸吞水——剑光在漩涡中挣扎一瞬便被彻底吞噬消融。金色冲击波从漩涡中心炸开，图1被震得后退三步，冰蓝袍角银饰叮当作响，冰雕般面容上第一次出现震惊。"
+      content_roles:
+        - file: CHAR-011-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-011
+        line: "这……"
+        emotion: "震惊·失声"
+      - speaker: CHAR-011
+        line: "不可能——他连我的剑光都——"
+        emotion: "瞳孔收缩"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（白色修士长袍，血渍冰霜消散中）【图2】SCENE-001。ECU 镜头推近。图1低头看右手掌心——吞噬印记以前所未有频率疯狂闪烁，从暗金到纯金再到刺目亮金如正在坍缩的微型恒星。金色光芒从掌心蔓延至手臂肩膀，白袍上血渍冰霜在金色光芒中蒸发消散。金色瞳孔在光芒映照下变得更亮更深——瞳孔深处似乎有什么东西在翻涌觉醒。冰蓝残余碎片如雪花般在金色光芒中融化下落。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "什么东西……在醒？"
+        emotion: "低头·喃喃"
+    transition_to_next: hard_cut

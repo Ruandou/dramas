@@ -1,0 +1,337 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP09/EP09_对决.md
+# Source shots: 8 (EP09-S01 to EP09-S08)
+# Output shots: 8 (EP09-S01 to EP09-S08)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 71s (computed: 10+12+8+10+11+10+5+5=71; source VALIDATION claims 81s — DISCREPANCY)
+# Output total duration: 71s
+# Gate status: Gate 1 WARN (71s < 75s minimum, 71s != claimed 81s — computed values used), Gate 2 PASS (8==8), Gate 3 PASS (IDs verified), Gate 4 PASS (voice_prompts verified from 声音卡片.md)
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+
+episode_id: EP09
+source_md: 剧本/EP09/EP09_对决.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+shots:
+  - shot_id: EP09-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L01（灰色麻布袍多处碎裂）【图2】CHAR-002-L01（白色大师兄袍破碎不堪）【图3】SCENE-001。MS 缓推。演武场中央石台，云雾翻涌。图1周身金色灵光缓缓收敛，低头俯视趴在地上的图2。图2嘴角溢血，双手撑地却使不上力，仰头看着图1的眼神从不可置信逐渐转为恐惧。石台碎裂的灵力残光在两人之间飘散。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "我……我是筑基期……你怎么可能……"
+        emotion: "恐惧·颤声"
+      - speaker: CHAR-001
+        line: "废物……你刚才叫我什么？"
+        emotion: "俯视·平静·金句"
+      - speaker: CHAR-002
+        line: "……废物。我是废物。"
+        emotion: "崩溃·低吼"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L01（灰色麻布袍，周身金色灵光）【图2】CHAR-002-L01（白色大师兄袍破碎）【图3】SCENE-001。LS 缓推。全景——石台之上，图1站在碎裂的中央，金色灵光缓缓收敛。图2瘫倒在五步外的台面上。看台从远到近层层推进：最远的弟子们最先站了起来，惊愕张嘴；中排弟子交头接耳，声音如潮水般扩散。图2白色灵光碎裂飞溅的光点如萤火般在石台四周缓缓飘落。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "我打了那么多拳……每一拳……你都在吸……"
+        emotion: "绝望·声音发空"
+      - speaker: 看台弟子A
+        line: "赵天行……跪下了？"
+        emotion: "低声·颤"
+      - speaker: 看台弟子B
+        line: "那个废物……打败了大师兄？"
+        emotion: "惊"
+      - speaker: 看台弟子A
+        line: "林渊……什么时候……这么强了？"
+        emotion: "颤声"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-005-L01（灰白长老袍）【图2】SCENE-001。MCU 固定镜头。裁判高台，图1灰白长袍在风中微摆，手持拂尘盯着台下，慈祥笑容僵在脸上，捋胡须的手指微微发颤。他用灵识锁定台下掌心的金色漩涡纹路。图1眼底闪过一丝恐惧，但迅速被伪善的微笑掩盖。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "吞噬之力……他掌心的纹路是吞噬血脉！"
+        emotion: "内心·惊骇"
+      - speaker: CHAR-005
+        line: "此子……不能留。"
+        emotion: "内心·冷"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-005-L01（灰白长老袍）【图2】CHAR-001-L01（灰色麻布袍，多处碎裂）【图3】SCENE-001。MS 固定镜头。裁判高台，图1强装镇定站起身，捋着胡须扫视全场，慈祥的笑容在风中微微僵硬。石台下，图2低头看着掌心金色漩涡纹路缓缓收敛，然后抬头看向图1，眼神平静如水。碎石和灵力残光在两人之间飘散。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "排位赛到此结束。感谢林渊……为大家奉献了一场精彩对决。"
+        emotion: "假笑·抬手"
+      - speaker: CHAR-001
+        line: "感谢？当年你要把我逐出宗门的时候，可不是这副嘴脸。"
+        emotion: "内心·平静"
+      - speaker: CHAR-005
+        line: "林渊，你终于没有辜负……本长老对你的期望。"
+        emotion: "慈祥·捋须"
+      - speaker: CHAR-001
+        line: "长老要保护谁？"
+        emotion: "平静·直视"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-005-L01（灰白长老袍）【图2】CHAR-001-L01（灰色麻布袍）【图3】SCENE-001【图4】PROP-002（吞噬印记，金色漩涡纹路）。MCU 缓推。图1笑容僵住一瞬——他想起当年要逐图2出宗门的事。但他很快恢复，轻咳一声。同时暗中催动灵识向图2探去。图2纹丝不动，但掌心吞噬印记微微一闪，图1灵识被一股陌生的金色漩涡震得一颤。图1后退半步，脸色终于变了。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+        - file: PROP-002
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-005
+        line: "什么……他体内这股力量，灵识竟然探不进去？"
+        emotion: "内心·惊"
+      - speaker: CHAR-001
+        line: "他在探我。"
+        emotion: "内心·平静"
+      - speaker: CHAR-005
+        line: "好好休息……明日到我殿中，我为你安排庆功。"
+        emotion: "强笑·转身"
+      - speaker: CHAR-001
+        line: "庆功。堂堂长老，被一个炼气期的弟子震退了灵识。"
+        emotion: "内心·平静"
+      - speaker: CHAR-005
+        line: "不急……让我看看，他到底藏着多少秘密。"
+        emotion: "内心·冷"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png  # DRY-RUN: 待生成
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-004-L01（灰色长袍，黑发半遮一只凤眼）【图2】CHAR-005-L01（灰白长老袍）【图3】SCENE-001。MCU 缓推。看台最高处阴影中，图1半遮眼的黑发在风中微扬，薄唇带永恒的半笑，凤眼注视着图2与台下林渊的无声交锋。图2转身时面色铁青，脚步比来时快了三分。图1将这一切尽收眼底。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "陈长老……急了。"
+        emotion: "摇头·轻声"
+      - speaker: CHAR-005
+        line: "吞噬血脉……这东西一旦成长起来……"
+        emotion: "内心·阴冷"
+      - speaker: CHAR-004
+        line: "这出戏……倒是越来越有意思了。"
+        emotion: "低声·玩味"
+      - speaker: CHAR-005
+        line: "必须在他羽翼未丰之前……除掉。"
+        emotion: "内心·狠厉"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-005-L01（灰白长老袍）【图2】SCENE-001。MCU 缓推。裁判台后方角落，云雾遮蔽，图1左右确认无人后，从袖中取出一枚黑色传讯符，灵力灌入，传讯符发出暗红光。他慈祥的面容此刻阴沉如铁，捋胡须的手不再颤抖。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "速告总坛——青云宗出了吞噬血脉。"
+        emotion: "低声·狠厉"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-005-L01（灰白长老袍）【图2】SCENE-001。ECU 固定镜头。图1面部大特写，细长双眼阴沉如渊，传讯符暗红光映在他眼底。他嘴角微动，一字一顿。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "此人……必须死在萌芽中。"
+        emotion: "阴沉·一字一顿"
+      - speaker: 旁白
+        line: "他不知道，这一道传讯……将引来真正的风暴。"
+        emotion: "低沉"
+    transition_to_next: hard_cut

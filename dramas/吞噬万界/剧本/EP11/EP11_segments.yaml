@@ -1,0 +1,252 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP11/EP11_危机.md
+# Source segments: 7 (SEG01-SEG07)
+# Output segments: 7 (SEG01-SEG07)
+# Segment-to-shot mapping preserved: 1:1 with source SEG boundaries
+# Source total duration: 80s
+# Output total duration: 80s (12+12+12+12+12+10+10)
+# Gate status: ALL PASS
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+
+episode_id: EP11
+source_md: 剧本/EP11/EP11_危机.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，青云宗古建筑风格。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-004: "成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷"
+  CHAR-005: "成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音"
+  CHAR-007: "少女，15-16岁，声线清脆甜美，语速快且活泼，情绪外放，哭腔时声音发颤"
+
+segments:
+  - segment_id: EP11-SEG01
+    shot_ids: [EP11-S01, EP11-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-007: https://placeholder.example/SCENE-007.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色外门弟子服）【图2】沈墨 CHAR-004-L01（灰色长袍，肩头沾夜露竹叶）【图3】林渊居所 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定镜头：竹屋内，油灯摇曳暖橙光，图1坐在矮木桌前，月光从竹墙缝隙透入形成冷蓝条纹，桌上放着残破《吞噬天经》残卷，图1眉头紧锁，手指摩挲掌心，袖口下吞噬印记微微透出金光。
+        镜头2（6秒）MS 快切：竹门猛然被推开，图2大步闯入，眼神罕见严肃，薄唇紧抿，标志性的半笑完全消失，图1瞬间起身，手按桌面，警惕地盯着他，油灯火苗剧烈摇晃。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「苏瑶说我母亲是她师祖……到底什么意思？」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「知道得越多，越觉得身边到处是陷阱。」
+        对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「林渊，出事了。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「沈墨？深更半夜——」
+        对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「没时间解释。陈道远的人，刚从青云宗后山出去。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+
+  - segment_id: EP11-SEG02
+    shot_ids: [EP11-S03, EP11-S04]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-007: https://placeholder.example/SCENE-007.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-007: https://placeholder.example/PROP-007.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】沈墨 CHAR-004-L01（灰色长袍）【图2】林渊 CHAR-001-L01（灰色外门弟子服）【图3】林渊居所 SCENE-007【图4】陈道远密信 PROP-007（加密竹简，暗紫色蜡封已碎裂，朱砂红墨标注暗语）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）CU 固定镜头：图1从袖中取出竹简密信（图4），举到油灯前，暖橙光映出竹面密密麻麻的墨迹，图1凤眼微眯，瞳孔深处闪过一丝暗红。
+        镜头2（6秒）MCU 缓推：图2接过竹简扫过字迹，瞳孔骤缩，油灯在脸上投下半明半暗阴影，嘴角肌肉紧绷，掌心吞噬印记突然剧烈闪烁金光穿过袖口布料，在昏暗竹屋中格外刺眼，图2攥紧竹简，竹片发出嘎吱声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「我截获的。陈道远写给天机阁的回信。」
+        对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「上面说……他要用一个人做筹码。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「谁？」
+        对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「柳青青。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……什么？」
+        对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「陈道远要拿她要挟你。今夜就动手。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+        - { file: PROP-007, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP11-SEG03
+    shot_ids: [EP11-S05, EP11-S06]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-007: https://placeholder.example/SCENE-007.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色外门弟子服）【图2】沈墨 CHAR-004-L01（灰色长袍）【图3】林渊居所外 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MS 镜头跟随：图1猛地推开竹门冲出，月光洒在身上，冷蓝光辉映出紧绷侧脸，图2紧跟其后，竹屋外青云宗夜景，远处山峰黑影如兽脊，夜风卷起枯叶，图1疾步向前，灰色弟子袍下摆在夜风中翻飞。
+        镜头2（6秒）MCU 固定镜头：图2停在竹屋门口，灰袍在月色中如一团暗影，凤眼微眯，薄唇轻启，月光在苍白面容上投下冷峻线条，看着远处背影，眼中闪过复杂光芒——担忧、算计、还有一丝罕见的真诚。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「他敢动青青……」
+        对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「冷静。你现在冲过去，正中他下怀。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「那也得去。」
+        对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「这步棋……陈道远下得够狠。」
+        对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「林渊！去柳青青的住处——她还来得及。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP11-SEG04
+    shot_ids: [EP11-S07, EP11-S08]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-007: https://placeholder.example/SCENE-007.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色外门弟子服）【图2】柳青青住处附近 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MLS 固定镜头：图1奔至柳青青住处门前，竹门半开，门框上有挣扎抓痕，门枢断裂，屋内传来打翻物品的声响但已无人声，月光照入门内，地上散落粉色丝带和碎裂陶碗，图1停在门口，瞳孔中倒映出狼藉室内。
+        镜头2（6秒）CU 缓推：图1蹲下捡起地上粉色丝带，双丫髻上的缎带被粗暴扯断，丝带沾着灵力残留的暗红光痕，图1攥紧丝带，指节发白，掌心吞噬印记疯狂闪烁金光，映亮扭曲面容。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……青青？」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「来晚了。还是来晚了。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「陈……道……远。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这笔账，不用记了。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP11-SEG05
+    shot_ids: [EP11-S09, EP11-S10]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-006: https://placeholder.example/SCENE-006.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】陈道远 CHAR-005-L01（灰白长老袍）【图2】林渊 CHAR-001-L01（灰色外门弟子服）【图3】柳青青 CHAR-007-L01（粉色衣裙，双丫髻散乱，灵力绳索绑缚）【图4】陈道远密室门前 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MS 固定镜头：密室门前小石院，月光如霜铺地，图1负手而立，灰白长老袍在夜风中微摆，花白胡须泛冷光，面带伪善微笑一手捋胡须，身后两个黑衣弟子押着被灵力绳索绑缚的图3，图3粉色衣裙沾尘，嘴被灵力封住发不出声。
+        镜头2（6秒）MCU 缓推：图2站在院门口，月光从身后照来，清瘦身影拉成长长暗影，死死盯着图1，牙关紧咬，右拳攥得指节发白，掌心吞噬印记金光大盛透过袖口映出如燃烧的金色火焰，向前迈了一步，脚下石板碎裂。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「林渊，来得好快。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「老夫就知道，你不会让她出事。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「放开她。」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「年轻人，急什么。老夫还没开条件。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP11-SEG06
+    shot_ids: [EP11-S11, EP11-S12]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-006: https://placeholder.example/SCENE-006.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】陈道远 CHAR-005-L01（灰白长老袍）【图2】柳青青 CHAR-007-L01（粉色衣裙，灵力绳索绑缚）【图3】林渊 CHAR-001-L01（灰色外门弟子服）【图4】陈道远密室门前 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）MCU 固定镜头：图1缓步走近，伪善微笑在月光下格外阴森，手指轻敲袖口，目光如蛇般游移，身后图2拼命挣扎，灵力绳索勒出红痕，眼眶泛红但眼神满是倔强。
+        镜头2（5秒）CU 固定镜头：图3与图1对峙，两人仅隔三步，月光将两人一明一暗劈成两半，图3半身沐浴冷月银光，图1半身沉入密室暗影，图3眼中金光一闪即逝，嘴唇微张，图1捋须手指停住，伪善微笑凝固。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「你掌心的印记……吞噬一族的血脉。把秘法交出来，青青这丫头——完好无损还给你。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「你要的是吞噬血脉？还是……要我的命？」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「一切以宗门为重。你这血脉，留着只会引来更大的灾祸。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「你……配吗？」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「小子，你以为赢了赵天行，就能在老夫面前张狂？」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
+
+  - segment_id: EP11-SEG07
+    shot_ids: [EP11-S13, EP11-S14]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-006: https://placeholder.example/SCENE-006.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】柳青青 CHAR-007-L01（粉色衣裙，灵力绳索收紧）【图2】林渊 CHAR-001-L01（灰色外门弟子服）【图3】陈道远密室门前 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）CU 快切：灵力绳索猛然收紧，图1粉色衣裙上灵力红痕加深，灵力封印松动一瞬间用尽全力尖叫，双丫髻散乱黑发遮住半张脸，眼中满是恐惧和不甘，看向画面左侧方向，泪珠滚落，月光映在泪痕斑斑的脸上。
+        镜头2（5秒）MCU 固定镜头：图2听到惨叫全身猛然僵硬，瞳孔骤缩成针尖，掌心吞噬印记爆发刺眼金光，金色灵力不受控制外溢将灰色弟子袍映成金色，月光下少年的脸扭曲成痛苦与愤怒的混合，牙关咬得格格作响，身后阴笑声在夜风中飘散。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（柳青青，少女，15-16岁，声线清脆甜美，语速快且活泼，情绪外放，哭腔时声音发颤）：「林渊哥哥——！」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「青青……」
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「呵呵……现在，我们可以好好谈谈了。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }

@@ -1,0 +1,461 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP05/EP05_试炼塔.md
+# Source shots: 12 (EP05-S01 to EP05-S12)
+# Output shots: 12 (EP05-S01 to EP05-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s (5+5+10+5+5+10+10+5+5+10+5+5)
+# Output total duration: 80s
+# Gate status: Gate 1 PASS (80s in [75s,120s]), Gate 2 PASS (12==12), Gate 3 PASS (IDs verified against asset cards), Gate 4 PASS (voice_prompts verified from 声音卡片.md)
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+# Note: CHAR-008-L01 role card lists EP06+ — EP05 script notes that适用范围需扩展至EP05
+# Note: PROP-004 道具卡片 lists EP06 as first appearance — EP05 script notes that需同步更新为EP05
+
+episode_id: EP05
+source_md: 剧本/EP05/EP05_试炼塔.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。"
+  negative_prompt: "任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格"
+
+shots:
+  - shot_id: EP05-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L01（灰色粗布外门弟子服）【图2】SCENE-004。中景 镜头跟随。穿过白色光幕，眼前豁然开朗——第六层并非冰冷石室，而是暖金色的密室，墙壁嵌满古旧木架，残卷散落。地面中央一个巨大圆形法阵发着幽蓝微光。图1站在入口，警惕地扫视四周。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "不对……这里有人等了很久。"
+        emotion: "内心·警觉"
+      - speaker: CHAR-001
+        line: "他是谁？"
+        emotion: "瞳孔一缩"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://placeholder.example/CHAR-008-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-008-L01（灰白长袍，须发皆白）【图2】SCENE-004。中近景 缓推。密室深处阴影中，图1盘膝坐在法阵边缘，闭目如石雕。猛然睁眼——瞳孔中闪过一丝暗金色光芒。"
+      content_roles:
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-008
+        line: "你来了。"
+        emotion: "平静·低沉"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L01（灰色粗布外门弟子服）【图2】SCENE-004【图3】PROP-002（吞噬印记·状态A，暗金漩涡纹路）。特写 固定镜头。图1后退半步，左手掌心的吞噬印记自发亮起暗金纹路，如同活物般蔓延。他攥紧拳头试图压制，印记却越压越亮。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+        - file: PROP-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "谁？"
+        emotion: "警觉·低喝"
+      - speaker: CHAR-008
+        line: "三十一年……老夫等了三十一年。"
+        emotion: "缓步走近"
+      - speaker: CHAR-001
+        line: "前辈认识此物？"
+        emotion: "后退·攥拳"
+      - speaker: CHAR-008
+        line: "岂止认识。"
+        emotion: "目光灼灼·声音微颤"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://placeholder.example/CHAR-008-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-008-L01（灰白长袍，须发皆白）【图2】SCENE-004。中远景 镜头拉远。图1走到法阵中央，脚踏阵眼。蓝光骤然变亮，地面符文如血管般脉动，投射出模糊的幻影画面——黑袍人被白袍修士围杀，山河崩裂。"
+      content_roles:
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-008
+        line: "吞噬印记……是上古吞噬一族的传承之印。"
+        emotion: "沉声"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://placeholder.example/CHAR-008-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-008-L01（灰白长袍，须发皆白）【图2】SCENE-004。中景 缓推。幻影画面在墙壁上流转：吞噬族人被正道联盟追杀，最后一位女族人怀抱婴儿血战突围。图1的面容在蓝光中忽明忽暗。"
+      content_roles:
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-008
+        line: "三万年前，吞噬一族为正道联盟所灭，全族覆没。"
+        emotion: "沉重"
+      - speaker: CHAR-008
+        line: "天不容，便吞天。"
+        emotion: "顿了一息·抬眼"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L01（灰色粗布外门弟子服）【图2】SCENE-004【图3】PROP-002（吞噬印记·状态A，暗金漩涡纹路）。特写 固定镜头。蓝光幻影渐渐清晰——最后的女族人面容与图1记忆中的母亲重叠。图1瞳孔剧缩，下意识伸出手想触碰幻影。法阵蓝光映在他脸上，眼眶泛红。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+        - file: PROP-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "那个女人……"
+        emotion: "声音发颤"
+      - speaker: CHAR-008
+        line: "她……是吞噬一族最后的后裔。"
+        emotion: "点头"
+      - speaker: CHAR-001
+        line: "我娘……从没提过。"
+        emotion: "猛转头·咬牙"
+      - speaker: CHAR-008
+        line: "有些事，她不敢让你知道。"
+        emotion: "叹息"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-004
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-008-L01: https://placeholder.example/CHAR-008-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-004: https://placeholder.example/PROP-004.png  # DRY-RUN: 待生成
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-008-L01（灰白长袍，须发皆白）【图2】CHAR-001-L01（灰色粗布外门弟子服）【图3】SCENE-004【图4】PROP-004（《吞噬天经》残卷，古旧丝帛卷轴，淡金光泽，右半残缺）【图5】PROP-002（吞噬印记·状态A，暗金漩涡纹路）。中景 镜头推近。法阵中央缓缓升起一卷古旧丝帛卷轴，表面泛着淡金光泽，右半残缺。图1双手接过，郑重递向图2。图2双手微颤，接过卷轴——掌心吞噬印记突然与卷轴上的符文共振，暗金光芒大盛。"
+      content_roles:
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+        - file: PROP-004
+          role: reference_image
+          label: 图4
+        - file: PROP-002
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-008
+        line: "《吞噬天经》残卷——吞噬一族镇族之法。"
+        emotion: "肃穆"
+      - speaker: CHAR-008
+        line: "你娘临走前只留下四个字——'等他觉醒'。"
+        emotion: "递出"
+      - speaker: CHAR-001
+        line: "……她知道我会来？"
+        emotion: "捧住卷轴·声音低哑"
+      - speaker: CHAR-008
+        line: "每位母亲都相信自己的孩子会走到该走的地方。"
+        emotion: "望向远处·语带沧桑"
+      - speaker: CHAR-001
+        line: "……十年了。"
+        emotion: "低头·指节发白"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://placeholder.example/CHAR-008-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-008-L01（灰白长袍，须发皆白）【图2】SCENE-004。中近景 固定镜头。图1面色凝重，压低声音。法阵蓝光渐弱，密室暗下来，只剩两人之间的微光。"
+      content_roles:
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-008
+        line: "听好——血脉之事，烂在肚子里。在你足够强之前，谁都不能知道。"
+        emotion: "压低声·急促"
+      - speaker: CHAR-008
+        line: "否则……死的不只是你。"
+        emotion: "顿了一息"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: "【图1】CHAR-001-L01（灰色粗布外门弟子服）【图2】SCENE-004【图3】PROP-002（吞噬印记·状态A，暗金漩涡纹路）。特写 缓推。图1低头看掌心的吞噬印记，暗金纹路在指尖微微跳动。他缓缓抬头，目光从迷茫转为坚定。卷轴被他紧紧收入怀中。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+        - file: PROP-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "这笔账……我记下了。"
+        emotion: "抱拳·声音发沉"
+      - speaker: CHAR-001
+        line: "娘，你替我挡了一辈子。往后——我自己来。"
+        emotion: "内心"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://placeholder.example/CHAR-008-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-008-L01（灰白长袍，须发皆白）【图2】SCENE-004。中景 镜头拉远。图1猛然抬眼，面色骤变。他望向白色光幕方向，身体开始从指尖化为金色光粒。光芒如萤火飘散，他的身影越来越淡。"
+      content_roles:
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-008
+        line: "有人来了——修为不低！"
+        emotion: "急促·变色"
+      - speaker: CHAR-008
+        line: "记住老夫的话。"
+        emotion: "身形渐散·回首"
+      - speaker: CHAR-008
+        line: "试炼塔三层偏殿，有条暗道……"
+        emotion: "金光中·声音遥远"
+      - speaker: CHAR-008
+        line: "活着出去。"
+        emotion: "消失前最后一句·微弱"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L01（灰色粗布外门弟子服）【图2】SCENE-004。中远景 固定镜头。金色光粒融入法阵，密室骤然沉寂。图1独自站在空荡荡的密室中央，怀中紧抱卷轴。白色光幕突然剧烈震颤，裂纹如蛛网般蔓延。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "不好——"
+        emotion: "内心·猛然转头"
+      - speaker: CHAR-001
+        line: "来不及了。"
+        emotion: "低声"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-002-L01（黑色宗袍）【图2】SCENE-004。中景 镜头推近。白色光幕轰然碎裂，漫天光屑纷飞。图1踏光而入，黑色宗袍猎猎作响，目光扫过密室——直直钉在画面另一侧林渊身上。嘴角勾起一抹阴冷笑意。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "六层禁地——你也配来？"
+        emotion: "冷笑·踱步逼近"
+    transition_to_next: hard_cut

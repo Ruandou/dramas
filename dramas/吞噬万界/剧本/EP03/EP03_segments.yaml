@@ -1,0 +1,277 @@
+# === SEGMENTS FILE ===
+# Source: 剧本/EP03/EP03_归来.md
+# Generated from: EP03_shots.yaml
+# Total segments: 7 (EP03-SEG01 to EP03-SEG07)
+# Total duration: 80s (10+12+12+10+12+12+12)
+# Segment durations: all 10-12s (within 4-12s Seedance limit) ✅
+# Shots per segment: all 1-2 (within 1-3 limit) ✅
+# Speakers per segment: all ≤2 ✅
+# Cross-scene check: no segment crosses scene boundary ✅
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+# Note: [待补：报信弟子] and [待补：围观弟子] are pending group actors — trigger 集间群演回补子循环
+
+episode_id: EP03
+source_md: 剧本/EP03/EP03_归来.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。"
+  negative_prompt: "任何现代元素：西装、眼镜、手机、电线杆、现代建筑、汽车、霓虹灯；非中国古风服饰：和服、韩服、西方铠甲；现代材质：塑料、不锈钢、玻璃幕墙；文字水印：中英文文字、logo、水印；写实照片风格"
+
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-002: "成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖"
+  CHAR-005: "成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音"
+
+segments:
+  # ============================================================
+  # SEG01 — Hook Zone·三日之期已到（刺探式·施压→嘲讽）
+  # 场景：SCENE-001 青云宗·演武场
+  # ============================================================
+  - segment_id: EP03-SEG01
+    shot_ids: [EP03-S01, EP03-S02]
+    duration_sec: 10
+    speakers: [CHAR-005, "[待补：报信弟子]", CHAR-002]  # ⚠️ [待补] pending group actor
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】陈道远 CHAR-005-L01（灰白长老袍，手持桃木拂尘）【图2】赵天行 CHAR-002-L01（白色镶银边大师兄袍服，银冠束发高髻）【图3】演武场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：演武场中央石台上，图1手持拂尘背手而立，灰白长袍在风中微摆，面容慈祥但眼神精明。台下十余名弟子列队围观。一名报信弟子躬身禀报。天空阴沉，厚重云层压得极低，石台表面因潮湿微微反光。旗帜在闷风中无力垂落。
+        镜头2（5秒）中景特写 固定：图2站在弟子队列前方，白色袍服在人群中格外醒目。双臂抱胸，鹰目微微眯起，薄唇勾起一抹轻蔑的弧度。银冠束发在灰白天光下泛着冷光。偏头对身旁低声说了一句，语气里满是幸灾乐祸。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「三日已过，林渊未归。」
+        对白（报信弟子）：「回禀长老，后山搜遍……不见人影。」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「废物嘛，摔下去了也好。」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「三日前推他下去的事……没人知道。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG02 — 谷底·灵兽逼近（碎片式·警觉→本能反应）
+  # 场景：SCENE-003 深渊谷底
+  # 转场：hard_cut（空间跳转：演武场→谷底，时间回溯至三日前）
+  # ============================================================
+  - segment_id: EP03-SEG02
+    shot_ids: [EP03-S03, EP03-S04]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-003: https://placeholder.example/SCENE-003.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（磨损灰色麻布袍撕裂多处，金色瞳孔）【图2】深渊谷底 SCENE-003【图3】吞噬印记 PROP-002（状态A暗金漩涡纹路）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）面部特写 固定：谷底绝对黑暗，苔藓微弱青光照出图1面部轮廓。猛然睁眼——金色瞳孔在暗中如两盏灯。掌心暗金漩涡印记突然剧烈脉动，金色光纹从掌心沿手臂蔓延。远处黑暗中传来沉重的呼吸声和碎石碾压声。
+        镜头2（6秒）中全景 镜头拉远：黑暗中一双幽绿兽瞳亮起——一只受伤的灵兽从碎石后缓缓走出。通体由半透明灵力构成形如巨狼，腹部巨大撕裂伤口，灵力如金色血液般滴落。图1缓缓站起，金色瞳孔盯着灵兽，掌心印记脉动越来越剧烈。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「掌心……它在回应什么？」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「有东西在靠近。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「灵兽……它的灵力在流失。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「掌心的力量在告诉我……吞噬它。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG03 — 吞噬·突破炼气三层（独白递进·力量爆发）
+  # 场景：SCENE-003 深渊谷底（续）
+  # ============================================================
+  - segment_id: EP03-SEG03
+    shot_ids: [EP03-S05]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-003: https://placeholder.example/SCENE-003.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（磨损灰色麻布袍撕裂多处，金色瞳孔）【图2】深渊谷底 SCENE-003【图3】吞噬印记 PROP-002（状态A暗金漩涡纹路）。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中景 缓推：图1向前迈步右掌伸出——掌心暗金漩涡爆发金色引力漩涡。灵兽灵力如金色溪流被撕裂吸向掌心。灵兽哀鸣一声，灵力体逐渐透明缩小最终化为金色光尘被吞噬殆尽。图1周身灵力暴涌，金色粒子从体内逆向升腾如暴风雪。浑身微颤，修为连破至三层——每层突破身体周围炸出一圈金色冲击波。碎石被气浪推开，谷底黑暗被撕开金色光域。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「灵力涌进来了……炼气二层。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「还在涨……三层！」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「够用了。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG04 — 宗门归来·众人震惊（碎片式·震惊→难以置信）
+  # 场景：SCENE-001 青云宗·演武场
+  # 转场：hard_cut（空间跳转：谷底→宗门大门）
+  # ============================================================
+  - segment_id: EP03-SEG04
+    shot_ids: [EP03-S06, EP03-S07]
+    duration_sec: 10
+    speakers: ["[待补：围观弟子]", CHAR-002]  # ⚠️ [待补] pending group actor
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（磨损灰色麻布袍撕裂多处，沾满泥灰血痕，金色瞳孔）【图2】赵天行 CHAR-002-L01（白色镶银边大师兄袍服，银冠束发高髻）【图3】演武场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中全景 镜头跟随：演武场石道尽头，图1缓步走入。灰色麻布袍撕裂多处沾满泥灰血痕，但背脊笔直步伐沉稳。围观弟子纷纷侧目让路，有人瞪大眼睛有人捂住嘴巴。石台上陈道远停止宣判，拂尘悬在半空。
+        镜头2（5秒）面部特写 固定：图2看到图1瞬间鹰目骤然瞪大，薄唇微张。抱胸双手缓缓松开垂落——被他亲手推下万丈深渊的人正一步步朝他走来。喉结滚动，脸色从震惊转为铁青。图1在身后虚焦，金色瞳孔微光清晰可见。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（围观弟子）：「那不是……林渊？」
+        对白（围观弟子）：「他没死？」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「不可能……」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「他怎么爬上来的？那可是万丈深渊！」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG05 — 一掌震退（权力翻转·致命反击）
+  # 场景：SCENE-001 青云宗·演武场（续）
+  # ============================================================
+  - segment_id: EP03-SEG05
+    shot_ids: [EP03-S08, EP03-S09]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（磨损灰色麻布袍撕裂多处，金色瞳孔）【图2】赵天行 CHAR-002-L01（白色镶银边大师兄袍服，银冠束发高髻）【图3】演武场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1在图2面前站定两人相距不到两米。图1平静抬头看着比自己高半头的图2，嘴角几乎不可察觉地上扬。微微抬起右手——掌心朝上，暗金漩涡印记在袖口下若隐若现。图2本能后退半步，随后恼羞成怒猛然出掌，灵力裹挟劲风直扑图1面门。
+        镜头2（6秒）中全景 固定：图2全力一掌劈下——图1仅用左手单手接住掌击。两掌相触瞬间一圈金色灵力冲击波从接触点炸开，地面碎石被气浪掀飞。图2身体猛然一震，双脚在石台上划出两道白痕——连退三步。鹰目圆睁，不可置信地看着发麻的右手。图1纹丝不动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「看到我活着……意外吗？」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「来——算账。」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「找死！」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「这——！」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「他的力量……我居然推不动他？」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG06 — 不止于此（刺探式·平静揭秘）
+  # 场景：SCENE-001 青云宗·演武场（续）
+  # ============================================================
+  - segment_id: EP03-SEG06
+    shot_ids: [EP03-S10, EP03-S11]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-005-L01: https://placeholder.example/CHAR-005-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】陈道远 CHAR-005-L01（灰白长老袍，手持桃木拂尘）【图2】林渊 CHAR-001-L01（磨损灰色麻布袍撕裂多处，金色瞳孔）【图3】赵天行 CHAR-002-L01（白色镶银边大师兄袍服，银冠束发高髻）【图4】演武场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景特写 固定：图1从石台快步走下，拂尘紧攥手中。慈祥面具出现裂痕——眯起窄眼中满是算计与震惊交织。上下打量图2，目光在掌心停留一瞬。图2平静回视，右手自然垂落，袖口遮住掌心暗金印记。
+        镜头2（6秒）面部特写 固定：图3脸色从震惊转为铁青再转为苍白。右手仍在微微颤抖——刚才那一掌余力让他清晰感知到差距。嘴唇翕动，鹰目中曾经的傲慢正在崩塌。身后弟子们交头接耳，有人悄悄后退远离他。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈道远，成年男性，50岁左右，声线浑厚带威严，语速缓慢装腔作势，被揭穿时声音尖锐破音）：「你……突破了？」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「不止于此。」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「不可能……那股力量不是普通的灵气！」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「那是吞噬之力。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG07 — 三日之期（承诺钩·回归宣言）
+  # 场景：SCENE-001 青云宗·演武场（续）
+  # ============================================================
+  - segment_id: EP03-SEG07
+    shot_ids: [EP03-S12]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-001: https://placeholder.example/SCENE-001.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（磨损灰色麻布袍撕裂多处，金色瞳孔）【图2】演武场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中景特写 缓推：图1站在演武场中央，身后陈道远和赵天行虚焦。灰白天光照在破烂麻布袍上，但气场让所有人退避三舍。缓缓抬起右手摊开掌心——暗金漩涡印记在袖口下微微发光，边缘泛起细碎金色光点。镜头缓推至面部特写，金色瞳孔在灰白天光下终于显露，冰冷而平静。嘴角微微上扬——不是笑，是三年屈辱终于有了回响。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「炼气三层。巅峰。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「三日之期。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「我回来了。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「从今天起——没人能再叫我废物。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。写实仙侠，水墨风元素，光效渲染，冷色调（青灰/墨蓝），零现代元素。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

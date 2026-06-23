@@ -1,0 +1,290 @@
+episode_id: EP05
+source_md: 剧本/EP05/EP05_试炼塔.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，冷色调（青灰/墨蓝），青云宗古建筑风格。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，冷色调（青灰/墨蓝），青云宗古建筑风格。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-002: "成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖"
+  CHAR-008: "老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉"
+
+segments:
+  - segment_id: EP05-SEG01
+    shot_ids: [EP05-S01, EP05-S02]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-008-L01: https://placeholder.example/CHAR-008-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色粗布外门弟子服）【图2】萧长老 CHAR-008-L01（灰白长袍，须发皆白）【图3】试炼塔第六层密室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 镜头跟随：图1穿过白色光幕，眼前豁然开朗——第六层并非冰冷石室，而是暖金色的密室，墙壁嵌满古旧木架，残卷散落。地面中央一个巨大圆形法阵发着幽蓝微光。图1站在入口，警惕地扫视四周。
+        镜头2（5秒）中近景 缓推：密室深处阴影中，图2盘膝坐在法阵边缘，闭目如石雕。猛然睁眼——瞳孔中闪过一丝暗金色光芒。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「不对……这里有人等了很久。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「他是谁？」
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「你来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，冷色调（青灰/墨蓝），青云宗古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG02
+    shot_ids: [EP05-S03]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色粗布外门弟子服）【图2】试炼塔第六层密室 SCENE-004【图3】吞噬印记 PROP-002（暗金漩涡纹路）。
+        角色分工：仅图1可触碰左手掌心印记；图2（场景）无触碰。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写 固定：图1后退半步，左手掌心的吞噬印记自发亮起暗金纹路，如同活物般蔓延。他攥紧拳头试图压制，印记却越压越亮。萧长老站起身，目光钉在那只手上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「谁？」
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「三十一年……老夫等了三十一年。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「前辈认识此物？」
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「岂止认识。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，冷色调（青灰/墨蓝），青云宗古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG03
+    shot_ids: [EP05-S04, EP05-S05]
+    duration_sec: 10
+    speakers: [CHAR-008]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-008-L01: https://placeholder.example/CHAR-008-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】萧长老 CHAR-008-L01（灰白长袍，须发皆白）【图2】试炼塔第六层密室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中远景 镜头拉远：图1走到法阵中央，脚踏阵眼。蓝光骤然变亮，地面符文如血管般脉动，投射出模糊的幻影画面——黑袍人被白袍修士围杀，山河崩裂。
+        镜头2（5秒）中景 缓推：幻影画面在墙壁上流转：吞噬族人被正道联盟追杀，最后一位女族人怀抱婴儿血战突围。图1的面容在蓝光中忽明忽暗。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「吞噬印记……是上古吞噬一族的传承之印。」
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「三万年前，吞噬一族为正道联盟所灭，全族覆没。」
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「天不容，便吞天。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，冷色调（青灰/墨蓝），青云宗古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG04
+    shot_ids: [EP05-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色粗布外门弟子服）【图2】试炼塔第六层密室 SCENE-004【图3】吞噬印记 PROP-002（暗金漩涡纹路）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写 固定：蓝光幻影渐渐清晰——最后的女族人面容与图1记忆中的母亲重叠。图1瞳孔剧缩，下意识伸出手想触碰幻影。法阵蓝光映在他脸上，眼眶泛红。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「那个女人……」
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「她……是吞噬一族最后的后裔。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「我娘……从没提过。」
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「有些事，她不敢让你知道。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，冷色调（青灰/墨蓝），青云宗古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG05
+    shot_ids: [EP05-S07]
+    duration_sec: 10
+    speakers: [CHAR-008, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-008-L01: https://placeholder.example/CHAR-008-L01.png  # DRY-RUN: 待生成
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-004: https://placeholder.example/PROP-004.png  # DRY-RUN: 待生成
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】萧长老 CHAR-008-L01（灰白长袍，须发皆白）【图2】林渊 CHAR-001-L01（灰色粗布外门弟子服）【图3】试炼塔第六层密室 SCENE-004【图4】《吞噬天经》残卷 PROP-004（古旧丝帛卷轴，淡金光泽，右半残缺）【图5】吞噬印记 PROP-002（暗金漩涡纹路）。
+        角色分工：仅图1可递出卷轴；图2双手接住卷轴后掌心印记与卷轴共振。
+        道具：古旧丝帛卷轴（约40cm宽，泛淡金光泽，右半残缺）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 镜头推近：法阵中央缓缓升起一卷古旧丝帛卷轴，表面泛着淡金光泽，右半残缺。图1双手接过，郑重递向图2。图2双手微颤，接过卷轴——掌心吞噬印记突然与卷轴上的符文共振，暗金光芒大盛。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「《吞噬天经》残卷——吞噬一族镇族之法。」
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「你娘临走前只留下四个字——'等他觉醒'。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……她知道我会来？」
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「每位母亲都相信自己的孩子会走到该走的地方。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……十年了。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，冷色调（青灰/墨蓝），青云宗古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+        - { file: PROP-004, role: reference_image, label: 图4 }
+        - { file: PROP-002, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG06a
+    shot_ids: [EP05-S08]
+    duration_sec: 5
+    speakers: [CHAR-008]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-008-L01: https://placeholder.example/CHAR-008-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】萧长老 CHAR-008-L01（灰白长袍，须发皆白）【图2】试炼塔第六层密室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中近景 固定：图1面色凝重，压低声音。法阵蓝光渐弱，密室暗下来，只剩两人之间的微光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「听好——血脉之事，烂在肚子里。在你足够强之前，谁都不能知道。」
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「否则……死的不只是你。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，冷色调（青灰/墨蓝），青云宗古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG06b
+    shot_ids: [EP05-S09]
+    duration_sec: 5
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+      prop_urls:
+        PROP-002: https://placeholder.example/PROP-002.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色粗布外门弟子服）【图2】试炼塔第六层密室 SCENE-004【图3】吞噬印记 PROP-002（暗金漩涡纹路）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 缓推：图1低头看掌心的吞噬印记，暗金纹路在指尖微微跳动。他缓缓抬头，目光从迷茫转为坚定。卷轴被他紧紧收入怀中。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这笔账……我记下了。」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「娘，你替我挡了一辈子。往后——我自己来。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，冷色调（青灰/墨蓝），青云宗古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG07
+    shot_ids: [EP05-S10]
+    duration_sec: 10
+    speakers: [CHAR-008]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-008-L01: https://placeholder.example/CHAR-008-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】萧长老 CHAR-008-L01（灰白长袍，须发皆白）【图2】试炼塔第六层密室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 镜头拉远：图1猛然抬眼，面色骤变。他望向白色光幕方向，身体开始从指尖化为金色光粒。光芒如萤火飘散，他的身影越来越淡。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「有人来了——修为不低！」
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「记住老夫的话。」
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「试炼塔三层偏殿，有条暗道……」
+        对白（萧长老，老年男性，70岁以上，声线苍老但中气十足，语速缓慢带禅意，展露实力时声音骤然凌厉）：「活着出去。」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，冷色调（青灰/墨蓝），青云宗古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP05-SEG08
+    shot_ids: [EP05-S11, EP05-S12]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://placeholder.example/CHAR-001-L01.png  # DRY-RUN: 待生成
+        CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png  # DRY-RUN: 待生成
+      scene_urls:
+        SCENE-004: https://placeholder.example/SCENE-004.png  # DRY-RUN: 待生成
+    api:
+      text: |
+        【图1】林渊 CHAR-001-L01（灰色粗布外门弟子服）【图2】赵天行 CHAR-002-L01（黑色宗袍，气场压制感）【图3】试炼塔第六层密室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中远景 固定：金色光粒融入法阵，密室骤然沉寂。图1独自站在空荡荡的密室中央，怀中紧抱卷轴。白色光幕突然剧烈震颤，裂纹如蛛网般蔓延。
+        镜头2（5秒）中景 镜头推近：白色光幕轰然碎裂，漫天光屑纷飞。图2踏光而入，黑色宗袍猎猎作响，目光扫过密室——直直钉在图1身上。嘴角勾起一抹阴冷笑意。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「不好——」
+        对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「来不及了。」
+        对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「六层禁地——你也配来？」
+        画面全程无任何文字、字幕、标题、水印。
+        中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，冷色调（青灰/墨蓝），青云宗古建筑风格，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
