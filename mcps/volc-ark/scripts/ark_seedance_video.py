@@ -290,6 +290,8 @@ def validate_shot_assets(shot: dict, project_root: Path) -> list[str]:
     for mapping in (assets.get("prop_urls") or {}).values():
         paths.append(mapping)
     for rel in paths:
+        if rel.startswith(("http://", "https://", "data:")):
+            continue  # remote URL — no local file check needed
         p = project_root / rel if not Path(rel).is_absolute() else Path(rel)
         if not p.is_file():
             missing.append(str(rel))
@@ -432,6 +434,9 @@ def segment_file_to_path(segment: dict, file_key: str) -> str | None:
     scenes = assets.get("scene_urls") or {}
     if file_key in scenes:
         return scenes[file_key]
+    props = assets.get("prop_urls") or {}
+    if file_key in props:
+        return props[file_key]
     voice_refs = segment.get("voice_refs") or {}
     if file_key in voice_refs:
         return voice_refs[file_key]
@@ -442,14 +447,26 @@ def validate_segment_assets(segment: dict, project_root: Path) -> list[str]:
     missing = []
     assets = segment.get("assets") or {}
     for mapping in (assets.get("look_urls") or {}).values():
+        if mapping.startswith(("http://", "https://", "data:")):
+            continue  # remote URL — no local file check needed
         p = project_root / mapping if not Path(mapping).is_absolute() else Path(mapping)
         if not p.is_file():
             missing.append(str(mapping))
     for mapping in (assets.get("scene_urls") or {}).values():
+        if mapping.startswith(("http://", "https://", "data:")):
+            continue
+        p = project_root / mapping if not Path(mapping).is_absolute() else Path(mapping)
+        if not p.is_file():
+            missing.append(str(mapping))
+    for mapping in (assets.get("prop_urls") or {}).values():
+        if mapping.startswith(("http://", "https://", "data:")):
+            continue
         p = project_root / mapping if not Path(mapping).is_absolute() else Path(mapping)
         if not p.is_file():
             missing.append(str(mapping))
     for mapping in (segment.get("voice_refs") or {}).values():
+        if mapping.startswith(("http://", "https://", "data:")):
+            continue
         p = project_root / mapping if not Path(mapping).is_absolute() else Path(mapping)
         if not p.is_file():
             missing.append(str(mapping))
