@@ -1,0 +1,295 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP18/EP18_双面陷阱.md
+# Source shots: 10 (EP18-S01 to EP18-S09b; script header declares 11 but shot table has 10 entries)
+# Output shots: 10 (EP18-S01 to EP18-S09b)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 89s
+# Output total duration: 89s
+# Gate status: G1 PASS (89s in 75-120s), G2 PASS (10 shots)
+
+episode_id: EP18
+source_md: 剧本/EP18/EP18_双面陷阱.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic."
+  negative_prompt: "cartoon, anime, illustration, painting, sketch, watercolor, oil painting, 3d render, low quality, blurry, distorted face, extra limbs, deformed, ugly, bad anatomy, bad proportions, watermark, text overlay, signature, logo, ancient costume, historical setting, medieval, fantasy elements, magic, supernatural, sci-fi, futuristic technology, neon lights, cyberpunk"
+
+shots:
+  - shot_id: EP18-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫）【图2】陆辞渊 CHAR-002-L01（炭灰色三件套西装，背景）【图3】星辰资本交易大厅 SCENE-001。中景 固定→缓慢推近图1侧脸：清晨交易大厅，图1坐在工位前专注盯着屏幕上的K线模型。背景同事们陆续入场，气氛如常。图2从远处看了她一眼，欲言又止。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-004.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制三件套西装）【图2】方怀瑾办公室 SCENE-004。全景→近景 固定→慢推：图1站在落地窗前背对镜头，手中握着手机。窗外城市天际线冷蓝调。他挂断电话，缓缓转身，嘴角浮现冷笑。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「按计划行事。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-004-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-006-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-004-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-009-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】赵明轩 CHAR-006-L01（亮蓝色设计师西装）【图2】温可薇 CHAR-004-L01（翠绿色西装外套，背景）【图3】星辰资本资本会议室 SCENE-001。中景 固定，图1居中：会议室长桌，图1站在投影屏前，屏幕上显示一份标注红色「异常」的交易记录。他指着屏幕，语调激昂。图2坐在角落，低头翻阅文件，偶尔抬眼观察。"
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "「各位，我发现了严重的问题。林默上周三的三笔交易，全部绕过了风控审批。」"
+      - speaker: CHAR-006
+        line: "「这不是疏忽，这是蓄意违规。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-001-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-009-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】温可薇 CHAR-004-L01（翠绿色西装外套）【图2】林默 CHAR-001-L01（深蓝色职业套装）【图3】星辰资本会议室 SCENE-001。近景→特写：图1起身，将一份打印文件推到CEO面前。她语调平稳但暗含攻击。图2坐在对面，面无表情地看着这一切。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "「我已经核实过了。这三笔交易的时间戳和金额都对不上。」"
+      - speaker: CHAR-004
+        line: "「林默，你不解释一下吗？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】赵明轩 CHAR-006-L01（亮蓝色设计师西装）【图3】星辰资本会议室 SCENE-001。中景→屏幕特写→近景：图1缓缓起身，打开自己的笔记本电脑。屏幕上弹出一个数据对比界面——左边是图2提交的「证据」，右边是系统原始日志。红色标注出三处不一致。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「赵明轩，你提交的这份记录，有三处数据和系统原始日志不一致。」"
+      - speaker: CHAR-001
+        line: "「时间戳被改过。你确定要继续？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-006-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】赵明轩 CHAR-006-L01（亮蓝色设计师西装）【图3】温可薇 CHAR-004-L01（翠绿色西装外套）【图4】星辰资本会议室 SCENE-001。环绕镜头扫过众人表情→图1近景：图1点击播放键。会议室音响传出图2和图3密谋如何伪造数据的声音。图2脸色骤变，图3的手微微颤抖。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "「数据我改好了，只要她解释不清，CEO肯定会开除她。」"
+      - speaker: CHAR-004
+        line: "「快点，别让她有机会反驳。」"
+      - speaker: CHAR-001
+        line: "「还需要我继续吗？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-009-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-006-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-009-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】赵明轩 CHAR-006-L01（亮蓝色设计师西装）【图2】星辰资本CEO CHAR-009-L01（深灰色定制西装）【图3】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图4】星辰资本会议室 SCENE-001。中景→近景→中景：图1猛地站起来，指着林默想说什么但说不出口。图2面色铁青，合上文件夹。图3站在门口，双臂抱胸，冷冷看着图1。"
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-009
+        line: "「赵明轩，你被开除了。立刻收拾东西离开。」"
+      - speaker: CHAR-002
+        line: "「证据确凿，没什么好说的。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】赵明轩 CHAR-006-L01（亮蓝色设计师西装）【图2】星辰资本交易大厅 SCENE-001。中景→近景 固定：图1抱着纸箱走出会议室，穿过交易大厅。同事们纷纷抬头看他。他走到门口，突然停下，回头看了一眼。"
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "「沈听雨，你以为方怀瑾只有我一个棋子？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S09a
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】星辰资本交易大厅 SCENE-001。特写→缓慢拉远至中景：图1站在会议室门口，听到「沈听雨」三个字，瞳孔微缩。她缓缓握紧拳头，但表情迅速恢复平静。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S09b
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】林默 CHAR-001-L01（深蓝色职业套装）【图3】星辰资本交易大厅 SCENE-001。双人近景→图2侧脸定格：图1走到图2身边，低声说了一句话。图2没有看他，但嘴角微微上扬。镜头定格在她的侧脸——眼神锐利，仿佛在计算什么。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「他说的'棋子'……是什么意思？」"
+      - speaker: CHAR-001
+        line: "「意思是我们还有很多事要做。」"
+    transition_to_next: hard_cut

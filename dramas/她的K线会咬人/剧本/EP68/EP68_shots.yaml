@@ -1,0 +1,278 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP68/EP68_天台真相.md
+# Source shots: 10 (EP68-S01 to EP68-S09, with S05 split into S05a/S05b)
+# Output shots: 10 (EP68-S01 to EP68-S09, S05a/S05b counted as two shots)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 87s
+# Output total duration: 87s
+# Gate status: G1 PASS (87s in 75-120s), G2 PASS (10=10)
+
+episode_id: EP68
+source_md: 剧本/EP68/EP68_天台真相.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic."
+  negative_prompt: "cartoon, anime, illustration, painting, sketch, watercolor, oil painting, 3d render, low quality, blurry, distorted face, extra limbs, deformed, ugly, bad anatomy, bad proportions, watermark, text overlay, signature, logo, ancient costume, historical setting, medieval, fantasy elements, magic, supernatural, sci-fi, futuristic technology, neon lights, cyberpunk"
+
+shots:
+  - shot_id: EP68-S01
+    shot_no: 1
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+    assets:
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-005.png
+    api:
+      text: "【图1】写字楼天台 SCENE-005。远景 固定：城市夜景天际线，冷蓝色调。天台边缘，两人剪影对峙，背后是万家灯火与星空。夜风吹过，气氛压抑而紧张。"
+      content_roles:
+        - { file: SCENE-005, role: reference_image, label: 图1 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-005.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫，银色U盘挂在腰间）【图2】方怀瑾 CHAR-003-L01（深蓝色定制西装，白色衬衫，酒红色领带）【图3】写字楼天台 SCENE-005。中景 固定：两人面对面站立在天台，夜风吹动林默的短发和方怀瑾的衣角。城市夜景灯火在两人身后闪烁。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「听雨，好久不见。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-005.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装）【图2】林默 CHAR-001-L01（深蓝色职业套装）【图3】写字楼天台 SCENE-005。中景 缓推：方怀瑾缓步走近林默，表情从容，语气平静。他的双手背在身后，步伐缓慢而自信。林默站在原地，目光锐利地注视着他。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「我们可以做个交易。」"
+      - speaker: CHAR-003
+        line: "「你手里有什么，我都知道。」"
+      - speaker: CHAR-003
+        line: "「只要你愿意沉默，我可以给你想要的一切。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-005.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】写字楼天台 SCENE-005。中近景 固定：林默眼神锐利，直视方怀瑾，下巴微抬，嘴角带着一丝冷笑。夜风将她的短发吹向一侧，城市灯火在她身后闪烁。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「不可能。」"
+      - speaker: CHAR-001
+        line: "「你以为我还是三年前那个任你摆布的学生？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S05a
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-005.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装）【图2】写字楼天台 SCENE-005。中景 固定：方怀瑾停下脚步，转身面对林默。他的表情变得复杂，语气低沉，眼神中闪过一丝阴冷。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「你以为我只是窃取了你的研究？」"
+      - speaker: CHAR-003
+        line: "「不，我做了更多。」"
+      - speaker: CHAR-003
+        line: "「你父亲的公司……是我毁掉的。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S05b
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-005.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装）【图2】写字楼天台 SCENE-005。中景 缓推：方怀瑾继续逼近林默，眼神冷酷，语气轻描淡写，嘴角带着一丝傲慢的笑意。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「那场'意外'的破产，那些'突然'流失的客户，都是我的手笔。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S06
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-005.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】写字楼天台 SCENE-005。近景 固定：林默瞳孔微缩，后退一步，难以置信地看着方怀瑾。她的嘴唇微微颤抖，眼神中满是震惊和痛苦。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「为什么？」"
+      - speaker: CHAR-001
+        line: "「他只是一个普通的生意人，他没有威胁到你……」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S07
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-005.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装）【图2】写字楼天台 SCENE-005。中景 固定：方怀瑾冷笑，语气轻描淡写，眼神中带着傲慢和不屑。他的双手插在口袋里，身体微微后仰。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「因为他有一个天才女儿。」"
+      - speaker: CHAR-003
+        line: "「你的才华让我害怕，听雨。」"
+      - speaker: CHAR-003
+        line: "「如果你的父亲倒了，你就会失去一切依靠，就会变得脆弱。」"
+      - speaker: CHAR-003
+        line: "「这个世界就是这样——弱肉强食。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S08
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-005.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】写字楼天台 SCENE-005。特写 缓推：林默眼眶泛红，泪水滑落脸颊，声音颤抖但有力。她的双手紧握成拳，指甲陷入掌心。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「方怀瑾，你毁了我的家庭，毁了我的人生。」"
+      - speaker: CHAR-001
+        line: "「你窃取了我的研究，陷害我入狱，让我失去了一切……」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S09
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-005.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装）【图2】林默 CHAR-001-L01（深蓝色职业套装）【图3】写字楼天台 SCENE-005。中近景→远景 缓慢拉远：方怀瑾反问，林默擦拭眼泪，眼神重新变得坚定。她转身面对城市夜景，背影挺拔而决绝。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「你和我其实是一样的人，听雨。我们都为了胜利不择手段。」"
+      - speaker: CHAR-001
+        line: "「不，我不会成为你。」"
+      - speaker: CHAR-001
+        line: "「我会用证据、用法律让你付出代价。」"
+    transition_to_next: hard_cut

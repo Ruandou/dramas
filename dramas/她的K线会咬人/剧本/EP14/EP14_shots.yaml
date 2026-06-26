@@ -1,0 +1,360 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP14/EP14_完美简历.md
+# Source shots: 12 (EP14-S01 to EP14-S12)
+# Output shots: 12 (EP14-S01 to EP14-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s
+# Output total duration: 80s
+# Gate status: G1 PASS (80s ≥ 75s minimum)
+# Gate status: G2 PASS (all CHAR/SCENE/PROP IDs exist in asset cards)
+# Gate status: G3 PASS (all look_urls use TOS URL format)
+# Gate status: G4 PASS (voice_prompts copied verbatim from 声音卡片.md)
+
+episode_id: EP14
+source_md: 剧本/EP14/EP14_完美简历.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic."
+  negative_prompt: "cartoon, anime, illustration, painting, sketch, watercolor, oil painting, 3d render, low quality, blurry, distorted face, extra limbs, deformed, ugly, bad anatomy, bad proportions, watermark, text overlay, signature, logo, ancient costume, historical setting, medieval, fantasy elements, magic, supernatural, sci-fi, futuristic technology, neon lights, cyberpunk"
+
+shots:
+  # ─── SEG01 · 回忆（Hook Zone · 碎片式）· SCENE-001 · 10s ───
+  - shot_id: EP14-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】星辰资本交易大厅 SCENE-001。中景 固定：陆辞渊独自坐在办公室，窗外城市夜景映入。他的电脑屏幕亮着，显示着林默的员工档案。手指停在鼠标上，目光凝固。桌上散落着几份文件。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "（内心·低沉）林默……你到底是谁？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】星辰资本交易大厅 SCENE-001。特写 缓推：特写陆辞渊的眼睛，瞳孔中倒映着屏幕的冷蓝色光。眉头微皱，眼神中带着疑惑和一丝不安。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "（内心）温可薇说得对……她太像一个人了。"
+    transition_to_next: hard_cut
+
+  # ─── SEG02 · 调查（Substance Zone · 独白递进）· SCENE-001 · 10s ───
+  - shot_id: EP14-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】星辰资本交易大厅 SCENE-001。中景 固定：陆辞渊在电脑前，屏幕上显示林默的简历页面。他滚动鼠标，逐行查看学历信息——某名校金融硕士，成绩全优，论文发表记录完整。他的眉头越皱越紧。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "（内心·疑惑）金融硕士……全优成绩……论文发表……"
+      - speaker: CHAR-002
+        line: "（内心）这也太完美了。"
+      - speaker: CHAR-002
+        line: "（内心）完美得……不像真的。"
+    transition_to_next: hard_cut
+
+  # ─── SEG03 · 疑点（Substance Zone · 独白递进）· SCENE-001 · 10s ───
+  - shot_id: EP14-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】星辰资本交易大厅 SCENE-001。特写 缓推：特写屏幕上的工作经历——某知名量化基金三年工作经验，业绩突出，离职原因：个人发展。陆辞渊的手指停在"个人发展"四个字上，眼神锐利。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "（内心·锐利）个人发展……"
+      - speaker: CHAR-002
+        line: "（内心）三年前……正是沈听雨消失的时候。"
+      - speaker: CHAR-002
+        line: "（内心·金句）你确定吗？"
+      - speaker: CHAR-002
+        line: "（内心）我需要更确定的证据。"
+    transition_to_next: hard_cut
+
+  # ─── SEG04 · 偶遇（Substance Zone · 碎片式）· SCENE-003 · 10s ───
+  - shot_id: EP14-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图3】咖啡厅 SCENE-003。中全景 固定：温暖的咖啡厅，木质桌椅，暖黄灯光。图1坐在靠窗位置，面前放着一杯咖啡和笔记本电脑。图2从门口走进来，目光扫过店内，停在图1身上。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "（内心）她在这里。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图3】咖啡厅 SCENE-003。中特写 缓推：图2走到图1对面坐下，目光温和但带着审视。图1抬头，微微一笑，眼神平静如水。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "陆总，巧。"
+      - speaker: CHAR-002
+        line: "巧。你经常来这里？"
+    transition_to_next: hard_cut
+
+  # ─── SEG05 · 试探（Substance Zone · 刺探式）· SCENE-003 · 10s ───
+  - shot_id: EP14-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图3】咖啡厅 SCENE-003。中景 固定：两人面对面坐着，桌上两杯咖啡。图2看似随意地聊天，但眼神始终停留在图1脸上。图1低头搅动咖啡，偶尔抬头回应，表情平静。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "林默，你之前在哪家基金？"
+      - speaker: CHAR-001
+        line: "一家小公司，已经倒闭了。"
+      - speaker: CHAR-002
+        line: "倒闭了？"
+      - speaker: CHAR-001
+        line: "嗯，市场不好。"
+      - speaker: CHAR-002
+        line: "（内心·锐利）倒闭了……无法核实。"
+    transition_to_next: hard_cut
+
+  # ─── SEG06 · 深挖（Substance Zone · 碎片式）· SCENE-001 · 10s ───
+  - shot_id: EP14-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】星辰资本交易大厅 SCENE-001。中景 固定：陆辞渊坐在办公室，手持电话，表情凝重。窗外的城市灯火映在他脸上，忽明忽暗。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "帮我查一个人。林默，28岁，星辰资本量化交易员。"
+      - speaker: CHAR-002
+        line: "我要她所有的背景资料……越详细越好。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】星辰资本交易大厅 SCENE-001。特写 缓推：特写陆辞渊挂断电话后的表情，眼神中带着一丝不安和决心。他看向窗外的夜景，城市的灯火在他瞳孔中闪烁。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "（内心·低沉）如果你真的是她……"
+      - speaker: CHAR-002
+        line: "（内心）为什么要骗我？"
+    transition_to_next: hard_cut
+
+  # ─── SEG07 · 真相边缘（Substance Zone · 独白递进）· SCENE-001 · 10s ───
+  - shot_id: EP14-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+      prop_ids:
+        - PROP-007
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+      prop_urls:
+        PROP-007: https://drama-reference-images.tos-cn-beijing.volces.com/props/她的K线会咬人/PROP-007.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】星辰资本交易大厅 SCENE-001【图3】DNA比对报告 PROP-007。中景 固定：陆辞渊的办公桌上，一份白色文件袋静静躺着，上面印着"DNA比对报告"几个字，密封完好。陆辞渊的手伸向文件袋，手指停在撕口上。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "（内心·紧张）报告出来了。"
+      - speaker: CHAR-002
+        line: "（内心）只要打开……就能确认。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP14-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】星辰资本交易大厅 SCENE-001。大特写 缓推：大特写陆辞渊的手指，停在密封的撕口上，指尖微微颤抖。他的呼吸声清晰可闻。窗外的城市灯火在他身后闪烁。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "（内心·挣扎）打开……还是不打开？"
+      - speaker: CHAR-002
+        line: "（内心）如果她真的是沈听雨……"
+      - speaker: CHAR-002
+        line: "（内心·金句）我该怎么面对她？"
+    transition_to_next: hard_cut
+
+  # ─── SEG08 · 决断（Hook Zone · 独白递进）· SCENE-001 · 10s ───
+  - shot_id: EP14-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+      prop_ids:
+        - PROP-007
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+      prop_urls:
+        PROP-007: https://drama-reference-images.tos-cn-beijing.volces.com/props/她的K线会咬人/PROP-007.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】星辰资本交易大厅 SCENE-001【图3】DNA比对报告 PROP-007。大特写 缓推：大特写陆辞渊的手指，指尖停在密封条的撕口上，微微颤抖。他深吸一口气，指节绷紧——然后猛地撕开密封条。撕裂声在寂静的办公室里格外清晰。他的手指停在撕开的边缘，呼吸急促。台灯的冷白光映在文件袋上，DNA比对报告几个字在光线下刺眼。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "（内心·低沉）不管结果是什么……"
+      - speaker: CHAR-002
+        line: "（内心·决断）我必须知道真相。"
+    transition_to_next: hard_cut

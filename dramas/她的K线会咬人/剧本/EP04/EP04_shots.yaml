@@ -1,0 +1,343 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP04/EP04_似曾相识的影子.md
+# Source shots: 12 (EP04-S01 to EP04-S12)
+# Output shots: 12 (EP04-S01 to EP04-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: G1 PASS (90s in 75-120s), G2 PASS (12=12), G3 PASS (all assets ready), G4 PARTIAL (2 pending group extras)
+# Note: 2 group extras pending allocation: [待补：与会者A], [待补：与会者B]
+
+episode_id: EP04
+source_md: 剧本/EP04/EP04_似曾相识的影子.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic."
+  negative_prompt: "cartoon, anime, illustration, painting, sketch, watercolor, oil painting, 3d render, low quality, blurry, distorted face, extra limbs, deformed, ugly, bad anatomy, bad proportions, watermark, text overlay, signature, logo, ancient costume, historical setting, medieval, fantasy elements, magic, supernatural, sci-fi, futuristic technology, neon lights, cyberpunk"
+
+shots:
+  - shot_id: EP04-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-009.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】行业峰会会场 SCENE-009。中景 固定镜头：行业峰会会场，阶梯观众席灯光昏暗，冷蓝色聚光灯打在远处舞台上。图1坐在中间排，深蓝色职业套装，双手交叠放在膝上，目光锁定舞台方向。旁边的与会者低声交谈。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: "[待补：与会者A]"
+        line: "方教授来了。今年又是他压轴。"
+      - speaker: "[待补：与会者B]"
+        line: "金融教父嘛，每次都是全场爆满。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-009.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】行业峰会会场 SCENE-009。特写 缓推：特写图1的眼睛，瞳孔中倒映着远处舞台的冷蓝光。她的表情平静如水，但瞳孔微微收缩，指关节因用力交叠而泛白。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "三年了。"
+      - speaker: CHAR-001
+        line: "终于又见到你了，方怀瑾。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-009.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装，白色衬衫，酒红色领带）【图2】行业峰会会场 SCENE-009。中全景 缓推：舞台聚光灯下，图1站在讲台后，银灰色头发向后梳得一丝不苟。他双手轻搭讲台边缘，姿态从容。身后LED大屏上金融数据流转，冷蓝色光芒笼罩他全身。台下掌声雷动。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "金融交易的本质是什么？"
+      - speaker: CHAR-003
+        line: "是播种。收获。以及……等待。"
+      - speaker: CHAR-001
+        line: "播种。"
+      - speaker: CHAR-001
+        line: "三年前你教我的那些话……原来全是谎言。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-009.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装，白色衬衫，酒红色领带）【图2】行业峰会会场 SCENE-009。中景 固定镜头：图1在台上缓步踱行，语速不疾不徐，一只手轻抬做手势。聚光灯在他银发上投下光晕，领带上的暗纹随动作微微闪烁。台下鸦雀无声，所有人都在聆听。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "三年蛰伏，一朝绽放。"
+      - speaker: CHAR-003
+        line: "年轻的交易员们，耐心才是最大的武器。"
+      - speaker: "[待补：与会者A]"
+        line: "说得真好。"
+      - speaker: CHAR-001
+        line: "三年蛰伏？你偷走了我三年的人生。你管这叫'播种'？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-009.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】行业峰会会场 SCENE-009。特写 缓推：全场起立鼓掌，图1也被迫站起来。特写她的双手——在机械地鼓掌，指甲掐进掌心，指节发白。镜头缓缓上推到她的面孔，嘴角维持着礼貌的弧度，但眼神冰冷如刀。身旁掌声如潮。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "掌声。他偷走我的一切，换来的是掌声。"
+      - speaker: CHAR-001
+        line: "三年前你教我种花，原来是让我当花肥。"
+      - speaker: CHAR-001
+        line: "这一次，轮到我了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-009.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装，白色衬衫，酒红色领带）【图2】行业峰会会场 SCENE-009。中景 固定镜头：图1微微鞠躬致意，从容地扫视全场。他的目光掠过一排排面孔，突然停在某个方向——观众席中间，一个穿深蓝色职业套装的年轻女人。他的笑容凝固了一瞬，眉头几不可察地皱了一下。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "那个眼神……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-009.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】行业峰会会场 SCENE-009。特写 固定镜头：图1与方怀瑾的目光在空中交汇。她没有躲闪，也没有任何多余的表情——只是平静地、一动不动地注视着他。那种目光里没有恐惧，没有崇拜，只有一种让方怀瑾后背微凉的平静。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "这个女人……我好像在哪里见过。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-009.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】行业峰会会场 SCENE-009。中景 镜头跟随：散场的人流涌向出口，图1逆着人流缓步走着。她用力鼓掌时掐出的红印还在掌心。身旁有人擦肩而过，她浑然不觉，目光仍然追着远处舞台的方向。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "他看到我了。"
+      - speaker: CHAR-001
+        line: "很好。让他不安。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-009.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图3】行业峰会会场 SCENE-009。中全景 固定镜头：图2从侧面走来，目光一直在追踪图1。他注意到图1的表情，又看向远处舞台上正在与人握手寒暄的方怀瑾。两人擦肩时，图2停下脚步。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "林默，你认识方怀瑾教授？"
+      - speaker: CHAR-001
+        line: "不认识。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-009.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】行业峰会会场 SCENE-009。中特写 缓推：图1目送林默离开，目光沉了下来。他转头看向舞台方向——方怀瑾正被一群人簇拥着，但他的目光却越过所有人，追着林默离去的方向。图1的眉头微皱。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "方教授看她的眼神……不对。"
+      - speaker: CHAR-002
+        line: "不是欣赏。是……警觉。"
+      - speaker: CHAR-002
+        line: "他在怕什么？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-004.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装，白色衬衫，酒红色领带）【图2】助手 CHAR-007-L01（黑色西装，白色衬衫，黑色领带）【图3】方怀瑾办公室 SCENE-004。中全景 固定镜头：方怀瑾的私人办公室，暗色桃木墙板，落地窗外城市天际线。图1坐在黑色皮椅上，松开领带，面前放着一杯未动的威士忌。图2笔直站在桌前，黑色西装面无表情。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "今天峰会，观众席上有个年轻女人。深蓝色套装，短发。"
+      - speaker: CHAR-007
+        line: "需要查什么？"
+      - speaker: CHAR-003
+        line: "全部。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-004.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装，白色衬衫，酒红色领带）【图2】方怀瑾办公室 SCENE-004。特写 缓推：特写图1的面孔。他端起威士忌，琥珀色液体在杯中晃动。窗外的城市灯火映在他深邃的眼眸里，嘴角浮起一丝似笑非笑的弧度。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "那个眼神……我好像在哪里见过。"
+      - speaker: CHAR-003
+        line: "那种平静。不是崇拜，不是恐惧。是……恨。"
+      - speaker: CHAR-003
+        line: "三年了，那种眼神我以为已经消失了。"
+      - speaker: CHAR-007
+        line: "明白。"
+    transition_to_next: hard_cut

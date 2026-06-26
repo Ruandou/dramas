@@ -1,0 +1,347 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP23/EP23_秘密同盟.md (v2.0)
+# Source shots: 12 (EP23-S01 to EP23-S12)
+# Output shots: 12 (EP23-S01 to EP23-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 76s (时长预算表合计76s，落在75-120s合规区间)
+# Output total duration: 76s
+# Gate status: G1 PASS (76s in 75-120s), G2 PASS (12 shots, all 4-10s)
+# Note: v2.0重写版本，原v1.0实际时长60s低于75s最低要求
+
+episode_id: EP23
+source_md: 剧本/EP23/EP23_秘密同盟.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic."
+  negative_prompt: "cartoon, anime, illustration, painting, sketch, watercolor, oil painting, 3d render, low quality, blurry, distorted face, extra limbs, deformed, ugly, bad anatomy, bad proportions, watermark, text overlay, signature, logo, ancient costume, historical setting, medieval, fantasy elements, magic, supernatural, sci-fi, futuristic technology, neon lights, cyberpunk"
+
+shots:
+  - shot_id: EP23-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】林默 CHAR-001-L01【图2】咖啡厅 SCENE-003。大特写 固定：特写林默的手指——指甲修得整齐干净，一只手在大理石桌面上无意识地轻叩，节奏不均匀，泄露了她的紧张。另一只手握着一只空了的白瓷咖啡杯，杯底只剩一圈深褐色的残渍，咖啡早已凉透。暖黄灯光照在她手背上，手指微微颤抖。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「他会相信我吗？还是会把我交给方怀瑾？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP23-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】咖啡厅 SCENE-003。中特写 缓拉：镜头缓缓拉远，露出林默的全貌。她独自坐在咖啡厅角落的卡座，深蓝色职业套装在暖黄灯光下显得格外沉稳。窗外阳光透过玻璃在她脸上投下明暗交错的光影。她的目光不时扫向门口，嘴唇紧抿——这是从未见过的紧张。齐肩短发纹丝不动，但她的肩膀线条绷得很紧。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP23-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】季柏舟 CHAR-005-L01（灰色西装，白衬衫，黑框眼镜）【图3】咖啡厅 SCENE-003。中全景 镜头跟随：咖啡厅的门被推开，季柏舟走进来。灰色西装，白衬衫，黑框眼镜——调查员的标准装备。他目光扫过全场，精准地锁定角落的林默。他的步伐沉稳，皮鞋踩在木地板上发出轻微的声响。走到卡座前，他摘下眼镜，用衣角擦了擦镜片重新戴上——这是他准备认真谈话的信号。他在林默对面坐下，双手放在桌上。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「林默。」"
+      - speaker: CHAR-005
+        line: "「我来了。说吧。」"
+      - speaker: CHAR-001
+        line: "「……谢谢你肯来。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP23-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫，银色旧U盘挂在腰间）【图2】咖啡厅 SCENE-003。大特写 缓推：特写林默的脸。她深吸一口气，眼神从紧张逐渐变为坚定——三年来第一次向外人坦白身份的时刻到了。暖黄灯光在她瞳孔中闪烁，她的嘴唇微启，声音压得很低但每个字都清晰。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「我不叫林默。」"
+      - speaker: CHAR-001
+        line: "「我叫沈听雨。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP23-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01（灰色西装，白衬衫，黑框眼镜）【图2】咖啡厅 SCENE-003。中特写 固定：季柏舟的瞳孔骤缩，嘴唇微张，手中的眼镜差点滑落。调查员的直觉在这一刻得到验证，但真相的冲击仍然超出预期。他的目光在林默脸上停留了三秒，像是在重新认识眼前这个人。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「沈听雨……三年前那个天才交易员？」"
+      - speaker: CHAR-001
+        line: "「被方怀瑾陷害的人。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP23-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01（灰色西装，白衬衫，黑框眼镜）【图2】林默 CHAR-001-L01（深蓝色职业套装）【图3】咖啡厅 SCENE-003。中景 缓推：季柏舟缓缓放下眼镜，双手交叉放在桌上。他的表情从震惊逐渐转为一种更深的东西——不是同情，而是理解，甚至是某种释然。他微微前倾，声音压低。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「所以你伪装身份回来……是为了复仇？」"
+      - speaker: CHAR-001
+        line: "「复仇没有意义。我要的是真相，和公正。」"
+      - speaker: CHAR-005
+        line: "「……我理解。」"
+      - speaker: CHAR-005
+        line: "「方怀瑾不只害了你一个人。我父亲当年也是他的合伙人——被他踢出局后，抑郁而终。」"
+      - speaker: CHAR-005
+        line: "「所以我查他，不是因为工作。是因为私仇。」"
+      - speaker: CHAR-005
+        line: "「真相不该被埋葬。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP23-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】季柏舟 CHAR-005-L01（灰色西装，白衬衫，黑框眼镜）【图3】咖啡厅 SCENE-003。中特写 固定：季柏舟向前倾身，压低声音。他的眼神变得锐利但友善——这是盟友的眼神，不再是调查员审视嫌疑人的目光。林默也微微前倾，两人之间的距离缩短。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「我查过三年前的案子。方怀瑾的手段很高明，但我发现了一个漏洞。」"
+      - speaker: CHAR-001
+        line: "「什么漏洞？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP23-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01（灰色西装，白衬衫，黑框眼镜）【图2】咖啡厅 SCENE-003。大特写 缓推：特写季柏舟的脸，他的表情变得凝重。他停顿了一下，像是在衡量说出这句话的分量。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「我查到一个关键证人——王建国，方怀瑾当年的财务总监。」"
+      - speaker: CHAR-001
+        line: "「他愿意作证？」"
+      - speaker: CHAR-005
+        line: "「但他现在在ICU。情况很不好。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP23-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-008.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】季柏舟 CHAR-005-L01（灰色西装，白衬衫，黑框眼镜）【图3】医院走廊 SCENE-008。中全景 镜头跟随：医院走廊，冷白荧光灯照在苍白的墙壁上，地面反射着刺眼的光。林默和季柏舟快步走向ICU方向，两人的皮鞋声在空旷走廊里回响。走廊尽头，ICU的红色指示灯有节奏地闪烁。门口站着两个穿黑西装的男人，双手交叉在胸前，面无表情——方怀瑾的人。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「方怀瑾已经派人看守了。」"
+      - speaker: CHAR-001
+        line: "「我们不能惊动他们。」"
+      - speaker: CHAR-005
+        line: "「王建国知道所有资金流向——如果他开口，方怀瑾就完了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP23-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-008.png
+    api:
+      text: '【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】医院走廊 SCENE-008。中特写 固定：林默的目光扫过走廊——注意到尽头有一扇标着"消防通道"的灰色铁门。她的眼神在计算角度和距离，嘴唇微动。'
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「有没有其他入口？」"
+      - speaker: CHAR-005
+        line: "「消防通道可以绕到ICU侧门。但保安每十五分钟巡逻一次。」"
+      - speaker: CHAR-001
+        line: "「够了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP23-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-008.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01（灰色西装，白衬衫，黑框眼镜）【图2】医院走廊 SCENE-008。中特写 固定：季柏舟低头看了一眼手机，眉头皱紧。他抬头看向林默，表情从冷静变为严肃——他有坏消息。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「还有……医生说他可能撑不过今晚。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP23-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-008.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】医院走廊 SCENE-008。大特写 缓推：极近特写林默的脸。冷白灯光照在她脸上，ICU的红色指示灯在背景中有节奏地闪烁，红色光芒一明一暗地映在她的面颊上。她的表情从凝重逐渐变为钢铁般的坚定，嘴唇微启，声音压得极低但每个字都掷地有声。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「那我们今晚就必须见到他。」"
+      - speaker: CHAR-005
+        line: "「方怀瑾不会让我们靠近的。」"
+      - speaker: CHAR-001
+        line: "「真相不能跟他一起死。」"
+    transition_to_next: hard_cut

@@ -1,0 +1,390 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP22/EP22_身份迷雾.md
+# Source shots: 13 (EP22-S01 to EP22-S13, with S13 split into S13a+S13b due to 18s>12s violation)
+# Output shots: 14 (EP22-S01 to EP22-S13b)
+# Mapping: 1:1 for S01-S12; S13 split into S13a(9s)+S13b(9s) to comply with 12s max
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: G1 PASS (90s in 75-120s), G2 PASS (14 shots — 12 original + 2 split, all 4-12s)
+# Note: SEG07 original 18s shot split into 2 shots (S13a+S13b) to comply with max duration
+
+episode_id: EP22
+source_md: 剧本/EP22/EP22_身份迷雾.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic."
+  negative_prompt: "cartoon, anime, illustration, painting, sketch, watercolor, oil painting, 3d render, low quality, blurry, distorted face, extra limbs, deformed, ugly, bad anatomy, bad proportions, watermark, text overlay, signature, logo, ancient costume, historical setting, medieval, fantasy elements, magic, supernatural, sci-fi, futuristic technology, neon lights, cyberpunk"
+
+shots:
+  - shot_id: EP22-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-005-L01
+      prop_ids:
+        - PROP-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-006.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01【图2】监管局办公室 SCENE-006。中景 固定：季柏舟坐在办公桌前，翻阅三年前的案件档案（PROP-004），眉头紧锁。荧光灯冷光照亮文件上的文字。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「这个日期...不对。」"
+      - speaker: CHAR-005
+        line: "「郑昊，三年前死于意外。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-006.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01【图2】监管局办公室 SCENE-006。特写 固定：季柏舟的手指点在文件上的死亡日期，镜头聚焦日期数字。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「官方说是心脏病发作。」"
+      - speaker: CHAR-005
+        line: "「但死亡日期...是沈听雨失踪的第二天。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-006.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01【图2】监管局办公室 SCENE-006。中景 固定：季柏舟在电脑前对比数据，屏幕上显示郑昊的交易记录，大量异常交易标记为红色。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「让我查一下他的交易记录。」"
+      - speaker: CHAR-005
+        line: "「奇怪，死前一周有大量异常交易。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-006.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01【图2】监管局办公室 SCENE-006。近景 固定：季柏舟拿起电话，表情严肃。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「小李，帮我查一个人。」"
+      - speaker: CHAR-005
+        line: "「林默，星辰资本的。对，现在就要。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】咖啡厅 SCENE-003。中景 固定：林默独自坐在咖啡厅角落，看着窗外的城市夜景，若有所思。暖色灯光映照她的侧脸。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「郑昊...三年了。」"
+      - speaker: CHAR-001
+        line: "「你还记得吗？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】咖啡厅 SCENE-003。特写 固定：林默低头看手机，屏幕上是三年前郑昊意外死亡的新闻，标题模糊可见。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「当年你说会帮我作证。」"
+      - speaker: CHAR-001
+        line: "「如果他还活着，也许能证明我的清白。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01【图2】林默 CHAR-001-L01（深蓝色职业套装）【图3】咖啡厅 SCENE-003。中景 固定：季柏舟走进咖啡厅，目光扫过店内，看到角落的林默，径直走过去。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「林默小姐？」"
+      - speaker: CHAR-001
+        line: "「你是？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01【图2】林默 CHAR-001-L01（深蓝色职业套装）【图3】咖啡厅 SCENE-003。近景 固定：季柏舟在林默对面坐下，表情严肃而克制。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「我是金融监管局的季柏舟。」"
+      - speaker: CHAR-001
+        line: "「监管局？找我有什么事？」"
+      - speaker: CHAR-005
+        line: "「有些事情想请教。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01【图2】咖啡厅 SCENE-003。中景 固定：季柏舟从公文包里拿出一份文件，放在桌上。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「三年前，有个基金经理死了。」"
+      - speaker: CHAR-005
+        line: "「你认识郑昊吗？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】咖啡厅 SCENE-003。特写 固定：林默的表情微变，眼神闪烁，但很快恢复冷静。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「我知道。」"
+      - speaker: CHAR-001
+        line: "「他叫郑昊，是我以前的同事。」"
+      - speaker: CHAR-001
+        line: "「我们关系还不错。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01【图2】咖啡厅 SCENE-003。近景 固定：季柏舟身体前倾，目光锐利地盯着林默。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「他的死亡日期，恰好是沈听雨'失踪'的第二天。」"
+      - speaker: CHAR-005
+        line: "「你相信巧合吗？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】咖啡厅 SCENE-003。特写 固定：林默的手微微颤抖，但她努力保持镇定。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「你想说什么？」"
+      - speaker: CHAR-001
+        line: "「郑昊的死跟我有什么关系？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S13a
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01【图2】咖啡厅 SCENE-003。近景 固定：季柏舟靠近，压低声音，表情严肃而坚定。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「林默，我查过你的背景。」"
+      - speaker: CHAR-005
+        line: "「你的学历、工作经历，都完美得不像真的。」"
+      - speaker: CHAR-005
+        line: "「三年前，你突然出现在金融圈。」"
+      - speaker: CHAR-005
+        line: "「没有人知道你从哪里来。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S13b
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-003.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01【图2】林默 CHAR-001-L01（深蓝色职业套装）【图3】咖啡厅 SCENE-003。近景 固定：季柏舟盯着林默的眼睛，说出最后的质疑。林默的表情凝固。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「你的身份是假的，对吗？」"
+    transition_to_next: hard_cut

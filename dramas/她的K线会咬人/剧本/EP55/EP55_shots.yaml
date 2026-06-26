@@ -1,0 +1,379 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP55/EP55_总账.md
+# Source shots: 13 (EP55-S01 to EP55-S13)
+# Output shots: 13 (EP55-S01 to EP55-S13)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 86s
+# Output total duration: 86s
+# Gate status: G1 PASS (86s in 75-120s), G2 PASS (13=13)
+
+episode_id: EP55
+source_md: 剧本/EP55/EP55_总账.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic."
+  negative_prompt: "cartoon, anime, illustration, painting, sketch, watercolor, oil painting, 3d render, low quality, blurry, distorted face, extra limbs, deformed, ugly, bad anatomy, bad proportions, watermark, text overlay, signature, logo, ancient costume, historical setting, medieval, fantasy elements, magic, supernatural, sci-fi, futuristic technology, neon lights, cyberpunk"
+
+shots:
+  - shot_id: EP55-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫）【图2】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图3】季柏舟 CHAR-005-L01（灰色西装，白色衬衫，黑框眼镜）【图4】星辰资本交易大厅 SCENE-001。全景 缓推：交易大厅全景。冷蓝色调的开放式空间，多屏幕显示着绿色和红色的K线图。图1、图2、图3三人并肩走进大厅，步伐坚定。图1走在最前面，深蓝色套装，腰间银色U盘微微反光。背景中其他交易员陆续就位。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「密码拿到了。三层加密，全部破解。」"
+      - speaker: CHAR-001
+        line: "「好。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01（灰色西装，白色衬衫，黑框眼镜）【图2】星辰资本交易大厅 SCENE-001。中景 固定：季柏舟在大厅门口停下脚步，推了推黑框眼镜。他看了一眼林默的背影，然后转身走向另一个方向。灰色西装在冷蓝色灯光下显得格外严肃。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「我在监控室待命。」"
+      - speaker: CHAR-005
+        line: "「信号一到，逮捕令立刻生效。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装，齐肩短发）【图2】星辰资本交易大厅 SCENE-001。中特写 缓推：林默坐在交易台前，面前是三块屏幕。中间屏幕显示K线预测模型的界面，冷蓝色数据矩阵在闪烁。她的手指悬在键盘上方，眼神锐利如刀。屏幕的冷蓝光映在她冷静的面孔上，齐肩短发微微垂落。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「模型初始化完成。」"
+      - speaker: CHAR-001
+        line: "「核心算法就位，资金通道已打通。」"
+      - speaker: CHAR-001
+        line: "「三年前，他用这个模型窃取了我的一切。」"
+      - speaker: CHAR-001
+        line: "「今天，我用同一个模型，把它全部拿回来。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装，佩戴无线耳麦）【图2】星辰资本交易大厅 SCENE-001。中景 固定：陆辞渊坐在林默旁边的工位，炭灰色西装，领带系得一丝不苟。他打开笔记本电脑，屏幕上弹出一个加密连接界面。他戴上无线耳麦，低声确认。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「服务器端口已开放。」"
+      - speaker: CHAR-002
+        line: "「数据实时同步到你的终端。」"
+      - speaker: CHAR-001
+        line: "「收到。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】星辰资本交易大厅 SCENE-001。中特写 缓推：林默的手指在键盘上飞速敲击，屏幕上的数据矩阵开始流动。算法初始化进度条在冷蓝色界面上缓缓推进。她的眼神始终锁定屏幕，没有一丝犹豫。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「所有子基金同步启动。」"
+      - speaker: CHAR-001
+        line: "「第一波指令，三十秒后发出。」"
+      - speaker: CHAR-002
+        line: "「明白。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】星辰资本交易大厅 SCENE-001。大特写 缓推：林默的大特写。屏幕的冷蓝光映在她的瞳孔里，数据流在眼中倒映。她的嘴角微微上扬，露出一个危险的微笑。然后她深吸一口气，按下回车键——模型正式启动。屏幕上的K线图开始剧烈波动。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「启动。」"
+      - speaker: CHAR-001
+        line: "「方怀瑾，你以为这个模型已经被销毁了。」"
+      - speaker: CHAR-001
+        line: "「你错了。」"
+      - speaker: CHAR-001
+        line: "「数据不会说谎。它一直在等我。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装，白色衬衫，酒红色领带）【图2】方怀瑾助手 CHAR-007-L01（黑色西装）【图3】方怀瑾办公室 SCENE-004。中景 固定：图1坐在豪华办公室的真皮椅上，面前的多屏幕显示着交易数据。图2站在旁边，面色冷峻。图1端着一杯茶，神态从容。突然，一个屏幕上的数据开始异常波动。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「异常。所有子基金同时出现反向操作。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装，银灰色头发）【图2】方怀瑾办公室 SCENE-004。中特写 缓推：图1放下茶杯，银灰色头发在冷光下微微反光。他看向屏幕，眉头微皱，但很快恢复了从容。他的嘴角浮起一丝冷笑，手指轻轻敲击桌面。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「有意思。」"
+      - speaker: CHAR-003
+        line: "「让她玩。」"
+      - speaker: CHAR-003
+        line: "「她不知道'收割者'的真正规模。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】星辰资本交易大厅 SCENE-001。中特写 固定：林默的手指在键盘上飞速敲击，屏幕上红色和绿色的K线剧烈波动。算法指令如瀑布般倾泻，数据流在冷蓝色界面上快速滚动。她的表情冷静而专注，眼神锐利。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「方怀瑾的基金开始反应了。」"
+      - speaker: CHAR-001
+        line: "「我看到了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图3】星辰资本交易大厅 SCENE-001。中景 缓推：交易大厅的全景中，图1和图2并肩坐在工位前。周围的交易员已经开始注意到屏幕上异常的数据波动，有人站起来张望。图1的手指没有停下，图2侧头看她，眼神中有心疼也有信任。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「他开始反扑了。你确定扛得住？」"
+      - speaker: CHAR-001
+        line: "「这正是我要的。」"
+      - speaker: CHAR-001
+        line: "「让他来。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】星辰资本交易大厅 SCENE-001。中景 缓推：交易大厅里，图1周围的屏幕全部亮起，数据如瀑布般倾泻。K线图剧烈波动，红色和绿色交替闪烁。其他交易员纷纷停下手中的工作，目瞪口呆地看着这场史无前例的数据风暴。图1稳坐中央，手指飞舞，像一个指挥家在演奏。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「听雨……整个大盘都在动。」"
+      - speaker: CHAR-001
+        line: "「我知道。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】星辰资本交易大厅 SCENE-001。中特写 固定：林默的脸部特写。屏幕的冷蓝光映在她的面孔上，数据流在瞳孔中倒映。她的嘴角微微上扬，露出一个危险的微笑。然后她摘下耳麦，缓缓站起身。深蓝色套装在冷光下显得格外挺拔。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「够了。」"
+      - speaker: CHAR-001
+        line: "「是时候了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装，齐肩短发）【图2】星辰资本交易大厅 SCENE-001。大特写 缓推：林默站在交易台前，身后是整个交易大厅的数据风暴——K线图剧烈波动，屏幕闪烁，其他交易员惊慌失措。但她的表情异常平静，眼神锐利如刀。她深吸一口气，腰间的银色U盘在冷光下微微反光。镜头缓缓推近她的面孔，直到瞳孔中倒映着整个数据风暴。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「方怀瑾。」"
+      - speaker: CHAR-001
+        line: "「三年了。」"
+      - speaker: CHAR-001
+        line: "「该算总账了。」"
+    transition_to_next: hard_cut

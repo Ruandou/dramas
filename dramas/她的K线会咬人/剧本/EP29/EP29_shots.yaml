@@ -1,0 +1,235 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP29/EP29_风暴前夜.md
+# Source shots: 8 (EP29-S01 to EP29-S07b)
+# Output shots: 8 (EP29-S01 to EP29-S07b)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source stated total: 90s (frontmatter), actual shots sum: 82s (arithmetic error in script)
+# Output total duration: 82s (matches actual shot durations 1:1)
+# Gate status: G1 NOTE (82s < 75-120s lower bound — script arithmetic error, not YAML error), G2 PASS (8=8)
+
+episode_id: EP29
+source_md: 剧本/EP29/EP29_风暴前夜.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic."
+  negative_prompt: "cartoon, anime, illustration, painting, sketch, watercolor, oil painting, 3d render, low quality, blurry, distorted face, extra limbs, deformed, ugly, bad anatomy, bad proportions, watermark, text overlay, signature, logo, ancient costume, historical setting, medieval, fantasy elements, magic, supernatural, sci-fi, futuristic technology, neon lights, cyberpunk"
+
+shots:
+  - shot_id: EP29-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-004
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-004.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01【图2】方怀瑾助手 CHAR-007-L01【图3】方怀瑾办公室 SCENE-004。中景→特写：助手将密封文件袋放在桌上。方怀瑾打开，取出泛黄的案件档案。特写：档案封面上手写的"沈听雨"三个字。方怀瑾合上档案，手指轻敲封面，嘴角浮现一丝冷笑。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「老师，档案准备好了。三年前的所有证据，都在里面。」"
+      - speaker: CHAR-003
+        line: "「很好。」"
+      - speaker: CHAR-003
+        line: "「沈听雨，你以为在峰会上赢了一局，就结束了？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01【图2】新闻发布会会场 SCENE-011。全景→快切蒙太奇：发布会大厅全景，闪光灯此起彼伏，记者们就座。方怀瑾身着深蓝定制西装走上讲台，神色从容，步履稳健。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 16
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01【图2】新闻发布会会场 SCENE-011。中景→插入镜头→近景：方怀瑾站在讲台上，身后投影屏幕亮起——显示伪造的银行转账记录、被篡改的研究报告、捏造的证据文件。方怀瑾面向媒体，声音沉稳。方怀瑾抬头直视镜头，眼底闪过一丝得意。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「三年前，我的学生沈听雨窃取了我尚未发表的量化交易模型，转卖给了一家海外对冲基金。」"
+      - speaker: CHAR-003
+        line: "「今天，我终于拿到了完整的证据链。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-007-L01
+        - CHAR-GRP-01-L01
+      prop_ids:
+        - PROP-010
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-007-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01【图2】方怀瑾助手 CHAR-007-L01【图3】女记者 CHAR-GRP-01-L01【图4】新闻发布会会场 SCENE-011。中景→近景→特写→中景：记者们蜂拥举手，快门声密集。女记者站起来追问。方怀瑾助手在旁低声向媒体透露。方怀瑾转身离去，背影消失在人群后。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-011, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-GRP-01
+        line: "「方教授，这些证据是否经过第三方机构验证？」"
+      - speaker: CHAR-003
+        line: "「每一份证据都有时间戳和公证记录。」"
+      - speaker: CHAR-GRP-01
+        line: "「请问沈听雨现在在哪里？她是否就是近期在星辰资本崭露头角的林默？」"
+      - speaker: CHAR-007
+        line: "「她就是沈听雨。」"
+      - speaker: CHAR-003
+        line: "「让开。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 13
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-002.png
+    api:
+      text: "【图1】林默 CHAR-001-L01【图2】林默公寓 SCENE-002。中景→插入镜头→近景：林默公寓，夜。电视屏幕亮起，新闻画面滚动。手机屏幕通知弹窗不断。电视画面切换至股价下跌图表，红色数字跳动。林默面部特写。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "（喃喃）「……为什么。」"
+      - speaker: CHAR-001
+        line: "「还是来了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-002.png
+    api:
+      text: "【图1】林默 CHAR-001-L01【图2】陆辞渊 CHAR-002-L01【图3】林默公寓 SCENE-002。中景→近景→特写：门铃急促响起。陆辞渊推门冲进来。陆辞渊快步走到林默身边，一把拥住她。林默靠在他肩头，闭上眼睛。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「听雨！」"
+      - speaker: CHAR-002
+        line: "「我看到新闻了。你别看那些。」"
+      - speaker: CHAR-001
+        line: "「辞渊……」"
+      - speaker: CHAR-001
+        line: "「他还是出手了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S07a
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: null
+      look_ids: []
+    assets:
+      look_urls: {}
+      scene_urls: {}
+    api:
+      text: "新闻蒙太奇快切：电视新闻画面、手机推送通知、网络评论截图、股市行情图。叠加多层音效。"
+      content_roles: []
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S07b
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-004.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01【图2】方怀瑾办公室 SCENE-004。中景→近景：切回方怀瑾办公室。方怀瑾独自坐在皮椅上，手握遥控器，面前电视屏幕映出新闻画面。他缓缓放下遥控器，嘴角浮起一丝冷笑。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「这才刚刚开始。」"
+    transition_to_next: hard_cut

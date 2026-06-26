@@ -1,0 +1,272 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP58/EP58_最后一张牌.md
+# Source shots: 8 (EP58-S01 to EP58-S08)
+# Output shots: 8 (EP58-S01 to EP58-S08)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 75s
+# Output total duration: 75s (sum of individual shots)
+# Gate status: G1 PASS (75s in 75-120s range), G2 PASS (8 shots, 8-12 range)
+# Rewrite note: v1.1 SEG04扩展10s→11s（+1s），新增方怀瑾"你……你疯了？"和陆辞渊"我从没这么清醒过"对白交锋
+
+episode_id: EP58
+source_md: 剧本/EP58/EP58_最后一张牌.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic."
+  negative_prompt: "cartoon, anime, illustration, painting, sketch, watercolor, oil painting, 3d render, low quality, blurry, distorted face, extra limbs, deformed, ugly, bad anatomy, bad proportions, watermark, text overlay, signature, logo, ancient costume, historical setting, medieval, fantasy elements, magic, supernatural, sci-fi, futuristic technology, neon lights, cyberpunk"
+
+shots:
+  - shot_id: EP58-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图3】林默公寓 SCENE-002。中景 缓推：暖色调公寓，窗外城市灯火辉煌。林默手持手机，屏幕冷光映在她紧绷的脸上。陆辞渊站在她身后，双手握拳，指节泛白。桌上两杯已经凉透的咖啡，蒸汽早已散尽。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「方怀瑾给所有媒体发了邮件。」"
+      - speaker: CHAR-002
+        line: "「内容是什么？」"
+      - speaker: CHAR-001
+        line: "「说你参与了收割者的资金调度。伪造的证据链。」"
+      - speaker: CHAR-002
+        line: "「他终于对我下手了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】方怀瑾 CHAR-003-L01（深蓝色定制西装）【图3】方怀瑾办公室 SCENE-004。中景 固定镜头：冷色调办公室，水晶吊灯投下刺眼的光。方怀瑾坐在黑色皮椅上，双手交叉抵着下巴，嘴角挂着胜券在握的笑。陆辞渊站在办公桌对面，领带松开，眼神凌厉。窗外城市夜景被百叶窗切成条状光影。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「辞渊，你来得正好。」"
+      - speaker: CHAR-002
+        line: "「那些证据是伪造的。你知道。」"
+      - speaker: CHAR-003
+        line: "「媒体不知道。董事会不知道。你的投资人……也不知道。」"
+      - speaker: CHAR-002
+        line: "「你连自己的儿子都不放过？」"
+      - speaker: CHAR-003
+        line: "「是你先不放过父亲的。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装）【图2】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图3】方怀瑾办公室 SCENE-004。特写 镜头推近：方怀瑾转身，百叶窗的条状光影割在他脸上，半明半暗。他的声音放低，像在讲一个秘密。陆辞渊的拳头在画面边缘微微颤抖。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「你现在回头，还来得及。」"
+      - speaker: CHAR-003
+        line: "「让沈听雨停手。否则明天的头条——陆辞渊，收割者计划的执行人。」"
+      - speaker: CHAR-002
+        line: "「你赢不了她。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】方怀瑾 CHAR-003-L01（深蓝色定制西装）【图3】方怀瑾办公室 SCENE-004。特写 固定镜头：陆辞渊抬起头，目光如刀。方怀瑾的笑容凝固了一瞬——他从儿子眼中看到了某种他无法控制的东西。办公桌上的水晶摆件折射出冷光，落在两人之间。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「让他公开。」"
+      - speaker: CHAR-003
+        line: "「什么？」"
+      - speaker: CHAR-002
+        line: "「我愿意承担一切后果。只要能阻止你。」"
+      - speaker: CHAR-003
+        line: "「你……你疯了？」"
+      - speaker: CHAR-002
+        line: "「我从没这么清醒过。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    api:
+      text: "【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图2】林默 CHAR-001-L01（深蓝色职业套装）【图3】林默公寓 SCENE-002。中景 缓推：回到公寓。陆辞渊推门进来，松开领带。林默从沙发上站起来，眼中是从未有过的慌乱。暖色灯光下，她的影子在墙上晃动。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「我跟他说了。让他公开。」"
+      - speaker: CHAR-001
+        line: "「你疯了？」"
+      - speaker: CHAR-002
+        line: "「我没有。」"
+      - speaker: CHAR-001
+        line: "「你的职业生涯……你的声誉……」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图3】林默公寓 SCENE-002。中景 镜头推近：林默深吸一口气，走到陆辞渊面前。她的眼神从慌乱转为坚定——像三年前决定隐姓埋名那一刻。窗外的城市灯火映在她瞳孔里。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「三年。我忍了三年。」"
+      - speaker: CHAR-002
+        line: "「听雨……」"
+      - speaker: CHAR-001
+        line: "「数学模型在这里。收割者的完整链条在这里。够了。」"
+      - speaker: CHAR-002
+        line: "「你不需要——」"
+      - speaker: CHAR-001
+        line: "「我公开身份。我来证明你的清白。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】陆辞渊 CHAR-002-L01（炭灰色三件套西装）【图3】林默公寓 SCENE-002。中近景 固定镜头：两人四目相对。林默的眼眶微红，但嘴角带着一丝笑意。暖色灯光勾勒出两人的轮廓。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「数据不会说谎。」"
+      - speaker: CHAR-002
+        line: "「但人可以。你打算骗谁？」"
+      - speaker: CHAR-001
+        line: "「骗方怀瑾。让他以为——他赢了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装）【图2】林默公寓 SCENE-002。特写 缓推：林默走到窗前，背对陆辞渊。她的倒影映在玻璃上，与窗外的城市灯火重叠。她的手轻轻按在窗玻璃上，指尖微微颤抖。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「辞渊，对不起。这一次——让我来。」"
+    transition_to_next: hard_cut

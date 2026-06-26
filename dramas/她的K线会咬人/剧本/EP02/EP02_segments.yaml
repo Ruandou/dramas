@@ -1,0 +1,263 @@
+episode_id: EP02
+source_md: 剧本/EP02/EP02_似曾相识.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic."
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。禁止画面中出现任何文字或字幕。现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic."
+  negative_prompt: "cartoon, anime, illustration, painting, sketch, watercolor, oil painting, 3d render, low quality, blurry, distorted face, extra limbs, deformed, ugly, bad anatomy, bad proportions, watermark, text overlay, signature, logo, ancient costume, historical setting, medieval, fantasy elements, magic, supernatural, sci-fi, futuristic technology, neon lights, cyberpunk"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清晰利落，语速偏快，情绪克制时平稳冷静，愤怒时压低声音更显锐利，悲伤时声线微颤但不哭泣，整体沉稳干练"
+  CHAR-002: "成年男性，30岁，声线温和沉稳，语速适中，平时温文尔雅，原则问题时语调低沉有力，深情时声线柔软带暖意，整体温和但有力量感"
+  CHAR-004: "成年女性，27岁，声线清亮略带妩媚，平时尖酸带刺，愧疚时哭泣，崩溃时尖叫，整体时尚精致自信张扬"
+  CHAR-006: "成年男性，35岁，声线略带油腻感，语速中等，拍马屁时语调上扬谄媚，背后捅刀时压低声音阴沉，被揭穿时恼羞成怒声线拔高，整体油滑虚伪"
+  CHAR-003: "成年男性，55岁，声线低沉浑厚带磁性，语速偏慢，暗藏杀机，说话慢条斯理，威胁时语气温柔但内容致命"
+  # ⚠️ 待补群演 voice_prompts（需 production-planner 分配 CHAR-GRP-## + 建声音卡片）：
+  # [待补：交易大厅同事C]
+  # [待补：交易大厅同事D]
+
+segments:
+  - segment_id: EP02-SEG01
+    shot_ids: [EP02-S01, EP02-S02]
+    duration_sec: 10
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-017
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-002-L01.png
+      scene_urls:
+        SCENE-017: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-017.png
+    api:
+      text: |
+        【图1】陆辞渊 CHAR-002-L01（炭灰色三件套西装，白色衬衫，蓝色领带）【图2】写字楼走廊 SCENE-017。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：陆辞渊站在通往交易大厅的走廊里，透过玻璃隔断望向内部——冷蓝色灯光下人影穿梭，K线图在屏幕墙上闪烁。他的目光锁定在人群中一个深蓝色身影上。走廊灯管在他脸上投下冷调光影。
+        镜头2（5秒）特写 缓推：特写陆辞渊的眼神，瞳孔中倒映着交易大厅的蓝光。他的眉头微皱，手指无意识地敲击着走廊扶手。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辞渊，成年男性，30岁，声线温和沉稳，语速适中，平时温文尔雅，原则问题时语调低沉有力，深情时声线柔软带暖意，整体温和但有力量感）：「（内心）那份报告……昨晚又看了一遍。」
+        对白（陆辞渊，成年男性，30岁，声线温和沉稳，语速适中，平时温文尔雅，原则问题时语调低沉有力，深情时声线柔软带暖意，整体温和但有力量感）：「（内心）策略的逻辑结构……和父亲旧档案里的那个人一模一样。」
+        对白（陆辞渊，成年男性，30岁，声线温和沉稳，语速适中，平时温文尔雅，原则问题时语调低沉有力，深情时声线柔软带暖意，整体温和但有力量感）：「（内心）似曾相识。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic.
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-017, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG02
+    shot_ids: [EP02-S03, EP02-S04]
+    duration_sec: 12
+    speakers: [CHAR-006, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/她的K线会咬人/PROP-002.png
+    api:
+      text: |
+        【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫，银色U盘挂在腰间）【图2】赵明轩 CHAR-006-L01（亮蓝色设计师西装，奶油色丝绸衬衫）【图3】星辰资本交易大厅 SCENE-001【图4】K线预测模型 PROP-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：林默坐在交易工位前，屏幕上打开新的K线预测模型——复杂的数据矩阵在冷蓝色界面闪烁。她手指悬在键盘上，眼神专注。赵明轩从旁边探过头来，亮蓝色西装袖口的金表反光刺眼。
+        镜头2（6秒）中特写 固定：林默头也不抬，手指开始在键盘上飞舞。屏幕上K线数据流开始滚动。旁边几个同事闻声围过来，交换着看热闹的眼神。冷蓝屏幕光映在林默平静的侧脸上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵明轩，成年男性，35岁，声线略带油腻感，语速中等，拍马屁时语调上扬谄媚，背后捅刀时压低声音阴沉，被揭穿时恼羞成怒声线拔高，整体油滑虚伪）：「又来了？昨天赚了一笔就飘了？」
+        对白（赵明轩，成年男性，35岁，声线略带油腻感，语速中等，拍马屁时语调上扬谄媚，背后捅刀时压低声音阴沉，被揭穿时恼羞成怒声线拔高，整体油滑虚伪）：「新策略？让我们开开眼。」
+        对白（林默，成年女性，28岁，声线清晰利落，语速偏快，情绪克制时平稳冷静，愤怒时压低声音更显锐利，悲伤时声线微颤但不哭泣，整体沉稳干练）：「看好了。」
+        对白（林默，成年女性，28岁，声线清晰利落，语速偏快，情绪克制时平稳冷静，愤怒时压低声音更显锐利，悲伤时声线微颤但不哭泣，整体沉稳干练）：「（内心）方怀瑾当年就是靠这个模型起的家。」
+        对白（赵明轩，成年男性，35岁，声线略带油腻感，语速中等，拍马屁时语调上扬谄媚，背后捅刀时压低声音阴沉，被揭穿时恼羞成怒声线拔高，整体油滑虚伪）：「（低声·对同事）赌一顿午饭，撑不过五分钟。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG03
+    shot_ids: [EP02-S05]
+    duration_sec: 12
+    speakers: [CHAR-001, "[待补：交易大厅同事C]", "[待补：交易大厅同事D]"]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: |
+        【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫，银色U盘挂在腰间）【图2】赵明轩 CHAR-006-L01（亮蓝色设计师西装，奶油色丝绸衬衫）【图3】星辰资本交易大厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中全景 缓推：屏幕上K线数据剧烈波动——绿色数字不断跳动。林默的手指在键盘上敲出最后一个回车键。数据逆转的瞬间，围观同事的表情从嘲笑凝固为震惊。赵明轩脸色铁青，手中的咖啡杯微微晃动。交易大厅的冷蓝灯光在这一刻仿佛凝固。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林默，成年女性，28岁，声线清晰利落，语速偏快，情绪克制时平稳冷静，愤怒时压低声音更显锐利，悲伤时声线微颤但不哭泣，整体沉稳干练）：「数据开始验证了。」
+        对白（交易大厅同事C，待补voice_prompt）：「等等……这走势——」
+        对白（交易大厅同事D，待补voice_prompt）：「一分钟……赚了我们一个月的量。」
+        对白（林默，成年女性，28岁，声线清晰利落，语速偏快，情绪克制时平稳冷静，愤怒时压低声音更显锐利，悲伤时声线微颤但不哭泣，整体沉稳干练）：「我说过，让数据说话。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG04
+    shot_ids: [EP02-S06, EP02-S07]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: |
+        【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫，银色U盘挂在腰间）【图2】赵明轩 CHAR-006-L01（亮蓝色设计师西装，奶油色丝绸衬衫）【图3】星辰资本交易大厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 镜头跟随：林默站起来，面无表情地关掉屏幕。她从目瞪口呆的人群中穿过，深蓝色身影在冷光下拉出长长的影子。K线图的余光映在她的侧脸上。
+        镜头2（5秒）中特写 固定：赵明轩僵在原地，脸色一阵青一阵白。旁边同事们交头接耳，目光在他和林默背影之间来回。他攥紧的拳头在桌下微微发抖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林默，成年女性，28岁，声线清晰利落，语速偏快，情绪克制时平稳冷静，愤怒时压低声音更显锐利，悲伤时声线微颤但不哭泣，整体沉稳干练）：「（内心·冷静）第一步完成了。」
+        对白（林默，成年女性，28岁，声线清晰利落，语速偏快，情绪克制时平稳冷静，愤怒时压低声音更显锐利，悲伤时声线微颤但不哭泣，整体沉稳干练）：「（内心）赵明轩背后是谁？」
+        对白（林默，成年女性，28岁，声线清晰利落，语速偏快，情绪克制时平稳冷静，愤怒时压低声音更显锐利，悲伤时声线微颤但不哭泣，整体沉稳干练）：「（内心·冷）方怀瑾的棋子……我会一个一个查出来。」
+        对白（赵明轩，成年男性，35岁，声线略带油腻感，语速中等，拍马屁时语调上扬谄媚，背后捅刀时压低声音阴沉，被揭穿时恼羞成怒声线拔高，整体油滑虚伪）：「（低声·嘴硬）运气……肯定是运气。」
+        对白（赵明轩，成年男性，35岁，声线略带油腻感，语速中等，拍马屁时语调上扬谄媚，背后捅刀时压低声音阴沉，被揭穿时恼羞成怒声线拔高，整体油滑虚伪）：「（内心·不甘）不可能……我做了三年都没这种收益……」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG05
+    shot_ids: [EP02-S08, EP02-S09]
+    duration_sec: 10
+    speakers: []
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+    api:
+      text: |
+        【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫，银色U盘挂在腰间）【图2】星辰资本交易大厅 SCENE-001。
+        本段无对白无语音，禁止画面中出现任何文字。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中全景 镜头跟随：林默面无表情穿过交易大厅，深蓝色身影在冷光中移动。同事们自觉让开一条路，目光追随着她。K线图的绿光映在她的背影上，腰间的银色U盘微微反光。
+        镜头2（5秒）中景 固定：林默走到电梯前，按下按钮。电梯门打开，冷蓝色灯光照亮她的侧脸——表情平静如水。她走进电梯，门缓缓关上，将交易大厅的喧嚣隔绝在外。
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG06
+    shot_ids: [EP02-S10]
+    duration_sec: 10
+    speakers: ["[待补：交易大厅同事C]", "[待补：交易大厅同事D]", CHAR-004]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-001.png
+      prop_urls:
+        PROP-005: https://drama-reference-images.tos-cn-beijing.volces.com/props/她的K线会咬人/PROP-005.png
+    api:
+      text: |
+        【图1】温可薇 CHAR-004-L01（翠绿色西装外套，米色丝绸背心，深棕色长发波浪）【图2】星辰资本交易大厅 SCENE-001【图3】黑色U盘 PROP-005。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中全景 缓推：交易大厅入口处，温可薇走进来——翠绿色西装外套，米色丝绸背心，深棕色长发松散波浪，高跟鞋敲击地面的声音在嘈杂的交易大厅中格外清晰。她锐利的目光扫过整个大厅，手中攥着一个黑色U盘。周围同事纷纷侧目，低声议论。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（交易大厅同事C，待补voice_prompt）：「（低声）那是谁？好漂亮。」
+        对白（交易大厅同事D，待补voice_prompt）：「（低声）方怀瑾的首席分析师，温可薇。听说是来'考察'的。」
+        对白（温可薇，成年女性，27岁，声线清亮略带妩媚，平时尖酸带刺，愧疚时哭泣，崩溃时尖叫，整体时尚精致自信张扬）：「（内心·扫视）星辰资本……老师让我来看看。」
+        对白（温可薇，成年女性，27岁，声线清亮略带妩媚，平时尖酸带刺，愧疚时哭泣，崩溃时尖叫，整体时尚精致自信张扬）：「（内心）有什么值得他亲自关注的？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic.
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG07
+    shot_ids: [EP02-S11, EP02-S12]
+    duration_sec: 10
+    speakers: [CHAR-004]
+    refs:
+      scene_id: SCENE-018
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-004-L01.png
+      scene_urls:
+        SCENE-018: assets/scenes/SCENE-018.png  # WARNING: no CDN URL — reference image pending generation
+    api:
+      text: |
+        【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫，银色U盘挂在腰间）【图2】温可薇 CHAR-004-L01（翠绿色西装外套，米色丝绸背心，深棕色长发波浪）【图3】写字楼走廊 SCENE-018。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 镜头跟随：写字楼走廊，冷蓝色LED灯管照亮玻璃隔断。温可薇从走廊一端走来，翠绿色西装在冷光中格外醒目。远处电梯"叮"一声打开，林默的身影出现在走廊另一端。
+        镜头2（5秒）中全景 固定：两人在走廊中间擦肩而过。温可薇目不斜视继续走，但在交错的瞬间——她的步伐顿了一下。林默的深蓝色背影消失在走廊尽头。温可薇停下脚步，回头看了一眼，眼神锐利。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（温可薇，成年女性，27岁，声线清亮略带妩媚，平时尖酸带刺，愧疚时哭泣，崩溃时尖叫，整体时尚精致自信张扬）：「（内心·疑惑）等一下……刚才那个人——」
+        对白（温可薇，成年女性，27岁，声线清亮略带妩媚，平时尖酸带刺，愧疚时哭泣，崩溃时尖叫，整体时尚精致自信张扬）：「（内心）为什么……那么眼熟？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-018, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP02-SEG08
+    shot_ids: [EP02-S13, EP02-S14]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-003]
+    refs:
+      scene_id: SCENE-017
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-004-L01.png
+      scene_urls:
+        SCENE-017: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-017.png
+    api:
+      text: |
+        【图1】温可薇 CHAR-004-L01（翠绿色西装外套，米色丝绸背心，深棕色长发波浪）【图2】写字楼停车场 SCENE-017。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：停车场角落，温可薇靠在车门上，手指快速拨号。地下车库的冷白荧光灯打在她凝重的脸上，翠绿色西装在灰暗环境中依然醒目。手机屏幕的蓝光映在她的眼睛里。
+        镜头2（5秒）特写 缓推：特写温可薇握着手机的手——指节发白。镜头缓缓上推到她的脸，眉头紧锁，嘴唇抿成一条线。电话那头传来低沉的声音。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（温可薇，成年女性，27岁，声线清亮略带妩媚，平时尖酸带刺，愧疚时哭泣，崩溃时尖叫，整体时尚精致自信张扬）：「老师，是我。」
+        对白（温可薇，成年女性，27岁，声线清亮略带妩媚，平时尖酸带刺，愧疚时哭泣，崩溃时尖叫，整体时尚精致自信张扬）：「（压低声音）星辰资本来了个新人……她的手法，很像一个人。」
+        对白（方怀瑾，成年男性，55岁，声线低沉浑厚带磁性，语速偏慢，暗藏杀机，说话慢条斯理，威胁时语气温柔但内容致命）：「（电话·低沉）……」
+        对白（方怀瑾，成年男性，55岁，声线低沉浑厚带磁性，语速偏慢，暗藏杀机，说话慢条斯理，威胁时语气温柔但内容致命）：「（电话·一字）查。」
+        对白（温可薇，成年女性，27岁，声线清亮略带妩媚，平时尖酸带刺，愧疚时哭泣，崩溃时尖叫，整体时尚精致自信张扬）：「明白。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic.
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-017, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

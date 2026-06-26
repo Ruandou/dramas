@@ -1,0 +1,320 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP61/EP61_证据链.md
+# Source shots: 12 (EP61-S01 to EP61-S12)
+# Output shots: 12 (EP61-S01 to EP61-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 77s
+# Output total duration: 77s
+# Gate status: G1 PASS (77s in 75-120s), G2 PASS (12=12)
+
+episode_id: EP61
+source_md: 剧本/EP61/EP61_证据链.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市金融职场，冷色调科技蓝与暖色情感金，9:16竖屏，cinematic lighting, photorealistic."
+  negative_prompt: "cartoon, anime, illustration, painting, sketch, watercolor, oil painting, 3d render, low quality, blurry, distorted face, extra limbs, deformed, ugly, bad anatomy, bad proportions, watermark, text overlay, signature, logo, ancient costume, historical setting, medieval, fantasy elements, magic, supernatural, sci-fi, futuristic technology, neon lights, cyberpunk"
+
+shots:
+  - shot_id: EP61-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/她的K线会咬人/PROP-001.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫，银色U盘挂在腰间）【图2】新闻发布会会场 SCENE-011。中景→近景 缓推：发布会会场，图1站在演讲台后，深吸一口气，目光扫过台下数百名记者。闪光灯此起彼伏。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「三年前，有人偷走了我的人生。今天，我要把它拿回来。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP61-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/她的K线会咬人/PROP-001.png
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/她的K线会咬人/PROP-002.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫）【图2】新闻发布会会场 SCENE-011【图3】数学模型 PROP-002。特写 固定：图1将U盘插入电脑，屏幕上亮起'收割者'计划的网络图谱，密密麻麻的数据节点如蛛网般展开。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「这是'收割者'计划的完整架构。每一个节点，都是一条罪证。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP61-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-011
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/她的K线会咬人/PROP-002.png
+    api:
+      text: "【图1】新闻发布会会场屏幕 SCENE-011【图2】数学模型 PROP-002。中景 缓推：屏幕上数据流转，三年间的资金流向、账户关联、时间线一一呈现。"
+      content_roles:
+        - { file: SCENE-011, role: reference_image, label: 图1 }
+        - { file: PROP-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-GRP-01
+        line: "「天哪，这涉及的金额……」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP61-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-GRP-01-L01
+    assets:
+      look_urls:
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+    api:
+      text: "【图1】媒体记者 CHAR-GRP-01-L01（深灰西装外套）【图2】新闻发布会会场 SCENE-011。近景→中景 摇镜：记者席炸开锅，所有人举手提问，闪光灯连成一片白光。"
+      content_roles:
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-GRP-01
+        line: "「请问这些证据的真实性如何验证？」"
+      - speaker: CHAR-GRP-01
+        line: "「方怀瑾先生是否知情？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP61-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-007-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装）【图2】助手 CHAR-007-L01（黑色西装）【图3】新闻发布会会场 SCENE-011。中景 固定：会场后门被推开，图1大步走入，身后跟着图2。全场目光转向他。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「沈听雨，你又在编故事了？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP61-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装）【图2】新闻发布会会场 SCENE-011。近景 固定：图1走到台前，冷笑看着林默，眼神中带着不屑。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「这些所谓的'证据'，不过是你的臆想罢了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP61-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫）【图2】新闻发布会会场 SCENE-011。近景 固定：图1直视方怀瑾，嘴角微微上扬，按下遥控器，屏幕切换到温可薇的U盘备份内容。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「臆想？那这个呢？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP61-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+      prop_urls:
+        PROP-005: https://drama-reference-images.tos-cn-beijing.volces.com/props/她的K线会咬人/PROP-005.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫）【图2】新闻发布会会场屏幕 SCENE-011【图3】温可薇U盘 PROP-005。特写 固定：屏幕上显示温可薇亲手备份的交易记录、通话录音时间戳、资金转移凭证，每一项都有方怀瑾的电子签名。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+        - { file: PROP-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「温可薇用命换来的证据，你觉得是臆想？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP61-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-005-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+    api:
+      text: "【图1】季柏舟 CHAR-005-L01（灰色西装外套）【图2】新闻发布会会场 SCENE-011。中景 跟拍：图1带着四名调查人员从侧门进入，径直走向方怀瑾。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「方怀瑾先生，金融监管局依法对你进行调查，请配合。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP61-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装）【图2】新闻发布会会场 SCENE-011。中景 固定：调查人员出示证件和文件，图1的表情终于出现裂痕，但很快恢复镇定。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「你们会后悔的。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP61-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-003-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+    api:
+      text: "【图1】方怀瑾 CHAR-003-L01（深蓝色定制西装）【图2】新闻发布会会场 SCENE-011。近景 固定：图1被铐上手铐，转身离开前回头看了林默一眼，嘴角浮现出一丝诡异的微笑。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「游戏还没结束……」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP61-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/她的K线会咬人/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/她的K线会咬人/SCENE-011.png
+    api:
+      text: "【图1】林默 CHAR-001-L01（深蓝色职业套装，白色衬衫）【图2】新闻发布会会场 SCENE-011。近景→中景 缓拉：图1站在台上，眼眶泛红，但嘴角带着释然的微笑。台下响起雷鸣般的掌声。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「数据不会说谎。三年了，真相终于大白。」"
+    transition_to_next: hard_cut
