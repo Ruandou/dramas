@@ -30,7 +30,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -41,6 +41,9 @@ except ImportError:
 
 from ark_archive import add_task, get_archive_base
 from ark_media import resolve_image_url
+import ark_dedup
+from project_task_archive import KIND_SEEDREAM
+import uuid
 
 DEFAULT_BASE = "https://ark.cn-beijing.volces.com"
 IMAGES_PATH = "/api/v3/images/generations"
@@ -319,8 +322,56 @@ def generate_one(
             "archive_dir": str(get_archive_base()),
         }
 
+    # 指纹 + submitting 卡位（图片 API 无历史列表，提交后网络中断无远程对账兜底，
+    # 卡位让下次对账发现"提交状态不明"→ 拒自动重发避免双倍扣费）。
+    fp = ark_dedup.fingerprint_image(
+        prompt, size=payload.get("size"), ratio=ratio, image_urls=image_urls,
+    )
+    identity_key = output.stem if output else ""
+    client_request_id = f"local-{uuid.uuid4()}"
+    placeholder_ok = False
+    if project_root and identity_key:
+        try:
+            os.environ.setdefault("DRAMA_PROJECT_ROOT", str(Path(project_root).resolve()))
+            ark_dedup.add_submitting_placeholder(
+                project_root,
+                kind=KIND_SEEDREAM,
+                episode_id=None,
+                client_request_id=client_request_id,
+                fingerprint=fp,
+                identity_key=identity_key,
+                extra_params={
+                    "prompt": prompt[:500],
+                    "model": payload.get("model"),
+                    "size": payload.get("size"),
+                    "output": str(output) if output else None,
+                },
+            )
+            placeholder_ok = True
+        except Exception as e:
+            print(
+                f"⚠️ 归档写卡位失败但即将继续 POST，方舟可能已扣费：{e}",
+                file=sys.stderr,
+            )
+
     t0 = time.time()
-    resp = http_post_json(base_url() + IMAGES_PATH, key, payload)
+    try:
+        resp = http_post_json(base_url() + IMAGES_PATH, key, payload)
+    except Exception as e:
+        # POST 失败/超时：可能方舟已扣费但本地拿不到响应
+        if placeholder_ok:
+            print(
+                "⚠️ 图片提交状态不明，方舟可能已扣费但本地无法对账（Seedream 无历史列表 API）。"
+                "不自动重发。如确认原请求真没发出，用 --force + ARK_ALLOW_FORCE=1 重发。",
+                file=sys.stderr,
+            )
+            return {
+                "error": "post_failed",
+                "detail": str(e),
+                "pending_placeholder": client_request_id,
+                "fingerprint": fp,
+            }
+        return {"error": "post_failed", "detail": str(e)}
     urls = extract_image_urls(resp)
     if not urls:
         return {
@@ -335,19 +386,58 @@ def generate_one(
     if rid:
         if project_root:
             os.environ.setdefault("DRAMA_PROJECT_ROOT", str(Path(project_root).resolve()))
-        add_task(
-            "seedream_image",
-            str(rid),
-            {
-                "prompt": prompt[:500],
-                "model": payload.get("model"),
-                "size": payload.get("size"),
-                "has_ref_images": bool(image_urls),
-                "output": str(output) if output else None,
-                "cdn_url": pick,
-            },
-            status=str(resp.get("status") or "completed"),
-        )
+        if placeholder_ok:
+            # 提拔 submitting 卡位 → 写入真实 id
+            try:
+                ark_dedup.promote_submitting(
+                    project_root,
+                    kind=KIND_SEEDREAM,
+                    episode_id=None,
+                    client_request_id=client_request_id,
+                    real_task_id=str(rid),
+                    extra_updates={
+                        "prompt": prompt[:500],
+                        "model": payload.get("model"),
+                        "size": payload.get("size"),
+                        "has_ref_images": bool(image_urls),
+                        "output": str(output) if output else None,
+                        "cdn_url": pick,
+                        "identity": identity_key,
+                        "fingerprint": fp,
+                    },
+                )
+            except Exception:
+                add_task(
+                    "seedream_image",
+                    str(rid),
+                    {
+                        "prompt": prompt[:500],
+                        "model": payload.get("model"),
+                        "size": payload.get("size"),
+                        "has_ref_images": bool(image_urls),
+                        "output": str(output) if output else None,
+                        "cdn_url": pick,
+                        "identity": identity_key,
+                        "fingerprint": fp,
+                    },
+                    status=str(resp.get("status") or "completed"),
+                )
+        else:
+            add_task(
+                "seedream_image",
+                str(rid),
+                {
+                    "prompt": prompt[:500],
+                    "model": payload.get("model"),
+                    "size": payload.get("size"),
+                    "has_ref_images": bool(image_urls),
+                    "output": str(output) if output else None,
+                    "cdn_url": pick,
+                    "identity": identity_key,
+                    "fingerprint": fp,
+                },
+                status=str(resp.get("status") or "completed"),
+            )
     result: dict[str, Any] = {
         "status": "ok",
         "model": payload["model"],
@@ -408,12 +498,81 @@ def resolve_batch_output(item: dict[str, Any], yaml_path: Path, project_root: Pa
     return (root / p).resolve()
 
 
+def _resolve_image_size(prompts_ratio: str | None, size: str | None) -> str:
+    """近似生成 one 用到的 size 字符串，用于指纹。"""
+    return resolve_size(prompts_ratio, size)
+
+
+def _seedream_dedup_check(
+    *,
+    output: Path | None,
+    prompt: str,
+    ratio: str | None,
+    size: str | None,
+    image_urls: list[str] | None,
+    project_root: Path | None,
+    force: bool,
+) -> dict[str, Any] | None:
+    """图片去重前置：本地指纹命中或 output 已存在且指纹相同 → skip。
+
+    Seedream 无远程历史列表，对账只走本地归档 + output 文件存在双查。
+    返回 None = 放行；返回 dict = 已命中，调用方应 skip。"""
+    ok_force, force_msg = ark_dedup.require_force_confirm(force)
+    if force and not ok_force:
+        print(force_msg, file=sys.stderr)
+        force = False
+    if force:
+        return None
+    if project_root is None or output is None:
+        # 无 project_root 无法写本地归档，退回旧行为：仅按 output 文件存在
+        if output and output.is_file():
+            return {"status": "skip", "reason": "文件已存在", "output": str(output)}
+        return None
+    fp = ark_dedup.fingerprint_image(
+        prompt, size=size or resolve_size(ratio, size), ratio=ratio, image_urls=image_urls,
+    )
+    identity_key = output.stem
+    local = ark_dedup.local_lookup(
+        project_root, kind=KIND_SEEDREAM, episode_id=None,
+        identity_key=identity_key, fingerprint=fp,
+    )
+    if local.get("matched") and local.get("kind") == "submitted":
+        existing = local["existing_task"]
+        return {
+            "status": "skip",
+            "reason": "本地指纹命中已生成",
+            "existing_task_id": existing.get("task_id"),
+            "cdn_url": (existing.get("params") or {}).get("cdn_url"),
+            "output": str(output),
+        }
+    if local.get("matched") and local.get("kind") == "submitting":
+        # 图片无远程对账，submitting 卡位 → 拒自动重发
+        return {
+            "status": "blocked",
+            "reason": "本地 submitting 卡位未结算（可能方舟已扣费，Seedream 无历史列表无法远程对账）。如确认原请求未真发出，用 --force + ARK_ALLOW_FORCE=1 重发。",
+            "output": str(output),
+        }
+    if output.is_file():
+        # 文件存在但本地指纹没命中（旧图）→ 视为已生成 skip
+        return {"status": "skip", "reason": "文件已存在", "output": str(output)}
+    return None
+
+
 def cmd_generate(args: argparse.Namespace) -> int:
     out = Path(args.output).expanduser() if args.output else None
     image_urls = [u.strip() for u in (args.image_url or []) if u.strip()]
     project_root = (
         Path(args.project_root).expanduser().resolve() if args.project_root else None
     )
+    # 去重前置
+    hit = _seedream_dedup_check(
+        output=out, prompt=args.prompt, ratio=args.ratio, size=args.size,
+        image_urls=image_urls or None, project_root=project_root, force=args.force,
+    )
+    if hit is not None:
+        print(json.dumps(hit, ensure_ascii=False, indent=2))
+        # blocked（设计拒重发）≠ 失败：与 cmd_batch 一致返回 0，不诱导 agent 拿非零退出码重试
+        return 0 if hit.get("status") in ("skip", "blocked") else 1
     result = generate_one(
         args.prompt,
         out,
@@ -449,7 +608,8 @@ def cmd_batch(args: argparse.Namespace) -> int:
     if project_root is None and doc.get("project_root"):
         project_root = Path(str(doc["project_root"])).expanduser().resolve()
     if project_root:
-        os.environ["DRAMA_PROJECT_ROOT"] = str(project_root)
+        # setdefault 而非 =：不覆盖调用方已显式注入的 DRAMA_PROJECT_ROOT（如长期运行 daemon 场景）
+        os.environ.setdefault("DRAMA_PROJECT_ROOT", str(project_root))
 
     default_model = args.model or doc.get("model")
     default_size = args.size or doc.get("size")
@@ -465,6 +625,7 @@ def cmd_batch(args: argparse.Namespace) -> int:
     ok = 0
     fail = 0
     skip = 0
+    blocked = 0  # 设计上拒重发（≠失败，不进 fail/退出码，避免 agent 误判重试）
 
     for item in items:
         item_id = str(item.get("id", "")).strip()
@@ -477,16 +638,59 @@ def cmd_batch(args: argparse.Namespace) -> int:
             continue
 
         out_path = resolve_batch_output(item, yaml_path, project_root)
-        if out_path.is_file() and not args.force:
-            results.append({"id": item_id, "status": "skip", "reason": "文件已存在", "output": str(out_path)})
-            skip += 1
-            continue
-
         ratio = item.get("ratio") or default_ratio
         item_images = item.get("image_urls") or item.get("image_url")
         if isinstance(item_images, str):
             item_images = [item_images]
         image_urls = [str(u).strip() for u in (item_images or []) if str(u).strip()] or None
+
+        if getattr(args, "status", False):
+            # dry-run 状态查询
+            fp = ark_dedup.fingerprint_image(
+                prompt, size=item.get("size") or default_size or resolve_size(ratio, None),
+                ratio=ratio, image_urls=image_urls,
+            )
+            local = ark_dedup.local_lookup(
+                project_root, kind=KIND_SEEDREAM, episode_id=None,
+                identity_key=out_path.stem, fingerprint=fp,
+            ) if project_root else None
+            if local and local.get("matched") and local.get("kind") == "submitted":
+                label = f"✅submitted(task_id={local['existing_task'].get('task_id')})"
+            elif local and local.get("matched") and local.get("kind") == "submitting":
+                label = f"⏳submitting({'stale' if local.get('stale') else 'in_progress'})"
+            elif out_path.is_file():
+                label = "✅file_exists(no archive)"
+            else:
+                label = "❓not_generated"
+            print(f"{item_id}\t{label}", file=sys.stderr)
+            results.append({"id": item_id, "status": label})
+            continue
+
+        # 去重前置
+        hit = _seedream_dedup_check(
+            output=out_path, prompt=prompt, ratio=ratio,
+            size=item.get("size") or default_size,
+            image_urls=image_urls, project_root=project_root, force=args.force,
+        )
+        if getattr(args, "pending", False):
+            # 增量：只生成未生成的；命中 hit（skip/blocked）跳过
+            if hit is not None:
+                if hit.get("status") == "skip":
+                    skip += 1
+                    results.append({"id": item_id, "status": "skip", "reason": hit.get("reason"), "output": str(out_path)})
+                else:
+                    blocked += 1  # blocked 不算失败，不诱导重试
+                    results.append({"id": item_id, "status": "blocked", "reason": hit.get("reason"), "output": str(out_path)})
+                continue
+        else:
+            if hit is not None:
+                if hit.get("status") == "skip":
+                    results.append(hit)
+                    skip += 1
+                else:
+                    blocked += 1
+                    results.append({"id": item_id, **hit})
+                continue
 
         r = generate_one(
             prompt,
@@ -512,7 +716,7 @@ def cmd_batch(args: argparse.Namespace) -> int:
         if not args.dry_run and args.delay > 0:
             time.sleep(args.delay)
 
-    summary = {"ok": ok, "fail": fail, "skip": skip, "yaml": str(yaml_path), "items": results}
+    summary = {"ok": ok, "fail": fail, "skip": skip, "blocked": blocked, "yaml": str(yaml_path), "items": results}
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0 if fail == 0 else 1
 
@@ -537,6 +741,71 @@ def cmd_docs(_: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_reconcile(args: argparse.Namespace) -> int:
+    """图片本地归档与 output 文件对账（Seedream 无远程历史列表 API）。
+
+    把"图在盘但归档缺指纹/缺条目"补回，让本地指纹去重更可靠；清理落盘文件不存在的孤儿条目。"""
+    project_root = Path(args.project_root).expanduser().resolve() if args.project_root else None
+    results: list[dict[str, Any]] = []
+
+    if args.yaml and project_root:
+        yaml_path = Path(args.yaml).expanduser().resolve()
+        items = load_batch_yaml(yaml_path)
+        for item in items:
+            item_id = str(item.get("id", ""))
+            out_path = resolve_batch_output(item, yaml_path, project_root)
+            prompt = (item.get("prompt_en") or item.get("prompt") or "").strip()
+            ratio = item.get("ratio")
+            item_images = item.get("image_urls") or item.get("image_url")
+            if isinstance(item_images, str):
+                item_images = [item_images]
+            image_urls = [str(u).strip() for u in (item_images or []) if str(u).strip()] or None
+            fp = ark_dedup.fingerprint_image(
+                prompt, size=item.get("size") or resolve_size(ratio, None),
+                ratio=ratio, image_urls=image_urls,
+            )
+            local = ark_dedup.local_lookup(
+                project_root, kind=KIND_SEEDREAM, episode_id=None,
+                identity_key=out_path.stem, fingerprint=fp,
+            )
+            if local and local.get("matched"):
+                results.append({"id": item_id, "status": "archive_ok", "task_id": local["existing_task"].get("task_id")})
+            elif out_path.is_file():
+                # 图在盘但归档缺 → 补一条记录（无真实 task_id，仅作指纹冻结避免重出）
+                try:
+                    ark_dedup.add_submitting_placeholder(
+                        project_root, kind=KIND_SEEDREAM, episode_id=None,
+                        client_request_id=f"local-recon-{out_path.stem}",
+                        fingerprint=fp, identity_key=out_path.stem,
+                        extra_params={"output": str(out_path), "status_hint": "file_present_no_archive"},
+                    )
+                    ark_dedup.promote_submitting(
+                        project_root, kind=KIND_SEEDREAM, episode_id=None,
+                        client_request_id=f"local-recon-{out_path.stem}",
+                        real_task_id=f"file:{out_path.stem}",
+                        extra_updates={"fingerprint": fp, "identity": out_path.stem, "output": str(out_path)},
+                    )
+                    results.append({"id": item_id, "status": "补归档(file_present)", "output": str(out_path)})
+                    print(f"⊙ {item_id} 盘上有图但归档缺，已补指纹冻结", file=sys.stderr)
+                except Exception as e:
+                    results.append({"id": item_id, "status": "write_failed", "error": str(e)})
+            else:
+                results.append({"id": item_id, "status": "未生成，可安全出图"})
+    else:
+        # 不指定 yaml：扫描归档清理孤儿（落盘文件不存在的条目标记）
+        idx = ark_dedup.read_local_index(project_root or Path("."), kind=KIND_SEEDREAM, episode_id=None)
+        for tid, t in idx.items():
+            outp = (t.get("params") or {}).get("output")
+            real = ark_dedup.resolve_output_anywhere(outp, project_root or Path(".")) if outp else None
+            if outp and real is None:
+                results.append({"task_id": tid, "status": "孤儿条目（output 不存在）", "output": outp})
+            else:
+                results.append({"task_id": tid, "status": "ok", "resolved": str(real) if real else None})
+
+    print(json.dumps({"results": results}, ensure_ascii=False, indent=2))
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="火山方舟 Seedream 5.0 lite 文生图 CLI")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -553,6 +822,7 @@ def main() -> int:
     p_gen.add_argument("--dry-run", action="store_true")
     p_gen.add_argument("--index", type=int, default=0, help="组图时取第几张，默认 0")
     p_gen.add_argument("--project-root", help="相对路径图片的根目录")
+    p_gen.add_argument("--force", action="store_true", help="忽略去重强制重出（需 ARK_ALLOW_FORCE=1）")
     p_gen.set_defaults(func=cmd_generate)
 
     p_batch = sub.add_parser("batch", help="从 seedream_batch.yaml 批量出图")
@@ -565,12 +835,19 @@ def main() -> int:
     p_batch.add_argument("--web-search", action="store_true")
     p_batch.add_argument("--watermark", action="store_true")
     p_batch.add_argument("--dry-run", action="store_true")
-    p_batch.add_argument("--force", action="store_true", help="覆盖已存在文件")
+    p_batch.add_argument("--force", action="store_true", help="覆盖已存在文件（需 ARK_ALLOW_FORCE=1）")
     p_batch.add_argument("--delay", type=float, default=1.0, help="每张间隔秒数")
+    p_batch.add_argument("--pending", action="store_true", help="只生成未生成的（增量）")
+    p_batch.add_argument("--status", action="store_true", help="只打印每项状态不生成")
     p_batch.set_defaults(func=cmd_batch)
 
     p_docs = sub.add_parser("docs", help="打印文档链接与默认配置")
     p_docs.set_defaults(func=cmd_docs)
+
+    p_rec = sub.add_parser("reconcile", help="图片本地归档与 output 文件对账（无远程 API）")
+    p_rec.add_argument("--yaml", "-y", help="seedream_batch.yaml，用于算指纹比对；不指定则只扫 assets 下的图")
+    p_rec.add_argument("--project-root", help="短剧项目根")
+    p_rec.set_defaults(func=cmd_reconcile)
 
     args = parser.parse_args()
     return args.func(args)

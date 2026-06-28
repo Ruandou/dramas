@@ -29,16 +29,16 @@ import argparse
 import json
 import sys
 import time
+import uuid
 from pathlib import Path
 from typing import Any
 
 from ark_archive import list_tasks as list_local_tasks
-from project_task_archive import find_by_segment_id, get_submitted_segment_ids, get_submitted_shot_ids
+from project_task_archive import KIND_SEEDANCE
+import ark_dedup
 from ark_seedance_record import (
-    archive_params_from_body,
     record_status,
     record_submit,
-    summarize_content,
 )
 from ark_common import (
     TASKS_PATH,
@@ -112,26 +112,106 @@ def create_task(
             "endpoint": base_url() + TASKS_PATH,
             "body": sanitize_body_for_log(body),
         }
+    # 先算内容指纹写 submitting 卡位（POST 之前落盘）—— 网络抖动时方舟可能已建单，
+    # 本地却没拿到 response；下次对账会看到卡位，走远程幂等回写而非盲重发。
+    client_request_id = f"local-{uuid.uuid4()}"
+    # 指纹优先用 archive_meta["fingerprint"]（cmd 循环已按 build_segment 同样 default 算好），
+    # 保证循环对账与归档写入用绝对同一字符串，不依赖两条 default 解析路径会一直对齐。
+    fingerprint = str(archive_meta.get("fingerprint") or "") if archive_meta else ""
+    placeholder_id = client_request_id
+    identity_key = ""
+    if archive_meta:
+        proot = archive_meta.get("project_root")
+        identity_key = archive_meta.get("segment_id") or archive_meta.get("shot_id") or ""
+        if proot and identity_key:
+            try:
+                if not fingerprint:
+                    fingerprint = ark_dedup.fingerprint_video(
+                    prompt=_segment_text_from_body(body),
+                    model=body.get("model"),
+                    duration=body.get("duration"),
+                    ratio=body.get("ratio"),
+                    resolution=body.get("resolution"),
+                    media_urls=_segment_media_urls_from_body(body),
+                )
+                ark_dedup.add_submitting_placeholder(
+                    proot,
+                    kind=KIND_SEEDANCE,
+                    episode_id=archive_meta.get("episode"),
+                    client_request_id=client_request_id,
+                    fingerprint=fingerprint,
+                    identity_key=identity_key,
+                    extra_params={
+                        "segment_id": archive_meta.get("segment_id"),
+                        "shot_id": archive_meta.get("shot_id"),
+                        "project": archive_meta.get("project") or "天工开物",
+                    },
+                )
+            except Exception as e:
+                # 归档写失败：API 可能仍会建单，绝不让 agent 闷头重发——转交上层兜底
+                print(
+                    f"⚠️ 归档写卡位失败但即将继续 POST，方舟可能已扣费：{e}",
+                    file=sys.stderr,
+                )
     resp = http_request("POST", TASKS_PATH, body=body, timeout=180)
     tid = task_id_from_response(resp)
     if tid and archive_meta:
         proot = archive_meta.get("project_root")
         if proot:
-            record_submit(
-                tid,
-                body,
-                project_root=proot,
-                episode=str(archive_meta.get("episode") or ""),
-                project_name=str(archive_meta.get("project") or "天工开物"),
-                segment_id=archive_meta.get("segment_id"),
-                shot_id=archive_meta.get("shot_id"),
-            )
+            #提拔 submitting 卡位 → 写入真实 task_id
+            try:
+                ark_dedup.promote_submitting(
+                    proot,
+                    kind=KIND_SEEDANCE,
+                    episode_id=archive_meta.get("episode"),
+                    client_request_id=placeholder_id,
+                    real_task_id=tid,
+                    extra_updates={
+                        "fingerprint": fingerprint,
+                        "segment_id": archive_meta.get("segment_id"),
+                        "shot_id": archive_meta.get("shot_id"),
+                        "project": archive_meta.get("project") or "天工开物",
+                        "episode": str(archive_meta.get("episode") or "").upper(),
+                    },
+                )
+            except Exception:
+                # 兜底走老路径，保证至少有 submitted 条目
+                record_submit(
+                    tid,
+                    body,
+                    project_root=proot,
+                    episode=str(archive_meta.get("episode") or ""),
+                    project_name=str(archive_meta.get("project") or "天工开物"),
+                    segment_id=archive_meta.get("segment_id"),
+                    shot_id=archive_meta.get("shot_id"),
+                )
     return {
         "status": "submitted",
         "task_id": tid,
         "response": resp,
         "archive": get_archive_base_hint(),
     }
+
+
+def _segment_text_from_body(body: dict) -> str:
+    content = body.get("content") or []
+    if isinstance(content, list):
+        texts = []
+        for item in content:
+            if isinstance(item, dict) and item.get("type") == "text":
+                texts.append(str(item.get("text") or ""))
+        return "\n".join(texts)
+    return str(body.get("text") or body.get("prompt") or "")
+
+
+def _segment_media_urls_from_body(body: dict) -> list[str]:
+    urls: list[str] = []
+    for item in body.get("content") or []:
+        if isinstance(item, dict):
+            iu = item.get("image_url") or item.get("audio_url") or {}
+            if isinstance(iu, dict) and iu.get("url"):
+                urls.append(str(iu["url"]))
+    return sorted(set(urls))
 
 
 def get_archive_base_hint() -> str:
@@ -368,7 +448,43 @@ def cmd_create(args: argparse.Namespace) -> int:
 
 
 def cmd_get(args: argparse.Namespace) -> int:
-    print(json.dumps(get_task(args.task_id), ensure_ascii=False, indent=2))
+    # 先查本地归档状态：若任务还在 pending/running/submitting，提前打 cancel 语义提示，
+    # 避免无 ARK_API_KEY 或 API 失败时 agent 误以为"取消有效"。
+    import os
+    if getattr(args, "project_root", None):
+        os.environ.setdefault("DRAMA_PROJECT_ROOT", str(Path(args.project_root).expanduser().resolve()))
+    local_status = None
+    try:
+        for t in list_local_tasks(limit=500):
+            if str(t.get("task_id", "")) == str(args.task_id):
+                local_status = (t.get("status") or "").lower()
+                break
+    except Exception:
+        local_status = None
+    pending_locals = ("pending", "running", "queued", "in_progress", "submitting")
+    if local_status in pending_locals:
+        print(
+            "⚠️ 方舟不支持撤回已建单任务，'取消'仅能丢弃本地跟踪，任务仍计费至完成。"
+            "如需等待结果用 wait；如担心重复扣费，下次先用 --status / reconcile 核对。",
+            file=sys.stderr,
+        )
+    try:
+        info = get_task(args.task_id)
+    except Exception as e:
+        if local_status in pending_locals:
+            print(json.dumps(
+                {"task_id": args.task_id, "local_status": local_status, "error": str(e)},
+                ensure_ascii=False, indent=2))
+            return 1
+        raise
+    st = (info.get("status") or "").lower()
+    if st in pending_locals:
+        print(
+            "⚠️ 方舟不支持撤回已建单任务，'取消'仅能丢弃本地跟踪，任务仍计费至完成。"
+            "如需等待结果用 wait；如担心重复扣费，下次先用 --status / reconcile 核对。",
+            file=sys.stderr,
+        )
+    print(json.dumps(info, ensure_ascii=False, indent=2))
     return 0
 
 
@@ -545,6 +661,87 @@ def build_segment_body(
     return body
 
 
+def _segment_fingerprint(seg: dict, episode: dict) -> str:
+    """从 segment 字典算视频内容指纹（prompt/时長/素材图等）。"""
+    try:
+        return ark_dedup.fingerprint_segment(seg, model=episode.get("model") or default_model())
+    except Exception:
+        # 解析失败不应阻塞提交；返回空让对账退化为本地 identity 去重
+        return ""
+
+
+def _segment_status_label(sid: str, fp: str, project_root: Path, ep_id: str, remote_index: dict | None) -> str:
+    """生成 ✅submitted / ⏳submitting / ❓not_submitted 标签。"""
+    local = ark_dedup.local_lookup(
+        project_root, kind=KIND_SEEDANCE, episode_id=ep_id,
+        identity_key=sid, fingerprint=fp,
+    )
+    if local.get("matched") and local.get("kind") == "submitted":
+        return f"✅submitted(task_id={local['existing_task'].get('task_id')})"
+    if local.get("matched") and local.get("kind") == "submitting":
+        return f"⏳submitting({'stale' if local.get('stale') else 'in_progress'})"
+    if remote_index is not None and fp and fp in remote_index:
+        return f"✅submitted_remote(task_id={remote_index[fp]['remote_task_id']})"
+    return "❓not_submitted"
+
+
+def _shot_fingerprint(shot: dict, episode: dict) -> str:
+    """shot 与 segment 结构同构，复用 fingerprint_segment（identity 字段为 shot_id）。"""
+    # 把 shot 当 segment 算；content 字段名一致
+    try:
+        return ark_dedup.fingerprint_segment(shot, model=episode.get("model") or default_model())
+    except Exception:
+        return ""
+
+
+def _shot_status_label(sid: str, fp: str, project_root: Path, ep_id: str, remote_index: dict | None) -> str:
+    """shots 的 ✅submitted / ⏳submitting / ❓not_submitted 状态标签。"""
+    local = ark_dedup.local_lookup(
+        project_root, kind=KIND_SEEDANCE, episode_id=ep_id,
+        identity_key=sid, fingerprint=fp,
+    )
+    if local.get("matched") and local.get("kind") == "submitted":
+        return f"✅submitted(task_id={local['existing_task'].get('task_id')})"
+    if local.get("matched") and local.get("kind") == "submitting":
+        return f"⏳submitting({'stale' if local.get('stale') else 'in_progress'})"
+    if remote_index is not None and fp and fp in remote_index:
+        return f"✅submitted_remote(task_id={remote_index[fp]['remote_task_id']})"
+    return "❓not_submitted"
+
+
+def _coordination_block(
+    *,
+    project_root: Path,
+    ep_id: str,
+    args: argparse.Namespace,
+) -> dict[str, dict] | None:
+    """segments 与 shots 共用的对账前置。返回 remote_index 或 None；也处理 force 二次确认。
+
+    remote_index 为 {fingerprint: {remote_task_id, remote_task}}，供循环内本地未命中时查远程。
+    网络/无 key 失败时返回 None（退回本地去重），不抛错。"""
+    ok_force, force_msg = ark_dedup.require_force_confirm(args.force)
+    if args.force and not ok_force:
+        print(force_msg, file=sys.stderr)
+        args.force = False
+
+    remote_index: dict[str, dict] | None = None
+    do_remote = (getattr(args, "check_remote", False) or getattr(args, "pending", False) or getattr(args, "status", False)) and not getattr(args, "no_remote", False)
+    if not getattr(args, "force", False) and do_remote:
+        try:
+            remote_tasks = list_tasks(model=default_model(), page_size=100, max_pages=6)
+            remote_index = {}
+            for rt in remote_tasks:
+                fp = ark_dedup.remote_fingerprint_from_task(rt)
+                if fp and fp not in remote_index:
+                    tid = rt.get("id") or rt.get("task_id")
+                    remote_index[fp] = {"remote_task_id": tid, "remote_task": rt}
+            if remote_index:
+                print(f"✓ Remote reconcile: {len(remote_index)} recent tasks", file=sys.stderr)
+        except Exception as e:
+            print(f"⚠ Remote check failed (non-blocking, 退回本地去重): {e}", file=sys.stderr)
+    return remote_index
+
+
 def cmd_segments(args: argparse.Namespace) -> int:
     ep_id = args.episode.upper()
     project_root = Path(args.project_root).expanduser().resolve()
@@ -576,46 +773,106 @@ def cmd_segments(args: argparse.Namespace) -> int:
                 file=sys.stderr,
             )
 
-    # --- Dedup: skip already-submitted segments ---
-    existing_map: dict[str, str] = {}
-    if not args.force:
-        existing_map = get_submitted_segment_ids(
-            project_root=project_root,
-            episode_id=ep_id,
-        )
-        if existing_map:
-            print(
-                f"✓ Dedup: {len(existing_map)} segments already submitted in archive",
-                file=sys.stderr,
-            )
+    # force 二次确认：挡 agent 随手 --force 重复扣费
+    ok_force, force_msg = ark_dedup.require_force_confirm(args.force)
+    if args.force and not ok_force:
+        print(force_msg, file=sys.stderr)
+        args.force = False
 
-    # Remote dedup (optional, informational only — does NOT skip)
-    if args.check_remote and not args.force:
-        try:
-            remote_tasks = list_tasks(model=default_model(), page_size=100, max_pages=2)
-            if remote_tasks:
-                print(
-                    f"⚠ Remote API shows {len(remote_tasks)} recent tasks for this model. "
-                    f"Use --force to override dedup.",
-                    file=sys.stderr,
-                )
-        except Exception as e:
-            print(f"⚠ Remote check failed (non-blocking): {e}", file=sys.stderr)
+    # --- Dedup（本地指纹 + 远程对账 + submitting 卡位兜底）---
+    # 计算 segment 指纹以便本地+远程核对（--status / --pending 用同一份）
+    seg_fp: dict[str, str] = {}
+    for seg in segments:
+        seg_fp[seg.get("segment_id", "?")] = _segment_fingerprint(seg, episode)
+
+    remote_index: dict[str, dict] | None = None  # {fingerprint: remote hit}
+    if not args.force and (args.check_remote or args.pending or args.status):
+        do_remote = not getattr(args, "no_remote", False)
+        if do_remote:
+            try:
+                remote_tasks = list_tasks(model=default_model(), page_size=100, max_pages=6)
+                remote_index = {}
+                for rt in remote_tasks:
+                    fp = ark_dedup.remote_fingerprint_from_task(rt)
+                    if fp and fp not in remote_index:
+                        tid = rt.get("id") or rt.get("task_id")
+                        remote_index[fp] = {"remote_task_id": tid, "remote_task": rt}
+                if remote_index:
+                    print(
+                        f"✓ Remote reconcile: {len(remote_index)} recent tasks for this model",
+                        file=sys.stderr,
+                    )
+            except Exception as e:
+                print(f"⚠ Remote check failed (non-blocking, 退回本地去重): {e}", file=sys.stderr)
 
     results: list[dict[str, Any]] = []
     ready = 0
 
+    # --status：只打印每段状态，不提交
+    if getattr(args, "status", False):
+        for seg in segments:
+            sid = seg.get("segment_id", "?")
+            st = _segment_status_label(sid, seg_fp.get(sid, ""), project_root, ep_id, remote_index)
+            print(st, file=sys.stderr)
+            results.append({"segment_id": sid, "status": st})
+        print(json.dumps({"episode": ep_id, "results": results}, ensure_ascii=False, indent=2))
+        return 0
+
     for seg in segments:
         sid = seg.get("segment_id", "?")
-        # Dedup check
-        if sid in existing_map and not args.force:
-            results.append({
-                "segment_id": sid,
-                "status": "already_submitted",
-                "existing_task_id": existing_map[sid],
-            })
-            print(f"⊙ {sid} already submitted (task_id={existing_map[sid]}), skipping", file=sys.stderr)
-            continue
+        fp = seg_fp.get(sid, "")
+        # --- 对账：本地指纹 → 远程指纹 → submitting 卡位 ---
+        if not args.force:
+            local = ark_dedup.local_lookup(
+                project_root, kind=KIND_SEEDANCE, episode_id=ep_id,
+                identity_key=sid, fingerprint=fp,
+            )
+            if local.get("matched") and local.get("kind") == "submitted":
+                et = local["existing_task"].get("task_id")
+                results.append({"segment_id": sid, "status": "already_submitted", "existing_task_id": et})
+                print(f"⊙ {sid} 本地命中已提交 (task_id={et})，skip", file=sys.stderr)
+                continue
+            if local.get("matched") and local.get("kind") == "submitting":
+                if local.get("stale") and remote_index is not None:
+                    # 视频可远程幂等回写：找同 fingerprint 远程任务认领
+                    hit = remote_index.get(fp)
+                    if hit:
+                        rtid = hit["remote_task_id"]
+                        try:
+                            ark_dedup.write_back_remote(
+                                project_root, episode_id=ep_id, remote_task_id=rtid,
+                                fingerprint=fp, identity_key=sid,
+                                extra_params={"segment_id": sid, "project": project_root.name},
+                            )
+                        except Exception:
+                            pass
+                        results.append({"segment_id": sid, "status": "reconciled_from_remote", "existing_task_id": rtid})
+                        print(f"⊙ {sid} submitting 卡位 stale，远程认领 task_id={rtid}，skip", file=sys.stderr)
+                        continue
+                # 非 stale 的 submitting 或无远程对账 → 拦下不盲重发
+                results.append({"segment_id": sid, "status": "submitting_blocked", "reason": "本地 submitting 卡位未结算，可能方舟已建单"})
+                print(
+                    f"⛔ {sid} 本地 submitting 卡位未结算（可能方舟已扣费）。"
+                    f"如确认原请求未真发出，用 --force + ARK_ALLOW_FORCE=1 重发。",
+                    file=sys.stderr,
+                )
+                continue
+            # 本地未命中 → 查远程
+            if remote_index is not None:
+                hit = remote_index.get(fp)
+                if hit:
+                    rtid = hit["remote_task_id"]
+                    try:
+                        ark_dedup.write_back_remote(
+                            project_root, episode_id=ep_id, remote_task_id=rtid,
+                            fingerprint=fp, identity_key=sid,
+                            extra_params={"segment_id": sid, "project": project_root.name},
+                        )
+                    except Exception:
+                        pass
+                    results.append({"segment_id": sid, "status": "reconciled_from_remote", "existing_task_id": rtid})
+                    print(f"⊙ {sid} 远程命中已提交 (task_id={rtid})，补归档并 skip", file=sys.stderr)
+                    continue
         # With TOS URLs, skip local file validation for assets that have TOS entries
         miss = validate_segment_assets(seg, project_root)
         if miss and cdn_registry:
@@ -653,6 +910,7 @@ def cmd_segments(args: argparse.Namespace) -> int:
                     "episode": ep_id,
                     "project_root": str(project_root),
                     "project": project_root.name,
+                    "fingerprint": fp,
                 },
             )
             r["segment_id"] = sid
@@ -703,33 +961,74 @@ def cmd_shots(args: argparse.Namespace) -> int:
             print(json.dumps({"error": f"未找到 {args.shot}"}, ensure_ascii=False))
             return 1
 
-    # --- Dedup: skip already-submitted shots ---
-    existing_map: dict[str, str] = {}
-    if not args.force:
-        existing_map = get_submitted_shot_ids(
-            project_root=project_root,
-            episode_id=ep_id,
-        )
-        if existing_map:
-            print(
-                f"✓ Dedup: {len(existing_map)} tasks already submitted in archive",
-                file=sys.stderr,
-            )
+    # --- 对账（本地指纹 + 远程对账 + submitting 卡位兜底）---
+    shot_fp = {shot.get("shot_id", "?"): _shot_fingerprint(shot, episode) for shot in shots}
+    remote_index = _coordination_block(project_root=project_root, ep_id=ep_id, args=args)
 
     results: list[dict[str, Any]] = []
     skipped = ready = 0
 
+    # --status：只打印每个 shot 状态，绝不提交（防 --status 误发 POST 扣费）
+    if getattr(args, "status", False):
+        for shot in shots:
+            sid = shot.get("shot_id", "?")
+            st = _shot_status_label(sid, shot_fp.get(sid, ""), project_root, ep_id, remote_index)
+            print(st, file=sys.stderr)
+            results.append({"shot_id": sid, "status": st})
+        print(json.dumps({"episode": ep_id, "results": results}, ensure_ascii=False, indent=2))
+        return 0
+
     for shot in shots:
         sid = shot.get("shot_id", "?")
-        # Dedup check
-        if sid in existing_map and not args.force:
-            results.append({
-                "shot_id": sid,
-                "status": "already_submitted",
-                "existing_task_id": existing_map[sid],
-            })
-            print(f"⊙ {sid} already submitted (task_id={existing_map[sid]}), skipping", file=sys.stderr)
-            continue
+        fp = shot_fp.get(sid, "")
+        # --- 对账 ---
+        if not args.force:
+            local = ark_dedup.local_lookup(
+                project_root, kind=KIND_SEEDANCE, episode_id=ep_id,
+                identity_key=sid, fingerprint=fp,
+            )
+            if local.get("matched") and local.get("kind") == "submitted":
+                et = local["existing_task"].get("task_id")
+                results.append({"shot_id": sid, "status": "already_submitted", "existing_task_id": et})
+                print(f"⊙ {sid} 本地命中已提交 (task_id={et})，skip", file=sys.stderr)
+                continue
+            if local.get("matched") and local.get("kind") == "submitting":
+                if local.get("stale") and remote_index is not None:
+                    hit = remote_index.get(fp)
+                    if hit:
+                        rtid = hit["remote_task_id"]
+                        try:
+                            ark_dedup.write_back_remote(
+                                project_root, episode_id=ep_id, remote_task_id=rtid,
+                                fingerprint=fp, identity_key=sid,
+                                extra_params={"shot_id": sid, "project": project_root.name},
+                            )
+                        except Exception:
+                            pass
+                        results.append({"shot_id": sid, "status": "reconciled_from_remote", "existing_task_id": rtid})
+                        print(f"⊙ {sid} submitting 卡位 stale，远程认领 task_id={rtid}，skip", file=sys.stderr)
+                        continue
+                results.append({"shot_id": sid, "status": "submitting_blocked", "reason": "本地 submitting 卡位未结算"})
+                print(
+                    f"⛔ {sid} 本地 submitting 卡位未结算（可能方舟已扣费）。"
+                    f"如确认原请求未真发出，用 --force + ARK_ALLOW_FORCE=1 重发。",
+                    file=sys.stderr,
+                )
+                continue
+            if remote_index is not None and fp and fp in remote_index:
+                hit = remote_index[fp]
+                rtid = hit["remote_task_id"]
+                try:
+                    ark_dedup.write_back_remote(
+                        project_root, episode_id=ep_id, remote_task_id=rtid,
+                        fingerprint=fp, identity_key=sid,
+                        extra_params={"shot_id": sid, "project": project_root.name},
+                    )
+                except Exception:
+                    pass
+                results.append({"shot_id": sid, "status": "reconciled_from_remote", "existing_task_id": rtid})
+                print(f"⊙ {sid} 远程命中已提交 (task_id={rtid})，补归档并 skip", file=sys.stderr)
+                continue
         if shot.get("mode") == "skip":
             skipped += 1
             continue
@@ -762,6 +1061,7 @@ def cmd_shots(args: argparse.Namespace) -> int:
                     "episode": ep_id,
                     "project_root": str(project_root),
                     "project": project_root.name,
+                    "fingerprint": shot_fp.get(sid, ""),
                 },
             )
             r["shot_id"] = sid
@@ -784,6 +1084,85 @@ def cmd_shots(args: argparse.Namespace) -> int:
     if any(r.get("status") == "error" for r in results):
         return 1
     return 0
+
+
+def cmd_reconcile(args: argparse.Namespace) -> int:
+    """拉近 7 天远程任务，按指纹把"丢的归档"写回本地 tasks.json。
+
+    给 agent 一个标准动作替代"感觉失败了就重发"：先 reconcile 看哪些远程已存在、哪些可安全重发。"""
+    project_root = Path(args.project_root).expanduser().resolve()
+    ep_id = args.episode.upper()
+    seg_path = (
+        Path(args.segments_file).expanduser().resolve()
+        if args.segments_file
+        else project_root / "分集剧本" / f"{ep_id}_segments.yaml"
+    )
+
+    # 拉远程
+    try:
+        remote_tasks = list_tasks(model=default_model(), page_size=100, max_pages=6)
+    except Exception as e:
+        print(json.dumps({"error": f"远程任务拉取失败：{e}"}, ensure_ascii=False))
+        return 1
+    remote_index: dict[str, dict] = {}
+    for rt in remote_tasks:
+        fp = ark_dedup.remote_fingerprint_from_task(rt)
+        if fp and fp not in remote_index:
+            remote_index[fp] = {"remote_task_id": rt.get("id") or rt.get("task_id"), "remote_task": rt}
+
+    results: list[dict[str, Any]] = []
+    if seg_path.is_file():
+        episode = load_yaml_or_json(seg_path)
+        for seg in episode.get("segments") or []:
+            sid = seg.get("segment_id", "?")
+            fp = _segment_fingerprint(seg, episode)
+            local = ark_dedup.local_lookup(
+                project_root, kind=KIND_SEEDANCE, episode_id=ep_id,
+                identity_key=sid, fingerprint=fp,
+            )
+            if local.get("matched") and local.get("kind") == "submitted":
+                results.append({"segment_id": sid, "status": "local_ok", "task_id": local["existing_task"].get("task_id")})
+                continue
+            hit = remote_index.get(fp)
+            if hit:
+                rtid = hit["remote_task_id"]
+                try:
+                    ark_dedup.write_back_remote(
+                        project_root, episode_id=ep_id, remote_task_id=rtid,
+                        fingerprint=fp, identity_key=sid,
+                        extra_params={"segment_id": sid, "project": project_root.name},
+                    )
+                except Exception as e:
+                    results.append({"segment_id": sid, "status": "write_back_failed", "error": str(e)})
+                    continue
+                results.append({"segment_id": sid, "status": "reconciled_from_remote", "task_id": rtid})
+                print(f"⊙ {sid} 远程命中 task_id={rtid}，已回写本地归档", file=sys.stderr)
+            else:
+                results.append({"segment_id": sid, "status": "remote_not_found", "note": "可安全重发（或排除网络原因）"})
+    else:
+        # 不指定 yaml：只把远程存在但本地缺的任务整体回写
+        idx = ark_dedup.read_local_index(project_root, kind=KIND_SEEDANCE, episode_id=ep_id)
+        existing_ids = {_fp(t) for t in idx.values()}
+        for fp, hit in remote_index.items():
+            if hit["remote_task_id"] in existing_ids:
+                continue
+            try:
+                ark_dedup.write_back_remote(
+                    project_root, episode_id=ep_id, remote_task_id=hit["remote_task_id"],
+                    fingerprint=fp, identity_key="(reconciled)",
+                    extra_params={"project": project_root.name},
+                )
+                results.append({"status": "reconciled_from_remote", "task_id": hit["remote_task_id"]})
+            except Exception as e:
+                results.append({"status": "write_back_failed", "error": str(e)})
+
+    print(json.dumps({"episode": ep_id, "remote_count": len(remote_index), "results": results}, ensure_ascii=False, indent=2))
+    return 0
+
+
+def _fp(t: dict) -> str:
+    """reconcile 内部：取 task_id 作现有集合去重用。"""
+    return str(t.get("task_id") or "")
 
 
 def main() -> int:
@@ -823,6 +1202,7 @@ def main() -> int:
 
     p_get = sub.add_parser("get")
     p_get.add_argument("--task-id", required=True)
+    p_get.add_argument("--project-root", help="短剧项目根，用于查本地归档状态提示 cancel 语义")
     p_get.set_defaults(func=cmd_get)
 
     p_list = sub.add_parser("list")
@@ -852,6 +1232,12 @@ def main() -> int:
     p_dl.add_argument("--output", "-o")
     p_dl.set_defaults(func=cmd_download)
 
+    p_rec = sub.add_parser("reconcile", help="拉近 7 天远程任务按指纹回写本地归档")
+    p_rec.add_argument("episode", help="如 EP01")
+    p_rec.add_argument("--project-root", required=True, help="短剧项目根，如 darams/天工开物")
+    p_rec.add_argument("--segments-file", help="基于 segments yaml 算指纹；不指定则仅回写远程存在但本地缺的")
+    p_rec.set_defaults(func=cmd_reconcile)
+
     p_shots = sub.add_parser("shots", help="从 EP##_shots.yaml 提交")
     p_shots.add_argument("episode", help="如 EP01")
     p_shots.add_argument("--project-root", required=True, help="短剧项目根，如 darams/天工开物")
@@ -864,7 +1250,11 @@ def main() -> int:
     p_shots.add_argument("--check-only", action="store_true")
     p_shots.add_argument("--dry-run", action="store_true")
     p_shots.add_argument("--delay", type=float, default=0.5)
-    p_shots.add_argument("--force", action="store_true", help="忽略去重检查，强制重新提交")
+    p_shots.add_argument("--force", action="store_true", help="忽略去重检查，强制重新提交（需 ARK_ALLOW_FORCE=1）")
+    p_shots.add_argument("--check-remote", action="store_true", help="额外查询云端任务列表进行去重")
+    p_shots.add_argument("--no-remote", action="store_true", help="跳过远程对账，仅本地去重")
+    p_shots.add_argument("--pending", action="store_true", help="只提交未提交的 shot（增量）")
+    p_shots.add_argument("--status", action="store_true", help="只打印每个 shot 状态，不提交")
     p_shots.set_defaults(func=cmd_shots)
 
     p_seg = sub.add_parser("segments", help="从 EP##_segments.yaml 提交段落视频")
@@ -881,6 +1271,9 @@ def main() -> int:
         action="store_true",
         help="额外查询云端任务列表进行去重（较慢但更全面）",
     )
+    p_seg.add_argument("--no-remote", action="store_true", help="跳过远程对账，仅本地去重")
+    p_seg.add_argument("--pending", action="store_true", help="只提交未提交的 segment（增量；与 --status 互补）")
+    p_seg.add_argument("--status", action="store_true", help="只打印每段状态，不提交（dry-run 状态查询）")
     p_seg.set_defaults(func=cmd_segments)
 
     args = parser.parse_args()
