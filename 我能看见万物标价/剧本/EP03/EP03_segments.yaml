@@ -1,0 +1,290 @@
+episode_id: EP03
+source_md: 剧本/EP03/EP03_捡漏.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+voice_prompts:
+  CHAR-001: "Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones"
+  CHAR-002: "Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes"
+  "[待补：拍卖主管]": "PENDING — production-planner to create voice card entry"  # ⚠️ needs CHAR-GRP-## + voice card
+  "[待补：高级鉴定师]": "PENDING — production-planner to create voice card entry"  # ⚠️ needs CHAR-GRP-## + voice card
+
+# ⚠️ PENDING EXTRAS WARNING:
+# Two characters with dialogue ([待补：拍卖主管] and [待补：高级鉴定师]) lack formal CHAR-GRP-## IDs,
+# L01 reference images, and voice card entries. Their voice_prompts above are placeholders.
+# Action required: production-planner → assign CHAR-GRP IDs + build voice/character cards →
+# character-designer → produce L01 looks → scene-writer → replace placeholders with formal IDs.
+
+segments:
+  # ═══════════════════════════════════════════
+  # SEG01 — 苏念引路（碎片式·紧张→好奇）
+  # ═══════════════════════════════════════════
+  - segment_id: EP03-SEG01
+    shot_ids: [EP03-S01, EP03-S02]
+    duration_sec: 11
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】苏念 CHAR-002-L01（深灰职业西装套裙，珍珠耳钉）【图2】陆辰 CHAR-001-L01（灰旧T恤，旧牛仔裤）【图3】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 镜头跟随：苏念快步穿过大理石走廊，高跟鞋声回荡，图2抱着布包紧随其后，经过玻璃展柜时侧目一瞥，暖黄射灯打在两人身上，走廊尽头是一扇磨砂玻璃门。
+        镜头2（6秒）近景 固定镜头：VIP鉴定室内，苏念推开玻璃门示意图2进入，室内一盏聚光灯打在黑色丝绒台面上，四周暗调，图2站在门口犹豫了一秒，抱紧手中的布包。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「跟我来。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「这东西，你在哪弄的？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「重要吗？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「她的眼神变了……从进门那一刻就变了。」
+        画面全程无任何文字、字幕、标题、水印。
+        鼎丰拍卖行VIP鉴定室，现代奢华大理石走廊与玻璃展柜，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════
+  # SEG02 — 初步鉴定（刺探式·专业审视→暗涌兴奋）
+  # ═══════════════════════════════════════════
+  - segment_id: EP03-SEG02
+    shot_ids: [EP03-S03, EP03-S04]
+    duration_sec: 11
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-002.png
+    api:
+      text: |
+        【图1】苏念 CHAR-002-L01（深灰职业西装套裙）【图2】陆辰 CHAR-001-L01（灰旧T恤）【图3】鼎丰拍卖行 SCENE-004【图4】北宋汝窑天青釉碗 PROP-002。
+        角色分工：仅图1可触碰碗；图2双手抱布包不触碰任何物品。
+        道具：北宋汝窑天青釉碗（口径约15cm，天青色釉面，冰裂纹，表面有灰尘痕迹），放在黑色丝绒台面聚光灯下。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：图1戴上白色棉手套，将旧碗从布包中轻轻取出放在丝绒台面上，聚光灯下碗的釉色泛出淡淡天青色，她微微俯身，目光骤然锐利。
+        镜头2（6秒）特写 缓推：图2面部特写，他盯着图1的双手在碗上方移动，嘴唇微动，聚光灯的余光在他眼底映出一点琥珀色——能力在隐隐躁动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「天青色……气泡排列……」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「我先看看，你别急。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「别骗我……我可是拿全部身家赌的。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「她的表情……在兴奋。她在压制着什么。」
+        画面全程无任何文字、字幕、标题、水印。
+        鼎丰拍卖行VIP鉴定室，现代奢华，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════
+  # SEG03 — 主管压价（蓄力式·老练施压→被识破）
+  # ═══════════════════════════════════════════
+  # ⚠️ PENDING: [待补：拍卖主管] has no L01 reference image.
+  #   This segment has only SCENE-004 as visual anchor; the extra character will be
+  #   described purely in text. After CHAR-GRP assignment + L01 generation, update
+  #   assets.look_urls and content_roles to include the extra's reference image.
+  - segment_id: EP03-SEG03
+    shot_ids: [EP03-S05, EP03-S06]
+    duration_sec: 12
+    speakers: ["[待补：拍卖主管]", CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤，旧牛仔裤）【图2】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：鉴定室门推开，一个四十来岁的微胖男人走进来——西装偏紧，领带夹闪着金光，他扫了一眼碗，又扫了一眼图1的灰旧T恤，嘴角一撇，在图1对面坐下。
+        镜头2（6秒）近景 固定镜头：图1的瞳孔微微收缩，画面叠入AR特效——主管头顶浮现一串金色数字"欺骗成本：¥47,000"，图1的手指在膝盖上轻叩两下，嘴角微微上扬。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（拍卖主管，PENDING — production-planner to create voice card entry）：「这位先生，我看了照片。初步判断——民窑仿品。」
+        对白（拍卖主管，PENDING — production-planner to create voice card entry）：「五万块，我们鼎丰直接收购。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「欺骗成本四万七……加他开价五万——这碗，少说值十万。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「不卖。」
+        画面全程无任何文字、字幕、标题、水印。
+        鼎丰拍卖行VIP鉴定室，现代奢华，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════
+  # SEG04 — 拒绝诱惑（权力翻转·施压→一句话堵死）
+  # ═══════════════════════════════════════════
+  # ⚠️ PENDING: [待补：拍卖主管] — same as SEG03
+  - segment_id: EP03-SEG04
+    shot_ids: [EP03-S07, EP03-S08]
+    duration_sec: 10
+    speakers: ["[待补：拍卖主管]", CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤，旧牛仔裤）【图2】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定镜头：主管的笑容凝固了一瞬，随即换上更热情的表情，他身体前倾，双手撑在桌面上，声音压低，像在跟图1分享一个秘密，苏念在背景处皱眉。
+        镜头2（5秒）特写 固定镜头：图1缓缓靠回椅背，双手交叉在胸前，眼神从平静变为锐利，像一把慢慢出鞘的刀，丝绒台面上的旧碗在聚光灯下安静地泛着天青色。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（拍卖主管，PENDING — production-planner to create voice card entry）：「小伙子，五万不少了。这行水深，你这碗来路……你懂的。」
+        对白（拍卖主管，PENDING — production-planner to create voice card entry）：「六万。一口价。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「不卖。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「这碗值多少，我比你清楚。」
+        画面全程无任何文字、字幕、标题、水印。
+        鼎丰拍卖行VIP鉴定室，现代奢华，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════
+  # SEG05 — 权威定论（蓄力式·长铺垫→短句爆发）
+  # ═══════════════════════════════════════════
+  # ⚠️ PENDING: [待补：高级鉴定师] has no L01 reference image.
+  - segment_id: EP03-SEG05
+    shot_ids: [EP03-S09, EP03-S10]
+    duration_sec: 12
+    speakers: ["[待补：高级鉴定师]"]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：鉴定室的门再次打开——一位五十多岁的银发女性走进来，深色旗袍外套，胸前一枚翡翠胸针，她没看任何人，径直走向丝绒台面上的碗，从口袋中取出便携放大镜，俯身贴近碗沿观察。
+        镜头2（6秒）特写 缓推：高级鉴定师放下放大镜，缓缓直起身，她的手微微发抖，镜头缓推至她的面部特写——眼中有一种近乎敬畏的光，身后主管的脸从得意变为惨白。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（高级鉴定师，PENDING — production-planner to create voice card entry）：「釉色——天青，过雨后天青云破处。」
+        对白（高级鉴定师，PENDING — production-planner to create voice card entry）：「冰裂纹自然，芝麻钉痕清晰。胎质——细腻如脂。」
+        对白（高级鉴定师，PENDING — production-planner to create voice card entry）：「北宋汝窑天青釉碗——真品。」
+        对白（高级鉴定师，PENDING — production-planner to create voice card entry）：「估价：两百八十万，至三百五十万。」
+        画面全程无任何文字、字幕、标题、水印。
+        鼎丰拍卖行VIP鉴定室，现代奢华，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: SCENE-004, role: reference_image, label: 图1 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════
+  # SEG06 — 身价翻转（独白递进·平静→暗涌感慨）
+  # ═══════════════════════════════════════════
+  - segment_id: EP03-SEG06
+    shot_ids: [EP03-S11]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤，旧牛仔裤）【图2】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：图1站在丝绒台面前，聚光灯将他和碗笼罩在同一片暖光中，他低头看着碗，眼底琥珀色一闪而过，身后高级鉴定师递来名片，主管瘫坐在椅子上，他没有接名片，只是轻轻把手放在碗沿。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「月薪三千的我，手里捧着三百万的碗。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「这一刻，我第一次觉得——活着，是有意义的。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「这东西……有意思。」
+        画面全程无任何文字、字幕、标题、水印。
+        鼎丰拍卖行VIP鉴定室，现代奢华，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: dissolve  # 🔀 时间过渡：室内 → 拍卖行大门外·傍晚
+
+  # ═══════════════════════════════════════════
+  # SEG07 — 第一桶金（独白递进·感慨→自信）
+  # ═══════════════════════════════════════════
+  - segment_id: EP03-SEG07
+    shot_ids: [EP03-S12]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤，旧牛仔裤，手拎档案袋）【图2】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）全景 缓推：夕阳余晖洒在鼎丰拍卖行的玻璃门面上，图1走出旋转门，手里拎着一只档案袋——里面是鉴定书和收购意向协议，他在台阶上停住脚步，抽出鉴定书看了一眼上面的数字，夕阳把数字染成暖金色。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「月薪三千的时候，没人在乎我是谁。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「三百万……他们叫我'先生'了。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「这才第一步。」
+        画面全程无任何文字、字幕、标题、水印。
+        鼎丰拍卖行大门外，傍晚夕阳暖金色调，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: audio_bridge  # 🔀 手机震动声先于画面切入
+
+  # ═══════════════════════════════════════════
+  # SEG08 — 删除过去（蓄力式·信息蓄力→短句致命一击）
+  # ═══════════════════════════════════════════
+  - segment_id: EP03-SEG08
+    shot_ids: [EP03-S13, EP03-S14]
+    duration_sec: 12
+    speakers: ["[待补：拍卖主管]", CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤，旧牛仔裤）【图2】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定镜头：手机在口袋里震动，图1掏出来，屏幕亮起——消息来自"陈雅琳"，他的笑容一点一点冷下来，从嘴角蔓延到眼底，夕阳的暖光在他脸上变成冷调。
+        镜头2（6秒）大特写 固定镜头：图1的拇指悬在屏幕上方一秒——然后按下删除键，整个对话记录消失，他把手机揣进口袋，转身走进夕阳里，背影从灰旧T恤的打工人，变成了一个拎着三百万鉴定书往前走的人。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（拍卖主管，PENDING — production-planner to create voice card entry）：「（五万块，直接收购。）」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「'听说你卖了个古董……我们是不是可以重新考虑？'」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「重新考虑……当初甩我的时候，怎么不考虑？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「三千块的男人，已经配不上你了。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「别人的开价，不等于你的身价。」
+        画面全程无任何文字、字幕、标题、水印。
+        鼎丰拍卖行大门外，傍晚夕阳渐冷调，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

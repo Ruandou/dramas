@@ -1,0 +1,431 @@
+episode_id: EP01
+source_md: 剧本/EP01/EP01_三千块的人生.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+voice_prompts:
+  CHAR-001: "Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones"
+  CHAR-003: "Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing"
+  CHAR-005: "Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes"
+  CHAR-006: "Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality"
+
+segments:
+  # ────────────────────────────────────
+  # SEG01 — 当众羞辱·搬货日常
+  # ────────────────────────────────────
+  - segment_id: EP01-SEG01
+    shot_ids: [EP01-S01, EP01-S02]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤、旧牛仔裤）【图2】周天明 CHAR-006-L01（廉价深色西装、金链子、金手表）【图3】古董店仓库 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：逼仄仓库，灰尘在钨丝灯光柱中飘浮，图1弯腰搬起沉重木箱，汗浸透灰旧T恤，图2叉腰站在一旁，金链子在灯光下晃，嘴角下撇，货架上堆满落灰的瓷器和杂物。
+        镜头2（5秒）近景 固定：图2伸出胖手指戳图1肩膀，唾沫飞溅，图1咬紧牙关低头忍让，双手攥紧箱沿指节发白，背景货架上一只落灰的旧碗微微晃动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「搬个箱子都磨磨蹭蹭，你值几个钱我雇你来？」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「轻点！碰坏了你赔得起？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「三千块……一个月三千块，就够他骂我的？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「周老板……这个月我一天没歇过。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ────────────────────────────────────
+  # SEG02 — 克扣工资
+  # ────────────────────────────────────
+  - segment_id: EP01-SEG02
+    shot_ids: [EP01-S03, EP01-S04]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】周天明 CHAR-006-L01（廉价深色西装、金链子、金手表）【图2】陆辰 CHAR-001-L01（灰旧T恤、旧牛仔裤）【图3】古董店仓库 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 镜头推近：图1从裤兜掏出一叠皱巴巴的钞票，摔在木箱盖上，几张散落在地，歪着头，小眼精光闪烁，一脸享受折磨人的快感，金表反射出刺眼的光。
+        镜头2（5秒）特写 固定：图2的手缓缓伸向散落的钞票，手指粗糙满是老茧，一张一张捡起来，下颌线绷紧，一滴汗顺着鬓角滑落。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「这个月迟到三次，扣五百。有意见？」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「记住，在这条街，三千块的命就别想有命活。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「忍……忍到哪天是个头。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「总有一天……让你把这些话吞回去。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ────────────────────────────────────
+  # SEG03 — 分手·豪车
+  # ────────────────────────────────────
+  - segment_id: EP01-SEG03
+    shot_ids: [EP01-S05, EP01-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤、旧牛仔裤）【图2】陈雅琳 CHAR-005-L01（粉色紧身裙、名牌包、金色大耳环）【图3】古董店门口 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：古董店门口，夕阳将街道染成昏黄，图2双手抱臂站在路灯下，粉色紧身裙和名牌包格外扎眼，图1站在她对面，两人之间隔着一步的距离，身后一辆黑色迈巴赫缓缓停下。
+        镜头2（5秒）近景 固定：图2扭头看了一眼身后的迈巴赫，又看回图1——眼神像在看一件打折商品，甩了甩精心打理的卷发，转身走向豪车，图1僵在原地，拳头缓缓攥紧。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈雅琳，Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes）：「陆辰，咱们分手吧。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「雅琳……你什么意思？」
+        对白（陈雅琳，Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes）：「一个月三千块，不够我买一个包。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「雅琳……上车的那个人是谁？」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ────────────────────────────────────
+  # SEG04 — 上车·目送
+  # ────────────────────────────────────
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S07, EP01-S08]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】陈雅琳 CHAR-005-L01（粉色紧身裙、名牌包、金色大耳环）【图2】陆辰 CHAR-001-L01（灰旧T恤、旧牛仔裤）【图3】古董店门口街道 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）全景 固定：图1拉开迈巴赫后座门坐进去，车窗降下一半，透过车窗最后瞥了一眼——不是留恋，是确认自己做了正确选择，车窗升起，黑色车身缓缓驶离，尾灯在暮色中渐远。
+        镜头2（5秒）特写 固定：图2独自站在空荡荡的街边，夕阳把他拉出很长的影子，眼眶微红但没有泪，嘴唇紧抿成一条线，远处迈巴赫尾灯化为两个模糊红点。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈雅琳，Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes）：「我值得更好的。」
+        对白（陈雅琳，Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes）：「你看看人家开的什么车，再看看你。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「在你眼里……我就是一张价目表。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「三年感情……原来就值一辆车。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  # ────────────────────────────────────
+  # SEG05 — 独自搬货·古玉割手
+  # ────────────────────────────────────
+  - segment_id: EP01-SEG05
+    shot_ids: [EP01-S09, EP01-S10]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤、旧牛仔裤）【图2】古董店仓库 SCENE-001【图3】古玉碎片 PROP-001。
+        道具：翠绿玉片，拇指大小，不规则形状带锋利边缘，半透明翡翠质地带天然纹路，表面有古老纹饰。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：深夜仓库只剩一盏摇晃的白炽灯，图1独自搬箱子，动作机械而粗暴，像在拿货物撒气，灰尘被搅得漫天飞舞，货架上物件叮当作响。
+        镜头2（5秒）特写 固定：图1手一滑，木箱翻倒砸碎，碎片四溅中一块翠绿玉片弹起划过右手食指，鲜血涌出滴在玉片上，玉片表面纹路开始吸收血液，发出微弱琥珀色光芒。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「一个人……挺好。不用看任何人的脸色。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「凭什么……凭什么。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「三千块……就值三千块的活？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「嘶——什么玩意儿？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「这破玉割的……还发光？」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ────────────────────────────────────
+  # SEG06 — 能力觉醒
+  # ────────────────────────────────────
+  - segment_id: EP01-SEG06
+    shot_ids: [EP01-S11, EP01-S12]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤、旧牛仔裤）【图2】古董店仓库 SCENE-001【图3】古玉碎片 PROP-001。
+        道具：翠绿玉片已吸饱血液，表面浮现金色纹路脉冲闪烁。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 缓推：玉片已吸饱血液，翠绿表面浮现金色纹路脉冲闪烁，图1双眼猛然紧闭——眉心拧成一团，指缝渗出血丝，整个仓库的光线似乎在微微震颤，货架上器物的影子摇晃。
+        镜头2（5秒）主观镜头 主观镜头：图1缓缓睁眼——瞳孔中闪过一道琥珀色光，他的视角扫过仓库：每件物品上方浮现半透明金色数字，微微闪烁如全息投影，货架上的瓷瓶、旧画、铜器，每个上方都有数字浮动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「眼睛——像被火烧了一样！」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「什么东西在往我眼睛里钻！」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「这……这是什么东西？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「怎么每个东西上面……都有数字在飘？」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ────────────────────────────────────
+  # SEG07 — 初步验证
+  # ────────────────────────────────────
+  - segment_id: EP01-SEG07
+    shot_ids: [EP01-S13, EP01-S14]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤、旧牛仔裤）【图2】古董店仓库 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 镜头跟随：图1踉跄后退靠在货架上，瞳孔中金色数字倒影跳动，抬头看货架——一只瓷瓶上方浮着金色数字，旁边一盏旧台灯也有数字标注，数字稳定不闪烁，像嵌在空气中。
+        镜头2（5秒）特写 固定：图1抬手在眼前晃了晃，又揉了揉眼睛——金色数字纹丝不动，拿起一只落灰的铜壶，上方清晰浮现金色数字，慢慢放下铜壶，呼吸急促。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「二百三十八……四十五……全是价码？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「不是幻觉……每件东西上面，都有数字。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「连我自己……是不是也有个价码？」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ────────────────────────────────────
+  # SEG08 — 大壮闯入
+  # ────────────────────────────────────
+  - segment_id: EP01-SEG08
+    shot_ids: [EP01-S15, EP01-S16]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤、旧牛仔裤）【图2】赵大壮 CHAR-003-L01（花哨橙蓝拼接运动外套、宽松运动裤）【图3】古董店仓库 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：仓库铁门哐当推开，图2圆滚滚的身形挤进来，双手提着塑料袋——里面是啤酒和烤串，花哨的运动外套在昏暗仓库里格外扎眼，一脸焦急。
+        镜头2（5秒）近景 固定：图1下意识看向图2——瞳孔中琥珀色光芒一闪，整个人愣住了，嘴微微张开，图2被他盯得发毛。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「辰哥，你在这儿呢，电话也不接！」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「啤酒烤串都买了，今晚陪你喝到天亮。」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「辰哥……你盯着我发什么毛呢？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「没……就是觉得你小子挺值的。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ────────────────────────────────────
+  # SEG09 — 试探
+  # ────────────────────────────────────
+  - segment_id: EP01-SEG09
+    shot_ids: [EP01-S17, EP01-S18]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤、旧牛仔裤）【图2】赵大壮 CHAR-003-L01（花哨橙蓝拼接运动外套、宽松运动裤）【图3】古董店仓库 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1收回目光，坐到一个木箱上，图2递过一罐啤酒，图1接过没开，攥在手里出神，仓库白炽灯在两人头顶晃，金色数字还在每件物品上方安静浮动。
+        镜头2（5秒）近景 固定：图2一屁股坐在旁边箱子上，啤酒罐哐当放下去，咧嘴笑着，完全没注意到图1眼中的异样光芒，手里烤串吃得满嘴油。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「大壮，你说人……有没有可能看见别人的价码？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「他头上那两个字……无价。」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「辰哥你烧糊涂了吧？赶紧撸串，别整这些虚的。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ────────────────────────────────────
+  # SEG10 — 试探续·无价
+  # ────────────────────────────────────
+  - segment_id: EP01-SEG10
+    shot_ids: [EP01-S19, EP01-S20]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤、旧牛仔裤）【图2】赵大壮 CHAR-003-L01（花哨橙蓝拼接运动外套、宽松运动裤）【图3】古董店仓库 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 缓推：图1再次看向图2——瞳孔中映射出金色文字倒影，表情从震惊慢慢转为一种复杂的温暖，图2浑然不觉，还在往嘴里塞烤串。
+        镜头2（5秒）中景 固定：图1终于拉开啤酒罐拉环，喝了一口，图2见他恢复正常，松了口气，又递过来一串烤肉，仓库气氛从压抑变得稍微松弛。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「无价……大壮这家伙，倒是值。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「大壮，你值多少钱？」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「辰哥你发什么呆呢？烤串凉了都。」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「不管出啥事，兄弟都在！」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ────────────────────────────────────
+  # SEG11 — 发现旧碗
+  # ────────────────────────────────────
+  - segment_id: EP01-SEG11
+    shot_ids: [EP01-S21, EP01-S22]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤、旧牛仔裤）【图2】古董店仓库 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 镜头跟随：图1起身放啤酒罐，目光无意间扫过货架——瞳孔中金色数字一排排跳过，突然视线定住了，仓库最角落、灰尘最厚的地方，一只旧碗上方金色数字格外耀眼。
+        镜头2（5秒）特写 镜头推近：角落旧碗——落满灰尘的碗体在微弱灯光下隐约泛出天青色釉光，碗上方金色数字巨大而稳定，数字微微脉冲闪烁，像心跳。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「等等……角落那个……」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「那个数字……不对劲。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「二……二百八十万？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「我再看一遍……没错，二百八十万。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ────────────────────────────────────
+  # SEG12 — 280万的破碗（钩子段）
+  # ────────────────────────────────────
+  - segment_id: EP01-SEG12
+    shot_ids: [EP01-S23, EP01-S24]
+    duration_sec: 8
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-002.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤、旧牛仔裤）【图2】赵大壮 CHAR-003-L01（花哨橙蓝拼接运动外套、宽松运动裤）【图3】古董店仓库 SCENE-001【图4】北宋汝窑天青釉碗 PROP-002。
+        道具：落满灰尘的 antique 瓷碗，薄壁圆润造型，灰尘覆盖下隐约透出天青色釉光，釉面有细腻冰裂纹。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）中景 固定：图1快步走向角落蹲下，小心翼翼捧起旧碗，灰尘扑簌簌落，碗在手中上方金色数字稳定不变，图2凑过来，一脸难以置信的表情。
+        镜头2（4秒）特写 固定：图1用袖子擦去碗面灰尘，天青色釉光渐渐透出，盯着碗上方的金色数字，嘴角缓缓上扬——这是今晚他第一次笑，眼中琥珀色光芒坚定而明亮。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「辰哥你疯了吧，那就一破碗，扔都没人要。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「你不懂……这是汝窑。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「值不值……我说了算。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「明天……我就拿它翻盘。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut

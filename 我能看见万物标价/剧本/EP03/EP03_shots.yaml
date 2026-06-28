@@ -1,0 +1,365 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP03/EP03_捡漏.md
+# Source shots: 14 (EP03-S01 to EP03-S14)
+# Output shots: 14 (EP03-S01 to EP03-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s (self-calculated: 5+6+5+6+6+6+5+5+6+6+10+12+6+6)
+# Output total duration: 90s
+# NOTE: Source VALIDATION block claims shot_count_declared=12 and shot_count_actual=12,
+#       but actual shot table contains 14 rows. User confirmed metadata corrected to 14.
+#       Self-calculated duration 90s matches source VALIDATION claim of 90s.
+# Gate status: Gate1-2 PASS | Gate3-4 PASS with WARN (2 pending extras)
+# ⚠️ PENDING EXTRAS: [待补：拍卖主管] and [待补：高级鉴定师] lack formal CHAR-GRP-## IDs,
+#   L01 looks, and voice card entries. Triggering 集间群演回补子循环.
+#   production-planner to assign CHAR-GRP-## + build voice/character cards →
+#   character-designer to produce L01 → scene-writer to replace placeholders → re-run segment-builder.
+
+episode_id: EP03
+source_md: 剧本/EP03/EP03_捡漏.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+shots:
+  - shot_id: EP03-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-002-L01, CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】苏念 CHAR-002-L01（深灰职业西装套裙）【图2】陆辰 CHAR-001-L01（灰旧T恤）【图3】鼎丰拍卖行 SCENE-004。中景 镜头跟随：苏念快步穿过大理石走廊，图2抱着布包紧随其后，经过玻璃展柜时侧目一瞥。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "跟我来。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L01（灰旧T恤）【图2】鼎丰拍卖行 SCENE-004。近景 固定镜头：VIP鉴定室内，苏念推开玻璃门示意陆辰进入，聚光灯打在黑色丝绒台面上，图1站在门口犹豫了一秒，抱紧手中的布包。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "这东西，你在哪弄的？"
+      - speaker: CHAR-001
+        line: "重要吗？"
+      - speaker: CHAR-001
+        line: "她的眼神变了……从进门那一刻就变了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-002-L01]
+      prop_ids: [PROP-002]
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-002.png
+    api:
+      text: "【图1】苏念 CHAR-002-L01（深灰职业西装套裙）【图2】鼎丰拍卖行 SCENE-004【图3】北宋汝窑天青釉碗 PROP-002。中景 固定镜头：苏念戴上白色棉手套，将旧碗从布包中轻轻取出放在丝绒台面上，聚光灯下釉色泛出淡淡天青色。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "天青色……气泡排列……"
+      - speaker: CHAR-002
+        line: "我先看看，你别急。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L01（灰旧T恤）【图2】鼎丰拍卖行 SCENE-004。特写 缓推：陆辰面部特写，他盯着苏念的双手在碗上方移动，嘴唇微动，聚光灯的余光在他眼底映出一点琥珀色。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "别骗我……我可是拿全部身家赌的。"
+      - speaker: CHAR-001
+        line: "她的表情……在兴奋。她在压制着什么。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: []  # ⚠️ PENDING: [待补：拍卖主管] — no formal look ID assigned
+    assets:
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】鼎丰拍卖行 SCENE-004。中景 固定镜头：鉴定室门推开，一个四十来岁的微胖男人走进来，西装偏紧，领带夹闪着金光，他扫了一眼碗又扫了一眼陆辰的灰旧T恤，嘴角一撇，在陆辰对面坐下。"
+      content_roles:
+        - { file: SCENE-004, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: "[待补：拍卖主管]"  # ⚠️ PENDING: needs CHAR-GRP ID + voice card
+        line: "这位先生，我看了照片。初步判断——民窑仿品。"
+      - speaker: "[待补：拍卖主管]"
+        line: "五万块，我们鼎丰直接收购。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L01（灰旧T恤）【图2】鼎丰拍卖行 SCENE-004。近景 固定镜头：陆辰的瞳孔微微收缩，画面叠入AR特效——主管头顶浮现一串金色数字，陆辰的手指在膝盖上轻叩两下，嘴角微微上扬。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "欺骗成本四万七……加他开价五万——这碗，少说值十万。"
+      - speaker: CHAR-001
+        line: "不卖。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: []  # ⚠️ PENDING: [待补：拍卖主管]
+    assets:
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】鼎丰拍卖行 SCENE-004。近景 固定镜头：主管的笑容凝固了一瞬，随即换上更热情的表情，他身体前倾双手撑在桌面上，声音压低，苏念在背景处皱眉。"
+      content_roles:
+        - { file: SCENE-004, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: "[待补：拍卖主管]"  # ⚠️ PENDING
+        line: "小伙子，五万不少了。这行水深，你这碗来路……你懂的。"
+      - speaker: "[待补：拍卖主管]"
+        line: "六万。一口价。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L01（灰旧T恤）【图2】鼎丰拍卖行 SCENE-004。特写 固定镜头：陆辰缓缓靠回椅背，双手交叉在胸前，眼神从平静变为锐利，丝绒台面上的旧碗在聚光灯下安静地泛着天青色。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "不卖。"
+      - speaker: CHAR-001
+        line: "这碗值多少，我比你清楚。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: []  # ⚠️ PENDING: [待补：高级鉴定师]
+    assets:
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】鼎丰拍卖行 SCENE-004。中景 固定镜头：鉴定室的门再次打开，一位五十多岁的银发女性走进来，深色旗袍外套，胸前一枚翡翠胸针，她径直走向丝绒台面上的碗，从口袋中取出便携放大镜，俯身贴近碗沿观察。"
+      content_roles:
+        - { file: SCENE-004, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: "[待补：高级鉴定师]"  # ⚠️ PENDING: needs CHAR-GRP ID + voice card
+        line: "釉色——天青，过雨后天青云破处。"
+      - speaker: "[待补：高级鉴定师]"
+        line: "冰裂纹自然，芝麻钉痕清晰。胎质——细腻如脂。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: []  # ⚠️ PENDING: [待补：高级鉴定师]
+    assets:
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】鼎丰拍卖行 SCENE-004。特写 缓推：高级鉴定师放下放大镜，缓缓直起身，她的手微微发抖，镜头缓推至面部特写——眼中有一种近乎敬畏的光，身后主管的脸从得意变为惨白。"
+      content_roles:
+        - { file: SCENE-004, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: "[待补：高级鉴定师]"  # ⚠️ PENDING
+        line: "北宋汝窑天青釉碗——真品。"
+      - speaker: "[待补：高级鉴定师]"
+        line: "估价：两百八十万，至三百五十万。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L01（灰旧T恤）【图2】鼎丰拍卖行 SCENE-004。中景 固定镜头：陆辰站在丝绒台面前，聚光灯将他和碗笼罩在同一片暖光中，他低头看着碗，眼底琥珀色一闪而过，身后高级鉴定师递来名片，主管瘫坐在椅子上，他没有接名片，只是轻轻把手放在碗沿。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "月薪三千的我，手里捧着三百万的碗。"
+      - speaker: CHAR-001
+        line: "这一刻，我第一次觉得——活着，是有意义的。"
+      - speaker: CHAR-001
+        line: "这东西……有意思。"
+    transition_to_next: dissolve  # → SEG07: 室内 → 拍卖行大门外·傍晚
+
+  - shot_id: EP03-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L01（灰旧T恤）【图2】鼎丰拍卖行 SCENE-004。全景 缓推：夕阳余晖洒在鼎丰拍卖行的玻璃门面上，陆辰走出旋转门，手里拎着一只档案袋，他在台阶上停住脚步，抽出鉴定书看一眼上面的数字，夕阳把数字染成暖金色。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "月薪三千的时候，没人在乎我是谁。"
+      - speaker: CHAR-001
+        line: "三百万……他们叫我'先生'了。"
+      - speaker: CHAR-001
+        line: "这才第一步。"
+    transition_to_next: audio_bridge  # → SEG08: 手机震动声先于画面切入
+
+  - shot_id: EP03-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L01（灰旧T恤）【图2】鼎丰拍卖行 SCENE-004。近景 固定镜头：手机在口袋里震动，陆辰掏出来屏幕亮起，他的笑容一点一点冷下来，从嘴角蔓延到眼底，夕阳的暖光在他脸上变成冷调。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: "[待补：拍卖主管]"  # ⚠️ 画外音·回忆
+        line: "（五万块，直接收购。）"
+      - speaker: CHAR-001
+        line: "'听说你卖了个古董……我们是不是可以重新考虑？'"
+      - speaker: CHAR-001
+        line: "重新考虑……当初甩我的时候，怎么不考虑？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L01（灰旧T恤）【图2】鼎丰拍卖行 SCENE-004。大特写 固定镜头：陆辰的拇指悬在屏幕上方一秒——然后按下删除键，整个对话记录消失，他把手机揣进口袋，转身走进夕阳里，背影从灰旧T恤的打工人变成了一个拎着三百万鉴定书往前走的人。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "三千块的男人，已经配不上你了。"
+      - speaker: CHAR-001
+        line: "别人的开价，不等于你的身价。"
+    transition_to_next: hard_cut

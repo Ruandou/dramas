@@ -1,0 +1,343 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP04/EP04_古玩街的传说.md
+# Source shots: 9 (EP04-S01 to EP04-S09)
+# Output shots: 9 (EP04-S01 to EP04-S09)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 86s (self-calculated: 11+11+11+11+11+11+10+5+5)
+# Output total duration: 86s
+# Note: Source .md budget table claims 88s but actual shot durations sum to 86s
+# Gate status: ALL PASS (Gate1=86s∈[75,120]✅ Gate2=9✅ Gate3=✅ Gate4=✅)
+
+episode_id: EP04
+source_md: 剧本/EP04/EP04_古玩街的传说.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens. No text, no subtitles, no watermarks on screen."
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+shots:
+  - shot_id: EP04-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: >
+        【图1】陆辰 CHAR-001-L01（白色衬衫+深色休闲外套）【图2】赵大壮 CHAR-003-L01（花哨运动外套）【图3】古玩街 SCENE-002。
+        Morning antique market street bustling with crowds, warm golden sunlight through canopy gaps.
+        Shot 1 (11s) medium shot, tracking follow: Two men walk through the crowded antique market,
+        图1 in crisp white shirt leading confidently, 图2 in flashy track jacket following behind
+        glancing around curiously, striped light and shadow from canopy gaps falling on both figures.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "大壮，跟紧了。"
+      - speaker: CHAR-003
+        line: "辰哥，咱来这儿干嘛？"
+      - speaker: CHAR-001
+        line: "昨天卖了碗，今天……来进货。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-GRP-04-L01: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/02178260350524046d1ea52072bfcd170e4d89d853744285faef6_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260627%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260627T233847Z&X-Tos-Expires=86400&X-Tos-Signature=79b28a3d8a9bcb65b3c8cdd10058fa54a48aeddc994a3ea9116cb96e9db916c4&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL: 预签名链接（24h过期），提交 Seedance 前须替换为永久 TOS URL
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: >
+        【图1】陆辰 CHAR-001-L01（白色衬衫+深色休闲外套）【图2】画卷摊主 CHAR-GRP-04-L01（老花镜+休闲装）【图3】古玩街 SCENE-002。
+        Calligraphy and painting stall with scrolls displayed on table.
+        Shot 1 (11s) close-up, slow push: 图1 crouches at a painting stall, fingers gently brushing
+        a yellowed old scroll, pupils slightly contracting. 图2, a middle-aged man with reading glasses,
+        sits cross-legged cracking sunflower seeds with an indifferent expression.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-04-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-GRP-04
+        line: "那画，二百块。搁半年了没人要。"
+      - speaker: CHAR-001
+        line: "二十万。"
+      - speaker: CHAR-GRP-04
+        line: "啥？二十万？你——"
+      - speaker: CHAR-001
+        line: "别人看不到的，才叫捡漏。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-05-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-GRP-05-L01: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/02178260352820979be1521b480472bd1aa7097703cfa20a60fe8_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260627%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260627T233906Z&X-Tos-Expires=86400&X-Tos-Signature=aac46efa675b30844f09e63c15a5a965ba160806cb3587684a00c89e02b04b93&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL: 预签名链接（24h过期），提交 Seedance 前须替换为永久 TOS URL
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: >
+        【图1】陆辰 CHAR-001-L01（白色衬衫+深色休闲外套）【图2】石头摊主 CHAR-GRP-05-L01（围裙袖套）【图3】古玩街 SCENE-002。
+        Second stall with miscellaneous items and gray stones on display.
+        Shot 1 (11s) extreme close-up, push in: 图1 picks up a plain gray stone from a pile of
+        miscellaneous items, weighs it in his hand, fingertips pause on the surface. He turns it
+        toward sunlight revealing a faint green jade translucency. 图2, a rough sturdy man in apron,
+        watches with a bewildered expression.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-05-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "五百。"
+      - speaker: CHAR-GRP-05
+        line: "五百块？这石头我当镇纸用的……你确定？"
+      - speaker: CHAR-001
+        line: "确定。"
+      - speaker: CHAR-001
+        line: "十八万的石头，当镇纸……这条街，遍地黄金。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: >
+        【图1】陆辰 CHAR-001-L01（白色衬衫+深色休闲外套）【图2】赵大壮 CHAR-003-L01（花哨运动外套）【图3】古玩街 SCENE-002。
+        Antique market walkway with warm golden sunlight backlighting.
+        Shot 1 (11s) medium shot, static: 图2 struggles to carry a scroll and a stone in both arms,
+        mouth opening and closing in shock, eyes wide. 图1 walks ahead with hands in pockets,
+        relaxed confident stride, golden sunlight creating a warm rim light silhouette behind him.
+        Sharp contrast between the flustered follower and the composed leader.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "辰哥，你……你是不是开挂了？"
+      - speaker: CHAR-001
+        line: "眼力这东西，教不来。"
+      - speaker: CHAR-003
+        line: "得，我跟着你混就完事了……"
+      - speaker: CHAR-001
+        line: "他要是知道我看到的数字，估计得晕过去。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-06-L01
+        - CHAR-GRP-07-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-GRP-06-L01: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/02178260354708064d8a6219dbbdb6281842e0590025e92f99b9a_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260627%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260627T233926Z&X-Tos-Expires=86400&X-Tos-Signature=ca6d275f0d92d24d360b9fa883e1b221bd207fe1c9cb7963805467b574c0cc7f&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL: 预签名链接（24h过期），提交 Seedance 前须替换为永久 TOS URL
+        CHAR-GRP-07-L01: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/02178260356730485c9a7acb047d6dabbfa02bbf3a2b67bcb33c8_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260627%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260627T233947Z&X-Tos-Expires=86400&X-Tos-Signature=dcde92a85e7c73c7b22c63567c4a77a9f069132a8a04c6e31390f47c262b7589&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL: 预签名链接（24h过期），提交 Seedance 前须替换为永久 TOS URL
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: >
+        【图1】陆辰 CHAR-001-L01（白色衬衫+深色休闲外套）【图2】铜钱摊主 CHAR-GRP-06-L01（遮阳帽+朴素装束）【图3】路人 CHAR-GRP-07-L01（鸭舌帽+休闲装）【图4】古玩街 SCENE-002。
+        Third stall with ancient coins spread on table.
+        Shot 1 (11s) close-up, static: 图1 selects one copper coin from a pile, holds it up to eye level.
+        He pinches the coin between two fingers and gently blows on it, the coin emitting a clear resonant hum.
+        图2, a thin elderly man in sun hat, watches with mild curiosity.
+        图3, a man in duck-bill cap, leans closer with mouth agape.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-07-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "三百。"
+      - speaker: CHAR-GRP-06
+        line: "三百买一枚铜钱……你识货？"
+      - speaker: CHAR-001
+        line: "还行。"
+      - speaker: CHAR-GRP-07
+        line: "三百变十二万……这人什么来头？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-GRP-07-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        CHAR-GRP-07-L01: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/02178260356730485c9a7acb047d6dabbfa02bbf3a2b67bcb33c8_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260627%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260627T233947Z&X-Tos-Expires=86400&X-Tos-Signature=dcde92a85e7c73c7b22c63567c4a77a9f069132a8a04c6e31390f47c262b7589&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL: 预签名链接（24h过期），提交 Seedance 前须替换为永久 TOS URL
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: >
+        【图1】赵大壮 CHAR-003-L01（花哨运动外套，怀抱画卷和石头）【图2】路人 CHAR-GRP-07-L01（鸭舌帽+休闲装）【图3】古玩街 SCENE-002。
+        Antique market walkway, stall owners whispering and watching in background.
+        Shot 1 (11s) medium shot, slow push: Stall owners huddle together whispering, eyes following
+        a departing figure. 图2 in duck-bill cap excitedly pulls a companion aside, gesturing with
+        exaggerated expressions. 图1 walks behind carrying items in both arms, listening to the gossip
+        with a proud smirk, chin lifted high.
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-07-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-GRP-07
+        line: "看见没？就那个年轻人……鼎丰拍卖行，二百八十万。"
+      - speaker: CHAR-GRP-07
+        line: "二百八十万？今天又连捡三件？"
+      - speaker: CHAR-003
+        line: "嘿嘿，我们辰哥的眼光，那是一绝。"
+    transition_to_next: audio_bridge  # 电话铃声先于画面切入
+
+  - shot_id: EP04-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: >
+        【图1】周天明 CHAR-006-L01（廉价深色西装+金链子）【图2】周天明古董店 SCENE-001。
+        Dimly lit cramped antique shop interior, dust particles floating in light beams,
+        cluttered shelves with porcelain and jade, old glass counter.
+        Shot 1 (10s) medium shot, static: 图1 sits behind the counter with gold chain on chest,
+        holding an enamel tea cup. Phone rings, he answers casually while crossing his legs.
+        As he listens, his expression shifts, crossed legs slowly coming down.
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "啥事？"
+      - speaker: CHAR-006
+        line: "古玩街出了个捡漏的？"
+      - speaker: CHAR-006
+        line: "……叫啥？"
+      - speaker: CHAR-006
+        line: "这条街上能捡漏的人，都得先过我这一关。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: >
+        【图1】周天明 CHAR-006-L01（廉价深色西装+金链子）【图2】周天明古董店 SCENE-001。
+        Dimly lit antique shop interior, harsh shadows.
+        Shot 1 (5s) close-up, static: 图1 suddenly stands up, enamel tea cup slipping from his hand
+        and shattering into two pieces on the floor, tea splashing everywhere. His face turns from
+        red to white, small eyes bulging, gold chain swinging on his chest.
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "陆辰……就是在我这儿卖碗的那个？"
+      - speaker: CHAR-006
+        line: "二百八十万的碗……从我仓库里流出去的……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: >
+        【图1】周天明 CHAR-006-L01（廉价深色西装+金链子）【图2】周天明古董店 SCENE-001。
+        Antique shop counter with dusty surface, fake vases on shelves behind.
+        Shot 1 (5s) close-up, push in: 图1 slams his fist on the counter, dust flying up from the surface.
+        He grits his teeth, veins bulging on his forehead, fingers gripping the counter edge until
+        knuckles turn white. Fake vases on shelves behind him wobble from the impact.
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "那只碗……是我的。"
+      - speaker: CHAR-006
+        line: "他要是从我这儿捡的漏……那我这辈子最大的眼瞎，不是卖假货——是放走了金矿。"
+    transition_to_next: hard_cut
