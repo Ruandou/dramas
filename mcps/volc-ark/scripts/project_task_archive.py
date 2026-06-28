@@ -74,6 +74,61 @@ def _repo_root() -> Path:
     return Path(__file__).resolve().parents[3]
 
 
+def assert_valid_drama_project_root(project_root: Path | str | None) -> Path:
+    """守护 --project-root 不被误传成"仓库根"。
+
+    历史事故：仓库根目录名是 `dramas`、子目录也叫 `dramas/` 装 72 个短剧项目，
+    agent/模型极易混淆"项目根 `dramas/<剧名>`"与"仓库根 `dramas`"。一旦把仓库根
+    传进来，archive_file(...project_root=仓库根) 会把任务归档/图片写到仓库根
+    `assets/...`，污染其它项目、且下游找不到归档导致误重发扣费。
+
+    策略：
+    - 硬拦（黑名单）：project_root == 仓库根 → 抛 ValueError
+    - 硬拦：project_root 含 .git → 抛 ValueError（仓库根特征）
+    - 硬拦：project_root 下有名为 dramas/ 的子目录 → 抛 ValueError（仓库根特征，
+      短剧项目根下没有 dramas/ 子目录）
+    - 软警告：project_root 下没有 制片规范.md → 打 warning 到 stderr 但放行
+      （给 Stage 1/2 刚立项、制片规范尚未生成的项目留出口，不误伤）
+
+    返回解析后的 Path。无 project_root（None）抛 ValueError（调用方应保证传入）。"""
+    import sys
+    if project_root is None:
+        raise ValueError(
+            "未指定 --project-root。CLI 需具体短剧项目目录，如 `dramas/<剧名>`，"
+            "不能省略或用仓库根。"
+        )
+    p = Path(project_root).expanduser()
+    if not p.is_dir():
+        raise ValueError(
+            f"--project-root 不存在或不是目录: {p}\n"
+            "请传具体短剧项目目录（含 制片规范.md），不要传仓库根。"
+        )
+    p = p.resolve()
+    repo = _repo_root()
+    if p == repo:
+        raise ValueError(
+            f"❌ --project-root 被传成仓库根 {p}（仓库根目录名是 dramas、子目录也叫 dramas/，"
+            "易混淆）。请改传具体短剧项目目录，例如 dramas/<剧名>。"
+        )
+    if (p / ".git").exists():
+        raise ValueError(
+            f"❌ --project-root {p} 含 .git，是仓库根或包含仓库根，不能作为短剧项目目录。"
+            "请改传具体短剧项目目录 dramas/<剧名>。"
+        )
+    if (p / "dramas").is_dir():
+        raise ValueError(
+            f"❌ --project-root {p} 下有名为 dramas/ 的子目录，疑似仓库根而非短剧项目目录。"
+            "短剧项目目录应直接含 制片规范.md、资产/、剧本/，不应有 dramas/ 子目录。"
+        )
+    if not (p / "制片规范.md").exists():
+        print(
+            f"⚠️ {p} 下未找到 制片规范.md，看不出是已建流水线的短剧项目。"
+            "若你是 Stage 1/2 刚立项可忽略；否则请确认 --project-root 指向正确项目目录。",
+            file=sys.stderr,
+        )
+    return p
+
+
 def legacy_video_archive() -> Path:
     return _repo_root() / "video" / "ark_tasks" / "tasks_video.json"
 

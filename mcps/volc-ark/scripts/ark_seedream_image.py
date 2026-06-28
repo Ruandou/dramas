@@ -42,7 +42,7 @@ except ImportError:
 from ark_archive import add_task, get_archive_base
 from ark_media import resolve_image_url
 import ark_dedup
-from project_task_archive import KIND_SEEDREAM
+from project_task_archive import KIND_SEEDREAM, assert_valid_drama_project_root
 import uuid
 
 DEFAULT_BASE = "https://ark.cn-beijing.volces.com"
@@ -561,9 +561,13 @@ def _seedream_dedup_check(
 def cmd_generate(args: argparse.Namespace) -> int:
     out = Path(args.output).expanduser() if args.output else None
     image_urls = [u.strip() for u in (args.image_url or []) if u.strip()]
-    project_root = (
-        Path(args.project_root).expanduser().resolve() if args.project_root else None
-    )
+    try:
+        project_root = (
+            assert_valid_drama_project_root(args.project_root) if args.project_root else None
+        )
+    except ValueError as e:
+        print(str(e), file=sys.stderr)
+        return 2
     # 去重前置
     hit = _seedream_dedup_check(
         output=out, prompt=args.prompt, ratio=args.ratio, size=args.size,
@@ -604,7 +608,11 @@ def cmd_batch(args: argparse.Namespace) -> int:
         print(json.dumps({"error": "YAML 根节点须为对象"}, ensure_ascii=False))
         return 1
 
-    project_root = Path(args.project_root).expanduser().resolve() if args.project_root else None
+    try:
+        project_root = assert_valid_drama_project_root(args.project_root) if args.project_root else None
+    except ValueError as e:
+        print(str(e), file=sys.stderr)
+        return 2
     if project_root is None and doc.get("project_root"):
         project_root = Path(str(doc["project_root"])).expanduser().resolve()
     if project_root:
@@ -745,7 +753,11 @@ def cmd_reconcile(args: argparse.Namespace) -> int:
     """图片本地归档与 output 文件对账（Seedream 无远程历史列表 API）。
 
     把"图在盘但归档缺指纹/缺条目"补回，让本地指纹去重更可靠；清理落盘文件不存在的孤儿条目。"""
-    project_root = Path(args.project_root).expanduser().resolve() if args.project_root else None
+    try:
+        project_root = assert_valid_drama_project_root(args.project_root) if args.project_root else None
+    except ValueError as e:
+        print(str(e), file=sys.stderr)
+        return 2
     results: list[dict[str, Any]] = []
 
     if args.yaml and project_root:

@@ -34,7 +34,7 @@ from pathlib import Path
 from typing import Any
 
 from ark_archive import list_tasks as list_local_tasks
-from project_task_archive import KIND_SEEDANCE
+from project_task_archive import KIND_SEEDANCE, assert_valid_drama_project_root
 import ark_dedup
 from ark_seedance_record import (
     record_status,
@@ -744,7 +744,11 @@ def _coordination_block(
 
 def cmd_segments(args: argparse.Namespace) -> int:
     ep_id = args.episode.upper()
-    project_root = Path(args.project_root).expanduser().resolve()
+    try:
+        project_root = assert_valid_drama_project_root(args.project_root)
+    except ValueError as e:
+        print(str(e), file=sys.stderr)
+        return 2
     seg_path = (
         Path(args.segments_file).expanduser().resolve()
         if args.segments_file
@@ -937,9 +941,13 @@ def cmd_segments(args: argparse.Namespace) -> int:
 
 def cmd_shots(args: argparse.Namespace) -> int:
     import os
+    try:
+        project_root = assert_valid_drama_project_root(args.project_root)
+    except ValueError as e:
+        print(str(e), file=sys.stderr)
+        return 2
 
     ep_id = args.episode.upper()
-    project_root = Path(args.project_root).expanduser().resolve()
     shots_path = (
         Path(args.shots_file).expanduser().resolve()
         if args.shots_file
@@ -1090,7 +1098,11 @@ def cmd_reconcile(args: argparse.Namespace) -> int:
     """拉近 7 天远程任务，按指纹把"丢的归档"写回本地 tasks.json。
 
     给 agent 一个标准动作替代"感觉失败了就重发"：先 reconcile 看哪些远程已存在、哪些可安全重发。"""
-    project_root = Path(args.project_root).expanduser().resolve()
+    try:
+        project_root = assert_valid_drama_project_root(args.project_root)
+    except ValueError as e:
+        print(str(e), file=sys.stderr)
+        return 2
     ep_id = args.episode.upper()
     seg_path = (
         Path(args.segments_file).expanduser().resolve()
