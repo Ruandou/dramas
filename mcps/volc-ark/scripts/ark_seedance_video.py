@@ -452,7 +452,12 @@ def cmd_get(args: argparse.Namespace) -> int:
     # 避免无 ARK_API_KEY 或 API 失败时 agent 误以为"取消有效"。
     import os
     if getattr(args, "project_root", None):
-        os.environ.setdefault("DRAMA_PROJECT_ROOT", str(Path(args.project_root).expanduser().resolve()))
+        try:
+            project_root = assert_valid_drama_project_root(args.project_root)
+        except ValueError as e:
+            print(str(e), file=sys.stderr)
+            return 2
+        os.environ.setdefault("DRAMA_PROJECT_ROOT", str(project_root))
     local_status = None
     try:
         for t in list_local_tasks(limit=500):
