@@ -1,0 +1,253 @@
+# EP38_segments.yaml — 段落 API 指令
+# 由 scene-writer 从 EP38_信任.md + EP38_shots.yaml 导出
+# 下游消费者：segment-builder → Seedance API
+# 单集真相源：EP38_信任.md
+
+episode_id: EP38
+episode_title: 信任
+total_segments: 8
+total_duration: 78s
+total_shots: 13
+
+default_params:
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration_sec: "8-10"
+  generate_audio: true
+  prompt_suffix: "禁止画面中出现任何文字或字幕。年代质感写实风格，1992年中国小城氛围，自然光线，胶片颗粒感，情绪肖像摄影。"
+  negative_prompt: "smartphones, laptops, LED screens, modern cars, plastic furniture, contemporary fashion, flat-screen TVs, WiFi routers, digital cameras, modern signage with English text, modern signage, modern school equipment, anime style, cartoon, 3D render, unrealistic proportions, fantasy elements, sci-fi elements, text, subtitles, watermarks, logos, captions, characters, writing, inscriptions"
+
+segments:
+  # ═══════════════════════════════════════
+  # SEG01 — 信任的信（Hook Zone·蓄力式·挣扎→坚定）
+  # ═══════════════════════════════════════
+  - segment_id: SEG01
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "1992年·秋·傍晚"
+    interior_exterior: 内景
+    duration_sec: 11
+    shot_count: 2
+    shot_ids: [EP38-S01, EP38-S02]
+    zone: Hook Zone
+    rhythm: 蓄力式
+    emotion_arc: "挣扎→坚定"
+    narrative_function: "回应EP37钩子（女小提琴手）+ 林秀芝选择信任写信 + 金句①"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+    dialogue_summary: "林秀芝独白'换作二十四岁姑娘早慌了'，然后写信'如果你的心在这里那就回来'，金句'信任比怀疑重要'"
+    voice_distribution: monologue_5
+    contains_golden_line: true
+    golden_line: "信任比怀疑重要。这个道理……我花了六十年才学会。"
+    transition_from: null
+    transition_to: null
+    visual_continuity: "EP37末'女小提琴手在追他'→EP38信任的回应。傍晚橙红夕阳。"
+
+  # ═══════════════════════════════════════
+  # SEG02 — 寄（Substance Zone·碎片式·期待→不安）
+  # ═══════════════════════════════════════
+  - segment_id: SEG02
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "1992年·秋·黄昏"
+    interior_exterior: 内景
+    duration_sec: 10
+    shot_count: 2
+    shot_ids: [EP38-S03, EP38-S04]
+    zone: Substance Zone
+    rhythm: 碎片式
+    emotion_arc: "期待→不安"
+    narrative_function: "封信仪式 + 揭示信任表面下的恐惧——'万一他不回来呢'"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+    dialogue_summary: "林秀芝自语'寄出去了'，独白'万一他真的不回来呢'，然后'至少我没有因为害怕把他推远'"
+    voice_distribution: self_talk_1 + monologue_5
+    contains_golden_line: false
+    transition_from: null
+    transition_to: null
+    visual_continuity: "同场景续接，天色从傍晚橙红渐暗为深蓝黄昏"
+
+  # ═══════════════════════════════════════
+  # SEG03 — 他读了（Substance Zone·独白递进·读信→震动→决定）
+  # ═══════════════════════════════════════
+  - segment_id: SEG03
+    scene: SCENE-002
+    location: "北京交响乐团宿舍（SCENE-002变体）"
+    time_of_day: "数日后·下午"
+    interior_exterior: 内景
+    duration_sec: 10
+    shot_count: 2
+    shot_ids: [EP38-S05, EP38-S06]
+    zone: Substance Zone
+    rhythm: 独白递进
+    emotion_arc: "读信→震动→决定"
+    narrative_function: "视角切换至陈望秋——读信感受信任的重量 + 决定回来"
+    characters:
+      - char_id: CHAR-002
+        look: CHAR-002-L02
+    dialogue_summary: "陈望秋读信'祝你幸福''那就回来'，独白'她信我''我不能辜负'"
+    voice_distribution: dialogue_2 + monologue_4
+    contains_golden_line: false
+    transition_from: audio_bridge
+    transition_to: null
+    visual_continuity: "视角切换——从林秀芝转至陈望秋。午后白光。SCENE-002变体布景。"
+
+  # ═══════════════════════════════════════
+  # SEG04 — 辞职（Substance Zone·碎片式·果断）
+  # ═══════════════════════════════════════
+  - segment_id: SEG04
+    scene: SCENE-002
+    location: "北京交响乐团走廊（SCENE-002变体）"
+    time_of_day: "同日·下午"
+    interior_exterior: 内景
+    duration_sec: 8
+    shot_count: 1
+    shot_ids: [EP38-S07]
+    zone: Substance Zone
+    rhythm: 碎片式
+    emotion_arc: "果断"
+    narrative_function: "辞职行动——用行为证明一切，不说话只做事的性格"
+    characters:
+      - char_id: CHAR-002
+        look: CHAR-002-L02
+    dialogue_summary: "陈望秋独白'北京很大，但没有她的北京什么都不是'，自语'买了今天的火车票'"
+    voice_distribution: monologue_3 + self_talk_1
+    contains_golden_line: false
+    transition_from: null
+    transition_to: audio_bridge
+    visual_continuity: "同场景变体续接。背光剪影=告别北京。"
+
+  # ═══════════════════════════════════════
+  # SEG05 — 等（Substance Zone·独白递进·期待→焦虑）
+  # ═══════════════════════════════════════
+  - segment_id: SEG05
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "1992年·秋·傍晚"
+    interior_exterior: 内景
+    duration_sec: 5
+    shot_count: 1
+    shot_ids: [EP38-S08]
+    zone: Substance Zone
+    rhythm: 独白递进
+    emotion_arc: "期待→焦虑"
+    narrative_function: "林秀芝独自等待——信任是真的但焦虑也是真的"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+    dialogue_summary: "林秀芝独白'信寄出去第四天了'，'说好了信任可心里还是会想'"
+    voice_distribution: monologue_3
+    contains_golden_line: false
+    transition_from: audio_bridge
+    transition_to: null
+    visual_continuity: "时间跳跃回清河镇。傍晚暖光。梧桐叶沙沙=等待锚点。"
+
+  # ═══════════════════════════════════════
+  # SEG06 — 回来了（Substance Zone·权力翻转·惊讶→释然→心疼）
+  # ═══════════════════════════════════════
+  - segment_id: SEG06
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "1992年·秋·傍晚"
+    interior_exterior: 内景
+    duration_sec: 10
+    shot_count: 2
+    shot_ids: [EP38-S09, EP38-S10]
+    zone: Substance Zone
+    rhythm: 权力翻转
+    emotion_arc: "惊讶→释然→心疼"
+    narrative_function: "重逢高潮——陈望秋推门而入 + 辞职信 + '不是因为她，是因为想你了'"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+      - char_id: CHAR-002
+        look: CHAR-002-L02
+    dialogue_summary: "秀芝震惊'望秋？'，望秋喘息'我回来了'，辞职信'不是因为她，是因为想你了'，秀芝笑骂'你这个傻子'"
+    voice_distribution: dialogue_6
+    contains_golden_line: false
+    transition_from: null
+    transition_to: null
+    visual_continuity: "同场景续接。双人同框。门口夕阳金光=希望与温暖。"
+
+  # ═══════════════════════════════════════
+  # SEG07 — 见一个人（Cliffhanger Zone·刺探式·幸福→冻结）
+  # ═══════════════════════════════════════
+  - segment_id: SEG07
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "1992年·秋·傍晚"
+    interior_exterior: 内景
+    duration_sec: 10
+    shot_count: 2
+    shot_ids: [EP38-S11, EP38-S12]
+    zone: Cliffhanger Zone
+    rhythm: 刺探式
+    emotion_arc: "幸福→冻结"
+    narrative_function: "集末钩子前奏——陈望秋提出见母亲，林秀芝笑容凝固"
+    characters:
+      - char_id: CHAR-002
+        look: CHAR-002-L02
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+    dialogue_summary: "望秋'我妈想见见未来的儿媳妇'，秀芝内心'前世那一关，我唯一没过的一关'"
+    voice_distribution: dialogue_3 + monologue_3
+    contains_golden_line: true
+    golden_line: "我妈。她想见见——未来的儿媳妇。"
+    transition_from: null
+    transition_to: null
+    visual_continuity: "同场景续接。光线从暖变暗=从幸福到恐惧。"
+
+  # ═══════════════════════════════════════
+  # SEG08 — 重考（Cliffhanger Zone·独白递进·恐惧→隐忍→决心）
+  # ═══════════════════════════════════════
+  - segment_id: SEG08
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "1992年·秋·夜晚"
+    interior_exterior: 内景
+    duration_sec: 10
+    shot_count: 1
+    shot_ids: [EP38-S13]
+    zone: Cliffhanger Zone
+    rhythm: 独白递进
+    emotion_arc: "恐惧→隐忍→决心"
+    narrative_function: "集末钩子——'好啊'表面轻松内心地震 + 金句③ + 前世恐惧重现"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+    dialogue_summary: "秀芝微笑'好啊'，独白'前世陈母说我配不上她儿子''这场考试我重考了一辈子'"
+    voice_distribution: dialogue_1 + monologue_4
+    contains_golden_line: true
+    golden_line: "这场考试……我重考了一辈子。"
+    transition_from: null
+    transition_to: null
+    visual_continuity: "同场景。夕阳褪去，只剩灯泡昏黄=恐惧视觉化。"
+
+# 总时长: 78s (11+10+10+8+5+10+10+10)
+# 总镜头数: 13
+# 总Segment数: 8
+
+# 声音配置
+voice_prompts:
+  CHAR-001: "成年女性，20岁外表60岁灵魂，声线温柔但有超出年龄的沉稳感，语速适中偏慢，偶尔蹦出超前词汇时语气微妙变化，独处时喃喃自语像在跟看不见的人对话，感动时声音会发颤但努力保持平静"
+  CHAR-002: "成年男性，22岁，声线温和清澈带有文艺气质，语速偏慢而清晰，喜欢用音乐术语形容事物，紧张时声音会轻一点，激动时反而沉默，表达爱意时从不直接说而是语气更柔和"
+
+# 特殊处理
+special_notes:
+  - segment: SEG01
+    note: "金句①'信任比怀疑重要'需在写信停笔时说出，笔尖离开纸面=思考完成的视觉信号"
+  - segment: SEG03
+    note: "视角切换至陈望秋（北京宿舍），通过audio_bridge转场。SCENE-002变体布景（不同家具/光线），但仍用SCENE-002 ID保持一致性"
+  - segment: SEG04
+    note: "走廊背光剪影=告别的视觉象征。单镜长段（8s）=果断不拖沓的节奏"
+  - segment: SEG05
+    note: "5s短段=等待的焦虑感。梧桐叶沙沙=时间流逝听觉锚点。为SEG06重逢蓄力"
+  - segment: SEG06
+    note: "双人同框仅此一段（Seedance限制≤3人同框），门推开瞬间+辞职信=双重行动证明"
+  - segment: SEG07
+    note: "金句②'我妈想见见未来的儿媳妇'通过望秋温柔但认真地说出。秀芝笑容凝固的特写=全剧最有力的视觉锤之一"
+  - segment: SEG08
+    note: "金句③'这场考试我重考了一辈子'。'好啊'两个字=全剧最有重量的台词。灯泡昏黄=恐惧视觉化。EP39钩子=陈母登场"

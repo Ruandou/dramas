@@ -1,0 +1,256 @@
+# EP37_segments.yaml — 段落 API 指令
+# 由 scene-writer 从 EP37_分开的日子.md + EP37_shots.yaml 导出
+# 下游消费者：segment-builder → Seedance API
+# 单集真相源：EP37_分开的日子.md
+
+episode_id: EP37
+episode_title: 分开的日子
+total_segments: 9
+total_duration: 86s
+total_shots: 16
+
+default_params:
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration_sec: "8-10"
+  generate_audio: true
+  prompt_suffix: "禁止画面中出现任何文字或字幕。年代质感写实风格，1992年中国小城氛围，自然光线，胶片颗粒感，情绪肖像摄影。"
+  negative_prompt: "smartphones, laptops, LED screens, modern cars, plastic furniture, contemporary fashion, flat-screen TVs, WiFi routers, digital cameras, modern signage with English text, modern signage, modern school equipment, anime style, cartoon, 3D render, unrealistic proportions, fantasy elements, sci-fi elements, text, subtitles, watermarks, logos, captions, characters, writing, inscriptions"
+
+segments:
+  # ═══════════════════════════════════════
+  # SEG01 — 光（Hook Zone·碎片式·平静→使命）
+  # ═══════════════════════════════════════
+  - segment_id: SEG01
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "1992年初秋·下午"
+    interior_exterior: 内景
+    duration_sec: 9
+    shot_count: 2
+    shot_ids: [EP37-S01, EP37-S02]
+    zone: Hook Zone
+    rhythm: 碎片式
+    emotion_arc: "平静→使命"
+    narrative_function: "建立角色现状（清河镇教师）+ 展示教学热情 + 第一句金句"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+      - char_id: "[待补：清河镇小学学生]"
+        look: "[待补：清河镇小学学生]"
+    dialogue_summary: "林秀芝对学生介绍自己，弹《小星星》，一个孩子惊叹'它在说话'"
+    voice_distribution: dialogue_2 + monologue_1
+    contains_golden_line: true
+    golden_line: "音乐能让人看见看不见的东西。"
+    transition_from: null
+    transition_to: null
+    visual_continuity: "EP36火车站分离→时间跳跃至1992年初秋"
+
+  # ═══════════════════════════════════════
+  # SEG02 — 教（Substance Zone·独白递进·专注→空虚）
+  # ═══════════════════════════════════════
+  - segment_id: SEG02
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "1992年初秋·下午"
+    interior_exterior: 内景
+    duration_sec: 10
+    shot_count: 2
+    shot_ids: [EP37-S03, EP37-S04]
+    zone: Substance Zone
+    rhythm: 独白递进
+    emotion_arc: "专注→回忆→空虚"
+    narrative_function: "展示教学细节（教材使用）+ 内心独白揭示使命感与空虚感的张力"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+      - char_id: "[待补：清河镇小学学生]"
+        look: "[待补：清河镇小学学生]"
+    dialogue_summary: "纠正学生指法，教教材内容，然后独白'够了吗？'"
+    voice_distribution: dialogue_3 + monologue_3
+    contains_golden_line: false
+    transition_from: null
+    transition_to: null
+    visual_continuity: "同场景续接，学生仍在上课"
+
+  # ═══════════════════════════════════════
+  # SEG03 — 信（Substance Zone·独白递进·好奇→震动）
+  # ═══════════════════════════════════════
+  - segment_id: SEG03
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "1992年初秋·下午"
+    interior_exterior: 内景
+    duration_sec: 9
+    shot_count: 2
+    shot_ids: [EP37-S05, EP37-S06]
+    zone: Substance Zone
+    rhythm: 独白递进
+    emotion_arc: "好奇→震动"
+    narrative_function: "第一次展示陈望秋的信 + 引入信件道具 + 事业vs思念的张力"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+      - char_id: "[待补：清河镇小学学生]"
+        look: "[待补：清河镇小学学生]"
+    dialogue_summary: "林秀芝读陈望秋的来信（北京交响乐团录取），学生探头问她在看什么"
+    voice_distribution: dialogue_4 + monologue_2
+    contains_golden_line: false
+    transition_from: null
+    transition_to: null
+    visual_continuity: "同场景续接，学生放学后离开"
+
+  # ═══════════════════════════════════════
+  # SEG04 — 战场（Substance Zone·独白递进·震动→坚定）
+  # ═══════════════════════════════════════
+  - segment_id: SEG04
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "1992年初秋·傍晚"
+    interior_exterior: 内景
+    duration_sec: 6
+    shot_count: 1
+    shot_ids: [EP37-S07]
+    zone: Substance Zone
+    rhythm: 独白递进
+    emotion_arc: "震动→坚定"
+    narrative_function: "信件与使命合一 + 独白确立'我的战场'宣言"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+    dialogue_summary: "林秀芝走到窗前，独白：'他在北京追梦，我在清河镇种种子。这是我的战场。'"
+    voice_distribution: monologue_3
+    contains_golden_line: false
+    transition_from: null
+    transition_to: null
+    visual_continuity: "同场景续接，独自一人，光线转为傍晚琥珀色"
+
+  # ═══════════════════════════════════════
+  # SEG05 — 灰了（Substance Zone·蓄力式·思念→刺痛）
+  # ═══════════════════════════════════════
+  - segment_id: SEG05
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "1992年初秋·傍晚"
+    interior_exterior: 内景
+    duration_sec: 10
+    shot_count: 2
+    shot_ids: [EP37-S08, EP37-S09]
+    zone: Substance Zone
+    rhythm: 蓄力式
+    emotion_arc: "思念→刺痛"
+    narrative_function: "读第二封信（核心金句）+ 情感高峰 + 1992年书信时代的思念"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+    dialogue_summary: "林秀芝读陈望秋第二封信：'北京很大，但没有你的琴声，一切都是灰色的。'独白：'最奢侈的思念。'"
+    voice_distribution: dialogue_2 + monologue_3
+    contains_golden_line: true
+    golden_line: "没有你的琴声，一切都灰了。"
+    transition_from: null
+    transition_to: audio_bridge
+    visual_continuity: "同场景，时间推移至傍晚，光线从金色变为暖红"
+
+  # ═══════════════════════════════════════
+  # SEG06 — 教育之光（Substance Zone·碎片式·惊喜→震动）
+  # ═══════════════════════════════════════
+  - segment_id: SEG06
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "数日后·下午"
+    interior_exterior: 内景
+    duration_sec: 6
+    shot_count: 1
+    shot_ids: [EP37-S10]
+    zone: Substance Zone
+    rhythm: 碎片式
+    emotion_arc: "惊喜→震动"
+    narrative_function: "事业转折点——省教育厅要推广她的教学法"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+      - char_id: "[待补：唐老师]"
+        look: "[待补：唐老师]"
+    dialogue_summary: "唐老师冲进音乐室报告省教育厅电话，林秀芝震惊：'全省？'"
+    voice_distribution: dialogue_4
+    contains_golden_line: false
+    transition_from: audio_bridge
+    transition_to: null
+    visual_continuity: "时间跳跃（数日后），同场景"
+
+  # ═══════════════════════════════════════
+  # SEG07 — 推广（Substance Zone·蓄力式·震动→恍惚）
+  # ═══════════════════════════════════════
+  - segment_id: SEG07
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "数日后·傍晚"
+    interior_exterior: 内景
+    duration_sec: 9
+    shot_count: 2
+    shot_ids: [EP37-S11, EP37-S12]
+    zone: Substance Zone
+    rhythm: 蓄力式
+    emotion_arc: "震动→恍惚→不安"
+    narrative_function: "事业巅峰（全省推广）+ 独白揭示此刻心中真正所想（不是全省，是那封信）"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+    dialogue_summary: "林秀芝独白'这辈子终于做到了'，但目光落在信上：'此刻想的不是全省，是那封信。'"
+    voice_distribution: self_talk_1 + monologue_5
+    contains_golden_line: false
+    transition_from: null
+    transition_to: null
+    visual_continuity: "同场景续接，夕阳偏西"
+
+  # ═══════════════════════════════════════
+  # SEG08 — 追（Cliffhanger Zone·刺探式·紧张→崩塌）
+  # ═══════════════════════════════════════
+  - segment_id: SEG08
+    scene: SCENE-002
+    location: "清河镇小学走廊"
+    time_of_day: "傍晚"
+    interior_exterior: 内景
+    duration_sec: 10
+    shot_count: 2
+    shot_ids: [EP37-S13, EP37-S14]
+    zone: Cliffhanger Zone
+    rhythm: 刺探式
+    emotion_arc: "紧张→崩塌"
+    narrative_function: "集末钩子——陈望秋最新来信揭露女小提琴手在追他"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+    dialogue_summary: "林秀芝拆最新一封信，表情层层变化，读到'新来了一个小提琴手''在追他'"
+    voice_distribution: monologue_4
+    contains_golden_line: false
+    transition_from: null
+    transition_to: null
+    visual_continuity: "同场景续接，走廊夕阳半明半暗"
+
+  # ═══════════════════════════════════════
+  # SEG09 — 信任（Cliffhanger Zone·碎片式·崩塌→克制）
+  # ═══════════════════════════════════════
+  - segment_id: SEG09
+    scene: SCENE-002
+    location: "清河镇小学音乐室"
+    time_of_day: "傍晚→黄昏"
+    interior_exterior: 内景
+    duration_sec: 11
+    shot_count: 2
+    shot_ids: [EP37-S15, EP37-S16]
+    zone: Cliffhanger Zone
+    rhythm: 碎片式
+    emotion_arc: "崩塌→克制→释然"
+    narrative_function: "集末收束——林秀芝选择不写回信，用钢琴代替千言万语，选择信任"
+    characters:
+      - char_id: CHAR-001
+        look: CHAR-001-L02
+    dialogue_summary: "林秀芝把信放在钢琴上，独白'至少他告诉了我'，然后弹即兴小调，'这辈子，我选信任。'"
+    voice_distribution: monologue_6
+    contains_golden_line: true
+    golden_line: "这辈子，我选信任。"
+    transition_from: null
+    transition_to: null
+    visual_continuity: "同场景，天色渐暗，最后仅剩窗口余光"

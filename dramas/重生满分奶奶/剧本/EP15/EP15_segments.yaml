@@ -1,0 +1,165 @@
+---
+# EP15 退还是进 — segments.yaml
+# ⭐首个付费卡点
+# Segment 数：8
+# 总时长：~88s（EP02+ 合规区间 75-100s）
+
+seedance_defaults:
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration_sec: "8-10"
+  generate_audio: true
+  prompt_suffix: "禁止画面中出现任何文字或字幕。年代质感写实风格，温暖金色色调，胶片颗粒感，情绪肖像摄影。"
+  negative_prompt: "smartphones, laptops, LED screens, modern cars, plastic furniture, contemporary fashion, flat-screen TVs, digital cameras, modern signage with English text, anime style, cartoon, 3D render, unrealistic proportions, fantasy elements, sci-fi elements"
+
+reference_images:
+  looks:
+    CHAR-001-L01: "https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782486210435c9a2a2bfec8b82a34b9075d10d5d2c5e7d5b02_0.jpeg"
+    CHAR-002-L01: "https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782486257655c9a2a2bfec8b82a34b9075d10d5d2c5eccb1fb_0.jpeg"
+    CHAR-003-L01: "https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/0217824862900586c6143abc371ddf801f23c2797c48bf4c57df5_0.jpeg"
+  scenes:
+    SCENE-011: "https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/02178248893444046d1ea52072bfcd170e4d89d8537442860404d_0.jpeg"
+    # SCENE-014: 待 scene-designer 生成（省城街头）
+    # SCENE-015: 待 scene-designer 生成（省城廉价旅馆）
+
+segments:
+
+  - segment_id: SEG01
+    title: "成绩公布的冲击"
+    narrative_function: Hook Zone — 阻止划走，核心矛盾一击到位（笔试第一+钢琴倒数）
+    scene: SCENE-011
+    location: 音乐学院走廊
+    time_of_day: 日·上午
+    interior_exterior: 内景
+    transition_from_previous: "hard_cut（从EP14末汽水温暖直接切入成绩冲击）"
+    duration_sec: 11
+    shots: [EP15-S01, EP15-S02]
+    shot_count: 2
+    dialogue_lines: 3
+    speaking_characters: [CHAR-001]
+    rhythm: "碎片式（短句冲击）"
+    emotion_arc: "震惊→崩裂"
+    notes: "金句「六十年的脑子，配二十年的手」。Seedance安全：静态站立+面部微表情。"
+
+  - segment_id: SEG02
+    title: "综合过线与陈望秋的回应"
+    narrative_function: Hook Zone 收尾 — 微松但悬念未解（过线≠够格）
+    scene: SCENE-011
+    location: 音乐学院走廊
+    time_of_day: 日·上午
+    interior_exterior: 内景
+    transition_from_previous: "hard_cut（同场景续接）"
+    duration_sec: 10
+    shots: [EP15-S03]
+    shot_count: 1
+    dialogue_lines: 5
+    speaking_characters: [CHAR-001, CHAR-002]
+    rhythm: "刺探式（短-短-短-短-短·五句递进）"
+    emotion_arc: "崩裂→微松"
+    notes: "陈望秋不安慰只陈述事实——他的温柔方式。"
+
+  - segment_id: SEG03
+    title: "赵建国出现"
+    narrative_function: Substance Zone 开端 — 外部压力切入（退路具象化）
+    scene: SCENE-014
+    location: 省城街头
+    time_of_day: 日·正午
+    interior_exterior: 外景
+    transition_from_previous: "audio_bridge（街上自行车铃声和嘈杂人声先行切入）"
+    duration_sec: 6
+    shots: [EP15-S04]
+    shot_count: 1
+    dialogue_lines: 2
+    speaking_characters: [CHAR-003, CHAR-001]
+    rhythm: "碎片式（两句话，一来一往）"
+    emotion_arc: "平静→意外冲击"
+    notes: "赵建国的中山装='最好的衣服'，无声表达诚意。6s单镜头，信息密度通过赵建国的装扮和环境承载。"
+
+  - segment_id: SEG04
+    title: "退路的诱惑与抵抗"
+    narrative_function: Substance Zone 核心 — 退路与前路的正面碰撞
+    scene: SCENE-014
+    location: 省城街头
+    time_of_day: 日·正午
+    interior_exterior: 外景
+    transition_from_previous: "hard_cut（同场景续接）"
+    duration_sec: 10
+    shots: [EP15-S05]
+    shot_count: 1
+    dialogue_lines: 6
+    speaking_characters: [CHAR-003, CHAR-001]
+    rhythm: "蓄力式（长铺垫-长铺垫-短爆发·赵建国语无伦次暴露真诚）"
+    emotion_arc: "意外→隐忍→撕裂"
+    notes: "赵建国的烧饼=笨拙的关心。'条件我都有'是他的标志台词。林秀芝'微微后退'=身体已在做选择。"
+
+  - segment_id: SEG05
+    title: "陈望秋出现·三方对峙"
+    narrative_function: Substance Zone 高潮 — 两个男人+一个选择，张力最大化
+    scene: SCENE-014
+    location: 省城街头
+    time_of_day: 日·正午
+    interior_exterior: 外景
+    transition_from_previous: "hard_cut（同场景续接）"
+    duration_sec: 9
+    shots: [EP15-S06]
+    shot_count: 1
+    dialogue_lines: 5
+    speaking_characters: [CHAR-003, CHAR-002, CHAR-001]
+    rhythm: "权力翻转（赵建国施压→林秀芝主动截断）"
+    emotion_arc: "紧张→选择浮现"
+    notes: "陈望秋'身后三步远'=不靠近也不远离，尊重但不退缩。林秀芝'我自己会跟他说'=第一次主动选择。"
+
+  - segment_id: SEG06
+    title: "旅馆房间·镜子前"
+    narrative_function: Cliffhanger Zone 开端 — 独处中面对真实的自己
+    scene: SCENE-015
+    location: 省城廉价旅馆
+    time_of_day: 夜
+    interior_exterior: 内景
+    transition_from_previous: "dissolve（街头→旅馆，时间跳跃：正午→夜晚）"
+    duration_sec: 11
+    shots: [EP15-S07, EP15-S08]
+    shot_count: 2
+    dialogue_lines: 3
+    speaking_characters: [CHAR-001]
+    rhythm: "独白递进（退路幻想→自我质疑→自我确认）"
+    emotion_arc: "崩溃→觉醒"
+    notes: "汽水瓶（PROP-007）在桌上=EP14的延续。手部特写模拟弹琴指法=Seedance安全静态动作。"
+
+  - segment_id: SEG07
+    title: "镜中对视·前世回响"
+    narrative_function: Cliffhanger Zone 核心 — 前世60岁的遗言兑现（⭐付费卡点高光）
+    scene: SCENE-015
+    location: 省城廉价旅馆
+    time_of_day: 夜
+    interior_exterior: 内景
+    transition_from_previous: "hard_cut（同场景续接）"
+    duration_sec: 12
+    shots: [EP15-S09, EP15-S10]
+    shot_count: 2
+    dialogue_lines: 3
+    speaking_characters: [CHAR-001]
+    rhythm: "独白递进（回忆引出→觉醒确认→坚定宣言）"
+    emotion_arc: "冲击→坚定"
+    notes: "金句「如果再来一次……我一定不会放弃」。锈斑镜子=1988省城底层质感。镜中特写眼神变化=60岁灵魂浮现。"
+
+  - segment_id: SEG08
+    title: "攥拳·窗外琴声"
+    narrative_function: Cliffhanger Zone 收束 — 双钩锁定（H-EMO+H-CRI），驱动付费
+    scene: SCENE-015
+    location: 省城廉价旅馆
+    time_of_day: 夜
+    interior_exterior: 内景
+    transition_from_previous: "hard_cut（同场景续接）"
+    duration_sec: 11
+    shots: [EP15-S11, EP15-S12]
+    shot_count: 2
+    dialogue_lines: 2
+    speaking_characters: [CHAR-001, CHAR-002]
+    rhythm: "碎片式（攥拳=无声力量→琴声=无声陪伴）"
+    emotion_arc: "坚定→温暖→悬念"
+    is_cliffhanger: true
+    hook_type: "H-EMO + H-CRI"
+    hook_description: "她攥紧了拳头——这双手败过一次，这次不会再败。但技术差距是座山，她能翻过去吗？窗外小提琴声传来，他没有说'我陪你'，但每个音符都是这句话。"
+    notes: "金句「这双手，败过一次。这次——不会再败。」手部ECU=静态攥拳（Seedance安全）。窗外陈望秋用月光剪影处理（不拍摄精细运弓）。小提琴声贯穿到黑场。"
