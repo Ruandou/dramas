@@ -1,0 +1,282 @@
+episode_id: EP21
+source_md: 剧本/EP21/EP21_十月·离别.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。年代情感双时间线微短剧，写实风格。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。年代情感双时间线微短剧，写实风格。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated"
+
+voice_prompts:
+  旁白: "成年女性，28岁，声线清亮但带情感厚度，语速比日常稍慢，像在日记旁写下内心独白，温柔中带感慨"
+  CHAR-001: "成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意"
+  CHAR-002: "成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热"
+  CHAR-007: "成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽"
+  CHAR-009: "成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻"
+
+segments:
+  - segment_id: EP21-SEG01
+    shot_ids: [EP21-S01, EP21-S02]
+    duration_sec: 10
+    speakers: [旁白, CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+        CHAR-GRP-02-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-02-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-006.png
+    api:
+      text: |
+        【图1】陈玉淑 CHAR-001-L01（浅蓝棉布工厂立领工装，齐耳短发）【图2】顾福 CHAR-002-L01（白色棉质长袖衬衫，黑框眼镜，军绿色帆布背包）【图3】CHAR-GRP-02-L01（火车站乘客群演）【图4】火车站月台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：午后阳光斜照的1978年县城火车站月台，绿色蒸汽火车停在铁轨旁冒着白烟。月台挤满送行人群——提编织袋的农民、穿中山装的干部。图2身旁放着旧皮箱，图1站在对面，两人相隔不到一臂距离，像隔着整个世界。
+        镜头2（5秒）特写 固定：图1脸部特写，阳光从侧面打在齐耳短发上，发丝在风中微微飘动。嘴唇紧抿，眼睛直视前方不看图2。黑色车身上映着图1的倒影——浅蓝工装年轻女孩，脖子上没有围巾。手垂在身侧，指尖微微发抖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（旁白，成年女性，28岁，声线清亮但带情感厚度，语速比日常稍慢，像在日记旁写下内心独白，温柔中带感慨）：「1978年10月。他在纺织厂实习的最后一天。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「路上……带吃的了吗？」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「带了。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「嗯。」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，vintage 1970s China，warm golden film grain，soft focus，nostalgic atmosphere，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG02
+    shot_ids: [EP21-S03, EP21-S04]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-006.png
+    api:
+      text: |
+        【图1】顾福 CHAR-002-L01（白色棉质长袖衬衫，黑框眼镜）【图2】陈玉淑 CHAR-001-L01（浅蓝棉布工厂立领工装，齐耳短发）【图3】火车站月台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1脸部近景。低头看着图2，嘴唇动了动又闭上。镜片后面的眼睛微微泛红。伸出手又缩回去，攥紧帆布包背带。月台广播响起检票通知，嘈杂人声从四面八方涌来。
+        镜头2（5秒）中景 固定：两人面对面站着。周围人群涌向检票口，脚步声、喊叫声、孩子哭闹声交织。图1终于开口，声音很小几乎被淹没。图2抬起头看图1。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「淑……到了北京我就给你写信。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「嗯。」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「你……也要回。」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「淑……你要好好的。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「嗯。你……别惦记我。」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「我说真的——你别等我。该吃吃，该睡睡。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「知道了。」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，vintage 1970s China，warm golden film grain，soft focus，nostalgic atmosphere，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG03
+    shot_ids: [EP21-S05, EP21-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-006.png
+    api:
+      text: |
+        【图1】顾福 CHAR-002-L01（白色棉质长袖衬衫，黑框眼镜，军绿色帆布背包）【图2】陈玉淑 CHAR-001-L01（浅蓝棉布工厂立领工装，齐耳短发）【图3】火车站月台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1已在火车车厢内，挤过走道里的人群找到靠窗座位，帆布包放在膝盖上，转头望向窗外在密集送别人群中搜索她的身影。车窗玻璃沾着灰尘和水汽，用手掌擦出一块清晰区域。
+        镜头2（5秒）近景 固定：图2站在月台上，仰头看车窗。找到了他——隔着一层玻璃隔着所有人的头顶。嘴唇颤抖，眼眶红了。努力仰着嘴角想给一个笑容但笑不出来。风把短发吹到脸上，没有去拨开。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「淑——我在这！」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「她听不到……人太多了。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「顾福——」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「……我等你。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「他看到我哭会走不掉的。忍住。」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，vintage 1970s China，warm golden film grain，soft focus，nostalgic atmosphere，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG04
+    shot_ids: [EP21-S07, EP21-S08]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-006.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-003.png
+    api:
+      text: |
+        【图1】顾福 CHAR-002-L01（白色棉质长袖衬衫）【图2】陈玉淑 CHAR-001-L01（浅蓝棉布工厂立领工装）【图3】火车站月台 SCENE-006【图4】红围巾 PROP-003（酒红色手工编织毛线围巾，约150cm长）。
+        角色分工：仅图1可手持红围巾递出窗外；图2在月台上伸手抓取。
+        道具：酒红色手工编织毛线围巾（PROP-003），图1从帆布包中掏出，一端从车窗伸出。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1的手特写——从帆布包里掏出一条酒红色毛线围巾。把围巾一端从车窗伸出去，在风中摆动。手在发抖。围巾的红色在灰蒙蒙月台上格外刺眼，像一面小小的旗子。
+        镜头2（5秒）中景 固定：图2看到红围巾从窗口垂下来。眼睛一瞬间亮了然后又暗了。伸出手去够，够不到。踮起脚再够——手指碰到围巾的流苏。一把抓住紧紧攥在手里。汽笛响了——一声长长的撕裂空气的长鸣。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「淑——这个你拿着！」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「替我……陪着你！」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「……等你回来拿。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「一定回来拿。」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，vintage 1970s China，warm golden film grain，soft focus，nostalgic atmosphere，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+        - { file: PROP-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG05
+    shot_ids: [EP21-S09, EP21-S10]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-006.png
+    api:
+      text: |
+        【图1】陈玉淑 CHAR-001-L01（浅蓝棉布工厂立领工装，齐耳短发）【图2】顾福 CHAR-002-L01（白色棉质长袖衬衫，黑框眼镜）【图3】火车站月台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中全景 跟随：火车开始缓慢移动，车轮碾过铁轨发出沉重金属声。图1突然迈开步子——在月台上跑起来。浅蓝工装在奔跑中飘起，布鞋踩在水泥月台上发出急促声响。红围巾攥在手里，流苏在身后飘荡。送行人群在身边模糊成背景。
+        镜头2（5秒）特写 固定：车窗内，图2的脸部特写。趴在车窗上，额头贴着玻璃，看着窗外那个奔跑的身影。玻璃上灰尘和水汽模糊了视线，用手背狠狠擦了一下眼睛——不是擦玻璃是擦眼泪。火车越开越快，窗外月台在加速后退。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「顾福——！」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「你听到了吗——！」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「别跑了……别跑了……」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「等我——！」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，vintage 1970s China，warm golden film grain，soft focus，nostalgic atmosphere，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG06
+    shot_ids: [EP21-S11]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-006.png
+    api:
+      text: |
+        【图1】陈玉淑 CHAR-001-L01（浅蓝棉布工厂立领工装，齐耳短发）【图2】火车站月台 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 缓推：月台已经空了。送行的人走光了，只剩几个搬运工在远处搬运行李。图1一个人站在铁轨旁，面朝火车远去的方向。夕阳把影子拉得很长。手里紧紧攥着红围巾，指节发白。铁轨延伸到远方，在夕阳下变成两条金色的线。风吹过空荡荡月台，卷起几片枯叶。一动不动地站着，像一尊雕像。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「他说会来接我。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「……等你。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「多久都等。」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，vintage 1970s China，warm golden film grain，soft focus，nostalgic atmosphere，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP21-SEG07
+    shot_ids: [EP21-S12, EP21-S13]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-001.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣，黑色长直发）【图2】念溪公寓 SCENE-010【图3】奶奶日记本 PROP-001（1978年手写日记，褪色藏蓝棉布封面）。
+        道具：奶奶日记本（PROP-001），摊开在书桌上，台灯照亮泛黄纸页。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1坐在书桌前，台灯照亮摊开的日记本。脸上还有泪痕——刚刚读完了站台离别那几页。手机放在桌上屏幕亮着显示正在通话。指尖按在日记本纸页上，指尖微微泛白。
+        镜头2（5秒）特写 固定：图1脸部特写。低头看着日记本上的字迹——写到这里字迹变得潦草了，几个字被水渍模糊，分不清是泪还是茶。深吸一口气，用手背擦了一下眼角。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「晏可……他把红围巾从窗口递出来了。」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「……然后呢？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「她追着火车跑。一直跑到月台尽头。」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「念溪，你还好吗？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「我没事。就是……」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「她后来站那了。站到天黑。一个人。」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「……」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，modern urban China 2026，cinematic realism，cool-warm contrast lighting，shallow depth of field，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG08
+    shot_ids: [EP21-S14]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-001.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣，黑色长直发）【图2】念溪公寓 SCENE-010【图3】奶奶日记本 PROP-001（1978年手写日记，褪色藏蓝棉布封面）。
+        道具：奶奶日记本（PROP-001），翻开的页面特写。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）大特写 缓推：日记本页面特写。左边一页写着奶奶的字——只有两行，墨水比之前淡了很多像是用尽了力气写的：「他走了。我在站台站到天黑。」笔画歪斜，最后一个"黑"字的钩没有收住拖出一道长长墨痕。图1的手指翻到右边一页——空白。再翻——空白。连续翻了好几页全部空白。直到二十几页之后才有新字迹出现，日期跳到十一月下旬。手指停在空白页上，指尖在泛黄纸面上轻轻摩挲。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「一个月……整整一个月。她一个字都写不出来。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「这一个月……她在想什么？她在等什么？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「晏可。」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「我在。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「我要去他老家。不管他在哪——我替奶奶找到他。」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，modern urban China 2026，cinematic realism，cool-warm contrast lighting，shallow depth of field，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }

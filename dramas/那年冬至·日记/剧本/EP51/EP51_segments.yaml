@@ -1,0 +1,245 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP51/EP51_顾福的眼泪.md
+# Source shots: 14 (EP51-S01 to EP51-S14)
+# Output shots: 14 (EP51-S01 to EP51-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 96s
+# Output total duration: 96s
+# Gate status: ALL PASS
+# Segments: 7 (EP51-SEG01 to EP51-SEG07)
+# Note: CHAR-002-L02 not in looks/cdn_urls.json — local path used with WARNING
+# Note: S01 is t2v mode (no character reference images)
+# Note: S05 introduces PROP-001 (diary) — prop reference image included
+
+episode_id: EP51
+source_md: 剧本/EP51/EP51_顾福的眼泪.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters"
+
+voice_prompts:
+  CHAR-002: "老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量"
+  CHAR-007: "成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽"
+  CHAR-009: "成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻"
+
+segments:
+  - segment_id: EP51-SEG01
+    shot_ids: [EP51-S01, EP51-S02]
+    duration_sec: 12
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: |
+        【图1】CHAR-002-L02（顾福老年，深色大衣，红围巾叠整齐放在口袋里露出一角）【图2】SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景 固定：冬日墓地，灰色天空，枯黄草地，整齐排列的墓碑，人群散去后只剩下几个人，白菊花散落在新墓碑前，远处的树光秃秃的，寒风吹过。
+        镜头2（6秒）中全景 缓推：图1独自站在墓地最后一排，距离新墓碑几十米远，双手垂在身侧背微微驼着，他没有走近。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑……我来了。但我不配站在前面。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-015, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP51-SEG02
+    shot_ids: [EP51-S03, EP51-S04]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-009, CHAR-002]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: |
+        【图1】CHAR-007-L01（念溪日常，黑色大衣）【图2】CHAR-009-L01（晏可日常）【图3】CHAR-002-L02（顾福老年）【图4】SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1和图2站在墓碑旁，图1回头看到远处的图3，她的眼圈红了。
+        镜头2（6秒）近景 镜头跟随：图1穿过空旷的草地走向最后一排的图3，风吹起她的长发和黑色大衣衣角。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「顾爷爷一直没过来。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「他觉得自己是外人。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「我去叫他。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「顾爷爷。」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「念溪……你去吧。我在这儿就好。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「奶奶不会希望您站这么远的。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图3 }
+        - { file: SCENE-015, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP51-SEG03
+    shot_ids: [EP51-S05, EP51-S06]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-002]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-001.png
+    api:
+      text: |
+        【图1】CHAR-007-L01（念溪日常）【图2】CHAR-002-L02（顾福老年）【图3】SCENE-015【图4】PROP-001（泛黄日记本，牛皮封面，磨损边角）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1从包里取出一本泛黄的日记本双手捧着。
+        镜头2（6秒）特写 缓推：图2的脸，听到日记两个字身体僵住了，缓缓转身看到图1手里的日记本，那本他从没见过但存在了一辈子的日记。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「顾爷爷……这是奶奶的日记。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「她写了一辈子。都是给您看的。」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「日记……她的日记？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「嗯。从1978年3月5日……写到最后一天。」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「她……还写了日记……」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-015, role: reference_image, label: 图3 }
+        - { file: PROP-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP51-SEG04
+    shot_ids: [EP51-S07, EP51-S08]
+    duration_sec: 12
+    speakers: [CHAR-002, CHAR-007]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: |
+        【图1】CHAR-007-L01（念溪日常）【图2】CHAR-002-L02（顾福老年）【图3】SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1把日记本递到图2手里，他的双手在发抖，接过日记本的瞬间整个人像被什么击中了。
+        镜头2（6秒）特写 缓推：图2低头看着手中的日记本，泛黄的封面磨损的边角，被翻了一辈子的痕迹，他用拇指轻轻抚摸封面，泪珠落在牛皮封面上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「四十八年……我不知道她写了日记。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「每一页……都有您。」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑……你把一辈子都写在了这里面。而我……一页都没看过。」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「我来晚了。又来晚了。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-015, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP51-SEG05
+    shot_ids: [EP51-S09, EP51-S10]
+    duration_sec: 12
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: |
+        【图1】CHAR-002-L02（顾福老年）【图2】SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：图1翻开日记一页一页地翻，他的手在抖，每翻一页泪水就滴落一滴，翻到中间有撕掉的页面只剩下毛边。
+        镜头2（6秒）大特写 固定：日记最后一页大特写，页面上最后一行字写着半句话后面是空白，图1的手指颤抖着摸着那行字。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「撕掉了……谁撕的？」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑……你经历了什么？」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「他说会来接我，可是……」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「可是……」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-015, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP51-SEG06
+    shot_ids: [EP51-S11, EP51-S12]
+    duration_sec: 12
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: |
+        【图1】CHAR-002-L02（顾福老年）【图2】SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：图1抬起头看着远处玉淑的墓碑，然后从口袋里掏出一支旧得发亮的钢笔，打开笔帽。
+        镜头2（6秒）大特写 固定：图1的手颤抖但坚定，在日记最后一页那句没写完的话后面写下一行字，钢笔在泛黄纸面上留下蓝色墨迹。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑……四十八年了。这句话该有人写完。」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑，我来了。——致远」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-015, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP51-SEG07
+    shot_ids: [EP51-S13, EP51-S14]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-015
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: |
+        【图1】CHAR-002-L02（顾福老年）【图2】CHAR-007-L01（念溪日常）【图3】CHAR-009-L01（晏可日常）【图4】SCENE-015。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头跟随：图1合上日记本抱在胸前，开始向前走穿过草地，一步一步走向玉淑的墓碑，风吹动他的大衣，他不再是外人了。
+        镜头2（6秒）近景 固定：图2看着图1的背影走向墓碑，泪水在脸上但她笑了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「奶奶……他来了。他终于走到你面前了。」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「四十八年。他终于走完了这段路。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-015, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut

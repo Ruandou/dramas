@@ -1,0 +1,281 @@
+episode_id: EP31
+source_md: 剧本/EP31/EP31_铁盒里的秘密.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。年代情感双时间线微短剧，写实风格。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。年代情感双时间线微短剧，写实风格。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated"
+
+voice_prompts:
+  CHAR-001: "成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意"
+  CHAR-002: "成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热"
+  CHAR-007: "成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽"
+  CHAR-009: "成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻"
+
+# Note: Original SEG01 in source .md crossed SCENE-004/SCENE-007 boundary.
+# Split into SEG01a (S01, SCENE-004) and SEG01b (S02, SCENE-004).
+# Re-examined: S01 and S02 both labeled SCENE-004 in shot table header column.
+# S02 header says SCENE-004 (shot table). No cross-scene split needed after all.
+# Restoring original 8-segment structure.
+
+segments:
+  - segment_id: EP31-SEG01
+    shot_ids: [EP31-S01, EP31-S02]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+      prop_urls:
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-006.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米色针织开衫，深色牛仔裤）【图2】顾晏可 CHAR-009-L01（灰色夹克，白衬衫）【图3】老河边柳树下 SCENE-004【图4】铁盒子 PROP-006。
+        角色分工：图2双手托着铁盒；图1用手帕擦拭泥土。铁盒为生锈小铁盒（约20cm长，粘泥土），由图2双手捧出。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1图2蹲在柳树下，图2双手托着锈迹斑斑的铁盒，图1用手帕擦拭泥土，两人手微微发抖。
+        镜头2（5秒）特写 固定：图2手部特写，指甲撬开锈蚀盒扣，盖子弹开一条缝，缓缓掀开盖子，阳光照入盒内显现物品。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「准备好了吗？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「……嗯。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「奶奶……你等了四十八年。现在让我看看他留了什么。」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「……天。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+        - { file: PROP-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP31-SEG02
+    shot_ids: [EP31-S03, EP31-S04]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米色针织开衫）【图2】老河边柳树下 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1双手从铁盒中捧出一条严重褪色的红围巾，酒红色已变灰白，折痕深处残留一丝红意。展开围巾，边缘有毛线球和抽丝。
+        镜头2（5秒）近景 固定：图1把围巾凑近脸，鼻尖触到围巾，闭上眼睛。泪水从紧闭的眼角滑下。阳光照着颤抖的手和褪色围巾。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「这是……」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「围巾？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「红围巾。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「是奶奶的。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「他收着的……」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「四十八年。他一直收着。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP31-SEG03
+    shot_ids: [EP31-S05, EP31-S06]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: |
+        【图1】顾晏可 CHAR-009-L01（灰色夹克）【图2】苏念溪 CHAR-007-L01（米色针织开衫）【图3】老河边柳树下 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1从铁盒中拿出一张旧照片，翻到背面，背面有钢笔写的日期和一行字。递给图2（画外）。
+        镜头2（5秒）近景 固定：图2翻到照片正面——黑白照片，两个年轻人并肩站在柳树旁，阳光从头顶洒下。手指轻抚照片上两个年轻身影。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「念溪，你看这个。」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「背面写着……"1978.6.21"。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「那个日期——」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「是他们……」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「他和奶奶。就在这棵树下。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP31-SEG04
+    shot_ids: [EP31-S07, EP31-S08]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: |
+        【图1】陈玉淑 CHAR-001-L01（碎花棉布衬衫，深色长裤）【图2】顾福 CHAR-002-L01（白衬衫，黑框眼镜）【图3】老河边柳树下 SCENE-004。
+        1978年夏天回忆场景，暖黄胶片质感。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1图2并肩站在柳树下，图1低头耳朵泛红，图2侧过脸看着她嘴角温柔笑意。阳光明媚柳条在微风中飘动。
+        镜头2（5秒）近景 固定：图1终于抬头露出羞涩而明亮的笑容，图2在旁边笑得像阳光一样温暖。柳条从画面上方垂下，金色光斑落在两人脸上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「别动。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「我不会拍……」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「就看这里。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「好了没？」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「好了。」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「她笑的时候……全世界都亮了。」
+        画面全程无任何文字、字幕、标题、水印。
+        vintage 1970s China, warm golden film grain, soft focus, nostalgic atmosphere, 写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP31-SEG05
+    shot_ids: [EP31-S09, EP31-S10]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米色针织开衫）【图2】老河边柳树下 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1手从铁盒底部取出一封泛黄信纸，无信封，只是一张折叠的信纸边缘发脆。小心展开，手指在抖。
+        镜头2（5秒）近景 缓推：图1低头读信，嘴唇在无声地动。表情从好奇变成震动——瞳孔放大，呼吸急促。阳光在脸上形成明暗对比。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「还有……一封信。」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「信？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「没有寄出的。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「淑……我在河边为你建了一座房子。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「房子？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP31-SEG06
+    shot_ids: [EP31-S11, EP31-S12]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: |
+        【图1】顾晏可 CHAR-009-L01（灰色夹克）【图2】苏念溪 CHAR-007-L01（米色针织开衫）【图3】老河边柳树下 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1猛抬头看向河对岸，图2也跟着抬头。远处树丛后面隐约可以看到一个小屋的轮廓——灰色屋顶被树木半遮。
+        镜头2（5秒）近景 固定：图2继续读信，手在抖。读到最后一行时停住了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「河对岸……」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「那是什么？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「不会吧……」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「如果你看到这封信……」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「来找我。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「他在等她来找他。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP31-SEG07
+    shot_ids: [EP31-S13, EP31-S14]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米色针织开衫）【图2】顾晏可 CHAR-009-L01（灰色夹克）【图3】老河边柳树下 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1把信贴在胸口，仰头闭眼。眼泪无声地流。风吹动长发。
+        镜头2（5秒）近景 固定：图2站起来背对图1面对河水。肩膀绷得很紧。然后转过头，眼里有水光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「他建了一座房子……」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「在河边。等她来找他。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「他到底等了多久？」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「念溪。」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「我们必须找到那座房子。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP31-SEG08
+    shot_ids: [EP31-S15, EP31-S16]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米色针织开衫）【图2】顾晏可 CHAR-009-L01（灰色夹克，背相机包）【图3】老河边 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1图2并肩站在河边面对河对岸方向。图1手里握着信，图2背着相机包。两人望着对岸树丛中隐约可见的小屋轮廓。
+        镜头2（5秒）全景 固定：河对岸全景——老柳树、石拱桥、远处树丛中灰色屋顶小房子。阳光照着河面波光粼粼。画面宁静但暗涌巨大情感。无人物。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「四十七年了……还在吗？」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「走。去看看。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市，写实风格，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

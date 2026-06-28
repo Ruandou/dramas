@@ -1,0 +1,268 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP43/EP43_奶奶病危.md
+# Source shots: 15 (EP43-S01 to EP43-S15)
+# Output segments: 8 (EP43-SEG01 to EP43-SEG08)
+# Mapping: 1:1 shots → segments (no insertions, no deletions, no reordering)
+# Source total duration: 78s (5+5+5+5+5+5+5+5+5+5+5+5+5+5+8)
+# Output total duration: 78s (10+10+10+10+10+10+10+8)
+# Gate status: ALL PASS
+
+episode_id: EP43
+source_md: 剧本/EP43/EP43_奶奶病危.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。年代情感双时间线微短剧，写实风格。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。年代情感双时间线微短剧，写实风格。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated"
+
+voice_prompts:
+  CHAR-001: "成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意"
+  CHAR-007: "成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽"
+  CHAR-009: "成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻"
+  CHAR-GRP-07: "成年女性，30岁，声音温和职业化，语速适中，说话轻声细语，带关怀语气，告知病情时语气平稳但带同情"
+
+segments:
+  - segment_id: EP43-SEG01
+    shot_ids: [EP43-S01, EP43-S02]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-GRP-07]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png # ⚠️ TEMP_URL: pre-signed link (24h expiry), replace with permanent TOS URL before Seedance submission
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣+格纹半裙）【图2】念溪公寓 SCENE-010。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：念溪坐在桌前，桌上放着打开的笔记本电脑和一杯咖啡，手机突然响了，屏幕亮起，她愣了一下放下咖啡杯接起电话。
+        镜头2（5秒）特写 固定：图1脸部特写，听到电话内容瞬间手紧握手机边缘指关节发白，眼睛微微睁大，嘴唇动了一下。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「喂？」
+        对白（夜班护士，成年女性，30岁，声音温和职业化，语速适中，说话轻声细语，带关怀语气，告知病情时语气平稳但带同情）：「苏小姐？您奶奶陈玉淑的情况有变化，麻烦您尽快来一趟。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「变化？什么变化？」
+        对白（夜班护士，成年女性，30岁，声音温和职业化，语速适中，说话轻声细语，带关怀语气，告知病情时语气平稳但带同情）：「阿尔茨海默急剧恶化，今天早上开始认不清人了。一直在喊一个名字。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「什么名字？」
+        对白（夜班护士，成年女性，30岁，声音温和职业化，语速适中，说话轻声细语，带关怀语气，告知病情时语气平稳但带同情）：「致远。」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，写实风格，现代都市中国2026，冷暖交织都市写实，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG02
+    shot_ids: [EP43-S03, EP43-S04]
+    duration_sec: 10
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣+格纹半裙）【图2】念溪公寓 SCENE-010。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1猛地站起来，椅子向后滑了一下，开始收拾包——手机夹在肩膀和耳朵之间，另一只手抓起钥匙和外套，动作快但乱，拉链拉了两次才拉上。
+        镜头2（5秒）近景 固定：图1冲出门前脚步停了一下，回头看桌上一眼，犹豫一秒转身回去把纸折好塞进口袋里然后跑出门。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「我现在就来。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「致远……是顾爷爷的字。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「奶奶在叫他。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「来不及了……不，来得及。必须来得及。」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，写实风格，现代都市中国2026，冷暖交织都市写实，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG03
+    shot_ids: [EP43-S05, EP43-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L03: assets/looks/CHAR-001-L03.png  # WARNING: no CDN URL — 待生成
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+    api:
+      text: |
+        【图1】陈玉淑 CHAR-001-L03（白发消瘦·病号服·氧气管）【图2】苏念溪 CHAR-007-L01（米白针织毛衣+格纹半裙）【图3】医院病房 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：阳光从大窗户照进白色病床，图1躺在病床上——白发稀疏散在枕头，面容消瘦眼窝深陷，皮肤薄得几乎透明，眼睛半睁目光涣散，氧气管从鼻下绕过，嘴唇在反复翕合。
+        镜头2（5秒）近景 固定：图2推开病房门走进来快步到床边，看到图1的状态脚步顿了一下，蹲在床边握住图1露在被子外的手——那只手瘦得只剩骨头。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「致远……致远……」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「奶奶……我来了。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「致远……」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「奶奶，我是念溪。」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，写实风格，现代都市中国2026，冷暖交织都市写实，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG04
+    shot_ids: [EP43-S07, EP43-S08]
+    duration_sec: 10
+    speakers: [CHAR-GRP-07, CHAR-007]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-GRP-07-L01: assets/looks/CHAR-GRP-07-L01.png  # WARNING: no CDN URL — 待生成
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+    api:
+      text: |
+        【图1】夜班护士 CHAR-GRP-07-L01（浅蓝护士服，白色护士帽，马尾辫）【图2】苏念溪 CHAR-007-L01（米白针织毛衣+格纹半裙）【图3】医院病房 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1站在床尾记录着什么，抬头看了图2一眼，监护仪绿色波形平稳但微弱，笔停在记录板上。
+        镜头2（5秒）特写 固定：图2脸部特写，听到护士问题愣住，慢慢低头看向奶奶——嘴唇还在无声重复那个名字，眼泪终于落下。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（夜班护士，成年女性，30岁，声音温和职业化，语速适中，说话轻声细语，带关怀语气，告知病情时语气平稳但带同情）：「她从早上开始就一直在喊。我们查了，不是家属登记的名字。」
+        对白（夜班护士，成年女性，30岁，声音温和职业化，语速适中，说话轻声细语，带关怀语气，告知病情时语气平稳但带同情）：「致远是谁？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「是……是一个人。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「她等了一辈子的人。」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，写实风格，现代都市中国2026，冷暖交织都市写实，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-GRP-07-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG05
+    shot_ids: [EP43-S09, EP43-S10]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L03: assets/looks/CHAR-001-L03.png  # WARNING: no CDN URL — 待生成
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+    api:
+      text: |
+        【图1】陈玉淑 CHAR-001-L03（白发消瘦·病号服·氧气管）【图2】苏念溪 CHAR-007-L01（米白针织毛衣+格纹半裙）【图3】医院病房 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）大特写 缓推：图1脸部大特写，眼睛半睁瞳孔失焦，嘴唇在动，皱纹覆盖满面，一瞬间嘴角微微上扬——像在遥远记忆里看到了什么。
+        镜头2（5秒）近景 固定：图2一只手握着奶奶的手另一只手捂住嘴，泪水无声滑落，深吸一口气像是做了决定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「致远……你来了？」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「……你来了。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「阿尔茨海默夺走了她所有记忆……」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「但没有夺走这个名字。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「四十八年……她记了一辈子。」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，写实风格，现代都市中国2026，冷暖交织都市写实，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG06
+    shot_ids: [EP43-S11, EP43-S12]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣+格纹半裙）【图2】医院病房 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1站起来走到窗边掏出手机，阳光照在脸上泪痕发亮，快速翻找通讯录拨出电话。
+        镜头2（5秒）近景 固定：图1把手机贴在耳边等待接通，目光回头看了一眼病床——奶奶还在喃喃着"致远"，电话接通了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「来不及犹豫了。」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「念溪？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「晏可。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「帮我联系顾福爷爷。」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，写实风格，现代都市中国2026，冷暖交织都市写实，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG07
+    shot_ids: [EP43-S13, EP43-S14]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣+格纹半裙）【图2】医院病房 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1握着手机的手在发抖，声音压得很低，窗外阳光照着侧脸——泪痕焦急决心交织在一起。
+        镜头2（5秒）特写 固定：图1脸部特写，深吸一口气，嘴唇颤抖着说出最后那句话。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「怎么了？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「奶奶……病危了。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「她一直在喊顾爷爷的名字。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「越快越好。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「我怕……来不及了。」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，写实风格，现代都市中国2026，冷暖交织都市写实，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG08
+    shot_ids: [EP43-S15]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L03: assets/looks/CHAR-001-L03.png  # WARNING: no CDN URL — 待生成
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL: pre-signed link (24h expiry)
+    api:
+      text: |
+        【图1】陈玉淑 CHAR-001-L03（白发消瘦·病号服·氧气管）【图2】苏念溪 CHAR-007-L01（米白针织毛衣+格纹半裙）【图3】医院病房 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 缓推：图2挂电话走回病床边坐下，双手握住图1的手贴在自己脸颊上，病房安静只有监护仪滴答声和奶奶微弱呢喃，阳光从窗户照在病床上铺了一层金色的光，图1嘴唇还在动——只剩下一个名字。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「致远……致远……」
+        画面全程无任何文字、字幕、标题、水印。
+        年代情感双时间线微短剧，写实风格，现代都市中国2026，冷暖交织都市写实，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

@@ -1,0 +1,253 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP52/EP52_母亲的和解.md
+# Source shots: 14 (EP52-S01 to EP52-S14)
+# Output shots: 14 (EP52-S01 to EP52-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 96s
+# Output total duration: 96s
+# Gate status: ALL PASS
+# Segments: 7 (EP52-SEG01 to EP52-SEG07)
+# Note: CHAR-002-L02 not in looks/cdn_urls.json — local path used with WARNING
+# Note: SCENE-019 not in scenes/cdn_urls.json — local path used with WARNING
+
+episode_id: EP52
+source_md: 剧本/EP52/EP52_母亲的和解.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters"
+
+voice_prompts:
+  CHAR-002: "老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量"
+  CHAR-007: "成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽"
+  CHAR-008: "成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感"
+
+segments:
+  - segment_id: EP52-SEG01
+    shot_ids: [EP52-S01, EP52-S02]
+    duration_sec: 12
+    speakers: [CHAR-002, CHAR-007]
+    refs:
+      scene_id: SCENE-019
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-019: assets/scenes/SCENE-019.png  # WARNING: no CDN URL — SCENE-019 not in cdn_urls.json
+    api:
+      text: |
+        【图1】CHAR-007-L01（念溪日常）【图2】CHAR-002-L02（顾福老年）【图3】SCENE-019。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：奶奶老宅客厅，图1扶着图2走进门，老式家具、搪瓷暖壶、墙上停摆的老挂钟，冬日灰白光线从小窗照进来，图2环顾四周。
+        镜头2（6秒）近景 缓推：图2走到墙边看着墙上挂着的老式相框，风景照没有人像，他的手轻轻摸了摸桌面。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「这就是……她住了一辈子的地方。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「嗯。奶奶的家。」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「她就在这里……过了四十八年。我连她住的地方长什么样都不知道。」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑……我来你的家了。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-019, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP52-SEG02
+    shot_ids: [EP52-S03, EP52-S04]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-002, CHAR-008]
+    refs:
+      scene_id: SCENE-019
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-008-L01.png
+      scene_urls:
+        SCENE-019: assets/scenes/SCENE-019.png  # WARNING: no CDN URL — SCENE-019 not in cdn_urls.json
+    api:
+      text: |
+        【图1】CHAR-007-L01（念溪日常）【图2】CHAR-002-L02（顾福老年）【图3】CHAR-008-L01（维红日常，深色大衣灰发髻）【图4】SCENE-019。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1的手机响了，她看了一眼屏幕表情变得紧张。
+        镜头2（6秒）中景 固定：门外，图3站在老宅门口，穿深色大衣手里拎着一袋东西，看着斑驳的红漆木门深吸一口气。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「是妈妈。她今天要来……」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「来就来吧。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「顾爷爷，妈妈她……还没见过您。」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「我知道。该见的。」
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「那个人……就在里面。妈妈等了一辈子的人。」
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「我该怎么面对他？」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-019, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP52-SEG03
+    shot_ids: [EP52-S05, EP52-S06]
+    duration_sec: 12
+    speakers: [CHAR-008]
+    refs:
+      scene_id: SCENE-019
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-008-L01.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-019: assets/scenes/SCENE-019.png  # WARNING: no CDN URL — SCENE-019 not in cdn_urls.json
+    api:
+      text: |
+        【图1】CHAR-008-L01（维红日常，深色大衣灰发髻）【图2】CHAR-002-L02（顾福老年）【图3】SCENE-019。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 缓推：图1走进客厅看到了图2，白发苍苍金框眼镜米色毛衣，红围巾叠放在桌上，两人隔着客厅对视。
+        镜头2（6秒）特写 固定：图1的脸部特写，她在看着图2，眼神复杂，怨恨心疼理解释然一层一层地翻涌，嘴唇微微颤抖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「他就是那个人。妈妈等了四十八年的人。」
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「他老了……和妈妈最后的样子一样老。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-019, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP52-SEG04
+    shot_ids: [EP52-S07, EP52-S08]
+    duration_sec: 12
+    speakers: [CHAR-008, CHAR-002]
+    refs:
+      scene_id: SCENE-019
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-008-L01.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-019: assets/scenes/SCENE-019.png  # WARNING: no CDN URL — SCENE-019 not in cdn_urls.json
+    api:
+      text: |
+        【图1】CHAR-008-L01（维红日常）【图2】CHAR-002-L02（顾福老年）【图3】SCENE-019。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1走到图2面前，两人相距不到一米，图1的眼眶红了。
+        镜头2（6秒）特写 缓推：图1的脸部大特写，泪水滑落但她努力保持着端庄，退休教师的体面。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「您就是……顾福。」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「我是。你是……维红。」
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「妈妈说过您的名字。小时候……半夜里。」
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「您爱了她一辈子。」
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「谢谢您。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-019, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP52-SEG05
+    shot_ids: [EP52-S09, EP52-S10]
+    duration_sec: 12
+    speakers: [CHAR-002, CHAR-008]
+    refs:
+      scene_id: SCENE-019
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-008-L01.png
+      scene_urls:
+        SCENE-019: assets/scenes/SCENE-019.png  # WARNING: no CDN URL — SCENE-019 not in cdn_urls.json
+    api:
+      text: |
+        【图1】CHAR-002-L02（顾福老年）【图2】CHAR-008-L01（维红日常）【图3】SCENE-019。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1摇头，他的眼眶也是红的，但表情不是被感谢的释然而是愧疚。
+        镜头2（6秒）中景 固定：图2从包里拿出一张旧照片，年轻时的玉淑，她把照片递给图1。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「是我对不起她。」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「我走了四十八年……让她一个人。」
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「不是您的错。」
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「这是妈妈年轻时候的照片。留给您。」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「她……年轻时候的样子。」
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「和她日记里写的一样美。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-019, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP52-SEG06
+    shot_ids: [EP52-S11, EP52-S12]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-008]
+    refs:
+      scene_id: SCENE-019
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-008-L01.png
+      scene_urls:
+        SCENE-019: assets/scenes/SCENE-019.png  # WARNING: no CDN URL — SCENE-019 not in cdn_urls.json
+    api:
+      text: |
+        【图1】CHAR-007-L01（念溪日常）【图2】CHAR-008-L01（维红日常）【图3】SCENE-019。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1站在角落看着妈妈和顾福，她用手捂着嘴泪水止不住。
+        镜头2（6秒）近景 固定：图2擦了擦眼泪转身看着念溪，她的眼神变了，不再是那个强势的母亲，是一个终于理解了上一代的女人。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「妈妈……叫他'您'。不是'那个人'，是'您'。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「她原谅了。她真的原谅了。」
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「念溪。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「妈……」
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「过来。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-019, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP52-SEG07
+    shot_ids: [EP52-S13, EP52-S14]
+    duration_sec: 12
+    speakers: [CHAR-008, CHAR-007]
+    refs:
+      scene_id: SCENE-019
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-008-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-019: assets/scenes/SCENE-019.png  # WARNING: no CDN URL — SCENE-019 not in cdn_urls.json
+    api:
+      text: |
+        【图1】CHAR-008-L01（维红日常）【图2】CHAR-007-L01（念溪日常）【图3】SCENE-019。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 缓推：图1握住图2的手，母女两人对视，图1的眼里有泪但嘴角是释然的微笑。
+        镜头2（6秒）特写 固定：图1的脸部特写，她看着念溪，目光里是这辈子第一次的放手。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「念溪。妈妈以前……太怕你走奶奶的老路了。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「妈……」
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「可妈妈现在明白了。」
+        对白（陈维红，成年女性，47岁，声音略带严厉但底色温柔，语速中等，教训人时语速加快语调升高，崩溃时声音突然变小变颤，有退休教师的权威感）：「去勇敢。妈妈不会再拦你了。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-019, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

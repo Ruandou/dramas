@@ -1,0 +1,412 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP07/EP07_六月·发现.md
+# Source shots declared: 12 (metadata) | Actual rows: 13 (S01–S13)
+# Output shots: 13 (S01–S13)
+# Mapping: 1:1 for all 13 rows (no insertions, no deletions, no reordering)
+# ⚠️ Gate 2 NOTE: Source metadata declares "Seedance 有效镜数: 12" but shot table has 13 rows.
+#   Likely a metadata labeling error by scene-writer. All 13 shots are structurally complete.
+# Source total duration (self-calculated): 8+5+6+5+5+10+5+5+6+6+10+5+6 = 82s
+# Output total duration: 82s
+# Gate 1: PASS (82s within 75–120s for EP02+)
+# Gate 2: ⚠️ DECLARED vs ACTUAL mismatch (12 vs 13) — proceeding, flagged
+# Gate 3: PASS (all asset IDs consistent)
+# Gate 4: PASS (all voice_prompts sourced from 声音卡片.md)
+
+episode_id: EP07
+source_md: 剧本/EP07/EP07_六月·发现.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。年代情感剧。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, modern electronics in 1978 scenes, smartphones, LED lights"
+
+shots:
+  - shot_id: EP07-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-001.png
+    api:
+      text: "【图1】CHAR-007-L01（米白毛衣）【图2】SCENE-010【图3】PROP-001。近景 缓推：深夜公寓暖色台灯，图1侧坐桌前翻日记本六月部分，眉头微蹙，右手撑下巴，目光快速扫动。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "六月……跟五月完全不一样了。"
+      - speaker: CHAR-007
+        line: "五月的日记又甜又密，六月突然变短。好几页只有日期，没有内容。"
+      - speaker: CHAR-007
+        line: "六月，到底发生了什么？"
+    transition_to_next: dissolve
+
+  - shot_id: EP07-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-002-L01（白衬衫卷袖口）【图2】CHAR-001-L01（浅蓝工装）【图3】SCENE-004。中景 固定：1978年六月傍晚柳树下，图1图2并肩坐在河堤上，手指轻碰，燕子掠过水面。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "淑，燕子。你看见了吗？"
+      - speaker: CHAR-001
+        line: "嗯。飞得好低。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-002-L01（白衬衫黑框眼镜）【图2】CHAR-001-L01（浅蓝工装齐耳短发）【图3】SCENE-004。近景 固定：夕阳逆光侧脸特写，图1转头看图2，图2仰头看天空燕子，嘴角浅笑。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "等我走了，你想我的时候就看燕子。"
+      - speaker: CHAR-001
+        line: "你要走？"
+      - speaker: CHAR-002
+        line: "不是现在……我说的是以后。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-004-L01（浅蓝工装双麻花辫）【图2】CHAR-001-L01（浅蓝工装）【图3】CHAR-002-L01（白衬衫）【图4】SCENE-004。中景 固定：图1从柳树后小路拐出，看见图2图3手搭在一起，三人同时顿住，夕阳把三个人影拉长。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "淑姐……你、你们——"
+      - speaker: CHAR-001
+        line: "小云！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01（浅蓝工装齐耳短发）【图2】CHAR-004-L01（浅蓝工装双麻花辫）【图3】SCENE-004。近景 固定：图1脸近景，绯红从耳根蔓延到脖子，手背在身后绞衣角；图2在画面边缘捂嘴笑。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "行啊淑姐——河边都来了？"
+      - speaker: CHAR-001
+        line: "不是你想的那样……"
+      - speaker: CHAR-004
+        line: "哪样？我什么都没想啊。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-GRP-01-L01
+    assets:
+      look_urls:
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-002.png
+    api:
+      text: "【图1】CHAR-GRP-01-L01（浅蓝工装双麻花辫）【图2】SCENE-002。中景 固定：纺织厂车间午后暖黄钨丝灯，三个图1聚在停了的机台旁低声议论，棉花飞絮在光柱中飘旋，远处可见玉淑独自低头理纱线，肩膀微僵。"
+      content_roles:
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-GRP-01
+        line: "我跟你们说，河边有人看见了。"
+      - speaker: CHAR-GRP-01
+        line: "真的假的？跟那个北京来的？"
+      - speaker: CHAR-GRP-01
+        line: "嘘——别让她听见。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-GRP-01-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-006-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-002.png
+    api:
+      text: "【图1】CHAR-006-L01（深灰中山装白衬衫）【图2】CHAR-GRP-01-L01（浅蓝工装）【图3】SCENE-002。中景 固定：图1从车间门口走进来，不急不缓扫视生产线；图2女工们瞬间散开各自回机台假装忙碌，议论声消失只剩机器轰鸣。"
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-GRP-01
+        line: "——来了来了，快干活。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-006-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-002.png
+    api:
+      text: "【图1】CHAR-006-L01（深灰中山装左胸别钢笔）【图2】CHAR-002-L01（白衬衫黑框眼镜）【图3】SCENE-002。中景 固定：图1走到图2工位旁，双手背在身后，姿态端正有压迫感；图2慢慢直起身转过头，眼神带着不安。"
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "小顾，你来我办公室一趟。"
+      - speaker: CHAR-002
+        line: "好……好的，王厂长。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-006-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-002.png
+    api:
+      text: "【图1】CHAR-006-L01（深灰中山装白衬衫）【图2】CHAR-002-L01（白衬衫黑框眼镜）【图3】SCENE-002。中景 固定：车间一角小办公区，深色木桌搪瓷茶杯文件，图1坐在桌后双手交叠，姿态沉稳威严；图2站在桌前双手垂身侧，脊背微弓。"
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "小顾啊，你在厂里实习，组织上是看好你的。"
+      - speaker: CHAR-006
+        line: "但是最近……有些风言风语。"
+      - speaker: CHAR-002
+        line: "王厂长，我不太明白——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-006-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-002.png
+    api:
+      text: "【图1】CHAR-006-L01（深灰中山装）【图2】CHAR-002-L01（白衬衫黑框眼镜）【图3】SCENE-002。近景 固定：图1放下茶杯瓷杯底磕桌面一声轻响，目光直视图2；图2手指不自觉攥紧裤缝，窗外阳光照半边脸亮半边沉在阴影里。"
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "注意影响。年轻人，前途要紧。"
+      - speaker: CHAR-006
+        line: "组织上是在保护你。明白吗？"
+      - speaker: CHAR-002
+        line: "……明白了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-002.png
+    api:
+      text: "【图1】CHAR-002-L01（白衬衫黑框眼镜）【图2】CHAR-001-L01（浅蓝工装齐耳短发）【图3】SCENE-002。中景 缓推：傍晚车间下班铃响过，图1从厂长办公室方向走回来脚步沉重，眉头紧锁嘴唇抿成一条线；图2站在工位旁等他，手里攥着布包，看见他的脸笑容慢慢消失。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "给你带了饭……怎么了？"
+      - speaker: CHAR-002
+        line: "没事。"
+      - speaker: CHAR-001
+        line: "厂长跟你说什么了？"
+      - speaker: CHAR-002
+        line: "……没事，就是问问实习的事。"
+      - speaker: CHAR-001
+        line: "他在骗我。他的眼睛从来不骗人。"
+    transition_to_next: dissolve
+
+  - shot_id: EP07-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-001.png
+    api:
+      text: "【图1】CHAR-007-L01（米白毛衣）【图2】SCENE-010【图3】PROP-001。特写 缓推：图1脸部特写，台灯暖光从侧前方照亮半张脸，低头看日记本，嘴唇微颤，手指轻轻抚过六月那几行蓝黑墨水笔迹，窗外冬夜冷蓝光映在发丝边缘。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "他今天脸色很难看。厂长跟他说了什么？"
+      - speaker: CHAR-007
+        line: "他不肯告诉我。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-001.png
+    api:
+      text: "【图1】CHAR-007-L01（米白毛衣）【图2】SCENE-010【图3】PROP-001。中景 固定：图1合上日记本双手按在封面上指尖发白，抬头望窗外夜色，眼神从心疼转为坚定，拿起手机拇指快速滑动搜索小云地址。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "六月是转折点。从这个月开始，一切都变了。"
+      - speaker: CHAR-007
+        line: "小云一定知道后来发生了什么。我得去找她。"

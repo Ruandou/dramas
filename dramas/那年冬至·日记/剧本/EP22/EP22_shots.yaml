@@ -1,0 +1,430 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP22/EP22_十一月·两地书.md
+# Source shots: 15 (EP22-S01 to EP22-S15)
+# Output shots: 15 (EP22-S01 to EP22-S15)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 88s
+# Output total duration: 88s
+# Gate status: ALL PASS
+
+episode_id: EP22
+source_md: 剧本/EP22/EP22_十一月·两地书.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。年代情感双时间线微短剧，写实风格。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated"
+
+shots:
+  - shot_id: EP22-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-021
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-021: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-021.png # WARNING: SCENE-021 not in cdn_urls.json — using constructed TOS path
+    api:
+      text: "【图1】CHAR-002-L01（白衬衫，黑框眼镜）【图2】SCENE-021。近景 固定：1978年北京大学生宿舍夜晚。图1趴在书桌前，绿色灯罩台灯照亮脸庞。桌上摊着信纸、钢笔、蓝黑墨水。室友已睡，鼾声隐约可闻。窗外校园路灯橘黄色光透过纱帘。正伏在信纸上写字，写了几行又划掉重新写。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-021, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「淑，你收到我的信了吗？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-021
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-021: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-021.png # WARNING: SCENE-021 not in cdn_urls.json
+    api:
+      text: "【图1】CHAR-002-L01【图2】SCENE-021。特写 固定：笔尖特写。蓝黑色墨水在信纸上流淌——"淑，北京的银杏叶全黄了，特别好看。我给你寄一片……"停下笔，抬头看着窗外，嘴角带着微笑，但眼里有一层薄薄的水光。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-021, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「她喜欢看好看的叶子。」"
+      - speaker: CHAR-002
+        line: "「可这些信寄出去……她怎么都不回？」"
+      - speaker: CHAR-002
+        line: "「……大概她在忙吧。」"
+    transition_to_next: audio_bridge
+
+  - shot_id: EP22-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-005.png
+    api:
+      text: "【图1】CHAR-001-L01（浅蓝工装，齐耳短发）【图2】SCENE-005。近景 固定：1978年县城陈建国家。图1坐在小房间床沿上，膝盖上放着一封刚拆开的信。窗外灰蒙蒙的冬日天空。手指小心翼翼展开信纸，读着读着嘴角微微上扬但随即又抿回去。门外传来陈建国咳嗽声，肩膀微微一缩。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「银杏叶……黄的。他说好看。」"
+      - speaker: CHAR-001
+        line: "「我也想看。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-005.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-005。特写 固定：图1的手特写——从信封里抽出一片压平的银杏叶，金黄色，边缘有些碎了。把叶子举到眼前对着窗户的光看了看。然后夹进枕头下面的日记本里。拿起旁边的笔——一个小本子准备写回信。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「给他回信。说点高兴的……别让他担心。」"
+      - speaker: CHAR-001
+        line: "「今天……厂里发了奖金。两块三。」"
+      - speaker: CHAR-001
+        line: "「跟他说这个吧。他会高兴的。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】SCENE-010。近景 固定：2026年。图1坐在沙发上，腿上盖着毯子，手里捧着一叠泛黄信纸。茶几上放着一杯已经凉了的茶。正在读一封信，读得很慢像是在品味每一个字。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「淑，北京的银杏叶全黄了……我给你寄一片。」"
+      - speaker: CHAR-007
+        line: "「晏可，你听到了吗？」"
+      - speaker: CHAR-009
+        line: "「听到了。四十八年前的情书。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】CHAR-009-L01（深橄榄色帆布夹克，玳瑁眼镜）【图3】SCENE-010。中景 固定：图1拿起手机——屏幕上是和图2的视频通话。图2在自己家书桌前，背后是堆满资料的书架。图1把信纸举到手机摄像头前。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「我查了一下——这些信的时间跨度，大概从78年11月到79年3月。」"
+      - speaker: CHAR-009
+        line: "「五个月。差不多是大学第一个学期。」"
+      - speaker: CHAR-007
+        line: "「他写了很多封……但奶奶的日记里，十一月之后就没提过收到信的事。」"
+      - speaker: CHAR-009
+        line: "「你的意思是……信可能没到她手上？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】SCENE-010。近景 固定：图1放下手机，拿起另一封信。纸张更黄更脆，边角有折叠痕迹。小心翼翼展开。读了几行，眉头皱了起来。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「淑，我已经寄了三封信了……你怎么一封都不回？」"
+      - speaker: CHAR-007
+        line: "「厂里忙吗？还是……你不想理我了？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-009-L01（深橄榄色帆布夹克，玳瑁眼镜）【图2】SCENE-010。近景 固定：视频通话中，图1的脸部特写。表情从好奇变为凝重。摘下眼镜擦了擦，又戴回去。"
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-009
+        line: "「念溪，你有没有注意到……这些信封？」"
+      - speaker: CHAR-007
+        line: "「信封怎么了？」"
+      - speaker: CHAR-009
+        line: "「你翻过来看看。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】SCENE-010。特写 固定：图1拿起一个信封翻过来。信封背面——封口处有一道清晰的切痕，像是被刀子割开过，然后又用胶水重新粘上。胶水痕迹发黄发脆，与信封原始粘合方式明显不同。图1的指尖在切痕上轻轻划过。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「等等……这个信封……」"
+      - speaker: CHAR-007
+        line: "「被拆开过。然后又封上了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】CHAR-009-L01（玳瑁眼镜）【图3】SCENE-010。近景 固定：图1快速翻看其他信封——每一封封口都有同样的痕迹。刀割再粘。抬头看着手机屏幕里的图2，眼睛里是震惊。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「每一个……每一个信封都被拆开过。」"
+      - speaker: CHAR-009
+        line: "「有人拆开了这些信，看了里面的内容……然后又封回去了。」"
+      - speaker: CHAR-007
+        line: "「是寄出去之前？还是……到了之后？」"
+    transition_to_next: dissolve
+
+  - shot_id: EP22-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-005-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-012.png
+    api:
+      text: "【图1】CHAR-005-L01（深藏青中山装，细框眼镜）【图2】SCENE-012。中景 固定：1978年县城邮局。图1站在柜台前，穿着深藏青中山装，双手背在身后。面前放着几封信——信封上有北京的邮票和邮戳。邮局柜台后面工作人员正在整理邮件。图1的目光落在那些信上，表情严肃而复杂。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-012, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「又是北京来的。」"
+      - speaker: CHAR-005
+        line: "「这个姓顾的……还没死心。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-005-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-012.png
+    api:
+      text: "【图1】CHAR-005-L01（深藏青中山装）【图2】SCENE-012。特写 固定：图1的手特写——拿起一封信翻过来看了看背面封口。然后把信塞进自己外套内口袋里。动作很自然，像是在拿自己的东西。周围没有人注意到。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-012, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「她不需要这些。」"
+      - speaker: CHAR-005
+        line: "「我替她做主了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】CHAR-009-L01（玳瑁眼镜）【图3】SCENE-010。中景 固定：图1和图2还在视频通话。图1把所有信封排在茶几上像一排证据。双手抱在胸前，眉头紧锁。图2在屏幕那头也在思考。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「晏可，你想……如果信在寄出之前就被人拆开了……」"
+      - speaker: CHAR-009
+        line: "「那收信人永远看不到原始内容。」"
+      - speaker: CHAR-007
+        line: "「奶奶……她可能根本不知道顾福给她写了多少信。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】SCENE-010。特写 固定：图1低头看着那排信封。手指在其中一个信封的切痕上停留——切痕很整齐是用利器割开的。表情从困惑变为某种领悟——但还没有完全想通。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「谁会这么做？」"
+      - speaker: CHAR-007
+        line: "「谁有机会在信寄到之前……截住它？」"
+      - speaker: CHAR-007
+        line: "「家里人？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP22-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-001.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】SCENE-010【图3】PROP-001（奶奶日记本）。大特写 缓推：图1翻开日记本——翻到十一月下旬某一页。奶奶的字迹：「他是不是忘了我？已经一个月了，一封信都没有。」下一行字迹更小更用力：「不会的。他说过会回来。」手指停在这两行字上，指尖微微发抖。然后慢慢合上日记本，闭上眼睛。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「她以为他忘了她。」"
+      - speaker: CHAR-007
+        line: "「可他一直在写。十几封信……每一封都在问'你怎么不回信'。」"
+      - speaker: CHAR-007
+        line: "「有人截断了他们的联系。故意的。」"
+      - speaker: CHAR-007
+        line: "「晏可……明天我回老宅。我要把所有信都找出来。」"

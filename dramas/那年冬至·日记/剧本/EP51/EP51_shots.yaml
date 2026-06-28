@@ -1,0 +1,440 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP51/EP51_顾福的眼泪.md
+# Source shots: 14 (EP51-S01 to EP51-S14)
+# Output shots: 14 (EP51-S01 to EP51-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 96s
+# Output total duration: 96s
+# Gate status: ALL PASS
+# Note: CHAR-002-L02 not in looks/cdn_urls.json — local path used with WARNING
+
+episode_id: EP51
+source_md: 剧本/EP51/EP51_顾福的眼泪.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters"
+
+shots:
+  - shot_id: EP51-S01
+    shot_no: 1
+    mode: t2v
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids: []
+    assets:
+      look_urls: {}
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】SCENE-015。全景 固定：冬日墓地，灰色天空，枯黄草地，整齐排列的墓碑，人群散去后只剩下几个人，白菊花散落在新墓碑前，远处的树光秃秃的，寒风吹过。"
+      content_roles:
+        - file: SCENE-015
+          role: reference_image
+          label: 图1
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-002-L02（顾福老年，深色大衣，红围巾叠整齐放在口袋里露出一角）【图2】SCENE-015。中全景 缓推：图1独自站在墓地最后一排，距离新墓碑几十米远，双手垂在身侧背微微驼着，他没有走近。"
+      content_roles:
+        - file: CHAR-002-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-015
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "淑……我来了。但我不配站在前面。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-007-L01（念溪日常，黑色大衣）【图2】CHAR-009-L01（晏可日常）【图3】SCENE-015。中景 固定：图1和图2站在墓碑旁，图1回头看到远处的顾福，她的眼圈红了。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-009-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-015
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-009
+        line: "顾爷爷一直没过来。"
+      - speaker: CHAR-007
+        line: "他觉得自己是外人。"
+      - speaker: CHAR-007
+        line: "我去叫他。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-007-L01（念溪日常，黑色大衣）【图2】CHAR-002-L02（顾福老年）【图3】SCENE-015。近景 镜头跟随：图1穿过空旷的草地走向最后一排的图2，风吹起她的长发和黑色大衣衣角。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L02
+          role: reference_image
+          label: 图2
+        - file: SCENE-015
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "顾爷爷。"
+      - speaker: CHAR-002
+        line: "念溪……你去吧。我在这儿就好。"
+      - speaker: CHAR-007
+        line: "奶奶不会希望您站这么远的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-001.png
+    api:
+      text: "【图1】CHAR-007-L01（念溪日常）【图2】SCENE-015【图3】PROP-001。近景 固定：图1从包里取出一本泛黄的日记本双手捧着。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-015
+          role: reference_image
+          label: 图2
+        - file: PROP-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "顾爷爷……这是奶奶的日记。"
+      - speaker: CHAR-007
+        line: "她写了一辈子。都是给您看的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-002-L02（顾福老年）【图2】SCENE-015。特写 缓推：图1的脸，听到日记两个字身体僵住了，缓缓转身看到念溪手里的日记本，那本他从没见过但存在了一辈子的日记。"
+      content_roles:
+        - file: CHAR-002-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-015
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "日记……她的日记？"
+      - speaker: CHAR-007
+        line: "嗯。从1978年3月5日……写到最后一天。"
+      - speaker: CHAR-002
+        line: "她……还写了日记……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-007-L01（念溪日常）【图2】CHAR-002-L02（顾福老年）【图3】SCENE-015。近景 固定：图1把日记本递到图2手里，他的双手在发抖，接过日记本的瞬间整个人像被什么击中了。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L02
+          role: reference_image
+          label: 图2
+        - file: SCENE-015
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "四十八年……我不知道她写了日记。"
+      - speaker: CHAR-007
+        line: "每一页……都有您。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-002-L02（顾福老年）【图2】SCENE-015。特写 缓推：图1低头看着手中的日记本，泛黄的封面磨损的边角，被翻了一辈子的痕迹，他用拇指轻轻抚摸封面，泪珠落在牛皮封面上。"
+      content_roles:
+        - file: CHAR-002-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-015
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "淑……你把一辈子都写在了这里面。而我……一页都没看过。"
+      - speaker: CHAR-002
+        line: "我来晚了。又来晚了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-002-L02（顾福老年）【图2】SCENE-015。特写 固定：图1翻开日记一页一页地翻，他的手在抖，每翻一页泪水就滴落一滴，翻到中间有撕掉的页面只剩下毛边。"
+      content_roles:
+        - file: CHAR-002-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-015
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "撕掉了……谁撕的？"
+      - speaker: CHAR-002
+        line: "淑……你经历了什么？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-002-L02（顾福老年）【图2】SCENE-015。大特写 固定：日记最后一页大特写，页面上最后一行字写着半句话后面是空白，图1的手指颤抖着摸着那行字。"
+      content_roles:
+        - file: CHAR-002-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-015
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "他说会来接我，可是……"
+      - speaker: CHAR-002
+        line: "可是……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-002-L02（顾福老年）【图2】SCENE-015。特写 固定：图1抬起头看着远处玉淑的墓碑，然后从口袋里掏出一支旧得发亮的钢笔，打开笔帽。"
+      content_roles:
+        - file: CHAR-002-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-015
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "淑……四十八年了。这句话该有人写完。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-002-L02（顾福老年）【图2】SCENE-015。大特写 固定：图1的手颤抖但坚定，在日记最后一页那句没写完的话后面写下一行字，钢笔在泛黄纸面上留下蓝色墨迹。"
+      content_roles:
+        - file: CHAR-002-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-015
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "淑，我来了。——致远"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-002-L02: assets/looks/CHAR-002-L02.png  # WARNING: no CDN URL — L02 not in cdn_urls.json
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-002-L02（顾福老年）【图2】SCENE-015。中景 镜头跟随：图1合上日记本抱在胸前，开始向前走穿过草地，一步一步走向玉淑的墓碑，风吹动他的大衣，他不再是外人了。"
+      content_roles:
+        - file: CHAR-002-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-015
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-007-L01（念溪日常）【图2】CHAR-009-L01（晏可日常）【图3】SCENE-015。近景 固定：图1看着顾福的背影走向墓碑，泪水在脸上但她笑了。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-009-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-015
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "奶奶……他来了。他终于走到你面前了。"
+      - speaker: CHAR-009
+        line: "四十八年。他终于走完了这段路。"

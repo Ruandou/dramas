@@ -1,0 +1,264 @@
+episode_id: EP60
+source_md: 剧本/EP60/EP60_故事的力量.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市情感微短剧，写实风格，暖光怀旧氛围。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。现代都市情感微短剧，写实风格，暖光怀旧氛围。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters"
+
+voice_prompts:
+  CHAR-007: "成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽"
+  CHAR-009: "成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻"
+  CHAR-GRP-04: "混合人声，低语、掌声、偶尔的抽泣声"
+  CHAR-GRP-05: "老年女性，70岁，声音沧桑但温暖，方言口音，说话时带回忆的语气"
+
+# ⚠️ CHAR-007-L02 only has TEMP pre-signed URL (expired). Must replace with permanent TOS URL before API submission.
+
+segments:
+  - segment_id: EP60-SEG01
+    shot_ids: [EP60-S01, EP60-S02]
+    duration_sec: 10
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-018
+    assets:
+      look_urls:
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL: 预签名链接（已过期），提交 Seedance 前须替换为永久 TOS URL
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L02（驼色大衣，低盘发）【图2】书发布会现场 SCENE-018。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）全景 固定：现代书店内，暖黄色灯光从天花板垂下的吊灯洒落。原木色书架整齐排列，白墙映着日光。小舞台上一支话筒，暖光聚光灯打在台上。折叠软垫椅排成弧形，坐满了读者。玻璃窗外透进柔和的日光。几摞新书堆在入口的展台上。
+        镜头2（5秒）近景 固定：图1站在小舞台上，低盘发精致利落，驼色大衣在暖光下显出柔和质感。微微低头看着手中翻开的书页，眼眶微红但没有落泪，嘴角带着温和微笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「献给我奶奶，陈玉淑。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「和所有在时代中……勇敢去爱的人。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市情感微短剧，写实风格，暖光怀旧氛围，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-007-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-018, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP60-SEG02
+    shot_ids: [EP60-S03]
+    duration_sec: 10
+    speakers: [CHAR-GRP-04]
+    refs:
+      scene_id: SCENE-018
+    assets:
+      look_urls:
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-04-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: |
+        【图1】读者 CHAR-GRP-04-L01（读者群演）【图2】顾晏可 CHAR-009-L01（深橄榄帆布夹克）【图3】书发布会现场 SCENE-018。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：会场中排。一位四十多岁的女读者坐直身体，眼眶泛红，泪光在眼镜后面闪烁。手里紧握着翻开的书。身旁其他读者低头翻书页，有人用纸巾悄悄擦眼角。远处侧幕，图2站在那里，微笑着注视舞台上的念溪，手中的相机安静地垂着。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（读者，混合人声，低语、掌声、偶尔的抽泣声）：「我是读到最后一页才哭的。」
+        对白（读者，混合人声，低语、掌声、偶尔的抽泣声）：「不是因为故事……是因为我奶奶也有过这样的经历。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市情感微短剧，写实风格，暖光怀旧氛围，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-GRP-04-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-018, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP60-SEG03
+    shot_ids: [EP60-S04, EP60-S05]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-GRP-04]
+    refs:
+      scene_id: SCENE-018
+    assets:
+      look_urls:
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL: 预签名链接（已过期），提交 Seedance 前须替换为永久 TOS URL
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L02（驼色大衣，低盘发）【图2】读者 CHAR-GRP-04-L01（读者群演）【图3】书发布会现场 SCENE-018。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1的脸部近景。聚光灯暖光打在脸上。听到读者的话，嘴唇微微颤动，一滴泪从眼角滑落，用手背轻轻擦去。眼眶里的泪在暖光下闪烁。
+        镜头2（5秒）中景 固定：另一位年轻女读者从座位上站起，二十多岁扎着马尾，举手示意提问。会场安静了几秒，所有目光聚焦在她身上。身旁的中年读者点头鼓励。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「我没想到……」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「大家也会有这样的故事。」
+        对白（读者，混合人声，低语、掌声、偶尔的抽泣声）：「我有一个问题。」
+        对白（读者，混合人声，低语、掌声、偶尔的抽泣声）：「你写这本书……是想给那些说不出口的爱，一个被听见的机会吗？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市情感微短剧，写实风格，暖光怀旧氛围，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-007-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-04-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-018, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP60-SEG04
+    shot_ids: [EP60-S06]
+    duration_sec: 10
+    speakers: [CHAR-GRP-04, CHAR-007]
+    refs:
+      scene_id: SCENE-018
+    assets:
+      look_urls:
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL: 预签名链接（已过期），提交 Seedance 前须替换为永久 TOS URL
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L02（驼色大衣，低盘发）【图2】读者 CHAR-GRP-04-L01（读者群演）【图3】书发布会现场 SCENE-018。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：图1站在舞台上，手里合上书，抬起头看向那位年轻读者。舞台上暖黄聚光灯照着她，身后白色书架作背景。眼神温和而坚定，声音平静但有力。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（读者，混合人声，低语、掌声、偶尔的抽泣声）：「有些爱，说出来是故事。」
+        对白（读者，混合人声，低语、掌声、偶尔的抽泣声）：「不说出来……也困住了人一辈子。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「是。所以我写了。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「替奶奶说。替所有没说出口的人……说一次。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市情感微短剧，写实风格，暖光怀旧氛围，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-007-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-04-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-018, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP60-SEG05
+    shot_ids: [EP60-S07, EP60-S08]
+    duration_sec: 10
+    speakers: [CHAR-009, CHAR-007, CHAR-GRP-05]
+    refs:
+      scene_id: SCENE-018
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL: 预签名链接（已过期），提交 Seedance 前须替换为永久 TOS URL
+        CHAR-GRP-05-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-05-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    # ⚠️ SEMANTIC_WARNING: speakers=3 exceeds ideal ≤2 per segment; 3 speakers span 2 shots (S07 has CHAR-009+CHAR-007, S08 has CHAR-GRP-05+CHAR-007). Script-defined SEG structure, preserved as-is.
+    api:
+      text: |
+        【图1】顾晏可 CHAR-009-L01（深橄榄帆布夹克）【图2】苏念溪 CHAR-007-L02（驼色大衣，低盘发）【图3】纺织厂老同事 CHAR-GRP-05-L01（深红针织开衫，灰高领内搭）【图4】书发布会现场 SCENE-018。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：发布会渐入尾声，读者们开始离座。图1从侧幕走向图2，两人在舞台旁汇合。图1的目光忽然凝住——他看向会场后方入口。
+        镜头2（5秒）中景 缓推：会场后排入口处。图3穿过人群慢慢走来，深红色针织开衫，灰高领内搭，矮小驼背的身体，每一步都走得很慢。手里攥着一张泛黄的老照片，布满皱纹的手在微微颤抖。人群中有人侧身让路，目光追随着她。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「念溪。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「嗯？」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「后面……有人在看你。」
+        对白（纺织厂老同事，老年女性，70岁，声音沧桑但温暖，方言口音，说话时带回忆的语气）：「姑娘……你是写那本书的？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「我是。您……」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市情感微短剧，写实风格，暖光怀旧氛围，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-05-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-018, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP60-SEG06
+    shot_ids: [EP60-S09, EP60-S10]
+    duration_sec: 11
+    speakers: [CHAR-GRP-05, CHAR-007]
+    refs:
+      scene_id: SCENE-018
+    assets:
+      look_urls:
+        CHAR-GRP-05-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-05-L01.png
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL: 预签名链接（已过期），提交 Seedance 前须替换为永久 TOS URL
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: |
+        【图1】纺织厂老同事 CHAR-GRP-05-L01（深红针织开衫，灰高领内搭）【图2】苏念溪 CHAR-007-L02（驼色大衣，低盘发）【图3】书发布会现场 SCENE-018。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1的脸部近景。满脸皱纹，深色皮肤，小眼镜后的眼睛泛着泪光。嘴唇微微颤抖，像是鼓起了很大勇气。灯光照亮她手里的老照片边缘——已经泛黄卷曲。
+        镜头2（6秒）中景 固定：图2呆住了。嘴唇微微张开，泪一下子涌出来。图1颤抖着把那张泛黄的照片递到图2面前。照片上——一个穿蓝色工装的年轻姑娘，齐耳短发，笑容温暖明亮。图2双手接过照片，指尖微微发抖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（纺织厂老同事，老年女性，70岁，声音沧桑但温暖，方言口音，说话时带回忆的语气）：「我也是当年纺织厂的。」
+        对白（纺织厂老同事，老年女性，70岁，声音沧桑但温暖，方言口音，说话时带回忆的语气）：「你奶奶……是我们厂最漂亮的姑娘。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「这是……奶奶……？」
+        对白（纺织厂老同事，老年女性，70岁，声音沧桑但温暖，方言口音，说话时带回忆的语气）：「她笑起来……特别好看。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「二十岁的奶奶。我从来没见过她这个样子。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市情感微短剧，写实风格，暖光怀旧氛围，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-GRP-05-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-018, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP60-SEG07
+    shot_ids: [EP60-S11]
+    duration_sec: 10
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-018
+    assets:
+      look_urls:
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL: 预签名链接（已过期），提交 Seedance 前须替换为永久 TOS URL
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L02（驼色大衣，低盘发）【图2】书发布会现场 SCENE-018。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 缓推：图1的脸部近景。泪流满面但没有擦。低头看着手中的老照片——灯光下泛黄的纸面上，年轻的玉淑在笑。嘴角慢慢弯起来，泪和笑同时出现在脸上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「有人记得她。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「除了日记……还有人记得她年轻时的样子。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「这本书……不只是一个故事。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「它让一个被遗忘的名字，重新被人叫了一次。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市情感微短剧，写实风格，暖光怀旧氛围，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-007-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-018, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP60-SEG08
+    shot_ids: [EP60-S12, EP60-S13]
+    duration_sec: 10
+    speakers: [CHAR-009, CHAR-007]
+    refs:
+      scene_id: SCENE-018
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL: 预签名链接（已过期），提交 Seedance 前须替换为永久 TOS URL
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: |
+        【图1】顾晏可 CHAR-009-L01（深橄榄帆布夹克）【图2】苏念溪 CHAR-007-L02（驼色大衣，低盘发）【图3】书发布会现场 SCENE-018。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1走到图2身边，轻轻搭上她的肩膀。两人并肩看着那张旧照片。暖黄的灯光洒在他们身上，远处老太太正和几位年长读者低声交谈。
+        镜头2（5秒）近景 固定：图2的脸部近景。把照片小心地夹进书页间，贴在胸口。聚光灯暖光照着脸，嘴角微微上扬，眼中带泪但神情平静温暖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「她找到了你。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「嗯。」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「你奶奶的故事……有人记得。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「值了。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「因为她……不只是被我一个人记住了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市情感微短剧，写实风格，暖光怀旧氛围，竖屏9比16，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-018, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

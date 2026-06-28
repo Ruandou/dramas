@@ -1,0 +1,476 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP11/EP11_八月·抉择.md
+# Source shots: 15 (EP11-S01 to EP11-S15)
+# Output shots: 15 (EP11-S01 to EP11-S15)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 95s
+# Output total duration: 95s
+# Gate status: ALL PASS (G1 ✅ G2 ✅ G3 ✅ G4 ✅)
+
+episode_id: EP11
+source_md: 剧本/EP11/EP11_八月·抉择.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。1970s中国县城工厂宿舍，暖黄胶片质感，真实拍摄风格，自然布光，非唯美商业摄影。"
+  negative_prompt: "卡通，动漫，3D渲染，现代家具，英文标识，夸张妆容，磨皮美颜，高科技元素，西式建筑，过度饱和色彩。"
+
+shots:
+  # ==================== SEG01: 撕信 ====================
+  - shot_id: EP11-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-005-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-005.png
+    api:
+      text: "【图1】陈建国 CHAR-005-L01（深蓝中山装）【图2】陈玉淑 CHAR-001-L01（蓝色碎花衬衫，麻花辫）【图3】堂屋 SCENE-005。中景 固定：堂屋昏暗，15瓦灯泡摇晃，图1站在方桌前捏着一叠信纸指节发白，图2跪坐在门槛内侧碎花衬衫麻花辫垂在肩前双手攥紧膝盖，桌上散落拆开的信，搪瓷缸倒在一旁。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "我问你，这些信哪来的？"
+      - speaker: CHAR-001
+        line: "爹……"
+      - speaker: CHAR-005
+        line: "我再问一遍——谁写的？"
+      - speaker: CHAR-001
+        line: "……你别问了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-005-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-005.png
+    api:
+      text: "【图1】陈建国 CHAR-005-L01（深蓝中山装）【图2】堂屋 SCENE-005。CU 缓推：图1的脸占据画面，眉头紧锁眼眶微红，猛地举起信纸嘶啦撕成两半，纸片从指缝飘落，灯光在脸上投下深重阴影。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "留着他的东西，就是不把我放在眼里。"
+      - speaker: CHAR-001
+        line: "爹——！"
+      - speaker: CHAR-005
+        line: "这些东西，毁了你一辈子！"
+    transition_to_next: hard_cut
+
+  # ==================== SEG02: 逼婚·锁门 ====================
+  - shot_id: EP11-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-005.png
+    api:
+      text: "【图1】陈建国 CHAR-005-L01（深蓝中山装）【图2】陈玉淑 CHAR-001-L01（蓝色碎花衬衫，麻花辫散乱）【图3】堂屋 SCENE-005。MLS 固定：图1从腰间掏出钥匙转身走向东厢房木门，图2撑着地想站起来膝盖打颤，堂屋地面散落碎纸片，图1背影挡住半扇门框阴影罩住图2。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "进去。想通了再出来。"
+      - speaker: CHAR-001
+        line: "爹，你不能——"
+      - speaker: CHAR-005
+        line: "下个月，你嫁给林福贵。这事没商量。"
+      - speaker: CHAR-001
+        line: "我不认识他……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-005-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-005.png
+    api:
+      text: "【图1】陈建国 CHAR-005-L01（深蓝中山装）【图2】堂屋 SCENE-005。MS 快切：东厢房木门缓缓关合，铜锁咔哒落下，镜头从门缝望进去玉淑被推入门内手还伸向门外，门完全合拢锁链缠绕，图1站在门外面无表情拨弄锁头转身走向堂屋。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "锁上。你哪儿也别想去。"
+      - speaker: CHAR-001
+        line: "爹！爹你开门！"
+      - speaker: CHAR-005
+        line: "想通了叫我。"
+    transition_to_next: hard_cut
+
+  # ==================== SEG03: 顾福叩门 ====================
+  - shot_id: EP11-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-005.png
+    api:
+      text: "【图1】陈建国 CHAR-005-L01（深蓝中山装）【图2】陈玉淑 CHAR-001-L01（蓝色碎花衬衫）【图3】堂屋 SCENE-005。MS 固定：堂屋内图1坐在方桌前背对东厢房门，门外传来急促敲门声，东厢房内图2拍着门板呼喊声从门缝挤出，碎纸片散落在图1脚边。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "玉淑！开门！让我见她一面！"
+      - speaker: CHAR-005
+        line: "……"
+      - speaker: CHAR-001
+        line: "福哥！福哥我在这——"
+      - speaker: CHAR-005
+        line: "不许开门。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-005-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-005.png
+    api:
+      text: "【图1】陈建国 CHAR-005-L01（深蓝中山装）【图2】堂屋大门 SCENE-005。MS 镜头跟随：图1放下茶缸站起来，镜头随他走向堂屋大门，猛地拉开门栓门板撞在墙上发出闷响，门外月光洒入顾福身影映在地面，图1站在门槛上俯视。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "叔，我的心思是真的——"
+      - speaker: CHAR-005
+        line: "回去。"
+      - speaker: CHAR-002
+        line: "叔，我——"
+      - speaker: CHAR-005
+        line: "她下个月就嫁人。别再来了。"
+    transition_to_next: hard_cut
+
+  # ==================== SEG04: 老河桥 ====================
+  - shot_id: EP11-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-005.png
+    api:
+      text: "【图1】顾福 CHAR-002-L01（白色的确良衬衫，军绿裤子）【图2】陈建国家门口 SCENE-005。CU 缓推：图1脸部特写眼眶泛红，双手撑在木门板上指节发白，门缝透出堂屋昏黄灯光，远处巷子漆黑，月光从身后照来轮廓发亮。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "淑——你听得到吗？"
+      - speaker: CHAR-002
+        line: "老河桥。桥东老槐树。中秋中午。我等你。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-005.png
+    api:
+      text: "【图1】陈玉淑 CHAR-001-L01（蓝色碎花衬衫，麻花辫）【图2】东厢房门缝 SCENE-005。ECU 固定：东厢房门缝内侧，图1半张脸贴在门板上泪水沿鼻梁滑落，双手紧紧握着一本日记本，门缝透出的光照亮她的眼睛。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "老河桥……老河桥……"
+      - speaker: CHAR-001
+        line: "这三个字，我要记一辈子。"
+    transition_to_next: dissolve
+
+  # ==================== SEG05: 翻页·拨号（1978→2026 dissolve） ====================
+  - shot_id: EP11-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-001.png
+    api:
+      text: "【图1】苏念溪 CHAR-007-L01（白色T恤，深色家居裤，无框眼镜，马尾）【图2】公寓书桌 SCENE-010【图3】奶奶日记本 PROP-001。MS 缓推：现代公寓书桌前暖黄台灯照亮摊开的日记本，图1戴着眼镜翻到某一页手指停住，表情从专注变为凝重，摘下眼镜揉了揉眉心拿起手机拨出。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "汤汤，我找到关键的了。"
+      - speaker: CHAR-010
+        line: "什么？"
+      - speaker: CHAR-007
+        line: "日记里头一次出现了一个具体的地址。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】苏念溪 CHAR-007-L01（白色T恤，无框眼镜）【图2】公寓 SCENE-010。CU 固定：图1握着手机贴在耳边另一只手翻着日记本，台灯暖光打在脸上眉头微皱，窗外夜色深沉远处城市霓虹在窗玻璃上投下微光。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-010
+        line: "什么地址？"
+      - speaker: CHAR-007
+        line: "县城东门外的老河桥。"
+      - speaker: CHAR-010
+        line: "等会儿——这个名字，你查过没有？还在不在？"
+      - speaker: CHAR-007
+        line: "还没……我查。"
+    transition_to_next: hard_cut
+
+  # ==================== SEG06: 搜索 ====================
+  - shot_id: EP11-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】苏念溪 CHAR-007-L01（白色T恤，无框眼镜）【图2】公寓 SCENE-010。CU 缓推：图1单手划开手机地图软件搜索框输入\u201c老河桥\u201d，镜头推近她的脸等待加载时嘴唇微张，手机屏幕蓝光映在瞳孔上呼吸放缓，突然搜索结果弹出老河桥存在标注清晰，她的手僵住。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-010
+        line: "查到了吗？"
+      - speaker: CHAR-007
+        line: "还在。它还在。"
+      - speaker: CHAR-010
+        line: "真的？"
+      - speaker: CHAR-007
+        line: "距离……三公里。就三公里。"
+      - speaker: CHAR-010
+        line: "三公里？你奶奶的老宅——"
+      - speaker: CHAR-007
+        line: "县城东门外的老河桥……就在附近。"
+    transition_to_next: hard_cut
+
+  # ==================== SEG07: 距离 ====================
+  - shot_id: EP11-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】苏念溪 CHAR-007-L01（白色T恤，无框眼镜）【图2】公寓窗前 SCENE-010。MS 固定：图1靠在椅背上手机贴着耳朵目光望向窗外，台灯暖光勾勒侧脸轮廓，远处城市灯火模糊成暖色光斑，她放下手机站起来走到窗前双手撑在窗台上，玻璃映出台灯光晕和她的倒影。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-010
+        line: "三公里。近得像在等你。"
+      - speaker: CHAR-007
+        line: "……嗯。"
+      - speaker: CHAR-001
+        line: "老河桥……记住了。"
+      - speaker: CHAR-007
+        line: "四十八年前，奶奶没走到那座桥。"
+      - speaker: CHAR-007
+        line: "我去替她走。"
+    transition_to_next: hard_cut
+
+  # ==================== SEG08: 三公里 ====================
+  - shot_id: EP11-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】苏念溪 CHAR-007-L01（白色T恤，无框眼镜）【图2】公寓 SCENE-010。CU 缓推：图1低头看着手机地图上老河桥的标注点，指尖在屏幕上缓缓滑动，台灯光晕映在镜片上，嘴唇微动像在默念什么，眉头紧锁后又松开眼神从震惊沉淀为某种深沉的凝视。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "三公里……就隔着三个村子。"
+      - speaker: CHAR-007
+        line: "奶奶从小住在这附近，她不可能不知道老河桥。"
+      - speaker: CHAR-007
+        line: "是她选择记住的。"
+    transition_to_next: hard_cut
+
+  # ==================== SEG09: 闭环 ====================
+  - shot_id: EP11-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-001.png
+    api:
+      text: "【图1】苏念溪 CHAR-007-L01（白色T恤，无框眼镜）【图2】公寓 SCENE-010【图3】奶奶日记本 PROP-001。MS 固定：图1靠在桌边手机贴在耳边另一只手无意识地翻动日记本书页，台灯暖光落在日记泛黄纸面上，表情从震动转向安静的感慨，窗外夜色已深玻璃上映着半透明倒影。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-010
+        line: "你打算怎么办？"
+      - speaker: CHAR-007
+        line: "你听了会吓一跳。"
+      - speaker: CHAR-010
+        line: "什么？"
+      - speaker: CHAR-007
+        line: "那座桥，桥东老槐树，中秋中午——这是奶奶日记里，顾福跟她约定见面的地方。"
+      - speaker: CHAR-010
+        line: "……四十八年前的约定？"
+      - speaker: CHAR-007
+        line: "日记里就写了这几个字。"
+    transition_to_next: hard_cut
+
+  # ==================== SEG10: 决定 ====================
+  - shot_id: EP11-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】苏念溪 CHAR-007-L01（白色T恤，无框眼镜）【图2】公寓 SCENE-010。CU 缓推：图1放下手机打开备忘录，拇指在屏幕上敲字屏幕光照亮专注的脸，打完字停了一下又打开地图搜索路线，手指划过屏幕，关掉手机屏幕暗下去，黑暗中只剩台灯光照亮下定决心的眼神。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "四十八年，三公里。"
+      - speaker: CHAR-007
+        line: "明天。"
+    transition_to_next: hard_cut

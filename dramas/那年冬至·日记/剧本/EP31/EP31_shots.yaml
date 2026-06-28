@@ -1,0 +1,459 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP31/EP31_铁盒里的秘密.md
+# Source shots: 16 (EP31-S01 to EP31-S16)
+# Output shots: 16 (EP31-S01 to EP31-S16)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s
+# Output total duration: 80s
+# Gate status: ALL PASS (G1✅ G2✅ G3✅ G4✅)
+# Note: Original SEG01 crossed SCENE-004/SCENE-007 boundary;
+#   shots kept 1:1 but segments split at scene boundary (SEG01a/SEG01b)
+
+episode_id: EP31
+source_md: 剧本/EP31/EP31_铁盒里的秘密.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。年代情感双时间线微短剧，写实风格。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated"
+
+shots:
+  - shot_id: EP31-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-009-L01
+      prop_ids:
+        - PROP-006
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+      prop_urls:
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-006.png
+    api:
+      text: "【图1】CHAR-007-L01【图2】CHAR-009-L01【图3】SCENE-004【图4】PROP-006。中景 固定：图1图2蹲在柳树下，图2双手托着锈迹斑斑的铁盒，图1用手帕擦拭泥土，两人手微微发抖。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+        - { file: PROP-006, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-009
+        line: "「准备好了吗？」"
+      - speaker: CHAR-007
+        line: "「……嗯。」"
+      - speaker: CHAR-007
+        line: "「奶奶……你等了四十八年。现在让我看看他留了什么。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-009-L01
+      prop_ids:
+        - PROP-006
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+      prop_urls:
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-006.png
+    api:
+      text: "【图1】CHAR-009-L01【图2】SCENE-004【图3】PROP-006。特写 固定：图1手部，指甲撬开锈蚀盒扣，盖子弹开一条缝，缓缓掀开盖子，阳光照入盒内。"
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: PROP-006, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-009
+        line: "「……天。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-007-L01【图2】SCENE-004。特写 固定：图1双手从铁盒中捧出严重褪色的红围巾，酒红已变灰白，折痕深处残留一丝红。展开围巾，边缘有毛线球和抽丝。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「这是……」"
+      - speaker: CHAR-009
+        line: "「围巾？」"
+      - speaker: CHAR-007
+        line: "「红围巾。」"
+      - speaker: CHAR-007
+        line: "「是奶奶的。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-007-L01【图2】SCENE-004。近景 固定：图1把围巾凑近脸，鼻尖触到围巾，闭上眼睛。泪水从紧闭的眼角滑下。阳光照着颤抖的手和褪色围巾。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「他收着的……」"
+      - speaker: CHAR-007
+        line: "「四十八年。他一直收着。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-009-L01【图2】SCENE-004。特写 固定：图1从铁盒中拿出旧照片，翻到背面。背面有钢笔写的日期和一行字。递给图2（画外）。"
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-009
+        line: "「念溪，你看这个。」"
+      - speaker: CHAR-009
+        line: '「背面写着……"1978.6.21"。」'
+      - speaker: CHAR-007
+        line: "「那个日期——」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-007-L01【图2】SCENE-004。近景 固定：图1翻到照片正面——黑白照片，两个年轻人并肩站在柳树旁，阳光从头顶洒下。手指轻抚照片上两个年轻身影。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「是他们……」"
+      - speaker: CHAR-007
+        line: "「他和奶奶。就在这棵树下。」"
+    transition_to_next: dissolve
+
+  - shot_id: EP31-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】SCENE-004。1978年夏天。中景 固定：图1图2并肩站在柳树下，图1低头耳朵泛红，图2侧过脸看着她嘴角温柔笑意。阳光明媚柳条飘动。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「别动。」"
+      - speaker: CHAR-001
+        line: "「我不会拍……」"
+      - speaker: CHAR-002
+        line: "「就看这里。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】SCENE-004。1978年夏天。近景 固定：图1终于抬头露出羞涩明亮笑容，图2在旁边笑得温暖。柳条从画面上方垂下，金色光斑落在两人脸上。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「好了没？」"
+      - speaker: CHAR-002
+        line: "「好了。」"
+      - speaker: CHAR-002
+        line: "「她笑的时候……全世界都亮了。」"
+    transition_to_next: dissolve
+
+  - shot_id: EP31-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-007-L01【图2】SCENE-004。特写 固定：图1手从铁盒底部取出一封泛黄信纸，无信封，边缘发脆。小心展开，手指在抖。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「还有……一封信。」"
+      - speaker: CHAR-009
+        line: "「信？」"
+      - speaker: CHAR-007
+        line: "「没有寄出的。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-007-L01【图2】SCENE-004。近景 缓推：图1低头读信，嘴唇无声地动。表情从好奇变震动——瞳孔放大，呼吸急促。阳光在脸上形成明暗对比。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「淑……我在河边为你建了一座房子。」"
+      - speaker: CHAR-007
+        line: "「房子？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-009-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-009-L01【图2】CHAR-007-L01【图3】SCENE-004。中景 固定：图1猛抬头看向河对岸，图2也跟着抬头。远处树丛后隐约可见小屋轮廓——灰色屋顶被树木半遮。"
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-009
+        line: "「河对岸……」"
+      - speaker: CHAR-009
+        line: "「那是什么？」"
+      - speaker: CHAR-007
+        line: "「不会吧……」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-007-L01【图2】SCENE-004。近景 固定：图1继续读信，手在抖。读到最后一行停住。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「如果你看到这封信……」"
+      - speaker: CHAR-007
+        line: "「来找我。」"
+      - speaker: CHAR-007
+        line: "「他在等她来找他。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-007-L01【图2】SCENE-004。近景 固定：图1把信贴在胸口，仰头闭眼。眼泪无声地流。风吹动长发。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「他建了一座房子……」"
+      - speaker: CHAR-007
+        line: "「在河边。等她来找他。」"
+      - speaker: CHAR-007
+        line: "「他到底等了多久？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-009-L01【图2】SCENE-004。近景 固定：图1站起来背对图2（画外）面对河水。肩膀绷紧。转过头，眼里有水光。"
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-009
+        line: "「念溪。」"
+      - speaker: CHAR-009
+        line: "「我们必须找到那座房子。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-007-L01【图2】CHAR-009-L01【图3】SCENE-004。中景 固定：图1图2并肩站在河边面对河对岸方向。图1手里握着信，图2背着相机包。望向对岸树丛中隐约可见的小屋轮廓。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "「四十七年了……还在吗？」"
+      - speaker: CHAR-009
+        line: "「走。去看看。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S16
+    shot_no: 16
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】SCENE-004。全景 固定：河对岸——老柳树、石拱桥、远处树丛中灰色屋顶小房子。阳光照着河面波光粼粼。画面宁静但暗涌巨大情感。"
+      content_roles:
+        - { file: SCENE-004, role: reference_image, label: 图1 }
+    dialogue: []
+    transition_to_next: hard_cut

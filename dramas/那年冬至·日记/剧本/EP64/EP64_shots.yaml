@@ -1,0 +1,273 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP64/EP64_两个男人的和解.md
+# Source shots: 8 (EP64-S01 to EP64-S08)
+# Output shots: 8 (EP64-S01 to EP64-S08)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 86s
+# Output total duration: 86s
+# Gate status: ALL PASS
+
+episode_id: EP64
+source_md: 剧本/EP64/EP64_两个男人的和解.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市写实风格，2026年当代中国，冷暖交织光线。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters"
+
+shots:
+  - shot_id: EP64-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-002-L02
+      prop_ids:
+        - PROP-012
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png # WARNING: L02 TOS URL derived from L01 pattern, verify exists
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+      prop_urls:
+        PROP-012: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-012.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣+格纹裙）【图2】CHAR-002-L02（米色开衫，白衬衫，金框眼镜）【图3】SCENE-008【图4】PROP-012（旧信封）。中景 固定镜头：养老院病房。阳光柔和地照进来。图2坐在床边，背后垫着枕头。图1坐在椅子上，从包里取出那封旧信，双手递过去。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+        - { file: PROP-012, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "顾爷爷，有样东西……想给您看。"
+      - speaker: CHAR-002
+        line: "这是什么？"
+      - speaker: CHAR-007
+        line: "一封信。林福贵爷爷……写给我的。"
+      - speaker: CHAR-002
+        line: "福贵……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP64-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-002-L02
+      prop_ids:
+        - PROP-012
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png # WARNING: L02 TOS URL derived from L01 pattern, verify exists
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+      prop_urls:
+        PROP-012: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-012.png
+    api:
+      text: "【图1】CHAR-002-L02（米色开衫，金框眼镜）【图2】SCENE-008【图3】PROP-012（旧信封，信纸）。近景 缓推：图1接过信，戴上老花镜。他的手微微发抖，小心地展开信纸。阳光照在泛黄的纸上，工整的字迹映入他的眼睛。他的嘴唇无声地动着，一行一行地读。"
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+        - { file: PROP-012, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "念溪，你奶奶心里有一个人。我知道。"
+      - speaker: CHAR-002
+        line: "但她选择了这个家，我选择了不问。我们都是那个年代的人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP64-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png # WARNING: L02 TOS URL derived from L01 pattern, verify exists
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+    api:
+      text: "【图1】CHAR-002-L02（米色开衫，金框眼镜）【图2】SCENE-008。特写 固定镜头：图1脸部特写。他的目光继续往信的后面看。皱纹深处，一滴泪从眼角滑下来，沿着深深的法令纹流下去。他读到了最后那句话，嘴唇在颤抖。"
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "替我跟那个人说——"
+      - speaker: CHAR-002
+        line: "她没有辜负他。她只是……"
+      - speaker: CHAR-002
+        line: "身不由己。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP64-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-002-L02
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png # WARNING: L02 TOS URL derived from L01 pattern, verify exists
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+    api:
+      text: "【图1】CHAR-002-L02（米色开衫）【图2】CHAR-007-L01（米白针织毛衣+格纹裙）【图3】SCENE-008。近景 固定镜头：图1慢慢放下手。他的眼眶通红，泪痕未干，但表情已经从崩溃转为某种深沉的平静。图2握着图1的手，自己的眼眶也是红的。窗外的光柔和地包裹着两人。"
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "他是个好人。"
+      - speaker: CHAR-007
+        line: "顾爷爷……"
+      - speaker: CHAR-002
+        line: "比我强。"
+      - speaker: CHAR-002
+        line: "我走了。他留下了。"
+      - speaker: CHAR-002
+        line: "留下的人……比离开的人更难。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP64-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-002-L02
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png # WARNING: L02 TOS URL derived from L01 pattern, verify exists
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+    api:
+      text: "【图1】CHAR-002-L02（米色开衫）【图2】CHAR-007-L01（米白针织毛衣+格纹裙）【图3】SCENE-008。近景 固定镜头：图1低头看着膝盖上的信纸，用指尖轻轻抚平折痕。他的目光柔和，像是在抚摸一个从未谋面却深深敬重的人。"
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "他照顾了她一辈子……把她的女儿当自己的孩子养。"
+      - speaker: CHAR-002
+        line: "一句都没问过。"
+      - speaker: CHAR-007
+        line: "他从来没有怪过任何人。"
+      - speaker: CHAR-002
+        line: "我欠他的。这辈子……还不上了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP64-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-002-L02
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png # WARNING: L02 TOS URL derived from L01 pattern, verify exists
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+    api:
+      text: "【图1】CHAR-002-L02（米色开衫，金框眼镜）【图2】CHAR-007-L01（米白针织毛衣+格纹裙）【图3】SCENE-008。近景 缓推：图1抬起头，目光郑重地看着图2。他的眼神里有请求，有敬意，还有一种放下执念后的安宁。"
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "念溪。"
+      - speaker: CHAR-007
+        line: "嗯。"
+      - speaker: CHAR-002
+        line: "帮我做一件事。"
+      - speaker: CHAR-002
+        line: "去你爷爷坟前……替我放一束花。"
+      - speaker: CHAR-007
+        line: "好。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP64-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣+格纹裙，深色围巾）【图2】CHAR-009-L01（深橄榄帆布夹克+米白T恤）【图3】SCENE-015。中景 固定镜头：阴天。灰白的天空下，一片安静的墓地。图1蹲在一块朴素的灰色墓碑前，将一束白菊花轻轻放在碑前。图2站在身后几步远的地方。风吹过，图1的长发被吹乱。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-015, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "爷爷，我来了。"
+      - speaker: CHAR-007
+        line: "顾福爷爷让我替他来看您。"
+      - speaker: CHAR-007
+        line: "他说……您是个好人。比他强。"
+      - speaker: CHAR-009
+        line: "念溪。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP64-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-015
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-015: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-015.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣+格纹裙，深色围巾）【图2】SCENE-015。近景 镜头拉远：图1站起来，最后看了一眼墓碑。风停了，白菊花安静地立在碑前。她转身和晏可并肩走向墓地出口。镜头缓缓拉远，墓碑越来越小，白菊花在灰白的画面中格外醒目。远处天边透出一线光亮。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-015, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "爷爷……顾福爷爷也是好人。您们会知道的。"
+      - speaker: CHAR-007
+        line: "两个男人，一辈子没见过面。可他们比谁都懂彼此。"
+    transition_to_next: hard_cut

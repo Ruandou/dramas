@@ -1,0 +1,275 @@
+episode_id: EP12
+source_md: 剧本/EP12/EP12_八月·偷偷见面.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。[年代情感·双时间线]。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。禁止画面中出现任何文字或字幕。[年代情感·双时间线]。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated"
+
+voice_prompts:
+  CHAR-001: "成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意"
+  CHAR-002: "成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热"
+  CHAR-004: "成年女性，20岁，声音清脆爽朗，语速快，方言口音明显，爱笑，说话时带着年轻人的活力和八卦的热情"
+  CHAR-007: "成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽"
+  旁白: "成年女性，28岁，声线清亮但带情感厚度，语速比日常稍慢，像在日记旁写下内心独白，温柔中带感慨"
+
+segments:
+  # ══════════════════════════════════════════════════════════════
+  # SEG01: 到达老河桥（SCENE-004, 2026线, 白天·午后）
+  # ══════════════════════════════════════════════════════════════
+  - segment_id: EP12-SEG01
+    shot_ids: [EP12-S01, EP12-S02]
+    duration_sec: 12
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: |
+        【图1】念溪 CHAR-007-L01（米白针织毛衣，格纹半裙，黑色长直发）【图2】老河桥·河边柳树 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头跟随：秋风吹动图1长发，身后灰色天空。图1站在磨损青石板老石桥上，栏杆斑驳。低头看手机屏幕（日记内容），抬头望向河对岸——一棵巨大老柳树在风中摇曳，枝条拂过河面。远处低矮瓦房轮廓。
+        镜头2（6秒）近景 镜头推近：图1从桥上沿小路走向河岸，手拨开枯黄芦苇丛，走近柳树。镜头从背影推进，看到她停在树前仰头看粗壮树干——树皮上隐约有刀刻痕迹。地上落叶堆积，河面倒映灰色天光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「日记里写的老河桥……就是这里？」
+        对白（念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「这棵树……日记里说的就是这棵。」
+        画面全程无任何文字、字幕、标题、水印。
+        , modern urban China 2026, cinematic realism, cool-warm contrast lighting, shallow depth of field, photorealistic, 9:16 vertical composition, write实风格，竖屏9比16，vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - {file: CHAR-007-L01, role: reference_image, label: 图1}
+        - {file: SCENE-004, role: reference_image, label: 图2}
+    transition_to_next: dissolve
+
+  # ══════════════════════════════════════════════════════════════
+  # SEG02: 被锁的房间（SCENE-005, 1978线, 夜晚）
+  # 🔀 转场：dissolve（日记翻页·暖光渐入）
+  # ══════════════════════════════════════════════════════════════
+  - segment_id: EP12-SEG02
+    shot_ids: [EP12-S03, EP12-S04]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-005.png
+    api:
+      text: |
+        【图1】玉淑 CHAR-001-L01（浅蓝棉布工装，红围巾松松搭在肩上）【图2】陈建国家·玉淑房间 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定镜头：1978年昏暗房间，唯一光源是窗外透进来的月光。图1坐在木板床边，双手握着膝盖，眼神望向窗方向。门外传来陈建国沉重脚步声和门栓的声音。墙角有旧木柜和搪瓷暖壶，气氛压抑。
+        镜头2（6秒）中景 缓推：图1站起身走向窗户，月光勾勒出她的轮廓。指尖轻轻碰了碰窗户边缘，试了试——窗户没锁。目光落在窗外黑暗中，嘴角微微抿紧。窗外传来夏夜虫鸣和远处工厂汽笛声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（旁白，成年女性，28岁，声线清亮但带情感厚度，语速比日常稍慢，像在日记旁写下内心独白，温柔中带感慨）：「八月十五，日记里的字迹发抖。爹把我锁在家里，门栓在外面扣上了。」
+        对白（玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「窗户……没锁死。」
+        画面全程无任何文字、字幕、标题、水印。
+        , vintage 1970s China, warm golden film grain, soft focus, nostalgic atmosphere, photorealistic, cinematic lighting, 9:16 vertical composition, modern electronics, smartphones, LED lights, modern cars, contemporary fashion, plastic furniture, air conditioning units, modern signage, neon lights。
+      content_roles:
+        - {file: CHAR-001-L01, role: reference_image, label: 图1}
+        - {file: SCENE-005, role: reference_image, label: 图2}
+
+  # ══════════════════════════════════════════════════════════════
+  # SEG03: 河边线索（SCENE-004, 2026线, 白天·午后）
+  # ══════════════════════════════════════════════════════════════
+  - segment_id: EP12-SEG03
+    shot_ids: [EP12-S05]
+    duration_sec: 10
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-001.png
+    api:
+      text: |
+        【图1】念溪 CHAR-007-L01（米白针织毛衣，格纹半裙，黑色长直发）【图2】老河桥·河边柳树 SCENE-004【图3】奶奶日记本 PROP-001（泛黄布面日记本，1978年手写）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 镜头跟随：图1坐在柳树下大石头上，膝盖上摊开着图3泛黄日记本。一页一页翻着，秋风卷起几页。阳光透过柳枝缝隙洒下斑驳光影在日记页面上。远处河面波光粼粼，石桥横跨画面背景。翻到某一页停住，手指按在某行字上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「县城东门外的老河桥……桥旁边有棵大柳树。」
+        对白（念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「老河桥、柳树……全对上了。」
+        对白（念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「奶奶，你到底在这棵树下等了多少年？」
+        画面全程无任何文字、字幕、标题、水印。
+        , modern urban China 2026, cinematic realism, cool-warm contrast lighting, shallow depth of field, photorealistic, 9:16 vertical composition, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - {file: CHAR-007-L01, role: reference_image, label: 图1}
+        - {file: SCENE-004, role: reference_image, label: 图2}
+        - {file: PROP-001, role: reference_image, label: 图3}
+
+  # ══════════════════════════════════════════════════════════════
+  # SEG04: 小云冒险传消息（SCENE-005, 1978线, 深夜）
+  # ══════════════════════════════════════════════════════════════
+  - segment_id: EP12-SEG04
+    shot_ids: [EP12-S06]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-005.png
+    api:
+      text: |
+        【图1】小云 CHAR-004-L01（双麻花辫散着，睡衣外套工装）【图2】玉淑 CHAR-001-L01（浅蓝棉布工装，红围巾松松搭在肩上）【图3】陈建国家·玉淑房间 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：深夜，窗外月光清冷。图2房门外突然响起极轻的敲窗声——三短一长，是暗号。图2猛地抬头，赤脚走到窗边。窗外是图1的脸，麻花辫散着，眼神焦急，双手扒着窗沿。月光只照亮两人半张脸，另半张沉在暗处。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（小云，成年女性，20岁，声音清脆爽朗，语速快，方言口音明显，爱笑，说话时带着年轻人的活力和八卦的热情）：「淑姐！他还在等！在工厂后门！」
+        对白（玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「谁……顾福？」
+        对白（小云，成年女性，20岁，声音清脆爽朗，语速快，方言口音明显，爱笑，说话时带着年轻人的活力和八卦的热情）：「他让我传话——今夜必须见一面。你爹睡了没？」
+        画面全程无任何文字、字幕、标题、水印。
+        , vintage 1970s China, warm golden film grain, soft focus, nostalgic atmosphere, photorealistic, cinematic lighting, 9:16 vertical composition, modern electronics, smartphones, LED lights, modern cars, contemporary fashion, plastic furniture, air conditioning units, modern signage, neon lights。
+      content_roles:
+        - {file: CHAR-004-L01, role: reference_image, label: 图1}
+        - {file: CHAR-001-L01, role: reference_image, label: 图2}
+        - {file: SCENE-005, role: reference_image, label: 图3}
+
+  # ══════════════════════════════════════════════════════════════
+  # SEG05: 翻窗出逃（SCENE-005, 1978线, 深夜）
+  # ══════════════════════════════════════════════════════════════
+  - segment_id: EP12-SEG05
+    shot_ids: [EP12-S07, EP12-S08]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-004-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-005.png
+    api:
+      text: |
+        【图1】玉淑 CHAR-001-L01（浅蓝棉布工装，红围巾搭在手上）【图2】小云 CHAR-004-L01（双麻花辫散着，睡衣外套工装）【图3】陈建国家 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：图1咬住下唇，看一眼房门方向——门缝下没有灯光，父亲已睡。快速穿上布鞋，红围巾来不及系好就搭在手上。图2在窗外伸手，图1双手撑住窗沿，翻身跨出窗户。月光照亮翻窗的侧影，动作利落但手在发抖。
+        镜头2（5秒）近景 镜头跟随：两人猫着腰沿院墙根快步走，月光把影子拉得很长。图2在前引路，不时回头张望。图1脚步很轻，布鞋踩在泥地上几乎没有声音。经过陈建国卧室窗下时，两人同时屏住呼吸——窗内没有动静。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「走。」
+        对白（小云，成年女性，20岁，声音清脆爽朗，语速快，方言口音明显，爱笑，说话时带着年轻人的活力和八卦的热情）：「快——你爹要是醒了，我拦不住。」
+        画面全程无任何文字、字幕、标题、水印。
+        , vintage 1970s China, warm golden film grain, soft focus, nostalgic atmosphere, photorealistic, cinematic lighting, 9:16 vertical composition, modern electronics, smartphones, LED lights, modern cars, contemporary fashion, plastic furniture, air conditioning units, modern signage, neon lights。
+      content_roles:
+        - {file: CHAR-001-L01, role: reference_image, label: 图1}
+        - {file: CHAR-004-L01, role: reference_image, label: 图2}
+        - {file: SCENE-005, role: reference_image, label: 图3}
+
+  # ══════════════════════════════════════════════════════════════
+  # SEG06: 深夜见面（SCENE-002, 1978线, 深夜）
+  # ══════════════════════════════════════════════════════════════
+  - segment_id: EP12-SEG06
+    shot_ids: [EP12-S09, EP12-S10]
+    duration_sec: 11
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-002.png
+    api:
+      text: |
+        【图1】玉淑 CHAR-001-L01（浅蓝棉布工装，红围巾搭在手上）【图2】顾福 CHAR-002-L01（白衬衫领口微解一颗扣，黑框眼镜反射月光）【图3】纺织厂·后门小巷 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：纺织厂后门窄巷，月光被高墙切成一道窄窄光带。图2靠在斑驳红砖墙上，黑框眼镜反射月光。听到脚步声猛地抬头——图1出现在巷口。两人对视瞬间，图2快步迎上去，双手握住她的肩。砖墙上爬着枯藤，地上有散落煤渣。
+        镜头2（5秒）近景 缓推：图2的手从图1肩上滑到她的手，紧紧握住。月光从墙头洒下，照亮两人交握的手——他的手指细长，她的手因翻窗沾了灰。图1抬头看他，眼里有泪光但没落下来。图2眉头紧锁，嘴唇动了动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「你出来了。小云说……你爹把门栓了。」
+        对白（玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「翻的窗户。」
+        对白（玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「到底怎么了？」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「厂长说了……再看到我和你在一起，就取消我的实习资格。」
+        画面全程无任何文字、字幕、标题、水印。
+        , vintage 1970s China, warm golden film grain, soft focus, nostalgic atmosphere, photorealistic, cinematic lighting, 9:16 vertical composition, modern electronics, smartphones, LED lights, modern cars, contemporary fashion, plastic furniture, air conditioning units, modern signage, neon lights。
+      content_roles:
+        - {file: CHAR-001-L01, role: reference_image, label: 图1}
+        - {file: CHAR-002-L01, role: reference_image, label: 图2}
+        - {file: SCENE-002, role: reference_image, label: 图3}
+
+  # ══════════════════════════════════════════════════════════════
+  # SEG07: "我会想办法"（SCENE-002, 1978线, 深夜）
+  # ══════════════════════════════════════════════════════════════
+  - segment_id: EP12-SEG07
+    shot_ids: [EP12-S11, EP12-S12]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-002.png
+    api:
+      text: |
+        【图1】玉淑 CHAR-001-L01（浅蓝棉布工装）【图2】顾福 CHAR-002-L01（白衬衫，黑框眼镜）【图3】纺织厂·后门小巷 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定镜头：图1的手在图2掌中微微一缩，但她没有抽走。目光从两人交握的手移到他的脸上。远处传来工厂夜班机器的低沉轰鸣。月光下，图2摘下眼镜用衣角擦了一下——紧张的习惯动作——然后重新戴好，目光比刚才更坚定。
+        镜头2（5秒）特写 缓推：图2脸部特写——月光只照亮他的半边脸，黑框眼镜后面的眼神炽热而坚定。深吸一口气，一字一句说出了承诺。图1的脸在他肩后虚焦，但能看到她微微点头的轮廓。巷子尽头月光在地面上画出一个长长的光斑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「那你……怎么办？」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「淑，你听我说——」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「我会想办法。」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「等我。」
+        对白（玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「嗯。」
+        画面全程无任何文字、字幕、标题、水印。
+        , vintage 1970s China, warm golden film grain, soft focus, nostalgic atmosphere, photorealistic, cinematic lighting, 9:16 vertical composition, modern electronics, smartphones, LED lights, modern cars, contemporary fashion, plastic furniture, air conditioning units, modern signage, neon lights。
+      content_roles:
+        - {file: CHAR-001-L01, role: reference_image, label: 图1}
+        - {file: CHAR-002-L01, role: reference_image, label: 图2}
+        - {file: SCENE-002, role: reference_image, label: 图3}
+    transition_to_next: dissolve
+
+  # ══════════════════════════════════════════════════════════════
+  # SEG08: "福淑"（SCENE-004, 2026线, 白天·午后）
+  # 🔀 转场：dissolve（暖黄褪去·冷色渐入）
+  # ══════════════════════════════════════════════════════════════
+  - segment_id: EP12-SEG08
+    shot_ids: [EP12-S13]
+    duration_sec: 8
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-001.png
+    api:
+      text: |
+        【图1】念溪 CHAR-007-L01（米白针织毛衣，格纹半裙，黑色长直发）【图2】老河桥·河边柳树 SCENE-004【图3】奶奶日记本 PROP-001（泛黄布面日记本，1978年手写）。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 镜头跟随：2026年午后。图1合上图3泛黄日记本，从石头上起身。走到柳树前，手掌贴上粗粝的树干——树干有两人合抱粗，树皮龟裂如老人的皱纹。手沿着树干缓缓移动，指尖触到一处凹凸不平的地方——树皮上有被刀刻过的痕迹，被四十八年的新皮层层包裹，只剩下模糊的轮廓。手指停住了。镜头推近颤抖的手指，再切到她的脸——瞳孔骤缩，嘴唇微张。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「等等……这是……」
+        对白（念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「福……淑……」
+        对白（念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「福淑——顾福、玉淑。他来过。他在这里……留下了她的名字。」
+        画面全程无任何文字、字幕、标题、水印。
+        , modern urban China 2026, cinematic realism, cool-warm contrast lighting, shallow depth of field, photorealistic, 9:16 vertical composition, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - {file: CHAR-007-L01, role: reference_image, label: 图1}
+        - {file: SCENE-004, role: reference_image, label: 图2}
+        - {file: PROP-001, role: reference_image, label: 图3}

@@ -1,0 +1,346 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP15/EP15_九月·高考.md
+# Source shots: 12 (EP15-S01 to EP15-S12)
+# Output shots: 12 (EP15-S01 to EP15-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 81s
+# Output total duration: 81s
+# Gate status: ALL PASS
+# Semantic warnings: 2 (SEG06: CHAR-013 has look_id but no dialogue in this shot; non-blocking)
+
+episode_id: EP15
+source_md: 剧本/EP15/EP15_九月·高考.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: ", modern urban China 2026, cinematic realism, cool-warm contrast lighting, shallow depth of field, photorealistic, 9:16 vertical composition"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters"
+
+shots:
+  - shot_id: EP15-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-010-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-010-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣+格纹半裙）【图2】CHAR-010-L01（粉色针织毛衣+高腰阔腿米色长裤）【图3】SCENE-010。中景 固定：暖色台灯照亮桌面，图1手机架在桌上与图2视频通话，旧日记本摊开在旁边，图2的脸在手机屏幕上。窗外是城市夜色。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "汤汤，你帮我查了吗？小云奶奶还健在吗？"
+      - speaker: CHAR-010
+        line: "查了。她住邻市，八十多。你小心问，别吓着老太太。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣+格纹半裙）【图2】SCENE-010。特写 缓推：图1手指轻抚日记泛黄的页面，暖灯光映在她专注的侧脸上，眼神带着探索的光。手机屏幕仍亮着。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-010
+        line: "念溪……你明天到底要去哪？"
+      - speaker: CHAR-007
+        line: "老河桥。日记里提过那条路。"
+    transition_to_next: dissolve
+
+  - shot_id: EP15-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-003.png
+    api:
+      text: "【图1】CHAR-002-L01（白衬衫+黑框眼镜）【图2】CHAR-001-L01（浅蓝棉布工装+齐耳短发）【图3】SCENE-003。中景 固定：昏暗图书馆，绿色灯罩台灯在长桌上投下暖黄光圈，图1和图2面对面坐着，旧书架在身后投射阴影。图1推了推黑框眼镜，郑重地看向图2。图2手里拿着一本借来的书，表情从平静变为震惊。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "淑，我要参加高考。"
+      - speaker: CHAR-001
+        line: "……高考？"
+      - speaker: CHAR-002
+        line: "十二月就考。如果能考上北京的大学，我就能名正言顺离开这儿。"
+      - speaker: CHAR-001
+        line: "去北京？"
+      - speaker: CHAR-002
+        line: "然后来接你。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L01（浅蓝棉布工装+齐耳短发）【图2】SCENE-003。近景 固定：图1低下头，手指无意识地翻动书页，灯光映出她眼里的水光。沉默三秒后，她抬头看向镜头方向，眼神从迷茫变为坚定。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "他真的要走了。可如果他走不了……"
+      - speaker: CHAR-001
+        line: "我帮你。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L01（浅蓝棉布工装+齐耳短发）【图2】CHAR-002-L01（白衬衫+黑框眼镜）【图3】SCENE-003。中景 固定：两人在灯下对视，桌上散落着几本借来的旧书和手抄笔记。图1伸手把书推到图2面前，图2接过书时手指轻轻碰了碰图1的手。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "考理科？"
+      - speaker: CHAR-002
+        line: "数学底子还行。政治和语文得重新温。"
+      - speaker: CHAR-001
+        line: "我去厂里借书。你专心看，笔记我帮你整。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L01（浅蓝棉布工装+齐耳短发）【图2】CHAR-002-L01（白衬衫+黑框眼镜）【图3】SCENE-003。中景 缓推：两人并肩坐在灯下。图2低头翻书做笔记，图1在旁安静地看着他写字，偶尔帮他翻页。灯光昏黄温暖，书页翻动声和笔尖划纸声交织。两人之间隔着一本摊开的书，肩膀几乎相触。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "他真要走了。"
+      - speaker: CHAR-001
+        line: "可他要是走了，会忘了我吗？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣+格纹半裙）【图2】SCENE-004。中景 跟随：阴天的河堤，灰蓝色调。图1穿米白针织毛衣走在土路上，手机里显示日记页面的照片。河水在远处缓缓流动，芦苇在风中摇曳。她不时抬头辨认方向。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: 旁白
+        line: "1978年9月，他在图书馆借了书。两个人报了名。日子忽然有了盼头。"
+      - speaker: CHAR-007
+        line: "日记里说'河对面那棵柳树'。是这棵吗？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣+格纹半裙）【图2】SCENE-004。特写 缓推：图1走到老柳树下，手指抚过树干上模糊的刻字。镜头缓推至刻字特写，树皮纹理和风化笔画清晰可见。图1的手指停在'淑'字上，深吸一口气，转身继续沿河堤往前走，穿过齐腰的野草。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "福淑。奶奶，他在这棵树上刻了你们俩的名字。"
+      - speaker: CHAR-007
+        line: "那座房子到底在哪？日记里提过'河对面'。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-013-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-013-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-013-L01（多层旧深色棉衣+深绿色棉袄）【图2】CHAR-007-L01（米白针织毛衣+格纹半裙）【图3】SCENE-004。中景 固定：河堤转弯处，图1蹲在路边整理渔网，皱纹密布的脸上带着乡野的平静。图2走近，与他搭话。远处河水泛着灰光。"
+      content_roles:
+        - { file: CHAR-013-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "大爷，河对岸那座小房子，有人住吗？"
+      - speaker: CHAR-013
+        line: "那个啊……以前有个年轻人常来。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-013-L01
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-013-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-013-L01（多层旧深色棉衣+深绿色棉袄）【图2】SCENE-004。近景 固定：图1眯起眼睛望向河对岸，风吹动他稀疏的白发。他的眼神带着岁月的悠远。"
+      content_roles:
+        - { file: CHAR-013-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "什么时候的事？"
+      - speaker: CHAR-013
+        line: "记不清了。反正年年都来。"
+      - speaker: CHAR-013
+        line: "河那边住了个怪人。很多年了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣+格纹半裙）【图2】SCENE-004。中景 固定：图1穿过河堤边的杂草丛，拨开芦苇——镜头跟随她的视线。河对岸，灰色的天空下，一座老旧的小平房静静矗立。门前竹竿上挂着几件洗过的旧衣服，在风中微微摆动。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "有人住？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-004.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣+格纹半裙）【图2】SCENE-004。特写 固定：图1呆住，手机缓缓举起拍下照片。她的表情从震惊转为困惑，嘴唇微张。远处小房子和竹竿上的衣服构成一个安静而神秘的画面。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "谁会住在这种地方？"
+      - speaker: CHAR-007
+        line: "河那边住了个怪人。很多年了……"
+    transition_to_next: hard_cut

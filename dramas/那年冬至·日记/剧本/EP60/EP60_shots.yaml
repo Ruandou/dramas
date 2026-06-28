@@ -1,0 +1,370 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP60/EP60_故事的力量.md
+# Source shots: 13 (EP60-S01 to EP60-S13)
+# Output shots: 13 (EP60-S01 to EP60-S13)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 81s (calculated: 5+5+10+5+5+10+5+5+5+6+10+5+5)
+# Source VALIDATION block claims 80s — DISCREPANCY: actual sum is 81s per shot table
+# Output total duration: 81s
+# Gate status: Gate 1 PASS (81s ≥ 75s min), Gate 2 WARNING (metadata declares 10, actual 13), Gate 3 PASS, Gate 4 PASS
+# Note: CHAR-007-L02 only has TEMP cdn_url — must replace with permanent TOS URL before API submission
+
+episode_id: EP60
+source_md: 剧本/EP60/EP60_故事的力量.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市情感微短剧，写实风格，暖光怀旧氛围。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters"
+
+shots:
+  - shot_id: EP60-S01
+    shot_no: 1
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-018
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: "【图1】SCENE-018。全景 固定：现代书店内，暖黄色灯光从天花板垂下的吊灯洒落。原木色书架整齐排列，白墙映着日光。小舞台上一支话筒，暖光聚光灯打在台上。折叠软垫椅排成弧形，坐满了读者。玻璃窗外透进柔和的日光。几摞新书堆在入口的展台上。"
+      content_roles:
+        - { file: SCENE-018, role: reference_image, label: 图1 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-007-L02
+    assets:
+      look_urls:
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL: 预签名链接（已过期），提交 Seedance 前须替换为永久 TOS URL
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: "【图1】CHAR-007-L02（驼色大衣，低盘发）【图2】SCENE-018。近景 固定：图1站在小舞台上，低盘发精致利落，驼色大衣在暖光下显出柔和质感。微微低头看着手中翻开的书页，眼眶微红但没有落泪，嘴角带着温和微笑。书页上隐约可见扉页文字。"
+      content_roles:
+        - { file: CHAR-007-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-018, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "献给我奶奶，陈玉淑。"
+      - speaker: CHAR-007
+        line: "和所有在时代中……勇敢去爱的人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-GRP-04-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-04-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: "【图1】CHAR-GRP-04-L01（读者群演）【图2】CHAR-009-L01（深橄榄帆布夹克）【图3】SCENE-018。中景 固定：会场中排。一位四十多岁的女读者坐直身体，眼眶泛红，泪光在眼镜后面闪烁。手里紧握着翻开的书。身旁其他读者低头翻书页，有人用纸巾悄悄擦眼角。远处侧幕，图2站在那里，微笑着注视舞台上的念溪，手中的相机安静地垂着。"
+      content_roles:
+        - { file: CHAR-GRP-04-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-018, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-GRP-04
+        line: "我是读到最后一页才哭的。"
+      - speaker: CHAR-GRP-04
+        line: "不是因为故事……是因为我奶奶也有过这样的经历。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-007-L02
+    assets:
+      look_urls:
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: "【图1】CHAR-007-L02（驼色大衣，低盘发）【图2】SCENE-018。近景 固定：图1的脸部近景。聚光灯暖光打在脸上。听到读者的话，嘴唇微微颤动，一滴泪从眼角滑落，用手背轻轻擦去。眼眶里的泪在暖光下闪烁。"
+      content_roles:
+        - { file: CHAR-007-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-018, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "我没想到……"
+      - speaker: CHAR-007
+        line: "大家也会有这样的故事。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: "【图1】CHAR-GRP-04-L01（读者群演）【图2】SCENE-018。中景 固定：另一位年轻女读者从座位上站起，二十多岁扎着马尾，举手示意提问。会场安静了几秒，所有目光聚焦在她身上。身旁的中年读者点头鼓励。"
+      content_roles:
+        - { file: CHAR-GRP-04-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-018, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-GRP-04
+        line: "我有一个问题。"
+      - speaker: CHAR-GRP-04
+        line: "你写这本书……是想给那些说不出口的爱，一个被听见的机会吗？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-007-L02
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: "【图1】CHAR-007-L02（驼色大衣，低盘发）【图2】CHAR-GRP-04-L01（读者群演）【图3】SCENE-018。中景 固定：图1站在舞台上，手里合上书，抬起头看向那位年轻读者。舞台上暖黄聚光灯照着她，身后白色书架作背景。眼神温和而坚定，声音平静但有力。"
+      content_roles:
+        - { file: CHAR-007-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-04-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-018, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-GRP-04
+        line: "有些爱，说出来是故事。"
+      - speaker: CHAR-GRP-04
+        line: "不说出来……也困住了人一辈子。"
+      - speaker: CHAR-007
+        line: "是。所以我写了。"
+      - speaker: CHAR-007
+        line: "替奶奶说。替所有没说出口的人……说一次。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-009-L01
+        - CHAR-007-L02
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: "【图1】CHAR-009-L01（深橄榄帆布夹克）【图2】CHAR-007-L02（驼色大衣，低盘发）【图3】SCENE-018。中景 固定：发布会渐入尾声，读者们开始离座。图1从侧幕走向图2，两人在舞台旁汇合。图1的目光忽然凝住——他看向会场后方入口。"
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-018, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-009
+        line: "念溪。"
+      - speaker: CHAR-007
+        line: "嗯？"
+      - speaker: CHAR-009
+        line: "后面……有人在看你。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-GRP-05-L01
+    assets:
+      look_urls:
+        CHAR-GRP-05-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-05-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: "【图1】CHAR-GRP-05-L01（深红针织开衫，灰高领内搭）【图2】SCENE-018。中景 缓推：会场后排入口处。一个满头白发的老太太穿过人群慢慢走来。深红色针织开衫，灰高领内搭，矮小驼背的身体，每一步都走得很慢。手里攥着一张泛黄的老照片，布满皱纹的手在微微颤抖。人群中有人侧身让路，目光追随着她。"
+      content_roles:
+        - { file: CHAR-GRP-05-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-018, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-GRP-05
+        line: "姑娘……你是写那本书的？"
+      - speaker: CHAR-007
+        line: "我是。您……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-GRP-05-L01
+    assets:
+      look_urls:
+        CHAR-GRP-05-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-05-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: "【图1】CHAR-GRP-05-L01（深红针织开衫，灰高领内搭）【图2】SCENE-018。近景 固定：老太太的脸部近景。满脸皱纹，深色皮肤，小眼镜后的眼睛泛着泪光。嘴唇微微颤抖，像是鼓起了很大勇气。灯光照亮她手里的老照片边缘——已经泛黄卷曲。"
+      content_roles:
+        - { file: CHAR-GRP-05-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-018, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-GRP-05
+        line: "我也是当年纺织厂的。"
+      - speaker: CHAR-GRP-05
+        line: "你奶奶……是我们厂最漂亮的姑娘。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-007-L02
+        - CHAR-GRP-05-L01
+    assets:
+      look_urls:
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL
+        CHAR-GRP-05-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-05-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: "【图1】CHAR-007-L02（驼色大衣，低盘发）【图2】CHAR-GRP-05-L01（深红针织开衫，灰高领内搭）【图3】SCENE-018。中景 固定：图1呆住了。嘴唇微微张开，泪一下子涌出来。图2颤抖着把那张泛黄的照片递到图1面前。照片上——一个穿蓝色工装的年轻姑娘，齐耳短发，笑容温暖明亮。图1双手接过照片，指尖微微发抖。"
+      content_roles:
+        - { file: CHAR-007-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-05-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-018, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "这是……奶奶……？"
+      - speaker: CHAR-GRP-05
+        line: "她笑起来……特别好看。"
+      - speaker: CHAR-007
+        line: "二十岁的奶奶。我从来没见过她这个样子。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-007-L02
+    assets:
+      look_urls:
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: "【图1】CHAR-007-L02（驼色大衣，低盘发）【图2】SCENE-018。近景 缓推：图1的脸部近景。泪流满面但没有擦。低头看着手中的老照片——灯光下泛黄的纸面上，年轻的玉淑在笑。嘴角慢慢弯起来，泪和笑同时出现在脸上。"
+      content_roles:
+        - { file: CHAR-007-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-018, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "有人记得她。"
+      - speaker: CHAR-007
+        line: "除了日记……还有人记得她年轻时的样子。"
+      - speaker: CHAR-007
+        line: "这本书……不只是一个故事。"
+      - speaker: CHAR-007
+        line: "它让一个被遗忘的名字，重新被人叫了一次。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-009-L01
+        - CHAR-007-L02
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: "【图1】CHAR-009-L01（深橄榄帆布夹克）【图2】CHAR-007-L02（驼色大衣，低盘发）【图3】SCENE-018。中景 固定：图1走到图2身边，轻轻搭上她的肩膀。两人并肩看着那张旧照片。暖黄的灯光洒在他们身上，远处老太太正和几位年长读者低声交谈。"
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-018, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-009
+        line: "她找到了你。"
+      - speaker: CHAR-007
+        line: "嗯。"
+      - speaker: CHAR-009
+        line: "你奶奶的故事……有人记得。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP60-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-007-L02
+    assets:
+      look_urls:
+        CHAR-007-L02: https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedream-5-0/021782488155999c394694671c74cf4f2e97ee275d27a148d9907_0.jpeg?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260626%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260626T153559Z&X-Tos-Expires=86400&X-Tos-Signature=fc341ceb1ca51d1ea5c697523bed860264dbe42da847c58f78615a2b419225b6&X-Tos-SignedHeaders=host  # ⚠️ TEMP_URL
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-018.png
+    api:
+      text: "【图1】CHAR-007-L02（驼色大衣，低盘发）【图2】SCENE-018。近景 固定：图1的脸部近景。把照片小心地夹进书页间，贴在胸口。聚光灯暖光照着脸，嘴角微微上扬，眼中带泪但神情平静温暖。"
+      content_roles:
+        - { file: CHAR-007-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-018, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "值了。"
+      - speaker: CHAR-007
+        line: "因为她……不只是被我一个人记住了。"
+    transition_to_next: hard_cut

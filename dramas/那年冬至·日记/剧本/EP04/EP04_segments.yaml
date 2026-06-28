@@ -1,0 +1,308 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP04/EP04_四月·纸条.md
+# Source shots: 16 (EP04-S01 to EP04-S16)
+# Output segments: 8 (EP04-SEG01 to EP04-SEG08)
+# Segment-shots mapping: 1:1 (each shot assigned to exactly one segment)
+# Source total duration: 85s
+# Output total duration: 85s
+# Gate status: ALL PASS
+
+episode_id: EP04
+source_md: 剧本/EP04/EP04_四月·纸条.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。年代情感剧。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。年代情感剧。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, modern electronics in 1978 scenes, smartphones, LED lights"
+
+voice_prompts:
+  CHAR-001: "成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意"
+  CHAR-002: "成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热"
+  CHAR-007: "成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽"
+  CHAR-GRP-01: "年轻女性群体，声音此起彼伏，语速快，方言口音，带笑声和议论声，像一群叽叽喳喳的麻雀"
+
+segments:
+  # ============================================================
+  # SEG01 — 念溪翻开四月（Hook Zone · 缓）
+  # SCENE-010 念溪公寓 · 深夜 · 2026线
+  # ============================================================
+  - segment_id: EP04-SEG01
+    shot_ids: [EP04-S01, EP04-S02]
+    duration_sec: 11
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-001.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣，长直黑发）【图2】念溪公寓 SCENE-010【图3】奶奶日记本 PROP-001（1978年手写日记，泛黄纸面）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：深夜暖色台灯是唯一光源，翻开的日记本放在书桌上泛黄纸面上蓝黑墨水字迹密密麻麻，图1的手指翻过一页——四月的标题，纸面边缘微微卷起灯光下氧化斑点清晰可见，桌角陶瓷杯已凉透。
+        镜头2（6秒）中景 固定：图1侧坐在书桌前，长发垂在肩侧米白毛衣在暖光下泛着柔和光泽，右手撑着下巴左手按住日记页面，窗外冬夜灰蓝远处公寓灯火稀疏，眉心微蹙嘴角却不自觉上扬——在替奶奶微笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「四月了……他们已经不只是借书了吧。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「顾福……你到底是什么样的人。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「会借书、会说方言、还会写纸条。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市中国2026，写实风格，竖屏9比16，冷暖交织灯光，浅景深。现代电子产品可出现（智能手机、笔记本电脑等）。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  # ============================================================
+  # SEG02 — 1978·他开始写纸条（Substance Zone · 中）
+  # SCENE-002 纺织厂车间 · 午后 · 1978线
+  # > 🔀 转场：dissolve（日记翻页特写，暖光从纸面扩散，2026冷色渐变为1978暖黄胶片质感）
+  # ============================================================
+  - segment_id: EP04-SEG02
+    shot_ids: [EP04-S03, EP04-S04]
+    duration_sec: 10
+    speakers: [CHAR-GRP-01, CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-002.png
+    api:
+      text: |
+        【图1】纺织厂女工 CHAR-GRP-01-L01（浅蓝棉布工装，双麻花辫）【图2】陈玉淑 CHAR-001-L01（浅蓝棉布工装，褪色酒红围巾，齐耳短发）【图3】顾福 CHAR-002-L01（白衬衫，黑框眼镜）【图4】县城纺织厂车间 SCENE-002。
+        角色分工：仅图1可触碰图2（用手肘碰她）；图3放下纸条后不触碰任何物品。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：1978年春天午后，暖黄钨丝灯光下棉絮在光柱中缓缓飘旋。图2坐在织机前低头理纱线，颈间褪色酒红围巾松松挂着。身旁图1突然用胳膊肘碰了碰图2，往过道方向努了努嘴。暖黄灯光照着图2泛红的耳尖。
+        镜头2（5秒）近景 固定：图3从过道走过来，白衬衫袖口卷到肘部手里拿着一个折好的纸条。经过图2工位时没有停步，只是手指一松——纸条轻轻落在织机木框上。图3的手微微发抖。图2的手在纱线上顿了一下，迅速用指尖捏住纸条塞进工装胸袋。两人的视线没有交汇。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（纺织厂女工们，年轻女性群体，声音此起彼伏，语速快，方言口音，带笑声和议论声，像一群叽叽喳喳的麻雀）：「又来了。你那位北京同志。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「别瞎说。」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「图书馆。今晚。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「他第一次给我写纸条。」
+        画面全程无任何文字、字幕、标题、水印。
+        1970年代中国县城，写实风格，竖屏9比16，暖黄色调，胶片颗粒感，自然光与钨丝灯，怀旧氛围。禁止出现现代电子产品、智能手机、LED灯、现代服饰、霓虹灯。
+      content_roles:
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG03 — 工厂图书馆初见（Substance Zone · 中→慢）
+  # SCENE-003 工厂图书馆 · 傍晚 · 1978线
+  # ============================================================
+  - segment_id: EP04-SEG03
+    shot_ids: [EP04-S05, EP04-S06]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-003.png
+    api:
+      text: |
+        【图1】陈玉淑 CHAR-001-L01（浅蓝棉布工装，褪色酒红围巾，齐耳短发）【图2】顾福 CHAR-002-L01（白衬衫，黑框眼镜，偏分黑发）【图3】工厂图书馆 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：傍晚昏暗图书馆，绿色玻璃罩台灯照亮长木桌一角，两把旧木椅相对。高大木书架排满旧书，暗绿墙面斑驳。图1站在门口手指捏着门框往里探头。图2坐在桌边正低头写什么，听到脚步声抬起头，眼镜后面的眼睛亮了。
+        镜头2（5秒）近景 固定：图1终于走进来在图2对面坐下。台灯暖黄光只照亮桌面一小片区域，两人脸庞一半明一半暗。桌面上散落几张纸条和一支铅笔头。书架的暗影笼罩着他们像一个秘密的壳。图2把一张写好的纸条推到图1面前。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「进来。没人看见。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「别人会不会……」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「不敢说话，就写。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「你什么时候学的这个？」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「被逼的。怕你不想听我说话。」
+        画面全程无任何文字、字幕、标题、水印。
+        1970年代中国县城，写实风格，竖屏9比16，暖黄色调，胶片颗粒感，昏暗灯光，秘密约会的紧张与甜蜜。禁止出现现代电子产品、智能手机、LED灯、现代服饰。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG04 — 纸条往来（Substance Zone · 慢·甜蜜）
+  # SCENE-003 工厂图书馆 · 傍晚 · 1978线
+  # ============================================================
+  - segment_id: EP04-SEG04
+    shot_ids: [EP04-S07, EP04-S08]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-003.png
+    api:
+      text: |
+        【图1】陈玉淑 CHAR-001-L01（浅蓝棉布工装）【图2】顾福 CHAR-002-L01（白衬衫，黑框眼镜）【图3】工厂图书馆 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：两张纸条的特写。一张是清秀铅笔字——"你最近在看什么书？"；另一张是圆润铅笔字迹只有四个字"在看简爱"。她的字比他的大一号，笔画带着方言口音般的圆钝。纸条边缘有些卷曲像是被反复打开又折好。台灯暖光照着纸面上的铅笔纹理。
+        镜头2（6秒）中景 缓推：两人面对面坐在昏暗台灯光圈里。图2又写了一张纸条递过来。图1接过去低头看完嘴角抿起弧度——拿起铅笔在纸条背面写了什么推回去。图2低头看笑了。两人手指在交接纸条时几乎碰触又同时缩回。木桌上已经攒了五六张折好的纸条。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「他的字好看。一笔一画，像他这个人。」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「你让我少说话？」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「……你话太多了。」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「那以后都写纸条。你想听多少，写多少。」
+        画面全程无任何文字、字幕、标题、水印。
+        1970年代中国县城，写实风格，竖屏9比16，暖黄色调，胶片颗粒感，昏暗灯光，纸条传情的甜蜜氛围。禁止出现现代电子产品、智能手机、LED灯。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG05 — 她发现他会画画（Substance Zone · 中→慢·惊喜）
+  # SCENE-003 工厂图书馆 · 傍晚 · 1978线
+  # ============================================================
+  - segment_id: EP04-SEG05
+    shot_ids: [EP04-S09, EP04-S10]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-003.png
+    api:
+      text: |
+        【图1】陈玉淑 CHAR-001-L01（浅蓝棉布工装）【图2】顾福 CHAR-002-L01（白衬衫，黑框眼镜）【图3】工厂图书馆 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1低头看一张新纸条。纸条正面写着几个字，翻到背面——愣住了。背面画着一只简笔小燕子，铅笔线条轻盈稚拙，张开翅膀像要从纸面上飞出来。图1用指腹轻轻碰了碰燕子的翅膀怕把它摸化了。台灯暖光照着纸面上细腻的铅笔纹理。
+        镜头2（5秒）近景 固定：图2听到图1的声音愣了一下，然后有点不好意思地推了推眼镜微微侧过脸。台灯从侧面打出图2的轮廓耳根泛着淡红色。图2低头看着桌面手指无意识地在桌面上画圈。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「你……会画画？」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「小时候学的。画得不好。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「好。画得好。」
+        画面全程无任何文字、字幕、标题、水印。
+        1970年代中国县城，写实风格，竖屏9比16，暖黄色调，胶片颗粒感，昏暗灯光，发现惊喜的心动氛围。禁止出现现代电子产品、智能手机、LED灯。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG06 — 燕子=归来（Substance Zone · 慢·留白）
+  # SCENE-003 工厂图书馆 · 傍晚 · 1978线
+  # ============================================================
+  - segment_id: EP04-SEG06
+    shot_ids: [EP04-S11, EP04-S12]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-003.png
+    api:
+      text: |
+        【图1】顾福 CHAR-002-L01（白衬衫，黑框眼镜）【图2】陈玉淑 CHAR-001-L01（浅蓝棉布工装，褪色酒红围巾）【图3】工厂图书馆 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1重新坐正看着图2。台灯光从下方打在图1脸上，眼镜片反着暖黄色的光。图1的表情变得认真嘴唇微动像在斟酌措辞。书架的暗影在他身后沉默地矗立。
+        镜头2（5秒）特写 缓推：图2的脸部特写。低头看着那只铅笔燕子睫毛轻颤。嘴角抿起一个极浅的弧度。把纸条小心折好放进工装胸袋——和第一张纸条叠在一起。手指在口袋上按了一下。台灯暖光在脸上形成柔和的明暗交界线。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「燕子……每年都会回来。」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「不管飞多远。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「那我等它回来。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「他说的是燕子吗。还是……别的什么。」
+        画面全程无任何文字、字幕、标题、水印。
+        1970年代中国县城，写实风格，竖屏9比16，暖黄色调，胶片颗粒感，昏暗灯光，含蓄表白的留白氛围。禁止出现现代电子产品、智能手机、LED灯。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  # ============================================================
+  # SEG07 — 念溪找到那张纸条（Cliffhanger Zone · 中）
+  # SCENE-010 念溪公寓 · 深夜 · 2026线
+  # > 🔀 转场：dissolve（1978暖黄渐褪，画面锐化，2026冷色渐入）
+  # ============================================================
+  - segment_id: EP04-SEG07
+    shot_ids: [EP04-S13, EP04-S14]
+    duration_sec: 11
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣，长直黑发）【图2】念溪公寓 SCENE-010。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1手指翻过日记一页。2026冷灰蓝色调暖色台灯是唯一暖源。指尖停住——页面间夹着一样东西。一张约10cm×7cm的小纸条泛黄卷边铅笔字迹已模糊。用两根手指轻轻捏住边缘抽了出来。
+        镜头2（6秒）特写 缓推：纸条翻到背面。台灯暖光打在泛黄纸面上——一只简笔小燕子，铅笔线条轻盈稚拙翅膀张开像要飞出来。48年的氧化让铅笔线条变淡但仍清晰可辨。图1瞳孔骤缩手指微微颤抖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「这是什么……」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「燕子……这是他画的。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「四十八年了。这张纸条一直在日记里。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市中国2026，写实风格，竖屏9比16，冷暖交织灯光，浅景深。现代电子产品可出现（智能手机、笔记本电脑等）。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG08 — 被撕掉的那一页（Cliffhanger Zone · 爆发→切断）
+  # SCENE-010 念溪公寓 · 深夜 · 2026线
+  # ============================================================
+  - segment_id: EP04-SEG08
+    shot_ids: [EP04-S15, EP04-S16]
+    duration_sec: 12
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣，长直黑发）【图2】念溪公寓 SCENE-010。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：图1把纸条放在桌面继续翻日记。手翻过一页——上面写着一行字。字迹比前面几页的更大更用力像是写的时候心跳很快。手指在页面边缘停住。台灯光照亮纸面上蓝黑墨水的字迹。
+        镜头2（6秒）近景 缓推：图1深吸一口气翻到下一页——手指顿住。下一页只有残留的纸边像被撕掉了一样，参差不齐的纸茬露出装订线。表情从期待变成困惑再到震惊。窗外冬夜灰蓝台灯暖光只照到半张脸。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「"今天他牵了我的手。"」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「奶奶……你终于写到这儿了。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「撕掉了……」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「牵了手之后发生了什么？为什么要把这页撕掉？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市中国2026，写实风格，竖屏9比16，冷暖交织灯光，浅景深。现代电子产品可出现（智能手机、笔记本电脑等）。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

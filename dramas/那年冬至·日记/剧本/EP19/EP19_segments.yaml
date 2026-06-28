@@ -1,0 +1,273 @@
+episode_id: EP19
+source_md: 剧本/EP19/EP19_十月·录取.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。年代情感双时间线微短剧，写实风格。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字或字幕。年代情感双时间线微短剧，写实风格。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated"
+
+voice_prompts:
+  CHAR-001: "成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意"
+  CHAR-002: "成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热"
+  CHAR-004: "成年女性，20岁，声音清脆爽朗，语速快，方言口音明显，爱笑，说话时带着年轻人的活力和八卦的热情"
+  CHAR-007: "成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽"
+  CHAR-009: "成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻"
+  CHAR-012: "老年女性，65岁，声音沙哑温和，语速慢，说话絮叨但有条理，方言口音明显，回忆往事时语调变得柔和悠长"
+  CHAR-GRP-01: "年轻女性群体，声音此起彼伏，语速快，方言口音，带笑声和议论声，像一群叽叽喳喳的麻雀"
+
+segments:
+  - segment_id: EP19-SEG01
+    shot_ids: [EP19-S01, EP19-S02]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-GRP-01, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-004-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-GRP-01-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-002.png
+    api:
+      text: |
+        【图1】李小云 CHAR-004-L01（浅蓝棉布工装，双麻花辫）【图2】纺织厂女工 CHAR-GRP-01-L01（浅蓝棉布工装）【图3】陈玉淑 CHAR-001-L01（浅蓝棉布工装）【图4】县城纺织厂 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：纺织厂车间机器声嘈杂，图1从厂门口方向跑过来辫子在身后甩动。她挤过两排织机直奔图3的工位。图2好奇地抬头张望。
+        镜头2（5秒）近景 固定：图3站在织机旁手上的纱线停住了。表情从小云跑来时的紧张到听到消息的一瞬——不是高兴不是难过是一种很复杂的来不及定义的表情。嘴角动了一下像是要笑但眼睛先红了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（李小云，成年女性，20岁，声音清脆爽朗，语速快，方言口音明显，爱笑，说话时带着年轻人的活力和八卦的热情）：「玉淑！顾福考上了！北京的大学！」
+        对白（李小云，成年女性，20岁，声音清脆爽朗，语速快，方言口音明显，爱笑，说话时带着年轻人的活力和八卦的热情）：「门口贴的红纸！全县就三个！」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「……考上了？」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「考上了。他真的要走了。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕，年代情感双时间线微短剧，写实风格，vintage 1970s China, warm golden film grain, soft focus, nostalgic atmosphere, photorealistic, cinematic lighting, 9:16 vertical composition，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP19-SEG02
+    shot_ids: [EP19-S03, EP19-S04]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-002.png
+    api:
+      text: |
+        【图1】顾福 CHAR-002-L01（白衬衫，黑框眼镜）【图2】陈玉淑 CHAR-001-L01（浅蓝棉布工装）【图3】县城纺织厂 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：傍晚纺织厂后门小巷，暖黄路灯照着斑驳红砖墙。图1靠在墙上手里捏着一张对折的纸——录取通知书。脸上没有笑容眉头紧锁。远处传来工厂下班铃声和自行车铃铛声。
+        镜头2（5秒）近景 固定：图2从后门出来看到图1脚步顿了一下。两人对视。图1把录取通知书递到图2面前——纸上有红色印章和蓝色钢笔字。图2低头看着那张纸没有接。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「考上了。该高兴。可我一点都高兴不起来。」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「淑。考上了。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「嗯。我听说了。」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「北京。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「……远。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕，年代情感双时间线微短剧，写实风格，vintage 1970s China, warm golden film grain, soft focus, nostalgic atmosphere, photorealistic, cinematic lighting, 9:16 vertical composition，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP19-SEG03
+    shot_ids: [EP19-S05, EP19-S06]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-002.png
+    api:
+      text: |
+        【图1】顾福 CHAR-002-L01（白衬衫，黑框眼镜）【图2】陈玉淑 CHAR-001-L01（浅蓝棉布工装）【图3】县城纺织厂 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1的脸部特写，路灯暖光从侧面打来。眼眶红了嘴唇紧抿。他把通知书收回去手在发抖。
+        镜头2（5秒）近景 固定：图2伸出手轻轻擦掉图1脸上的泪。她的手指在他脸颊上停了一秒。然后她退后半步抬头看着他——眼睛亮亮的但没有哭。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「淑……我不想走。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「你去。」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「你去北京。我在家等你。」
+        对白（顾福，成年男性，22岁，语调温和带书卷气，语速适中偏慢，说话文雅偶尔引用诗句，对玉淑时放软声调，外表克制内心炽热）：「淑——」
+        对白（陈玉淑，成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意）：「去。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕，年代情感双时间线微短剧，写实风格，vintage 1970s China, warm golden film grain, soft focus, nostalgic atmosphere, photorealistic, cinematic lighting, 9:16 vertical composition，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP19-SEG04
+    shot_ids: [EP19-S07]
+    duration_sec: 10
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣，格纹半裙）【图2】念溪公寓 SCENE-010。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定：图1坐在书桌前笔记本电脑屏幕亮着光照在脸上。她一边浏览网页一边在笔记本上快速记录。桌上摊着日记本翻到了1978年10月页面。手机屏幕亮着是和晏可的聊天界面。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「顾福……1978年入学……1982年毕业……」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「1985年留校任教……1993年副教授……2003年教授。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「他……成了教授？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「日记里那个穿白衬衫的年轻人，后来成了教授。他真的在北京扎下了根。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「晏可你看到了吗？他的人生……全是学术论文和获奖记录。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕，年代情感双时间线微短剧，写实风格，modern urban China 2026, cinematic realism, cool-warm contrast lighting, shallow depth of field, photorealistic, 9:16 vertical composition，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    transition_to_next: audio_bridge
+
+  - segment_id: EP19-SEG05
+    shot_ids: [EP19-S08, EP19-S09]
+    duration_sec: 10
+    speakers: [CHAR-012, CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-016
+    assets:
+      look_urls:
+        CHAR-012-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-012-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-016.png
+    api:
+      text: |
+        【图1】张秀兰 CHAR-012-L01（深靛蓝传统棉布中装外套，大圆框花镜）【图2】苏念溪 CHAR-007-L01（米白针织毛衣，格纹半裙）【图3】顾晏可 CHAR-009-L01（深橄榄帆布夹克，玳瑁眼镜）【图4】古董店 SCENE-016。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：张秀兰的古董店昏暗灯光下旧物满屋，图1坐在柜台后面大花镜架在鼻梁上手里捧着一杯茶。图2和图3站在柜台前。货架上挤满旧瓷器、黄铜香炉和线装书。
+        镜头2（5秒）近景 固定：图3从包里拿出一张打印的网页截图上面是一所大学官网教师简介页面。他递给图1看。图1推了推花镜凑近仔细看。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张秀兰，老年女性，65岁，声音沙哑温和，语速慢，说话絮叨但有条理，方言口音明显，回忆往事时语调变得柔和悠长）：「顾福啊……那个名字我知道。当年纺织厂来的北京学生？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「您认识他？」
+        对白（张秀兰，老年女性，65岁，声音沙哑温和，语速慢，说话絮叨但有条理，方言口音明显，回忆往事时语调变得柔和悠长）：「不认识。但我听人说过——后来当了大学老师，一直没成家。」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「您看——这是不是同一个人？1982年毕业，留校任教。」
+        对白（张秀兰，老年女性，65岁，声音沙哑温和，语速慢，说话絮叨但有条理，方言口音明显，回忆往事时语调变得柔和悠长）：「就是他。我记得有人说，他一辈子没结婚。一个人。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「一辈子没结婚……是因为奶奶吗？」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕，年代情感双时间线微短剧，写实风格，modern urban China 2026, cinematic realism, cool-warm contrast lighting, shallow depth of field, photorealistic, 9:16 vertical composition，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-012-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-016, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP19-SEG06
+    shot_ids: [EP19-S10, EP19-S11]
+    duration_sec: 10
+    speakers: [CHAR-012, CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-016
+    assets:
+      look_urls:
+        CHAR-012-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-012-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-016.png
+    api:
+      text: |
+        【图1】张秀兰 CHAR-012-L01（深靛蓝传统棉布中装外套，大圆框花镜）【图2】苏念溪 CHAR-007-L01（米白针织毛衣，格纹半裙）【图3】顾晏可 CHAR-009-L01（深橄榄帆布夹克，玳瑁眼镜）【图4】古董店 SCENE-016。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1放下茶杯叹了一口气。眼神从花镜上方看过来带着一种老人回忆往事时特有的悠远。
+        镜头2（5秒）中景 固定：图2和图3对视了一眼。图2低下头手指无意识地攥紧了斜挎包带子。图3在旁边安静地看着她没有说话。店里老式收音机在角落播放着模糊老歌。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张秀兰，老年女性，65岁，声音沙哑温和，语速慢，说话絮叨但有条理，方言口音明显，回忆往事时语调变得柔和悠长）：「那个年代的人啊……心里有个人，就是一辈子。」
+        对白（张秀兰，老年女性，65岁，声音沙哑温和，语速慢，说话絮叨但有条理，方言口音明显，回忆往事时语调变得柔和悠长）：「不像现在。现在的人，什么都快。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「他一辈子没结婚。在大学当了教授。可他……还在等吗？」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「念溪，走吧。回你那继续看日记。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕，年代情感双时间线微短剧，写实风格，modern urban China 2026, cinematic realism, cool-warm contrast lighting, shallow depth of field, photorealistic, 9:16 vertical composition，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-012-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-016, role: reference_image, label: 图4 }
+    transition_to_next: dissolve
+
+  - segment_id: EP19-SEG07
+    shot_ids: [EP19-S12, EP19-S13]
+    duration_sec: 10
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣，格纹半裙）【图2】念溪公寓 SCENE-010。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1坐在床边台灯照亮日记本页面。她的手指在泛黄纸页上滑动嘴唇微微颤动。窗外城市灯光在背景中模糊成暖色光斑。
+        镜头2（5秒）近景 固定：图1翻到下一页灯光照亮不同笔迹——这一段写得更用力墨水渗透纸背。她的声音开始颤抖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「十月十七日。录取通知书到了。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「他哭了。他说不想去。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「我替他擦了眼泪。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「"我说——你去吧。我等你。"」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕，年代情感双时间线微短剧，写实风格，modern urban China 2026, cinematic realism, cool-warm contrast lighting, shallow depth of field, photorealistic, 9:16 vertical composition，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP19-SEG08
+    shot_ids: [EP19-S14]
+    duration_sec: 10
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣，格纹半裙）【图2】念溪公寓 SCENE-010。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 缓推：图1合上日记本双手按在封面上。她的眼泪终于掉了下来——不是嚎啕是安静地一颗一颗滑过脸颊。台灯暖光照在侧脸上泪痕发亮。她咬着下唇深吸一口气。镜头缓慢推近至下巴和嘴唇——她在克制。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「他哭了。一个要去北京的大学生，为了一个姑娘哭了。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「可她替他擦了眼泪。她说"去吧"。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「她不是不在乎。她是在乎到……可以放他走。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「……奶奶。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕，年代情感双时间线微短剧，写实风格，modern urban China 2026, cinematic realism, cool-warm contrast lighting, shallow depth of field, photorealistic, 9:16 vertical composition，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

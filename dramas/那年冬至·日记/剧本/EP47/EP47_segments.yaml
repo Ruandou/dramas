@@ -1,0 +1,273 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP47/EP47_诗的力量.md
+# Source shots: 16 (EP47-S01 to EP47-S16)
+# Output segments: 8 (EP47-SEG01 to EP47-SEG08)
+# Mapping: 1:1 shots → segments (no insertions, no deletions, no reordering)
+# Source total duration: 86s (5+6+5+5+6+5+5+5+5+5+5+6+5+6+5+6)
+# Output total duration: 86s (11+10+11+10+10+11+11+12)
+# Gate status: ALL PASS
+
+episode_id: EP47
+source_md: 剧本/EP47/EP47_诗的力量.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters"
+
+voice_prompts:
+  CHAR-001: "成年女性，20岁，声线温柔偏低沉，带方言尾音，语速偏慢，说话时常停顿，情绪克制但字字有分量，不直接表达爱意"
+  CHAR-002: "老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量"
+  CHAR-007: "成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽"
+  CHAR-009: "成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻"
+  CHAR-GRP-07: "成年女性，30岁，声音温和职业化，语速适中，说话轻声细语，带关怀语气，告知病情时语气平稳但带同情"
+
+segments:
+  - segment_id: EP47-SEG01
+    shot_ids: [EP47-S01, EP47-S02]
+    duration_sec: 11
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png # ⚠️ TEMP_URL
+        CHAR-001-L03: assets/looks/CHAR-001-L03.png  # WARNING: no CDN URL — 待生成
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/那年冬至·日记/PROP-002.png
+    api:
+      text: |
+        【图1】顾福 CHAR-002-L02（米色棉毛衣，褪色红围巾）【图2】陈玉淑 CHAR-001-L03（白发消瘦·病号服·氧气管）【图3】医院病房 SCENE-009。
+        道具：手抄诗集 PROP-002（泛黄旧书，翻开到中间页）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 缓推：深夜病房，窗外漆黑，监护仪绿光是唯一冷光源照在两人身上。图1坐在床边椅子上，一只手握着图2的手，另一只手捧着翻开的诗集，头微微低垂，眼睛布满血丝但没闭。
+        镜头2（6秒）近景 固定：图1的脸在监护仪绿光映照下，皱纹格外深刻，低头看诗集念出声来，声音沙哑但温柔，像在哄一个孩子入睡。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑，这首诗……你以前最喜欢。我念给你听。」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「假如生活欺骗了你，不要悲伤，不要心急……忧郁的日子里需要镇静……」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「相信吧，快乐的日子将会来临……」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP47-SEG02
+    shot_ids: [EP47-S03, EP47-S04]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-009]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png # ⚠️ TEMP_URL
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png # ⚠️ TEMP_URL
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣+格纹半裙）【图2】顾晏可 CHAR-009-L01（深橄榄色帆布夹克+玳瑁眼镜）【图3】医院病房 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：走廊灯光昏暗，图1坐在病房外塑料椅上蜷缩着身体，头靠在图2肩上，图2的外套搭在她身上，两人没有睡，安静听病房里传来的念诗声。
+        镜头2（5秒）近景 固定：图1抬头透过病房门玻璃窗看向里面，看到顾福弯腰对着病床说话的剪影，眼泪又流下来。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「他从下午念到现在了……六个小时了。」
+        对白（顾晏可，成年男性，30岁，声音温和清朗，语速适中，说话有条理逻辑清晰，偶尔温柔低语，情绪激动时声音会变低变慢，善于倾听时声音更轻）：「让他念。这是他等了四十八年的话。」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「奶奶……如果您能听到……您等了一辈子的人……就在您身边了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP47-SEG03
+    shot_ids: [EP47-S05, EP47-S06]
+    duration_sec: 11
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png # ⚠️ TEMP_URL
+        CHAR-001-L03: assets/looks/CHAR-001-L03.png  # WARNING: no CDN URL — 待生成
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL
+    api:
+      text: |
+        【图1】顾福 CHAR-002-L02（米色棉毛衣，褪色红围巾）【图2】陈玉淑 CHAR-001-L03（白发消瘦·病号服·氧气管）【图3】医院病房 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：凌晨三点窗外漆黑，图1姿势几乎没变只是头更低了，诗集翻开到中间页面，声音比之前更哑但没有停，床头水杯纹丝未动。
+        镜头2（5秒）特写 缓推：图2的脸部特写，黑暗中面容比白天更安详，嘴唇微微张开，仿佛在做一个很长的梦。远处传来图1沙哑的念诗声和监护仪滴答声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「我愿意是急流……是山里的小河……在崎岖的路上……岩石上经过……」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑，这首……当年我抄的时候，手都在抖。因为每一句，都是我想对你说的。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP47-SEG04
+    shot_ids: [EP47-S07, EP47-S08]
+    duration_sec: 10
+    speakers: [CHAR-GRP-07]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-GRP-07-L01: assets/looks/CHAR-GRP-07-L01.png  # WARNING: no CDN URL — 待生成
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png # ⚠️ TEMP_URL
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL
+    api:
+      text: |
+        【图1】夜班护士 CHAR-GRP-07-L01（浅蓝护士服，白色护士帽，马尾辫）【图2】顾福 CHAR-002-L02（米色棉毛衣，褪色红围巾）【图3】医院病房 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：凌晨病房门口，图1推着药车经过，无意中从玻璃窗看进去，停住脚步，目光落在监护仪上——波形出现了一个她没见过的波动。
+        镜头2（5秒）近景 固定：图1悄悄推开房门，图2还在念诗头也没抬，图1走到床边低头看了一眼——表情骤然变了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（夜班护士，成年女性，30岁，声音温和职业化，语速适中，说话轻声细语，带关怀语气，告知病情时语气平稳但带同情）：「嗯？这个波形……」
+        对白（夜班护士，成年女性，30岁，声音温和职业化，语速适中，说话轻声细语，带关怀语气，告知病情时语气平稳但带同情）：「老先生……老先生！她的手指……她的手指动了！」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-GRP-07-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP47-SEG05
+    shot_ids: [EP47-S09, EP47-S10]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-007, CHAR-GRP-07]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png # ⚠️ TEMP_URL
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png # ⚠️ TEMP_URL
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png # ⚠️ TEMP_URL
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL
+    api:
+      text: |
+        【图1】顾福 CHAR-002-L02（米色棉毛衣，褪色红围巾）【图2】苏念溪 CHAR-007-L01（米白针织毛衣+格纹半裙）【图3】顾晏可 CHAR-009-L01（深橄榄色帆布夹克+玳瑁眼镜）【图4】医院病房 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 缓推：图1猛地抬头眼睛瞪大，低头看向玉淑的手——放在被单外的右手中指微微弯曲了一下，又一下。极细微但确实在动。
+        镜头2（5秒）中景 镜头跟随：走廊里图2听到护士的声音猛地站起来，图3也站起来，图2冲向病房门口推门进去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑……淑？你能听到？」
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「怎么了？什么动了？」
+        对白（夜班护士，成年女性，30岁，声音温和职业化，语速适中，说话轻声细语，带关怀语气，告知病情时语气平稳但带同情）：「看——她的手指。有反应了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-009, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP47-SEG06
+    shot_ids: [EP47-S11, EP47-S12]
+    duration_sec: 11
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png # ⚠️ TEMP_URL
+        CHAR-001-L03: assets/looks/CHAR-001-L03.png  # WARNING: no CDN URL — 待生成
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL
+    api:
+      text: |
+        【图1】顾福 CHAR-002-L02（米色棉毛衣，褪色红围巾）【图2】陈玉淑 CHAR-001-L03（白发消瘦·病号服·氧气管）【图3】医院病房 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 缓推：图1双手握住图2的手低头贴近，没有哭——表情是超越悲喜的专注。
+        镜头2（6秒）特写 固定：图1抬起头继续念，声音变了——不再是沙哑的疲惫，而是带着四十八年积攒的深情。窗外开始泛白——黎明来了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑，我在。我一直在。你听到了对不对？」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑……这首诗，是我当年抄在诗集最后一页的。我再念一遍……」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「你若光明，这世界就不会黑暗。你若心怀希望，这世界就不会彻底绝望……」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP47-SEG07
+    shot_ids: [EP47-S13, EP47-S14]
+    duration_sec: 11
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png # ⚠️ TEMP_URL
+        CHAR-001-L03: assets/looks/CHAR-001-L03.png  # WARNING: no CDN URL — 待生成
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL
+    api:
+      text: |
+        【图1】顾福 CHAR-002-L02（米色棉毛衣，褪色红围巾）【图2】陈玉淑 CHAR-001-L03（白发消瘦·病号服·氧气管）【图3】医院病房 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1念着念着突然停住，目光凝固在图2的脸上。
+        镜头2（6秒）特写 镜头推近：图2的脸部特写，眼皮在颤动——然后眼睛慢慢睁开了一条缝，混浊的眼球在晨光中微微转动，目光涣散没有焦点，嘴唇在动无声翕动着。远处传来图1颤抖的呼吸。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑……？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP47-SEG08
+    shot_ids: [EP47-S15, EP47-S16]
+    duration_sec: 11
+    speakers: [CHAR-007, CHAR-002]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png # ⚠️ TEMP_URL
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png # ⚠️ TEMP_URL
+        CHAR-001-L03: assets/looks/CHAR-001-L03.png  # WARNING: no CDN URL — 待生成
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-009.png # ⚠️ TEMP_URL
+    api:
+      text: |
+        【图1】苏念溪 CHAR-007-L01（米白针织毛衣+格纹半裙）【图2】顾福 CHAR-002-L02（米色棉毛衣，褪色红围巾）【图3】陈玉淑 CHAR-001-L03（白发消瘦·病号服·氧气管）【图4】医院病房 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1捂住了嘴眼泪夺眶而出，晏可站在她身后一只手放在她肩上，护士站在床尾捂着嘴眼眶红了。
+        镜头2（6秒）近景 缓推：图2凑近图3的脸，晨光照在两人苍老的面容上，她的嘴唇在动——没有声音但确实在动，他看着她的嘴唇试图读出什么。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念溪，成年女性，28岁，声线清亮温暖，语速中等偏快，情绪波动时声音会颤抖，说话自然不做作，口语化表达，被感动时容易哽咽）：「她睁眼了……奶奶睁眼了……」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑？你在说什么？我听不到……你说大声一点……」
+        对白（顾福，老年男性，72岁，声音苍老但清晰，语速更慢带岁月沧桑感，偶尔因情绪激动而颤抖，说话简洁但每句都有重量）：「淑，我在。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市中国2026，电影写实风格，冷暖对比光线，浅景深，竖屏9:16构图，anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图3 }
+        - { file: SCENE-009, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut

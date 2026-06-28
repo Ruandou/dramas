@@ -1,0 +1,462 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP57/EP57_晏可的纪录片.md
+# Source shots: 16 (EP57-S01 to EP57-S16)
+# Output shots: 16 (EP57-S01 to EP57-S16)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 92s (calculated: 13 shots × 5s + 1 shot × 10s + 2 shots × 6s)
+# Source VALIDATION block claims 92s — MATCH confirmed
+# Output total duration: 92s
+# Gate status: Gate 1 PASS (92s ≥ 75s min), Gate 2 PASS (16 actual), Gate 3 PASS, Gate 4 PASS
+# Note: metadata declared 14 shots but VALIDATION block itself corrects to 16; actual table has 16 rows.
+
+episode_id: EP57
+source_md: 剧本/EP57/EP57_晏可的纪录片.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。现代都市情感微短剧，写实风格，暖光怀旧氛围。"
+  negative_prompt: "anime, cartoon, illustration style, 3D render, CGI, watermark, text overlay, blurry face, deformed hands, extra fingers, low quality, oversaturated, vintage filter, film grain, 1970s elements, retro clothing on modern characters"
+
+shots:
+  - shot_id: EP57-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-009-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-009-L01（深橄榄帆布夹克）【图2】CHAR-007-L01（米白针织毛衣）【图3】SCENE-010。中景 固定：念溪公寓客厅午后阳光洒入。图1坐在沙发上，笔记本电脑放在茶几上，屏幕上是视频剪辑时间线。图2端着两杯茶走过来放在茶几上。桌上摆着日记本和顾福笔记，两本并排。"
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-009
+        line: "剪了三个月。初剪出来了。"
+      - speaker: CHAR-007
+        line: "真的？快让我看。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】SCENE-010。近景 固定：图1的脸部近景，屏幕光映在眼中。看着笔记本电脑屏幕，画面里是老河边的柳树——阳光穿过枝条，刻字在树干上若隐若现。眼神从期待渐渐变得湿润，嘴角微微颤动。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "晏可……"
+      - speaker: CHAR-007
+        line: "这棵树……在镜头里好像活了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】CHAR-009-L01（深橄榄帆布夹克）【图3】SCENE-010。中景 固定：两人并排坐在沙发上。屏幕上纪录片正在播放——画面闪过渡色旧照片、河水流动、养老院窗前侧影。图1眼眶泛红用手背快速擦了一下眼角。图2看着她表情温柔。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "你把那些照片……剪得太好了。"
+      - speaker: CHAR-009
+        line: "素材本身就好。是他们的人生够动人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】CHAR-009-L01（深橄榄帆布夹克）【图3】SCENE-010。近景 固定：图1转向图2，眼神坚定。屏幕上纪录片暂停在一个画面——河水在晨光中流淌。图2微微歪头等她说话。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "片尾……我想加一段。"
+      - speaker: CHAR-009
+        line: "加什么？"
+      - speaker: CHAR-007
+        line: "一段采访。我自己的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-009-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-009-L01（深橄榄帆布夹克）【图2】CHAR-007-L01（米白针织毛衣）【图3】SCENE-010。中景 固定：图1从相机包里取出小型摄像机放在茶几上调整角度。图2整理了一下头发深吸一口气。午后阳光在身后形成一圈暖光轮廓。日记本和顾福笔记并排在面前桌上。"
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-009
+        line: "准备好了？"
+      - speaker: CHAR-007
+        line: "嗯。"
+      - speaker: CHAR-009
+        line: "不用背稿。就……说你想说的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】SCENE-010。近景 固定：图1的脸部近景。看着镜头，表情从紧张渐渐平静。身后是午后阳光中的窗景，柔和的光打在左半边脸上。微微低头看了一眼桌上的日记本，然后重新抬起头。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "奶奶……我替你说。"
+      - speaker: CHAR-007
+        line: "说给所有人听。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-010.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】SCENE-010。中特写 缓推：图1面对镜头。构图是标准的纪录片采访——坐在窗边，午后暖光从右侧打来左侧微微阴影。目光直视镜头偶尔微微偏头。背景是虚化的窗景和书架。镜头从胸口缓缓推近到脸部，捕捉每一个微表情。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "我奶奶等了四十八年。有些人会觉得这不值得。"
+      - speaker: CHAR-007
+        line: "但她从来没有后悔过。"
+      - speaker: CHAR-007
+        line: "因为真正的爱情，不在于得到，在于你有没有勇气去爱。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-002-L02
+        - CHAR-007-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+    api:
+      text: "【图1】CHAR-002-L02（米色针织衫，褪色红围巾）【图2】CHAR-007-L01（米白针织毛衣）【图3】CHAR-009-L01（深橄榄帆布夹克）【图4】SCENE-008。中景 固定：养老院顾福的房间，下午柔和阳光从大窗照入。图1坐在床边扶手椅上，白发苍苍，脊背微弯，脖子上松松围着褪色红围巾。图3把笔记本电脑放在面前小桌上屏幕朝向他。图2站在图1身侧微微弯腰。"
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-008, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-009
+        line: "顾爷爷，这是我们做的纪录片。关于您和……"
+      - speaker: CHAR-002
+        line: "我知道。放吧。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+    api:
+      text: "【图1】CHAR-002-L02（米色针织衫，褪色红围巾）【图2】SCENE-008。近景 固定：图1的面部近景。戴上桌上的老花镜，目光落在屏幕上。屏幕上开始播放——画面是老河边的清晨，柳树在晨光中轻轻摇曳，河水映着金色的光。手放在膝盖上手指微微收紧。"
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "老河桥……"
+      - speaker: CHAR-002
+        line: "好久没看到了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+    api:
+      text: "【图1】CHAR-002-L02（米色针织衫，褪色红围巾）【图2】SCENE-008。特写 固定：图1的脸部特写，老花镜后的眼睛专注地看着屏幕上——纪录片画面推进到柳树干上的刻字特写，岁月模糊的笔画在镜头中被放大。嘴唇轻轻颤抖了一下，喉结上下滚动。窗外阳光照在布满皱纹的脸上。"
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】CHAR-002-L02（米色针织衫，褪色红围巾）【图3】SCENE-008。中景 固定：图1从侧面观察图2。看到老人的手在膝盖上微微发抖，红围巾的流苏随着呼吸轻晃。眼眶泛红，用手轻轻握住晏可的手。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "他看到了……"
+      - speaker: CHAR-007
+        line: "四十八年前他亲手刻下的字。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+    api:
+      text: "【图1】CHAR-002-L02（米色针织衫，褪色红围巾）【图2】SCENE-008。近景 缓推：图1的脸部近景。屏幕上纪录片片尾，念溪的声音从电脑扬声器传出。听到那句话时眼眶迅速泛红，嘴唇紧闭，下巴微微颤抖。一滴泪从眼角滑下来，顺着深如沟壑的皱纹缓慢流淌。没有去擦。"
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "……在于你有没有勇气去爱。"
+      - speaker: CHAR-002
+        line: "淑……你听到了吗？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-002-L02
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+    api:
+      text: "【图1】CHAR-002-L02（米色针织衫，褪色红围巾）【图2】CHAR-007-L01（米白针织毛衣）【图3】SCENE-008。近景 固定：纪录片播完屏幕暗下来。房间里安静了几秒。图1慢慢把老花镜摘下来放在桌上。手在抖但动作很稳——像是经过了一生的练习。图2紧张地看着他。"
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "顾爷爷……您还好吗？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-002-L02
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+    api:
+      text: "【图1】CHAR-002-L02（米色针织衫，褪色红围巾）【图2】CHAR-007-L01（米白针织毛衣）【图3】SCENE-008。中景 固定：图1慢慢转头看向图2，眼睛里还有泪痕但嘴角浮现出平静的微笑——不是开心的笑，是终于放下的释然。阳光照在白发上像镀了一层温暖的光。"
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "念溪。"
+      - speaker: CHAR-007
+        line: "嗯？"
+      - speaker: CHAR-002
+        line: "替我谢谢你奶奶。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-002-L02
+    assets:
+      look_urls:
+        CHAR-002-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-002-L02.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+    api:
+      text: "【图1】CHAR-002-L02（米色针织衫，褪色红围巾）【图2】SCENE-008。特写 固定：图1的脸部特写。说完这句话时泪痕还在脸上，但眼神已经平静如水——像是放下了压了一辈子的石头。窗外阳光正好打在眼睛上，瞳孔里有微小的金色光点。"
+      content_roles:
+        - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-008, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "是她让我知道……"
+      - speaker: CHAR-002
+        line: "我没有白等。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP57-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-009-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/那年冬至·日记/CHAR-009-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/那年冬至·日记/SCENE-008.png
+    api:
+      text: "【图1】CHAR-007-L01（米白针织毛衣）【图2】CHAR-009-L01（深橄榄帆布夹克）【图3】SCENE-008。中景 固定：走廊上两人并肩走着。阳光从走廊尽头大窗照进来在白色地面上拉出两道长长的影子。图1侧头看向窗外——院子里几棵老树在冬日阳光下安静伫立。脸上泪痕未干但嘴角带着一丝微笑。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "他说……他没有白等。"
+      - speaker: CHAR-009
+        line: "他也确实没有。"
+      - speaker: CHAR-007
+        line: "奶奶等了一辈子……等的就是这句话。"
+      - speaker: CHAR-007
+        line: "她的等待被看见了。他的守候被知道了。"
+      - speaker: CHAR-007
+        line: "这……就是故事的力量。"
+    transition_to_next: hard_cut
