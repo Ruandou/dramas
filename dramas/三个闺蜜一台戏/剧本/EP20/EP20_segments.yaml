@@ -1,0 +1,306 @@
+episode_id: EP20
+source_md: 剧本/EP20/EP20_差评风暴.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood"
+  negative_prompt: "ancient clothing, historical architecture, fantasy elements, magic, supernatural, violence, gore, blood, political content, religious propaganda, superstition, military scenes, courtroom, detective, crime, anime style, cartoon, unrealistic proportions, distorted faces, blurry, low quality"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳"
+  CHAR-002: "成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖"
+  CHAR-003: "成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛"
+
+segments:
+  # SEG01 — 等待（碎片式·焦虑→紧张）
+  - segment_id: EP20-SEG01
+    shot_ids: [EP20-S01, EP20-S02]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: |
+        【图1】苏念 CHAR-002-L01（粉色碎花裙，粉色围裙，长卷发花夹子）【图2】林小满 CHAR-001-L01（浅蓝衬衫，深蓝牛仔裤，黑框眼镜）【图3】陈一诺 CHAR-003-L01（黑色西装外套，白色T恤，灰色阔腿裤）【图4】解忧甜品店 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：清晨甜品店，晨光从大窗户斜照进来，暖黄灯光还没开。图1站在柜台后面围裙系得整整齐齐但手指在围裙上无意识地擦着。图2坐在收银台后手机屏幕亮着拇指在屏幕上反复滑动。图3靠在墙边手里拿着图纸但眼睛盯着门口。三个人都没说话空气里弥漫着等待的焦虑。
+        镜头2（5秒）中景 固定：图2的拇指突然停住，手机屏幕的光映在她眼镜片上。她抬起头嘴唇微张表情凝固了。图1看到了她的反应手攥紧了围裙边缘。图3放下图纸走过来。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「他说今天发……到底发没发？」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「还没刷到。」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「别急。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「……发了。」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「天哪……让我看——」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「念。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood
+      content_roles:
+        - {file: CHAR-002-L01, role: reference_image, label: 图1}
+        - {file: CHAR-001-L01, role: reference_image, label: 图2}
+        - {file: CHAR-003-L01, role: reference_image, label: 图3}
+        - {file: SCENE-001, role: reference_image, label: 图4}
+    transition_to_next: hard_cut
+
+  # SEG02 — 标题（独白递进·紧张→震惊）
+  - segment_id: EP20-SEG02
+    shot_ids: [EP20-S03, EP20-S04]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002, CHAR-003]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L01（浅蓝衬衫，深蓝牛仔裤，黑框眼镜）【图2】苏念 CHAR-002-L01（粉色碎花裙，粉色围裙，长卷发花夹子）【图3】陈一诺 CHAR-003-L01（黑色西装外套，白色T恤，灰色阔腿裤）【图4】解忧甜品店 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：手机屏幕特写，屏幕蓝光在昏暗甜品店里格外刺眼。屏幕下方是博主头像和一行小字。标题区域文字模糊不可辨认。
+        镜头2（5秒）中景 固定：三个人的脸同时出现在手机屏幕的光晕里。图1的眼镜片映着屏幕蓝光。图2的嘴唇在发抖。图3的眉头皱了起来。店里的空气凝固了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「三个傻女人的甜品店——」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「三个……傻女人？」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「天哪……'三个傻女人'……」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「难吃但真诚。」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「哪个难吃？他说哪个？」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「就是那个'难吃'。」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「标题里用了三个'傻'。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood
+      content_roles:
+        - {file: CHAR-001-L01, role: reference_image, label: 图1}
+        - {file: CHAR-002-L01, role: reference_image, label: 图2}
+        - {file: CHAR-003-L01, role: reference_image, label: 图3}
+        - {file: SCENE-001, role: reference_image, label: 图4}
+    transition_to_next: hard_cut
+
+  # SEG03 — 嘲笑（碎片式·震惊→刺痛）
+  - segment_id: EP20-SEG03
+    shot_ids: [EP20-S05, EP20-S06]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: |
+        【图1】苏念 CHAR-002-L01（粉色碎花裙，粉色围裙，长卷发花夹子）【图2】林小满 CHAR-001-L01（浅蓝衬衫，深蓝牛仔裤，黑框眼镜）【图3】陈一诺 CHAR-003-L01（黑色西装外套，白色T恤，灰色阔腿裤）【图4】解忧甜品店 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：门口传来笑声。一对年轻情侣走过甜品店门口，女孩举着手机男孩凑过去看。女孩笑声穿透玻璃门清晰传进店里。图1的手开始发抖，图2的嘴唇抿成一条线。
+        镜头2（5秒）中景 固定：图2嘴唇动了动想说什么但没出声。图1眼眶红了。图3眼睛微微眯起目光从门口移到图1脸上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（旁白，年轻情侣嘲笑语气）：「哈哈，三个傻女人！」
+        对白（旁白，年轻情侣念手机语气）：「难吃但真诚……这什么评价？」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「他说……难吃……」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「'难吃'……我没法反驳。」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「苏念。」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「他说我做的甜品……难吃……」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood
+      content_roles:
+        - {file: CHAR-002-L01, role: reference_image, label: 图1}
+        - {file: CHAR-001-L01, role: reference_image, label: 图2}
+        - {file: CHAR-003-L01, role: reference_image, label: 图3}
+        - {file: SCENE-001, role: reference_image, label: 图4}
+    transition_to_next: hard_cut
+
+  # SEG04 — "难吃"（蓄力式·委屈→崩溃）
+  - segment_id: EP20-SEG04
+    shot_ids: [EP20-S07, EP20-S08]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: |
+        【图1】苏念 CHAR-002-L01（粉色碎花裙，粉色围裙沾面粉，长卷发花夹子）【图2】林小满 CHAR-001-L01（浅蓝衬衫，深蓝牛仔裤，黑框眼镜）【图3】陈一诺 CHAR-003-L01（黑色西装外套，白色T恤，灰色阔腿裤）【图4】解忧甜品店 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1蹲下来靠在柜台角落双手捂脸。围裙上沾着面粉在晨光里飘着。手机屏幕还亮着蓝光照在她蜷缩的背上。图2蹲在她旁边手悬在半空不知道该不该碰她。图3站在原地一动不动。
+        镜头2（5秒）中景 固定：图2把纸巾递给图1。图1的手在抖接过纸巾时碰到了图2的手指。图2的眼镜片上映着图1蜷缩的影子。图3慢慢走过来蹲在另一边。三个人围成一个小圈像回到了最初合租时的厨房。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「我做甜品那么用心……」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「为什么……还是难吃……」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「我没法反驳……但'难吃'不是全部。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「苏念……」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「他说难吃……」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「他说了别的。」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「什么？」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood
+      content_roles:
+        - {file: CHAR-002-L01, role: reference_image, label: 图1}
+        - {file: CHAR-001-L01, role: reference_image, label: 图2}
+        - {file: CHAR-003-L01, role: reference_image, label: 图3}
+        - {file: SCENE-001, role: reference_image, label: 图4}
+    transition_to_next: hard_cut
+
+  # SEG05 — 真诚（独白递进·崩溃→微光）
+  - segment_id: EP20-SEG05
+    shot_ids: [EP20-S09, EP20-S10]
+    duration_sec: 8
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L01（浅蓝衬衫，深蓝牛仔裤，黑框眼镜）【图2】苏念 CHAR-002-L01（粉色碎花裙，粉色围裙，长卷发花夹子）【图3】陈一诺 CHAR-003-L01（黑色西装外套，白色T恤，灰色阔腿裤）【图4】解忧甜品店 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）近景 缓推：图1摘下眼镜用衣角擦了擦镜片，这是她紧张时的习惯动作。她重新戴上眼镜看着图2。晨光从窗户照进来照在三个人围成的小圈上。
+        镜头2（4秒）中景 固定：图1蹲在图2面前推了推眼镜语调开始有了她平时分析产品时的节奏。图2的眼泪还挂在脸上但开始听了。图3蹲在另一边眼睛微微亮了一下。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「他说我们真诚。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「八次。」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「什么？」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「这篇文章里，'真诚'出现了八次。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「'难吃'只出现了两次。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「他说我们真诚……这是最好的评价。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood
+      content_roles:
+        - {file: CHAR-001-L01, role: reference_image, label: 图1}
+        - {file: CHAR-002-L01, role: reference_image, label: 图2}
+        - {file: CHAR-003-L01, role: reference_image, label: 图3}
+        - {file: SCENE-001, role: reference_image, label: 图4}
+    transition_to_next: dissolve
+
+  # SEG06 — 流量（蓄力式·微光→意外）
+  - segment_id: EP20-SEG06
+    shot_ids: [EP20-S11, EP20-S12]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L01（浅蓝衬衫，深蓝牛仔裤，黑框眼镜）【图2】苏念 CHAR-002-L01（粉色碎花裙，粉色围裙，长卷发花夹子，眼眶红）【图3】陈一诺 CHAR-003-L01（黑色西装外套，白色T恤，灰色阔腿裤）【图4】解忧甜品店 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：一小时后。甜品店门被推开风铃响了。一对情侣走进来女孩手里举着手机。图2站在柜台后面眼睛还是红的但围裙重新系好了。图1坐在收银台后笔记本翻开着。图3靠在墙边。
+        镜头2（5秒）中景 固定：门口又有人进来。一对闺蜜一个中年男人一个背着双肩包的年轻人。甜品店座位开始坐满了。图2站在柜台后面看着涌进来的人眼眶又红了。图1站起来走到图2身边。图3的眼睛亮了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（旁白，年轻女性好奇语气）：「就是这家！三个女人的店！」
+        对白（旁白，年轻男性看招牌语气）：「难吃但真诚……来都来了。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「差评……也是流量。」
+        对白（旁白，闺蜜A拍照语气）：「来来来，拍一张！」
+        对白（旁白，中年客人好奇语气）：「老板，那个难吃的甜品在哪？」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「人……越来越多了。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood
+      content_roles:
+        - {file: CHAR-001-L01, role: reference_image, label: 图1}
+        - {file: CHAR-002-L01, role: reference_image, label: 图2}
+        - {file: CHAR-003-L01, role: reference_image, label: 图3}
+        - {file: SCENE-001, role: reference_image, label: 图4}
+    transition_to_next: hard_cut
+
+  # SEG07 — 委屈（独白递进·意外→心酸）
+  - segment_id: EP20-SEG07
+    shot_ids: [EP20-S13, EP20-S14]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: |
+        【图1】苏念 CHAR-002-L01（粉色碎花裙，粉色围裙沾面粉被泪水打湿，长卷发花夹子）【图2】林小满 CHAR-001-L01（浅蓝衬衫，深蓝牛仔裤，黑框眼镜）【图3】解忧甜品店 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1蹲在柜台后面的角落双手抱着膝盖。围裙上的面粉被泪水打湿了几块。图2蹲在她旁边手里拿着纸巾。外面是涌进来的客人的嘈杂声但这个角落很安静。
+        镜头2（5秒）近景 固定：图2把纸巾放在图1手里。图1抬起头眼泪还挂在脸上。图2推了推眼镜嘴角微微动了一下，那是她感动时会结巴的前兆。晨光照在两个人的脸上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「那么多人来看'难吃的甜品'……我做甜品那么用心……」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「苏念，你听我说。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「他说……他说我们真诚……」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「这是最好的评价。」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「可他还是说了'难吃'……」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「那是他一个人的看法。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood
+      content_roles:
+        - {file: CHAR-002-L01, role: reference_image, label: 图1}
+        - {file: CHAR-001-L01, role: reference_image, label: 图2}
+        - {file: SCENE-001, role: reference_image, label: 图3}
+    transition_to_next: hard_cut
+
+  # SEG08 — 证明（权力翻转·心酸→决绝）
+  - segment_id: EP20-SEG08
+    shot_ids: [EP20-S15, EP20-S16]
+    duration_sec: 10
+    speakers: [CHAR-003, CHAR-002]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: |
+        【图1】陈一诺 CHAR-003-L01（黑色西装外套，白色T恤，灰色阔腿裤）【图2】林小满 CHAR-001-L01（浅蓝衬衫，深蓝牛仔裤，黑框眼镜）【图3】苏念 CHAR-002-L01（粉色碎花裙，粉色围裙，长卷发花夹子）【图4】解忧甜品店 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1从墙边走过来蹲在图3另一边。三个人又围成了那个小圈。外面是涌进来的客人的笑声和拍照声但这个角落只有三个人的呼吸。图1的眼神变了从刚才的沉默变成了某种坚定。
+        镜头2（5秒）中景 缓推：图1看着图3又看了看图2。三个人的眼睛里都映着窗外的晨光。图1的嘴角微微扬起不是笑是某种准备好了的表情。门口的风铃又响了又有客人进来。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「苏念。」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「嗯？」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「至于'难吃'……」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「我们可以证明。」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「证明什么？」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「证明他错了。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood
+      content_roles:
+        - {file: CHAR-003-L01, role: reference_image, label: 图1}
+        - {file: CHAR-001-L01, role: reference_image, label: 图2}
+        - {file: CHAR-002-L01, role: reference_image, label: 图3}
+        - {file: SCENE-001, role: reference_image, label: 图4}
+    transition_to_next: hard_cut

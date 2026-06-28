@@ -1,0 +1,357 @@
+episode_id: EP01
+source_md: 剧本/EP01/EP01_三个女人一台戏.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood"
+  negative_prompt: "ancient clothing, historical architecture, fantasy elements, magic, supernatural, violence, gore, blood, political content, religious propaganda, superstition, military scenes, courtroom, detective, crime, anime style, cartoon, unrealistic proportions, distorted faces, blurry, low quality"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳"
+  CHAR-002: "成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖"
+  CHAR-003: "成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛"
+
+segments:
+  # ═══════════════════════════════════════════════════
+  # SEG01 — 林小满的困境（压抑）
+  # ═══════════════════════════════════════════════════
+  - segment_id: EP01-SEG01
+    shot_ids: [EP01-S01, EP01-S02]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-002.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L01（浅蓝衬衫+深蓝牛仔裤，黑框眼镜）【图2】客厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：傍晚的出租屋客厅，暖黄色的夕阳透过半掩的窗帘洒在旧沙发上，图1穿着家居服蜷缩在沙发角落，茶几上散落着几张面试拒绝信，旁边放着翻开的笔记本，页面上密密麻麻写满了产品需求，但笔已经很久没动。
+        镜头2（5秒）特写 缓推：图1的手指划过手机屏幕，招聘APP上一条条"已读不回"的消息，她摘下眼镜揉了揉太阳穴，眼眶微红但没有哭，窗外传来楼下隐约的争吵声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「被裁那天，我以为最难的是找工作。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「三周了，投了四十七份简历。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「原来三十岁被裁，比二十岁被甩还难受。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood, write realistic style, vertical 9:16, ancient clothing, historical architecture, fantasy elements, magic, supernatural, violence, gore, blood, political content, religious propaganda, superstition, military scenes, courtroom, detective, crime, anime style, cartoon, unrealistic proportions, distorted faces, blurry, low quality.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════════
+  # SEG02 — 苏念敲错门（意外）
+  # ═══════════════════════════════════════════════════
+  - segment_id: EP01-SEG02
+    shot_ids: [EP01-S03, EP01-S04]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-002.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L01（浅蓝衬衫+深蓝牛仔裤，黑框眼镜）【图2】苏念 CHAR-002-L01（粉色碎花裙，花夹子）【图3】客厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：门外传来急促的敲门声，图1打开门，图2站在门口，拖着一个粉色行李箱，箱角磕破了皮，图2的眼眶红红的，睫毛膏有点晕，但强撑着微笑。
+        镜头2（5秒）中景 固定：图1扶着门框，上下打量图2，表情从警惕变成困惑，图2低头看手机上的地址，又抬头看门牌号，脸色越来越尴尬。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「请问……这里是302吗？」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「302是隔壁。」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「啊……对不起，我、我走错了。」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「完了，又丢人了。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood, write realistic style, vertical 9:16, ancient clothing, historical architecture, fantasy elements, magic, supernatural, violence, gore, blood, political content, religious propaganda, superstition, military scenes, courtroom, detective, crime, anime style, cartoon, unrealistic proportions, distorted faces, blurry, low quality.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════════
+  # SEG03 — 陈一诺遭遇纠缠（冲突）
+  # ═══════════════════════════════════════════════════
+  - segment_id: EP01-SEG03
+    shot_ids: [EP01-S05, EP01-S06]
+    duration_sec: 10
+    speakers: [CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-004.png
+    api:
+      text: |
+        【图1】陈一诺 CHAR-003-L01（黑色西装外套+白色T恤+灰色阔腿裤）【图2】公寓楼下街道 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：暮色中的公寓楼下，路灯刚刚亮起，图1背着黑色双肩包，手里提着一袋便利店食物，被一个背对镜头的男人挡住去路，男人西装革履，手搭在图1的胳膊上，图1侧身避开，眼神冰冷。
+        镜头2（5秒）近景 固定：图1用力甩开男人的手，快步走进公寓楼的单元门，男人追了两步，被自动关闭的玻璃门挡在外面，图1的背影消失在楼道里，男人站在门外，拳头攥紧又松开。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「松手。」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「我已经说过了。别再来找我。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood, write realistic style, vertical 9:16, ancient clothing, historical architecture, fantasy elements, magic, supernatural, violence, gore, blood, political content, religious propaganda, superstition, military scenes, courtroom, detective, crime, anime style, cartoon, unrealistic proportions, distorted faces, blurry, low quality.
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: audio_bridge
+
+  # ═══════════════════════════════════════════════════
+  # SEG04 — 意外来客（尴尬）
+  # ═══════════════════════════════════════════════════
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S07, EP01-S08]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002, CHAR-003]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-002.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L01（浅蓝衬衫+深蓝牛仔裤，黑框眼镜）【图2】苏念 CHAR-002-L01（粉色碎花裙，花夹子）【图3】陈一诺 CHAR-003-L01（黑色西装外套+白色T恤+灰色阔腿裤）【图4】客厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：门外又响起敲门声，林小满打开门，图2尴尬地笑着，图3面无表情地站在后面，手里提着便利店袋子。
+        镜头2（5秒）中景 固定：图1站在门口，看看图2，又看看图3，三人互相打量，气氛尴尬，楼下传来男人的喊叫声，图3的表情微微僵了一下。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「那个……302没人开门，我听到楼下有争吵声，就、就遇到她了。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「一个走错门的，一个躲人的。什么情况？」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「借过。楼下有人纠缠我，我需要在你这里待一会儿。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood, write realistic style, vertical 9:16, ancient clothing, historical architecture, fantasy elements, magic, supernatural, violence, gore, blood, political content, religious propaganda, superstition, military scenes, courtroom, detective, crime, anime style, cartoon, unrealistic proportions, distorted faces, blurry, low quality.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════════
+  # SEG05 — 水管爆裂（危机）
+  # ═══════════════════════════════════════════════════
+  - segment_id: EP01-SEG05
+    shot_ids: [EP01-S09, EP01-S10]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002, CHAR-003]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-002.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L01（浅蓝衬衫+深蓝牛仔裤，黑框眼镜）【图2】苏念 CHAR-002-L01（粉色碎花裙，花夹子）【图3】陈一诺 CHAR-003-L01（黑色西装外套+白色T恤+灰色阔腿裤）【图4】客厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：三人刚在客厅站定，厨房方向突然传来一声闷响，紧接着是水流喷涌的声音，图1冲进厨房，看到墙角的水管爆裂，水柱喷射而出，瞬间打湿了地砖。
+        镜头2（5秒）中景 固定：图1手忙脚乱地抢救茶几上的笔记本，图2本能地冲进厨房试图关水阀，图3则冷静地环顾四周，目光停留在漏水点上，水漫到客厅，三双鞋同时踩在水里。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「我的笔记本！」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「阀门在哪？阀门在哪！」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「那个。顺时针拧。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood, write realistic style, vertical 9:16, ancient clothing, historical architecture, fantasy elements, magic, supernatural, violence, gore, blood, political content, religious propaganda, superstition, military scenes, courtroom, detective, crime, anime style, cartoon, unrealistic proportions, distorted faces, blurry, low quality.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════════
+  # SEG06 — 被迫留下（过渡）
+  # ═══════════════════════════════════════════════════
+  - segment_id: EP01-SEG06
+    shot_ids: [EP01-S11, EP01-S12]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-002.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L01（浅蓝衬衫+深蓝牛仔裤，黑框眼镜）【图2】苏念 CHAR-002-L01（粉色碎花裙，花夹子）【图3】陈一诺 CHAR-003-L01（黑色西装外套+白色T恤+灰色阔腿裤）【图4】客厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 缓推：水阀关了，但客厅地板已经湿了一大片，三人站在一片狼藉中互相看看，图1湿漉漉的笔记本摊在茶几上，图2的行李箱轮子泡在水里。
+        镜头2（5秒）中景 固定：三人尴尬地坐在客厅里——图1坐沙发，图2坐行李箱，图3靠墙站着，三个人的手机同时亮了又灭，谁也没有打电话。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「喂，王叔……水管爆了。什么？明天才能来？」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「那个……今晚怎么办？」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「你问我，我问谁。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood, write realistic style, vertical 9:16, ancient clothing, historical architecture, fantasy elements, magic, supernatural, violence, gore, blood, political content, religious propaganda, superstition, military scenes, courtroom, detective, crime, anime style, cartoon, unrealistic proportions, distorted faces, blurry, low quality.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════════
+  # SEG07 — 三人独处（独白段·林小满）
+  # ═══════════════════════════════════════════════════
+  - segment_id: EP01-SEG07
+    shot_ids: [EP01-S13, EP01-S14]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-002.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L01（浅蓝衬衫+深蓝牛仔裤，黑框眼镜）【图2】客厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 缓推：图1坐在湿漉漉的沙发上，低头看着被水浸湿的笔记本，墨水晕开了，字迹模糊成一片，她的眼眶泛红，但咬着嘴唇没哭，窗外最后一丝夕阳消失，客厅暗了下来。
+        镜头2（5秒）近景 固定：图1抬头，透过半开的卧室门看到苏念蜷缩在行李箱旁，陈一诺站在窗边望着外面的夜景，三个人，三种沉默。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「工作没了，积蓄快见底。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「现在连笔记本都毁了。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「这两个陌生人，和我一样狼狈吗？」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「算了，先过今晚再说。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood, write realistic style, vertical 9:16, ancient clothing, historical architecture, fantasy elements, magic, supernatural, violence, gore, blood, political content, religious propaganda, superstition, military scenes, courtroom, detective, crime, anime style, cartoon, unrealistic proportions, distorted faces, blurry, low quality.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════════
+  # SEG08 — 笨拙的善意（微光·碎片式）
+  # ═══════════════════════════════════════════════════
+  - segment_id: EP01-SEG08
+    shot_ids: [EP01-S15, EP01-S16]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002, CHAR-003]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-002.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L01（浅蓝衬衫+深蓝牛仔裤，黑框眼镜）【图2】苏念 CHAR-002-L01（粉色碎花裙，花夹子）【图3】陈一诺 CHAR-003-L01（黑色西装外套+白色T恤+灰色阔腿裤）【图4】客厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图2从行李箱里翻出一条干毛巾，小心翼翼地递给图1，图1愣了一下，接过毛巾，两人目光短暂交汇又各自移开，图3从便利店袋子里拿出三瓶水，放在茶几上。
+        镜头2（6秒）中景 缓推：三人围坐在客厅地板上，各拿一瓶水，图2低头拧瓶盖，手还在微微发抖，图1看着她，欲言又止，图3靠在墙边，目光平静地扫过两人。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「擦擦吧。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「……谢谢。」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「先喝水。」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「我今天真是太丢人了。」
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「比你丢人的人多了。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood, write realistic style, vertical 9:16, ancient clothing, historical architecture, fantasy elements, magic, supernatural, violence, gore, blood, political content, religious propaganda, superstition, military scenes, courtroom, detective, crime, anime style, cartoon, unrealistic proportions, distorted faces, blurry, low quality.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════════
+  # SEG09 — 三条命运线（犹豫）
+  # ═══════════════════════════════════════════════════
+  - segment_id: EP01-SEG09
+    shot_ids: [EP01-S17, EP01-S18]
+    duration_sec: 10
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-002.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L01（浅蓝衬衫+深蓝牛仔裤，黑框眼镜）【图2】苏念 CHAR-002-L01（粉色碎花裙，花夹子）【图3】陈一诺 CHAR-003-L01（黑色西装外套+白色T恤+灰色阔腿裤）【图4】客厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：手机屏幕的冷光映在三人脸上，图1刷着招聘APP，图2盯着通讯录里"妈妈"的头像，图3的屏幕停留在一个建筑设计事务所的邮件上，三种沉默，三种困境。
+        镜头2（5秒）中景 缓推：图2突然放下手机，从行李箱侧袋掏出一块用保鲜膜包着的提拉米苏，小心翼翼地打开，用随身带的塑料刀切成三份，动作很轻很慢，像在做一件神圣的事。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「我做甜品的。这是我最后的作品。」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「尝尝吧。反正……也没别的吃的了。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood, write realistic style, vertical 9:16, ancient clothing, historical architecture, fantasy elements, magic, supernatural, violence, gore, blood, political content, religious propaganda, superstition, military scenes, courtroom, detective, crime, anime style, cartoon, unrealistic proportions, distorted faces, blurry, low quality.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════════════
+  # SEG10 — 无家可归的对视（钩子）
+  # ═══════════════════════════════════════════════════
+  - segment_id: EP01-SEG10
+    shot_ids: [EP01-S19, EP01-S20]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002, CHAR-003]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-002.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L01（浅蓝衬衫+深蓝牛仔裤，黑框眼镜）【图2】苏念 CHAR-002-L01（粉色碎花裙，花夹子）【图3】陈一诺 CHAR-003-L01（黑色西装外套+白色T恤+灰色阔腿裤）【图4】客厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 缓推：图1的手机震动，她低头一看，脸色微变——房东的消息，她把手机扣在膝盖上，深吸一口气。
+        镜头2（6秒）中景 固定：三人坐在客厅地板上，提拉米苏分成三份摆在茶几上，图1咬了一口，表情微愣——甜的，图2的手机响了，她看了一眼来电显示，没有接，图3的手机也响了，屏幕显示"房东"，她接起来，听了几秒，脸色没变，但手指攥紧了手机。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，成年女性，28岁，声线清冷但清晰，语速偏快，逻辑性强，情绪压抑时语调平稳）：「没了。连住的地方也要没了。」
+        对白（苏念，成年女性，26岁，声线温柔甜美，语速适中，情感丰富，哭泣时声音颤抖）：「怎么了？」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「……被换了锁？进不去了？」
+        对白（陈一诺，成年女性，29岁，声线清冷沉稳，语速偏慢，简洁有力，情绪内敛）：「我也是。」
+        画面全程无任何文字、字幕、标题、水印。
+        modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood, write realistic style, vertical 9:16, ancient clothing, historical architecture, fantasy elements, magic, supernatural, violence, gore, blood, political content, religious propaganda, superstition, military scenes, courtroom, detective, crime, anime style, cartoon, unrealistic proportions, distorted faces, blurry, low quality.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut

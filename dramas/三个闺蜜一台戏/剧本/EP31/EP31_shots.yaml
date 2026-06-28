@@ -1,0 +1,490 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP31/EP31_帖子效应.md
+# Source shots: 16 (EP31-S01 to EP31-S16)
+# Output shots: 16 (EP31-S01 to EP31-S16)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s
+# Output total duration: 80s
+# Gate status: ALL PASS
+
+episode_id: EP31
+source_md: 剧本/EP31/EP31_帖子效应.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "modern urban realistic style, warm natural lighting, soft focus background, cinematic composition, 9:16 vertical format, 2024-2025 contemporary setting, daily life atmosphere, healing and cozy mood"
+  negative_prompt: "ancient clothing, historical architecture, fantasy elements, magic, supernatural, violence, gore, blood, political content, religious propaganda, superstition, military scenes, courtroom, detective, crime, anime style, cartoon, unrealistic proportions, distorted faces, blurry, low quality"
+
+shots:
+  # ── SEG01: 发帖 ──
+  - shot_id: EP31-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: "【图1】CHAR-002-L01（长卷发，碎花裙，花夹子，粉色围裙）【图2】SCENE-001。中景 固定：午后甜品店阳光透过大窗户洒进来，图1坐在靠窗位置穿着围裙，手机对着提拉米苏拍照，招牌在背景中发柔光，嘴角带犹豫但眼神坚定。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "写还是不写……"
+      - speaker: CHAR-002
+        line: "写吧。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: "【图1】CHAR-002-L01（长卷发，碎花裙，花夹子）【图2】SCENE-001。特写 固定：图1手机屏幕，手指打字文字一行行出现，内容关于昨天做的提拉米苏和献给被辜负的女孩，按下发送键。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "不知道有没有人看到……"
+    transition_to_next: hard_cut
+
+  # ── SEG02: 爆了 ──
+  - shot_id: EP31-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（短发黑框眼镜，浅蓝衬衫+深蓝牛仔裤）【图2】CHAR-002-L01（长卷发，碎花裙，花夹子）【图3】SCENE-001。中景 固定：图1从后厨走出来手里拿着笔记本，看到图2盯着手机发呆走过去。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "怎么了？又在看前任朋友圈？"
+      - speaker: CHAR-002
+        line: "不是……我发了条帖子。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（短发黑框眼镜，浅蓝衬衫+深蓝牛仔裤）【图2】CHAR-002-L01（长卷发，碎花裙，花夹子）【图3】CHAR-003-L01（黑白灰穿搭，中长直发）【图4】SCENE-001。近景 固定：三人围着图2的手机，手机屏幕点赞数从两位数跳到三位数评论不断刷新，表情从好奇变成震惊。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "这……多少赞了？"
+      - speaker: CHAR-002
+        line: "一千……还在涨。"
+    transition_to_next: hard_cut
+
+  # ── SEG03: 共鸣 ──
+  - shot_id: EP31-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-002.png
+    api:
+      text: "【图1】CHAR-002-L01（长卷发，碎花裙，花夹子）【图2】CHAR-001-L01（短发黑框眼镜，浅蓝衬衫+深蓝牛仔裤）【图3】CHAR-003-L01（黑白灰穿搭，中长直发）【图4】SCENE-002。中景 固定：夜晚公寓客厅暖黄台灯照在沙发上，图1坐中间图2左边图3右边，图1眼睛红红的但嘴角带微笑。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "你们看这些留言……"
+      - speaker: CHAR-002
+        line: "我也被退婚过，以为自己一辈子完了。看到你的帖子，我哭了好久，但是是开心的哭。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-002.png
+    api:
+      text: "【图1】CHAR-001-L01（短发黑框眼镜，浅蓝衬衫+深蓝牛仔裤）【图2】CHAR-002-L01（长卷发，碎花裙，花夹子）【图3】CHAR-003-L01（黑白灰穿搭，中长直发）【图4】SCENE-002。近景 固定：图1放下手机表情从震惊变成若有所思，图3眼睛也有点红。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "苏念……你这篇帖子，十万阅读了。"
+      - speaker: CHAR-003
+        line: "不是十万。是十万个人，被你治愈了。"
+    transition_to_next: hard_cut
+
+  # ── SEG04: 失恋治愈站 ──
+  - shot_id: EP31-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-002.png
+    api:
+      text: "【图1】CHAR-001-L01（短发黑框眼镜，浅蓝衬衫+深蓝牛仔裤）【图2】CHAR-002-L01（长卷发，碎花裙，花夹子）【图3】CHAR-003-L01（黑白灰穿搭，中长直发）【图4】SCENE-002。中景 固定：三人挤在沙发上头碰头看手机，图1翻评论眼眶湿润，图2嘴角微微上扬，图3轻轻拍了拍图2的肩。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "她们说……要来甜品店看看。"
+      - speaker: CHAR-001
+        line: "所以我们现在是……失恋治愈站？"
+      - speaker: CHAR-002
+        line: "好像……是的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-002.png
+    api:
+      text: "【图1】CHAR-003-L01（黑白灰穿搭，中长直发）【图2】CHAR-002-L01（长卷发，碎花裙，花夹子）【图3】CHAR-001-L01（短发黑框眼镜，浅蓝衬衫+深蓝牛仔裤）【图4】SCENE-002。近景 固定：图1看着图2眼神里有温暖也有骄傲，没有说话只是点了点头，图2看着图1突然笑了带着泪的笑。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "你做到了。"
+      - speaker: CHAR-002
+        line: "我只是……做了一份甜品而已。"
+    transition_to_next: hard_cut
+
+  # ── SEG05: 甜品店的新身份 ──
+  - shot_id: EP31-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: "【图1】CHAR-002-L01（长卷发，碎花裙，花夹子，粉色围裙）【图2】CHAR-001-L01（短发黑框眼镜，浅蓝衬衫+深蓝牛仔裤）【图3】CHAR-003-L01（黑白灰穿搭，中长直发）【图4】SCENE-001。中景 固定：第二天甜品店客流量明显比往常多，几个年轻女孩坐在角落低声交谈不时看向图1方向，图1在展示柜后面有点手忙脚乱。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "怎么突然来了这么多人……"
+      - speaker: CHAR-001
+        line: "因为你火了，苏念。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-GRP-02-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-GRP-02-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-GRP-02-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: "【图1】CHAR-GRP-02-L01（24岁女性，灰色卫衣，深色打底裤，疲惫面容）【图2】CHAR-002-L01（长卷发，碎花裙，花夹子，粉色围裙）【图3】SCENE-001。中景 固定：一个穿灰色卫衣的女孩独自坐在角落，面前放着一份提拉米苏，低着头肩膀微微发抖，图1注意到她眼神从忙碌变成关切。"
+      content_roles:
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "那个女孩……她看起来不太好。"
+    transition_to_next: hard_cut
+
+  # ── SEG06: 留言板 ──
+  - shot_id: EP31-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L01（短发黑框眼镜，浅蓝衬衫+深蓝牛仔裤）【图2】CHAR-003-L01（黑白灰穿搭，中长直发）【图3】SCENE-003。中景 固定：后厨里图1在整理治愈故事卡片，图3在画设计图，图1手里拿着一张卡片表情认真。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "我在想……要不要在店里设一个留言板？"
+      - speaker: CHAR-003
+        line: "留言板？"
+      - speaker: CHAR-001
+        line: "让来的人写下自己的故事。不写名字，只写心情。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-003.png
+    api:
+      text: "【图1】CHAR-003-L01（黑白灰穿搭，中长直发）【图2】CHAR-001-L01（短发黑框眼镜，浅蓝衬衫+深蓝牛仔裤）【图3】SCENE-003。近景 固定：图1放下笔看着图2，眼神从思考变成认可。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "我来设计。"
+      - speaker: CHAR-001
+        line: "就知道你会这么说。"
+    transition_to_next: hard_cut
+
+  # ── SEG07: 治愈传递 ──
+  - shot_id: EP31-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-003.png
+    api:
+      text: "【图1】CHAR-002-L01（长卷发，碎花裙，花夹子，粉色围裙）【图2】CHAR-001-L01（短发黑框眼镜，浅蓝衬衫+深蓝牛仔裤）【图3】CHAR-003-L01（黑白灰穿搭，中长直发）【图4】SCENE-003。中景 固定：图1走进后厨脸上带着复杂表情感动释然还有一丝沉重，手里拿着手机。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-003, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "今天的私信……有两百多条。"
+      - speaker: CHAR-001
+        line: "两百条？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-003-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-003.png
+    api:
+      text: "【图1】CHAR-002-L01（长卷发，碎花裙，花夹子，粉色围裙）【图2】CHAR-001-L01（短发黑框眼镜，浅蓝衬衫+深蓝牛仔裤）【图3】CHAR-003-L01（黑白灰穿搭，中长直发）【图4】SCENE-003。近景 固定：图1靠在操作台上看着手机屏幕，图2和图3走过来三人一起看留言。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-003, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "她们说……谢谢我让她们知道，被辜负不是自己的错。"
+      - speaker: CHAR-003
+        line: "你做的事……比你想象的重要。"
+    transition_to_next: hard_cut
+
+  # ── SEG08: 那条私信 ──
+  - shot_id: EP31-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: "【图1】CHAR-002-L01（长卷发，碎花裙，花夹子）【图2】SCENE-001。近景 固定：傍晚甜品店客人散去，图1一个人坐在窗边翻手机私信，夕阳余晖照在脸上暖黄光渐渐变暗，手指停在一条消息上表情从微笑变成凝固。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "这条……"
+      - speaker: CHAR-002
+        line: "姐姐，我也被退婚了……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/三个闺蜜一台戏/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/三个闺蜜一台戏/SCENE-001.png
+    api:
+      text: "【图1】CHAR-002-L01（长卷发，碎花裙，花夹子）【图2】SCENE-001。特写 固定：图1的脸，眼睛瞪大嘴唇微微颤抖，手机屏幕蓝光映在苍白的脸上。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "……我好想死。"
+      - speaker: CHAR-002
+        line: "不……"
+    transition_to_next: hard_cut
