@@ -1,0 +1,464 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP03/EP03_各怀心事.md
+# Source shots: 14 (EP03-S01 to EP03-S14)
+# Output shots: 14 (EP03-S01 to EP03-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 86s (computed: 5+5+8+5+5+8+5+5+10+5+5+10+5+5)
+# Output total duration: 86s
+# Gate status: ALL PASS
+
+episode_id: EP03
+source_md: 剧本/EP03/EP03_各怀心事.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "Modern urban apartment interior, photorealistic, cinematic 85mm lens, warm natural lighting, 9:16 vertical frame, high detail, film grain"
+  negative_prompt: "anime, cartoon, illustration, fantasy, ancient China, sci-fi, military, weapon, blood, violence, nudity, horror, supernatural, magical, unrealistic proportions, distorted face, extra fingers, watermark, logo"
+
+shots:
+  - shot_id: EP03-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-001.png
+    api:
+      text: "【图1】CHAR-002-L01（宽松深灰色卫衣+牛仔裤，黑框眼镜，黑眼圈深重）【图2】CHAR-003-L01（白T恤+米色开衫，素颜）【图3】SCENE-001。中景 固定：清晨客厅，灰蓝晨光从窗帘缝隙渗入，图1靠在沙发上，手里攥着屏幕暗着的手机。图2蹲在茶几旁收外卖盒，动作极轻。空气中弥漫紧张。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "昨晚……你听到什么没有？"
+      - speaker: CHAR-003
+        line: "什么？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（浅蓝色衬衫系到最上面一颗扣子，深灰色西裤，头发一丝不苟，眼下青黑）【图2】CHAR-002-L01（宽松深灰色卫衣+牛仔裤，黑框眼镜）【图3】SCENE-001。中景 固定：图1从卧室走出，晨光映照，两人目光交错又迅速移开。图2低头假装没注意。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "晓棠，昨晚的事——"
+      - speaker: CHAR-001
+        line: "我也有事要处理。"
+    transition_to_next: audio_bridge
+
+  - shot_id: EP03-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01（浅蓝色衬衫+深灰色西裤）【图2】SCENE-004。中特写 缓推：图1坐在卧室床边，面前摊着一叠文件。手机在桌上震动。她深吸一口气接起。卧室整洁近乎刻意——毛绒玩具摆成一排，叠好的小被子放在角落。阳光照进来，她的眼眶泛红。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "周律师，你好。"
+      - speaker: CHAR-001
+        line: "……他准备得很充分，是什么意思？"
+      - speaker: CHAR-001
+        line: "居住环境不稳定……抚养条件存疑……"
+      - speaker: CHAR-001
+        line: "他知道……住在这里了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（浅蓝色衬衫+深灰色西裤，领口扣子松开一颗）【图2】SCENE-001。近景 固定：图1走到阳台，城市天际线在晨雾中模糊。她双手撑在栏杆上，肩膀微微发抖。衬衫领口的扣子松开了一颗。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "赵一鸣……你到底想怎样？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（浅蓝色衬衫+深灰色西裤）【图2】SCENE-001。特写 固定：图1脸部特写。眼泪无声滑落，她咬住下唇，用手背飞快擦掉。又一滴。她闭上眼深深吸气，再睁眼时强迫自己看向远方。嘴唇在发抖，没有发出任何声音。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "忍着不哭的时候，才最害怕。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01（浅蓝色衬衫+深灰色西裤）【图2】SCENE-004。中景 固定：图1站在卧室镜子前，整理头发，系好松开的扣子，用力抿嘴唇让唇色恢复正常。镜中精致、克制、无懈可击。她对镜子挤出一个微笑，垮掉，又挤出一个。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "豆豆不能没有妈妈。"
+      - speaker: CHAR-001
+        line: "不能倒下。先把手头的事做好。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-002-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-005.png
+    api:
+      text: "【图1】CHAR-002-L01（宽松深灰色卫衣+牛仔裤，黑框眼镜，黑眼圈深重）【图2】SCENE-005。特写 固定：图1坐在书桌前，笔记本电脑亮着显示数据表格。手机屏幕亮起一条短信，发件人未知。眼镜片上反射着短信内容的光。手指悬在键盘上方僵住。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "又来了……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-002-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-005.png
+    api:
+      text: "【图1】CHAR-002-L01（宽松深灰色卫衣+牛仔裤，黑框眼镜）【图2】SCENE-005。近景 固定：图1拿起手机滑动屏幕，表情从警惕变成恐惧再变成愤怒。手机在手中发抖。她攥紧——松开——攥紧——砰一声摔在桌上，手机弹起掉到地上屏幕朝上。她双手捂住脸。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "他们找到我的真名了……"
+      - speaker: CHAR-002
+        line: "宁可被曝光，也不想被人捏着命。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-003-L01
+      prop_ids:
+        - PROP-004
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-003-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-006.png
+      prop_urls:
+        PROP-004: https://drama-reference-images.tos-cn-beijing.volces.com/props/合租三十天/PROP-004.png
+    api:
+      text: "【图1】CHAR-003-L01（白T恤+米色开衫，素颜，头发散开）【图2】SCENE-006【图3】PROP-004（手写笔记本，字迹工整）。中景 固定：图1盘腿坐在床上，周围堆满书和手稿。手机屏幕显示密集未读语音消息。她咬着嘴唇点开第一条，肩膀随着每条消息越来越缩。床头放着翻开的图3。"
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+        - file: PROP-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-008
+        line: "小满！你到底什么时候回来？"
+      - speaker: CHAR-008
+        line: "我给你安排了隔壁小王家的儿子，人老实，有房有车！"
+      - speaker: CHAR-008
+        line: "条件多好啊，你见都不见？"
+      - speaker: CHAR-008
+        line: "你翅膀硬了是不是？"
+      - speaker: CHAR-008
+        line: "二十好几了，再不回来就来不及了！"
+      - speaker: CHAR-003
+        line: "回不去了……绝对不行。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-003-L01
+      prop_ids:
+        - PROP-004
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-003-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-006.png
+      prop_urls:
+        PROP-004: https://drama-reference-images.tos-cn-beijing.volces.com/props/合租三十天/PROP-004.png
+    api:
+      text: "【图1】CHAR-003-L01（白T恤+米色开衫，素颜）【图2】SCENE-006【图3】PROP-004（手写笔记本）。近景 固定：图1把手机扔到枕头上，语音还在自动播放。陈母声音在小卧室里回荡。图1用双手捂住耳朵，蜷缩成一团。图3滑落在地。"
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+        - file: PROP-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-008
+        line: "你不回来就是不认我这个妈！"
+      - speaker: CHAR-008
+        line: "人家都知道你在城里，问起来我怎么说？"
+      - speaker: CHAR-003
+        line: "别说了……求你别说了……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-003-L01
+      prop_ids:
+        - PROP-004
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-003-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-006.png
+      prop_urls:
+        PROP-004: https://drama-reference-images.tos-cn-beijing.volces.com/props/合租三十天/PROP-004.png
+    api:
+      text: "【图1】CHAR-003-L01（白T恤+米色开衫，素颜，红肿眼睛）【图2】SCENE-006【图3】PROP-004（手写笔记本）。特写 缓推：图1脸部特写。泪珠挂在睫毛上，嘴唇紧抿。她慢慢放下捂耳朵的手，拿起枕边图3，用指尖摩挲纸页边缘。眼里的光从绝望变成某种固执的微光。"
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+        - file: PROP-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-003
+        line: "回去……回去就再也出不来了。"
+    transition_to_next: dissolve
+
+  - shot_id: EP03-S12
+    shot_no: 12
+    mode: t2v
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-002.png
+    api:
+      text: "【图1】SCENE-002。中景 缓推：深夜客厅，窗外城市灯火。走廊尽头三扇紧闭的门，门缝下分别渗出不同色温的光——一扇冷白，一扇蓝白闪烁，一扇暖黄。客厅静得只听到冰箱嗡鸣和远处偶尔车声。"
+      content_roles:
+        - file: SCENE-002
+          role: reference_image
+          label: 图1
+    dialogue:
+      - speaker: 旁白
+        line: "凌晨两点。三扇门背后，三个人睁着眼睛。"
+      - speaker: 旁白
+        line: "有人在哭。有人在发抖。有人在想一件事，想了很久。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-003-L01
+      prop_ids:
+        - PROP-004
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-003-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-006.png
+      prop_urls:
+        PROP-004: https://drama-reference-images.tos-cn-beijing.volces.com/props/合租三十天/PROP-004.png
+    api:
+      text: "【图1】CHAR-003-L01（白T恤+米色开衫，素颜，红肿眼睛）【图2】SCENE-006【图3】PROP-004（手写笔记本，密密麻麻字迹）。中景 固定：凌晨卧室，小夜灯亮着暖黄光。图1悄悄从床上坐起，环顾四周像怕被发现。光脚走到书桌前打开笔记本电脑，屏幕蓝光照亮红肿眼睛。桌角放着翻开的图3。"
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+        - file: PROP-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-003
+        line: "我什么都做不了……"
+      - speaker: CHAR-003
+        line: "但这个……这个我可以。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-003-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-006.png
+    api:
+      text: "【图1】CHAR-003-L01（白T恤+米色开衫）【图2】SCENE-006。特写 缓推：电脑屏幕特写。手指悬在键盘上方，犹豫两秒，打下第一个字。屏幕出现一行标题。光标在末尾闪烁。嘴角微微上扬，眼里有泪光也有光。"
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-003
+        line: "这个故事……我来写。"
+    transition_to_next: hard_cut

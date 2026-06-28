@@ -1,0 +1,226 @@
+# EP50 走呗 — 段落 API 配置
+# 从 EP50_shots.yaml 按 segment 合并；对白与 md 引号内字面一致。
+# 单集真相源为 EP50_走呗.md。
+
+episode_id: EP50
+episode_title: 走呗
+total_duration_sec: 88
+segment_count: 8
+
+seedance_defaults:
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration_sec: "8-10"
+  generate_audio: true
+
+segments:
+  - segment_id: SEG01
+    narrative_function: "Hook Zone · 好消息与坏消息（碎片式·轻松→微涩）"
+    scene_id: SCENE-001
+    location: 公寓客厅
+    time_of_day: 白天
+    interior_exterior: 内景
+    duration_sec: 9
+    transition_to_next: dissolve
+    shots: [EP50-S01, EP50-S02]
+    prompt: >
+      Modern urban apartment living room, afternoon natural light. Three women
+      in the room. One in dark grey hoodie with black-framed glasses stands near
+      the kitchen holding a cup, one in light blue shirt sits on sofa reading
+      documents, one in white t-shirt and beige cardigan sits cross-legged
+      reading a book. Coffee table with children's crayons. The woman in grey
+      hoodie sits down, speaks with forced casualness. The younger woman
+      brightens. Warm domestic atmosphere. Photorealistic, 85mm lens, warm
+      lighting, 9:16 vertical.
+    dialogue: |
+      **CHAR-001**[抬头]：「律师那边怎么说？」
+      **CHAR-002**[坐下·平淡]：「结案了。」
+      **CHAR-003**[惊喜]：「真的？那念真姐你——」
+      **CHAR-002**[打断·淡]：「调查走完了。没人追究我。」
+      **CHAR-001**[松口气]：「那就好。」
+    voice_prompts:
+      CHAR-002: "成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖"
+      CHAR-001: "成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖"
+      CHAR-003: "成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定"
+
+  - segment_id: SEG02
+    narrative_function: "真正的消息（刺探式·平淡→震动）"
+    scene_id: SCENE-001
+    location: 公寓客厅
+    time_of_day: 白天
+    interior_exterior: 内景
+    duration_sec: 8
+    transition_to_next: dissolve
+    shots: [EP50-S03, EP50-S04]
+    prompt: >
+      Continuation in apartment living room. Close-up of a woman in grey hoodie
+      looking down at the reflection in her cup, lips moving as if rehearsing
+      difficult words. She mentions someone leaving. The younger woman leans
+      forward urgently. The woman forces a casual shrug, turns away. Warm
+      afternoon light, intimate apartment interior. Photorealistic, 85mm lens,
+      warm tones, 9:16 vertical.
+    dialogue: |
+      **CHAR-002**[平淡]：「对了……方屿下周走。」
+      **CHAR-003**[愣住]：「走？」
+      **CHAR-003**[急]：「为什么？他不是刚——」
+      **CHAR-002**[冷淡]：「外地。接了新项目。」
+      **CHAR-002**[低声·转身]：「走了也好。」
+    voice_prompts:
+      CHAR-002: "成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖"
+      CHAR-003: "成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定"
+
+  - segment_id: SEG03
+    narrative_function: "咖啡馆 · 告别（刺探式·压制→刺痛）"
+    scene_id: SCENE-008
+    location: 咖啡馆
+    time_of_day: 白天
+    interior_exterior: 内景
+    duration_sec: 10
+    transition_to_next: hard_cut
+    shots: [EP50-S05, EP50-S06]
+    prompt: >
+      Cozy café with wooden interior, afternoon side light. A man in dark navy
+      jacket sits across from a woman in dark grey hoodie in a window booth.
+      Two untouched cold coffees on the table. Diagonal sunlight creates harsh
+      light-shadow divide across the woman's face. He announces departure, she
+      stirs cold coffee with white-knuckled grip. He calls her name, she doesn't
+      look up. Warm melancholic café atmosphere. Photorealistic, 85mm lens,
+      9:16 vertical.
+    dialogue: |
+      **CHAR-006**[低沉]：「下周二的票。」
+      **CHAR-002**[搅咖啡]：「嗯。」
+      **CHAR-006**[低声]：「沿海那边有个项目，要长期驻场。」
+      **CHAR-002**[头也不抬]：「挺好的。」
+      **CHAR-006**[停顿]：「……念真。」
+    voice_prompts:
+      CHAR-006: "成年男性，33岁，声线低沉略带沙哑，语速偏慢，说话简洁有分量，沉默多于言语，被逼急时语速突然加快，带着歉意和坚持"
+      CHAR-002: "成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖"
+
+  - segment_id: SEG04
+    narrative_function: "「走呗」（蓄力式·讽刺→破碎边缘）"
+    scene_id: SCENE-008
+    location: 咖啡馆
+    time_of_day: 白天
+    interior_exterior: 内景
+    duration_sec: 10
+    transition_to_next: hard_cut
+    shots: [EP50-S07, EP50-S08]
+    prompt: >
+      Café close-up. A woman puts down the spoon with a sarcastic curve at her
+      lips that doesn't reach her eyes. She delivers a cutting remark. The man
+      across the table sees through her mask. Push-in extreme close-up: her
+      sarcastic expression cracks, she bites her inner lip, eyes redden, fist
+      clenches below frame. She forces the smile back. Warm café light, strong
+      side shadows. Photorealistic, 85mm lens, 9:16 vertical.
+    dialogue: |
+      **CHAR-002**[讽刺·上扬]：「走呗。谁留你了。」
+      **CHAR-006**[沉默三秒]：「你不用装。」
+      **CHAR-002**[故作轻松]：「装什么。三年不都这样。」
+      **CHAR-002**[内心]：「别看我。别用那种眼神看我。」
+    voice_prompts:
+      CHAR-002: "成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖"
+      CHAR-006: "成年男性，33岁，声线低沉略带沙哑，语速偏慢，说话简洁有分量，沉默多于言语，被逼急时语速突然加快，带着歉意和坚持"
+
+  - segment_id: SEG05
+    narrative_function: "「有些话」（独白递进·克制→余震）"
+    scene_id: SCENE-008
+    location: 咖啡馆
+    time_of_day: 白天
+    interior_exterior: 内景
+    duration_sec: 11
+    transition_to_next: dissolve
+    shots: [EP50-S09, EP50-S10]
+    prompt: >
+      Café booth, medium shot. A man slowly stands, reaches out — hand hovers
+      above the woman's shoulder then withdraws into his pocket. He speaks his
+      final words. She stares at the table. Close-up: his dark silhouette exits
+      frame, door chime sounds. She stares at the empty chair, fingers clenching
+      tablecloth, a single tear drops silently onto the wood. Golden afternoon
+      light fading. Photorealistic, 85mm lens, warm melancholic tones, 9:16 vertical.
+    dialogue: |
+      **CHAR-006**[沙哑]：「有些话……等你想说了，再联系我。」
+      **CHAR-002**[沉默]：「……」
+      **CHAR-006**[低声]：「我号码没换。」
+      **CHAR-002**[内心·颤抖]：「走呗……走了……就走了。」
+    voice_prompts:
+      CHAR-006: "成年男性，33岁，声线低沉略带沙哑，语速偏慢，说话简洁有分量，沉默多于言语，被逼急时语速突然加快，带着歉意和坚持"
+      CHAR-002: "成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖"
+
+  - segment_id: SEG06
+    narrative_function: "夜晚 · 陈小满看到了（刺探式·试探→心疼）"
+    scene_id: SCENE-002
+    location: 公寓客厅
+    time_of_day: 夜晚
+    interior_exterior: 内景
+    duration_sec: 10
+    transition_to_next: hard_cut
+    shots: [EP50-S11, EP50-S12]
+    prompt: >
+      Apartment living room at night, warm yellow table lamp. A young woman with
+      round face and low ponytail in white t-shirt sits on sofa looking at phone.
+      She looks up as the door opens. A woman in dark grey hoodie enters, jacket
+      over arm, makeup smudged without repair. The young woman asks gently, the
+      other responds flatly. She tosses her jacket on a chair and walks toward
+      the fridge, back turned. Warm intimate night atmosphere.
+      Photorealistic, 85mm lens, 9:16 vertical.
+    dialogue: |
+      **CHAR-003**[关心]：「回来了？和方屿……聊得怎么样？」
+      **CHAR-002**[平淡]：「走了。」
+      **CHAR-003**[小心]：「他……真的要走啊？」
+      **CHAR-002**[背对·声音发紧]：「嗯。外地项目。下周就走。」
+    voice_prompts:
+      CHAR-003: "成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定"
+      CHAR-002: "成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖"
+
+  - segment_id: SEG07
+    narrative_function: "转身时嘴角在抖（蓄力式·伪装→碎裂）"
+    scene_id: SCENE-002
+    location: 公寓客厅
+    time_of_day: 夜晚
+    interior_exterior: 内景
+    duration_sec: 11
+    transition_to_next: hard_cut
+    shots: [EP50-S13, EP50-S14]
+    prompt: >
+      Apartment night, slow push-in. A woman stands with hand on refrigerator
+      handle but doesn't open it. Her shoulders sag briefly then straighten. The
+      younger woman approaches gently, tells her she doesn't need to pretend.
+      The woman yanks the fridge open, grabs water, turns to walk away — her
+      lips tremble visibly as she passes the younger woman. She clenches her jaw
+      and quickens pace. The younger woman watches her retreating back with
+      pained eyes. Warm night lighting. Photorealistic, 85mm lens, 9:16 vertical.
+    dialogue: |
+      **CHAR-003**[温柔]：「念真姐……你不用装没事。」
+      **CHAR-002**[猛拉冰箱门]：「装什么。走了正好。」
+      **CHAR-003**[低声]：「你明明——」
+      **CHAR-002**[打断·声音裂开]：「我说了。走了。」
+      **CHAR-003**[内心]：「她嘴角在抖……念真姐，你什么时候才能不逞强。」
+    voice_prompts:
+      CHAR-003: "成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定"
+      CHAR-002: "成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖"
+
+  - segment_id: SEG08
+    narrative_function: "Cliffhanger Zone · 未发出的消息（碎片式·克制→悬念）"
+    scene_id: SCENE-002
+    location: 公寓客厅
+    time_of_day: 夜晚
+    interior_exterior: 内景
+    duration_sec: 9
+    transition_to_next: null
+    shots: [EP50-S15, EP50-S16]
+    prompt: >
+      Apartment night. A woman in grey hoodie slides down against a bedroom door
+      to the floor, knees drawn up. She pulls out her phone, opens a chat
+      conversation. Screen glow illuminates her face. Her thumb hovers over
+      keyboard, types then deletes. She presses the phone to her chest, closes
+      her eyes. A tear slides into her temple hair. Outside, the younger woman
+      stands with hand on the door — doesn't knock — walks back to sofa and
+      hugs her knees. Warm night lighting, lonely intimate atmosphere.
+      Photorealistic, 85mm lens, 9:16 vertical.
+    dialogue: |
+      **CHAR-002**[内心]：「有些话……等你想说了再联系我。」
+      **CHAR-002**[内心]：「我能说什么。」
+      **CHAR-002**[内心·沙哑]：「……走了。」
+    voice_prompts:
+      CHAR-002: "成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖"

@@ -1,0 +1,502 @@
+# EP01 Segments — 合租第一天
+# Source: 剧本/EP01/EP01_合租第一天.md
+# Total shots: 23 (EP01-S01 to EP01-S23)
+# Total segments: 14 (SEG01–SEG07, SEG08a/b/c, SEG09a/b, SEG10a/b)
+# Total duration: 114s
+# Split notes:
+#   - Source SEG08 (3 shots, 13s, cross-scene) → split into SEG08a/b/c (scene boundary)
+#   - Source SEG09 (3 shots, 15s) → split into SEG09a/b (12s limit)
+#   - Source SEG10 (3 shots, 13s) → split into SEG10a/b (12s limit)
+# ⚠️ Source metadata declares 25 shots but actual shot table has 23 rows. Using actual count.
+# ⚠️ Source scene_ids omits SCENE-002; shots S18-S23 use SCENE-002 (defined in 场景卡片.md). Using shot-level scene assignment.
+
+episode_id: EP01
+source_md: 剧本/EP01/EP01_合租第一天.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。画面全程无任何文字、字幕、标题、水印。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。画面全程无任何文字、字幕、标题、水印。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+
+voice_prompts:
+  CHAR-001: "成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖"
+  CHAR-002: "成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖"
+  CHAR-003: "成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定"
+  CHAR-007: "中年男性，55岁，声线沧桑沉稳，语速缓慢，说话时带着人生阅历的从容，偶尔有不经意的幽默感，语气温和但充满智慧"
+  CHAR-009: "女童，5岁，声线明亮稚嫩，语速偏快，说话时带着孩子特有的天真好奇感，偶尔结巴或重复，笑声清脆"
+
+segments:
+  # ============================================================
+  # SEG01 — Hook Zone: 三人相遇 (S01+S02, 12s, SCENE-001)
+  # ============================================================
+  - segment_id: EP01-SEG01
+    shot_ids: [EP01-S01, EP01-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002, CHAR-009]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-003-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-007-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-009-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-001.png
+    api:
+      text: |
+        【图1】林晓棠 CHAR-001-L01（浅蓝色衬衫+深灰色西裤）【图2】苏念真 CHAR-002-L01（宽松深灰色卫衣+牛仔裤）【图3】陈小满 CHAR-003-L01（白T恤+米色开衫+牛仔裤）【图4】王叔 CHAR-007-L01（老头衫+宽腿裤+布鞋）【图5】豆豆 CHAR-009-L01（鲜艳童装+双马尾）【图6】公寓客厅白天 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：暖色调公寓客厅阳光透过纱帘洒在旧木地板上，三个人的行李箱挤在角落互不相让。图4站在中间端着茶杯脸上带着看透世事的微笑。图1穿职业装站在左侧表情克制；图2穿卫衣牛仔裤站在右侧一脸不屑；图3穿朴素衣服站在后面试图缩小存在感。
+        镜头2（6秒）中特写 缓推：图1蹲下身帮图5整理衣领。图5仰着头眼睛亮亮的对新环境充满好奇。图1的手微微颤抖但脸上维持着得体微笑。阳光照在母女身上形成温暖光晕，但图1眼底疲惫无处遁形。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「我先到的，这间房应该归我。」
+        对白（苏念真，成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖）：「先到？那你倒是把租金先交了啊。」
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「豆豆乖，妈妈一定给你一个家。」
+        对白（豆豆，女童，5岁，声线明亮稚嫩，语速偏快，说话时带着孩子特有的天真好奇感，偶尔结巴或重复，笑声清脆）：「妈妈，这里好多人呀。」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图4 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图5 }
+        - { file: SCENE-001, role: reference_image, label: 图6 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG02 — 僵持升级 (S03+S04, 10s, SCENE-001)
+  # ============================================================
+  - segment_id: EP01-SEG02
+    shot_ids: [EP01-S03, EP01-S04]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-003, CHAR-007]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-003-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-007-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-001.png
+    api:
+      text: |
+        【图1】苏念真 CHAR-002-L01（宽松深灰色卫衣+牛仔裤）【图2】陈小满 CHAR-003-L01（白T恤+米色开衫+牛仔裤）【图3】王叔 CHAR-007-L01（老头衫+宽腿裤+布鞋）【图4】公寓客厅白天 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1双手抱胸靠在墙边，黑框眼镜后眼神带着审视，打量着图2，嘴角微微上扬。图2手里抱着一个大帆布包，包口露出一叠书稿的边角，低着头试图避开图1的目光。
+        镜头2（5秒）中景 固定：图3慢悠悠喝了一口茶，茶香在空气中弥漫。他看了看三个互不相让的女人又看了看角落里挤在一起的行李箱，嘴角笑意更深。墙上挂钟滴答作响。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念真，成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖）：「你这包里装的什么？搬家还是逃难？」
+        对白（陈小满，成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定）：「没……没什么，就是一些书。」
+        对白（王叔，中年男性，55岁，声线沧桑沉稳，语速缓慢，说话时带着人生阅历的从容，偶尔有不经意的幽默感，语气温和但充满智慧）：「别争了。」
+        对白（王叔，中年男性，55岁，声线沧桑沉稳，语速缓慢，说话时带着人生阅历的从容，偶尔有不经意的幽默感，语气温和但充满智慧）：「这房子，要么三个人一起租，要么谁都别租。」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG03 — 不满与接受 (S05+S06, 10s, SCENE-001)
+  # ============================================================
+  - segment_id: EP01-SEG03
+    shot_ids: [EP01-S05, EP01-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002, CHAR-003, CHAR-007]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-003-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-007-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-001.png
+    api:
+      text: |
+        【图1】林晓棠 CHAR-001-L01（浅蓝色衬衫+深灰色西裤）【图2】苏念真 CHAR-002-L01（宽松深灰色卫衣+牛仔裤）【图3】陈小满 CHAR-003-L01（白T恤+米色开衫+牛仔裤）【图4】王叔 CHAR-007-L01（老头衫+宽腿裤+布鞋）【图5】公寓客厅白天 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：三个女人同时愣住。图1眉头皱起，图2笑容凝固，图3的头垂得更低了。阳光照在她们脸上但此刻气氛像被冻结。
+        镜头2（5秒）中景 固定：图4放下茶杯发出清脆声响，站起身走向门口留下意味深长的背影。三个女人面面相觑眼神里都是不甘和无奈。角落里的行李箱仿佛在嘲笑她们的困境。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「您这是……强买强卖。」
+        对白（苏念真，成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖）：「哈，这年头租房还得组团。」
+        对白（陈小满，成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定）：「那个……要不我们再商量商量？」
+        对白（王叔，中年男性，55岁，声线沧桑沉稳，语速缓慢，说话时带着人生阅历的从容，偶尔有不经意的幽默感，语气温和但充满智慧）：「想好了给我打电话。」
+        对白（王叔，中年男性，55岁，声线沧桑沉稳，语速缓慢，说话时带着人生阅历的从容，偶尔有不经意的幽默感，语气温和但充满智慧）：「不过提醒你们，这是最后一间了。」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-001, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG04 — 被迫妥协 (S07+S08, 10s, SCENE-001)
+  # ============================================================
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S07, EP01-S08]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-001.png
+    api:
+      text: |
+        【图1】林晓棠 CHAR-001-L01（浅蓝色衬衫+深灰色西裤）【图2】苏念真 CHAR-002-L01（宽松深灰色卫衣+牛仔裤）【图3】公寓客厅白天 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1站在窗前，阳光勾勒出她疲惫的侧脸。她看着窗外眼神空洞。图1的手无意识地攥紧了裙摆。
+        镜头2（5秒）近景 固定：图2靠在门框上双手插兜一脸无所谓，但眼神快速扫视房间像是在评估什么。黑框眼镜后眼睛闪过一丝精光。手机屏幕亮了一下她立刻按灭。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「为了豆豆，忍。」
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「先把手头的事做好。」
+        对白（苏念真，成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖）：「行吧，反正我也就待一阵。」
+        对白（苏念真，成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖）：「先住下，再想办法。」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG05 — 陈小满的讨好 (S09+S10, 10s, SCENE-001)
+  # ============================================================
+  - segment_id: EP01-SEG05
+    shot_ids: [EP01-S09, EP01-S10]
+    duration_sec: 10
+    speakers: [CHAR-003]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-001.png
+    api:
+      text: |
+        【图1】陈小满 CHAR-003-L01（白T恤+米色开衫+牛仔裤）【图2】公寓客厅白天 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中特写 固定：图1站在角落手足无措，看了看周围的人，脸上堆起讨好的笑容。帆布包里书稿露出一角，封面上隐约可见手写字迹。她悄悄把包往身后藏了藏。
+        镜头2（5秒）近景 固定：图1低下头手指无意识绞着衣角，笑容有些僵硬但眼神里藏着一丝倔强。窗外阳光照在她身上把她朴素的衣服映得有些发白。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈小满，成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定）：「那个……我没关系的，你们先选房间吧。」
+        对白（陈小满，成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定）：「别吵了，千万别吵起来。」
+        对白（陈小满，成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定）：「我需要一个地方，安安静静地写东西。」
+        对白（陈小满，成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定）：「只要能离开家，怎样都行。」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG06 — 分配房间 (S11+S12, 10s, SCENE-001)
+  # ============================================================
+  - segment_id: EP01-SEG06
+    shot_ids: [EP01-S11, EP01-S12]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002, CHAR-003]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-001.png
+    api:
+      text: |
+        【图1】林晓棠 CHAR-001-L01（浅蓝色衬衫+深灰色西裤）【图2】苏念真 CHAR-002-L01（宽松深灰色卫衣+牛仔裤）【图3】陈小满 CHAR-003-L01（白T恤+米色开衫+牛仔裤）【图4】公寓客厅白天 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：三个女人站在三间卧室门口像被命运安排好的站位。图1站在最靠近卫生间的房间门口，图2站在中间房间，图3站在最里面的房间。她们互相看了一眼眼神里都是无奈。
+        镜头2（5秒）中景 固定：三个行李箱被推到各自房间门口像划分领地的界碑。客厅瞬间空旷一些空气中弥漫着尴尬和疏离。阳光在地板上投下三个长长的影子互不交叠。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「我住这间，豆豆需要离卫生间近。」
+        对白（苏念真，成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖）：「随便，我无所谓。」
+        对白（陈小满，成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定）：「我没关系的，你们定。」
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「三十天，忍三十天。」
+        对白（苏念真，成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖）：「别惹麻烦，别被发现。」
+        对白（陈小满，成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定）：「只要能写东西，怎样都行。」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG07 — 入住整理 (S13+S14, 11s, SCENE-001)
+  # ============================================================
+  - segment_id: EP01-SEG07
+    shot_ids: [EP01-S13, EP01-S14]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-002, CHAR-003]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-001.png
+    api:
+      text: |
+        【图1】林晓棠 CHAR-001-L01（浅蓝色衬衫+深灰色西裤）【图2】苏念真 CHAR-002-L01（宽松深灰色卫衣+牛仔裤）【图3】陈小满 CHAR-003-L01（白T恤+米色开衫+牛仔裤）【图4】公寓客厅傍晚 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：傍晚的公寓，三个女人在各自角落整理行李。图1在客厅角落帮女儿铺床动作轻柔但机械；图2在沙发上打开笔记本电脑屏幕蓝光映在脸上；图3在餐桌旁小心翼翼把书稿一本本码好。空气里弥漫着奇怪的默契谁也不看谁。
+        镜头2（5秒）特写 固定：图2的手指在键盘上快速敲击，屏幕上是一份复杂的财务表格。她的眼神专注而警惕时不时抬头扫一眼客厅。沙发扶手上放着她的手机屏幕朝下。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「豆豆，先在这儿凑合一晚。」
+        对白（苏念真，成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖）：「真热闹，跟大学宿舍似的。」
+        对白（陈小满，成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定）：「那个……我带了多余的被子，你们需要吗？」
+        对白（苏念真，成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖）：「快了，再忍一阵就安全了。」
+        对白（苏念真，成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖）：「只要不被找到……」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    transition_to_next: dissolve
+
+  # ============================================================
+  # SEG08a — 三人卧室速览·林晓棠 (S15, 5s, SCENE-004)
+  # Source SEG08 split at scene boundary (cross-scene: SCENE-004→005→006)
+  # ============================================================
+  - segment_id: EP01-SEG08a
+    shot_ids: [EP01-S15]
+    duration_sec: 5
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-004.png
+    api:
+      text: |
+        【图1】林晓棠 CHAR-001-L01（浅蓝色衬衫+深灰色西裤）【图2】林晓棠卧室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1的卧室整洁得近乎强迫症，床单铺得一丝不苟，女儿的玩具整齐摆在角落。床头柜上放着一份法律文件封面写着"抚养权听证材料"。图1坐在床边眼神落在文件上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「只有三十天，必须在这之前准备好。」
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「这一次，我不能再输了。」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG08b — 三人卧室速览·苏念真 (S16, 4s, SCENE-005)
+  # ============================================================
+  - segment_id: EP01-SEG08b
+    shot_ids: [EP01-S16]
+    duration_sec: 4
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-002-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-005.png
+    api:
+      text: |
+        【图1】苏念真 CHAR-002-L01（宽松深灰色卫衣+牛仔裤）【图2】苏念真卧室 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）中景 固定：图1的卧室表面杂乱实则有序，笔记本电脑打开着旁边散落写满代码的便利贴。枕头下露出一个黑色硬盘盒的边角。图1把硬盘往里推了推。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念真，成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖）：「别让他们找到这个。」
+        对白（苏念真，成年女性，34岁，语速偏快，声线干脆利落，带有轻微沙哑感，讽刺时语调上扬，说正事时冷静沉稳，崩溃时声音明显发抖）：「这东西，能救我，也能毁了我。」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG08c — 三人卧室速览·陈小满 (S17, 4s, SCENE-006)
+  # ============================================================
+  - segment_id: EP01-SEG08c
+    shot_ids: [EP01-S17]
+    duration_sec: 4
+    speakers: [CHAR-003]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-003-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-006.png
+    api:
+      text: |
+        【图1】陈小满 CHAR-003-L01（白T恤+米色开衫+牛仔裤）【图2】陈小满卧室 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）中景 固定：图1的卧室书堆成山。床头放着一摞手写书稿封面是《三个陌生人的三十天》。窗台上一盆小小的绿萝是房间里唯一的亮色。图1轻轻抚摸书稿封面。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈小满，成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定）：「这个故事，一定要写完。」
+        对白（陈小满，成年女性，28岁，声线温柔清澈，语速偏慢，带有讨好式语调，常有停顿和犹豫，说话时尾音上扬带着不确定感，后期语气逐渐坚定）：「写完了，我就自由了。」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  # ============================================================
+  # SEG09a — 深夜客厅·发现 (S18+S19, 10s, SCENE-002)
+  # Source SEG09 split: 15s → 10s+5s
+  # ============================================================
+  - segment_id: EP01-SEG09a
+    shot_ids: [EP01-S18, EP01-S19]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-002.png
+    api:
+      text: |
+        【图1】林晓棠 CHAR-001-L01（睡衣）【图2】公寓客厅深夜 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 缓推：深夜的客厅只有一盏小灯亮着。图1穿着睡衣轻轻关上卧室门走向厨房想倒杯水，脚步很轻怕吵醒女儿。经过客厅时她停下了脚步。
+        镜头2（5秒）特写 固定：图1的目光落在客厅角落。那里放着一个旧书柜，书柜后面隐约露出一扇门的边缘。门缝里透出一丝冷风，书柜上积了厚厚的灰。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「睡不着……」
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「这三十天，该怎么过。」
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「这扇门……」
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「怎么被挡住了？」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG09b — 深夜客厅·试探 (S20, 5s, SCENE-002)
+  # ============================================================
+  - segment_id: EP01-SEG09b
+    shot_ids: [EP01-S20]
+    duration_sec: 5
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-002.png
+    api:
+      text: |
+        【图1】林晓棠 CHAR-001-L01（睡衣）【图2】公寓客厅深夜 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1走近书柜伸手想推开，书柜纹丝不动像被什么东西卡住了。她蹲下身发现门上有一把生锈的锁，锁孔里塞着什么东西看不清楚。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「锁着的？」
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「王叔没提过这个房间啊。」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG10a — 钩子：隐藏的门·王叔警告 (S21+S22, 9s, SCENE-002)
+  # Source SEG10 split: 13s → 9s+4s
+  # ============================================================
+  - segment_id: EP01-SEG10a
+    shot_ids: [EP01-S21, EP01-S22]
+    duration_sec: 9
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-007-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-002.png
+    api:
+      text: |
+        【图1】王叔 CHAR-007-L01（老头衫+宽腿裤+布鞋）【图2】林晓棠 CHAR-001-L01（睡衣）【图3】公寓客厅深夜 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1不知什么时候出现在客厅门口手里端着茶杯，看着图2蹲在书柜前的样子，眼神闪过一丝复杂的情绪。茶杯里的热气在冷空气中升腾。
+        镜头2（4秒）特写 固定：图2抬起头眼神里满是疑问。她想问什么但图1已经转身离开。走廊里传来他缓慢的脚步声和茶杯轻轻碰撞的声响。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王叔，中年男性，55岁，声线沧桑沉稳，语速缓慢，说话时带着人生阅历的从容，偶尔有不经意的幽默感，语气温和但充满智慧）：「那间不用管。」
+        对白（王叔，中年男性，55岁，声线沧桑沉稳，语速缓慢，说话时带着人生阅历的从容，偶尔有不经意的幽默感，语气温和但充满智慧）：「以前的租客留下的。」
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「以前的租客？」
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「他为什么……不让我说完。」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ============================================================
+  # SEG10b — 钩子：隐藏的门·悬念定格 (S23, 4s, SCENE-002)
+  # Final shot — episode cliffhanger
+  # ============================================================
+  - segment_id: EP01-SEG10b
+    shot_ids: [EP01-S23]
+    duration_sec: 4
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/合租三十天/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/合租三十天/SCENE-002.png
+    api:
+      text: |
+        【图1】林晓棠 CHAR-001-L01（睡衣）【图2】公寓客厅深夜 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）特写 固定：图1的目光再次落在那扇门上。门缝里透出的冷风更明显了吹动了书柜上的灰尘。她下意识地抱紧了双臂。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「这扇门后面……」
+        对白（林晓棠，成年女性，32岁，声线清冷但柔和，语速偏慢，语调克制，说话时带着压抑的疲惫感，偶尔在情绪爆发时声线颤抖）：「到底藏着什么？」
+        画面全程无任何文字、字幕、标题、水印。
+        真人实拍质感，电影级色彩，浅景深，现代都市公寓住宅环境。现代中国都市女性群像写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
