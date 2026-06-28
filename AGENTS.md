@@ -200,6 +200,10 @@ python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
 
 ## 项目文件结构
 
+> ⚠️ **新建项目时必须用 `script/init_drama_project.sh <剧名>` 创建骨架**，不要手写 `mkdir`。
+> 仓库根目录名是 `dramas`、子目录也叫 `dramas/`，模型极易把"项目根 `dramas/<剧名>`"与"仓库根 `dramas`"搞混 → 写错位置污染 `assets/`、产生孤儿文件、下游找不到归属导致重复扣费。
+> 脚本内置路径守门（强制 `dramas/` 前缀、防重名、防路径穿越），CLI 也已守门 `--project-root` 拒绝被传成仓库根（见 `assert_valid_drama_project_root`）。
+
 ```
 dramas/<剧名>/
 ├── 资产/              ← 角色卡片.md, 形象索引.md, 场景卡片.md, 道具卡片.md, 声音卡片.md

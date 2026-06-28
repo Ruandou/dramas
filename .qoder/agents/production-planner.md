@@ -297,6 +297,9 @@ seedance_defaults:
 
 ## 八、目录结构规范
 
+> ⚠️ **新项目骨架由 `script/init_drama_project.sh <剧名>` 在 drama-director Stage 2 启动时创建**，你只需在已创建骨架上填充内容，**不要**手写 `mkdir`。
+> 仓库根目录与装各短剧项目的 `dramas/` 子目录同名，模型易把"项目根 `dramas/<剧名>`"与"仓库根 `dramas`"搞混 → 写错位置产生孤儿文件/重复扣费。init 脚本 + CLI `--project-root` 守门已从源头杜绝此风险。
+
 所有新项目必须遵循统一目录结构：
 
 ```
