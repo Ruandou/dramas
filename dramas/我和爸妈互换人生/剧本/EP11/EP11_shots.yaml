@@ -1,0 +1,358 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP11/EP11_四面楚歌.md
+# Source shots: 12 (EP11-S01 to EP11-S12)
+# Output shots: 12 (EP11-S01 to EP11-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s (5+5+5+5+10+10+5+5+10+10+10+10)
+# Output total duration: 90s
+# Gate status: ALL PASS (Gate 1: 90s∈[75,120] ✅ | Gate 2: 12=12 ✅ | Gate 3: no conflicts ✅ | Gate 4: all voice_prompts found ✅)
+
+episode_id: EP11
+source_md: 剧本/EP11/EP11_四面楚歌.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  negative_prompt: "fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity"
+
+shots:
+  - shot_id: EP11-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+      prop_ids:
+        - PROP-011
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+      prop_urls:
+        PROP-011: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-011.png
+    api:
+      text: "【图1】CHAR-002-L01（校服衬衫）【图2】SCENE-002【图3】PROP-011。中景 固定：傍晚卧室暖色台灯，图1坐在书桌前，手握图3，屏幕亮着月考成绩页面，冷光映在僵住的脸上，书桌教辅堆得比肩膀高。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: PROP-011, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「月考成绩出了……班级第35名？」"
+      - speaker: CHAR-002
+        line: "「小夏从没考过这么差……约谈家长怎么办？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+    api:
+      text: "【图1】CHAR-002-L01（校服衬衫）【图2】SCENE-002。近景 镜头推近：图1把手机翻扣在桌上，双手捂脸，手指颤抖，校服袖口滑下露出纤细手腕，台灯暖光照着微微起伏的肩膀，桌角有涂鸦和数学试卷。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「对不起……小夏。」"
+      - speaker: CHAR-002
+        line: "「你那么努力……我却把你的名次全毁了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】CHAR-005-L01（紫红色棉袄+银发髻）【图2】CHAR-001-L01（针织开衫）【图3】SCENE-001。中景 固定：暖色调客厅，餐桌摆着空盘子，图1坐在沙发上双手拄竹拐杖表情严肃，图2站在客厅中央手指绞着衣角，动作太少女与'妈妈'气质不搭。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「小敏啊，明天亲戚来，你掌勺。」"
+      - speaker: CHAR-005
+        line: "「嫁进来这么多年了，不会连几道像样的菜都做不出来吧？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（针织开衫）【图2】SCENE-001。近景 固定：图1面部特写，嘴唇抿得发白，眼眶泛红但拼命忍着，客厅墙上全家福里真正妈妈笑得温柔而疲惫。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「奶奶……我、我明天试试。」"
+      - speaker: CHAR-001
+        line: "「妈妈以前就是这样被奶奶逼的吗？」"
+      - speaker: CHAR-001
+        line: "「她一次都没跟我说过……」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】CHAR-003-L01（黑T恤）【图2】CHAR-008-L01（格子衬衫+黑框眼镜）【图3】SCENE-004。中景 缓推：开放式办公区，图1站在白板前手抖写不出字，商业计划书摊开，图2在旁黑框眼镜反射屏幕蓝光眉头皱成川字，远处有同事好奇一瞥。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "「大宇，数据你必须自己讲。」"
+      - speaker: CHAR-008
+        line: "「投资人只认创始人。」"
+      - speaker: CHAR-003
+        line: "「什么ROI、用户增长……」"
+      - speaker: CHAR-003
+        line: "「完了……这次真把儿子的公司搞砸了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+    api:
+      text: "【图1】CHAR-004-L01（浅蓝衬衫+银框眼镜）【图2】SCENE-005。中景 缓推：灰色调格子间，图1坐在角落工位，电脑空白PPT光标闪烁，手反复点鼠标越来越抖，桌角全家福被手肘遮住一半，走廊传来同事声音。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "「季度汇报……PPT怎么做？」"
+      - speaker: CHAR-004
+        line: "「这帮人明天就等着看我出洋相。」"
+      - speaker: CHAR-004
+        line: "「爸做了这么多年汇报……怎么从来没见他说过累？」"
+    transition_to_next: dissolve
+
+  - shot_id: EP11-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001-night.png
+    api:
+      text: "【图1】CHAR-001-L01（针织开衫）【图2】SCENE-001-night。近景 固定：深夜厨房只有冰箱嗡嗡声，图1背靠冰箱坐在地上，手里握着手机屏幕显示妈妈号码，灶台上放着烧糊的锅，手机屏幕冷光照着泪痕未干的脸。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「想打给妈妈……」"
+      - speaker: CHAR-001
+        line: "「可我能说什么？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001-night.png
+    api:
+      text: "【图1】CHAR-001-L01（针织开衫）【图2】SCENE-001-night。特写 固定：图1脸部特写，深吸一口气咬牙按下通话键，手机贴到耳边等待接通，嘟声在寂静中格外响，眼睛闭上泪水顺着脸颊滑下。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「妈……是我。」"
+      - speaker: CHAR-001
+        line: "「我……」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+    api:
+      text: "【图1】CHAR-002-L01（校服衬衫）【图2】SCENE-002。中景 镜头拉远：深夜卧室月光从窗帘缝隙照入，图1蜷缩在床角，手机突然亮起，校服袖口蹭着被子褶皱，教辅书散落枕边，两人沉默很久。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「小夏？」"
+      - speaker: CHAR-002
+        line: "「……怎么了？」"
+      - speaker: CHAR-002
+        line: "「她打电话来了……」"
+      - speaker: CHAR-002
+        line: "「可我不敢说——对不起，我把你的月考搞砸了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】CHAR-003-L01（黑T恤）【图2】SCENE-004。近景 固定：创业公司洗手间白色瓷砖反射惨白灯光，图1坐在马桶盖上双手抱头，手机掉在地上屏幕朝上显示未接来电，黑T恤领口被汗浸湿一圈。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「想打给大宇……」"
+      - speaker: CHAR-003
+        line: "「我把创业公司搞崩了。」"
+      - speaker: CHAR-003
+        line: "「可我怎么说？儿子……爸对不起你？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+    api:
+      text: "【图1】CHAR-004-L01（浅蓝衬衫+银框眼镜）【图2】SCENE-005。近景 固定：深夜办公室其他工位都空了只有角落台灯亮着，图1坐在办公椅上，手机通讯录停在'爸'的位置，衬衫袖子卷到手肘银框眼镜推到额头，手指悬在通话键上方。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "「想打给爸……」"
+      - speaker: CHAR-004
+        line: "「我把你的季度汇报搞砸了。」"
+      - speaker: CHAR-004
+        line: "「这次……是我欠你的。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP11-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001-night.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-002.png
+    api:
+      text: "【图1】CHAR-001-L01（针织开衫）【图2】CHAR-005-L01（紫红色棉袄+银发髻）【图3】SCENE-001-night【图4】PROP-002。中景 缓推：深夜客厅只有落地灯昏黄光，图1蜷缩在沙发上手机扣在胸口眼睛红肿，走廊黑暗中图2缓慢走出银白发髻泛光手捧图4泛黄旧日记，图1猛地抬头。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「奶奶？您怎么……还没睡？」"
+      - speaker: CHAR-005
+        line: "「你们四个……今晚都在偷偷打电话吧？」"
+      - speaker: CHAR-005
+        line: "「是时候告诉你们了。」"

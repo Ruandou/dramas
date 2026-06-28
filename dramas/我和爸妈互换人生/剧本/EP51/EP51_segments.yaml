@@ -1,0 +1,335 @@
+episode_id: EP51
+source_md: 剧本/EP51/EP51_奶奶的心脏.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  negative_prompt: "fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity"
+
+voice_prompts:
+  CHAR-001: |-
+    成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬
+  CHAR-002: |-
+    成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤
+  CHAR-003: |-
+    成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露
+  CHAR-004: |-
+    成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬
+  CHAR-005: |-
+    老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"
+  # ⚠️ BLOCKER: [待补：医生] speaker in S07 has dialogue lines but no CHAR-GRP-## ID assigned.
+  # production-planner must: 1) Assign CHAR-GRP-## ID  2) Create voice card entry in 声音卡片.md
+  # 3) character-designer backfills L01  4) scene-writer replaces [待补：医生] with official ID
+  # Voice prompt for doctor will be added after CHAR-GRP assignment.
+
+segments:
+  - segment_id: EP51-SEG01
+    shot_ids: [EP51-S01, EP51-S02]
+    duration_sec: 11
+    speakers: [CHAR-004, CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: |
+        【图1】林大宇 CHAR-004-L01（浅蓝衬衫·银框眼镜·发际线后移）【图2】林建国 CHAR-003-L01（黑T恤·纹身）【图3】林小夏 CHAR-001-L01（针织开衫·短发）【图4】林家客厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：林家客厅白天，图1坐在沙发上手机贴着耳朵脸色慢慢变白，茶几上一杯没喝完的茶，窗帘半拉阳光在地板上画出一道斜杠，手缓缓握紧膝盖上的布料指节发白。
+        镜头2（6秒）中景 固定：客厅全景，图1放下手机抬头看向对面，图2和图3同时抬头看他，三人表情都凝固了，阳光照在茶几上茶水表面微微晃动，客厅忽然变得很安静。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「外婆……心脏复查结果不好。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「医生说——要立即手术。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「外婆心脏复查不好。医生说——要做手术。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「……什么时候？」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「现在。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「我们现在就去。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。, 写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-007, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP51-SEG02
+    shot_ids: [EP51-S03, EP51-S04]
+    duration_sec: 11
+    speakers: [CHAR-003, CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: |
+        【图1】林建国 CHAR-003-L01（黑T恤·纹身）【图2】林小夏 CHAR-001-L01（针织开衫·短发）【图3】苏敏 CHAR-002-L01（马尾辫·校服）【图4】出租车内 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：出租车后座，图1靠着车窗额头抵在玻璃上眉头紧锁，窗外城市街景快速后退，手指在膝盖上不安地敲着。
+        镜头2（6秒）中景 固定：出租车后座另一侧，图2和图3并排坐着，图3的手悄悄覆上图2的手背轻轻握了一下，窗外光线在两人脸上交替明暗。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「妈……你不能有事。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「这个身体……连扶你都扶不稳。」
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「到了医院，我来说。你负责签字。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「妈……我怕。」
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「我在。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。, 写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-007, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP51-SEG03
+    shot_ids: [EP51-S05, EP51-S06]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: |
+        【图1】赵美兰 CHAR-005-L01（紫红棉袄·银白发髻·金手镯）【图2】林小夏 CHAR-001-L01（针织开衫·短发）【图3】林建国 CHAR-003-L01（黑T恤·纹身）【图4】林大宇 CHAR-004-L01（浅蓝衬衫·银框眼镜）【图5】医院病房 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 缓推：病房中景，图1半靠床头脸色苍白但眼神清亮，心电监护仪发出稳定的滴声，四人站在床边——图2站在最近双手握着床栏，图3站在床尾双手背后，图4站在另一侧，窗外阳光穿过白色窗帘。
+        镜头2（5秒）近景 固定：病床近景，图1的目光缓缓扫过四人——看图2时眼神停留了一瞬嘴角微微动了一下，图2握着床栏的手在发抖，心电监护仪的绿色波形在墙上投下跳动的光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵美兰，老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"）：「都来了？」
+        对白（赵美兰，老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"）：「奶奶还没死呢，哭丧着脸干什么。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「妈……医生怎么说？」
+        对白（赵美兰，老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"）：「小敏啊……你手怎么在抖？」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「没……没事，妈。太突然了。」
+        对白（赵美兰，老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"）：「别怕。奶奶活了七十多年……什么没见过。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「妈……会没事的。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。, 写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-007, role: reference_image, label: 图5 }
+
+  - segment_id: EP51-SEG04
+    shot_ids: [EP51-S07, EP51-S08]
+    duration_sec: 10
+    speakers: ["[待补：医生]", CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    # ⚠️ BLOCKER: [待补：医生] in S07 has speaking dialogue but no formal CHAR-GRP-## ID.
+    # production-planner must assign ID + voice card before API submission.
+    api:
+      text: |
+        【图1】林小夏 CHAR-001-L01（针织开衫·短发）【图2】苏敏 CHAR-002-L01（马尾辫·校服）【图3】医院病房 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：病房门口，中年医生拿着文件夹站在门口表情严肃，图1接过手术同意书纸上密密麻麻的医学术语和风险条款，她低头看着那些字手指捏着纸张边缘指节发白，走廊白色日光灯把她的脸照得苍白。
+        镜头2（5秒）特写 固定：图1的手握着笔悬在签字栏上方，笔尖在颤抖影子在纸面上抖动，缓缓落笔——"苏"字写得歪歪扭扭完全不是妈妈端正的笔迹，图2的手悄悄伸过来握住图1另一只手手指交叉，两只手紧紧攥在一起。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（医生，中年男性，心脏科主治医生，严肃但温和）：「家属签字。手术有风险，但不做——更危险。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「同意书……要苏敏签。我是苏敏。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「妈……你签过多少次这样的字？」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「每一次——都是替这个家签的。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「我现在才知道……你的手——从来不抖。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。, 写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+
+  - segment_id: EP51-SEG05
+    shot_ids: [EP51-S09, EP51-S10]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-003]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: |
+        【图1】林建国 CHAR-003-L01（黑T恤·纹身）【图2】林大宇 CHAR-004-L01（浅蓝衬衫·银框眼镜）【图3】林小夏 CHAR-001-L01（针织开衫·短发）【图4】苏敏 CHAR-002-L01（马尾辫·校服）【图5】医院走廊 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：医院走廊，图1靠墙站着双手背后盯着手术室方向一句话不说，图2走过来站在他身边，走廊白色日光灯把两人的影子拉得很长。
+        镜头2（5秒）中景 固定：走廊另一侧，图3坐在长椅上双手紧握，图4走过来坐在她身边握住她的手，两个女人在手术室外相依，图1远远看着她们喉结微动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「爸……要不要坐下？」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「站得住。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「……你妈……你妈那时候也是这么站着的。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「敏……你什么时候……瘦成这样了。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「原来你每天……就是这么等的。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。, 写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-007, role: reference_image, label: 图5 }
+
+  - segment_id: EP51-SEG06
+    shot_ids: [EP51-S11, EP51-S12]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-003, CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: |
+        【图1】林大宇 CHAR-004-L01（浅蓝衬衫·银框眼镜）【图2】林建国 CHAR-003-L01（黑T恤·纹身）【图3】林小夏 CHAR-001-L01（针织开衫·短发）【图4】苏敏 CHAR-002-L01（马尾辫·校服）【图5】医院走廊 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：走廊中景，图1和图4并排坐在长椅上，图1低头双手交叉，图4靠着他的肩膀，走廊白色灯管嗡嗡响着远处有护士推车经过的轮子声。
+        镜头2（5秒）中景 缓推：走廊全景，四人坐在长椅上——隔着一点距离各怀心事但紧紧连在一起，图1坐在最左低头沉思，图4靠在中间，图3坐在最右双手放膝盖，图2站在对面靠着墙，走廊尽头手术灯亮着红光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「外婆……你一定要撑住。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「我们四个人……都还在别人身体里。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「你要是出事了……我们连哭都不能放声哭。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「不管怎样……我们四个……都在这儿。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「嗯。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「在。」
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「在。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。, 写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-007, role: reference_image, label: 图5 }
+
+  - segment_id: EP51-SEG07
+    shot_ids: [EP51-S13]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: |
+        【图1】赵美兰 CHAR-005-L01（紫红棉袄·银白发髻·金手镯）【图2】林小夏 CHAR-001-L01（针织开衫·短发）【图3】林建国 CHAR-003-L01（黑T恤·纹身）【图4】林大宇 CHAR-004-L01（浅蓝衬衫·银框眼镜）【图5】苏敏 CHAR-002-L01（马尾辫·校服）【图6】手术室门前 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 缓推：手术室自动门前，病床从走廊那头缓缓推来，图1躺在上面氧气面罩盖住半张脸银白发髻散了几缕，四人站在门两侧——图4和图5在左边，图3和图2在右边，手术室白色灯光从门缝透出来，图2走到病床最近的位置手在身侧握成拳头指甲掐进掌心。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「外婆……我好怕。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「我在妈妈身体里——看不清你。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「但你的手——我记得。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「小时候你牵着我的手去买糖葫芦……」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「外婆……你等我。等我们换回来……我第一个来找你。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。, 写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图4 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图5 }
+        - { file: SCENE-007, role: reference_image, label: 图6 }
+
+  - segment_id: EP51-SEG08
+    shot_ids: [EP51-S14]
+    duration_sec: 10
+    speakers: [CHAR-005]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: |
+        【图1】赵美兰 CHAR-005-L01（紫红棉袄·银白发髻·金手镯）【图2】林小夏 CHAR-001-L01（针织开衫·短发）【图3】手术室门前 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写 镜头推近：图1的脸，氧气面罩下缓缓睁开眼——眼神清澈得不像病人，目光穿过所有人直接落在图2脸上，然后抬起手——那只戴着老式金手镯的手——握住图2的手腕，手镯在白色灯光下泛出暗金色的光，图2愣住了整个人僵在原地，四人同时屏住呼吸。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵美兰，老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"）：「小夏……」
+        对白（赵美兰，老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"）：「别演了。」
+        对白（赵美兰，老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"）：「奶奶知道是你。」
+        对白（赵美兰，老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"）：「从一开始——奶奶的眼神一直没变。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。, 写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+
+  - segment_id: EP51-SEG09
+    shot_ids: [EP51-S15]
+    duration_sec: 9
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-005-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: |
+        【图1】林小夏 CHAR-001-L01（针织开衫·短发）【图2】赵美兰 CHAR-005-L01（紫红棉袄·银白发髻·金手镯）【图3】手术室门前 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（9秒）特写 固定：图1的手停在半空——嘴唇颤抖眼眶泛红，四人全都僵住，图2把图1的手慢慢拉过来把那只老式金手镯从自己手腕上褪下来轻轻套在妈妈45岁的手上，图1低头看着手镯眼泪掉下来落在手镯的磨痕上，手术室的灯白得刺眼。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「外婆……你什么时候……」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「你从头到尾——都知道？」
+        对白（赵美兰，老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"）：「你们四个……演得挺像的。」
+        对白（赵美兰，老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"）：「但外婆的眼睛——看过七十二年了。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「外婆……」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。, 写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }

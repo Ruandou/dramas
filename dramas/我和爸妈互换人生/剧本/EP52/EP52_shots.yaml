@@ -1,0 +1,475 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP52/EP52_手术室外.md
+# Source shots: 11 (EP52-S01 to EP52-S11)
+# Output shots: 11 (EP52-S01 to EP52-S11)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 84s (self-computed: 5+6+6+5+10+5+6+10+11+10+10)
+# Output total duration: 84s
+# Gate status: ALL PASS (G1✅ G2✅ G3✅ G4✅)
+# Note: [待补：医生] in EP52-S10 is a placeholder speaker — triggers group-extras reassignment cycle
+
+episode_id: EP52
+source_md: 剧本/EP52/EP52_手术室外.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  negative_prompt: "fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity"
+
+shots:
+  - shot_id: EP52-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: "【图1】CHAR-001-L01（暖米色针织开衫·短发·金手镯）【图2】CHAR-003-L01（黑T恤·纹身）【图3】CHAR-004-L01（浅蓝衬衫·银框眼镜）【图4】CHAR-002-L01（校服·马尾）【图5】SCENE-007。中景 固定：手术等候区，白色长椅，走廊尽头手术室红灯亮着。四人各坐一处——图1蜷缩最左，双手绞在一起，手腕金手镯泛暗光；图2靠墙站着，双手背后；图3坐在中间低头搓手；图4坐在最右，膝盖并拢，手攥校服下摆。走廊荧光灯嗡嗡响。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图3
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图4
+        - file: SCENE-007
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-004
+        line: "「三个小时了。」"
+      - speaker: CHAR-004
+        line: "「那盏灯还没灭。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP52-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: "【图1】CHAR-002-L01（校服·马尾）【图2】CHAR-001-L01（暖米色针织开衫·短发·金手镯）【图3】SCENE-007。近景 固定：图1低头看校服袖口，手指在布料上来回摩挲。抬头看向对面图2——两人四目相对。图1嘴唇动了一下没出声。图2手腕上金手镯磨痕在灯下格外清晰。走廊远处传来护士推车轮子声。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "「妈……你手上的镯子……还在。」"
+      - speaker: CHAR-002
+        line: "「三个小时前……你认出了小夏。」"
+      - speaker: CHAR-002
+        line: "「那你也知道……我是谁。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP52-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: "【图1】CHAR-002-L01（校服·马尾）【图2】CHAR-001-L01（暖米色针织开衫·短发·金手镯）【图3】SCENE-007。中景 固定：长椅中景。图1突然站起来走到图2旁边坐下。校服袖口和针织开衫挨在一起。图1的手悄悄覆上图2绞在一起的手指，轻轻掰开。走廊灯管在她们脸上投下冷白光。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "「小夏。」"
+      - speaker: CHAR-001
+        line: "「……妈。」"
+      - speaker: CHAR-002
+        line: "「如果……奶奶出事了。」"
+      - speaker: CHAR-002
+        line: "「你替妈妈——跟她说一声谢谢。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP52-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: "【图1】CHAR-001-L01（暖米色针织开衫·短发·金手镯）【图2】CHAR-002-L01（校服·马尾）【图3】SCENE-007。特写 固定：图1的脸。短发垂在耳边，45岁的皱纹，但眼睛里的光是18岁的。摇头，嘴唇在抖。手镯在灯下微微晃动。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "「不。」"
+      - speaker: CHAR-001
+        line: "「妈——你自己跟她说。」"
+      - speaker: CHAR-001
+        line: "「你一定会换回来的。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP52-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: "【图1】CHAR-002-L01（校服·马尾）【图2】CHAR-001-L01（暖米色针织开衫·短发·金手镯）【图3】SCENE-007。近景 缓推：图1低着头，18岁马尾辫垂在肩上，肩膀微微发抖。握着图2的手越来越紧。走廊尽头手术室红灯在玻璃上映出一个圆。远处有家属在另一等候区低声啜泣。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "「你知道吗……奶奶手术前说了一句话。」"
+      - speaker: CHAR-001
+        line: "「什么？」"
+      - speaker: CHAR-002
+        line: "「她说……你们四个演得挺像的。」"
+      - speaker: CHAR-002
+        line: "「她从头到尾都知道……我们替不了彼此。」"
+      - speaker: CHAR-001
+        line: "「但我们可以——一起撑。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP52-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: "【图1】CHAR-003-L01（黑T恤·纹身·精瘦）【图2】CHAR-004-L01（浅蓝衬衫·银框眼镜）【图3】SCENE-007。中景 固定：等候区另一侧。图1突然走到图2面前，伸出年轻的手稳稳搭在图2肩上。四十七岁父亲的力度放在二十四岁儿子的手臂上。走廊白光照出两人影子叠在一起。"
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-003
+        line: "「大宇。」"
+      - speaker: CHAR-003
+        line: "「这个家……以后靠你了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP52-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: "【图1】CHAR-004-L01（浅蓝衬衫·银框眼镜）【图2】CHAR-003-L01（黑T恤·纹身·精瘦）【图3】SCENE-007。特写 固定：图1的脸。银框眼镜后面年轻人的眼睛突然红了。咬了一下嘴唇——儿子的习惯动作在爸爸47岁脸上显得格外违和。伸手握住图2搭在肩上的手。两只手紧紧攥在一起。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "「爸……别说这种话。」"
+      - speaker: CHAR-004
+        line: "「我们一起撑。」"
+      - speaker: CHAR-003
+        line: "「……嗯。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP52-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: "【图1】CHAR-001-L01（暖米色针织开衫·短发·金手镯）【图2】CHAR-002-L01（校服·马尾）【图3】CHAR-003-L01（黑T恤·纹身·精瘦）【图4】CHAR-004-L01（浅蓝衬衫·银框眼镜）【图5】SCENE-007。中景 缓推：四人慢慢聚到一起——图3站在最左，图4挨着他，图2走过来，图1最后起身。四人在手术室外长椅上坐成一排。图1伸出手握住图2的手，图2握着图3的手，图3握着图4的手。四只手连成一条线。手术室红灯在走廊尽头亮着。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图3
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图4
+        - file: SCENE-007
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-001
+        line: "「不管怎样……我们四个……都在这儿。」"
+      - speaker: CHAR-002
+        line: "「在。」"
+      - speaker: CHAR-003
+        line: "「在。」"
+      - speaker: CHAR-004
+        line: "「在。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP52-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: "【图1】CHAR-001-L01（暖米色针织开衫·短发·金手镯）【图2】CHAR-002-L01（校服·马尾）【图3】CHAR-003-L01（黑T恤·纹身·精瘦）【图4】CHAR-004-L01（浅蓝衬衫·银框眼镜）【图5】SCENE-007。中景 缓推：四人并排坐着，手连着手。突然走廊尽头手术灯灭了——红光消失，白光从门缝透出。四人同时抬头。图1猛地站起来，手镯撞在椅背上发出轻响。图3也站起来，双手攥成拳。图2握紧图1的手。走廊忽然安静。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图3
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图4
+        - file: SCENE-007
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-001
+        line: "「灯……灭了。」"
+      - speaker: CHAR-003
+        line: "「求你了……妈。」"
+      - speaker: CHAR-002
+        line: "「没事的……一定没事的。」"
+      - speaker: CHAR-004
+        line: "「外婆……你答应过我们的。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP52-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    # WARNING: [待补：医生] is a placeholder speaker — no formal CHAR-ID or look image yet
+    api:
+      text: "【图1】CHAR-001-L01（暖米色针织开衫·短发·金手镯）【图2】CHAR-002-L01（校服·马尾）【图3】CHAR-003-L01（黑T恤·纹身·精瘦）【图4】CHAR-004-L01（浅蓝衬衫·银框眼镜）【图5】SCENE-007。中景 固定：手术室门开。中年医生走出来摘下口罩，露出疲惫但温和的笑。四人站在原地不敢动。医生目光扫过四人——先是图1手腕手镯，然后图2校服袖口攥出的褶皱，再是图3紧攥的拳头，最后是图4红了的眼眶。走廊白光从手术室门后涌出。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图3
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图4
+        - file: SCENE-007
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: "[待补：医生]"
+        line: "「手术很成功。」"
+      - speaker: "[待补：医生]"
+        line: "「老人家很坚强。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP52-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-007.png
+    api:
+      text: "【图1】CHAR-001-L01（暖米色针织开衫·短发·金手镯）【图2】CHAR-002-L01（校服·马尾）【图3】CHAR-003-L01（黑T恤·纹身·精瘦）【图4】CHAR-004-L01（浅蓝衬衫·银框眼镜）【图5】SCENE-007。中景 缓推：医生走后四人愣了一秒——图1第一个哭出声。图2冲上去抱住图1。图3走过来一只手搭在图1肩上一只手搭在图2肩上——他没哭但喉结在动。图4最后走过来，四个人紧紧抱在一起。金手镯从图1手腕滑到图2手腕上，两人谁都没注意。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图3
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图4
+        - file: SCENE-007
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-001
+        line: "「没事了……外婆没事了……」"
+      - speaker: CHAR-002
+        line: "「妈……谢谢……」"
+      - speaker: CHAR-003
+        line: "「……够了。」"
+      - speaker: CHAR-004
+        line: "「我们还在别人身体里……可这份亲情——是真的。」"

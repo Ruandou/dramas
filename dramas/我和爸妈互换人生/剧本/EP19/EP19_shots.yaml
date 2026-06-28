@@ -1,0 +1,403 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP19/EP19_父子夜谈.md
+# Source shots: 10 (EP19-S01 to EP19-S10)
+# Output shots: 10 (EP19-S01 to EP19-S10)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 81s (5+5+10+10+10+10+6+5+10+10)
+# Output total duration: 81s
+# Gate status: ALL PASS (G1:81s✅ G2:10=10✅ G3:0 conflicts✅ G4:all voice_prompts found✅)
+
+episode_id: EP19
+source_md: 剧本/EP19/EP19_父子夜谈.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  negative_prompt: "fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity"
+
+shots:
+  - shot_id: EP19-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+    api:
+      text: "【图1】CHAR-004-L01（浅蓝色衬衫，银框眼镜）【图2】SCENE-005。中景 固定：深夜办公室，角落工位老式台灯暖黄光笼罩桌面，文件柜排列整齐，墙上集体照。图1坐在工位前，银框眼镜反射台灯光。桌角凉透的茶，面前摊开文件，目光落在角落全家福。窗外城市灯光模糊成暖橙色。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "爸的办公室……我从来没来过。"
+      - speaker: CHAR-004
+        line: "凉茶还搁着。他走的时候肯定很急。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+    api:
+      text: "【图1】CHAR-004-L01（浅蓝色衬衫，银框眼镜）【图2】SCENE-005。近景 固定：图1拿起全家福，手指触到相框边缘的灰。照片里年轻男子穿白色工厂制服笑得露出牙齿，怀中婴儿裹红色襁褓。台灯侧面打在图1脸上，嘴唇微抿。文件柜玻璃门映出模糊倒影。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "爸年轻的时候……也会这样笑。"
+      - speaker: CHAR-004
+        line: "我在你公司坐了一整天。"
+      - speaker: CHAR-004
+        line: "你的世界，原来是这样的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-005
+        - PROP-006
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+      prop_urls:
+        PROP-005: assets/props/PROP-005.png  # WARNING: no CDN URL — scene内置道具，无独立参考图
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-006.png
+    api:
+      text: "【图1】CHAR-004-L01（浅蓝色衬衫，银框眼镜）【图2】SCENE-005【图3】PROP-006。中特写 缓推：图1拉开右手边第一个抽屉，暖黄台灯光照进去。拨开文件夹和圆珠笔，指尖碰到一张折叠A4纸——升职申请书。把申请书放桌上，手又伸进抽屉深处，角落摸到一个泛黄信封，边缘有反复摩挲的毛边。抽出信封举到台灯下。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+        - file: PROP-006
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "又是这张申请书……写了三年没敢交的那张。"
+      - speaker: CHAR-004
+        line: "这什么？塞这么深……"
+      - speaker: CHAR-004
+        line: "信封都泛黄了。得有……二十年？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-006
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+      prop_urls:
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-006.png
+    api:
+      text: "【图1】CHAR-004-L01（浅蓝色衬衫，银框眼镜）【图2】SCENE-005【图3】PROP-006。特写 固定：台灯下信纸展开在桌面，蓝墨水字迹褪成灰蓝色但笔画清晰，年轻手写比现在更用力张扬。信纸右上角日期2004.3.15。图1手指按在信纸边缘，指节因用力发白。台灯侧面照出墨迹凹痕的细小阴影。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+        - file: PROP-006
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "爸……"
+      - speaker: CHAR-004
+        line: "爸，我想了很久，决定跟您说。"
+      - speaker: CHAR-004
+        line: "我想辞掉厂里的工作，去创业。"
+      - speaker: CHAR-004
+        line: "开一家自己的机械加工厂。"
+      - speaker: CHAR-004
+        line: "我想了很久，不能再拖了。"
+      - speaker: CHAR-004
+        line: "我不会让您失望的。"
+      - speaker: CHAR-004
+        line: "2004年……爸二十五岁。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-006
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+      prop_urls:
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-006.png
+    api:
+      text: "【图1】CHAR-004-L01（浅蓝色衬衫，银框眼镜）【图2】SCENE-005【图3】PROP-006。大特写 缓推：信纸下半部分。蓝墨水写着坚定有力的字句，但末尾有重重横线划过拦腰截断。横线下换另一种笔迹——更犹豫更用力：决定留下来，孩子快出生了。被划掉的字墨水渗进纸里纸面凹陷。旁边工工整整的字像自我规训。最下面一行：日子定了，下月去报到。台灯光照着每一笔像伤疤。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+        - file: PROP-006
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "我不会让您失——"
+      - speaker: CHAR-004
+        line: "……"
+      - speaker: CHAR-004
+        line: "爸，我决定留下来。孩子快出生了。"
+      - speaker: CHAR-004
+        line: "日子定了，下月去厂里报到。建国。"
+      - speaker: CHAR-004
+        line: "划掉了……他的梦想，被划掉了。"
+      - speaker: CHAR-004
+        line: "那个要出生的孩子……是我。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-006
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+      prop_urls:
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-006.png
+    api:
+      text: "【图1】CHAR-004-L01（浅蓝色衬衫，银框眼镜）【图2】SCENE-005【图3】PROP-006。中特写 固定：图1坐在台灯前，信纸摊桌上，手撑额头，肩膀微微发抖。台灯暖光侧面打脸一半亮一半暗，银框眼镜上有模糊水汽。另一只手无意识摩挲信纸划痕，指腹反复描凹陷的字。桌上全家福和升职申请书安静躺在信纸旁——三件东西排成一条线。窗外灯光在镜片上投下模糊光斑。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+        - file: PROP-006
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "他每天早出晚归……加班到十一二点。"
+      - speaker: CHAR-004
+        line: "回到家，吃饭，睡觉。第二天继续。"
+      - speaker: CHAR-004
+        line: "我一直以为……他就是那样一个人。"
+      - speaker: CHAR-004
+        line: "不冒险、不犯错、稳稳当当。"
+      - speaker: CHAR-004
+        line: "他不是不敢做梦。"
+      - speaker: CHAR-004
+        line: "他是为了我……把自己的梦划掉了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-005
+        - PROP-006
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+      prop_urls:
+        PROP-005: assets/props/PROP-005.png  # WARNING: no CDN URL — scene内置道具，无独立参考图
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-006.png
+    api:
+      text: "【图1】CHAR-004-L01（浅蓝色衬衫，银框眼镜）【图2】SCENE-005。近景 缓推：图1放下信纸，拿起旁边升职申请书和信并排放。两份纸一新一旧——二十年前被划掉的梦想与三年来不敢提交的申请。手指在两张纸间来回移动，像丈量二十年的距离。台灯同时照着两份文件，折痕像年轮。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "二十年前，你把创业梦划掉了。"
+      - speaker: CHAR-004
+        line: "三年前，你把升职申请写了又不敢交。"
+      - speaker: CHAR-004
+        line: "爸，你这辈子……到底忍了多少？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-005
+        - PROP-006
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+      prop_urls:
+        PROP-005: assets/props/PROP-005.png  # WARNING: no CDN URL — scene内置道具，无独立参考图
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-006.png
+    api:
+      text: "【图1】CHAR-004-L01（浅蓝色衬衫，银框眼镜）【图2】SCENE-005。中特写 固定：图1双手撑桌面站起来，目光落在桌角全家福——年轻男子抱婴儿笑得灿烂。伸手把全家福拿起来和信、申请书摆在一起。三件东西，二十年。手最后碰了一下信纸然后松开。台灯在身后投下长长影子映在文件柜玻璃门上。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "你每次听我说要创业……"
+      - speaker: CHAR-004
+        line: "你不是在否定我。"
+      - speaker: CHAR-004
+        line: "你是在害怕。你怕我受你受过的苦。"
+      - speaker: CHAR-004
+        line: "稳定大于一切……"
+      - speaker: CHAR-004
+        line: "原来那不是固执。是爱。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+    api:
+      text: >-
+        【图1】CHAR-004-L01（浅蓝色衬衫，银框眼镜）【图2】SCENE-005。特写 固定：图1从裤兜掏出旧手机，屏幕边缘有细小裂纹。打开通讯录划到\u201c大宇\u201d两字。拇指悬在拨号键上方停两秒。窗外城市夜景暖光打在脸侧。按下拨号键，手机蓝光照亮下巴。铃声在空旷办公室回响。目光穿过黑暗办公室落在窗外自己倒影上——那张脸是爸爸的脸。
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "爸手机里……存的是\u201c大宇\u201d。"
+      - speaker: CHAR-004
+        line: "说什么？怎么说？"
+      - speaker: CHAR-004
+        line: "二十年了。你等我一个电话……等了多久？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+    api:
+      text: "【图1】CHAR-004-L01（浅蓝色衬衫，银框眼镜）【图2】SCENE-005。近景 固定：电话接通。图1脸部近景，手机贴耳边，台灯暖光侧面打亮半张脸——银框眼镜、微后退发际线。嘴唇微微张开又合上，像有太多话堵在嗓子眼。电话那头传来呼吸声。办公室安静只剩空调嗡嗡声和电话电流杂音。十秒沉默。窗外灯光在眼镜片上映成两团模糊暖橙色光斑。喉结上下动了一下。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-003
+        line: "……"
+      - speaker: CHAR-004
+        line: "爸……原来你在我出生那天，就把自己活成了另一个人。"
+      - speaker: CHAR-004
+        line: "你以为这是保护。我以为那是冷漠。"
+      - speaker: CHAR-004
+        line: "爸……"
+      - speaker: CHAR-004
+        line: "二十年了。你一直在保护我。"
+      - speaker: CHAR-004
+        line: "我好像……有点明白了。"
+    transition_to_next: hard_cut

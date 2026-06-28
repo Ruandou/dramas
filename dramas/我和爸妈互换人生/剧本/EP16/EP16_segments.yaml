@@ -1,0 +1,359 @@
+episode_id: EP16
+source_md: 剧本/EP16/EP16_创业路演.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  negative_prompt: "fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity"
+
+voice_prompts:
+  CHAR-003: |-
+    成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露
+  CHAR-008: |-
+    成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说'兄弟冷静'时是真正在压低自己声音试图稳定局面
+  CHAR-GRP-06: |-
+    # ACTION REQUIRED: CHAR-GRP-06 is pending (待补：投资方代表). Voice prompt synthesized from script description. Production-planner must assign formal CHAR-GRP-06 ID + build sound card entry.
+    成年男性，四十余岁，声线低沉平稳有力，咬字精准不拖泥带水，语速偏慢，话少但每句都有分量和压迫感，平静时比愤怒更有威慑力
+
+# NOTE: Source script declares 9 segments. Output has 10 segments because SEG07 (S12+S13+S14) was split into
+# SEG07a (S12+S13, 8s, 2 speakers) + SEG07b (S14, 4s, 1 speaker) due to ≤2 speakers constraint (S13 has 3 speakers).
+
+segments:
+  - segment_id: EP16-SEG01
+    shot_ids: [EP16-S01, EP16-S02]
+    duration_sec: 8
+    speakers: [CHAR-003, CHAR-008]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】陆见 CHAR-003-L01（黑色T恤，左臂纹身，蓝牙耳机）【图2】张明远 CHAR-008-L01（格子衬衫卷袖，黑框眼镜，笔记本电脑）【图3】创业公司会议室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）中景 固定：创业公司会议室，白色墙壁贴满彩色便利贴和产品架构图，长条会议桌散落充电线和咖啡杯，投影幕布亮着。图1独自站在会议桌前双手撑着桌沿低头看着一张写满小字的A4纸密密麻麻标注术语旁边用红笔拼音注释，表情像背课文的小学生嘴唇无声念着。
+        镜头2（4秒）中景 缓推：同一会议室门口。图2推门进来手里攥着笔记本电脑看到图1还拿着纸在背眉头皱得更紧。图2走到图1身边把笔记本电脑放在桌上看了一眼那张写满注释的纸嘴角微微抽动。窗外阳光照进来在桌面咖啡杯上投下一道亮纹。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「用户增长……DAU……留存率……」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「这些字母，比高考英语还难。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「大宇，爸一定替你把这场撑住。」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说'兄弟冷静'时是真正在压低自己声音试图稳定局面）：「大宇！投资人还有十分钟到！」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「知道了……我再看看。」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说'兄弟冷静'时是真正在压低自己声音试图稳定局面）：「路演词背熟了吗？」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「差不多……吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette, modern Chinese startup office, 现代中国创业公司，写实都市剧风格，竖屏9比16。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP16-SEG02
+    shot_ids: [EP16-S03, EP16-S04]
+    duration_sec: 10
+    speakers: [CHAR-GRP-06, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】投资方代表 CHAR-GRP-06-L01（四十余岁男性，深灰色修身西装，领带一丝不苟）【图2】林大宇 CHAR-003-L01（黑色T恤，左臂纹身，蓝牙耳机）【图3】张明远 CHAR-008-L01（格子衬衫，黑框眼镜）【图4】创业公司会议室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：会议室长桌对面图1落座面前摊着平板和钢笔表情平静锐利。图3在旁边手忙脚乱打开投影。图2站起来清嗓子手指不自觉摸口袋——爸爸紧张时摸烟盒的习惯动作但穿儿子T恤口袋里什么都没有。投影亮起PPT标题页。
+        镜头2（4秒）中特写 缓推：图2站在投影幕布旁张嘴开始说声音有点发抖眼神不敢看图1视线粘在PPT上。图1面无表情手指无意识敲着桌面。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说'兄弟冷静'时是真正在压低自己声音试图稳定局面）：「记住，先讲产品，再讲数据，最后讲愿景。别乱说。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「行。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「我们这款产品……核心是……呃……赋能中小商家……」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「通过数据驱动的……呃……闭环……」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「不对。这话我听着都不信。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette, modern Chinese startup office, 现代中国创业公司，写实都市剧风格，竖屏9比16。
+      content_roles:
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP16-SEG03
+    shot_ids: [EP16-S05, EP16-S06]
+    duration_sec: 10
+    speakers: [CHAR-GRP-06, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】投资方代表 CHAR-GRP-06-L01（深灰色修身西装，领带一丝不苟）【图2】林大宇 CHAR-003-L01（黑色T恤，左臂纹身）【图3】创业公司会议室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中特写 缓推：会议室。图1身体微微后仰靠在椅背上——猎食者放松的姿态。钢笔在指尖缓缓转动目光从PPT移到图2脸上像在X光扫描。图2额头渗出细汗嘴唇微张准备好的词句全卡在喉咙里。
+        镜头2（5秒）中特写 固定：图2彻底愣住。手从PPT遥控器上松开遥控器掉在桌上。他看着投影幕布上精心准备的数据和图表脑子里想的却是儿子凌晨三点趴在电脑前的背影、那张被揉皱又展开的A4纸、那个从不说'爸我撑不住了'的倔强身影。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（投资方代表，成年男性，四十余岁，声线低沉平稳有力，咬字精准不拖泥带水，语速偏慢，话少但每句都有分量和压迫感，平静时比愤怒更有威慑力）：「这些指标，我很熟。」
+        对白（投资方代表，成年男性，四十余岁，声线低沉平稳有力，咬字精准不拖泥带水，语速偏慢，话少但每句都有分量和压迫感，平静时比愤怒更有威慑力）：「你呢？」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「他在挑战我……」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「我……我们优化了转化漏斗——」
+        对白（投资方代表，成年男性，四十余岁，声线低沉平稳有力，咬字精准不拖泥带水，语速偏慢，话少但每句都有分量和压迫感，平静时比愤怒更有威慑力）：「你说的这些，换任何一家都能讲。你自己的呢？」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「我在用别人的话……说儿子的事。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「不行。这些数据……我一个字都不信。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「他是我儿子。我比任何人都了解他为什么做这个。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette, modern Chinese startup office, 现代中国创业公司，写实都市剧风格，竖屏9比16。
+      content_roles:
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP16-SEG04
+    shot_ids: [EP16-S07, EP16-S08]
+    duration_sec: 10
+    speakers: [CHAR-003, CHAR-008]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】林大宇 CHAR-003-L01（黑色T恤，左臂纹身）【图2】投资方代表 CHAR-GRP-06-L01（深灰西装，领带）【图3】张明远 CHAR-008-L01（格子衬衫，黑框眼镜）【图4】创业公司会议室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 缓推：会议室。图1突然停了看了一眼PPT上密密麻麻的数据图表又看了一眼图2不动声色的脸。然后他做了一个让图3心脏骤停的动作——伸手关掉了投影仪。会议室暗了一瞬只有窗外自然光。图3在角落里张大了嘴。图2微微挑眉放下了钢笔。
+        镜头2（5秒）中特写 缓推：图1站直了身体双手自然垂在身侧——这个站姿不像24岁创业青年更像是一个在家长会上发言的父亲。眼神不再闪躲直视图2目光里有一种中年人才有的沉稳。图2微微前倾身体做出倾听的姿态。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「我不讲PPT了。」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说'兄弟冷静'时是真正在压低自己声音试图稳定局面）：「完了。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「我跟你讲一个真实的故事。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「有个年轻人，二十四岁，辞了大厂的工作创业。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「每天凌晨三点还在改代码。有时候……会一个人偷偷哭。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette, modern Chinese startup office, 现代中国创业公司，写实都市剧风格，竖屏9比16。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP16-SEG05
+    shot_ids: [EP16-S09, EP16-S10]
+    duration_sec: 10
+    speakers: [CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】林大宇 CHAR-003-L01（黑色T恤，左臂纹身）【图2】投资方代表 CHAR-GRP-06-L01（深灰西装）【图3】创业公司会议室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中特写 缓推：会议室。图1声音开始哽咽但咬着牙没有停。阳光从窗户侧面照进来把半边脸照得明亮。眼睛微微泛红——那是47岁父亲心疼儿子时才会有的表情出现在24岁脸上显得格外不协调。图2手里的笔停了盯着他看眼神从锐利渐渐变得柔软。
+        镜头2（5秒）中特写 固定：图1眼眶终于红了但没有哭——用47年练出来的忍耐力控制情绪。声音微微发颤但每个字都清楚。图2放下了所有文件双手交叠放在桌上完全进入倾听状态。窗外有风吹过便利贴在墙上微微晃动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「他爸……那个创始人他爸……」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「我是说……创始人的父亲……」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「是个沉默了二十年的男人。从来不说鼓励的话。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「所以这孩子才拼命创业——想让他爸为他骄傲一次。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「这家公司……不只是一个产品。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「是一个儿子……想对父亲说的话。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette, modern Chinese startup office, 现代中国创业公司，写实都市剧风格，竖屏9比16。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP16-SEG06
+    shot_ids: [EP16-S11]
+    duration_sec: 8
+    speakers: [CHAR-008]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】张明远 CHAR-008-L01（格子衬衫卷袖，黑框眼镜）【图2】投资方代表 CHAR-GRP-06-L01（深灰西装）【图3】创业公司会议室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 固定：会议室角落。图1坐在笔记本电脑后面双手紧攥电脑边框指节发白，眼镜片反射窗外光能看到额头汗珠。图2面朝林大宇看不到图1正在笔记本上写着什么笔尖移动不快——在认真记录。图1眼神在图2和林大宇之间来回跳动像在看一场随时可能翻车的高空走钢丝。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说'兄弟冷静'时是真正在压低自己声音试图稳定局面）：「他记笔记了……什么情况？」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说'兄弟冷静'时是真正在压低自己声音试图稳定局面）：「大宇……稳住……千万别出岔子……」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说'兄弟冷静'时是真正在压低自己声音试图稳定局面）：「不说话的投资人，要么在拒绝，要么在认真考虑。」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说'兄弟冷静'时是真正在压低自己声音试图稳定局面）：「老天保佑……是后面那种。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette, modern Chinese startup office, 现代中国创业公司，写实都市剧风格，竖屏9比16。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP16-SEG07a
+    shot_ids: [EP16-S12, EP16-S13]
+    duration_sec: 8
+    speakers: [CHAR-GRP-06, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】投资方代表 CHAR-GRP-06-L01（深灰西装）【图2】林大宇 CHAR-003-L01（黑色T恤）【图3】张明远 CHAR-008-L01（格子衬衫）【图4】创业公司会议室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）中景 固定：会议室。图1放下笔合上笔记本抬头看图2，表情从倾听变成审视——但那种审视里有赞许。图2站在原地还在调整情绪眼眶还有点红。图3在角落里屏住呼吸。
+        镜头2（4秒）中景 缓推：图2抬起头表情从紧张变成难以置信。图3从角落里弹起来差点把笔记本电脑碰倒。图1站起来开始收拾文件动作干脆利落。窗外阳光正好照在会议桌中央像是聚光灯。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（投资方代表，成年男性，四十余岁，声线低沉平稳有力，咬字精准不拖泥带水，语速偏慢，话少但每句都有分量和压迫感，平静时比愤怒更有威慑力）：「你，不错。」
+        对白（投资方代表，成年男性，四十余岁，声线低沉平稳有力，咬字精准不拖泥带水，语速偏慢，话少但每句都有分量和压迫感，平静时比愤怒更有威慑力）：「这个案子，过了。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「真的……过了？」
+        对白（投资方代表，成年男性，四十余岁，声线低沉平稳有力，咬字精准不拖泥带水，语速偏慢，话少但每句都有分量和压迫感，平静时比愤怒更有威慑力）：「打动我的不是PPT。」
+        对白（投资方代表，成年男性，四十余岁，声线低沉平稳有力，咬字精准不拖泥带水，语速偏慢，话少但每句都有分量和压迫感，平静时比愤怒更有威慑力）：「是你讲产品时的那种……真实。很久没见过了。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette, modern Chinese startup office, 现代中国创业公司，写实都市剧风格，竖屏9比16。
+      content_roles:
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP16-SEG07b
+    shot_ids: [EP16-S14]
+    duration_sec: 4
+    speakers: [CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】林大宇 CHAR-003-L01（黑色T恤）【图2】张明远 CHAR-008-L01（格子衬衫）【图3】创业公司会议室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）中特写 固定：会议室。图1张了张嘴想说谢谢但话卡在喉咙里。投资人那句'真实'像一根针扎在他心上——他知道自己的'真实'意味着什么。低头看了一眼自己的手那双24岁儿子的手然后缓缓攥紧又松开。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「真实……」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「他夸我真实。可我的真实……是我的，不是大宇的。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「这算不算……作弊？」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette, modern Chinese startup office, 现代中国创业公司，写实都市剧风格，竖屏9比16。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP16-SEG08a
+    shot_ids: [EP16-S15, EP16-S16]
+    duration_sec: 10
+    speakers: [CHAR-GRP-06, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】投资方代表 CHAR-GRP-06-L01（深灰西装）【图2】林大宇 CHAR-003-L01（黑色T恤）【图3】张明远 CHAR-008-L01（格子衬衫）【图4】创业公司会议室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：会议室门口。图1提着公文包走到门边一只手搭在门把手上。图2追了两步站在他身后阳光从走廊窗户照进来在图1背上形成一道亮边。图2表情是劫后余生的庆幸混着不安——他知道自己刚才说了太多。
+        镜头2（5秒）中特写 缓推：会议室门口。图1转身要走又停住了回过头看图2，眼神里有一种洞察的锐利——不是敌意是好奇。图2被他看得心里一紧。图3从会议室里探出头一脸茫然。走廊灯管发出白色光安静得能听到空调嗡嗡声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「谢谢您。我们不会让您失望——」
+        对白（投资方代表，成年男性，四十余岁，声线低沉平稳有力，咬字精准不拖泥带水，语速偏慢，话少但每句都有分量和压迫感，平静时比愤怒更有威慑力）：「不用谢我。」
+        对白（投资方代表，成年男性，四十余岁，声线低沉平稳有力，咬字精准不拖泥带水，语速偏慢，话少但每句都有分量和压迫感，平静时比愤怒更有威慑力）：「谢谢你自己。你今天讲的……是真心话。」
+        对白（投资方代表，成年男性，四十余岁，声线低沉平稳有力，咬字精准不拖泥带水，语速偏慢，话少但每句都有分量和压迫感，平静时比愤怒更有威慑力）：「对了。」
+        对白（投资方代表，成年男性，四十余岁，声线低沉平稳有力，咬字精准不拖泥带水，语速偏慢，话少但每句都有分量和压迫感，平静时比愤怒更有威慑力）：「你讲产品的时候，眼里有光。」
+        对白（投资方代表，成年男性，四十余岁，声线低沉平稳有力，咬字精准不拖泥带水，语速偏慢，话少但每句都有分量和压迫感，平静时比愤怒更有威慑力）：「一种父亲看儿子的光。很特别。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「他……看出来了？」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「不……我刚才说了什么……」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette, modern Chinese startup office, 现代中国创业公司，写实都市剧风格，竖屏9比16。
+      content_roles:
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP16-SEG08b
+    shot_ids: [EP16-S17, EP16-S18]
+    duration_sec: 8
+    speakers: [CHAR-008, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】张明远 CHAR-008-L01（格子衬衫，黑框眼镜）【图2】林大宇 CHAR-003-L01（黑色T恤）【图3】创业公司会议室 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）中景 固定：会议室门口。图1从里面冲出来满脸狂喜一把抓住图2肩膀摇晃。走廊里安静得只有他笑声回荡。但图2表情像被定住了——笑容还没来得及展开就凝固在嘴角眼神越过图1肩膀盯着投资人离开方向。
+        镜头2（4秒）中特写 缓推：走廊灯管白色冷光。图1笑声渐渐停了看着图2苍白的脸笑容凝固。图2眼神空洞了一瞬然后缓缓聚焦——看向图1欲言又止。走廊尽头传来电梯'叮'的一声投资人已经走了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说'兄弟冷静'时是真正在压低自己声音试图稳定局面）：「过了！大宇！我们过了！」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说'兄弟冷静'时是真正在压低自己声音试图稳定局面）：「你太牛了！你怎么——」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「……嗯。」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说'兄弟冷静'时是真正在压低自己声音试图稳定局面）：「……大宇？」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说'兄弟冷静'时是真正在压低自己声音试图稳定局面）：「怎么了？赢了你不高兴？」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「他……好像看出了什么。」
+        对白（陆见，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「父亲看儿子的光……他说得没错。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette, modern Chinese startup office, 现代中国创业公司，写实都市剧风格，竖屏9比16。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

@@ -1,0 +1,579 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP16/EP16_创业路演.md
+# Source shots: 18 (EP16-S01 to EP16-S18)
+# Output shots: 18 (EP16-S01 to EP16-S18)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 86s (self-computed: 4+4+6+4+5+5+5+5+5+5+8+4+4+4+5+5+4+4=86)
+# Output total duration: 86s
+# Gate status: ALL PASS (Gate 1: 86s in [75,120] ✅ | Gate 2: 18=18 ✅ | Gate 3: CHAR-GRP-06 interim ⚠️ | Gate 4: CHAR-GRP-06 synthesized ⚠️)
+
+episode_id: EP16
+source_md: 剧本/EP16/EP16_创业路演.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  negative_prompt: "fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity"
+
+shots:
+  - shot_id: EP16-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】CHAR-003-L01（黑色T恤，左臂纹身，蓝牙耳机）【图2】SCENE-004。中景 固定：创业公司会议室，白色墙壁贴满彩色便利贴和产品架构图，长条会议桌散落充电线和咖啡杯，投影幕布亮着。图1独自站在会议桌前，双手撑着桌沿，低头看着一张写满小字的A4纸，上面密密麻麻标注术语旁边用红笔写着拼音注释。表情像在背课文的小学生，嘴唇无声地念着。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "用户增长……DAU……留存率……"
+      - speaker: CHAR-003
+        line: "这些字母，比高考英语还难。"
+      - speaker: CHAR-003
+        line: "大宇，爸一定替你把这场撑住。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】CHAR-003-L01（黑色T恤）【图2】CHAR-008-L01（格子衬衫卷袖，黑框眼镜）【图3】SCENE-004。中景 缓推：同一会议室门口。图2推门进来，手里攥着笔记本电脑，看到图1还拿着纸在背，眉头皱得更紧。图2走到图1身边，把笔记本电脑放在桌上，看了一眼那张写满注释的纸，嘴角微微抽动。窗外阳光照进来在桌面咖啡杯上投下一道亮纹。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "大宇！投资人还有十分钟到！"
+      - speaker: CHAR-003
+        line: "知道了……我再看看。"
+      - speaker: CHAR-008
+        line: "路演词背熟了吗？"
+      - speaker: CHAR-003
+        line: "差不多……吧。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-GRP-06-L01
+        - CHAR-003-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】投资方代表 CHAR-GRP-06-L01（四十余岁男性，深灰色修身西装，领带一丝不苟）【图2】林大宇 CHAR-003-L01（黑色T恤，左臂纹身）【图3】张明远 CHAR-008-L01（格子衬衫，黑框眼镜）【图4】SCENE-004。中景 固定：会议室长桌对面，图1落座，面前摊着平板和钢笔，表情平静锐利。图3在旁边手忙脚乱打开投影。图2站起来清嗓子，手指不自觉摸口袋——爸爸紧张时摸烟盒的习惯动作，但穿儿子T恤口袋里什么都没有。投影亮起PPT标题页。"
+      content_roles:
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "记住，先讲产品，再讲数据，最后讲愿景。别乱说。"
+      - speaker: CHAR-003
+        line: "行。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-GRP-06-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇 CHAR-003-L01（黑色T恤）【图2】投资方代表 CHAR-GRP-06-L01（深灰西装）【图3】SCENE-004。中特写 缓推：图1站在投影幕布旁，张嘴开始说，声音有点发抖，眼神不敢看图2，视线粘在PPT上。图2面无表情，手指无意识敲着桌面。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "我们这款产品……核心是……呃……赋能中小商家……"
+      - speaker: CHAR-003
+        line: "通过数据驱动的……呃……闭环……"
+      - speaker: CHAR-003
+        line: "不对。这话我听着都不信。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-GRP-06-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】投资方代表 CHAR-GRP-06-L01（深灰西装）【图2】林大宇 CHAR-003-L01（黑色T恤）【图3】SCENE-004。中特写 缓推：会议室。图1身体微微后仰靠在椅背上——猎食者放松的姿态。钢笔在指尖缓缓转动，目光从PPT移到图2脸上像在X光扫描。图2额头渗出细汗，嘴唇微张，准备好的词句全卡在喉咙里。"
+      content_roles:
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-GRP-06
+        line: "这些指标，我很熟。"
+      - speaker: CHAR-GRP-06
+        line: "你呢？"
+      - speaker: CHAR-003
+        line: "他在挑战我……"
+      - speaker: CHAR-003
+        line: "我……我们优化了转化漏斗——"
+      - speaker: CHAR-GRP-06
+        line: "你说的这些，换任何一家都能讲。你自己的呢？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇 CHAR-003-L01（黑色T恤）【图2】SCENE-004。中特写 固定：图1彻底愣住。手从PPT遥控器上松开，遥控器掉在桌上。他看着投影幕布上精心准备的数据和图表，脑子里想的却是儿子凌晨三点趴在电脑前的背影、那张被揉皱又展开的A4纸、那个从不说'爸我撑不住了'的倔强身影。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "我在用别人的话……说儿子的事。"
+      - speaker: CHAR-003
+        line: "不行。这些数据……我一个字都不信。"
+      - speaker: CHAR-003
+        line: "他是我儿子。我比任何人都了解他为什么做这个。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-GRP-06-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇 CHAR-003-L01（黑色T恤）【图2】投资方代表 CHAR-GRP-06-L01（深灰西装）【图3】张明远 CHAR-008-L01（格子衬衫）【图4】SCENE-004。中景 缓推：会议室。图1突然停了，看了一眼PPT上密密麻麻的数据图表，又看了一眼图2不动声色的脸。然后他做了一个让图3心脏骤停的动作——伸手关掉了投影仪。会议室暗了一瞬只有窗外自然光。图3在角落里张大了嘴。图2微微挑眉放下了钢笔。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "我不讲PPT了。"
+      - speaker: CHAR-008
+        line: "完了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-GRP-06-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇 CHAR-003-L01（黑色T恤）【图2】投资方代表 CHAR-GRP-06-L01（深灰西装）【图3】张明远 CHAR-008-L01（格子衬衫）【图4】SCENE-004。中特写 缓推：图1站直了身体双手自然垂在身侧——这个站姿不像24岁创业青年更像是一个在家长会上发言的父亲。眼神不再闪躲直视图2，目光里有一种中年人才有的沉稳。图2微微前倾身体做出倾听的姿态。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "我跟你讲一个真实的故事。"
+      - speaker: CHAR-003
+        line: "有个年轻人，二十四岁，辞了大厂的工作创业。"
+      - speaker: CHAR-003
+        line: "每天凌晨三点还在改代码。有时候……会一个人偷偷哭。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-GRP-06-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇 CHAR-003-L01（黑色T恤）【图2】投资方代表 CHAR-GRP-06-L01（深灰西装）【图3】SCENE-004。中特写 缓推：会议室。图1声音开始哽咽但咬着牙没有停。阳光从窗户侧面照进来把半边脸照得明亮。眼睛微微泛红——那是47岁父亲心疼儿子时才会有的表情出现在24岁脸上显得格外不协调。图2手里的笔停了盯着他看眼神从锐利渐渐变得柔软。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "他爸……那个创始人他爸……"
+      - speaker: CHAR-003
+        line: "我是说……创始人的父亲……"
+      - speaker: CHAR-003
+        line: "是个沉默了二十年的男人。从来不说鼓励的话。"
+      - speaker: CHAR-003
+        line: "所以这孩子才拼命创业——想让他爸为他骄傲一次。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-GRP-06-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇 CHAR-003-L01（黑色T恤）【图2】投资方代表 CHAR-GRP-06-L01（深灰西装）【图3】SCENE-004。中特写 固定：图1眼眶终于红了但没有哭——用47年练出来的忍耐力控制情绪。声音微微发颤但每个字都清楚。图2放下了所有文件双手交叠放在桌上完全进入倾听状态。窗外有风吹过便利贴在墙上微微晃动。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "这家公司……不只是一个产品。"
+      - speaker: CHAR-003
+        line: "是一个儿子……想对父亲说的话。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-GRP-06-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】张明远 CHAR-008-L01（格子衬衫，黑框眼镜）【图2】投资方代表 CHAR-GRP-06-L01（深灰西装）【图3】SCENE-004。中景 固定：会议室角落。图1坐在笔记本电脑后面双手紧攥电脑边框指节发白，眼镜片反射窗外光能看到额头汗珠。图2面朝林大宇看不到图1正在笔记本上写着什么笔尖移动不快——在认真记录。图1眼神在图2和林大宇之间来回跳动像在看一场随时可能翻车的高空走钢丝。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "他记笔记了……什么情况？"
+      - speaker: CHAR-008
+        line: "大宇……稳住……千万别出岔子……"
+      - speaker: CHAR-008
+        line: "不说话的投资人，要么在拒绝，要么在认真考虑。"
+      - speaker: CHAR-008
+        line: "老天保佑……是后面那种。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-GRP-06-L01
+        - CHAR-003-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】投资方代表 CHAR-GRP-06-L01（深灰西装）【图2】林大宇 CHAR-003-L01（黑色T恤）【图3】张明远 CHAR-008-L01（格子衬衫）【图4】SCENE-004。中景 固定：会议室。图1放下笔合上笔记本，抬头看图2，表情从倾听变成审视——但那种审视里有赞许。图2站在原地还在调整情绪眼眶还有点红。图3在角落里屏住呼吸。"
+      content_roles:
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-GRP-06
+        line: "你，不错。"
+      - speaker: CHAR-GRP-06
+        line: "这个案子，过了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-GRP-06-L01
+        - CHAR-003-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】投资方代表 CHAR-GRP-06-L01（深灰西装）【图2】林大宇 CHAR-003-L01（黑色T恤）【图3】张明远 CHAR-008-L01（格子衬衫）【图4】SCENE-004。中景 缓推：图2抬起头表情从紧张变成难以置信。图3从角落里弹起来差点把笔记本电脑碰倒。图1站起来开始收拾文件动作干脆利落。窗外阳光正好照在会议桌中央像是聚光灯。"
+      content_roles:
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "真的……过了？"
+      - speaker: CHAR-GRP-06
+        line: "打动我的不是PPT。"
+      - speaker: CHAR-GRP-06
+        line: "是你讲产品时的那种……真实。很久没见过了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇 CHAR-003-L01（黑色T恤）【图2】SCENE-004。中特写 固定：会议室。图1张了张嘴想说谢谢但话卡在喉咙里。投资人那句'真实'像一根针扎在他心上——他知道自己的'真实'意味着什么。低头看了一眼自己的手那双24岁儿子的手然后缓缓攥紧又松开。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "真实……"
+      - speaker: CHAR-003
+        line: "他夸我真实。可我的真实……是我的，不是大宇的。"
+      - speaker: CHAR-003
+        line: "这算不算……作弊？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-GRP-06-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】投资方代表 CHAR-GRP-06-L01（深灰西装）【图2】林大宇 CHAR-003-L01（黑色T恤）【图3】SCENE-004。中景 固定：会议室门口。图1提着公文包走到门边一只手搭在门把手上。图2追了两步站在他身后，阳光从走廊窗户照进来在图1背上形成一道亮边。图2表情是劫后余生的庆幸混着不安——他知道自己刚才说了太多。"
+      content_roles:
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "谢谢您。我们不会让您失望——"
+      - speaker: CHAR-GRP-06
+        line: "不用谢我。"
+      - speaker: CHAR-GRP-06
+        line: "谢谢你自己。你今天讲的……是真心话。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-GRP-06-L01
+        - CHAR-003-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — CHAR-GRP-06 is pending (待补：投资方代表)
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】投资方代表 CHAR-GRP-06-L01（深灰西装）【图2】林大宇 CHAR-003-L01（黑色T恤）【图3】张明远 CHAR-008-L01（格子衬衫）【图4】SCENE-004。中特写 缓推：会议室门口。图1转身要走又停住了，回过头看图2，眼神里有一种洞察的锐利——不是敌意是好奇。图2被他看得心里一紧。图3从会议室里探出头一脸茫然。走廊灯管发出白色光安静得能听到空调嗡嗡声。"
+      content_roles:
+        - { file: CHAR-GRP-06-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-GRP-06
+        line: "对了。"
+      - speaker: CHAR-GRP-06
+        line: "你讲产品的时候，眼里有光。"
+      - speaker: CHAR-GRP-06
+        line: "一种父亲看儿子的光。很特别。"
+      - speaker: CHAR-003
+        line: "他……看出来了？"
+      - speaker: CHAR-003
+        line: "不……我刚才说了什么……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S17
+    shot_no: 17
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】张明远 CHAR-008-L01（格子衬衫，黑框眼镜）【图2】林大宇 CHAR-003-L01（黑色T恤）【图3】SCENE-004。中景 固定：会议室门口。图1从里面冲出来满脸狂喜一把抓住图2肩膀摇晃。走廊里安静得只有他笑声回荡。但图2表情像被定住了——笑容还没来得及展开就凝固在嘴角眼神越过图1肩膀盯着投资人离开方向。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "过了！大宇！我们过了！"
+      - speaker: CHAR-008
+        line: "你太牛了！你怎么——"
+      - speaker: CHAR-003
+        line: "……嗯。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S18
+    shot_no: 18
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇 CHAR-003-L01（黑色T恤）【图2】张明远 CHAR-008-L01（格子衬衫）【图3】SCENE-004。中特写 缓推：走廊灯管白色冷光。图2笑声渐渐停了看着图1苍白的脸笑容凝固。图1眼神空洞了一瞬然后缓缓聚焦——看向图2欲言又止。走廊尽头传来电梯'叮'的一声投资人已经走了。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "……大宇？"
+      - speaker: CHAR-008
+        line: "怎么了？赢了你不高兴？"
+      - speaker: CHAR-003
+        line: "他……好像看出了什么。"
+      - speaker: CHAR-003
+        line: "父亲看儿子的光……他说得没错。"
+    transition_to_next: hard_cut

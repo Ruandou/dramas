@@ -1,0 +1,328 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP22/EP22_双线备考.md
+# Source segments: 9 (SEG01–SEG09)
+# Output segments: 9 (SEG01–SEG09)
+# Source total duration: 90s (self-calculated from shot durations)
+# Output total duration: 90s
+# Gate status: ALL PASS (G1: 90s ✅ | G2: 16=16 ✅ | G3: no conflicts ✅ | G4: all traceable ✅)
+# ⚠️ PLACEHOLDER NOTICE: [待补：中年同事] has dialogue in SEG06 (S12) and SEG08 (S14) but lacks
+#    formal CHAR-ID/L01/voice_prompt. Dialogue retained with placeholder speaker in api.text.
+#    Requires production-planner to assign CHAR-GRP-## + character-designer to create L01
+#    before Seedance API submission.
+# ⚠️ SEMANTIC_WARNINGS: 2 total (SEG06, SEG08 — [待补：中年同事] missing from content_roles)
+
+episode_id: EP22
+source_md: 剧本/EP22/EP22_双线备考.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  negative_prompt: "fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity"
+
+voice_prompts:
+  CHAR-001: |-
+    成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬
+  CHAR-002: |-
+    成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤
+  CHAR-003: |-
+    成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露
+  CHAR-004: |-
+    成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬
+  CHAR-005: |-
+    老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"
+  CHAR-008: |-
+    成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说"兄弟冷静"时是真正在压低自己声音试图稳定局面
+  CHAR-GRP-01: |-
+    成年男性，18岁，声线干净温和，咬字清晰带学生腔，语速中等，讲解数学题时条理分明语速放慢，害羞时声音变小语速变快，送奶茶时语气故作镇定但微微发抖
+
+segments:
+  # ===== SEG01 — 秘密练习（Hook Zone · 碎片式 · 紧迫）=====
+  - segment_id: EP22-SEG01
+    shot_ids: [EP22-S01, EP22-S02]
+    duration_sec: 10
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+    api:
+      text: |
+        【图1】苏敏 CHAR-001-L01（校服外套、马尾辫微散）【图2】林小夏房间 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：深夜，台灯暖黄光只照亮书桌区域其余空间沉在黑暗中。图1坐在书桌前，面前摊开高考数学试卷，但试卷下方压着一本素描本和几支彩铅。她侧耳听走廊——安静。手悄悄把试卷推到一边露出素描本。桌上还有一本翻开的色彩入门教程页角折着。
+        镜头2（5秒）特写 固定：手部特写，图1的手握着彩铅笔尖落在素描本上。第一笔生涩线条歪扭——这不是女儿的手该有的水平。停了一下翻开夹在课本里的女儿临摹画对比线条差距明显。咬了咬唇重新落笔这次更慢更专注。台灯光在铅笔尖上反射微小亮点。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「都睡了。」
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「还有十四天……我得在晚上把画技练出来。」
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「小夏画了十年……我只有十四天。」
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「底子还在，十四天，够了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024年，写实都市剧风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+
+  # ===== SEG02 — 白天的战场（碎片式 · 快节奏）=====
+  - segment_id: EP22-SEG02
+    shot_ids: [EP22-S03, EP22-S04]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-GRP-01]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-003.png
+    transition_to_next: dissolve
+    api:
+      text: |
+        【图1】苏敏 CHAR-001-L01（校服整齐）【图2】赵宇晨 CHAR-GRP-01-L01（校服清秀男生）【图3】高三教室 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：白天高三教室，荧光灯惨白，黑板上"距高考14天"红色大字刺眼，课桌上试卷堆积如山。图1坐在第二排面前摊开物理试卷笔尖快速移动，旁边同学偷偷看手机她目不斜视。窗外阳光明亮但教室内光线是冷白色日光灯主导。
+        镜头2（5秒）近景 固定：图2从后排走过来手里拿着一张写满解题步骤的纸放在图1桌上，手指在桌角轻敲两下表情腼腆。图1抬头看他带着困惑——她不完全理解这个男生为什么总帮女儿。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「物理……还好当年高考也考过。」
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「这些题型二十年没变，基础还在。」
+        对白（赵宇晨，成年男性，18岁，声线干净温和，咬字清晰带学生腔，语速中等，讲解数学题时条理分明语速放慢，害羞时声音变小语速变快，送奶茶时语气故作镇定但微微发抖）：「昨天那道大题的另一种解法，我觉得更简洁。」
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「谢谢。」
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「这孩子……对小夏挺好。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024年，写实都市剧风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+
+  # ===== SEG03 — 另一个战场（独白递进 · 规划）=====
+  - segment_id: EP22-SEG03
+    shot_ids: [EP22-S05, EP22-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-003.png
+    api:
+      text: |
+        【图1】林小夏 CHAR-002-L01（暖米色针织开衫、利落短发）【图2】林家客厅 SCENE-001。
+        道具：女儿的秘密画册 PROP-003（A4素描本，封面贴满贴纸），放在沙发旁茶几上。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：林家客厅白天，阳光从窗帘透进来茶几上摊着笔记本电脑和一叠打印资料。图1坐在沙发上笔记本电脑屏幕显示美术联考考试大纲，手边放着一本画册翻到某一页停着。突然手机响了——屏幕亮起"奶奶"来电。
+        镜头2（5秒）特写 缓推：笔记本电脑屏幕特写，屏幕上是某美术培训机构网站标题写着"联考冲刺——素描色彩速写"。鼠标停在页面中间，旁边打开的标签页是免费线上色彩教程。图1的手在触控板上滑动页面上列出联考三科具体要求。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「喂，奶奶？」
+        对白（赵美兰，老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"）：「小敏啊，下午过来一趟，炖了汤。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「好，我一会儿过去。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「先查完这些……联考三科到底考什么。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「素描、色彩、速写……小夏的素描功底够。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「色彩是弱项……妈当年学过。我得帮她把底子找回来。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024年，写实都市剧风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-003, role: reference_image, label: 图3 }
+
+  # ===== SEG04 — 两代人的节奏（刺探式 · 紧张→幽默）=====
+  - segment_id: EP22-SEG04
+    shot_ids: [EP22-S07, EP22-S08]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-005-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-006.png
+    api:
+      text: |
+        【图1】赵美兰 CHAR-005-L01（紫红色棉袄、银白发髻）【图2】林小夏 CHAR-002-L01（针织开衫、短发）【图3】奶奶家老宅 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：奶奶家老宅客厅白天，红木太师椅老照片墙窗台吊兰。图1坐在太师椅上喝茶面前茶几放着手写家务清单，图2站在旁边手机揣在开衫口袋里屏幕亮着美术联考搜索页面。
+        镜头2（5秒）近景 固定：图1的目光从清单移到图2脸上停了两秒，视线往下滑——定在开衫口袋处手机屏幕光透过布料隐约可见。图2察觉到了手不自觉捂住口袋。图1慢悠悠收回视线端起茶杯金手镯在袖口间一晃。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵美兰，老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"）：「衣服收了，棉被翻出来晒。」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「嗯。」
+        对白（赵美兰，老年女性，72岁，声线沧桑但中气十足，咬字带有老派口音，语速偏慢，唠叨时絮絮叨叨语调起伏像唱戏，认真说正事时字字清晰语速放慢，感叹句末尾常带长尾音"啊""嘛""嘞"）：「你最近老看手机。小敏啊，有事瞒着奶奶？」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「没有……」
+        对白（林小夏，成年女性，18岁，声线清亮略带倔强，咬字清晰，语速偏快，生气时语调明显升高语速加快，委屈时声音发颤带鼻音，开心时笑声明朗，口头禅"随便吧""无所谓"时语气敷衍上扬）：「差点被发现。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024年，写实都市剧风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+
+  # ===== SEG05 — 老办法管用（权力翻转 · 自信）=====
+  - segment_id: EP22-SEG05
+    shot_ids: [EP22-S09, EP22-S10]
+    duration_sec: 10
+    speakers: [CHAR-003, CHAR-008]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】林建国 CHAR-004-L01（黑T恤、纹理短发）【图2】张明远 CHAR-008-L01（黑框眼镜、格子衬衫卷袖）【图3】创业公司办公区 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：创业公司办公区白天，开放式工位彩色便利贴贴满隔板窗外城市天际线。图1站在白板前白板上画着流程图——方框和箭头标注了工作环节。图2抱着笔记本电脑坐在旁边微微皱眉。其他年轻员工也围过来。
+        镜头2（5秒）近景 固定：图2盯着白板上的流程图推了推眼镜，表情从困惑变成思考再变成微微点头——数据驱动的大脑在快速验证。图1双手抱胸站在白板前姿态是四十七岁中年人的沉稳完全不像二十四岁。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「你们的问题不是技术，是流程。」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说"兄弟冷静"时是真正在压低自己声音试图稳定局面）：「流程？」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「三个环节可以并行，别排队了，同时干。」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说"兄弟冷静"时是真正在压低自己声音试图稳定局面）：「并行的话……deadline 能提前一周。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「管理不是加班，是让对的人做对的事。」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说"兄弟冷静"时是真正在压低自己声音试图稳定局面）：「大宇什么时候懂这些了？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024年，写实都市剧风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+
+  # ===== SEG06 — 新点子（碎片式 · 挑战→突破）=====
+  # ⚠️ SEMANTIC_WARNING: [待补：中年同事] has dialogue but no formal CHAR-ID/L01. Omitted from content_roles (2 refs allocated to CHAR-003-L01 + SCENE-005). Requires CHAR-GRP-## assignment via 集间群演回补子循环 before Seedance API submission.
+  - segment_id: EP22-SEG06
+    shot_ids: [EP22-S11, EP22-S12]
+    duration_sec: 10
+    speakers: [CHAR-004, "[待补：中年同事]"]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+    api:
+      text: |
+        【图1】林大宇 CHAR-003-L01（浅蓝衬衫、银框眼镜、微微后退的发际线）【图2】林建国公司办公室 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：林建国公司办公室白天，灰色调格子间角落工位有一张全家福。图1站在会议室投影屏前屏幕上显示简陋PPT——标题写着"排班优化方案"。三四个中年同事坐在台下表情各异。
+        镜头2（5秒）近景 固定：台下一个戴眼镜的中年同事推了推老花镜看着投影上的演示嘴角微微撇——"又来年轻人那一套"的不屑。但当图1解释完排班逻辑后他的表情慢慢变了。从不屑变成认真再变成微微点头。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「这个系统能把手动排班变成自动匹配。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「爸公司的排班还是手写的……离谱。」
+        对白（[待补：中年同事]，voice_prompt待补充）：「老林，这能行吗？我们排了十五年了。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「十五年没变，不代表不该变。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「这句话……以前想对爸说的。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024年，写实都市剧风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+
+  # ===== SEG07 — 结果说话（蓄力式 · 肯定）=====
+  - segment_id: EP22-SEG07
+    shot_ids: [EP22-S13]
+    duration_sec: 9
+    speakers: [CHAR-008, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】张明远 CHAR-008-L01（黑框眼镜、格子衬衫）【图2】林建国 CHAR-004-L01（黑T恤、纹理短发）【图3】创业公司办公区 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（9秒）近景 缓推：创业公司办公区傍晚，窗外天际线染上暖橘色办公区灯光亮起。图1坐在工位上笔记本电脑屏幕显示更新后的进度表——进度条明显比之前快了。转头看向坐在隔壁的图2眼神里有意外和认可。图2靠在椅背上双手搁在脑后表情平静——中年人"事情做完了"的松弛感。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说"兄弟冷静"时是真正在压低自己声音试图稳定局面）：「两个组提前交活了。你那个并行法，管用。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「嗯。」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说"兄弟冷静"时是真正在压低自己声音试图稳定局面）：「你以前……是不是干过管理？」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「……干了十五年。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024年，写实都市剧风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+
+  # ===== SEG08 — 被看见了（蓄力式 · 认可）=====
+  # ⚠️ SEMANTIC_WARNING: [待补：中年同事] has dialogue but no formal CHAR-ID/L01. Omitted from content_roles (1 ref allocated to CHAR-003-L01 + SCENE-005). Requires CHAR-GRP-## assignment via 集间群演回补子循环 before Seedance API submission.
+  - segment_id: EP22-SEG08
+    shot_ids: [EP22-S14]
+    duration_sec: 9
+    speakers: ["[待补：中年同事]", CHAR-004]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+    transition_to_next: dissolve
+    api:
+      text: |
+        【图1】林大宇 CHAR-003-L01（浅蓝衬衫、银框眼镜）【图2】林建国公司办公室 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（9秒）中景 固定：林建国公司办公室傍晚，暖色夕阳从窗户照进来给灰色格子间镀上暖色。之前那个戴老花镜的中年同事走到图1的工位旁手里拿着一张打印出来的排班表——排班明显更合理了。他拍了拍图1的肩表情从怀疑变成了信服。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（[待补：中年同事]，voice_prompt待补充）：「老林，我试了你的排班法……确实快了不少。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「试试就知道了。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快，自嘲时语调上扬带笑意，压力大时声音变低变沉但仍保持快语速，说"没事我能搞定"时故意装轻松语气微微上扬）：「爸在这家公司十五年……他们终于看到你的价值了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024年，写实都市剧风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+
+  # ===== SEG09 — 一样的天赋（Cliffhanger Zone · 独白递进 · H-EMO）=====
+  - segment_id: EP22-SEG09
+    shot_ids: [EP22-S15, EP22-S16]
+    duration_sec: 12
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-003.png
+    api:
+      text: |
+        【图1】苏敏 CHAR-001-L01（校服微皱、马尾辫松散）【图2】林小夏房间 SCENE-002。
+        道具：女儿的秘密画册 PROP-003（A4素描本，封面贴满贴纸），翻开放在桌上。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：深夜林小夏房间，台灯光照亮书桌，桌上散落着几张练习画——有的线条生涩有的已经流畅许多。图1坐在桌前面前摊开女儿的画册翻到某一页——一个原创漫画角色的全身设计图。她手边放着一张刚画完的临摹——同一个角色用自己的理解画的。
+        镜头2（7秒）特写 缓推：图1的脸部特写，台灯暖光从侧面照亮年轻面容——校服领口散落的碎发。她把女儿的画册和自己的临摹并排放在桌上低头仔细对比。两张画并排——一张是女儿画的一张是妈妈画的。线条不同但画风几乎一模一样：眼神的处理、阴影的方式、头发的卷曲方式——像同一双手画出来的。她的瞳孔慢慢放大嘴唇微微张开。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「小夏这个角色画了好多遍……每一遍都不一样，但神韵是一样的。」
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「我也画了一遍……奇怪。」
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「这线条……」
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「不可能……」
+        对白（苏敏，成年女性，45岁，声线温暖但带有焦虑底色，咬字圆润，语速中等偏快，唠叨时语速加快语调微升像机关枪，真生气时反而变安静低沉，说"我不管你了"时是最低最慢的语速，感动时声音柔软带颤）：「她的画里……有我的影子。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024年，写实都市剧风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: PROP-003, role: reference_image, label: 图3 }

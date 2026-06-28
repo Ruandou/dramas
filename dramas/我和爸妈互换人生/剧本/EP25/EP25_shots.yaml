@@ -1,0 +1,517 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP25/EP25_新规则.md
+# Source shots: 16 (EP25-S01 to EP25-S16)
+# Output shots: 16 (EP25-S01 to EP25-S16)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS (G1:90s✅ G2:16=16✅ G3:no conflicts✅ G4:all voices traced✅)
+# NOTE: Script metadata line 32 declares "Seedance 有效镜数: 17" but actual shot table has 16 rows (S01-S16).
+#       VALIDATION block (line 202) confirms shot_count_declared=16. Proceeding with 16 shots.
+
+episode_id: EP25
+source_md: 剧本/EP25/EP25_新规则.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  negative_prompt: "fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity"
+
+shots:
+  - shot_id: EP25-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+        - CHAR-004-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】苏敏 CHAR-002-L01（米色针织开衫）【图2】林小夏 CHAR-001-L01（校服）【图3】林大宇 CHAR-004-L01（黑T恤）【图4】林建国 CHAR-003-L01（衬衫眼镜）【图5】林家客厅 SCENE-001。中景 固定：傍晚客厅暖黄灯光，四人围坐餐桌，桌上铺碎花桌布、四杯水、一个笔记本。图1坐在主位故作严肃；图2双手抱臂忍笑；图3靠在椅背上摘耳机；图4掏出手机。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-001, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「咳。今天的议题是——制定互换期间的生存规则。」"
+      - speaker: CHAR-002
+        line: "「你开会的架势……比我当年当班主任还像。」"
+      - speaker: CHAR-004
+        line: "「行，我记录。说吧。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】林建国 CHAR-004-L01（衬衫眼镜）【图2】林小夏 CHAR-002-L01（针织开衫）【图3】林家客厅 SCENE-001。近景 固定：图1从桌上拿起笔记本翻开，上面歪歪扭扭写着'互换生存手册 v0.1'。图2探头看了一眼嘴角抽动。图1把笔记本推到桌子中央，手指敲纸面。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "「第一条我拟了。每晚十点，四人视频通话。」"
+      - speaker: CHAR-001
+        line: "「爸……你这字也太丑了。这是大宇的字还是你的？」"
+      - speaker: CHAR-003
+        line: "「……大宇的手不听使唤。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】苏敏 CHAR-001-L01（校服）【图2】林小夏 CHAR-002-L01（针织开衫）【图3】林大宇 CHAR-003-L01（衬衫眼镜）【图4】林家客厅 SCENE-001。中景 固定：图1伸出手指比了个'一'认真讲规则。图2在旁边做笔记字迹端正。图3低头在手机上建群聊群名打了又删。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「第一条，每晚十点视频通话。交换当天信息，谁有什么状况，当面说。」"
+      - speaker: CHAR-004
+        line: "「群名叫什么？'林家互换指挥部'？」"
+      - speaker: CHAR-001
+        line: "「换个正常的。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】林大宇 CHAR-003-L01（衬衫眼镜）【图2】林建国 CHAR-004-L01（黑T恤）【图3】林家客厅 SCENE-001。近景 固定：图1把手机屏幕亮给大家——群名'今晚吃啥'。四人同时愣住然后笑了。图1一脸得意。图2无奈摇头但嘴角翘起。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "「'今晚吃啥'。谁也不会起疑。」"
+      - speaker: CHAR-003
+        line: "「你这脑子……干别的不行，取名倒是一绝。」"
+      - speaker: CHAR-004
+        line: "「那叫什么？'互换生存手册'？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】林小夏 CHAR-002-L01（针织开衫）【图2】苏敏 CHAR-001-L01（校服）【图3】林家客厅 SCENE-001。近景 固定：图1在笔记本上写下'紧急暗号'四个字，抬头看大家。图2掰着手指头想暗号表情纠结。窗外传来邻居炒菜声，暖光和油烟味混在一起。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「第二条。紧急情况用暗号联系。想一个不容易被别人猜到的。」"
+      - speaker: CHAR-002
+        line: "「'今天数学考了多少分'？」"
+      - speaker: CHAR-001
+        line: "「妈，那是你的日常问候。」"
+      - speaker: CHAR-002
+        line: "「那你说个不日常的……」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-002-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】林大宇 CHAR-003-L01（衬衫眼镜）【图2】林小夏 CHAR-002-L01（针织开衫）【图3】林建国 CHAR-004-L01（黑T恤）【图4】林家客厅 SCENE-001。中景 固定：图1手指在桌上敲三下眼珠一转嘴角扬起。图2立刻接上也敲了三下桌面，两人对视。图3和另外一人一脸困惑地看着这对兄妹默契。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "「暗号——敲三下桌子。不管什么场合，敲三下就是'我需要支援'。」"
+      - speaker: CHAR-001
+        line: "「简单。不容易被发现。」"
+      - speaker: CHAR-003
+        line: "「他俩……什么时候这么默契了？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-004-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】林小夏 CHAR-001-L01（针织开衫）【图2】苏敏 CHAR-002-L01（校服）【图3】林建国 CHAR-003-L01（衬衫眼镜）【图4】林大宇 CHAR-004-L01（黑T恤）【图5】林家客厅 SCENE-001。中景 固定：笔记本已写满半页。图1翻到新一页写下'周报'。图2已笑趴在桌子上。图3面无表情喝水耳朵根微微发红。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-001, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「第三条——每周提交'对方人生周报'。汇报你这周替对方经历了什么。」"
+      - speaker: CHAR-002
+        line: "「那你得汇报今天被哪个男生搭讪了！」"
+      - speaker: CHAR-003
+        line: "「咳……」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】林大宇 CHAR-003-L01（衬衫眼镜）【图2】林小夏 CHAR-002-L01（针织开衫）【图3】林家客厅 SCENE-001。近景 固定：图1放下手机掰手指算周报要写什么。图2双手交叉一脸威胁表情。桌上水杯液面微微晃动映着天花板灯光。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "「女儿得汇报今天做了什么菜——报菜名。」"
+      - speaker: CHAR-001
+        line: "「那你得汇报今天被领导骂了几次！」"
+      - speaker: CHAR-004
+        line: "「公平。互相伤害。」"
+      - speaker: CHAR-003
+        line: "「我只需要汇报……今天被代码弄哭了几回。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】苏敏 CHAR-001-L01（校服）【图2】林小夏 CHAR-002-L01（针织开衫）【图3】林家客厅 SCENE-001。近景 固定：夜晚客厅。手机支架夹在茶几边缘屏幕亮着'今晚吃啥'群视频通话。图1的脸挤在屏幕左侧背景是堆满试卷的书桌。图2的脸在右侧背景是客厅沙发。两人都拿着小本子。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「本周周报——小夏这周数学随堂测72分，比上周进步11分。食堂的红烧肉……还是一样难吃。」"
+      - speaker: CHAR-001
+        line: "「妈你别在周报里夹带私货。该我了——本周给奶奶做了两次饭，红烧排骨没糊，但汤有点咸。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】林建国 CHAR-003-L01（衬衫眼镜）【图2】林大宇 CHAR-004-L01（黑T恤）【图3】林家客厅 SCENE-001。近景 固定：视频通话继续。图1的脸出现在屏幕下方身后是创业公司工位桌上有吃了一半的外卖。图2的脸出现在上方身后是爸爸公司的格子间角落有全家福。四人隔着屏幕互相打量。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "「我先说——爸这周在公司没出大乱子。季度报告交了，领导批了'中规中矩'。」"
+      - speaker: CHAR-003
+        line: "「……中规中矩。这评语我听了十五年。」"
+      - speaker: CHAR-004
+        line: "「我以前觉得是敷衍。现在知道……是实话。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】林小夏 CHAR-002-L01（针织开衫）【图2】林大宇 CHAR-003-L01（衬衫眼镜）【图3】林家客厅 SCENE-001。近景 固定：视频通话。图1压低声音凑近屏幕一脸八卦。图2在屏幕对面皱眉。茶几上水杯见底，屏幕上'今晚吃啥'群名安静亮着。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「大宇哥，这周汇报里得加一条——有没有人跟'爸'搭讪？」"
+      - speaker: CHAR-004
+        line: "「……没有。四十多岁的中年男人，谁搭讪？」"
+      - speaker: CHAR-003
+        line: "「以前确实没有。但上周老刘说有个新来的女同事老找他聊天……算了，不提了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】苏敏 CHAR-001-L01（校服）【图2】林建国 CHAR-004-L01（黑T恤）【图3】林家客厅 SCENE-001。近景 固定：图1在屏幕对面突然凑近脸占满镜头像有话要私下说。图2耳朵贴近手机。背景灯光把两人影子拉得很长。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「小夏，这周周报我要加一句——你的画技，真的很好。」"
+      - speaker: CHAR-002
+        line: "「我这周替你画画的时候才明白……你画的不是画，是你看到的世界。」"
+      - speaker: CHAR-001
+        line: "「……妈。」"
+      - speaker: CHAR-003
+        line: "「她说不出口的感动，都在那一声'妈'里了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+    api:
+      text: "【图1】苏敏 CHAR-001-L01（校服外套搭在椅背上）【图2】林小夏房间 SCENE-002。特写 固定：深夜台灯暖黄光照在书桌上试卷堆得像小山教辅书摊开。图1坐在桌前右手握水笔写字突然停住——手在微微颤抖。笔尖悬在纸面上方抖动稳定如被风吹动的细枝。图1放下笔伸出左手按住右手手腕试图让它停。按了三秒松开还是在抖。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「小夏的手……一直在抖？」"
+      - speaker: CHAR-002
+        line: "「这孩子……每天写多少字才会把手写成这样？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+    api:
+      text: "【图1】苏敏 CHAR-001-L01（校服外套搭在椅背上）【图2】林小夏房间 SCENE-002。近景 缓推：图1翻过右手手掌朝上。台灯照掌心——食指和中指之间有厚厚茧是长年握笔磨出来的，拇指外侧有一道小裂口已经结痂。图1把左手食指轻轻放在那道裂口上指尖触到粗糙皮肤整个人抖了一下——不是手在抖是心在抖。窗外黑漆漆只有台灯一圈暖光包裹。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「高考、画画、补习……这只手，承载了多少？」"
+      - speaker: CHAR-002
+        line: "「小夏……妈妈以前怎么没注意到？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】苏敏 CHAR-001-L01（校服）【图2】林家客厅 SCENE-001。特写 固定：翌日傍晚客厅。图1独自坐在餐桌前面前摊着笔记本客厅吊灯暖光。图1正在笔记本上一笔一划写着。镜头从笔记本纸面拍上去——图1表情平静但眼底有一层薄薄水光。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "「周报的最后一条……我得写下来。」"
+      - speaker: CHAR-002
+        line: "「就算她会生气，我也得让她知道。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+        - CHAR-004-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】林小夏 CHAR-002-L01（针织开衫）【图2】苏敏 CHAR-001-L01（校服）【图3】林建国 CHAR-004-L01（黑T恤）【图4】林大宇 CHAR-003-L01（衬衫眼镜）【图5】林家客厅 SCENE-001。中景 缓推：客厅全景四人再次围坐餐桌桌上笔记本和四杯水。图1翻开图2交来的周报从头读起表情从好奇到笑到皱眉。读到最后一行时手指停在纸面上指尖微微蜷缩。图2坐在对面低头看自己的手。图3和图4注意到气氛变了安静下来。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-001, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「小夏的画技真的很好……但她的手，因为长期写字，已经有点抖了。」"
+      - speaker: CHAR-001
+        line: "「……妈。」"
+      - speaker: CHAR-002
+        line: "「我只是……觉得应该告诉你。」"
+    transition_to_next: hard_cut

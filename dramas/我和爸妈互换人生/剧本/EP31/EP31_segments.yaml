@@ -1,0 +1,288 @@
+# ⚠️ CRITICAL WARNING: [待补：投资人] appears in SEG02/SEG03/SEG04 as speaker and visual character
+# but has no formal CHAR-GRP-## ID or L01 reference image. Production-planner must:
+# 1. Assign CHAR-GRP-## ID (suggest CHAR-GRP-06+)
+# 2. Character-designer generates L01 reference image
+# 3. Update 声音卡片.md with voice_prompt entry
+# Until resolved, investor segments use scene-only reference images (degraded visual consistency).
+
+episode_id: EP31
+source_md: 剧本/EP31/EP31_投资人来了.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: |-
+    禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。
+  prompt_suffix_silent: |-
+    本段无对白无语音，禁止画面中出现任何文字。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。
+  negative_prompt: |-
+    fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity
+
+voice_prompts:
+  CHAR-003: |-
+    成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙
+  CHAR-004: |-
+    成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快
+  CHAR-008: |-
+    成年男性，26岁，声线偏沉稳有条理，咬字清晰带商务腔，语速中等
+  CHAR-GRP-02: |-
+    成年男性，约50岁，声线浑厚略沙哑，咬字带有老一辈工人的直爽
+  "[待补：投资人]": |-
+    成年男性，约40岁，声线沉稳有力，咬字清晰带商务精英腔，语速中等偏慢
+
+segments:
+  - segment_id: EP31-SEG01
+    shot_ids: [EP31-S01, EP31-S02]
+    duration_sec: 11
+    speakers: [CHAR-004]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+    api:
+      text: |-
+        【图1】林建国（儿子灵魂）CHAR-003-L01（浅蓝衬衫、银框眼镜、发际线微退）【图2】林建国公司办公室 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：中年男人办公室，灰色格子间，角落工位墙上挂着全家福（年轻林建国、苏敏和两个小孩），桌上摊着老式笔记本电脑和一沓打印文件。图1坐在转椅上，右手悬在鼠标上方迟迟没有点下去。窗外阴天，灰色光线透过百叶窗条纹照在他脸上把皱纹切出棱角。电脑屏幕Excel表格列着一串名字，第一列标着"优化"。
+        镜头2（6秒）特写 缓推：图1脸部特写，银框眼镜后面眼神从屏幕移到桌面上一张照片——爸爸和老刘在公司年会上的合影，两人举着啤酒杯笑得很开。喉结滚动了一下，嘴唇抿紧。电脑屏幕蓝光映在镜片上模糊一片。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「爸每天坐在这把椅子上……就干这个？」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「裁员名单。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「这些名字背后，每一个都是一家老小。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「爸，你每次开完会回来不说话……就是因为这个吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024，温暖自然光线，电影级色彩，浅景深，写实都市家庭剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP31-SEG02
+    shot_ids: [EP31-S03, EP31-S04]
+    duration_sec: 12
+    speakers: ["[待补：投资人]", CHAR-004]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |-
+        【图1】林大宇（爸爸灵魂）CHAR-004-L01（黑T恤、左臂纹身、蓝牙耳机搁在桌上）【图2】创业公司办公区 SCENE-004【图3】张明远 CHAR-008-L01（格子衬衫、黑框眼镜）。
+        角色分工：仅图1可触碰桌上物品；图2为场景背景；图3操作笔记本电脑。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：创业公司会议室，开放工位区背景虚焦，彩色便利贴和站立办公桌隐约可见。会议桌边三人：图1靠窗坐，坐姿出奇沉稳双手交叉放桌面；图3翻开笔记本电脑屏幕是数据图表；对面穿深灰西装的投资人四十出头手里转着笔表情审视。窗外城市天际线，阳光侧面照入。
+        镜头2（6秒）近景 固定：图1近景，没有急着回答，身体微微前倾——不是年轻人的急切是中年人的从容。黑T恤领口微敞左臂纹身阳光下若隐若现。目光直视投资人嘴角没有笑——表情比这张24岁脸该有的沉稳太多。蓝牙耳机在桌上折射一点光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（投资人，成年男性，约40岁，声线沉稳有力，咬字清晰带商务精英腔，语速中等偏慢）：「你们团队成立不到两年。」
+        对白（投资人，成年男性，约40岁，声线沉稳有力，咬字清晰带商务精英腔，语速中等偏慢）：「核心团队——就你们两个？」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「来了。我等的就是这个问题。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「不是两个。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「创业公司最重要的——不是人数。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「是留下来的人。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024，温暖自然光线，电影级色彩，浅景深，写实都市家庭剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图3 }
+        # ⚠️ [待补：投资人] no L01 reference image — investor uses scene-only visual context
+    # ⚠️ SEMANTIC_WARNING: [待补：投资人] appears as speaker but has no formal ID or L01 reference image. Visual consistency for investor character cannot be guaranteed.
+    transition_to_next: hard_cut
+
+  - segment_id: EP31-SEG03
+    shot_ids: [EP31-S05, EP31-S06]
+    duration_sec: 12
+    speakers: ["[待补：投资人]", CHAR-004]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |-
+        【图1】林大宇（爸爸灵魂）CHAR-004-L01（黑T恤、左臂纹身）【图2】创业公司办公区 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：投资人近景，放下手里笔身体微微后仰靠在椅背上——这个动作意味着开始认真听了。深灰西装肩线灯光下清晰。眉头松开了一点嘴角有一丝不易察觉弧度。背景虚焦处张明远推了推眼镜表情从紧张变成意外。
+        镜头2（6秒）中景 缓推：图1中景，微微抬头目光越过投资人像看到很远的东西——十五年职场里见过无数次"留人"与"走人"。黑T恤褶皱阳光里明暗分明。声音变慢了每个字带着47岁中年人的分量。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（投资人，成年男性，约40岁，声线沉稳有力，咬字清晰带商务精英腔，语速中等偏慢）：「留下来的人？」
+        对白（投资人，成年男性，约40岁，声线沉稳有力，咬字清晰带商务精英腔，语速中等偏慢）：「那你怎么保证他们不走？」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「没有人能保证。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「但你只要记住一点——」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「人不是数字。你把人当数字，人才会把你当数字。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024，温暖自然光线，电影级色彩，浅景深，写实都市家庭剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+        # ⚠️ [待补：投资人] no L01 reference image
+    # ⚠️ SEMANTIC_WARNING: [待补：投资人] appears as speaker but has no formal ID or L01 reference image.
+    transition_to_next: hard_cut
+
+  - segment_id: EP31-SEG04
+    shot_ids: [EP31-S07, EP31-S08]
+    duration_sec: 10
+    speakers: [CHAR-008, "[待补：投资人]"]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |-
+        【图1】张明远 CHAR-008-L01（格子衬衫、黑框眼镜）【图2】林大宇（爸爸灵魂）CHAR-004-L01（黑T恤、纹身）【图3】创业公司办公区 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1手指停在笔记本键盘上方，眼镜片后面眼睛微微睁大——第一次听到"大宇"用这种方式说话。格子衬衫卷袖露出前臂手指僵在半空。看了一眼图2嘴唇动了一下想说什么又咽回去。阳光从窗户照入把两人影子投在墙上。
+        镜头2（5秒）近景 固定：投资人近景，缓缓点头拿起笔在笔记本上写了一行字——笔尖在纸面停留很久。合上笔记本抬头看向图2，表情从审视变成某种尊重。深灰西装光线下泛微微光泽。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张明远，成年男性，26岁，声线偏沉稳有条理，咬字清晰带商务腔，语速中等）：「这不像大宇说的话。」
+        对白（张明远，成年男性，26岁，声线偏沉稳有条理，咬字清晰带商务腔，语速中等）：「这种分量……不是二十六岁该有的。」
+        对白（投资人，成年男性，约40岁，声线沉稳有力，咬字清晰带商务精英腔，语速中等偏慢）：「你比我见过的很多CEO……都清醒。」
+        对白（投资人，成年男性，约40岁，声线沉稳有力，咬字清晰带商务精英腔，语速中等偏慢）：「今天先到这里。下周——我要看你们的计划书。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024，温暖自然光线，电影级色彩，浅景深，写实都市家庭剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+        # ⚠️ [待补：投资人] no L01 reference image
+    # ⚠️ SEMANTIC_WARNING: [待补：投资人] appears as speaker but has no formal ID or L01 reference image.
+    transition_to_next: hard_cut
+
+  - segment_id: EP31-SEG05
+    shot_ids: [EP31-S09, EP31-S10]
+    duration_sec: 10
+    speakers: [CHAR-004]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+    api:
+      text: |-
+        【图1】林建国（儿子灵魂）CHAR-003-L01（浅蓝衬衫、银框眼镜）【图2】林建国公司办公室 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：办公室中景，图1不再悬着鼠标，笔记本电脑合上了一半双手撑在桌面上低着头。灰色格子间只有他一个人，百叶窗光影在肩膀上一条一条。桌上年会合影在光线下反光。走廊远处传来同事走过的声音。
+        镜头2（5秒）特写 缓推：图1手部特写——那双47岁中年人的手，指节粗大有薄茧——握着鼠标，光标在名单上缓慢移动。每一个名字旁边都有工龄标注：8年、12年、15年……手指在鼠标上微微发颤。屏幕蓝光映在婚戒上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「刚才那段会议纪要，我打了三遍都没发出去。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「每个名字后面都是一个家庭。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「这不是Excel。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「这是一条条活生生的人生。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「爸……我现在懂了。你为什么不说话。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024，温暖自然光线，电影级色彩，浅景深，写实都市家庭剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP31-SEG06
+    shot_ids: [EP31-S11, EP31-S12]
+    duration_sec: 12
+    speakers: [CHAR-GRP-02, CHAR-004]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-GRP-02-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-GRP-02-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+    api:
+      text: |-
+        【图1】林建国（儿子灵魂）CHAR-003-L01（浅蓝衬衫、银框眼镜）【图2】老刘 CHAR-GRP-02-L01（圆脸微胖、白衬衫微皱、工牌）【图3】林建国公司办公室 SCENE-005。
+        角色分工：图1可触碰窗台和转椅；图2手持马克杯路过。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1从转椅站起来走到窗边，百叶窗缝隙透进来的光把脸切成明暗条纹——衬衫袖口有一道折痕今天早上第三次整理。回头看门口——图2正好路过冲他点头笑容温和，手里端着印公司logo旧马克杯。图2背影消失在走廊拐角。
+        镜头2（6秒）特写 缓推：图1脸部特写，老刘走后笑容消失了——嘴角向下垮眼眶微微泛红。银框眼镜百叶窗光影里闪了一下。嘴唇抿紧又松开像在压住什么。右手无意识攥住窗台边缘指节泛白。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（老刘，成年男性，约50岁，声线浑厚略沙哑，咬字带有老一辈工人的直爽）：「林哥，今天这么早？」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「嗯……早。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「他不知道——他就是名单上的人。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「老刘……二十年。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「爸，你回来沉默的时候——」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「是不是已经知道，这个决定迟早要做？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024，温暖自然光线，电影级色彩，浅景深，写实都市家庭剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP31-SEG07
+    shot_ids: [EP31-S13, EP31-S14]
+    duration_sec: 12
+    speakers: [CHAR-004]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+    api:
+      text: |-
+        【图1】林建国（儿子灵魂）CHAR-003-L01（浅蓝衬衫、银框眼镜）【图2】林建国公司办公室 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1回到桌前重新打开笔记本电脑，坐回转椅身体前倾，手指在键盘上停了三秒——然后开始一个一个名字地往下看。办公室里只有键盘敲击声和空调嗡嗡声。翻到名单最后一页手突然停住了。屏幕蓝光映在银框眼镜上整个身体僵住了。
+        镜头2（6秒）特写 缓推：图1脸部特写，下巴微微颤抖目光死死盯着屏幕——不需要拍到屏幕内容表情已经说明一切。百叶窗光影在脸上移动像时间在推移。摘下眼镜用衬衫袖口擦了一下眼角——动作很快像怕被人看到。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「老刘。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「二十年工龄。爸爸最好的同事。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「二十年。老刘二十年——」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「爸，这个决定……」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024，温暖自然光线，电影级色彩，浅景深，写实都市家庭剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP31-SEG08
+    shot_ids: [EP31-S15, EP31-S16]
+    duration_sec: 11
+    speakers: [CHAR-004]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-005.png
+    api:
+      text: |-
+        【图1】林建国（儿子灵魂）CHAR-003-L01（浅蓝衬衫、银框眼镜）【图2】林建国公司办公室 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1把眼镜重新戴上，抬头看向桌上全家福——照片里年轻爸爸笑得灿烂旁边年轻妈妈和两个小孩。手慢慢伸向手机又缩回来。窗外阴天光线把影子拉得很长投在灰色地毯上。
+        镜头2（6秒）近景 缓推：图1脸部近景，闭上眼深吸一口气——然后睁开眼神从崩溃变成了某种决绝。银框眼镜后面那双属于24岁灵魂的眼睛里多了一层以前没有的东西——不是愤怒不是叛逆是一种沉重的理解。拿起手机拨出一个号码——屏幕上显示"大宇"。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「爸以前每次开会回来——」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「一个人坐在这间办公室，看着这些名字，一个人扛着。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「爸。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「裁员名单……最下面那个名字。」
+        对白（林大宇，成年男性，24岁，声线清朗有活力，咬字利落带互联网腔，语速快）：「这个决定——我做不了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国城市，2024，温暖自然光线，电影级色彩，浅景深，写实都市家庭剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

@@ -1,0 +1,414 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP29/EP29_爸爸的演讲.md
+# Source shots: 15 (EP29-S01 to EP29-S15)
+# Output shots: 15 (EP29-S01 to EP29-S15)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 78s (self-calculated: 5+6+5+4+3+5+6+5+6+6+5+5+6+5+6=78s)
+# Output total duration: 78s
+# Gate status: G1 PASS (78s ∈ [75,120]), G2 PASS (15=15), G3 PASS (no conflicts), G4 PASS (all identified)
+# NOTE: S08 and S11 contain placeholder speakers [待补：年轻员工] and [待补：扎马尾女员工]
+#       S08 dialogue is CHAR-003 inner monologue (no blocker).
+#       S11 dialogue is from placeholder speakers — triggers group-actor replenishment cycle.
+#       Recommended IDs: CHAR-GRP-06 (年轻员工), CHAR-GRP-07 (扎马尾女员工).
+#       Production-planner must assign formal IDs + character-designer create L01 before API submission.
+
+episode_id: EP29
+source_md: 剧本/EP29/EP29_爸爸的演讲.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  negative_prompt: "fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity"
+
+shots:
+  - shot_id: EP29-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】SCENE-004。中景 固定镜头：午后创业公司开放式办公区，三排工位被临时清空，二十多个员工搬着椅子围坐在中央空地，彩色便利贴墙上写着Q3 ALL HANDS，阳光从落地窗斜射进来照亮浮尘。图1站在投影幕布旁边，手里攥着一沓A4纸指节泛白，银框眼镜后的目光不停扫过纸上的字。浅灰格子衬衫袖口卷至前臂黑框眼镜的年轻男子坐在前排，朝图1点了点头。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "稿子背了三天。应该没问题……应该。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】张明远 CHAR-008-L01（浅灰格子衬衫、袖口卷至前臂、黑框眼镜）【图2】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图3】SCENE-004。中景 固定镜头：图1坐在前排，笔记本电脑半合，手里转着笔，朝投影幕布旁的图2点了点头，眼神里有鼓励也有期待。背景里员工们陆续落座，有人端着咖啡，有人刷着手机，一个扎马尾的女生在座位上小声和旁边人聊着什么。图2深吸一口气，把纸展开。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "今天开Q3全员会。数据我先过——上季度用户增长达到十二万月活。"
+      - speaker: CHAR-008
+        line: "下面请大宇做季度总结。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】SCENE-004。近景 缓推：图1的脸部近景，低头看着手中的A4纸，眉头拧成一团，嘴唇开合像在默念，喉结上下滚了一下。抬头面对满屋子的年轻人，努力扯出一个微笑但嘴角是僵的，蓝牙耳机在左耳泛着蓝光。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "上个季度，我们在用户获取方面实现了有效突破……"
+      - speaker: CHAR-003
+        line: "通过精准的流量入口和差异化的内容运营，我们的核心转化率……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】张明远 CHAR-008-L01（浅灰格子衬衫、黑框眼镜）【图2】SCENE-004。近景 固定镜头：图1的脸，鼓励微笑慢慢凝固，眉头微微皱起，他听出来这不是大宇的风格。手里的笔停住了，笔尖悬在笔记本上方不动。背景里员工们的坐姿变了，有人交叉了手臂。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "'赋能''闭环'……老爸不会说这些。"
+      - speaker: CHAR-003
+        line: "念得再像，也不是我的话。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 3
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】SCENE-004。中景 固定镜头：图1顿住了，手捏着纸指节发白，投影幕布的白光打在他身上像聚光灯。喉结又动了一下，然后他把纸折起来，慢慢放在身后的桌上，动作很轻，像放下一样压了很久的东西。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "算了……"
+      - speaker: CHAR-003
+        line: "我换个说法。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】SCENE-004。近景 缓推：图1深吸一口气，双手按住桌缘，身体微微前倾像在做某种决定。阳光从侧面照来，把他年轻的轮廓劈成明暗两半，一半是24岁的儿子，一半是47岁的父亲。他的眼神变了，不再紧张，变得沉稳。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "我想讲一个人。"
+      - speaker: CHAR-003
+        line: "一个四十七岁的男人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】SCENE-004。中景 固定镜头：图1站在原地不再看任何纸，双手垂在身侧，语速变慢像在跟自己的记忆对话。身后投影幕布的白光把他的影子拉得很长，阳光照进来的灰尘在光束里悬浮不动。员工们的手停在半空，有人举着咖啡杯忘了喝，有人的手指悬在手机屏幕上方。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "他年轻的时候，也有过创业的梦。"
+      - speaker: CHAR-003
+        line: "但他放弃了。为了一个还没出生的孩子。"
+      - speaker: CHAR-003
+        line: "他把创业的想法锁进抽屉，找了份稳定的工作，一干就是十五年。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】SCENE-004。近景 固定镜头：两张年轻员工的脸。年轻男员工的嘴角绷紧了喉结滚了一下，他想起了自己的父亲。扎马尾的女员工眼镜后的眼睛慢慢泛红，她低下头右手无意识地攥紧了笔记本的角。背景里的虚焦处其他员工也都静止了。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "他话不多。表达爱的方式是加班，是半夜悄悄给孩子盖被子。"
+      - speaker: CHAR-003
+        line: "是餐桌上那些饭菜。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】SCENE-004。近景 缓推：图1的脸部近景，阳光正好打在他侧脸。他的眼角有什么东西在闪，不是泪，是某种压抑了太久的东西在裂缝里透出来的光。深吸一口气继续说，投影幕布的白光在他身后像一道无声的背景墙。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "后来他看到自己的儿子……从零开始创业。"
+      - speaker: CHAR-003
+        line: "他终于明白了——儿子不是为了赚钱。"
+      - speaker: CHAR-003
+        line: "是为了不重蹈他的覆辙。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】张明远 CHAR-008-L01（浅灰格子衬衫、黑框眼镜）【图2】SCENE-004。近景 固定镜头：图1的脸，眼镜片上反射着窗外的光，嘴角抿得很紧下巴微微绷着，他在忍。眼眶已经红了但一滴泪都没掉，手里的笔垂在指间不再转了，笔记本电脑半合着屏幕的微光照在他握紧的手上。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "全公司都安静了。"
+      - speaker: CHAR-003
+        line: "没人说话。连呼吸都轻了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】SCENE-004。近景 固定镜头：扎马尾女员工的脸，她吸了一下鼻子用手背擦了一下眼角，嘴角扯出一个哭笑之间的弧度，午后的阳光照在她的侧脸镜片上还有未干的水痕。背景里其他员工依然安静，有人低着头有人望着天花板。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: "[待补：扎马尾女员工]"
+        line: "这是我听过……最真诚的汇报。"
+      - speaker: "[待补：年轻员工]"
+        line: "是啊。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】张明远 CHAR-008-L01（浅灰格子衬衫、黑框眼镜）【图2】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图3】SCENE-004。中景 固定镜头：会后，员工们三三两两往外走。图2站在原地双手撑在桌沿上像是被掏空了。图1从座位上站起来走到图2面前，两人之间隔着半步距离。窗外的阳光已经西斜，在地板上拉出两道长长的影子。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "大宇……等一下。"
+      - speaker: CHAR-008
+        line: "你刚才讲的那个中年人的故事——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】张明远 CHAR-008-L01（浅灰格子衬衫、黑框眼镜）【图2】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图3】SCENE-004。近景 固定镜头：图1的眼睛直视图2，他摘下眼镜用衬衫下摆擦了一下，这是他紧张时的习惯。再戴上时眼眶是红的。图2面对这双眼睛，手里的纸滑落了一张飘到地板上，他没有捡。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "是真的吧？"
+      - speaker: CHAR-003
+        line: "他看出来了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】SCENE-004。特写 缓推：图1的脸部特写，午后的光正好打在他侧脸。嘴唇动了一下没有声音，又动了一下。眼神里有这个身体不该有的东西，一个47岁中年人看了半辈子天花板后才有的疲惫和温柔。嘴角微微抽了一下像在忍住什么，三秒的沉默像三年那么长。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "二十五年……这句话在我心里藏了二十五年。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP29-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: "【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】张明远 CHAR-008-L01（浅灰格子衬衫、黑框眼镜）【图3】SCENE-004。近景 固定镜头：图1终于开口，声音很轻，轻到像从很深的地方浮上来的。图2的手停在半空。窗外的夕阳把两个人的轮廓镀上了一层暖橙色。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "是。"
+      - speaker: CHAR-008
+        line: "那我们更不能……让这个公司倒下。"
+    transition_to_next: hard_cut

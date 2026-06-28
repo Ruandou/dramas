@@ -1,0 +1,280 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP29/EP29_爸爸的演讲.md
+# Source shots: 15 (EP29-S01 to EP29-S15)
+# Output segments: 8 (EP29-SEG01 to EP29-SEG08), covering 15 shots 1:1
+# Mapping: 1:1 (no shot insertions, no deletions, no reordering)
+# Source total duration: 78s
+# Output total duration: 78s (11+9+8+11+12+5+11+11)
+# Gate status: G1 PASS (78s ∈ [75,120]), G2 PASS (15=15), G3 PASS, G4 PASS
+# ⚠️ BLOCKER: SEG06 (S11) contains dialogue from placeholder speakers
+#   [待补：扎马尾女员工] and [待补：年轻员工].
+#   These speakers lack formal CHAR-GRP-## IDs and voice cards.
+#   Recommended: CHAR-GRP-06 (年轻员工), CHAR-GRP-07 (扎马尾女员工).
+#   Production-planner must assign IDs + character-designer create L01 + voice cards
+#   before SEG06 can be submitted to Seedance API.
+#   All other segments (SEG01-05, SEG07-08) are API-ready.
+
+episode_id: EP29
+source_md: 剧本/EP29/EP29_爸爸的演讲.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  negative_prompt: "fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity"
+
+voice_prompts:
+  CHAR-003: |-
+    成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露
+  CHAR-008: |-
+    成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说"兄弟冷静"时是真正在压低自己声音试图稳定局面
+  # ⚠️ BLOCKER: [待补：年轻员工] 和 [待补：扎马尾女员工] 尚无正式 CHAR-GRP-## ID 和 voice card。
+  # Production-planner 需分配 CHAR-GRP-06 / CHAR-GRP-07 后补充此区块。
+  # SEG06 的 API 提交依赖此 BLOCKER 解决。
+
+segments:
+  - segment_id: EP29-SEG01
+    shot_ids: [EP29-S01, EP29-S02]
+    duration_sec: 11
+    speakers: [CHAR-003, CHAR-008]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】张明远 CHAR-008-L01（浅灰格子衬衫、袖口卷至前臂、黑框眼镜）【图3】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：午后创业公司开放式办公区，三排工位被临时清空，二十多个员工搬着椅子围坐在中央空地，彩色便利贴墙上写着Q3 ALL HANDS，阳光从落地窗斜射进来照亮浮尘。图1站在投影幕布旁边，手里攥着一沓A4纸指节泛白，银框眼镜后的目光不停扫过纸上的字。图2坐在前排朝图1点了点头。
+        镜头2（6秒）中景 固定：图2坐在前排，笔记本电脑半合手里转着笔，朝投影幕布旁的图1点了点头，眼神里有鼓励也有期待。背景里员工们陆续落座，有人端着咖啡有人刷着手机，一个扎马尾的女生在座位上小声和旁边人聊着什么。图1深吸一口气把纸展开。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「稿子背了三天。应该没问题……应该。」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说"兄弟冷静"时是真正在压低自己声音试图稳定局面）：「今天开Q3全员会。数据我先过——上季度用户增长达到十二万月活。」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说"兄弟冷静"时是真正在压低自己声音试图稳定局面）：「下面请大宇做季度总结。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市创业公司办公区，午后侧光，写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP29-SEG02
+    shot_ids: [EP29-S03, EP29-S04]
+    duration_sec: 9
+    speakers: [CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】张明远 CHAR-008-L01（浅灰格子衬衫、黑框眼镜）【图3】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 缓推：图1的脸部近景，低头看着手中的A4纸眉头拧成一团，嘴唇开合像在默念，喉结上下滚了一下。抬头面对满屋子的年轻人，努力扯出一个微笑但嘴角是僵的，蓝牙耳机在左耳泛着蓝光。
+        镜头2（4秒）近景 固定：图2的脸，鼓励微笑慢慢凝固，眉头微微皱起，他听出来这不是大宇的风格。手里的笔停住了笔尖悬在笔记本上方不动。背景里员工们的坐姿变了，有人交叉了手臂。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「上个季度，我们在用户获取方面实现了有效突破……」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「通过精准的流量入口和差异化的内容运营，我们的核心转化率……」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「'赋能''闭环'……老爸不会说这些。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「念得再像，也不是我的话。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市创业公司办公区，午后侧光，写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP29-SEG03
+    shot_ids: [EP29-S05, EP29-S06]
+    duration_sec: 8
+    speakers: [CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（3秒）中景 固定：图1顿住了，手捏着纸指节发白，投影幕布的白光打在他身上像聚光灯。喉结又动了一下，然后他把纸折起来慢慢放在身后的桌上，动作很轻，像放下一样压了很久的东西。
+        镜头2（5秒）近景 缓推：图1深吸一口气双手按住桌缘，身体微微前倾像在做某种决定。阳光从侧面照来把他年轻的轮廓劈成明暗两半，一半是24岁的儿子，一半是47岁的父亲。他的眼神变了，不再紧张，变得沉稳。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「算了……」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「我换个说法。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「我想讲一个人。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「一个四十七岁的男人。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市创业公司办公区，午后光线渐转，写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP29-SEG04
+    shot_ids: [EP29-S07, EP29-S08]
+    duration_sec: 11
+    speakers: [CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1站在原地不再看任何纸，双手垂在身侧语速变慢像在跟自己的记忆对话。身后投影幕布的白光把他的影子拉得很长，阳光照进来的灰尘在光束里悬浮不动。员工们的手停在半空，有人举着咖啡杯忘了喝，有人的手指悬在手机屏幕上方。
+        镜头2（5秒）近景 固定：两张年轻员工的脸。年轻男员工的嘴角绷紧了喉结滚了一下，他想起了自己的父亲。扎马尾的女员工眼镜后的眼睛慢慢泛红，她低下头右手无意识地攥紧了笔记本的角。背景里的虚焦处其他员工也都静止了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「他年轻的时候，也有过创业的梦。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「但他放弃了。为了一个还没出生的孩子。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「他把创业的想法锁进抽屉，找了份稳定的工作，一干就是十五年。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「他话不多。表达爱的方式是加班，是半夜悄悄给孩子盖被子。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「是餐桌上那些饭菜。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市创业公司办公区，午后光线渐从侧面转向正面，写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP29-SEG05
+    shot_ids: [EP29-S09, EP29-S10]
+    duration_sec: 12
+    speakers: [CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】张明远 CHAR-008-L01（浅灰格子衬衫、黑框眼镜）【图3】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 缓推：图1的脸部近景，阳光正好打在他侧脸。他的眼角有什么东西在闪，不是泪，是某种压抑了太久的东西在裂缝里透出来的光。深吸一口气继续说，投影幕布的白光在他身后像一道无声的背景墙。
+        镜头2（6秒）近景 固定：图2的脸，眼镜片上反射着窗外的光，嘴角抿得很紧下巴微微绷着，他在忍。眼眶已经红了但一滴泪都没掉，手里的笔垂在指间不再转了，笔记本电脑半合着屏幕的微光照在他握紧的手上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「后来他看到自己的儿子……从零开始创业。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「他终于明白了——儿子不是为了赚钱。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「是为了不重蹈他的覆辙。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「全公司都安静了。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「没人说话。连呼吸都轻了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市创业公司办公区，午后正面光渐暖，写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP29-SEG06
+    shot_ids: [EP29-S11]
+    duration_sec: 5
+    speakers: ["[待补：扎马尾女员工]", "[待补：年轻员工]"]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    # ⚠️ BLOCKER: 本 segment 对白来自 placeholder speakers [待补：扎马尾女员工] 和 [待补：年轻员工]。
+    # 尚无正式 CHAR-GRP-## ID 和 voice card。Production-planner 需分配 ID 后方可 API 提交。
+    # 推荐 ID: CHAR-GRP-06 (年轻员工), CHAR-GRP-07 (扎马尾女员工)。
+    api:
+      text: |
+        【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：扎马尾女员工的脸，她吸了一下鼻子用手背擦了一下眼角，嘴角扯出一个哭笑之间的弧度，午后的阳光照在她的侧脸镜片上还有未干的水痕。背景里其他员工依然安静，有人低着头有人望着天花板。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（扎马尾女员工，voice_prompt待补充——需production-planner分配CHAR-GRP-07并建声音卡片）：「这是我听过……最真诚的汇报。」
+        对白（年轻员工，voice_prompt待补充——需production-planner分配CHAR-GRP-06并建声音卡片）：「是啊。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市创业公司办公区，午后暖橙色正面光，写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP29-SEG07
+    shot_ids: [EP29-S12, EP29-S13]
+    duration_sec: 11
+    speakers: [CHAR-008, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】张明远 CHAR-008-L01（浅灰格子衬衫、黑框眼镜）【图2】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图3】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：会后，员工们三三两两往外走。图2站在原地双手撑在桌沿上像是被掏空了。图1从座位上站起来走到图2面前，两人之间隔着半步距离。窗外的阳光已经西斜，在地板上拉出两道长长的影子。
+        镜头2（6秒）近景 固定：图1的眼睛直视图2，他摘下眼镜用衬衫下摆擦了一下，这是他紧张时的习惯。再戴上时眼眶是红的。图2面对这双眼睛，手里的纸滑落了一张飘到地板上，他没有捡。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说"兄弟冷静"时是真正在压低自己声音试图稳定局面）：「大宇……等一下。」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说"兄弟冷静"时是真正在压低自己声音试图稳定局面）：「你刚才讲的那个中年人的故事——」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说"兄弟冷静"时是真正在压低自己声音试图稳定局面）：「是真的吧？」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「他看出来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市创业公司办公区，夕阳西斜暖橙色光，写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP29-SEG08
+    shot_ids: [EP29-S14, EP29-S15]
+    duration_sec: 11
+    speakers: [CHAR-003, CHAR-008]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-008-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-004.png
+    api:
+      text: |
+        【图1】林大宇身体 CHAR-004-L01（黑色T恤、深蓝牛仔裤、左耳蓝牙耳机）【图2】张明远 CHAR-008-L01（浅灰格子衬衫、黑框眼镜）【图3】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 缓推：图1的脸部特写，午后的光正好打在他侧脸。嘴唇动了一下没有声音，又动了一下。眼神里有这个身体不该有的东西，一个47岁中年人看了半辈子天花板后才有的疲惫和温柔。嘴角微微抽了一下像在忍住什么，三秒的沉默像三年那么长。
+        镜头2（6秒）近景 固定：图1终于开口，声音很轻，轻到像从很深的地方浮上来的。图2的手停在半空。窗外的夕阳把两个人的轮廓镀上了一层暖橙色。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「二十五年……这句话在我心里藏了二十五年。」
+        对白（林建国，成年男性，47岁，语调平缓偏低沉，咬字简洁，语速偏慢，说话时常有停顿和沉默间隙，回避冲突时声音更低更慢几乎像自言自语，感动时声音略哑但努力控制不外露）：「是。」
+        对白（张明远，成年男性，26岁，声线平稳理性偏薄，咬字精确带技术腔，语速中等，数据分析时条理清晰停顿合理，焦虑时语速加快但逻辑仍清晰，说"兄弟冷静"时是真正在压低自己声音试图稳定局面）：「那我们更不能……让这个公司倒下。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市创业公司办公区，夕阳暖橙色正面光，写实风格，竖屏9比16，fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

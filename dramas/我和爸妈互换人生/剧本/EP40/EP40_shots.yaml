@@ -1,0 +1,517 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP40/EP40_父子对决.md
+# Source shots: 14 (EP40-S01 to EP40-S14)
+# Output shots: 14 (EP40-S01 to EP40-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 79s (self-calculated: 6+5+6+6+6+6+6+6+5+5+6+5+5+6=79)
+# Output total duration: 79s
+# NOTE: Source metadata declares shot_count=15 but actual shot table has 14 rows (S01-S14).
+#       Proceeding with 14 shots as ground truth.
+# Gate status: ALL PASS (Gate 2 warning noted above)
+
+episode_id: EP40
+source_md: 剧本/EP40/EP40_父子对决.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  negative_prompt: "fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity"
+
+shots:
+  - shot_id: EP40-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL — SCENE-012 not in cdn_urls.json
+    api:
+      text: |
+        【图1】CHAR-003-L01（银框眼镜·浅蓝衬衫·西裤）【图2】SCENE-012 城市天台。中景 固定：夜晚城市天台，远处居民楼灯火密密麻麻，天际线泛着暖橙色光晕。低矮金属围栏旁，图1独自站着，手里捏着一封泛黄的信纸。晚风吹起衬衫衣角。他微微低头看着信，手指在纸张边缘摩挲。身后楼梯口的铁门发出吱呀声——有人来了。
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "「……来了。」"
+      - speaker: CHAR-004
+        line: "「这封信，在我抽屉里藏了二十年。」"
+      - speaker: CHAR-004
+        line: "「大宇……你到底想问什么。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】CHAR-004-L01（纯黑T恤·深蓝牛仔裤·纹身隐约可见）【图2】CHAR-003-L01（银框眼镜·浅蓝衬衫）【图3】SCENE-012 城市天台。中全景 固定：天台中全景。图1从楼梯口走入画面右侧，步伐沉稳但带着年轻人的锐气。图2站在画面左侧围栏旁，两人隔着三米的距离对视。远处城市灯火在他们身后铺开。晚风把图1的T恤吹得贴紧身体，纹身在路灯余光下若隐若现。两人谁都没有先开口。
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-012
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-003
+        line: "「他拿着那封信……果然。」"
+      - speaker: CHAR-003
+        line: "「二十年。该说了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-006
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-006.png
+    api:
+      text: |
+        【图1】CHAR-004-L01（纯黑T恤·左臂几何纹身）【图2】SCENE-012 城市天台【图3】PROP-006 创业信（泛黄信纸·蓝墨水字迹）。近景 缓推：图1从侧面拍摄，纯黑T恤的领口在路灯余光下微微发亮，左臂外侧的几何纹身清晰可见。他走到折叠桌旁，左手从裤子口袋里掏出一封泛黄的信纸——蓝墨水字迹已经褪色，边角有折痕。他把信拍在桌面上，声音在空旷的天台上格外清脆。
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+        - file: PROP-006
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-003
+        line: "「爸。」"
+      - speaker: CHAR-003
+        line: "「这封信——你写给爷爷的。」"
+      - speaker: CHAR-003
+        line: "「二十年前写的。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-006
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-006.png
+    api:
+      text: |
+        【图1】CHAR-003-L01（银框眼镜·浅蓝衬衫）【图2】CHAR-004-L01（纯黑T恤）【图3】SCENE-012 城市天台【图4】PROP-006 创业信。特写 固定：折叠桌桌面特写。泛黄的信纸摊开在锈迹斑斑的桌面上，蓝墨水字迹在路灯下隐约可辨——"爸，我想辞职去创业"。信纸末尾，那段被划掉的字迹格外刺眼："爸，我决定留下来，孩子快出生了"。图1的手（衬衫袖口·银框眼镜的手腕入画边缘）在信纸旁微微发抖。
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-012
+          role: reference_image
+          label: 图3
+        - file: PROP-006
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-003
+        line: "「那段被划掉的字……我花了二十年才看清。」"
+      - speaker: CHAR-003
+        line: "「爸——你后悔吗？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】CHAR-003-L01（银框眼镜·浅蓝衬衫）【图2】SCENE-012 城市天台。特写 缓推：图1的脸部特写。银框眼镜反射着远处的城市灯火，在镜片上形成两块暖橙色的光斑。听到"你后悔吗"，他的嘴角微微抽动了一下——不是愤怒，是某种压了二十年的东西被猛然撕开。下巴绷紧，喉结上下滑动了一次。眼睛快速眨了两下，目光从信纸上移开，望向远处的灯火。
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】CHAR-003-L01（银框眼镜·浅蓝衬衫）【图2】CHAR-004-L01（纯黑T恤·纹身）【图3】SCENE-012 城市天台。中景 固定：天台中景。图1站在围栏旁，双手撑在栏杆上，低着头。图2站在桌旁，双手插在牛仔裤口袋里，身体微微前倾，等待答案。两人之间是那张折叠桌和摊开的信纸。远处城市灯火把他们的影子拉得很长，重叠在水泥地面上。
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-012
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "「……后悔过。」"
+      - speaker: CHAR-004
+        line: "「但看到你出生的那天……就不后悔了。」"
+      - speaker: CHAR-003
+        line: "「不后悔……？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-006
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-006.png
+    api:
+      text: |
+        【图1】CHAR-004-L01（纯黑T恤·左臂纹身）【图2】SCENE-012 城市天台【图3】PROP-006 创业信。近景 缓推：图1的身体近景。纯黑T恤在路灯下泛着暗光，左臂纹身随手臂肌肉微微变形。他走向折叠桌，右手拿起那封信，举到面前——蓝墨水字迹在指尖微微颤动。眉头紧锁，嘴角抿成一条线。
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+        - file: PROP-006
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-003
+        line: "「不后悔？」"
+      - speaker: CHAR-003
+        line: "「那你为什么……反对我创业？」"
+      - speaker: CHAR-003
+        line: "「二十年。我想听你亲口说。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】CHAR-003-L01（银框眼镜·浅蓝衬衫）【图2】SCENE-012 城市天台。特写 固定：图1的脸部特写。银框眼镜在天台的冷色光线下反光，镜片后的眼睛微微发红。听到"反对我创业"，他的嘴唇动了动，像是在咀嚼这几个字。喉结再次滑动。深吸一口气，肩膀微微上抬又放下——像是把压在胸口的东西往上推了推。
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "「因为……」"
+      - speaker: CHAR-004
+        line: "「我怕。」"
+      - speaker: CHAR-004
+        line: "「我怕你经历我经历过的苦。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】CHAR-004-L01（纯黑T恤·蓝牙耳机）【图2】SCENE-012 城市天台。特写 缓推：图1的脸部特写。听到"苦"字，他的瞳孔微微放大，眉头松开了一瞬——那不是愤怒的松开，是某种被击中的东西。纯黑T恤的领口在路灯下微微发亮，左耳的蓝牙耳机反射一小点光。嘴唇动了一下，但没有出声。
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-003
+        line: "「苦……」"
+      - speaker: CHAR-003
+        line: "「我在他身体里四十天。酒局上被灌酒、裁员名单上看到老刘的名字……」"
+      - speaker: CHAR-003
+        line: "「这就是他说的'苦'。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】CHAR-003-L01（银框眼镜·浅蓝衬衫）【图2】SCENE-012 城市天台。特写 固定：图1的脸部特写。他低下头，双手从围栏上收回，交握在身前——手指互相绞着，指节发白。银框眼镜微微下滑，他没有去推。眼眶红了，但没有掉泪。嘴角往下压，那是一张压了二十年的脸。
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "「那年我二十四岁。跟你现在一样大。」"
+      - speaker: CHAR-004
+        line: "「信写好了……没寄出去。」"
+      - speaker: CHAR-004
+        line: "「因为你妈怀了你。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】CHAR-003-L01（银框眼镜·浅蓝衬衫）【图2】CHAR-004-L01（纯黑T恤·纹身）【图3】SCENE-012 城市天台。中景 固定：天台中景。图2走向图1，两人距离缩短到一米。图2抬起手——不是挥拳，是把手里的信轻轻放在折叠桌上。他的手（纯黑T恤袖口·左臂纹身）在信纸上停留了一秒，然后收回。图1低头看着信，没有动。
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-012
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-003
+        line: "「……我知道。」"
+      - speaker: CHAR-003
+        line: "「我在你身体里四十天。」"
+      - speaker: CHAR-003
+        line: "「那些苦……我都尝过了。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】CHAR-003-L01（银框眼镜·浅蓝衬衫）【图2】SCENE-012 城市天台。特写 缓推：图1的脸部特写。听到"我都尝过了"，他的眼睛猛地抬起——镜片后的眼睛里，惊讶、心疼、释然同时闪过。银框眼镜在路灯下反光，有一瞬间看不清他的表情。但下一秒，光移开了——他的嘴角微微上扬，不是笑，是某种被理解后才会有的表情。
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "「大宇……」"
+      - speaker: CHAR-004
+        line: "「如果当年有人支持我……也许我会更勇敢一点。」"
+      - speaker: CHAR-004
+        line: "「所以——我不应该成为那个阻止你的人。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】CHAR-004-L01（纯黑T恤）【图2】CHAR-003-L01（银框眼镜·浅蓝衬衫）【图3】SCENE-012 城市天台。中全景 固定：天台中全景。图1背对镜头，纯黑T恤的背影在路灯下显得格外瘦削。图2站在他身后两步远，银框眼镜反射着远处灯火。图2慢慢伸出手——那只手（浅蓝衬衫袖口）在空中停了一秒，然后轻轻落在图1的肩膀上。图1没有回头。肩膀微微耸了一下——在忍。
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-012
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-003
+        line: "「别哭。别在这时候哭。」"
+      - speaker: CHAR-003
+        line: "「他说了……他说不阻止我了。」"
+      - speaker: CHAR-003
+        line: "「二十年……就等这一句。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-012: assets/scenes/SCENE-012.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】CHAR-004-L01（纯黑T恤·蓝牙耳机）【图2】CHAR-003-L01（银框眼镜·浅蓝衬衫）【图3】SCENE-012 城市天台。大特写 固定：图1的脸部大特写。他终于转过头——纯黑T恤的领口在路灯下泛着暗光，左耳蓝牙耳机反射一小点光。脸上有泪痕，但嘴角微微上扬——不是苦笑，是某种被释放后才会有的表情。晚风吹过，把他额前的碎发吹开。他深深看了图2一眼，然后转身走向天台出口。脚步声在水泥地上渐行渐远。画面在他推开铁门的瞬间切黑。
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-012
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "「大宇——」"
+      - speaker: CHAR-004
+        line: "「如果……你失败了呢？」"
+      - speaker: CHAR-003
+        line: "「……」"
+      - speaker: CHAR-003
+        line: "「那我就再站起来。像你当年一样。」"
+      - speaker: CHAR-003
+        line: "「只是这次——我不用一个人扛。」"
+    transition_to_next: hard_cut
