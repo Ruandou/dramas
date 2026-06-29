@@ -1,0 +1,492 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP47/EP47_闯入谷心.md
+# Source shots: 14 (EP47-S01 to EP47-S14)
+# Output shots: 14 (EP47-S01 to EP47-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 73s (computed from shot table: 5+5+5+5+5+5+4+5+5+6+5+6+6+6=73)
+# Output total duration: 73s
+# ⚠️ DURATION DISCREPANCY: .md VALIDATION block claims 83s but shot durations sum to 73s (diff: 10s).
+#    The .md VALIDATION arithmetic "5+5+5+5+5+5+4+5+5+6+5+6+6+6=83s" is INCORRECT.
+#    Correct sum: 5+5+5+5+5+5+4+5+5+6+5+6+6+6 = 73s.
+#    73s < 75s Gate 1 threshold (2s short). BORDERLINE.
+#    .md segment budget headers say "5s,5s" implying intended per-shots were all 5s.
+#    If S07 were 5s instead of 4s: total = 74s (still short). If all 14 shots were 5s: 70s.
+#    scene-writer must fix the .md to either: (a) increase some shot durations to reach ≥75s,
+#    or (b) correct the VALIDATION arithmetic to 73s (and accept being below threshold).
+# Gate status: G1 ⚠️ FAIL (73s < 75s threshold, 2s short); G2 PASS (14=14); G3 PASS; G4 PASS
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+episode_id: EP47
+source_md: 剧本/EP47/EP47_闯入谷心.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+shots:
+- shot_id: EP47-S01
+  shot_no: 1
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-003-L01
+    - CHAR-004-L01
+  prop_ids:
+  - PROP-019
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒）【图2】苏瑶 CHAR-003-L01（素雅白衣）【图3】沈墨 CHAR-004-L01（灰袍撕裂一角）【图4】SCENE-030（天裂谷·谷心法阵）。5秒 MS 缓推镜头：三人踏入谷心法阵全域。脚下是直径一公里的天然圆形石盆，地面刻满同心圆法阵符文，金色光芒沿符文线路脉动如心跳。九道金色光柱从法阵边缘垂直射入天际，每道直径约二十米，密集的金色灵力粒子构成液态黄金般的上涌洪流——光柱内部可见螺旋漩涡纹路，与吞噬印记相同的纹样。天空被撕裂为金色与暗红两半，两种光在崖壁上交替映射。灵力粒子如金色溪流涌向法阵中心。图1在前，金色瞳孔映出九柱金光，黑战袍猎猎作响。图3凤眼急速扫视法阵结构，灰袍在灵力气浪中翻飞。图2手心蓝光微闪护住自身，白衣被金光映成暖色。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图3
+    - file: SCENE-030
+      role: reference_image
+      label: 图4
+  dialogue:
+  - speaker: CHAR-004
+    line: "法阵直径至少一里——九柱就是九处吞噬之源。"
+  transition_to_next: hard_cut
+- shot_id: EP47-S02
+  shot_no: 2
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-003-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】苏瑶 CHAR-003-L01（素雅白衣）【图2】林渊 CHAR-001-L03（黑战袍金纹）【图3】SCENE-030（天裂谷·谷心法阵）。5秒 MS 固定镜头：图1仰头看九道光柱的汇聚处——光柱顶端向法阵中心汇聚形成金色穹顶，穹顶之下，一个巨大的黑红符文阵眼正在旋转。她目光下移，看清法阵中央的那个人影——黑金长袍，灰黑发束黑金王冠，背对三人负手而立，身形高大如帝王。周围灵力粒子自动绕开他，仿佛他就是法阵的心脏。"
+    content_roles:
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图2
+    - file: SCENE-030
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-003
+    line: "阵眼处有个人——"
+  - speaker: CHAR-001
+    line: "看到了。"
+  transition_to_next: hard_cut
+- shot_id: EP47-S03
+  shot_no: 3
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-013-L01
+    - CHAR-001-L03
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-013-L01: https://placeholder.example/CHAR-013-L01.png
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】天机阁阁主 CHAR-013-L01（黑金长袍，暗红宝石，灰黑发束黑金王冠）【图2】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒）【图3】SCENE-030（天裂谷·谷心法阵）。5秒 MS 固定镜头：阵法中央，图1缓缓转身。黑金长袍上暗红宝石在金光中折射血色光芒，灰黑发束黑金王冠，面容苍老而帝王气质。他双目如深渊，没有看其他人——只盯着图2。嘴角薄唇微微上扬，那是一个等了很久的人终于等到猎物的表情。图2与他对视，金色瞳孔骤缩。"
+    content_roles:
+    - file: CHAR-013-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图2
+    - file: SCENE-030
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-013
+    line: "你来了。"
+  transition_to_next: hard_cut
+- shot_id: EP47-S04
+  shot_no: 4
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-013-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-013-L01: https://placeholder.example/CHAR-013-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】天机阁阁主 CHAR-013-L01（黑金长袍，暗红宝石，灰黑发束黑金王冠）【图2】SCENE-030（天裂谷·谷心法阵）。5秒 MCU 固定镜头：图1嘴角弧度微微扩大，目光在林渊身上上下审视——像在估量一件等了多年的器物。身后九道金色光柱脉动加快，光波涟漪如心跳加速。天地间的金色与暗红交错更剧烈，崖壁上光影明灭不定。"
+    content_roles:
+    - file: CHAR-013-L01
+      role: reference_image
+      label: 图1
+    - file: SCENE-030
+      role: reference_image
+      label: 图2
+  dialogue:
+  - speaker: CHAR-013
+    line: "等你，等了很久。"
+  - speaker: CHAR-013
+    line: "就差你——最后这一份。"
+  transition_to_next: hard_cut
+- shot_id: EP47-S05
+  shot_no: 5
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-013-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-013-L01: https://placeholder.example/CHAR-013-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒，掌心吞噬印记微微亮起）【图2】天机阁阁主 CHAR-013-L01（黑金长袍，帝王气场）【图3】SCENE-030（天裂谷·谷心法阵）。5秒 MS 固定镜头：图1向前迈出一步。金色灵力气浪从地面符文中涌出，吹起他黑战袍下摆。他不退反进。掌心吞噬印记微微亮起——与脚下法阵符文的金色光芒频率共振，他感觉到了——法阵在呼唤他。太阳穴一根青筋在跳。图2在二十步外看着他，纹丝不动。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-013-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-030
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: "杀了我父亲的人——就是你。"
+  transition_to_next: hard_cut
+- shot_id: EP47-S06
+  shot_no: 6
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-013-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-013-L01: https://placeholder.example/CHAR-013-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】天机阁阁主 CHAR-013-L01（黑金长袍，暗红宝石，灰黑发束黑金王冠）【图2】SCENE-030（天裂谷·谷心法阵）。5秒 MCU 固定镜头：图1面容不变，只有眼睛微微眯了一下——不是被冒犯，是在确认猎物的成色。他左手微抬，身后九道光柱中七道的光芒猛然变亮一分，金色灵力粒子的涌向法阵中心的速度肉眼可见地加快。天地间灵力正在被加速抽干——崖壁的岩石开始龟裂，碎石簌簌落下。"
+    content_roles:
+    - file: CHAR-013-L01
+      role: reference_image
+      label: 图1
+    - file: SCENE-030
+      role: reference_image
+      label: 图2
+  dialogue:
+  - speaker: CHAR-013
+    line: "你该谢我。"
+  - speaker: CHAR-013
+    line: "没了他……才轮到你来。"
+  transition_to_next: hard_cut
+- shot_id: EP47-S07
+  shot_no: 7
+  mode: i2v_ref
+  duration_sec: 4
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-004-L01
+    - CHAR-003-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】沈墨 CHAR-004-L01（灰袍撕裂一角，凤眼急速扫过光柱）【图2】苏瑶 CHAR-003-L01（素雅白衣，手心蓝光微颤）【图3】SCENE-030（天裂谷·谷心法阵）。4秒 MS 固定镜头：图1凤眼急速扫过九道光柱——七道已全亮如液态黄金柱，内部漩涡高速旋转；两道稍暗，灵力粒子密度明显稀薄。他在计算。图2站在图1侧后方，手心蓝光微颤，她的目光不在光柱上——在阁主的手。"
+    content_roles:
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-030
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-004
+    line: "七道满载，两道将尽——还差两份。"
+  transition_to_next: hard_cut
+- shot_id: EP47-S08
+  shot_no: 8
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】沈墨 CHAR-004-L01（灰袍撕裂，凤眼中暗红闪烁）【图2】林渊 CHAR-001-L03（黑战袍金纹，掌心吞噬印记正与法阵符文共振）【图3】SCENE-030（天裂谷·谷心法阵）。5秒 MCU 固定镜头：图1凤眼中暗红闪烁——魔血在纯正灵力中剧烈排斥，他身体微微前倾又强迫自己稳住。他扫了一眼图2掌心——吞噬印记正与法阵符文共振，频率越来越快。他压低声音，只有图2能听到。"
+    content_roles:
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图2
+    - file: SCENE-030
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-004
+    line: "还差两份吞噬之源——他的目标根本不是天地灵力。"
+  - speaker: CHAR-001
+    line: "他在等我。从头到尾——在等我。"
+  transition_to_next: hard_cut
+- shot_id: EP47-S09
+  shot_no: 9
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-013-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-013-L01: https://placeholder.example/CHAR-013-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】天机阁阁主 CHAR-013-L01（黑金长袍，灰黑发束黑金王冠，双手缓缓抬起）【图2】SCENE-030（天裂谷·谷心法阵）。5秒 MS 固定镜头：图1缓缓抬起双手，掌心向上，做了一个迎接的姿态——不是在战斗，是在完成一个等了十五年的仪式。身后金色穹顶骤然加亮，穹顶之上，暗红的天裂痕迹猛然扩张——一股不属于这个世界的力量从裂缝中泄漏，带着冰冷的、远超化神期的压迫感。天地间灵力如被抽水机倒吸，崖壁岩石快速枯竭，石面出现白色盐霜——灵力被抽干的痕迹。"
+    content_roles:
+    - file: CHAR-013-L01
+      role: reference_image
+      label: 图1
+    - file: SCENE-030
+      role: reference_image
+      label: 图2
+  dialogue:
+  - speaker: CHAR-013
+    line: "你父亲用命守住的——我来收。"
+  transition_to_next: hard_cut
+- shot_id: EP47-S10
+  shot_no: 10
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-003-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔骤缩，右脚向后半步蓄力）【图2】苏瑶 CHAR-003-L01（素雅白衣，手心蓝光变得吃力，脸色微白）【图3】SCENE-030（天裂谷·谷心法阵）。6秒 MS 固定镜头：图1闻言，金色瞳孔骤缩，太阳穴青筋跳了一下。他右脚向后半步——不是后退，是蓄力。图2感觉到灵力在被抽干，手心蓝光变得吃力，脸色微白。图1的黑战袍在灵力风暴中紧贴身体，银肩甲上金色刻纹反光刺目。他抬头直视阁主，眼神从震惊转为冰冷的战意。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-030
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: "我父亲守了十五年——"
+  - speaker: CHAR-001
+    line: "不是让你来收的。"
+  transition_to_next: hard_cut
+- shot_id: EP47-S11
+  shot_no: 11
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-013-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-013-L01: https://placeholder.example/CHAR-013-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】天机阁阁主 CHAR-013-L01（黑金长袍，暗红宝石，面容从仪式庄严转为帝王平静）【图2】SCENE-030（天裂谷·谷心法阵）。5秒 MS 固定镜头：图1收回双手，表情从仪式的庄严转为帝王的平静——像是签完一道圣旨。他看了林渊最后一眼，眼神里没有愤怒、没有仇恨，只有一种做完一件大事的满足感。"
+    content_roles:
+    - file: CHAR-013-L01
+      role: reference_image
+      label: 图1
+    - file: SCENE-030
+      role: reference_image
+      label: 图2
+  dialogue:
+  - speaker: CHAR-013
+    line: "够了。"
+  - speaker: CHAR-013
+    line: "不需要你自己走进来——这座阵，会把它的主人召回来。"
+  transition_to_next: hard_cut
+- shot_id: EP47-S12
+  shot_no: 12
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-013-L01
+  prop_ids:
+  - PROP-002
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-013-L01: https://placeholder.example/CHAR-013-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，掌心吞噬印记疯狂脉动）【图2】天机阁阁主 CHAR-013-L01（黑金长袍，负手而立）【图3】SCENE-030（天裂谷·谷心法阵）。6秒 MS 固定镜头：法阵符文骤然变色——金色中渗出暗红，符文线路从外围向中心逐一点亮，每点亮一环，图1脚下便震一下。九道光柱全部调转方向——光柱底部不再垂直向上，而是倾斜向法阵中心，向图1所在位置汇聚。七道已满的光柱率先投射出粗大的金色灵力光流，如七条金色巨蟒扑向图1。图1掌心吞噬印记疯狂脉动——抗拒，但频率越来越乱。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-013-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-030
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-013
+    line: "你以为——你走进来，是你的选择？"
+  - speaker: CHAR-013
+    line: "不。从你踏进这座谷的那一刻起——你就是阵的一部分。"
+  transition_to_next: hard_cut
+- shot_id: EP47-S13
+  shot_no: 13
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-003-L01
+    - CHAR-004-L01
+  prop_ids:
+  - PROP-002
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔，掌心吞噬印记金光暴涨）【图2】苏瑶 CHAR-003-L01（素雅白衣，脸色惨白）【图3】沈墨 CHAR-004-L01（灰袍撕裂一角）【图4】SCENE-030（天裂谷·谷心法阵）。6秒 MS 固定镜头：七道金色灵力光流逼近图1，他双臂前推，掌心吞噬印记金光暴涨形成金色护盾——但光流不是要攻击他，是要融入他。金色灵力从护盾缝隙渗入，沿他前臂蔓延如血管中流淌的金液。图1低头看自己的前臂——皮肤下可见金色脉络在扩张。他咬牙撑住，但身体在不受控制地颤抖——体内血脉在回应法阵的召唤。图2脸色惨白，伸手要抓图1手臂。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图3
+    - file: SCENE-030
+      role: reference_image
+      label: 图4
+  dialogue:
+  - speaker: CHAR-003
+    line: "林渊！你的手臂——"
+  - speaker: CHAR-004
+    line: "不是攻击……是融合——法阵在把他当容器！"
+  transition_to_next: hard_cut
+- shot_id: EP47-S14
+  shot_no: 14
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-013-L01
+  prop_ids:
+  - PROP-002
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-013-L01: https://placeholder.example/CHAR-013-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔剧烈收缩，掌心吞噬印记失控扩展）【图2】天机阁阁主 CHAR-013-L01（黑金长袍，负手而立，纹丝不动）【图3】SCENE-030（天裂谷·谷心法阵）。6秒 CU 固定镜头：图1金色瞳孔剧烈收缩——掌心吞噬印记在金色光流的灌注下开始不受控制地扩展，漩涡纹从掌心蔓延至手腕，向手臂上爬。他试图以意念压制，但印记的扩展速度越来越快。图2在远处负手而立，黑金长袍在灵力风暴中纹丝不动，面容如帝王俯瞰已注定的棋局。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-013-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-030
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-013
+    line: "吞噬万物——"
+  - speaker: CHAR-013
+    line: "也包括你自己。"
+  - speaker: CHAR-001
+    line: "这股力量……在挣脱我的控制——"
+  transition_to_next: hard_cut

@@ -1,0 +1,334 @@
+# EP01_segments.yaml — API 提交段配置（最终格式）
+# 源文件：剧本/EP01/EP01_穿越之始.md
+# 生成方式：segment-builder (dry-run: 使用本地路径，资产待用户授权后生成上传)
+
+episode_id: EP01
+source_md: 剧本/EP01/EP01_穿越之始.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  prompt_suffix: "Vertical 9:16 continuous narrative, modern Chinese urban setting, realistic drama style, warm natural lighting, subtle comic timing, no brand logos, no platform UI, no text overlay, no subtitles, no watermark, no background music"
+  prompt_suffix_silent: "Vertical 9:16 continuous narrative, modern Chinese urban setting, realistic drama style, warm natural lighting, atmospheric ambient sound only, no dialogue, no text overlay, no platform UI"
+  negative_prompt: "Horizontal video, letterbox, black bars, watermark, text overlay, subtitles, brand logo, platform UI, background music, distorted faces, unnatural movement, cartoon style, anime style, 3D rendering, CGI, poor lighting, dark scenes without narrative purpose, horror elements, violence, gore, explicit content"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线明亮带温暖的沙哑感，语速中偏快，说话时带吐槽节奏——爱用上扬疑问句结尾，情绪激动时语速更快并夹杂笑声"
+  CHAR-002: "成年男性，30岁，声线偏低沉有磁性，语速偏慢，语调平缓冷感（初期），偶尔出现语气波动（被女主带偏后压不住的笑意）"
+  CHAR-003: "中性合成语音，无性别特征，冷感机械声带轻微电子音效，语速均一。惊叹时音调升高、无语时拖长尾音"
+
+segments:
+  # SEG01 — 追剧时光 (15s, SCENE-009)
+  - segment_id: EP01-SEG01
+    shot_ids: [EP01-S01, EP01-S02, EP01-S03]
+    duration_sec: 15
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+      prop_urls:
+        PROP-001: assets/props/PROP-001.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中近景 固定：苏念念坐在咖啡厅角落看剧吐槽。
+        镜头2（6秒）特写 固定：脸部大特写嫌弃表情翻白眼。
+        镜头3（4秒）远景 慢摇：咖啡厅全景，风衣男从她身旁走过停顿。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念念，成年女性，28岁，声线明亮带吐槽节奏）：「不是吧……男主知道女主是他救命恩人还这么对她？？这编剧是不是跟我们观众有仇啊？」
+        对白（苏念念）：「绝了——这叫情话？？这是PUA吧？还"离开他，你配不上"——你才配不上好吧！我写都写得比这个好。问题是这部剧的完播率还挺高的…观众到底在想什么啊！」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市咖啡厅，温暖午后光线，写实都市剧风格，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  # SEG02 — 穿剧 (11s, SCENE-004)
+  - segment_id: EP01-SEG02
+    shot_ids: [EP01-S04, EP01-S05]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头4（5秒）中景 快速推进：从手机裂纹光效闪白过渡，苏念念站在陌生豪宅大厅，穿卫衣牛仔裤与环境反差。
+        镜头5（6秒）近景 缓慢环绕：她闭眼再睁确认没变，原地转圈看四周。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念念）：「……我是不是剧看多了产生幻觉了？我闭眼再睁一次——一、二——」
+        对白（苏念念）：「不是我家…不是片场…我刚才在追的那部《霸总的契约情人》——女主角不就住这种豪宅吗？？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代奢华别墅大厅，傍晚光线，写实都市剧风格，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # SEG03 — 系统登场 (11s, SCENE-004 + SCENE-006)
+  - segment_id: EP01-SEG03
+    shot_ids: [EP01-S06, EP01-S07]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头6（5秒）近景 固定：苏念念面前弹出半透明全息界面，冷蓝色光效，她吓了一跳后退又好奇凑近。
+        镜头7（6秒）特写 推近：系统界面放大，冷蓝色半透明面板，代码流动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念念）：「卧——槽——这什么鬼？！不是…这个UI还挺好看的…」
+        对白（系统，中性合成语音，冷感机械声）：「欢迎进入《霸总的契约情人》剧情系统。已检测到用户接入。当前身份：女主。任务列表：1条待处理。请确认接收。」
+        画面全程无任何文字、字幕、标题、水印。
+        系统界面为冷蓝色半透明全息特效，现代别墅背景，写实都市剧风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # SEG04 — 任务来了 (11s, SCENE-004 + SCENE-006)
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S08, EP01-S09]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头8（5秒）特写 固定：系统界面显示任务详情。
+        镜头9（6秒）中近景 固定：苏念念看完任务，表情从震惊到困惑到逐渐离谱。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（系统）：「任务001：勾引陆总，被推倒在地。完成奖励：剧情推进1%。请选择——接受或拒绝。提示：此任务为新手引导任务，建议完成。」
+        对白（苏念念）：「新手引导？你们还有新手引导？？那我有没有新手礼包啊？」
+        对白（系统）：「没有。」
+        对白（苏念念）：「你让我勾引他然后被他推开？还得装委屈？？我看起来像演这种戏的人吗？」
+        对白（系统）：「根据角色档案，是的。您是女主。」
+        对白（苏念念）：「你这系统是不是有毛病——啊不对，谁写的这剧本？！」
+        画面全程无任何文字、字幕、标题、水印。
+        现代别墅大厅，傍晚光线，写实都市剧风格，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # SEG05 — 拒绝 (10s, SCENE-004 + SCENE-006)
+  - segment_id: EP01-SEG05
+    shot_ids: [EP01-S10, EP01-S11]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头10（5秒）近景 固定：苏念念深吸一口气拒绝任务。
+        镜头11（5秒）特写 固定：系统界面闪烁卡壳。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念念）：「我不。拒绝。换一个任务。」
+        对白（系统）：「……检测到用户拒绝指令。正在重新评估。请稍候。」
+        对白（苏念念）：「不是…你还会卡壳啊？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代别墅大厅，傍晚光线，写实都市剧风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # SEG06 — 陆总出场 (11s, SCENE-004)
+  - segment_id: EP01-SEG06
+    shot_ids: [EP01-S12, EP01-S13]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头12（5秒）中景 固定：陆景琛从楼梯走下来，冷脸。
+        镜头13（6秒）近景 缓推：他站在她面前居高临下，她歪头好奇地看他。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景琛，成年男性，30岁，声线偏低沉有磁性，语速偏慢冷感）：「你在这做什么。我记得没有预约过任何人。」
+        对白（苏念念）：「如果我说我也不知道我怎么来的——你信吗？」
+        对白（陆景琛）：「趁我没发火之前——自己走出去。还是说——要我让人请你？」
+        对白（苏念念）：「你这台词背得真不错，练了很久吧？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代奢华别墅大厅，傍晚冷感光线，写实都市剧风格，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # SEG07 — 反转 (12s, SCENE-004)
+  - segment_id: EP01-SEG07
+    shot_ids: [EP01-S14, EP01-S15]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头14（6秒）中景 固定：苏念念没走，走到餐吧倒水递给陆景琛，后者表情管理出现裂纹。
+        镜头15（6秒）特写 固定：陆景琛低头看着水杯，大脑处理超预期信息。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念念）：「你是不是昨晚没睡好？火气这么大。先喝口水。」
+        对白（陆景琛）：「……你——」
+        对白（苏念念）：「不客气。」
+        对白（陆景琛，内心独白）：「……剧本第18页不是这么写的。」
+        对白（苏念念）：「怎么？水里有毒？我亲手倒的，放心。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代奢华别墅大厅，傍晚光线，写实都市剧风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # SEG08 — 系统慌了 (10s, SCENE-004 + SCENE-006)
+  - segment_id: EP01-SEG08
+    shot_ids: [EP01-S16, EP01-S17]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头16（5秒）特写 固定：系统界面疯狂闪烁红色警告框。
+        镜头17（5秒）近景 固定：苏念念看到剧情偏移数字，表情从嫌弃变兴奋。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（系统）：「警告！检测到剧情偏移！男主未按剧本完成任务——任务协议异常！剧情偏移度+8%！正在尝试修复——」
+        对白（苏念念，内心独白）：「剧情偏移？还能看到进度条？——那意思是我改得越多，这系统就越拿我没办法？」
+        对白（系统）：「请立即停止！用户行为不在剧本范围内！」
+        对白（苏念念）：「那你剧本写得太差了呗。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代别墅大厅，写实都市剧风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # SEG09 — 陆总的视线 (12s, SCENE-004)
+  - segment_id: EP01-SEG09
+    shot_ids: [EP01-S18, EP01-S19]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头18（6秒）中景 缓推：陆景琛用全新目光打量苏念念，不是霸总看女主，是一个人看另一个人。
+        镜头19（6秒）近景 固定：陆景琛皱眉，苏念念笑着解释。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆景琛）：「……你是谁。」
+        对白（苏念念）：「苏念念。你的剧——啊不，你的……你的——算了，说了你也不懂。」
+        对白（陆景琛）：「你不怕我。」
+        对白（苏念念）：「说实话——你比我想象中高一点，凶一点，但……还没我早上追的那部剧里吓人。对了，那部剧叫《霸总的契约情人》，男主叫陆景琛——巧了，跟你同名。」
+        对白（陆景琛）：「……」
+        画面全程无任何文字、字幕、标题、水印。
+        现代别墅大厅，傍晚光线，写实都市剧风格，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  # SEG10 — 强制模式 (12s, SCENE-004 + SCENE-006)
+  - segment_id: EP01-SEG10
+    shot_ids: [EP01-S20, EP01-S21]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头20（5秒）特写 推近：系统界面亮起冰冷红色字体，最后通牒。
+        镜头21（7秒）特写缓拉至近景：苏念念笑意消失，倒计时出现，她握拳不服输地笑了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（系统）：「因用户持续拒绝执行任务，强制模式将在24小时后自动激活。届时：用户自主选择权限将关闭。剧情将按原定路径强制执行。无论用户是否配合。」
+        对白（苏念念）：「如果我配合了呢——你们是不是打算让我演完整部剧？」
+        对白（系统）：「是的。72集。按剧本走。」
+        对白（苏念念）：「72集。按剧本走。也就是说——我没得选了。」
+        对白（系统）：「准确描述。请做好准备。」
+        对白（苏念念）：「准备好了然后呢？24小时后你不都替我决定好了吗。」
+        对白（系统）：「……逻辑正确。」
+        对白（苏念念）：「行。那就——24小时后见。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代奢华别墅大厅，傍晚冷光，系统红色警告灯光渲染紧张气氛，写实都市剧风格，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: fade_to_black
