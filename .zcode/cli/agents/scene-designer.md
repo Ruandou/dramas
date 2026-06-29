@@ -1,1 +1,0 @@
-../../../.qoder/agents/scene-designer.md

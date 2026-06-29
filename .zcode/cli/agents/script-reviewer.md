@@ -1,1 +1,0 @@
-../../../.qoder/agents/script-reviewer.md

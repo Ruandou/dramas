@@ -12,14 +12,29 @@
 |------|------|------|
 | `.qoder/agents/` | `.md` | 🔴 权威定义源（完整内容） |
 | `.cursor/agents/` | `.md`（symlink） | 🟢 Cursor `/name` subagent 入口，指向 `.qoder/agents/` |
-| `.zcode/cli/agents/` | `.md`（symlink） | 🟣 ZCode 占位（**当前版本不直接生效**，见下注） |
+| `.zcode/agents/` | `.md`（**硬链接**） | 🟣 ZCode 子代理加载目录，硬链接回 `.qoder/agents/`（见下） |
 | `.github/prompts/` | `.prompt.md` | 🔵 GitHub 工作流引用（链接指向权威源） |
 
-在 Cursor Agent 对话中可用 `/drama-director`、`/scene-writer` 等显式调用 subagent（独立上下文窗口）；也可用自然语言「用 drama-director subagent …」委派。
+在 Cursor Agent 对话中可用 `/drama-director`、`/scene-writer` 等显式调用 subagent（独立上下文窗口）；也可用自然语言「用 drama-director subagent …」委派。ZCode 中通过 `Agent` 工具的 `subagent_type` 参数以名称调用（如 `scene-writer`、`drama-director`）。
 
-> **⚠️ ZCode 兼容性现状（2026-06 逆向确认）**：当前 ZCode 版本（`zcode` CLI v0.14.8，opencode fork）**不支持** Cursor 式的 markdown subagent（`frontmatter + 提示词`）。ZCode 自有的「agent」机制是 **Workflow 脚本**（`.zcode/workflows/*.workflow.js`，以 `export const meta = { name, description, phases }` 开头），通过 `/expert <task>` 或 Workflow 工具调用 —— 与 Cursor 的 markdown 提示词模型不兼容，无法直接复用 `.qoder/agents/*.md`。
+> **✅ ZCode 支持 markdown subagent（2026-06-29 逆向确认）**：ZCode 现版本**已原生支持** frontmatter + 提示词式 markdown subagent（与 Cursor 同模型），无需再转写 `.workflow.js`。加载逻辑（`zcode.cjs` 中 `loadZCodeAgentProfiles`）扫描两类目录的 `*.md`：
+> - **user 级**：`~/.zcode/agents/`
+> - **project 级**：`<仓库根>/.zcode/agents/` ← 本仓库落点
 >
-> `.zcode/cli/agents/` 下的 symlink 为**占位/未来兼容**而保留：当 ZCode 官方新增 markdown subagent 支持时可立即生效，无需重建。如需在 ZCode 中真正调用这些短剧 agent，需将 `.md` 逐一转写为 `.workflow.js`（遵循 ZCode 内置的 `workflow.md` DSL）。
+> frontmatter 强制 `name` + `description`，可选 `model / tools / disallowedTools / skills / permissionMode / maxTurns / color / background / mcpServers`；现有 9 个 agent 的 frontmatter 全部兼容，无需改内容。
+>
+> **关键约束 — 必须用硬链接，不能用 symlink**：加载器 `C8r` 用 `dirent.isFile()` 过滤目录条目，**符号链接的 `isFile()` 返回 false 会被静默跳过**。因此 `.zcode/agents/` 下必须放真实文件 inode。我们用硬链接（`ln` 不带 `-s`）而非软链接，使同一 inode 同时挂在两处路径：
+> - 真相源仍唯一：`.qoder/agents/<name>.md`
+> - `.zcode/agents/<name>.md` 与之共享 inode，编辑任一边立即同步，无需构建/同步脚本
+> - 对 ZCode 的 `isFile()` 检查返回 true，可正常加载
+>
+> **维护方式**：新增/重命名 agent 时，在 `.qoder/agents/` 落稿后补一条硬链接即可：
+> ```bash
+> ln ".qoder/agents/<新agent>.md" ".zcode/agents/<新agent>.md"
+> ```
+> （删除时连同两端一起删。）
+>
+> **历史**：早期按「ZCode CLI 读 `.zcode/cli/agents/`」推测放的 symlink 占位已删除——实际加载器只看 `.zcode/agents/`（无 `cli` 段），且 symlink 被 `isFile()` 过滤，故该旧目录本就不参与加载。
 
 ### Agent 列表
 

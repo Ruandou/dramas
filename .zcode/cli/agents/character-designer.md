@@ -1,1 +1,0 @@
-../../../.qoder/agents/character-designer.md

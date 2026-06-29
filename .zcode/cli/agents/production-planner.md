@@ -1,1 +1,0 @@
-../../../.qoder/agents/production-planner.md

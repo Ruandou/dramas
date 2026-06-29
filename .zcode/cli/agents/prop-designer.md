@@ -1,1 +1,0 @@
-../../../.qoder/agents/prop-designer.md
