@@ -1,0 +1,286 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP43/EP43_出征.md
+# Source shots: 17 (EP43-S01 to EP43-S17)
+# Output segments: 8 (EP43-SEG01 to EP43-SEG08)
+# Segment-to-shot mapping: SEG01:S01-S02 | SEG02:S03-S04 | SEG03:S05-S06 | SEG04:S07-S08 | SEG05:S09-S10 | SEG06:S11-S12 | SEG07:S13-S15 | SEG08:S16-S17
+# Source total duration: 77s (computed: 5+4+4+4+5+5+5+5+5+4+5+5+4+3+4+5+5=77)
+# Output total duration: 77s (9+8+10+10+9+10+11+10=77)
+# Gate status: G1 PASS (77s within 75-120s); G2 PASS (17 shots); G3 OVERRIDE (placeholder mapped to CHAR-GRP-01); G4 PASS (all non-placeholder verified)
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+# ⚠️ GATE3_OVERRIDE: EP43-SEG05/EP43-S10 speaker [待补：联盟将领] → CHAR-GRP-01-L01 (pending formal allocation)
+# ⚠️ SEMANTIC_WARNING: EP43-S14 narrator line — NARRATOR has no voice_prompt in 声音卡片.md (requires production-planner to define narrator voice)
+episode_id: EP43
+source_md: 剧本/EP43/EP43_出征.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-002: "成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖"
+  CHAR-004: "成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷"
+  CHAR-006: "成年男性，45岁左右，声线浑厚威严，语速沉稳，决策时语气坚定"
+  # ⚠️ GATE3_OVERRIDE: CHAR-GRP-01 voice_prompt — pending production-planner allocation
+  CHAR-GRP-01: "成年男性，35岁左右，声线粗犷急促，语速快，急报时喘息明显"
+
+segments:
+- segment_id: EP43-SEG01
+  shot_ids: [EP43-S01, EP43-S02]
+  duration_sec: 9
+  speakers: [CHAR-001, CHAR-006]
+  refs:
+    scene_id: SCENE-026
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png
+    scene_urls:
+      SCENE-026: https://placeholder.example/SCENE-026.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒，银肩甲）【图2】宗主 CHAR-006-L01（深蓝白宗主袍，玉质宗主冠，鬓角微白）【图3】联盟大殿 SCENE-026。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MS 固定：联盟大殿高台之上，图1背手立于巨幅仙侠世界地图前。黑战袍金纹在晨光中如暗夜裂开金缝。右手掌心吞噬印记微泛金光。地图上天裂谷位置被朱砂圈出，红色标记密密如铁壁。身后两侧各宗门旗帜在晨风中微动。金色瞳孔扫视殿中众人——冷静如刀。
+      镜头2（4秒）MLS 固定：图2立于殿下左侧，深蓝白宗主袍在晨光中沉稳如山。身旁各宗门掌门身着不同颜色袍服，神情紧张。赵天行站在人群后方，朴素深灰长袍在一众华丽宗门袍中格外朴素，面容低沉。殿内铜灯暖光与窗外晨光交汇。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「天机阁要在天裂谷打开上界通道。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「迟一步，便是万劫不复。」
+      对白（宗主，成年男性，45岁左右，声线浑厚威严，语速沉稳，决策时语气坚定）：「天机阁阁主修为深不可测。」
+      对白（宗主，成年男性，45岁左右，声线浑厚威严，语速沉稳，决策时语气坚定）：「此去……凶多吉少。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-026, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+
+- segment_id: EP43-SEG02
+  shot_ids: [EP43-S03, EP43-S04]
+  duration_sec: 8
+  speakers: [CHAR-004, CHAR-002]
+  refs:
+    scene_id: SCENE-026
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-002-L03: https://placeholder.example/CHAR-002-L03.png
+    scene_urls:
+      SCENE-026: https://placeholder.example/SCENE-026.png
+  api:
+    text: |
+      【图1】沈墨 CHAR-004-L01（灰衣长袍，半遮眼黑发，凤眼偶尔闪烁暗红）【图2】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒）【图3】赵天行 CHAR-002-L03（朴素深灰长袍，面容沧桑）【图4】联盟大殿 SCENE-026。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）MCU 固定：图1倚靠在殿中深色木柱旁，灰衣长袍在晨光中泛着淡蓝。凤眼半垂，薄唇带永恒的半笑。他抬手，指尖凝聚一缕暗红微光——半噬族魔血。魔血在晨光中如暗红宝石悬浮指上。
+      镜头2（4秒）MS 固定：图2转身面向殿门方向，金色瞳孔映着殿外刺目晨光。图3从人群后方迈出一步——朴素深灰长袍在他高大身躯上显得局促，鹰目中往日傲慢已消退，取而代之的是一种沉重的坚定。两人之间隔着三步距离，殿内众人目光汇聚于此。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「十二道禁制……硬闯不行。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「但我的血，可以做钥匙。」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「我知道每一个禁制的薄弱点。」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「……这是赎罪的路。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+    - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+    - { file: CHAR-002-L03, role: reference_image, label: 图3 }
+    - { file: SCENE-026, role: reference_image, label: 图4 }
+  transition_to_next: hard_cut
+
+- segment_id: EP43-SEG03
+  shot_ids: [EP43-S05, EP43-S06]
+  duration_sec: 10
+  speakers: [CHAR-001, CHAR-002]
+  refs:
+    scene_id: SCENE-027
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-002-L03: https://placeholder.example/CHAR-002-L03.png
+    scene_urls:
+      SCENE-027: https://placeholder.example/SCENE-027.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔）【图2】赵天行 CHAR-002-L03（朴素深灰长袍，面容沧桑）【图3】行军古道 SCENE-027。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）LS 缓推：宽阔的行军古道，两侧旌旗猎猎作响——蓝色、金色、白色各宗门旗帜在山风中如彩色河流涌动。成千上万修士列队前进，脚步扬起的尘土在正午阳光中如金雾。图1骑在黑色灵兽上，黑战袍金纹在阳光下闪烁，金色瞳孔扫视前方。图2骑马行于右侧，朴素深灰长袍被风吹得猎猎。
+      镜头2（5秒）MCU 固定：图2骑马行进的侧面特写。朴素深灰长袍在风中微动，发间几缕灰丝格外刺眼。鹰目不再傲慢，紧盯着前方山道——那条他曾经走过的路，通往天机阁。手中缰绳握得指节泛白。身后是绵延不绝的联盟大军。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「出发。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「三天……不，只剩一天一夜。」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「上一次走这条路……我是去投降的。」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「这一次——不会再错。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: CHAR-002-L03, role: reference_image, label: 图2 }
+    - { file: SCENE-027, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+
+- segment_id: EP43-SEG04
+  shot_ids: [EP43-S07, EP43-S08]
+  duration_sec: 10
+  speakers: [CHAR-001]
+  refs:
+    scene_id: SCENE-027
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+    scene_urls:
+      SCENE-027: https://placeholder.example/SCENE-027.png
+    prop_urls:
+      PROP-004: https://placeholder.example/PROP-004.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒，银肩甲）【图2】行军古道 SCENE-027。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MCU 缓推：行军途中，图1盘膝坐在行进中的灵兽背上闭目修炼。黑战袍在行军的风中微微飘动。掌心吞噬印记泛出明亮的金色光芒——比以往任何时候都亮。金色灵力如细流环绕周身，与头顶刺目的阳光交织。银肩甲上金色灵纹如活物般流动。周围的修士纷纷侧目。
+      镜头2（5秒）CU 固定：图1正面特写。金色瞳孔猛然睁开——瞳孔中星芒比以往更加明亮，如两点寒星爆发出金色涟漪。掌心吞噬印记的光芒骤然暴涨，金色灵力化作肉眼可见的波纹向四周扩散。身后行军的修士们被这股气浪微微推退，露出震惊的神色。图1的气息在这一瞬间节节攀升。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「天地灵气……在回应我？」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「吞噬天经最后一章……共鸣。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「天地灵气……共鸣了。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「还差一步……再给我一点时间。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: SCENE-027, role: reference_image, label: 图2 }
+  transition_to_next: hard_cut
+
+- segment_id: EP43-SEG05
+  shot_ids: [EP43-S09, EP43-S10]
+  duration_sec: 9
+  speakers: [CHAR-006, CHAR-004, CHAR-GRP-01]
+  # ⚠️ GATE3_OVERRIDE: CHAR-GRP-01 pending formal allocation
+  refs:
+    scene_id: SCENE-027
+  assets:
+    look_urls:
+      CHAR-006-L01: https://placeholder.example/CHAR-006-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-GRP-01-L01: https://placeholder.example/CHAR-GRP-01-L01.png
+    scene_urls:
+      SCENE-027: https://placeholder.example/SCENE-027.png
+  api:
+    text: |
+      【图1】宗主 CHAR-006-L01（深蓝白宗主袍，鬓角微白）【图2】沈墨 CHAR-004-L01（灰衣长袍，半遮眼黑发，凤眼）【图3】联盟将领 CHAR-GRP-01-L01（深蓝战甲，面容刚毅，额角新伤）【图4】行军古道 SCENE-027。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MLS 固定：行军古道狭窄山口处，两侧岩壁陡峭。图1在队伍中段猛然抬手示意停下——鬓角微白在阳光下格外醒目。图2的凤眼骤然收缩，薄唇半笑消失——面容第一次露出真正的紧张。前方山道上空，几缕暗红色灵力波动如蛇般闪过。
+      镜头2（4秒）MCU 固定：图3骑马从前方急奔而来，满面尘土，额角有新伤。他翻身下马单膝跪地，呼吸急促。身后远处山口上空暗红色灵力波动越来越密。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（宗主，成年男性，45岁左右，声线浑厚威严，语速沉稳，决策时语气坚定）：「前方……有异。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「伏兵。」
+      对白（联盟将领，成年男性，35岁左右，声线粗犷急促，语速快，急报时喘息明显）：「前锋遇伏！黑色灵箭……漫山遍野！」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: CHAR-GRP-01-L01, role: reference_image, label: 图3 }
+    - { file: SCENE-027, role: reference_image, label: 图4 }
+  transition_to_next: hard_cut
+
+- segment_id: EP43-SEG06
+  shot_ids: [EP43-S11, EP43-S12]
+  duration_sec: 10
+  speakers: [CHAR-004, CHAR-001]
+  refs:
+    scene_id: SCENE-027
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+    scene_urls:
+      SCENE-027: https://placeholder.example/SCENE-027.png
+  api:
+    text: |
+      【图1】沈墨 CHAR-004-L01（灰衣长袍，凤眼偶尔闪烁暗红，薄唇半笑）【图2】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒）【图3】行军古道 SCENE-027。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MS 固定：图1从队伍中跃出——灰色身影在山道尘土中如一道灰影。他右手指尖凝聚一滴暗红血液，魔血在阳光中如暗红宝石散发不祥光泽。凤眼中偶尔闪烁暗红，薄唇重新勾起那永恒的半笑——但这一次，笑容中有真正的决绝。
+      镜头2（5秒）MLS 缓推：图1将暗红血液弹向山口——血液在空中炸开化作暗红雾气，如一条暗红巨蛇冲向山口的禁制。禁制发出刺耳的嗡鸣声后碎裂，暗红碎片如雨点般散落。图2骑在灵兽上目睹这一切，金色瞳孔映着图1灰衣的背影。尘土飞扬中，联盟大军的旌旗重新开始前进。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「禁制而已。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「我的血——就是破它的钥匙。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「沈墨……」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「欠你的。回头再算。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+    - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+    - { file: SCENE-027, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+
+- segment_id: EP43-SEG07
+  shot_ids: [EP43-S13, EP43-S14, EP43-S15]
+  duration_sec: 11
+  speakers: [CHAR-001]
+  # ⚠️ SEMANTIC_WARNING: S14 contains narrator line (旁白) — NARRATOR has no CHAR-ID or voice_prompt in 声音卡片.md
+  refs:
+    scene_id: SCENE-027
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-002-L03: https://placeholder.example/CHAR-002-L03.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-027: https://placeholder.example/SCENE-027.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔，掌心吞噬印记）【图2】赵天行 CHAR-002-L03（朴素深灰长袍）【图3】沈墨 CHAR-004-L01（灰衣长袍）【图4】行军古道 SCENE-027。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）MCU 固定：黑色灵箭如暴雨从山坡倾泻——密密麻麻的暗红箭矢在空气中拖出暗红残影。图1右手掌心金光暴涨——吞噬印记化作一面金色漩涡护盾悬浮身前，所有射来的灵箭在接触护盾的瞬间被吞噬殆尽，化为金色光点消散。黑战袍在灵力冲击中猎猎作响。
+      镜头2（3秒）MLS 固定：图2策马冲在最前方——朴素深灰长袍在箭雨中被撕开一角。图3的灰色身影在空中翻飞，暗红魔血化作护盾护住两侧修士。联盟大军如潮水般涌入山口，旌旗在箭雨中猎猎作响。
+      镜头3（4秒）LS 固定：全景俯瞰——联盟大军如一条蓝色金色的长河冲过破碎的山口禁制。两侧山坡上暗红伏兵的灵箭仍在射击，但已被甩在身后。远处天际线方向，隐约可见暗红色的峡谷轮廓——天裂谷。尘土与灵力光效在山口形成一片金红交织的迷雾。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「破阵。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「全军——冲锋。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: CHAR-002-L03, role: reference_image, label: 图2 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+    - { file: SCENE-027, role: reference_image, label: 图4 }
+  transition_to_next: dissolve
+
+- segment_id: EP43-SEG08
+  shot_ids: [EP43-S16, EP43-S17]
+  duration_sec: 10
+  speakers: [CHAR-002, CHAR-001]
+  refs:
+    scene_id: SCENE-028
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-002-L03: https://placeholder.example/CHAR-002-L03.png
+    scene_urls:
+      SCENE-028: https://placeholder.example/SCENE-028.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒，掌心吞噬印记）【图2】赵天行 CHAR-002-L03（朴素深灰长袍，满是征尘）【图3】天裂谷·外围 SCENE-028。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MLS 固定：天裂谷外围。暗橙色天空笼罩峡谷入口，地面散落巨石和破碎的防御工事。图1站在一块巨石上，黑战袍在峡谷吹来的热风中猎猎作响。图2立于身旁，朴素深灰长袍满是征尘，鹰目紧盯着峡谷深处。联盟大军在两人身后列阵。
+      镜头2（5秒）ECU 缓推：图1正面大特写——金色瞳孔中映出峡谷深处骤然亮起的光芒。一道巨大的金色光柱从峡谷深处冲天而起，如一柄金色巨剑刺破暗橙色天空。光柱中隐约可见复杂的法阵纹路和暗红符文。图1瞳孔骤缩——掌心吞噬印记猛烈跳动，与光柱产生剧烈共鸣，金色光芒一明一暗如心跳。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「到了。天裂谷外围。」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「里面就是——」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「吞噬印记……在共鸣。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「仪式——已经开始了。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: CHAR-002-L03, role: reference_image, label: 图2 }
+    - { file: SCENE-028, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut

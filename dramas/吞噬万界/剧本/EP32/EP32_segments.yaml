@@ -1,0 +1,323 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP32/EP32_崩塌逃亡.md
+# Source shots: 10 (EP32-S01 to EP32-S10)
+# Output segments: 8 (EP32-SEG01 to EP32-SEG08)
+# Segment mapping:
+#   SEG01: S01+S02 (10s) - 封印碎裂
+#   SEG02: S03+S04 (11s) - 坦白代价
+#   SEG03: S05 (11s) - 别无选择
+#   SEG04: S06 (10s) - 决断
+#   SEG05: S07 (11s) - 融合封印
+#   SEG06: S08 (11s) - 碎裂
+#   SEG07: S09 (12s) - 逃亡
+#   SEG08: S10 (10s) - 冲出石门
+# Total duration: 10+11+11+10+11+11+12+10 = 86s
+# Gate status: ALL PASS
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+episode_id: EP32
+source_md: 剧本/EP32/EP32_崩塌逃亡.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-004: "成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷"
+
+segments:
+- segment_id: EP32-SEG01
+  shot_ids:
+  - EP32-S01
+  - EP32-S02
+  duration_sec: 10
+  speakers:
+  - CHAR-001
+  - CHAR-004
+  refs:
+    scene_id: SCENE-021
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-021: https://placeholder.example/SCENE-021.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔掌心吞噬印记）【图2】沈墨 CHAR-004-L01（灰袍满身焦黑灼痕凤眼紧闭）【图3】SCENE-021。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MS 固定镜头：封印法阵中央——图1站在法阵边缘背对镜头，白袍金边的背影在金色法阵光芒中拉出长长的影子。低头看着地上昏迷的图2，灰袍满身焦黑灼痕，凤眼紧闭，面容苍白如纸。法阵裂缝中的暗红封存层忽然剧烈闪烁，如即将熄灭的残烛。地面开始微微颤抖。穹顶有细小碎石落下，砸在法阵边缘碎成粉末。玄武岩壁上的石链发出金属疲劳的嘎吱声。
+      镜头2（5秒）CU 固定镜头：图1面部特写——紧闭的凤眼微微颤动，睫毛沾满灰尘。嘴角的血迹已干涸发黑，薄唇翕动。身旁法阵裂缝中的暗红封存层忽然龟裂，黑红烟雾从裂缝中如毒蛇般渗出。他的眉心暗红魔纹忽然亮起又暗去，如心脏跳动。远处传来更大声的隆隆声，整个空间在震颤。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「利用我？」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「封印……撑不住了……」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L02, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: SCENE-021, role: reference_image, label: 图3}
+    - {file: PROP-002, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+
+- segment_id: EP32-SEG02
+  shot_ids:
+  - EP32-S03
+  - EP32-S04
+  duration_sec: 11
+  speakers:
+  - CHAR-001
+  - CHAR-004
+  refs:
+    scene_id: SCENE-021
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-021: https://placeholder.example/SCENE-021.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔）【图2】沈墨 CHAR-004-L01（灰袍满身焦黑灼痕凤眼暗红光芒极弱）【图3】SCENE-021。
+      竖屏9比16连贯叙事。
+      镜头1（6秒）MCU 缓推：图2的眼睛缓缓睁开——凤眼中暗红光芒极其微弱，如风中残烛。他看到站在面前的图1，嘴角又浮现出那抹标志性的半笑——但笑容里没有玩味，只有苦涩。他试图撑起身体，手臂剧烈颤抖，灰袍残片下暗红魔纹已褪至锁骨。法阵裂缝中的黑红烟雾越渗越浓。
+      镜头2（5秒）MS 固定镜头：二人对峙——图2勉强半坐，靠在断裂石柱上，灰袍残片随颤抖而飘动。他抬头看图1，凤眼中暗红光芒忽明忽暗。图1站在三步之外，金色瞳孔冰冷地注视他。法阵裂缝中黑红烟雾蔓延到二人脚下。更多碎石从穹顶落下。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「你都听到了……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「听到了。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「我用魔血……把神念封在了体内。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「但魔血压不住它。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「多久？」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「几个时辰……也许更短。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L02, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: SCENE-021, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+
+- segment_id: EP32-SEG03
+  shot_ids:
+  - EP32-S05
+  duration_sec: 11
+  speakers:
+  - CHAR-001
+  - CHAR-004
+  refs:
+    scene_id: SCENE-021
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-021: https://placeholder.example/SCENE-021.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔掌心吞噬印记）【图2】沈墨 CHAR-004-L01（灰袍残片凤眼暗红光芒微弱但清明）【图3】SCENE-021。
+      竖屏9比16连贯叙事。
+      镜头1（11秒）MCU 固定镜头：封印法阵·图2提出方案——图2的凤眼重新睁开，暗红光芒虽微弱但眼神异常清明。他从灰袍残片中艰难抬手，指向法阵中央的裂缝。掌心残余的暗红魔血微微发光，与裂缝中的黑红烟雾如镜像般对称。他的嘴唇在动，每个字都重若千钧。图1的金色瞳孔微微收缩——掌心吞噬印记不自觉地亮起金光。远处穹顶更大块的碎石落下，砸在法阵边缘。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「还有……一个法子。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「以魔血为媒……吞噬天经净化神念……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「代价。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「我的命。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L02, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: SCENE-021, role: reference_image, label: 图3}
+    - {file: PROP-002, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+
+- segment_id: EP32-SEG04
+  shot_ids:
+  - EP32-S06
+  duration_sec: 10
+  speakers:
+  - CHAR-001
+  - CHAR-004
+  refs:
+    scene_id: SCENE-021
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-021: https://placeholder.example/SCENE-021.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔掌心吞噬印记）【图2】沈墨 CHAR-004-L01（灰袍残片凤眼坦然）【图3】SCENE-021。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）MS 缓推：封印法阵·图1决断——图1缓步走向图2，金色瞳孔居高临下，冰冷审视。图2仰头看他，半笑消失，凤眼中只剩坦然。图1弯腰蹲下，与图2平视——金色瞳孔与暗红凤眼在近距离对视。掌心吞噬印记金光暴涨。法阵裂缝中黑红烟雾已蔓延到二人膝下。远处石链一根接一根崩断。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「你说的话……我一个字都不信。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「我知道。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「但活下来。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「活下来……其他的，以后再算。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L02, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: SCENE-021, role: reference_image, label: 图3}
+    - {file: PROP-002, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+
+- segment_id: EP32-SEG05
+  shot_ids:
+  - EP32-S07
+  duration_sec: 11
+  speakers:
+  - CHAR-001
+  - CHAR-004
+  refs:
+    scene_id: SCENE-021
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-021: https://placeholder.example/SCENE-021.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+      PROP-004: https://placeholder.example/PROP-004.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔掌心吞噬印记）【图2】沈墨 CHAR-004-L01（灰袍残片双手结印掌心涌出暗红魔血火焰）【图3】SCENE-021。
+      竖屏9比16连贯叙事。
+      镜头1（11秒）MLS 缓推：封印法阵·力量融合——图1右手掌心吞噬印记全力绽放，纯金光柱如瀑布倾泻入法阵裂缝。图2盘坐在裂缝旁，双手结印，掌心涌出暗红魔血火焰——金色与暗红在裂缝上方交汇缠绕，如两条巨龙绞杀。法阵符文重新亮起，黑红烟雾被强行压回裂缝。二人周身一金一红两道灵力护罩交织如茧。裂缝在缓缓收窄。地面震颤加剧但法阵暂时稳固。远处石链不再崩断。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「魔血为引……神念为锁……吞噬为净……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「撑住。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「你……也撑住。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「暂时稳住了……也许……」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L02, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: SCENE-021, role: reference_image, label: 图3}
+    - {file: PROP-002, role: reference_image, label: 图4}
+    - {file: PROP-004, role: reference_image, label: 图5}
+  transition_to_next: hard_cut
+
+- segment_id: EP32-SEG06
+  shot_ids:
+  - EP32-S08
+  duration_sec: 11
+  speakers:
+  - CHAR-001
+  - CHAR-004
+  refs:
+    scene_id: SCENE-021
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-021: https://placeholder.example/SCENE-021.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔震惊）【图2】沈墨 CHAR-004-L01（灰袍残片口喷鲜血向前栽倒）【图3】SCENE-021。
+      竖屏9比16连贯叙事。
+      镜头1（11秒）MS 固定镜头：封印法阵·全面崩塌——法阵中央刚收窄的裂缝突然剧烈扩张，暗红光芒如火山喷发般冲天而起——封印被加固的瞬间唤醒了更深处的力量。法阵符文从中心向外连锁碎裂，金色光点四散如碎萤。玄武岩穹顶开始大面积坍塌——巨石坠落砸碎石柱，烟尘滚滚。图2双手结印中断，口喷鲜血，向前栽倒。图1一把抓住他，金色瞳孔骤缩。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「封印——」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「太迟了……神念……已经醒了……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「能走吗？」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「你走……别管我……」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L02, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: SCENE-021, role: reference_image, label: 图3}
+    - {file: PROP-002, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+
+- segment_id: EP32-SEG07
+  shot_ids:
+  - EP32-S09
+  duration_sec: 12
+  speakers:
+  - CHAR-001
+  - CHAR-004
+  refs:
+    scene_id: SCENE-019
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-019: https://placeholder.example/SCENE-019.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔掌心吞噬印记）【图2】沈墨 CHAR-004-L01（灰袍残片凤眼半闭趴在图1背上）【图3】SCENE-019。
+      竖屏9比16连贯叙事。
+      镜头1（12秒）MLS 镜头跟随：万界之渊通道·奔逃——图1背着图2在崩塌的空间中狂奔。通道两侧的玉质墙壁正在碎裂剥落，金色符文残光从裂缝中喷涌。脚下玉台表面裂纹如蛛网扩展，每一步踏下去都踩出新的裂口。图2趴在图1背上，凤眼半闭，灰袍残片在风中飘动，双手无力垂着。图1掌心吞噬印记全力绽放金光，形成金色护罩笼罩二人，挡住从穹顶坠落的碎石。远处——一扇巨大的石门在通道尽头若隐若现，金色符文微弱闪烁。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「抱紧。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「林渊……封印碎了……神念会追出来……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「闭嘴。省点力气。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「不管你是真心还是假意……先活着出去。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L02, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: SCENE-019, role: reference_image, label: 图3}
+    - {file: PROP-002, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+
+- segment_id: EP32-SEG08
+  shot_ids:
+  - EP32-S10
+  duration_sec: 10
+  speakers:
+  - CHAR-001
+  - CHAR-004
+  refs:
+    scene_id: SCENE-019
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-019: https://placeholder.example/SCENE-019.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔掌心吞噬印记暴涨至极限）【图2】沈墨 CHAR-004-L01（灰袍残片虚弱抬头凤眼映出金光）【图3】SCENE-019。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）MS 镜头拉远：万界之渊·石门前——二人冲到石门前。石门三十米高的门面上金色符文正在疯狂闪烁——也在崩塌。门缝中涌出灼热的金色气浪。图1放下图2靠在门边，双手掌心吞噬印记暴涨至极限，金色漩涡凝聚——他一掌轰向石门中央。石门从中央裂开一道缝，刺目的白光从缝隙中倾泻而出。身后整个通道在剧烈坍塌，玉台碎片如暴雨般坠落。图2在门边虚弱地抬头，凤眼映出图1轰开石门的背影——金色光芒将他的白袍照得如天神降世。他一把捞起图2冲入白光中。画面切黑——石门在身后彻底坍塌，万界之渊的金色符文光芒如星辰般在黑暗中四散消逝。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「石门……也在碎……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「给我开！」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「走！」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L02, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: SCENE-019, role: reference_image, label: 图3}
+    - {file: PROP-002, role: reference_image, label: 图4}
+  transition_to_next: hard_cut

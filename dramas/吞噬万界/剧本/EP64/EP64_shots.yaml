@@ -1,0 +1,401 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP64/EP64_监者本体要降临.md
+# Source shots: 15 (EP64-S01 to EP64-S15) — metadata declares 16 but shot table has 15 rows
+# Output shots: 15 (EP64-S01 to EP64-S15)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 78s (computed from shot table: 6+5+5+5+5+4+5+5+10+5+4+6+5+5+3=78)
+# Output total duration: 78s
+# Gate status: G1 PASS (78s in [75,120] ✅); G2 MISMATCH (declared 16, actual 15); G3 PASS; G4 PASS
+# ⚠️ Gate 2 Note: Source metadata declares 16 shots but shot table contains only 15 rows.
+#    Scene-writer should verify: either add missing 16th shot row, or correct metadata to 15.
+# ⚠️ SEG05 Note: S09=10s + S10=5s = 15s, exceeds 12s per-segment budget.
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+episode_id: EP64
+source_md: 剧本/EP64/EP64_监者本体要降临.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+shots:
+- shot_id: EP64-S01
+  shot_no: 1
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-017-L02
+    - CHAR-001-L04
+  assets:
+    look_urls:
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】万界监者 CHAR-017-L02（金色神甲，银白长发，金色眼眸）【图2】林渊 CHAR-001-L04（白色仙袍，金星纹路）【图3】天裂谷·谷心法阵 SCENE-030。6秒 LS 固定镜头：天裂谷上空万丈高处——九道金色光柱从谷底垂直射入天空，天空被撕裂为金色与暗红两半，巨大裂隙在正上方缓缓扩大。图1金色神甲表面天界符文流转如星座连珠，银白长发在仙人气浪中飞舞，金色眼眸居高临下俯视。图2白仙袍金星纹路环绕，金白仙气与金色神光在空中碰撞，空气泛起涟漪。"
+    content_roles:
+    - {file: CHAR-017-L02, role: reference_image, label: 图1}
+    - {file: CHAR-001-L04, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-017
+    line: "让我看看……你的力量，能到多远。"
+  transition_to_next: hard_cut
+- shot_id: EP64-S02
+  shot_no: 2
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L04
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍，金星纹路）【图2】天裂谷·谷心法阵 SCENE-030。5秒 MCU 镜头推近：图1胸部以上——金白仙气环绕如微型宇宙，星辰光芒在周身流转。面容平静如水，金色瞳孔中映着监者身影。掌心吞噬印记微微脉动，与远处九道光柱隐隐共鸣。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: SCENE-030, role: reference_image, label: 图2}
+  dialogue:
+  - speaker: CHAR-017
+    line: "借来的力量？"
+  - speaker: CHAR-001
+    line: "力量是借的。手，是我的。"
+  - speaker: CHAR-017
+    line: "那就看看……你能站多久。"
+  transition_to_next: hard_cut
+- shot_id: EP64-S03
+  shot_no: 3
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-017-L02
+    - CHAR-001-L04
+  assets:
+    look_urls:
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】万界监者 CHAR-017-L02（金色神甲，银白长发）【图2】林渊 CHAR-001-L04（白色仙袍）【图3】天裂谷·谷心法阵 SCENE-030。5秒 MLS 固定镜头：图1单手前推——金色神甲全身符文同时亮起如白昼，一道比上集更强的金白能量光柱从掌心射出，撕裂沿途空气，碎石化为金色液体。图2来不及躲闪，金白仙气在掌间形成护盾迎击。两种仙人之力碰撞——冲击波将空间裂隙撕得更大，金色闪电在碰撞点密集放电。"
+    content_roles:
+    - {file: CHAR-017-L02, role: reference_image, label: 图1}
+    - {file: CHAR-001-L04, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-017
+    line: "仙人之境？"
+  - speaker: CHAR-017
+    line: "不过尔尔。"
+  transition_to_next: hard_cut
+- shot_id: EP64-S04
+  shot_no: 4
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L04
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍，肩部撕裂）【图2】天裂谷·谷心法阵 SCENE-030。5秒 MCU 缓推：图1被震退——白仙袍肩部撕裂，袖口冒烟，金白仙气剧烈波动如风中残烛。咬紧牙关稳住身形，掌心吞噬印记光芒忽明忽暗。嘴角渗出鲜血，但没有后退。瞳孔中金色星辰从暗淡到暴涨，像风暴中心。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: SCENE-030, role: reference_image, label: 图2}
+  dialogue:
+  - speaker: CHAR-001
+    line: "好强……他还没用全力。"
+  - speaker: CHAR-001
+    line: "一直在试探。"
+  transition_to_next: hard_cut
+- shot_id: EP64-S05
+  shot_no: 5
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L04
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍，半毁）【图2】天裂谷·谷心法阵 SCENE-030。5秒 MLS 固定镜头：图1从碎石中猛然飞起——白仙袍半毁，金白仙气从体内如火山般爆发。掌心吞噬印记化为金色漩涡，周围所有灵力被吞噬，形成一个微型宇宙在掌间缓缓旋转。眼瞳中星辰旋转如风暴。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: SCENE-030, role: reference_image, label: 图2}
+  dialogue:
+  - speaker: CHAR-001
+    line: "萧长老……这是最后了。"
+  - speaker: CHAR-001
+    line: "万界归一·创世——"
+  transition_to_next: hard_cut
+- shot_id: EP64-S06
+  shot_no: 6
+  mode: i2v_ref
+  duration_sec: 4
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L04
+    - CHAR-017-L02
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍，半毁）【图2】万界监者 CHAR-017-L02（金色神甲）【图3】天裂谷·谷心法阵 SCENE-030。4秒 MCU 镜头推近：图1双手在胸前合掌——一个金色球体在掌心成形，球体中无数星辰旋转，散发宇宙初开般的璀璨光芒。远处图2微微抬眉，金色眼眸中闪过一丝兴趣。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-017-L02, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-001
+    line: "创世——！"
+  - speaker: CHAR-017
+    line: "哦？"
+  transition_to_next: hard_cut
+- shot_id: EP64-S07
+  shot_no: 7
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-032
+    look_ids:
+    - CHAR-001-L04
+    - CHAR-017-L02
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍）【图2】万界监者 CHAR-017-L02（金色神甲）【图3】天裂谷·万丈高空 SCENE-032。5秒 LS 固定镜头：万丈高空战场——图1推出掌中金色球体，微型宇宙化为金白光柱直冲图2。图2单手前推——同样的金白光柱从掌心射出。两种微型宇宙在空中碰撞——接触瞬间，天地被刺目的白光吞没。金色冲击波以接触点为中心向四面八方扩散。下方九道光柱剧烈震荡，天空裂隙被撕得更大。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-017-L02, role: reference_image, label: 图2}
+    - {file: SCENE-032, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-001
+    line: "接好了——！"
+  transition_to_next: hard_cut
+- shot_id: EP64-S08
+  shot_no: 8
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-032
+    look_ids:
+    - CHAR-001-L04
+    - CHAR-017-L02
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍，半毁）【图2】万界监者 CHAR-017-L02（金色神甲，裂纹扩大）【图3】天裂谷·万丈高空 SCENE-032。5秒 LS 镜头拉远：两个微型宇宙持续碰撞——金色能量风暴在空中肆虐，空间碎片如碎裂的镜面漂浮在四周。图1被能量撕裂，白仙袍半毁，金白仙气几乎耗尽。图2纹丝不动，金色神甲表面裂纹扩大但光芒更盛。碰撞引发的空间崩塌正在蔓延，金色裂纹如蛛网在天空中扩散。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-017-L02, role: reference_image, label: 图2}
+    - {file: SCENE-032, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-001
+    line: "挡不住……空间在——"
+  - speaker: CHAR-001
+    line: "碎了。"
+  transition_to_next: hard_cut
+- shot_id: EP64-S09
+  shot_no: 9
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-032
+    look_ids:
+    - CHAR-001-L04
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍，半毁）【图2】天裂谷·万丈高空 SCENE-032。10秒 MCU 缓推：图1面部特写——金白光芒在脸上明灭不定，金色瞳孔骤缩。死死盯着碰撞中心上方的天空裂隙，裂隙正以肉眼可见的速度扩大。金色光芒从裂隙中涌出，照亮下方的九道光柱。吞噬印记剧烈跳动，像在感应某种力量。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: SCENE-032, role: reference_image, label: 图2}
+  dialogue:
+  - speaker: CHAR-001
+    line: "吞噬印记……在回应什么？"
+  - speaker: CHAR-001
+    line: "裂隙在继续扩大……有东西要出来了。"
+  transition_to_next: hard_cut
+- shot_id: EP64-S10
+  shot_no: 10
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-032
+    look_ids:
+    - CHAR-017-L02
+    - CHAR-001-L04
+  assets:
+    look_urls:
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  api:
+    text: "【图1】万界监者 CHAR-017-L02（金色神甲，裂纹满布）【图2】林渊 CHAR-001-L04（白色仙袍，半毁）【图3】天裂谷·万丈高空 SCENE-032。5秒 MS 固定镜头：图1站在崩塌的空间中纹丝不动，金色神甲满是裂纹但眼中光芒更盛。银白长发在能量风暴中飞舞。低头看着裂隙，金色眼眸中闪过一丝意味深长的光。"
+    content_roles:
+    - {file: CHAR-017-L02, role: reference_image, label: 图1}
+    - {file: CHAR-001-L04, role: reference_image, label: 图2}
+    - {file: SCENE-032, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-017
+    line: "你看那裂隙。"
+  - speaker: CHAR-001
+    line: "……什么？"
+  transition_to_next: hard_cut
+- shot_id: EP64-S11
+  shot_no: 11
+  mode: i2v_ref
+  duration_sec: 4
+  refs:
+    scene_id: SCENE-032
+    look_ids:
+    - CHAR-001-L04
+    - CHAR-017-L02
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍，半毁）【图2】万界监者 CHAR-017-L02（金色神甲）【图3】天裂谷·万丈高空 SCENE-032。4秒 MLS 镜头拉远：图2站在裂隙下方，裂隙在身后如一道巨大的金色伤疤横贯天际。金色光芒从裂隙中倾泻而出，照亮图2的轮廓如金甲天神。图1在远处，白仙袍半毁，金白仙气微弱闪烁。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-017-L02, role: reference_image, label: 图2}
+    - {file: SCENE-032, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-017
+    line: "那不是裂缝。"
+  - speaker: CHAR-017
+    line: "那是一扇门。收割下界的门。"
+  transition_to_next: hard_cut
+- shot_id: EP64-S12
+  shot_no: 12
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-032
+    look_ids:
+    - CHAR-001-L04
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍，半毁）【图2】天裂谷·万丈高空 SCENE-032。6秒 MCU 缓推：图1面部特写——抬头望向裂隙深处，金色瞳孔骤缩如针尖。裂隙中金光涌动，隐约可见一个巨大的人形轮廓正在靠近。吞噬印记疯狂跳动，像在感应一种超越分身的力量。后退一步，脚下空间碎片碎裂。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: SCENE-032, role: reference_image, label: 图2}
+  dialogue:
+  - speaker: CHAR-001
+    line: "那是——"
+  - speaker: CHAR-001
+    line: "他的气息……比分身强太多了。"
+  transition_to_next: hard_cut
+- shot_id: EP64-S13
+  shot_no: 13
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-032
+    look_ids:
+    - CHAR-017-L02
+  assets:
+    look_urls:
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  api:
+    text: "【图1】万界监者 CHAR-017-L02（金色神甲参考）【图2】天裂谷·万丈高空 SCENE-032。5秒 LS 镜头拉远：裂隙中——一只覆盖金色天界符文神甲的巨大手臂从金光中伸出，每一根手指散发毁天灭地的力量。金色符文如群星闪烁，照亮整片天空。手臂抓住裂隙边缘，空间碎片从边缘纷纷剥落，整片天空在颤抖。九道光柱被这股力量压得弯曲。"
+    content_roles:
+    - {file: CHAR-017-L02, role: reference_image, label: 图1}
+    - {file: SCENE-032, role: reference_image, label: 图2}
+  dialogue: []
+  transition_to_next: hard_cut
+- shot_id: EP64-S14
+  shot_no: 14
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-032
+    look_ids:
+    - CHAR-017-L03
+  assets:
+    look_urls:
+      CHAR-017-L03: https://placeholder.example/CHAR-017-L03.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  api:
+    text: "【图1】万界监者本体 CHAR-017-L03（金色全身神甲，天界符文如星河流转，银白长发）【图2】天裂谷·万丈高空 SCENE-032。5秒 LS 镜头拉远：裂隙被两只金色巨手撑开——图1本体从裂隙中缓缓挤出。金色全身神甲上天界符文如星河流转，银白长发如瀑布倾泻，金色眼眸中闪烁着毁天灭地的光芒。身形比分身更大、更耀眼、更压迫——整片天空都被金光吞没。"
+    content_roles:
+    - {file: CHAR-017-L03, role: reference_image, label: 图1}
+    - {file: SCENE-032, role: reference_image, label: 图2}
+  dialogue: []
+  transition_to_next: hard_cut
+- shot_id: EP64-S15
+  shot_no: 15
+  mode: i2v_ref
+  duration_sec: 3
+  refs:
+    scene_id: SCENE-032
+    look_ids:
+    - CHAR-017-L03
+    - CHAR-001-L04
+  assets:
+    look_urls:
+      CHAR-017-L03: https://placeholder.example/CHAR-017-L03.png
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  api:
+    text: "【图1】万界监者本体 CHAR-017-L03（金色全身神甲，天界符文如星河流转）【图2】林渊 CHAR-001-L04（白色仙袍，半毁）【图3】天裂谷·万丈高空 SCENE-032。3秒 MLS 固定镜头：图1本体完全显现——金色神甲覆盖全身，天界符文如群星流转。俯视图2，金色眼眸中没有任何情感，只有绝对的审判。图2在他脚下渺小如尘埃，白仙袍半毁，金白仙气微弱闪烁。"
+    content_roles:
+    - {file: CHAR-017-L03, role: reference_image, label: 图1}
+    - {file: CHAR-001-L04, role: reference_image, label: 图2}
+    - {file: SCENE-032, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-017
+    line: "你面对的——"
+  - speaker: CHAR-017
+    line: "从始至终，都不只是一个分身。"
+  - speaker: CHAR-001
+    line: "……完了。"
+  transition_to_next: hard_cut

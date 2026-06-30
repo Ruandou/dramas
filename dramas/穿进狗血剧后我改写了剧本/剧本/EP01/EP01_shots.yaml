@@ -1,0 +1,503 @@
+# EP01_shots.yaml — 逐镜头描述（中间格式）
+# 源文件：剧本/EP01/EP01_穿越之始.md
+# 生成方式：segment-builder (dry-run: 使用本地路径，资产未生成)
+
+episode_id: EP01
+source_md: 剧本/EP01/EP01_穿越之始.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "Vertical 9:16 continuous narrative, modern Chinese urban setting, realistic drama style, warm natural lighting, subtle comic timing, no brand logos, no platform UI, no text overlay, no subtitles, no watermark, no background music"
+  negative_prompt: "Horizontal video, letterbox, black bars, watermark, text overlay, subtitles, brand logo, platform UI, background music, distorted faces, unnatural movement, cartoon style, anime style, 3D rendering, CGI, poor lighting, dark scenes without narrative purpose, horror elements, violence, gore, explicit content"
+
+shots:
+  # SEG01 — 追剧时光 (15s, SCENE-009)
+  - shot_id: EP01-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-001-L01]
+      prop_ids: [PROP-001]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+      prop_urls:
+        PROP-001: assets/props/PROP-001.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-009。中近景固定镜头，苏念念坐在咖啡厅角落，午后阳光洒在桌面，手里横屏举着手机看剧，耳机线垂在胸前，表情嫌弃地在吐槽。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "不是吧……男主知道女主是他救命恩人还这么对她？？这编剧是不是跟我们观众有仇啊？"
+
+  - shot_id: EP01-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-009
+      look_ids: [CHAR-001-L01]
+      prop_ids: [PROP-001]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-009。特写固定镜头，苏念念的脸部大特写——一脸嫌弃，翻着白眼，手机屏幕的光映在她脸上。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "绝了——这叫情话？？这是PUA吧？还"离开他，你配不上"——你才配不上好吧！我写都写得比这个好。(叹气)问题是这部剧的完播率还挺高的…观众到底在想什么啊！"
+
+  - shot_id: EP01-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-009
+    assets:
+      scene_urls:
+        SCENE-009: assets/scenes/SCENE-009.png
+    api:
+      text: "【图1】SCENE-009。全景慢摇镜头，咖啡厅全景，午后安静的居民区街景。一个穿深色风衣的高个子男人从画面右侧走过，在苏念念桌旁停了一下，侧头看了她一眼，然后继续走。"
+      content_roles:
+        - { file: SCENE-009, role: reference_image, label: 图1 }
+    dialogue: []
+
+  # SEG02 — 穿剧 (11s, SCENE-004)
+  - shot_id: EP01-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-004。中景快速推进镜头，从手机屏幕裂纹光效到白色闪光过渡，苏念念站在完全陌生的豪宅大厅里，低头看自己，穿着卫衣牛仔裤帆布鞋与奢华环境形成反差。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "……我是不是剧看多了产生幻觉了？我闭眼再睁一次——一、二——"
+
+  - shot_id: EP01-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-004。近景缓慢环绕苏念念，她闭眼再睁确认没变，原地转圈看四周，表情从震惊→困惑→逐渐接受。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "不是我家…不是片场…(深吸一口气)我刚才在追的那部《霸总的契约情人》——女主角不就住这种豪宅吗？？"
+
+  # SEG03 — 系统登场 (11s, SCENE-004 + SCENE-006)
+  - shot_id: EP01-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-004。近景固定镜头，苏念念面前凭空弹出半透明全息界面，冷蓝色光效，她吓了一跳后退半步，又好奇地凑近看。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "卧——槽——这什么鬼？！(镇定了一下，凑近看)不是…这个UI还挺好看的…"
+
+  - shot_id: EP01-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+    assets:
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】SCENE-006。特写推近，冷蓝色半透明系统面板逐渐放大，极简UI设计，代码流动，显示欢迎信息和角色绑定状态。"
+      content_roles:
+        - { file: SCENE-006, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "欢迎进入《霸总的契约情人》剧情系统。已检测到用户接入。当前身份：女主。任务列表：1条待处理。请确认接收。"
+
+  # SEG04 — 任务来了 (11s, SCENE-004 + SCENE-006)
+  - shot_id: EP01-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-006
+    assets:
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】SCENE-006。特写固定，系统界面清晰显示任务详情：「任务#001：勾引陆总。跌倒在他面前。被推开。情绪状态：委屈。」下方有接受/拒绝按钮。"
+      content_roles:
+        - { file: SCENE-006, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "任务001：勾引陆总，被推倒在地。完成奖励：剧情推进1%。请选择——接受或拒绝。提示：此任务为新手引导任务，建议完成。"
+      - speaker: CHAR-001
+        line: "新手引导？你们还有新手引导？？那我有没有新手礼包啊？"
+      - speaker: CHAR-003
+        line: "没有。"
+
+  - shot_id: EP01-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-004。中近景固定，苏念念看完任务全貌，表情从震惊到困惑到逐渐离谱——嘴角抽了一下，不是害怕，是好笑。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "你让我勾引他然后被他推开？还得装委屈？？(指着自己)我看起来像演这种戏的人吗？"
+      - speaker: CHAR-003
+        line: "根据角色档案，是的。您是女主。"
+      - speaker: CHAR-001
+        line: "你这系统是不是有毛病——啊不对，谁写的这剧本？！"
+
+  # SEG05 — 拒绝 (10s, SCENE-004 + SCENE-006)
+  - shot_id: EP01-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-004。近景固定，苏念念深吸一口气，对着系统界面，语气平静但坚定。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "我不。拒绝。换一个任务。"
+
+  - shot_id: EP01-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-006
+      look_ids: [CHAR-001-L01]
+    assets:
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】SCENE-006。特写固定，系统界面闪烁了一下——卡住了。短暂黑屏后重新亮起，显示新提示。"
+      content_roles:
+        - { file: SCENE-006, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "……检测到用户拒绝指令。正在重新评估。请稍候。"
+      - speaker: CHAR-001
+        line: "不是…你还会卡壳啊？"
+
+  # SEG06 — 陆总出场 (11s, SCENE-004)
+  - shot_id: EP01-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-002-L01, CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】SCENE-004。中景固定，陆景琛从楼梯上走下来，深色西装面无表情，看到大厅里的苏念念脚步顿了一下。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "你在这做什么。我记得没有预约过任何人。"
+      - speaker: CHAR-001
+        line: "如果我说我也不知道我怎么来的——你信吗？"
+
+  - shot_id: EP01-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-002-L01, CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】CHAR-001-L01。近景缓推，陆景琛走到苏念念面前站定，居高临下看着她。她不仅没退缩，还歪头好奇地打量他。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "趁我没发火之前——自己走出去。还是说——要我让人请你？"
+      - speaker: CHAR-001
+        line: "你这台词背得真不错，练了很久吧？"
+
+  # SEG07 — 反转 (12s, SCENE-004)
+  - shot_id: EP01-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01, CHAR-002-L01]
+      prop_ids: [PROP-004]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】SCENE-004。中景固定，苏念念没走，走到餐吧拿杯子倒水，陆景琛站在原地看着她，表情管理出现裂纹。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "你是不是昨晚没睡好？火气这么大。先喝口水。"
+      - speaker: CHAR-002
+        line: "……你——"
+      - speaker: CHAR-001
+        line: "不客气。"
+
+  - shot_id: EP01-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-002-L01]
+      prop_ids: [PROP-004]
+    assets:
+      look_urls:
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】SCENE-004。特写固定，陆景琛低头看着手里的水杯，大脑在处理超出预期的信息。剧本上写的是女主被吓哭跑出去。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "……剧本第18页不是这么写的。"
+      - speaker: CHAR-001
+        line: "怎么？水里有毒？我亲手倒的，放心。"
+
+  # SEG08 — 系统慌了 (10s, SCENE-004 + SCENE-006)
+  - shot_id: EP01-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-006
+    assets:
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】SCENE-006。特写固定，系统界面疯狂闪烁，红色警告框弹出一个接一个，数据流动加速。"
+      content_roles:
+        - { file: SCENE-006, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "警告！检测到剧情偏移！男主未按剧本完成任务——任务协议异常！剧情偏移度+8%！正在尝试修复——"
+
+  - shot_id: EP01-S17
+    shot_no: 17
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-004。近景固定，苏念念眼角余光看到系统数字，表情从不耐烦变成发现新大陆的兴奋。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "剧情偏移？还能看到进度条？——那意思是我改得越多，这系统就越拿我没办法？"
+      - speaker: CHAR-003
+        line: "请立即停止！用户行为不在剧本范围内！"
+      - speaker: CHAR-001
+        line: "那你剧本写得太差了呗。"
+
+  # SEG09 — 陆总的视线 (12s, SCENE-004)
+  - shot_id: EP01-S18
+    shot_no: 18
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-002-L01, CHAR-001-L01]
+      prop_ids: [PROP-004]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】SCENE-004。中景缓推，陆景琛站在原地，手里的水杯还没放下，用全新的目光打量着苏念念——不再是霸总看女主，而是一个人看另一个人。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "……你是谁。"
+      - speaker: CHAR-001
+        line: "苏念念。你的剧——啊不，你的……你的——算了，说了你也不懂。"
+
+  - shot_id: EP01-S19
+    shot_no: 19
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-002-L01, CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】CHAR-001-L01。近景固定，陆景琛眉头微微皱了一下，意识到这个女人和设定里的完全不一样。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "你不怕我。"
+      - speaker: CHAR-001
+        line: "说实话——你比我想象中高一点，凶一点，但……还没我早上追的那部剧里吓人。对了，那部剧叫《霸总的契约情人》，男主叫陆景琛——巧了，跟你同名。"
+      - speaker: CHAR-002
+        line: "……"
+
+  # SEG10 — 强制模式 (12s, SCENE-004 + SCENE-006)
+  - shot_id: EP01-S20
+    shot_no: 20
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-006
+    assets:
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】SCENE-006。特写推近，系统界面再次亮起——没有闪烁，没有慌乱，冰冷平稳的红色字体，像最后通牒。"
+      content_roles:
+        - { file: SCENE-006, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "因用户持续拒绝执行任务，强制模式将在24小时后自动激活。届时：用户自主选择权限将关闭。剧情将按原定路径强制执行。无论用户是否配合。"
+      - speaker: CHAR-001
+        line: "如果我配合了呢——你们是不是打算让我演完整部剧？"
+      - speaker: CHAR-003
+        line: "是的。72集。按剧本走。"
+
+  - shot_id: EP01-S21
+    shot_no: 21
+    mode: i2v_ref
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-001-L01, CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】SCENE-004。特写缓拉至近景，苏念念脸上的笑意消失，系统界面上出现倒计时24:00:00，陆景琛站在原地，目光里的困惑变成担心。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "72集。按剧本走。(停顿)也就是说——我没得选了。"
+      - speaker: CHAR-003
+        line: "准确描述。请做好准备。"
+      - speaker: CHAR-001
+        line: "准备好了然后呢？24小时后你不都替我决定好了吗。"
+      - speaker: CHAR-003
+        line: "……逻辑正确。"
+      - speaker: CHAR-001
+        line: "行。那就——24小时后见。"

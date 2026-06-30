@@ -1,0 +1,588 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP46/EP46_仪式已完成七成.md
+# Source shots: 16 (EP46-S01 to EP46-S16)
+# Output shots: 16 (EP46-S01 to EP46-S16)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 81s (claimed in .md VALIDATION block)
+# Output total duration: 74s (computed from shot table: 4+4+4+6+4+5+5+4+4+4+5+5+5+5+5+5=74)
+# ⚠️ DURATION DISCREPANCY: .md VALIDATION claims 81s but shot durations sum to 74s (diff: 7s).
+#    Note: .md table shows S16=4s but SEG08 header says "5s, 5s" implying S16=5s.
+#    Using S16=5s from SEG08 header (authoritative). Computed total = 74s.
+#    .md VALIDATION block arithmetic is incorrect. scene-writer must fix.
+#    Also: 74s < 75s Gate 1 threshold (1s short). Very close to threshold.
+# Gate status: G1 ⚠️ BORDERLINE (74s, 1s below 75s threshold); G2 PASS; G3 PASS; G4 PASS
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+# PLACEHOLDER_EXTRAS: [待补：废人陈道远]=EP45陈道远废后状态; [待补：守阵修士]=天机阁守阵修士. Pending production-planner CHAR-GRP assignment.
+episode_id: EP46
+source_md: 剧本/EP46/EP46_仪式已完成七成.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+shots:
+- shot_id: EP46-S01
+  shot_no: 1
+  mode: i2v_ref
+  duration_sec: 4
+  refs:
+    scene_id: SCENE-029
+    look_ids:
+    - CHAR-001-L03
+    - "[待补：废人陈道远]"  # PLACEHOLDER: 需 production-planner 分配 CHAR-GRP-## + character-designer 回补 L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      "[待补：废人陈道远]": https://placeholder.example/CHAR-待补-废人陈道远.png
+    scene_urls:
+      SCENE-029: https://placeholder.example/SCENE-029.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒，掌心吞噬印记）【图2】废人陈道远 [待补：废人陈道远]（灰袍破旧如乞丐，花白胡须沾满尘土，面容枯黄苍老）【图3】SCENE-029（天裂谷·内谷）。4秒 MCU 固定镜头：内谷碎石地，暗红魔气只剩薄薄一层贴地残烟。图2匍匐在碎石上，浑身颤栗，仰头大笑后已精疲力竭，眼中疯狂与绝望交替。图1背对他站着，黑战袍金纹在残余暗红光中微微发亮，金色瞳孔望向谷口方向，面容冰冷，只有太阳穴一根青筋在跳。掌心吞噬印记收敛光芒，只余微弱脉动。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: "[待补：废人陈道远]"
+      role: reference_image
+      label: 图2
+    - file: SCENE-029
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-005
+    line: "哈哈哈……哈……"
+  - speaker: CHAR-001
+    line: "够了。"
+  - speaker: CHAR-001
+    line: "七成……还有三成。"
+  transition_to_next: hard_cut
+- shot_id: EP46-S02
+  shot_no: 2
+  mode: i2v_ref
+  duration_sec: 4
+  refs:
+    scene_id: SCENE-029
+    look_ids:
+    - CHAR-003-L01
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-029: https://placeholder.example/SCENE-029.png
+  api:
+    text: "【图1】苏瑶 CHAR-003-L01（素雅白衣沾满碎石尘土，白玉发簪微歪）【图2】沈墨 CHAR-004-L01（灰袍撕裂一角，嘴角干涸血迹，凤眼半垂）【图3】SCENE-029（天裂谷·内谷）。4秒 MS 固定镜头：图1快步走近林渊，手心微光残留战斗余温，急促开口。图2从侧面走来，凤眼半垂——他在计算。峡谷深处，天边已能看到一柱金色光束刺破灰暗天幕，比之前更亮更粗。"
+    content_roles:
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-029
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-003
+    line: "林渊——谷口方向，那光又亮了。"
+  - speaker: CHAR-004
+    line: "法阵在加速……它在主动汲取吞噬之源的灵力。"
+  transition_to_next: hard_cut
+- shot_id: EP46-S03
+  shot_no: 3
+  mode: i2v_ref
+  duration_sec: 4
+  refs:
+    scene_id: SCENE-029
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-003-L01
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-029: https://placeholder.example/SCENE-029.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒）【图2】苏瑶 CHAR-003-L01（素雅白衣，面色凝重）【图3】沈墨 CHAR-004-L01（灰袍撕裂一角，凤眼微抬）【图4】SCENE-029（天裂谷·内谷）。4秒 MS 固定镜头：林渊转身扫视内谷战场——图2在三步外面色凝重，图3在五步外凤眼微抬。远处峡谷更深处联盟先锋队旗帜隐约可见，稀疏得可怜——只剩不到二十人。碎石地上暗红魔气在缓缓消散，但天边那道金色光柱愈发刺眼，脉动频率肉眼可见地加快。光线从暗红渐转为金色，阴影在峡谷石壁上移动如活物。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图3
+    - file: SCENE-029
+      role: reference_image
+      label: 图4
+  dialogue:
+  - speaker: CHAR-001
+    line: "不够。但还有时间。"
+  - speaker: CHAR-003
+    line: "联盟大军被拖在外围，先锋队也折损过半——"
+  transition_to_next: hard_cut
+- shot_id: EP46-S04
+  shot_no: 4
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-029
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-029: https://placeholder.example/SCENE-029.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔，掌心吞噬印记微亮）【图2】沈墨 CHAR-004-L01（灰袍撕裂，凤眼中闪过暗红光芒，薄唇微弯半笑）【图3】SCENE-029（天裂谷·内谷）。6秒 MS 固定镜头：图1向前迈出一步，黑战袍下摆在碎石地上扫过。他抬手，掌心吞噬印记微亮——金色瞳孔锁定谷口方向。图2在侧面看着他，凤眼中闪过一丝暗红光芒，薄唇微弯——半笑，半认真。图1语气平静得不像正在赶去送死的人。周围暗红残气被他步伐带起的微风压低。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-029
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: "拦我们的人——一起杀了。"
+  - speaker: CHAR-004
+    line: "……倒也干脆。"
+  - speaker: CHAR-001
+    line: "七成……不要让它变成八成。"
+  transition_to_next: hard_cut
+- shot_id: EP46-S05
+  shot_no: 5
+  mode: i2v_ref
+  duration_sec: 4
+  refs:
+    scene_id: SCENE-028
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-003-L01
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-028: https://placeholder.example/SCENE-028.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒）【图2】苏瑶 CHAR-003-L01（素雅白衣）【图3】沈墨 CHAR-004-L01（灰袍撕裂一角）【图4】SCENE-028（天裂谷·外围）。4秒 MS 固定镜头：外围峡谷，景象触目惊心。地上横七竖八躺着联盟弟子——有的胸口塌陷，有的臂膀焦黑，暗红魔光残留在伤口上还在噬咬。两名活着的弟子靠着石壁喘息。远处更多的暗红光点在峡谷石壁间闪烁——天机阁伏兵还没有全部肃清。图3扫视战场。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图3
+    - file: SCENE-028
+      role: reference_image
+      label: 图4
+  dialogue:
+  - speaker: CHAR-004
+    line: "前面还有十几道守阵——"
+  - speaker: CHAR-004
+    line: "元婴期长老坐镇。"
+  transition_to_next: hard_cut
+- shot_id: EP46-S06
+  shot_no: 6
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-028
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-003-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-028: https://placeholder.example/SCENE-028.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔在暗紫魔气雾中醒目）【图2】苏瑶 CHAR-003-L01（素雅白衣，手心微光按在弟子伤口上止血）【图3】SCENE-028（天裂谷·外围）。5秒 MS 固定镜头：联盟弟子闻声抬头——看清来人后眼中闪过希望又迅速黯灭。图2快步上前，手心微光按在弟子伤口上止血。图1扫视完战场，金色瞳孔格外醒目，黑战袍沾上飞溅的尘土。他没有停下脚步，边走边开口，声音不高但每个字都压在所有人耳朵里。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-028
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: "拖得越久，仪式越近完成。"
+  - speaker: CHAR-001
+    line: "往里冲。"
+  - speaker: CHAR-003
+    line: "……他又来了。明知前面是死路——"
+  transition_to_next: hard_cut
+- shot_id: EP46-S07
+  shot_no: 7
+  mode: i2v_ref
+  duration_sec: 4
+  refs:
+    scene_id: SCENE-028
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-028: https://placeholder.example/SCENE-028.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔，掌心吞噬印记持续运转）【图2】沈墨 CHAR-004-L01（灰袍撕裂，灰色身影如影子跟随）【图3】SCENE-028（天裂谷·外围）。4秒 MS 固定镜头：三人在峡谷中急行。图1在前，掌心吞噬印记持续运转——金色灵光从掌心蔓延至前臂，如护盾般推开两壁渗出的暗红魔气。图2在右后方，灰色身影如影子般跟随。魔气比内谷浓厚数倍，每走一步都像在泥潭中跋涉。暗红的雾气贴着石壁蠕动，偶尔有暗紫裂缝在石壁中闪烁——法阵的触角已经延伸到这里。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-028
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-004
+    line: "魔气浓度在翻倍——"
+  transition_to_next: hard_cut
+- shot_id: EP46-S08
+  shot_no: 8
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-028
+    look_ids:
+    - CHAR-001-L03
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+    scene_urls:
+      SCENE-028: https://placeholder.example/SCENE-028.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔，掌心吞噬印记）【图2】SCENE-028（天裂谷·外围）。4秒 MS 固定镜头：脚下碎石猛烈震动。图1一个踉跄，左手撑住石壁稳住身形。沈墨单膝跪地才没有摔倒。震动从地底深处传来，带着低沉的令人牙酸的嗡鸣。金色光柱在远处剧烈脉动——金色的光波如涟漪般向四面八方扩散，震得峡谷碎石簌簌落下。图1的金色瞳孔中映出那道越来越亮的光柱。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: SCENE-028
+      role: reference_image
+      label: 图2
+  dialogue:
+  - speaker: CHAR-001
+    line: "第二次震了——七成变八成了？"
+  - speaker: CHAR-001
+    line: "不能停。"
+  transition_to_next: hard_cut
+- shot_id: EP46-S09
+  shot_no: 9
+  mode: i2v_ref
+  duration_sec: 4
+  refs:
+    scene_id: SCENE-028
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-004-L01
+    - "[待补：守阵修士]"  # PLACEHOLDER: 需 production-planner 分配 CHAR-GRP-## + character-designer 回补 L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      "[待补：守阵修士]": https://placeholder.example/CHAR-待补-守阵修士.png
+    scene_urls:
+      SCENE-028: https://placeholder.example/SCENE-028.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔）【图2】沈墨 CHAR-004-L01（灰袍撕裂，凤眼扫过屏障）【图3】守阵修士 [待补：守阵修士]（残破黑袍，皮肤暗紫魔纹蠕动，双眼混浊通红，嘴角泛白沫）【图4】SCENE-028（天裂谷·外围）。4秒 MLS 固定镜头：穿过最后一段峡谷通道——谷口开阔地眼前，一面暗紫法阵屏障横亘路中，如一面巨大的暗紫色水晶墙。屏障表面黑红符文流动如血管搏动，散发令人窒息的灵力压迫。屏障后方隐约可见谷心的金色光芒。图3站在屏障前——残破黑袍，皮肤上暗紫魔纹如蛇蠕动，嘴角流血，体内灵力正在以自毁的方式燃烧维持屏障。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: "[待补：守阵修士]"
+      role: reference_image
+      label: 图3
+    - file: SCENE-028
+      role: reference_image
+      label: 图4
+  dialogue:
+  - speaker: "[待补：守阵修士]"
+    line: "来啊……哈哈哈……"
+  transition_to_next: hard_cut
+- shot_id: EP46-S10
+  shot_no: 10
+  mode: i2v_ref
+  duration_sec: 4
+  refs:
+    scene_id: SCENE-028
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-028: https://placeholder.example/SCENE-028.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔，掌心吞噬印记亮如金灯）【图2】沈墨 CHAR-004-L01（灰袍撕裂，凤眼中暗红闪烁不定，半笑消失）【图3】SCENE-028（天裂谷·外围）。4秒 MS 固定镜头：图2凤眼扫过屏障，薄唇微动，半笑消失——他认真了。暗红光芒映在他苍白面容上，凤眼中暗红闪烁不定。图1已经抬起右掌，吞噬印记亮如金灯。金色瞳孔中映出暗紫屏障，他没有犹豫。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-028
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-004
+    line: "这是自毁式守阵——需要时间。"
+  - speaker: CHAR-001
+    line: "来不及。打穿它。"
+  - speaker: CHAR-001
+    line: "不到底，不知道代价。"
+  transition_to_next: hard_cut
+- shot_id: EP46-S11
+  shot_no: 11
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-028
+    look_ids:
+    - CHAR-001-L03
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+    scene_urls:
+      SCENE-028: https://placeholder.example/SCENE-028.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔，掌心吞噬印记金光暴涨）【图2】SCENE-028（天裂谷·外围）。5秒 MS 固定镜头：图1双掌前推——掌心吞噬印记金光暴涨，一道金色冲击波如天锤般正面撞上暗紫屏障。两股力量接触的瞬间，空间震颤——碎石飞溅，谷口石壁被震裂出数道裂缝。暗紫屏障从接触点开始碎裂，裂纹如蛛网蔓延，黑红符文在裂纹中明灭挣扎。图1黑战袍猎猎作响，金色灵光将他周身魔气逼退数步。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: SCENE-028
+      role: reference_image
+      label: 图2
+  dialogue:
+  - speaker: CHAR-001
+    line: "破——！"
+  transition_to_next: hard_cut
+- shot_id: EP46-S12
+  shot_no: 12
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-028
+    look_ids:
+    - CHAR-001-L03
+    - "[待补：守阵修士]"  # PLACEHOLDER: 需 production-planner 分配 CHAR-GRP-## + character-designer 回补 L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      "[待补：守阵修士]": https://placeholder.example/CHAR-待补-守阵修士.png
+    scene_urls:
+      SCENE-028: https://placeholder.example/SCENE-028.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔，半跪在地气喘）【图2】守阵修士 [待补：守阵修士]（残破黑袍，被冲击波掀飞撞壁）【图3】SCENE-028（天裂谷·外围）。5秒 MS 缓推：法阵屏障轰然碎裂——暗紫碎片如玻璃般四散，碎片落地后化为黑色烟气消散。图2被冲击波掀飞，重重撞在石壁上，口中喷出大口鲜血，滑落碎石堆中不动了。图1半跪在地，气喘——不是累，是痛。金色冲击波消散，谷口暗红魔气撕开了一个口子，透出谷心方向的金色微光。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: "[待补：守阵修士]"
+      role: reference_image
+      label: 图2
+    - file: SCENE-028
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: "这一关，过不去——就没有下一关了。"
+  transition_to_next: hard_cut
+- shot_id: EP46-S13
+  shot_no: 13
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-028
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-003-L01
+  prop_ids:
+  - PROP-002
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-028: https://placeholder.example/SCENE-028.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔，右手掌心吞噬印记边缘出现细小裂纹）【图2】苏瑶 CHAR-003-L01（素雅白衣，急切注视）【图3】SCENE-028（天裂谷·外围）。5秒 CU 固定镜头：图1低头看自己的右手掌——掌心吞噬印记的边缘出现了细小裂纹，金色光从裂纹中渗出，如金色血液。掌心与印记接触处隐隐发烫。这是从未有过的——吞噬印记是他的一部分，它在反抗。谷口暗紫余气在身后缓缓闭合，沈墨在远处走来，凤眼盯着图1的掌心。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-028
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-003
+    line: "掌心——"
+  - speaker: CHAR-001
+    line: "知道。"
+  transition_to_next: hard_cut
+- shot_id: EP46-S14
+  shot_no: 14
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-028
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-003-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-028: https://placeholder.example/SCENE-028.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔平静，右掌微微握拳遮住裂纹）【图2】苏瑶 CHAR-003-L01（素雅白衣，手悬半空握成拳）【图3】SCENE-028（天裂谷·外围）。5秒 MCU 固定镜头：图2伸手要碰图1的掌心——图1轻轻避开。金色瞳孔平静得不像有伤的人。他站起身，右掌微微握拳遮住裂纹，抬起目光看向谷心方向。谷口通道内金色光芒在远处隐约闪烁，魔气与灵力的混合气息扑面而来——灼热而危险。图2的手悬在半空，握成了拳。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-028
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: "离法阵越近，它越排斥。"
+  - speaker: CHAR-003
+    line: "你的身体——"
+  - speaker: CHAR-001
+    line: "为了活着的人。"
+  transition_to_next: hard_cut
+- shot_id: EP46-S15
+  shot_no: 15
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-028
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-003-L01
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-028: https://placeholder.example/SCENE-028.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔发亮，步伐坚定）【图2】苏瑶 CHAR-003-L01（素雅白衣，目光几次落在图1握拳右手上）【图3】沈墨 CHAR-004-L01（灰袍撕裂，走在最前引路，金色光芒中拉出修长影子）【图4】SCENE-028（天裂谷·外围）。5秒 MS 固定镜头：三人穿过破阵后的碎石通道，脚踩在法阵碎片上嘎吱作响。图3走在最前引路，灰色身影在金色光芒中拉出修长的影子。图2紧跟图1，目光几次落在他握拳的右手上。图1步伐坚定，金色瞳孔在昏暗的峡谷中发亮——他在调整呼吸，压制体内吞噬之力与法阵灵力之间的排斥反应。峡谷尽头金色光芒越来越亮。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图3
+    - file: SCENE-028
+      role: reference_image
+      label: 图4
+  dialogue:
+  - speaker: CHAR-001
+    line: "我闻到了……不是血，是灵力在燃烧。"
+  transition_to_next: hard_cut
+- shot_id: EP46-S16
+  shot_no: 16
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-028
+    look_ids:
+    - CHAR-001-L03
+    - CHAR-003-L01
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-028: https://placeholder.example/SCENE-028.png
+  api:
+    text: "【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔）【图2】苏瑶 CHAR-003-L01（素雅白衣沾尘）【图3】沈墨 CHAR-004-L01（灰袍撕裂）【图4】SCENE-028（天裂谷·外围）。5秒 LS 固定镜头：三人踏上谷口尽头的碎石坡——眼前豁然开朗。天裂谷谷口全景：天幕被暗红色的裂缝撕开，裂缝中泄漏着不属于这个世界的异色光芒。谷心位置，九道金色光柱从地面直冲天际，如九根通天巨柱，每一道都是一处吞噬之源的全部灵力。光柱围绕着一个巨大的法阵缓缓旋转，阵纹脉动如心跳，每跳一次天地间的灵力便稀薄一分——周围石壁在枯竭，草木在枯萎，连空气都在变薄。"
+    content_roles:
+    - file: CHAR-001-L03
+      role: reference_image
+      label: 图1
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图3
+    - file: SCENE-028
+      role: reference_image
+      label: 图4
+  dialogue:
+  - speaker: 旁白
+    line: "九柱通天，七成之力——他停不下来，他们也停不下来。"
+  transition_to_next: hard_cut

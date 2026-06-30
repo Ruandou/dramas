@@ -1,0 +1,449 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP60/EP60_上界降临.md
+# Source shots: 15 (EP60-S01 to EP60-S15)
+# Output shots: 15 (EP60-S01 to EP60-S15)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s (computed from shot table: 5+5+6+5+6+6+12+6+6+6+6+6+6+5+4=90)
+# Output total duration: 90s
+# Gate status: ALL PASS (G1: 90s in [75,120] ✅; G2: 15=15 ✅; G3: all IDs valid ✅; G4: all voice_prompts found ✅)
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+# Note: look_ids frontmatter declares CHAR-002-L03 but shot table uses CHAR-002-L01 (S08/S10/S12/S15).
+#   Following shot table as more granular source. CHAR-017-L01 also used in S14 (not in frontmatter look_ids).
+# Note: S06 and S07 are t2v mode — no reference images, no content_roles, no assets.
+# Note: S13 contains 内心 (inner monologue) dialogue for CHAR-003 — treated as character speech per shot table.
+# Note: S14 has no dialogue (SFX only) — dialogue field is empty.
+# Note: S01 and SEG03/SEG05/SEG06/SEG07 exceed ≤2 speakers guideline; documented in segments.yaml comments.
+# SEMANTIC_WARNINGS: S06/S07 t2v mode — CHAR-017 visual continuity relies on prompt description only (no ref image).
+#   Total: 1 semantic warning (below threshold of 3).
+episode_id: EP60
+source_md: 剧本/EP60/EP60_上界降临.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+shots:
+- shot_id: EP60-S01
+  shot_no: 1
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L04
+    - CHAR-003-L01
+    - CHAR-004-L01
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍）【图2】苏瑶 CHAR-003-L01（白衣）【图3】沈墨 CHAR-004-L01（灰衣）【图4】天裂谷·谷心法阵 SCENE-030。5秒 MS 缓推：天裂谷战后废墟——碎石遍地，九道光柱已熄灭，法阵符文灰暗。天空裂缝比EP59更宽，金紫色光芒从中倾泻如瀑布。三人仰望裂缝，面容被金紫光芒照亮。裂缝深处的金色人影比EP59更清晰——轮廓已能辨识战甲纹路和飘散的长发，周身环绕金色星辰粒子。图1的瞳孔中倒映着那道人影，面色凝重。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: CHAR-004-L01, role: reference_image, label: 图3}
+    - {file: SCENE-030, role: reference_image, label: 图4}
+  dialogue:
+  - speaker: CHAR-004
+    line: "它在说话。"
+  - speaker: CHAR-003
+    line: "那道人影……是什么？"
+  - speaker: CHAR-001
+    line: "裂缝深处……那个声音在说——"
+  transition_to_next: hard_cut
+- shot_id: EP60-S02
+  shot_no: 2
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L04
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍）【图2】天裂谷·谷心法阵 SCENE-030。5秒 CU 固定镜头：图1面部特写——金紫光芒在他瞳孔中流转，如微型星河。掌心吞噬印记剧烈跳动，金色光点从掌心飞散，与天空裂缝的光芒遥相呼应。他的面色从震惊转为沉痛——他听懂了裂缝中那个声音在说什么。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: SCENE-030, role: reference_image, label: 图2}
+  dialogue:
+  - speaker: CHAR-001
+    line: "它在说……收割。"
+  transition_to_next: hard_cut
+- shot_id: EP60-S03
+  shot_no: 3
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-004-L01
+    - CHAR-003-L01
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】沈墨 CHAR-004-L01（灰衣）【图2】苏瑶 CHAR-003-L01（白衣）【图3】天裂谷·谷心法阵 SCENE-030。6秒 MS 镜头拉远：裂缝边缘岩石如被无形之力撕扯，一块块剥落坠入黑暗。裂缝深处金紫色光芒脉动加速——金色人影的轮廓逐渐清晰：身着金色战甲，银白长发飘散，周身环绕星辰般的金色粒子，如天神俯视凡人。碎石从人影周围旋转坠落，金光在崖壁上投下流动的光斑。"
+    content_roles:
+    - {file: CHAR-004-L01, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-004
+    line: "那道人影……还没成形。"
+  - speaker: CHAR-003
+    line: "但它已经——"
+  transition_to_next: hard_cut
+- shot_id: EP60-S04
+  shot_no: 4
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-007-L01
+    - CHAR-002-L01
+  assets:
+    look_urls:
+      CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png
+      CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】柳青青 CHAR-007-L01（粉衣，双丫髻散乱）【图2】赵天行 CHAR-002-L01（深灰长袍）【图3】天裂谷·谷心法阵 SCENE-030。5秒 MLS 固定镜头：图1从图3身后探出半张脸，双手紧攥图1衣袖，指节发白。图2扶着一块碎石勉强站立，双腿在发抖，深灰长袍的下摆被气流吹得猎猎作响，不敢抬头看裂缝。远处几个联盟修士仓皇后退，有人跌坐在地。"
+    content_roles:
+    - {file: CHAR-007-L01, role: reference_image, label: 图1}
+    - {file: CHAR-002-L01, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-007
+    line: "林渊哥哥……我害怕……"
+  - speaker: CHAR-002
+    line: "那种力量……"
+  transition_to_next: hard_cut
+- shot_id: EP60-S05
+  shot_no: 5
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L04
+    - CHAR-003-L01
+    - CHAR-004-L01
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍）【图2】苏瑶 CHAR-003-L01（白衣）【图3】沈墨 CHAR-004-L01（灰衣）【图4】天裂谷·谷心法阵 SCENE-030。6秒 MLS 缓推：三人仰望裂缝——金色人影在裂缝中悬浮，面容仍被光芒遮蔽但轮廓已清晰可辨：金色战甲上的天界符文缓缓流转，银白长发如星河般飘散。金紫色光芒从人影身上洒落如细雨，照亮三人仰起的面容。图1的影子在脚下拉得很长。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: CHAR-004-L01, role: reference_image, label: 图3}
+    - {file: SCENE-030, role: reference_image, label: 图4}
+  dialogue:
+  - speaker: CHAR-001
+    line: "你……到底是什么？"
+  - speaker: CHAR-003
+    line: "林渊……那个声音——"
+  transition_to_next: hard_cut
+- shot_id: EP60-S06
+  shot_no: 6
+  mode: t2v
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-017-L01
+  assets:
+    look_urls:
+      CHAR-017-L01: https://placeholder.example/CHAR-017-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "6秒 CU 固定镜头：裂缝深处金色人影的胸部以上特写——金色战甲表面的天界符文如活物般缓缓流动，银白长发在无风中飘散。人影的面容仍在光芒中若隐若现，唯有双眼如两颗金色恒星般明亮——冰冷、居高临下、审视。人影微微偏头，如审视一只蝼蚁。"
+    content_roles: []
+  dialogue:
+  - speaker: CHAR-017
+    line: "不过是养蛊场罢了。"
+  - speaker: CHAR-017
+    line: "你们所处的天地——不过是上界培育强者的蛊场。"
+  transition_to_next: hard_cut
+- shot_id: EP60-S07
+  shot_no: 7
+  mode: t2v
+  duration_sec: 12
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-017-L01
+  assets:
+    look_urls:
+      CHAR-017-L01: https://placeholder.example/CHAR-017-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "12秒 MCU 缓推：金色人影胸部以上——银白长发在金紫光芒中飘散，人影微微前倾，压迫感骤增。金色战甲表面的天界符文流转加速，如心跳般脉动。人影的双手缓缓从身体两侧抬起——巨大的金色手掌上布满流动的宇宙图案和星辰光点。光芒从人影身上倾泻而下如金色暴雨，照亮整个谷底废墟。碎石开始悬浮，地面法阵残纹崩裂。"
+    content_roles: []
+  dialogue:
+  - speaker: CHAR-017
+    line: "一千二百年。"
+  - speaker: CHAR-017
+    line: "收割一次。所有的天才、宗门、战争……"
+  - speaker: CHAR-017
+    line: "不过是培养祭品的容器。"
+  transition_to_next: hard_cut
+- shot_id: EP60-S08
+  shot_no: 8
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-002-L01
+    - CHAR-007-L01
+  assets:
+    look_urls:
+      CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png
+      CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】赵天行 CHAR-002-L01（深灰长袍）【图2】柳青青 CHAR-007-L01（粉衣）【图3】天裂谷·谷心法阵 SCENE-030。6秒 MS 固定镜头：图1双膝弯曲几乎跪倒——双手撑在碎石上，十指抠进地面裂缝，浑身剧烈颤抖，面容扭曲如被雷击。他终于抬起头看向天空裂缝，眼中满是恐惧与崩溃——曾经傲慢不可一世的大师兄，此刻像个被碾碎的蝼蚁。图2在旁边抱住自己双臂，泪流满面。"
+    content_roles:
+    - {file: CHAR-002-L01, role: reference_image, label: 图1}
+    - {file: CHAR-007-L01, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-002
+    line: "天机阁阁主……也只是……"
+  - speaker: CHAR-002
+    line: "一颗棋子？"
+  - speaker: CHAR-007
+    line: "林渊哥哥……"
+  transition_to_next: hard_cut
+- shot_id: EP60-S09
+  shot_no: 9
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-004-L01
+    - CHAR-001-L04
+    - CHAR-003-L01
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】沈墨 CHAR-004-L01（灰衣）【图2】林渊 CHAR-001-L04（白色仙袍）【图3】苏瑶 CHAR-003-L01（白衣）【图4】天裂谷·谷心法阵 SCENE-030。6秒 MS 固定镜头：图1凤眼微眯——眼底那抹暗红光芒骤然暴涨又瞬间压制，嘴角微微抽搐，如触碰到了某种刻在血脉中的古老记忆。图2的面色从震惊转为顿悟——如拼图碎片在脑海中猛然拼合。图3在旁边紧握图2的手腕，目光从裂缝移到图2脸上，瞳孔微缩——她也想通了。"
+    content_roles:
+    - {file: CHAR-004-L01, role: reference_image, label: 图1}
+    - {file: CHAR-001-L04, role: reference_image, label: 图2}
+    - {file: CHAR-003-L01, role: reference_image, label: 图3}
+    - {file: SCENE-030, role: reference_image, label: 图4}
+  dialogue:
+  - speaker: CHAR-004
+    line: "吞噬一族……一直在反抗收割。"
+  - speaker: CHAR-004
+    line: "这才是灭族的真正原因。"
+  - speaker: CHAR-001
+    line: "所以……吞噬之力——"
+  transition_to_next: hard_cut
+- shot_id: EP60-S10
+  shot_no: 10
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-003-L01
+    - CHAR-002-L01
+  assets:
+    look_urls:
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】苏瑶 CHAR-003-L01（白衣）【图2】赵天行 CHAR-002-L01（深灰长袍）【图3】天裂谷·谷心法阵 SCENE-030。6秒 MS 固定镜头：图1双拳紧握，白衣被气流吹得紧贴身体，面容从恐惧转为悲愤——作为与吞噬一族有渊源的人，终于明白了千年的秘密。图2双手抱头，十指插入灰白鬓角的发丝中，指甲抠进头皮，浑身发抖如筛糠。"
+    content_roles:
+    - {file: CHAR-003-L01, role: reference_image, label: 图1}
+    - {file: CHAR-002-L01, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-003
+    line: "千年前……那个传说中掌握禁忌力量的种族……"
+  - speaker: CHAR-002
+    line: "一千二百年……一次……"
+  transition_to_next: hard_cut
+- shot_id: EP60-S11
+  shot_no: 11
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L04
+    - CHAR-004-L01
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍）【图2】沈墨 CHAR-004-L01（灰衣）【图3】天裂谷·谷心法阵 SCENE-030。6秒 MCU 缓推：图1缓缓握紧右拳——掌心吞噬印记爆发出金色光芒，凌厉如刀刃，在指缝间锐利闪烁。金色光流沿手臂蔓延，与天空裂缝中金色人影的光芒形成对峙——两种同源的力量在无声角力。面容在双重光芒中忽明忽暗，眼神从震撼转为冰冷决绝。图2在旁边看着图1掌心的光与天空的光交汇，凤眼中闪过一丝从未有过的敬畏。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-001
+    line: "天机阁阁主？棋子罢了。"
+  - speaker: CHAR-001
+    line: "所有天才、宗门……都是为它培养的祭品。"
+  - speaker: CHAR-004
+    line: "收割的时间……到了。"
+  transition_to_next: hard_cut
+- shot_id: EP60-S12
+  shot_no: 12
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-003-L01
+    - CHAR-004-L01
+    - CHAR-007-L01
+    - CHAR-002-L01
+  assets:
+    look_urls:
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png
+      CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】苏瑶 CHAR-003-L01（白衣）【图2】沈墨 CHAR-004-L01（灰衣）【图3】柳青青 CHAR-007-L01（粉衣）【图4】赵天行 CHAR-002-L01（深灰长袍）【图5】天裂谷·谷心法阵 SCENE-030。6秒 MLS 固定镜头：图1猛地转身抓住林渊衣袖，指节泛白，眼眶泛红。图2斜靠在碎石上，凤眼始终盯着裂缝中的人影，嘴角永恒的微笑第一次消失。图3捂住嘴，泪水从指缝滑落。图4已跌坐在废墟中，双膝跪地，双手撑地，头深深埋下，浑身颤抖如风中落叶。"
+    content_roles:
+    - {file: CHAR-003-L01, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: CHAR-007-L01, role: reference_image, label: 图3}
+    - {file: CHAR-002-L01, role: reference_image, label: 图4}
+    - {file: SCENE-030, role: reference_image, label: 图5}
+  dialogue:
+  - speaker: CHAR-003
+    line: "林渊，别冲动——"
+  - speaker: CHAR-004
+    line: "你挡不住的。"
+  - speaker: CHAR-004
+    line: "那又如何？"
+  - speaker: CHAR-001
+    line: "我偏要试。"
+  transition_to_next: hard_cut
+- shot_id: EP60-S13
+  shot_no: 13
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L04
+    - CHAR-003-L01
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍）【图2】苏瑶 CHAR-003-L01（白衣）【图3】天裂谷·谷心法阵 SCENE-030。6秒 MCU 缓推：图1从人群中缓步走出——白色仙袍被气流吹得翻飞如旗，一步步走向谷心法阵中央，站在金紫色光芒的正下方。他抬头直视裂缝中那道金色人影，面容在双重光芒映照下忽明忽暗。右手缓缓抬起，掌心吞噬印记爆发出耀眼的金色光芒——一道金色漩涡从掌心旋转展开，直径迅速扩大至数米，金色光流如触须般向外蔓延，与天空裂缝中金紫色光芒形成对峙之势。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  dialogue:
+  - speaker: CHAR-003
+    line: "他要挡在所有人前面……不，不要——"
+  - speaker: CHAR-003
+    line: "林渊……"
+  transition_to_next: hard_cut
+- shot_id: EP60-S14
+  shot_no: 14
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-017-L01
+  assets:
+    look_urls:
+      CHAR-017-L01: https://placeholder.example/CHAR-017-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】万界监者手掌 CHAR-017-L01【图2】天裂谷·谷心法阵 SCENE-030。5秒 CU 镜头拉远：天空裂缝猛然撕裂扩大——金紫色光芒爆闪如雷暴，裂缝中伸出一只巨大的金色手掌。手掌布满流动的天界符文和宇宙图案，金色金属皮肤在光芒中反射出星辰般的光泽，五指张开如天神之爪，指尖的金光锐利如剑锋。手掌在裂缝中停留一瞬，然后缓缓向下伸来——手掌巨大得遮蔽了半个天裂谷的天空，投下的阴影如夜幕降临般笼罩地面所有人。"
+    content_roles:
+    - {file: CHAR-017-L01, role: reference_image, label: 图1}
+    - {file: SCENE-030, role: reference_image, label: 图2}
+  dialogue: []
+  transition_to_next: hard_cut
+- shot_id: EP60-S15
+  shot_no: 15
+  mode: i2v_ref
+  duration_sec: 4
+  refs:
+    scene_id: SCENE-030
+    look_ids:
+    - CHAR-001-L04
+    - CHAR-003-L01
+    - CHAR-004-L01
+    - CHAR-007-L01
+    - CHAR-002-L01
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+      CHAR-007-L01: https://placeholder.example/CHAR-007-L01.png
+      CHAR-002-L01: https://placeholder.example/CHAR-002-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: "【图1】林渊 CHAR-001-L04（白色仙袍）【图2】苏瑶 CHAR-003-L01（白衣）【图3】沈墨 CHAR-004-L01（灰衣）【图4】柳青青 CHAR-007-L01（粉衣）【图5】赵天行 CHAR-002-L01（深灰长袍）【图6】天裂谷·谷心法阵 SCENE-030。4秒 ELS 镜头拉远：天裂谷全景——图1独自站在谷心法阵中央，右掌高举，金色漩涡如盾牌般旋转展开，身影在巨大金色手掌投下的阴影中如蝼蚁般渺小。图2、图3、图4在身后仰望，图5跪伏在地。地面法阵符文崩裂，碎石悬浮如逆向暴雨。金色手掌的阴影越来越近。"
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: CHAR-004-L01, role: reference_image, label: 图3}
+    - {file: CHAR-007-L01, role: reference_image, label: 图4}
+    - {file: CHAR-002-L01, role: reference_image, label: 图5}
+    - {file: SCENE-030, role: reference_image, label: 图6}
+  dialogue:
+  - speaker: CHAR-017
+    line: "收割……开始了。"
+  transition_to_next: hard_cut

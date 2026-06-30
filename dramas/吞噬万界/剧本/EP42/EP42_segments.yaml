@@ -1,0 +1,268 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP42/EP42_天裂谷.md
+# Source shots: 18 (EP42-S01 to EP42-S18)
+# Output segments: 8 (EP42-SEG01 to EP42-SEG08)
+# Segment-to-shot mapping: SEG01:S01-S02 | SEG02:S03-S05 | SEG03:S06-S07 | SEG04:S08-S09 | SEG05:S10-S11 | SEG06:S12-S13 | SEG07:S14-S16 | SEG08:S17-S18
+# Source total duration: 88s (computed: 4+4+4+3+3+5+5+5+5+5+5+5+5+4+3+3+5+5=88)
+# Output total duration: 88s (8+10+10+10+10+10+10+10=88)
+# Gate status: G1 PASS (88s within 75-120s); G2 PASS (18 shots); G3 PASS; G4 PASS
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+episode_id: EP42
+source_md: 剧本/EP42/EP42_天裂谷.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-002: "成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖"
+
+segments:
+- segment_id: EP42-SEG01
+  shot_ids: [EP42-S01, EP42-S02]
+  duration_sec: 8
+  speakers: [CHAR-002]
+  refs:
+    scene_id: SCENE-023
+  assets:
+    look_urls:
+      CHAR-002-L02: https://placeholder.example/CHAR-002-L02.png
+    scene_urls:
+      SCENE-023: https://placeholder.example/SCENE-023.png
+  api:
+    text: |
+      【图1】赵天行 CHAR-002-L02（暗红黑金天机阁战袍，银护肩有裂痕血迹）【图2】青云宗闭关密室走廊 SCENE-023。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）CU 固定：深夜石壁走廊尽头昏黄铜灯，图1立于密室木门前，暗红黑金战袍如凝固的血。右手紧握暗红灵剑，手背青筋暴起。鹰目死死盯着门缝透出的金色微光。
+      镜头2（4秒）ECU 缓推：图1握剑的手大特写，指节泛白，手背旧伤疤在铜灯光中清晰。剑柄暗红宝石映着摇曳灯光，手在微微发抖。走廊石壁投下巨大扭曲的影子。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「杀了林渊。」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「阁主的命令……不能违抗。」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「杀？还是不杀？」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「……没有时间了。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-002-L02, role: reference_image, label: 图1 }
+    - { file: SCENE-023, role: reference_image, label: 图2 }
+  transition_to_next: hard_cut
+
+- segment_id: EP42-SEG02
+  shot_ids: [EP42-S03, EP42-S04, EP42-S05]
+  duration_sec: 10
+  speakers: [CHAR-001, CHAR-002]
+  refs:
+    scene_id: SCENE-023
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-002-L02: https://placeholder.example/CHAR-002-L02.png
+    scene_urls:
+      SCENE-023: https://placeholder.example/SCENE-023.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒，银肩甲）【图2】赵天行 CHAR-002-L02（暗红黑金天机阁战袍，银护肩有裂痕血迹）【图3】青云宗闭关密室 SCENE-023。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）MS 固定：封闭石室四壁刻满修炼符文发出极微弱青色灵光。图1盘坐于暗金色蒲团上闭目修炼，掌心吞噬印记微微泛金，金色灵力如细流环绕周身。黑战袍金纹在灵力微光中如暗夜中的金蛇。银肩甲反射青色符文冷光。室内极静。
+      镜头2（3秒）MLS 固定：图2推门而入，木门发出沉重的吱呀声。他持剑站在门框中，暗红战袍身影在门外走廊昏黄光线中如一道剪影。图1依然闭目，面无表情，金色灵力环绕如常。两人之间隔着三步距离和一室寂静。
+      镜头3（3秒）CU 固定：图2正面特写，持剑跨入密室。鹰目中映着图1掌心金色灵光——有恐惧，有犹豫，还有一丝被逼入绝境的疯狂。面颊新伤疤在青色符文光中格外清晰。喉结微微滚动。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「林渊……」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「他还在修炼……现在动手。」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「不……再不走就来不及了。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+    - { file: SCENE-023, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+
+- segment_id: EP42-SEG03
+  shot_ids: [EP42-S06, EP42-S07]
+  duration_sec: 10
+  speakers: [CHAR-001, CHAR-002]
+  refs:
+    scene_id: SCENE-023
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-002-L02: https://placeholder.example/CHAR-002-L02.png
+    scene_urls:
+      SCENE-023: https://placeholder.example/SCENE-023.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒，银肩甲）【图2】赵天行 CHAR-002-L02（暗红黑金天机阁战袍，银护肩有裂痕血迹）【图3】青云宗闭关密室 SCENE-023。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MCU 缓推：图2举剑——暗红灵剑剑尖直指图1咽喉，距离不足一尺。剑身在图1掌心金光中反射出冰冷的红光。图2鹰目死死盯着图1闭合的双眼，呼吸急促。手在发抖。
+      镜头2（5秒）CU 缓推：图1缓缓睁眼——金色瞳孔在昏暗石室中如两点寒星亮起。瞳孔中映着剑尖寒光和图2扭曲的面容。面容极静，没有惊慌没有愤怒，只有一种冰冷的审视。银肩甲上金色灵纹微微一亮。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「他闭着眼……现在……」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「给我一个不开口的理由——」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「你以为我不知道？」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+    - { file: SCENE-023, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+
+- segment_id: EP42-SEG04
+  shot_ids: [EP42-S08, EP42-S09]
+  duration_sec: 10
+  speakers: [CHAR-001]
+  refs:
+    scene_id: SCENE-023
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+    scene_urls:
+      SCENE-023: https://placeholder.example/SCENE-023.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒，银肩甲）【图2】青云宗闭关密室 SCENE-023。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MCU 缓推：图1站起，不紧不慢地绕过蒲团走向赵天行。黑战袍在灵力微光中如暗夜之影移动。金色瞳孔始终锁定赵天行的眼睛——不是威胁，是一种更高维度的审视。赵天行本能地后退半步，但剑尖始终没有收回。
+      镜头2（5秒）CU 固定：图1正面特写，从暗处缓缓推近。金色瞳孔冷冽如冰——没有怒意，只有冷静的判断。掌心吞噬印记泛出一丝金光。声音极低极慢，每个字都像在下棋。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「你的家人被天机阁扣着。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「杀了我——你家人也活不了。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「不杀我——你死，家人还是死。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「天机阁从不放人。你知道的。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: SCENE-023, role: reference_image, label: 图2 }
+  transition_to_next: hard_cut
+
+- segment_id: EP42-SEG05
+  shot_ids: [EP42-S10, EP42-S11]
+  duration_sec: 10
+  speakers: [CHAR-001, CHAR-002]
+  refs:
+    scene_id: SCENE-023
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-002-L02: https://placeholder.example/CHAR-002-L02.png
+    scene_urls:
+      SCENE-023: https://placeholder.example/SCENE-023.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒，银肩甲）【图2】赵天行 CHAR-002-L02（暗红黑金天机阁战袍，银护肩有裂痕血迹）【图3】青云宗闭关密室 SCENE-023。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）CU 固定：图2正面特写。听到"家人也活不了"，鹰目猛然瞪大——瞳孔深处有什么东西碎裂了。嘴唇剧烈颤抖。手中暗红灵剑开始往下坠——手腕在发软。面颊旧伤疤因面部肌肉扭曲而变形。窗外上界裂缝冷光在他半张脸上投下青灰色。
+      镜头2（5秒）MLS 固定：灵剑从图2手中滑落——剑尖先着地，在石板上弹了一下发出清脆金属声。图2双膝一软跪倒在图1面前。暗红战袍铺散在冰冷石板上。图1居高临下看着他，面容如铸，没有得意——只有一种冷峻的确认。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「我……我的女儿……」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「林渊……求你……救救我的家人。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+    - { file: SCENE-023, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+
+- segment_id: EP42-SEG06
+  shot_ids: [EP42-S12, EP42-S13]
+  duration_sec: 10
+  speakers: [CHAR-001, CHAR-002]
+  refs:
+    scene_id: SCENE-023
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-002-L02: https://placeholder.example/CHAR-002-L02.png
+    scene_urls:
+      SCENE-023: https://placeholder.example/SCENE-023.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒，银肩甲）【图2】赵天行 CHAR-002-L02（暗红黑金天机阁战袍，银护肩有裂痕血迹）【图3】青云宗闭关密室 SCENE-023。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MS 固定：图1弯腰——不是俯身，是蹲下，与跪在地上的图2平视。居高临下的联盟领袖蹲下来，与一个叛徒平视。金色瞳孔中映着图2泪流满面的脸。灵力微光给两人之间空气镀上一层薄金。
+      镜头2（5秒）CU 固定：图1正面特写。金色瞳孔冷冽如冰，但嘴角微微一动——不是笑，是一种更深的东西。掌心吞噬印记泛出一丝金光又收敛。面容冷峻如铸，每一个字都带着不容拒绝的重量。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「告诉我——你要一辈子被人追杀，还是三天内一劳永逸？」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「杀了我——你家人死。不杀我——你死，家人还是死。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「还是说——你想要第三条路？」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+    - { file: SCENE-023, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+
+- segment_id: EP42-SEG07
+  shot_ids: [EP42-S14, EP42-S15, EP42-S16]
+  duration_sec: 10
+  speakers: [CHAR-001, CHAR-002]
+  refs:
+    scene_id: SCENE-023
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-002-L02: https://placeholder.example/CHAR-002-L02.png
+    scene_urls:
+      SCENE-023: https://placeholder.example/SCENE-023.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒，银肩甲）【图2】赵天行 CHAR-002-L02（暗红黑金天机阁战袍，银护肩有裂痕血迹）【图3】青云宗闭关密室 SCENE-023。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）MCU 固定：图2跪在地上，缓缓抬头看着图1。泪痕未干，但鹰目中燃起了一丝从未有过的坚定。暗红战袍在他身上显得格外沉重——像一件枷锁，也像一件即将被脱下的旧衣。他咬紧牙关，声音发颤但清晰。
+      镜头2（3秒）CU 固定：图1正面特写，听到"天裂谷"三个字，金色瞳孔微微收缩——不是惊讶，是确认。嘴唇抿紧成一条线。窗外上界裂缝冷光在他半张脸上涂上一层不祥的青灰。
+      镜头3（3秒）MCU 固定：图2跪在地上急切地继续，双手不自觉地攥紧膝盖处衣料。鹰目中满是恐惧与恳求交织的复杂情绪。暗红战袍上金色纹路在灵力微光中隐隐发亮。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「天裂谷——三天后，月蚀之夜。」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「阁主要在那里……打开上界通道。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「三天……比我想的更紧迫。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「但够了。」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「外围十二道禁制，只有天机阁令牌能过——硬闯会惊动所有伏兵。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+    - { file: SCENE-023, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+
+- segment_id: EP42-SEG08
+  shot_ids: [EP42-S17, EP42-S18]
+  duration_sec: 10
+  speakers: [CHAR-001, CHAR-002]
+  refs:
+    scene_id: SCENE-023
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-002-L02: https://placeholder.example/CHAR-002-L02.png
+    scene_urls:
+      SCENE-023: https://placeholder.example/SCENE-023.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金纹，金色瞳孔含星芒，银肩甲）【图2】赵天行 CHAR-002-L02（暗红黑金天机阁战袍，银护肩有裂痕血迹）【图3】青云宗闭关密室 SCENE-023。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MCU 固定：图1从怀中取出一枚暗红令牌——令牌表面刻着天机阁纹路，在掌心金光映照下闪烁不祥的暗红光泽。他将令牌握在掌心，转身面向墙上悬挂的天裂谷地图。地图上朱砂标注的禁制位置密密如铁壁。金色瞳孔映着地图的朱砂标记。
+      镜头2（5秒）MLS 缓推：图1背手转身——黑战袍背影如一座沉稳的山。图2仍跪在冰冷石板上，抬头望着图1的背影。暗红战袍在灵力微光中与图1的黑金战袍形成对比——一跪一立，一败一胜，但此刻权力关系已不是敌对而是选择。图1没有回头。窗外上界裂缝冷光给密室铺上一层不祥的青灰。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「上月攻破分坛——缴获的。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「三天。必须在仪式开始前到。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「你——领路。」
+      对白（赵天行，成年男性，20岁左右，声线高亢傲慢，语速快且咄咄逼人，后期转为卑微颤抖）：「这一次……站在该站的地方。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: CHAR-002-L02, role: reference_image, label: 图2 }
+    - { file: SCENE-023, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut

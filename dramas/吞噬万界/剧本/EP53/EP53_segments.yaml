@@ -1,0 +1,321 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP53/EP53_归来.md
+# Source shots: 19 (EP53-S01 to EP53-S19)
+# Output segments: 10 (EP53-SEG01 to EP53-SEG10)
+# Shot mapping: 1:1 across segments (no insertions, no deletions, no reordering)
+# Source total duration: 91s (computed from shot table: 5+3+3+6+4+8+5+5+5+5+4+4+5+5+5+6+4+4+5=91)
+# Output total duration: 91s (11+10+8+10+10+8+10+11+8+5=91)
+# NOTE: Source .md VALIDATION block claims 89s but individual shot durations sum to 91s.
+#   Output uses shot-level durations faithfully (91s total).
+# Gate status: ALL PASS (G1: 91s in [75,120] ✅; G2: 19=19 ✅; G3: all IDs valid ✅; G4: all voice_prompts found ✅)
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+episode_id: EP53
+source_md: 剧本/EP53/EP53_归来.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-003: "成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力"
+  CHAR-004: "成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷"
+  CHAR-013: "成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感"
+
+segments:
+- segment_id: EP53-SEG01
+  shot_ids: [EP53-S01, EP53-S02, EP53-S03]
+  duration_sec: 11
+  speakers: [CHAR-013, CHAR-004, CHAR-003]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-013-L01: https://placeholder.example/CHAR-013-L01.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】天机阁阁主 CHAR-013-L01（黑金长袍，黑金王冠，帝王气质）【图2】苏瑶 CHAR-003-L01（白衣染血，暗红锁链束缚双手，长发凌乱）【图3】沈墨 CHAR-004-L01（灰衣破碎，黑血嘴角，面容苍白）【图4】SCENE-030（天裂谷·谷心法阵·九道暗淡金色光柱）。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MS 固定：九道金色光柱从法阵边缘垂直射入天空，光柱比往常暗淡。法阵符文金光明灭不定。图1背对镜头站在法阵中央，黑金长袍在灵力气流中飘动。前景左侧：图2跪在地面，暗红色魔气锁链将双手缚在背后，白衣染满血迹。前景右侧：图3被暗红灵力悬在半空，灰衣破碎，嘴角溢血。
+      镜头2（3秒）CU 固定：图3被悬在半空——凤眼艰难睁开，嘴角溢出黑血，面容苍白如纸但嘴角竟然上扬，带着永恒的半笑。暗红灵力在身周流转如毒蛇。
+      镜头3（3秒）CU 固定：图2跪在地面——暗红锁链勒进手腕渗出血痕，白衣胸口被暗红灵力灼出焦痕。大眼睛含泪但强忍着不让泪落下，嘴唇微颤。远处深渊方向传来一声低沉的嗡鸣——金色的嗡鸣。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（天机阁阁主，成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感）：「你们的林渊……回不来了。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「他要是死了……你还会这么紧张？」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「林渊……」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。
+    content_roles:
+    - { file: CHAR-013-L01, role: reference_image, label: 图1 }
+    - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+    - { file: SCENE-030, role: reference_image, label: 图4 }
+  transition_to_next: hard_cut
+
+- segment_id: EP53-SEG02
+  shot_ids: [EP53-S04, EP53-S05]
+  duration_sec: 10
+  speakers: [CHAR-001]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍完好如新，金色纹路脉动，银肩甲反射璀璨金光，金色瞳孔含星芒旋转）【图2】SCENE-030（天裂谷·谷心法阵·深渊裂缝方向）。
+      竖屏9比16连贯叙事。
+      镜头1（6秒）LS 镜头拉远：深渊裂缝方向——一道金色光柱冲天而起，比周围九道光柱更亮更纯粹。光柱中，一个黑色人影缓缓升起。图1周身环绕金色漩涡，黑战袍在金色灵力中完好如新，银肩甲在光柱中反射璀璨金光。金色瞳孔在远处如两颗微型太阳，金色灵力粒子从身上向四面八方辐射。整个谷心的空气都在颤抖——渡劫期的威压碾压而来，法阵符文在威压下剧烈明灭。
+      镜头2（4秒）MCU 缓推：图1悬浮在金色光柱中缓缓上升至半空——金色瞳孔中星芒旋转如宇宙深处，面容平静如万年冰湖。黑战袍上金色纹路脉动如心跳，银肩甲完好无损。目光越过阁主，落在远处被缚的苏瑶方向——瞳孔微微收缩。金色漩涡在周身缓缓旋转如星系运转。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「她伤了。」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: SCENE-030, role: reference_image, label: 图2 }
+  transition_to_next: hard_cut
+
+- segment_id: EP53-SEG03
+  shot_ids: [EP53-S06]
+  duration_sec: 8
+  speakers: [CHAR-003]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】苏瑶 CHAR-003-L01（白衣染血，暗红锁链束缚，脸颊血痕，泪流满面）【图2】SCENE-030（天裂谷·谷心法阵·金色光柱映照）。
+      竖屏9比16连贯叙事。
+      镜头1（8秒）CU 缓推：图1仰望那道金色光柱——泪终于落下，滚过血迹斑斑的脸颊，留下两道白色泪痕。暗红锁链在金色光芒中微微颤动，似乎也感受到了那股碾压性的力量。眼神从震惊转为不敢置信再转为狂喜——嘴唇微张。背景中金色光柱的光芒映在她眼中如同两团小小的太阳。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「他……他回来了。」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「真的是他……」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。
+    content_roles:
+    - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+    - { file: SCENE-030, role: reference_image, label: 图2 }
+  transition_to_next: hard_cut
+
+- segment_id: EP53-SEG04
+  shot_ids: [EP53-S07, EP53-S08]
+  duration_sec: 10
+  speakers: [CHAR-013]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-013-L01: https://placeholder.example/CHAR-013-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】天机阁阁主 CHAR-013-L01（黑金长袍，黑金王冠，帝王气质）【图2】沈墨 CHAR-004-L01（灰衣破碎，满身伤痕）【图3】SCENE-030（天裂谷·谷心法阵·崖壁）。
+      角色分工：仅图1可执行攻击动作（甩飞图2）；图2为被动受击。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MS 固定：图1侧身——暗红灵力从掌心涌出，猛然将图2甩向崖壁。图2的身体如破布般撞上石壁，碎石飞溅，落地后滑出一道血痕。图1甚至没有看图2一眼，目光死死盯着金色光柱中的林渊方向。黑金王冠上暗红宝石闪烁，面容从震惊迅速恢复为帝王般的蔑视。
+      镜头2（5秒）MCU 固定：图1负手而立——黑金长袍在灵力气流中翻涌如帝王旗帜。面容苍老而威严，深邃的眼眸中闪过一丝不可置信但迅速被傲慢覆盖。微微抬下巴，用审视猎物的目光看着光柱中的林渊方向。暗红灵力在周身凝聚成若隐若现的帝王虚影。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（天机阁阁主，成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感）：「回来了又怎样？」
+      对白（天机阁阁主，成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感）：「在深渊里躲了几日，就以为能做本座的对手？」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。
+    content_roles:
+    - { file: CHAR-013-L01, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-030, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+
+- segment_id: EP53-SEG05
+  shot_ids: [EP53-S09, EP53-S10]
+  duration_sec: 10
+  speakers: [CHAR-001]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金色纹路脉动，银肩甲反射金光，金色瞳孔中星芒旋转如微型宇宙）【图2】SCENE-030（天裂谷·谷心法阵·金色漩涡环绕）。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MS 固定：图1悬浮在半空——金色漩涡在周身缓缓旋转如星系运转，金色瞳孔中星芒旋转如微型宇宙。面容平静如水，没有愤怒、没有得意——只有一种经历过最黑暗之后真正无所畏惧的淡然。黑战袍上的金色纹路脉动如心跳，银肩甲反射金色光柱的璀璨光芒。目光从苏瑶移到沈墨再落到阁主方向——每一眼都带着山海般的重量。
+      镜头2（5秒）CU 缓推：图1金色瞳孔特写——金中带星的瞳孔中，星芒骤然加速旋转。嘴唇微微翕动，声音极轻极低，如碾碎天地的雷鸣。金色灵力从身上猛然暴涨，整个谷心法阵的符文同时爆亮——渡劫期的威压如实质般碾压而下，空气中的灵力粒子全部静止。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「苏瑶伤了。沈墨也伤了。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「躲？」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: SCENE-030, role: reference_image, label: 图2 }
+  transition_to_next: hard_cut
+
+- segment_id: EP53-SEG06
+  shot_ids: [EP53-S11, EP53-S12]
+  duration_sec: 8
+  speakers: [CHAR-001, CHAR-013]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-013-L01: https://placeholder.example/CHAR-013-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金色纹路脉动，金色灵力漩涡扩大，金色光柱亮度猛然增加）【图2】天机阁阁主 CHAR-013-L01（面容从傲慢到震惊，瞳孔骤缩，嘴唇微微张开）【图3】SCENE-030（天裂谷·谷心法阵·白金色光芒笼罩）。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）MCU 固定：图1在金色光柱中——嘴唇再次翕动，吐出两个字。声音不大，但每一个音节都如同天地在共振。金色灵力漩涡在说出这两个字时扩大了一圈，金色光柱的亮度猛然增加，整个谷心被照成白金色。法阵地面的裂缝中涌出金色灵力。
+      镜头2（4秒）CU 固定：图2的面容——从傲慢到震惊。瞳孔骤缩，嘴唇微微张开。暗红灵力在周身紊乱了一瞬。右手不自觉地握紧——手指关节发白。曾经帝王般俯视一切的目光中，第一次出现了不可置信的裂痕。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「渡劫期。」
+      对白（天机阁阁主，成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感）：「渡劫期？！」
+      对白（天机阁阁主，成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感）：「不可能……我亲手将他打入深渊，一个化神期的废物怎么——」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: CHAR-013-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-030, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+
+- segment_id: EP53-SEG07
+  shot_ids: [EP53-S13, EP53-S14]
+  duration_sec: 10
+  speakers: [CHAR-001, CHAR-013]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-013-L01: https://placeholder.example/CHAR-013-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金色纹路脉动，右手掌心吞噬印记 PROP-002 爆发璀璨金光）【图2】天机阁阁主 CHAR-013-L01（黑金长袍，帝王气质）【图3】SCENE-030（天裂谷·谷心法阵）。
+      角色分工：仅图1可执行攻击动作（一掌推出）；图2为被动受击（被震退百丈）。
+      道具：吞噬印记 PROP-002——掌心金色漩涡纹样，爆发璀璨金光，金色灵力在掌心凝聚成微型漩涡。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MCU 固定：图1抬起右手——掌心吞噬印记爆发璀璨金光，金色灵力在掌心凝聚成一个微型漩涡。目光扫过苏瑶方向（被缚流血）再扫过沈墨方向（撞壁倒地）最后落在图2方向——金色瞳孔中星芒骤然加速旋转。面容从平静转为冰寒。
+      镜头2（5秒）MLS 快切：图1一掌推出——金色漩涡化为巨大金色手掌向前方推出。金色冲击波正面击中图2的胸口。图2的黑金长袍在冲击中撕裂，身体被推着倒飞，双脚在法阵地面划出两道深沟。百丈之外，身体终于停下——崖壁在冲击波中碎裂，碎石如雨。图2稳住身形，嘴角溢血，双手仍在颤抖。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「你动了他们。」
+      对白（天机阁阁主，成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感）：「这……这不可能……」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: CHAR-013-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-030, role: reference_image, label: 图3 }
+    - { file: PROP-002, role: reference_image, label: 图4 }
+  transition_to_next: hard_cut
+
+- segment_id: EP53-SEG08
+  shot_ids: [EP53-S15, EP53-S16]
+  duration_sec: 11
+  speakers: [CHAR-013, CHAR-004]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-013-L01: https://placeholder.example/CHAR-013-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】天机阁阁主 CHAR-013-L01（黑金长袍胸口碎裂，嘴角溢血，黑金王冠歪斜，面容苍老十岁）【图2】沈墨 CHAR-004-L01（灰衣破碎如布条，满身伤痕，黑血嘴角，凤眼半睁，嘴角上扬带永恒半笑）【图3】SCENE-030（天裂谷·谷心法阵）。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）CU 缓推：图1百丈之外——面容苍老了十岁。黑金长袍胸口碎裂，露出里面的暗红内衬。嘴角一缕鲜血，用手背擦拭，低头看着手背上的血迹——手指微微发颤。目光重新抬起看向林渊方向，深邃眼眸中帝王的傲慢已被恐惧撕裂了一道口子。暗红王冠歪了一角。
+      镜头2（6秒）MCU 固定：图2靠在崖壁下——灰衣破碎如布条，满身伤痕，黑血从嘴角淌下。凤眼微微睁开，目光望向半空中悬浮的林渊方向——嘴角缓缓上扬，露出那抹永恒的半笑。金色光芒映在他苍白的面容上如同暖阳。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（天机阁阁主，成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感）：「一掌……百丈？」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「这小子……当真回来了。」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。
+    content_roles:
+    - { file: CHAR-013-L01, role: reference_image, label: 图1 }
+    - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-030, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+
+- segment_id: EP53-SEG09
+  shot_ids: [EP53-S17, EP53-S18]
+  duration_sec: 8
+  speakers: [CHAR-001, CHAR-003]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金色纹路脉动，掌心金色灵力化为丝线）【图2】苏瑶 CHAR-003-L01（白衣染血，暗红锁链束缚手腕，脸颊血痕）【图3】SCENE-030（天裂谷·谷心法阵）。
+      角色分工：图1为治疗方（金色灵力化为丝线包裹图2伤口，触碰图2脸颊）；图2为被治疗方。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）MCU 固定：图1落在图2身边——单膝蹲下，金色灵力从掌心溢出，化为金色丝线轻轻包裹住图2手腕上被暗红锁链勒出的血痕。面容从冰冷的战斗状态瞬间转为极力克制的心疼。伸出手，指尖轻触图2脸颊上的一道血痕——手微微发颤。金色灵力所到之处，暗红锁链寸寸碎裂消散。
+      镜头2（4秒）CU 固定：图2仰视图1方向——暗红锁链碎裂脱落，自由了。泪水无声滑落，混合着脸上的血迹。想说什么，嘴唇微张，但只是轻轻摇头。金色灵力的温暖包裹住她的伤口，如同阳光融化冰雪。眼神从不敢置信转为安心。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「我来晚了。」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「你没事……就好。」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+    - { file: SCENE-030, role: reference_image, label: 图3 }
+  transition_to_next: hard_cut
+
+- segment_id: EP53-SEG10
+  shot_ids: [EP53-S19]
+  duration_sec: 5
+  speakers: [CHAR-001]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L03: https://placeholder.example/CHAR-001-L03.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L03（黑战袍金色纹路脉动，金色灵力暴涨形成冲击波，金色瞳孔中星芒加速旋转，面容冰寒）【图2】SCENE-030（天裂谷·谷心法阵·金色灵力风暴）。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MCU 缓推：图1缓缓站起——面容从心疼转为冰寒。金色瞳孔中星芒骤然加速旋转，金色灵力从身上猛然暴涨形成一圈金色冲击波，将周围碎石震飞。转头看向百丈外的阁主方向，目光如万古冰原。风声穿过峡谷，金色灵力在周围旋转如风暴。声音极轻极冷，一字一顿。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「伤她的人……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「今天都要死。」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。
+    content_roles:
+    - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+    - { file: SCENE-030, role: reference_image, label: 图2 }
+  transition_to_next: hard_cut

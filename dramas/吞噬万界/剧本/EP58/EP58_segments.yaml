@@ -1,0 +1,292 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP58/EP58_上界裂缝未消失.md
+# Source shots: 12 (EP58-S01 to EP58-S12)
+# Output segments: 8 (EP58-SEG01 to EP58-SEG08)
+# Segment mapping: SEG01=[S01,S02] SEG02=[S03,S04] SEG03=[S05] SEG04=[S06,S07] SEG05=[S08] SEG06=[S09,S10] SEG07=[S11] SEG08=[S12]
+# Source total duration: 85s (5+6+5+5+10+5+6+10+5+6+10+12=85)
+# Output total duration: 85s (11+10+10+11+10+11+10+12=85)
+# Gate status: ALL PASS (G1: 85s in [75,120] ✅; G2: 12=12 ✅; G3: all IDs valid ✅; G4: all voice_prompts found ✅)
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+# Note: SEG04 contains 旁白 narration line (no CHAR-ID) — narrator voice_prompt omitted per voice_card spec
+episode_id: EP58
+source_md: 剧本/EP58/EP58_上界裂缝未消失.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-003: "成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力"
+  CHAR-013: "成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感"
+
+# voice_prompts 查找优先级（从高到低）：
+# 1. 资产/声音卡片.md — 最高权威
+# 2. 资产/角色卡片.md — 次优先
+# 3. 制片规范.md — 兜底
+# 规则：必须全文复制原文（含「」内全部文字），禁止缩写/改写/翻译
+# 注：声音卡片.md 中用「」包裹 voice_prompt 是 Markdown 格式标记，
+# YAML 中存储括号内的纯文本内容（不含「」）。"全文复制"指复制括号内的文字。
+
+segments:
+- segment_id: EP58-SEG01
+  shot_ids: [EP58-S01, EP58-S02]
+  duration_sec: 11
+  speakers: [CHAR-001, CHAR-013]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-013-L02: https://placeholder.example/CHAR-013-L02.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+    prop_urls:
+      PROP-020: https://placeholder.example/PROP-020.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（白色仙袍，金色宇宙符文，金色瞳孔含宇宙星芒）【图2】天机阁阁主 CHAR-013-L02（半魔化形态——面容暗紫魔纹+金色灼伤，黑金战袍）【图3】天裂谷·谷心法阵 SCENE-030。
+      道具：吞噬本源 PROP-020——掌心微型宇宙爆发为金色漩涡。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MCU 固定镜头：图1面朝图2方向站立——白色仙袍在暴涨的金光中猎猎作响，金色瞳孔含宇宙星芒。掌心微型宇宙从旋转变为爆发——一个直径数丈的金色漩涡从掌心炸开，如新生的太阳释放吞噬万物的引力。金色光芒将他的面容照得半明半暗，泪痕在金光中闪烁。周围碎石被漩涡引力吸起，如飞蛾扑火般涌向金色漩涡。
+      镜头2（6秒）MCU 镜头拉远：金色漩涡如洪流般吞噬天裂谷——图2悬浮在半空，双手疯狂抵挡，暗红魔气在金色漩涡前如纸片般碎裂。他的黑金战袍被引力撕碎，暗紫魔纹在漩涡吸力下一寸寸从皮肤上剥离。他的面容从疯狂变为真正的恐惧，双手被引力拉向漩涡中心，身体不受控制地朝图1方向滑去。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「万界归一——」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「吞天。」
+      对白（天机阁阁主，成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感）：「不可能——！」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-013-L02, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+    - {file: PROP-020, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+
+- segment_id: EP58-SEG02
+  shot_ids: [EP58-S03, EP58-S04]
+  duration_sec: 10
+  speakers: [CHAR-001, CHAR-013]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-013-L02: https://placeholder.example/CHAR-013-L02.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】天机阁阁主 CHAR-013-L02（半魔化形态——面容暗紫魔纹消退中，逐渐恢复苍老枯槁）【图2】林渊 CHAR-001-L04（白色仙袍，金色瞳孔含星芒）【图3】天裂谷·谷心法阵 SCENE-030。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）CU 固定镜头：图1的面容特写——金色漩涡的引力将暗红魔气从他体内一层层剥离。暗紫魔纹在皮肤上如退潮般消退，从额头到下巴、从脖颈到胸口，一寸寸褪去露出苍白的皮肤。他的眼睛从暗红魔光逐渐褪回原本的深褐色，瞳孔中映着金色漩涡的倒影。面容从半魔化的扭曲恢复为苍老枯槁——每褪去一寸魔纹，他就老十年。
+      镜头2（5秒）MLS 固定镜头：大魔残魂从图1胸口被强行拉出——一团扭曲的暗红虚影如被连根拔起的毒藤，从图1体内一寸寸扯出。虚影发出尖锐的咆哮，双手死死抓着图1的身体不愿离去。金色漩涡的引力将暗红虚影越拉越长、越拉越薄——最终啪的一声断裂，残魂如断线的风筝被卷入金色漩涡中心。图1的身体瞬间枯萎，双腿发软跪倒在碎石中。图2冷眼旁观。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（天机阁阁主，成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感）：「不……我的力量……」
+      对白（天机阁阁主，成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感）：「大魔……救我！」
+      对白（天机阁阁主，成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感）：「啊——！」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「大魔之力……不过是借来的。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-013-L02, role: reference_image, label: 图1}
+    - {file: CHAR-001-L04, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+
+- segment_id: EP58-SEG03
+  shot_ids: [EP58-S05]
+  duration_sec: 10
+  speakers: [CHAR-001, CHAR-013]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-013-L02: https://placeholder.example/CHAR-013-L02.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】天机阁阁主 CHAR-013-L02（半魔化形态退化——形容枯槁，苍老如枯木，灰白头发散乱，黑金战袍只剩残片）【图2】林渊 CHAR-001-L04（白色仙袍，冷眼俯视）【图3】天裂谷·谷心法阵 SCENE-030。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）MLS 镜头拉远：图1跪在碎石中——曾经不可一世的帝王此刻形容枯槁，苍老如枯木，灰白头发散乱披肩，黑金战袍只剩残片。他抬头望向图2，眼中最后一丝疯狂已被彻底碾碎，只剩空洞的恐惧。金色漩涡的残余冲击波如巨浪拍来——他被卷起如落叶，在空中翻滚坠向谷底深渊。他的身影越来越小，最终消失在无尽的黑暗中。天空中金色与暗红的纠缠彻底消散，暗红褪去，金色重新铺满天裂谷。九道光柱渐渐收敛如退潮。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（天机阁阁主，成年男性，40-50岁，声线低沉浑厚如洪钟，语速缓慢但压迫感极强，后期融合大魔后声音叠加金属质感）：「不……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「十五年前你杀了我父亲。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「今天，还清了。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-013-L02, role: reference_image, label: 图1}
+    - {file: CHAR-001-L04, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+
+- segment_id: EP58-SEG04
+  shot_ids: [EP58-S06, EP58-S07]
+  duration_sec: 11
+  speakers: [CHAR-001]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+    prop_urls:
+      PROP-020: https://placeholder.example/PROP-020.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（白色仙袍，举掌向天，掌心吞噬印记泛光）【图2】天裂谷·谷心法阵 SCENE-030。
+      角色分工：仅图1可触碰掌心印记。
+      道具：吞噬本源 PROP-020——掌心金色漩涡仍在旋转。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）CU 缓推：图1举掌向天——金色漩涡仍在旋转，漩涡中心困着大魔残魂的暗红虚影。残魂在金光中扭曲挣扎，发出无声的哀嚎。图1五指缓缓收拢——金色漩涡急速收缩如巨鲸合嘴，将残魂彻底吞没。暗红光芒在漩涡中挣扎一瞬，随后化为无数白色光点如飞雪般消散于天地之间。大魔残魂彻底消亡。
+      镜头2（6秒）ELS 镜头拉远：天裂谷全景——金色漩涡缓缓消散，光芒如潮水退去。天空的暗红彻底褪尽，阳光从云层间洒下照亮满目疮痍的谷底。九道光柱依次熄灭，法阵符文暗淡如灰烬。碎石、断壁、焦土——一切都是战斗的痕迹。图1站在废墟正中，白色仙袍在晨光中轻轻飘动。他的身影在巨大谷底中显得渺小，却又如一根不可撼动的柱。身体微晃，但双脚钉在地面。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「该结束了。」
+      对白（旁白）：「大魔残魂消散。天地归于平静。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: SCENE-030, role: reference_image, label: 图2}
+    - {file: PROP-020, role: reference_image, label: 图3}
+  transition_to_next: dissolve
+
+- segment_id: EP58-SEG05
+  shot_ids: [EP58-S08]
+  duration_sec: 10
+  speakers: [CHAR-001, CHAR-003]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（白色仙袍，面容冰冷转为温柔，转身伸手）【图2】苏瑶 CHAR-003-L01（白衣浸透鲜血染成淡红，白玉发簪歪斜，脸上血痕与泪痕交错）【图3】天裂谷·谷心法阵 SCENE-030。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）MS 缓推：图2从崖壁凹陷中颤颤巍巍走出——白衣浸透鲜血染成淡红，白玉发簪歪斜，脸上血痕与泪痕交错。她看到废墟中站立的图1，嘴唇颤抖，红了眼眶，一步步朝他走去。图1听到脚步声转身——看到图2的瞬间，冰冷的杀意从眼中褪去，露出疲惫与温柔。他朝她伸出手。图2握住他的手，整个人靠进他怀中，额头抵在他胸口。图1单手环住她的肩膀，下巴搁在她头顶，闭上眼睛。晨光照在两人身上，金色光芒柔和如薄纱。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「林渊……你做到了。」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「都结束了。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……嗯。结束了。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+
+- segment_id: EP58-SEG06
+  shot_ids: [EP58-S09, EP58-S10]
+  duration_sec: 11
+  speakers: [CHAR-001, CHAR-003]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（白色仙袍，面容从温柔凝固为惊觉）【图2】苏瑶 CHAR-003-L01（白衣染血，靠在林渊怀中，随后仰望天空）【图3】天裂谷·谷心法阵 SCENE-030。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）CU 固定镜头：图1拥着图2，面容在温柔中忽然凝固——他的目光越过图2的肩膀，定在远处天空。金色光芒散尽后，天空中那道上界裂缝赫然在目——没有消失，没有闭合。裂缝如天空的伤疤，暗红光芒从裂缝边缘渗出如缓慢流淌的鲜血。裂缝比战斗开始前更宽了——曾经只是一道细线，现在已有数丈之阔。图1的瞳孔骤缩。
+      镜头2（6秒）MLS 镜头拉远：两人站在废墟中仰望天空——图2顺着图1的目光看去，脸上的温存瞬间消失，取而代之的是惊恐。远处天空中，那道裂缝仍在缓缓扩大，裂缝边缘的岩石如被无形之力撕扯，一块块剥落坠入黑暗。裂缝深处隐约闪烁着不属于这片天地的金紫色光芒——比阳光更冷，比魔气更纯。天裂谷中残余的灵力粒子被裂缝的引力吸引，缓缓向天空飘去。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……不对。」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「怎么了？」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「那道裂缝……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「没有消失。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+
+- segment_id: EP58-SEG07
+  shot_ids: [EP58-S11]
+  duration_sec: 10
+  speakers: [CHAR-001, CHAR-003]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+    prop_urls:
+      PROP-020: https://placeholder.example/PROP-020.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（白色仙袍在冷风中猎猎作响，仰望裂缝，掌心吞噬印记泛起微光）【图2】苏瑶 CHAR-003-L01（白衣染血，低头看林渊掌心）【图3】天裂谷·谷心法阵 SCENE-030。
+      角色分工：仅图1掌心印记可发光；图2双手不触碰印记。
+      道具：吞噬本源 PROP-020——掌心吞噬印记自发发光，金色光芒从掌心蔓延至手腕。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）CU 缓推：图1仰望裂缝——白色仙袍在从裂缝吹出的冷风中猎猎作响。他的面容在裂缝的暗红光芒映照下忽明忽暗。他的掌心吞噬印记突然泛起微光——金色光芒从掌心蔓延至手腕，如脉搏般跳动，仿佛在回应天空裂缝中那股未知力量的召唤。他的眼中闪过父亲残魂消散前的面容——金色虚影在消散最后一刻，嘴唇微动，声音被风吹散。他想起那句没有听清的话。图2感受到他掌心的热度，低头看去——吞噬印记正在自发发光。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「父亲消散前……说了什么？」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「最后那句话……被风吹散了。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「如果他在说的不是'结束'……」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「你的掌心……在发光。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+    - {file: PROP-020, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+
+- segment_id: EP58-SEG08
+  shot_ids: [EP58-S12]
+  duration_sec: 12
+  speakers: [CHAR-001]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+    prop_urls:
+      PROP-020: https://placeholder.example/PROP-020.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（白色仙袍，低头看掌心，面容凝固为冰冷警觉）【图2】苏瑶 CHAR-003-L01（白衣染血，站在身旁，顺着目光看向裂缝）【图3】天裂谷·谷心法阵 SCENE-030。
+      角色分工：仅图1可握拳挤压掌心印记；图2站立旁观不触碰。
+      道具：吞噬本源 PROP-020——掌心吞噬印记金色漩涡余烬旋转。
+      竖屏9比16连贯叙事。
+      镜头1（12秒）MCU 缓推：图1收回目光，低头看着掌心仍在发光的吞噬印记——金色漩涡的余烬在掌心旋转，微弱但坚定。他缓缓握紧拳头，将光芒攥入掌中。抬头——面容从温柔凝固为冰冷的警觉。他的目光越过图2，越过废墟，越过天裂谷崖壁，定格在天空中那道缓缓撕裂的裂缝上。图2站在他身旁，顺着他的目光看向裂缝，两人的身影在裂缝暗红光芒中被拉出长长的影子。裂缝深处的金紫色光芒再次闪烁——如一只正在睁开的眼睛。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「阁主不是最终的敌人。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「裂缝背后……还有力量。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这场战斗……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「还没结束。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+    - {file: PROP-020, role: reference_image, label: 图4}
+  transition_to_next: hard_cut

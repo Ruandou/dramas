@@ -1,0 +1,351 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP69/EP69_天外天入口.md
+# Source shots: 16 (EP69-S01 to EP69-S16)
+# Output segments: 9 (EP69-SEG01 to EP69-SEG09)
+# Mapping: shots 1:1 → segments grouped per source md
+# Source total duration: 84s (computed: 4+5+5+5+5+7+5+5+6+6+5+5+5+5+6+5=84)
+# Output total duration: 84s (computed: 4+10+10+7+10+12+10+10+11=84)
+# Gate status: G1 PASS (84s in [75,120] ✅); G2 PASS (declared 16, actual 16); G3 PASS; G4 PASS
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+episode_id: EP69
+source_md: 剧本/EP69/EP69_天外天入口.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-003: "成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力"
+  CHAR-004: "成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷"
+segments:
+- segment_id: EP69-SEG01
+  shot_ids:
+  - EP69-S01
+  duration_sec: 4
+  speakers:
+  - CHAR-001
+  refs:
+    scene_id: SCENE-002
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-002: https://placeholder.example/SCENE-002.png
+    prop_urls:
+      PROP-022: https://placeholder.example/PROP-022.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（战后褪色白仙袍，黑发散落）【图2】青云宗·后山悬崖·洞穴 SCENE-002【图3】第二枚玉佩碎片 PROP-022（翠绿玉佩碎片，金色脉动微光）。
+      角色分工：仅图1可触碰图3；图3为手持道具。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）特写 固定：傍晚金色光线从崖缝泄入照亮洞穴，图1面庞特写——手握图3，黑瞳中星辰微光疯狂闪烁。碎片背面刻字在金色光芒中若隐若现。嘴唇微微颤抖，目光从碎片移向洞口方向——急切与震动交织。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「天外天……」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「母亲留下的线索。她一直在等。」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: SCENE-002, role: reference_image, label: 图2}
+    - {file: PROP-022, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+- segment_id: EP69-SEG02
+  shot_ids:
+  - EP69-S02
+  - EP69-S03
+  duration_sec: 10
+  speakers:
+  - CHAR-003
+  - CHAR-004
+  - CHAR-001
+  refs:
+    scene_id: SCENE-002
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-002: https://placeholder.example/SCENE-002.png
+  api:
+    text: |
+      【图1】苏瑶 CHAR-003-L01（素雅白衣，白玉簪，柳叶眉紧蹙）【图2】沈墨 CHAR-004-L01（灰衣长袍，凤眼半眯）【图3】林渊 CHAR-001-L04（战后褪色白仙袍）【图4】青云宗·后山悬崖·洞穴 SCENE-002。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）中景 固定：洞口——图1身影出现在逆光中，白衣被夕阳勾勒金色轮廓。图2跟在身后，灰衣长袍在风中微微飘动，凤眼半眯注视图3手中的碎片。两人快步走入洞穴。
+      镜头2（5秒）中景 缓推：洞穴中景——图3将碎片翻转至背面，金色刻字在三人面前清晰显现。图2走近两步，凤眼骤然收缩。图1目光在碎片与图3面庞之间快速移动，嘴唇微微张开。金色微光映在三人面容上。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「林渊！你喊的……天外天？」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「把碎片翻过来。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「背面有字。母亲的线索。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「天外天……入口就在这附近。」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「所以她没有死。」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-003-L01, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: CHAR-001-L04, role: reference_image, label: 图3}
+    - {file: SCENE-002, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+- segment_id: EP69-SEG03
+  shot_ids:
+  - EP69-S04
+  - EP69-S05
+  duration_sec: 10
+  speakers:
+  - CHAR-001
+  - CHAR-003
+  - CHAR-004
+  refs:
+    scene_id: SCENE-002
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-002: https://placeholder.example/SCENE-002.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（战后褪色白仙袍）【图2】苏瑶 CHAR-003-L01（素雅白衣）【图3】沈墨 CHAR-004-L01（灰衣长袍，凤眼无笑意）。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）中近景 固定：图1面庞——黑瞳中残余星辰微光稳定下来变为坚定光点，目光越过图2望向洞外天空。图2面庞侧面入画，柳叶眉间忧虑更深。石壁上金色微光提供柔和暖光源。
+      镜头2（5秒）中景 固定：洞穴中景——图3双手抱臂靠在石壁旁，凤眼中没有惯常玩味笑意，取而代之的是罕见的认真。目光在图1面庞上停留。图1已将碎片收入怀中，转身面向洞口，白仙袍下摆拂过地面碎石。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「去天外天。找母亲。」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「林渊……天外天，自古进去的仙人无一生还。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「天外天是上下界的夹层。裂缝还在扩大。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「不等了。今天就去。」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「……好。」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: CHAR-004-L01, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+- segment_id: EP69-SEG04
+  shot_ids:
+  - EP69-S06
+  duration_sec: 7
+  speakers:
+  - CHAR-001
+  - CHAR-004
+  - CHAR-003
+  refs:
+    scene_id: SCENE-002
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-002: https://placeholder.example/SCENE-002.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（战后褪色白仙袍）【图2】苏瑶 CHAR-003-L01（素雅白衣）【图3】沈墨 CHAR-004-L01（灰衣长袍）【图4】青云宗·后山悬崖 SCENE-002。
+      竖屏9比16连贯叙事。
+      镜头1（7秒）中远景 镜头拉远：后山悬崖傍晚金色夕阳中，三人从洞口飞出。图1白仙袍在空中展开如白旗，图2白衣飘逸如云，图3灰衣平稳滑行。三道身影在崖壁间穿行，身后万丈云海染成金红色。图1掌心吞噬印记隐约发出金光引路。风声呼啸。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「母亲……等了十五年。够久了。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「跟我来。我感应得到。」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「入口……在迷雾深处。」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: CHAR-004-L01, role: reference_image, label: 图3}
+    - {file: SCENE-002, role: reference_image, label: 图4}
+  transition_to_next: dissolve
+- segment_id: EP69-SEG05
+  shot_ids:
+  - EP69-S07
+  - EP69-S08
+  duration_sec: 10
+  speakers:
+  - CHAR-003
+  - CHAR-004
+  - CHAR-001
+  refs:
+    scene_id: SCENE-034
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-034: https://placeholder.example/SCENE-034.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（战后褪色白仙袍）【图2】苏瑶 CHAR-003-L01（素雅白衣）【图3】沈墨 CHAR-004-L01（灰衣长袍）【图4】天外天入口 SCENE-034。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）远景 镜头跟随：水墨风格灰白迷雾中三道身影穿行而过。迷雾深处破碎大陆碎片漂浮——有的如巨石、有的如山峦，碎片上残留断柱焦土。远处古老石门轮廓在迷雾中若隐若现，银白色文字发出脉动微光。图1走在最前，白仙袍在迷雾中如一盏灯。
+      镜头2（5秒）特写 固定：图1面庞特写——迷雾中面容被银白色微光映亮。黑瞳中星辰微光微微闪烁，目光穿透迷雾锁定远处石门。风吹动散落黑发。嘴角微微抿紧，掌心吞噬印记金光从指缝间泄出。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「这里的灵气……像是被撕碎过。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「每一片碎片……都曾是一个世界。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「吞噬印记在……回应。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「那里。」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: CHAR-004-L01, role: reference_image, label: 图3}
+    - {file: SCENE-034, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+- segment_id: EP69-SEG06
+  shot_ids:
+  - EP69-S09
+  - EP69-S10
+  duration_sec: 12
+  speakers:
+  - CHAR-004
+  - CHAR-003
+  - CHAR-001
+  refs:
+    scene_id: SCENE-034
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-034: https://placeholder.example/SCENE-034.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（战后褪色白仙袍）【图2】苏瑶 CHAR-003-L01（素雅白衣）【图3】沈墨 CHAR-004-L01（灰衣长袍）【图4】天外天入口 SCENE-034。
+      竖屏9比16连贯叙事。
+      镜头1（6秒）中远景 缓推：天外天入口——三人站在石门前。古老石门矗立虚空，两根风化苍白巨柱连接厚重横梁。门柱表面刻满银白色脉动万界语文字，在迷雾中如心跳般明灭。门前窄石路两侧破碎大陆碎片在虚空中缓缓漂浮。图1站在门前，白仙袍在无风虚空中轻轻飘动。掌心吞噬印记猛然亮起，与石门文字产生共鸣——金色光纹从掌心蔓延至手臂。
+      镜头2（6秒）中景 固定：石门底部——新文字在石柱表面缓缓浮现，银白色光纹如墨迹晕开。图2上前一步，目光扫过新出现文字，嘴唇翕动。图1目光也落在文字上，黑瞳中倒映银白色光芒。石门文字脉动频率加快，仿佛感应到来访者身份。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「万界语……早已失传。这扇门，只有吞噬血脉能开。」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「它在……回应你。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「我知道。」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「入此门者……须以万界之力为引。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「万界之力。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「这就是母亲留下的钥匙。」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: CHAR-004-L01, role: reference_image, label: 图3}
+    - {file: SCENE-034, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+- segment_id: EP69-SEG07
+  shot_ids:
+  - EP69-S11
+  - EP69-S12
+  duration_sec: 10
+  speakers:
+  - CHAR-001
+  - CHAR-004
+  - CHAR-003
+  refs:
+    scene_id: SCENE-034
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-034: https://placeholder.example/SCENE-034.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（战后褪色白仙袍）【图2】沈墨 CHAR-004-L01（灰衣长袍）【图3】苏瑶 CHAR-003-L01（素雅白衣）【图4】天外天入口 SCENE-034。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）中近景 固定：图1面庞——低头看向掌心，吞噬印记完全亮起，金中带星漩涡纹如微型宇宙旋转。金色光纹从掌心向石门延伸，与门柱银白色文字形成金色桥梁。嘴角微扬——不是得意，是终于找到路的释然。图2侧脸入画边缘，凤眼注视着金色光纹。
+      镜头2（5秒）特写 固定：图3面庞特写——看着蔓延向石门的金色光纹，柳叶眉间忧虑渐渐被坚定取代。目光从金色光纹移向林渊侧脸，嘴唇微张又合上。白玉簪在银白色光芒中反射柔和光。远处石门文字脉动越来越快。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「万界之力……就是我现在拥有的。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「门，已经记住了你的血脉。」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「母亲……还在等你。」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「这一次，我不会让他一个人。」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: CHAR-003-L01, role: reference_image, label: 图3}
+    - {file: SCENE-034, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+- segment_id: EP69-SEG08
+  shot_ids:
+  - EP69-S13
+  - EP69-S14
+  duration_sec: 10
+  speakers:
+  - CHAR-001
+  - CHAR-003
+  - CHAR-004
+  refs:
+    scene_id: SCENE-034
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-034: https://placeholder.example/SCENE-034.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（战后褪色白仙袍）【图2】苏瑶 CHAR-003-L01（素雅白衣）【图3】沈墨 CHAR-004-L01（灰衣长袍）【图4】天外天入口 SCENE-034。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）大特写 缓推：图1掌心——吞噬印记爆发，金中带星漩涡纹旋转至极限。金色光柱从掌心射出如利剑刺入石门表面。石门万界语从银白色逐字变为璀璨金色，光纹在门柱上疯狂蔓延如活物。门柱微微震颤，碎石从裂缝中簌簌落下。虚空弥漫金色光芒。
+      镜头2（5秒）远景 镜头拉远：石门全景——两根巨柱猛烈震颤，门缝处裂出刺眼金色光芒如日出。光芒从门缝喷涌而出照亮整个虚空，迷雾被金光驱散。石门缓缓向两侧打开，门后涌出温暖珠光白光如潮水倾泻。破碎大陆碎片被白光推开清出一条通往深处的光路。三人身影在白光中如剪影。虚空为之震颤。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「开。」
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「门……开了。」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「它自动开了。」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-003-L01, role: reference_image, label: 图2}
+    - {file: CHAR-004-L01, role: reference_image, label: 图3}
+    - {file: SCENE-034, role: reference_image, label: 图4}
+  transition_to_next: hard_cut
+- segment_id: EP69-SEG09
+  shot_ids:
+  - EP69-S15
+  - EP69-S16
+  duration_sec: 11
+  speakers:
+  - CHAR-003
+  - CHAR-004
+  - CHAR-001
+  refs:
+    scene_id: SCENE-034
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-003-L01: https://placeholder.example/CHAR-003-L01.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-034: https://placeholder.example/SCENE-034.png
+  api:
+    text: |
+      【图1】苏瑶 CHAR-003-L01（素雅白衣）【图2】沈墨 CHAR-004-L01（灰衣长袍）【图3】林渊 CHAR-001-L04（战后褪色白仙袍）【图4】天外天入口 SCENE-034。
+      竖屏9比16连贯叙事。
+      镜头1（6秒）中景 固定：石门前——温暖珠光白光从门后涌出照亮三人面庞。图1微微眯眼适应光芒，目光投向门后——无尽白光中隐约可见漂浮大陆碎片和扭曲空间褶皱。图2凤眼半眯，薄唇半笑带着一丝敬畏。白光映在面容上如晨曦般温暖却蕴含未知。
+      镜头2（5秒）中远景 缓推：石门前——图3向前迈出一步，白仙袍在珠光白光中飘动如旗帜。背影向门内走去，黑发在光中泛出金色边缘。图1和图2对视一眼随即跟上。三道身影在白光中越来越小如踏入通往未知的光之走廊。石门在身后缓缓合拢，万界语金色光芒逐渐熄灭。镜头定格在即将关闭的门缝——最后一丝白光中三人背影消失在天外天深处。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（苏瑶，成年女性，声线清冷但柔和，防备时语速快且压低，放松时温暖自然，关键时刻坚定有力）：「那后面……是什么？」
+      对白（沈墨，成年男性，声线低沉磁性，语速从容不迫，常带玩味笑意，关键时刻声音骤冷）：「天外天。上界与下界的……边界。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「走。」
+      画面全程无任何文字、字幕、标题、水印。
+      禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-003-L01, role: reference_image, label: 图1}
+    - {file: CHAR-004-L01, role: reference_image, label: 图2}
+    - {file: CHAR-001-L04, role: reference_image, label: 图3}
+    - {file: SCENE-034, role: reference_image, label: 图4}
+  transition_to_next: hard_cut

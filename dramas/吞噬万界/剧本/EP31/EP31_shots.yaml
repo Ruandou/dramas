@@ -1,0 +1,532 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP31/EP31_信任危机.md
+# Source shots: 13 (EP31-S01 to EP31-S13)
+# Output shots: 13 (EP31-S01 to EP31-S13)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 87s (computed: 5+6+5+6+6+5+6+5+11+10+5+6+11=87)
+# NOTE: Source .md VALIDATION block claims 91s; segment durations claim 11+11+11+11+11+10+11+11=91
+# Actual per-shot sum is 87s (4s discrepancy with source claims)
+# User-specified target: 91s — proceeding per user instruction
+# Output total duration: 87s (matches actual shot durations from source table)
+# Gate status: G1 ⚠️ NOTE (87s within standard 75-120s but below EP01+ 90s threshold;
+#   source claims 91s which would pass); G2 PASS (13 shots); G3 PASS; G4 PASS
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+episode_id: EP31
+source_md: 剧本/EP31/EP31_信任危机.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+shots:
+- shot_id: EP31-S01
+  shot_no: 1
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-020
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  prop_ids:
+  - PROP-002
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-020: https://placeholder.example/SCENE-020.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔掌心吞噬印记）【图2】沈墨 CHAR-004-L01（灰袍满身灼痕凤眼暗红光芒）【图3】SCENE-020。5秒 MS 固定镜头：试炼场玉台裂缝密集区——暗红魔气回缩沿裂缝脉络向深处汇聚，金色封印符文边缘泛起焦黑。图1单手按在玉台上金丹期灵力灌入法阵，掌心吞噬印记发出微弱金光与暗红魔气对冲。图2靠在断裂石柱上，凤眼中暗红光芒剧烈闪烁。一股黑气如蛇般从脚边裂缝中钻出直扑图1面门。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-020
+      role: reference_image
+      label: 图3
+    - file: PROP-002
+      role: reference_image
+      label: 图4
+  dialogue:
+  - speaker: CHAR-004
+    line: "黑气……在向你聚！"
+    tag: "急促·喊"
+  transition_to_next: hard_cut
+- shot_id: EP31-S02
+  shot_no: 2
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-020
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  prop_ids:
+  - PROP-002
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-020: https://placeholder.example/SCENE-020.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔掌心吞噬印记）【图2】沈墨 CHAR-004-L01（灰袍灼痕凤眼暗红）【图3】SCENE-020。6秒 MCU 缓推：图1面部特写——黑气扑面瞬间猛抬头，金色瞳孔骤缩。黑气为无数暗红丝线编织的意识体如蛛网般朝眉心蔓延。他本能后仰，掌心吞噬印记暴涨金光试图抵挡但黑气穿透金光如穿薄纱。图2在背景中凤眼暗红光芒暴涨身体不由自主前倾。玉台裂缝中更多黑气涌出密集如蚁群。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-020
+      role: reference_image
+      label: 图3
+    - file: PROP-002
+      role: reference_image
+      label: 图4
+  dialogue:
+  - speaker: CHAR-004
+    line: "封印……裂了！大魔的神念——冲出来了！"
+    tag: "惊恐"
+  - speaker: CHAR-001
+    line: "不是灵力攻击……是神念！它在试图入侵我的心智！"
+    tag: "瞳孔收缩·内心"
+  transition_to_next: hard_cut
+- shot_id: EP31-S03
+  shot_no: 3
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-020
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  prop_ids:
+  - PROP-002
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-020: https://placeholder.example/SCENE-020.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔掌心吞噬印记）【图2】沈墨 CHAR-004-L01（灰袍灼痕凤眼暗红）【图3】SCENE-020。5秒 MS 固定镜头：试炼场二人对峙——黑气如潮水涌来，图1周身金光拼命抵挡但不断被侵蚀。他转身对图2大喊。图2身后玉台裂缝中一缕极粗黑气直奔他而去，凤眼中暗红光芒骤然暴涨与黑气形成诡异共振。右手下意识按住胸口——魔血在剧烈跳动。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-020
+      role: reference_image
+      label: 图3
+    - file: PROP-002
+      role: reference_image
+      label: 图4
+  dialogue:
+  - speaker: CHAR-001
+    line: "沈墨，退后！别靠近黑气！"
+    tag: "急促·喊"
+  - speaker: CHAR-004
+    line: "来不及了……它认出了我体内的东西。"
+    tag: "低声·喃喃"
+  transition_to_next: hard_cut
+- shot_id: EP31-S04
+  shot_no: 4
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-020
+    look_ids:
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-020: https://placeholder.example/SCENE-020.png
+  api:
+    text: "【图1】沈墨 CHAR-004-L01（灰袍满身灼痕凤眼暗红光芒）【图2】SCENE-020。6秒 CU 固定镜头：图1面部大特写——凤眼中暗红光芒不再是闪烁而是稳定的暗红光柱，与黑气中暗红丝线如镜像般对称。半笑消失薄唇紧抿。黑气中神念仿佛在与他对话通过魔血共鸣。闭上眼又睁开凤眼中闪过一丝决绝。身后玉台裂缝中更多黑气涌出但不再后退。"
+    content_roles:
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图1
+    - file: SCENE-020
+      role: reference_image
+      label: 图2
+  dialogue:
+  - speaker: CHAR-004
+    line: "半噬族的血……和那头大魔同源。"
+    tag: "凤眼暗红闪烁·决然"
+  - speaker: CHAR-004
+    line: "它以为……我是它的人。"
+    tag: "看向林渊·半笑浮现又消失"
+  - speaker: CHAR-004
+    line: "正好。"
+    tag: "内心·冰冷"
+  transition_to_next: hard_cut
+- shot_id: EP31-S05
+  shot_no: 5
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-020
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  prop_ids:
+  - PROP-002
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-020: https://placeholder.example/SCENE-020.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔掌心吞噬印记）【图2】沈墨 CHAR-004-L01（灰袍满身灼痕凤眼暗红光芒）【图3】SCENE-020。6秒 MS 固定镜头：试炼场——图2猛然抬手撕开灰袍衣领露出锁骨处蔓延的暗红魔纹。双手结印掌心涌出暗红色魔血如火焰般燃烧。魔血与裂缝中黑气接触发出刺耳嘶鸣。玉台上金色封印符文与暗红魔血同时亮起。黑气被魔血牵引改变方向从朝图1涌去转为朝图2涌去。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-020
+      role: reference_image
+      label: 图3
+    - file: PROP-002
+      role: reference_image
+      label: 图4
+  dialogue:
+  - speaker: CHAR-004
+    line: "魔血为引……神念为锁……"
+    tag: "念咒·声音低沉如远古梵唱"
+  - speaker: CHAR-001
+    line: "沈墨！你在做什么！"
+    tag: "震惊·大喊"
+  - speaker: CHAR-004
+    line: "别动。"
+    tag: "不回头·声音压低"
+  transition_to_next: hard_cut
+- shot_id: EP31-S06
+  shot_no: 6
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-020
+    look_ids:
+    - CHAR-001-L02
+  prop_ids:
+  - PROP-002
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+    scene_urls:
+      SCENE-020: https://placeholder.example/SCENE-020.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔掌心吞噬印记）【图2】SCENE-020。5秒 CU 缓推：图1面部特写——金光挣扎中。他想冲过去但脚下金色法阵光柱如锁链缠住双脚。金丹期灵力拼命外涌但被法阵牵引动弹不得。金色瞳孔中映出图2被黑气包围的身影。看到图2灰袍被暗红魔血灼出新的焦痕，暗红魔纹从手臂蔓延到颈侧。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: SCENE-020
+      role: reference_image
+      label: 图2
+    - file: PROP-002
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: "你疯了！你的魔血被灵力灼伤还没好！"
+    tag: "嘶声"
+  - speaker: CHAR-001
+    line: "他在用自己做诱饵……把大魔的神念引向自己！"
+    tag: "内心·恐惧"
+  transition_to_next: hard_cut
+- shot_id: EP31-S07
+  shot_no: 7
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-020
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-020: https://placeholder.example/SCENE-020.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔）【图2】沈墨 CHAR-004-L01（灰袍满身灼痕凤眼暗红）【图3】SCENE-020。6秒 MLS 缓推：试炼场——图2站在黑气风暴中心，暗红魔血火焰屏障将他包裹。黑气中神念一缕接一缕涌入魔血屏障，每缕涌入身体剧烈颤抖一次。暗红魔纹蔓延到半边脸庞凤眼中暗红光芒被黑气侵蚀忽明忽暗。双膝打颤但死死撑住不跪。灰袍几乎被魔血灼成碎片。图1在三步之外被法阵金光锁住只能看着。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-020
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-004
+    line: "我在……用半噬族的血做容器……把神念……引过来……"
+    tag: "咬牙·嘴角渗血"
+  - speaker: CHAR-001
+    line: "你扛不住！那是远古大魔！"
+    tag: "挣扎·喊"
+  - speaker: CHAR-004
+    line: "扛不住……也得扛。"
+    tag: "挤出笑·声音断续"
+  - speaker: CHAR-001
+    line: "他在用命……换我的命。"
+    tag: "内心·恐惧极了"
+  transition_to_next: hard_cut
+- shot_id: EP31-S08
+  shot_no: 8
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-020
+    look_ids:
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-020: https://placeholder.example/SCENE-020.png
+  api:
+    text: "【图1】沈墨 CHAR-004-L01（灰袍满身灼痕凤眼暗红光芒）【图2】SCENE-020。5秒 CU 固定镜头：图1面部大特写——承受极限。最后一缕粗壮黑气神念如蟒蛇缠上脖颈钻入眉心。身体弓成弓形仰头无声嘶吼，全身魔纹同时亮到极致如烧红铁丝网。血从眼角鼻孔嘴角同时渗出。凤眼中暗红光芒被黑气完全吞噬瞳孔变纯黑又在下一瞬被暗红魔血压回。双手死死攥着指甲嵌入掌心。暗红魔纹蔓延到法阵裂缝中形成封存屏障，黑气停止涌动。"
+    content_roles:
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图1
+    - file: SCENE-020
+      role: reference_image
+      label: 图2
+  dialogue:
+  - speaker: CHAR-004
+    line: "封……住了……"
+    tag: "无声嘶吼后·虚弱到极点"
+  - speaker: CHAR-004
+    line: "神念……压回去了……够了……"
+    tag: "内心·破碎"
+  transition_to_next: hard_cut
+- shot_id: EP31-S09
+  shot_no: 9
+  mode: i2v_ref
+  duration_sec: 11
+  refs:
+    scene_id: SCENE-020
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  prop_ids:
+  - PROP-002
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-020: https://placeholder.example/SCENE-020.png
+    prop_urls:
+      PROP-002: https://placeholder.example/PROP-002.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔掌心吞噬印记）【图2】沈墨 CHAR-004-L01（灰袍满身灼痕凤眼暗红光芒）【图3】SCENE-020。11秒 MS 缓推：试炼场封印暂时平息——图2身体像断了线的傀儡向前倾倒。图1脚下金色法阵光柱碎裂消散束缚解除，猛冲过去在图2倒地前接住他。图2全部重量压在图1手臂上轻得不像话仿佛魔血耗尽只剩空壳。暗红魔纹从全身缓缓退回锁骨源头留下满身焦黑灼痕。凤眼半睁半闭暗红光芒微弱到几乎看不见。法阵裂缝中黑气停止涌动，暗红魔纹在裂缝表面形成薄薄封存层。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-020
+      role: reference_image
+      label: 图3
+    - file: PROP-002
+      role: reference_image
+      label: 图4
+  dialogue:
+  - speaker: CHAR-001
+    line: "沈墨！撑住！"
+    tag: "接住沈墨·急促"
+  - speaker: CHAR-004
+    line: "别……晃……"
+    tag: "半睁眼·气若游丝"
+  - speaker: CHAR-001
+    line: "你的魔纹……全身都在流血……"
+    tag: "低头看他的伤·声音发颤"
+  - speaker: CHAR-004
+    line: "神念……暂时压住了……封印……还能撑一阵……"
+    tag: "虚弱·断续"
+  - speaker: CHAR-001
+    line: "他的脉……几乎摸不到了。"
+    tag: "内心·恐惧"
+  transition_to_next: hard_cut
+- shot_id: EP31-S10
+  shot_no: 10
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-020
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-020: https://placeholder.example/SCENE-020.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔）【图2】沈墨 CHAR-004-L01（灰袍残片满身焦黑灼痕暗红魔纹残迹）【图3】SCENE-020。10秒 CU 固定镜头：图1怀抱中的图2——头靠在臂弯里，灰袍残片下满身焦黑灼痕和暗红魔纹残迹。勉强睁开凤眼看向图1，嘴角浮现出标志性半笑但比任何时候都虚弱真实。嘴唇在动声音轻得像风穿过裂缝。法阵金色光芒和暗红残光照在苍白脸上。手缓缓抬起想碰图1的脸但中途无力垂落。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-020
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-004
+    line: "林渊……你欠我……一条命……"
+    tag: "半笑·气若游丝"
+  - speaker: CHAR-001
+    line: "别说话。省着力气。"
+    tag: "声音压低·颤抖"
+  - speaker: CHAR-004
+    line: "让我说……再不说……就来不及了……"
+    tag: "凤眼慢慢合上·喃喃"
+  - speaker: CHAR-001
+    line: "你给我撑住！听到没有！"
+    tag: "抱紧他·声音破碎"
+  transition_to_next: hard_cut
+- shot_id: EP31-S11
+  shot_no: 11
+  mode: i2v_ref
+  duration_sec: 5
+  refs:
+    scene_id: SCENE-020
+    look_ids:
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-020: https://placeholder.example/SCENE-020.png
+  api:
+    text: "【图1】沈墨 CHAR-004-L01（灰袍残片满身灼痕凤眼暗红光芒极弱）【图2】SCENE-020。5秒 CU 固定镜头：图1面部大特写——凤眼完全闭上面容突然平静得可怕。嘴角半笑消失取而代之的是一种无防备的脆弱——从未见过的图1。嘴唇微动声音从喉咙深处如梦呓般挤出每个字重若千钧。暗红魔纹在苍白脸上如褪色纹身慢慢淡化。"
+    content_roles:
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图1
+    - file: SCENE-020
+      role: reference_image
+      label: 图2
+  dialogue:
+  - speaker: CHAR-004
+    line: "对不起……"
+    tag: "昏迷·喃喃·梦呓般"
+  - speaker: CHAR-004
+    line: "我本来……是要利用你的……"
+    tag: "声音破碎"
+  transition_to_next: hard_cut
+- shot_id: EP31-S12
+  shot_no: 12
+  mode: i2v_ref
+  duration_sec: 6
+  refs:
+    scene_id: SCENE-020
+    look_ids:
+    - CHAR-001-L02
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+    scene_urls:
+      SCENE-020: https://placeholder.example/SCENE-020.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔）【图2】SCENE-020。6秒 ECU 缓推：图1眼部大特写——金色瞳孔中倒映着图2昏迷面容。听到"利用"二字瞬间瞳孔骤缩如针尖。瞳孔深处星芒停止旋转仿佛宇宙凝固。嘴唇微张又闭上下颌线条绷紧。一滴泪从眼角滑落但表情不是悲伤——是冰冷的审视和根本性的动摇。整个人如遭雷击般僵在原地。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: SCENE-020
+      role: reference_image
+      label: 图2
+  dialogue:
+  - speaker: CHAR-004
+    line: "你体内的……吞噬之力……"
+    tag: "昏迷·继续喃喃"
+  - speaker: CHAR-001
+    line: "利用我？"
+    tag: "内心·声音冰冷"
+  transition_to_next: hard_cut
+- shot_id: EP31-S13
+  shot_no: 13
+  mode: i2v_ref
+  duration_sec: 11
+  refs:
+    scene_id: SCENE-020
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-004-L01
+  prop_ids: []
+  assets:
+    look_urls:
+      CHAR-001-L02: https://placeholder.example/CHAR-001-L02.png
+      CHAR-004-L01: https://placeholder.example/CHAR-004-L01.png
+    scene_urls:
+      SCENE-020: https://placeholder.example/SCENE-020.png
+  api:
+    text: "【图1】林渊 CHAR-001-L02（白袍金边金色瞳孔）【图2】沈墨 CHAR-004-L01（灰袍碎裂满身灼伤魔纹褪尽）【图3】SCENE-020。11秒 MLS 镜头拉远：试炼场封印法阵中央——图1抱着昏迷的图2跪在法阵中央。图2头无力靠在臂弯里面容苍白如纸。法阵裂缝中暗红光芒完全消退只剩金色符文微弱闪烁封印暂时稳固。但图1目光不在法阵上。他低头看着怀中这个从起始就陪在身边的人——灰袍碎裂满身灼伤魔纹褪尽。说的每一个字都是保护他时的拼尽全力。可最后一句是昏迷中无意识的坦白。图1缓缓将图2放在地上站起身。背影在法阵金色光芒中拉出长长的影子。没有看图2。"
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-020
+      role: reference_image
+      label: 图3
+  dialogue:
+  - speaker: CHAR-001
+    line: "从一开始……你接近我，就不是偶然。"
+    tag: "内心·声音冰冷到极点"
+  - speaker: CHAR-001
+    line: "你以为的巧合……都是我安排的。"
+    tag: "内心·破碎"
+  - speaker: CHAR-001
+    line: "那这一路……什么是真的？"
+    tag: "低头看沈墨·声音压到最低"
+  transition_to_next: hard_cut

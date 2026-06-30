@@ -1,0 +1,263 @@
+# === SEGMENTS FIDELITY PROOF ===
+# Source: 剧本/EP64/EP64_监者本体要降临.md
+# Output segments: 8 (EP64-SEG01 to EP64-SEG08)
+# Total duration: 78s (shot-level sum: 6+5+5+5+5+4+5+5+10+5+4+6+5+5+3=78)
+# Note: SEG05=15s (S09=10s+S10=5s) exceeds 12s per-segment budget.
+# Gate status: G1 PASS (78s in [75,120] ✅); G2 MISMATCH (declared 16, actual 15); G3 PASS; G4 PASS
+# DRY-RUN: All CDN URLs are placeholders (no cdn_urls.json found)
+episode_id: EP64
+source_md: 剧本/EP64/EP64_监者本体要降临.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学。"
+  negative_prompt: "文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形"
+
+voice_prompts:
+  CHAR-001: "成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷"
+  CHAR-017: "成年男性，声线低沉带金属回响，如神谕般空旷，语速极慢，被击伤时声音破裂"
+
+segments:
+- segment_id: EP64-SEG01
+  shot_ids: [EP64-S01, EP64-S02]
+  duration_sec: 11
+  speakers: [CHAR-017, CHAR-001]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】万界监者 CHAR-017-L02（金色神甲，银白长发，金色眼眸）【图2】林渊 CHAR-001-L04（白色仙袍，金星纹路）【图3】天裂谷·谷心法阵 SCENE-030。
+      竖屏9比16连贯叙事。
+      镜头1（6秒）LS 固定：天裂谷上空万丈高处——九道金色光柱从谷底垂直射入天空，天空被撕裂为金色与暗红两半，巨大裂隙在正上方缓缓扩大。图1金色神甲表面天界符文流转如星座连珠，银白长发在仙人气浪中飞舞，金色眼眸居高临下俯视。图2白仙袍金星纹路环绕，金白仙气与金色神光在空中碰撞，空气泛起涟漪。
+      镜头2（5秒）MCU 镜头推近：图2胸部以上——金白仙气环绕如微型宇宙，星辰光芒在周身流转。面容平静如水，金色瞳孔中映着图1身影。掌心吞噬印记微微脉动，与远处九道光柱隐隐共鸣。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（万界监者，成年男性，声线低沉带金属回响，如神谕般空旷，语速极慢，被击伤时声音破裂）：「让我看看……你的力量，能到多远。」
+      对白（万界监者，成年男性，声线低沉带金属回响，如神谕般空旷，语速极慢，被击伤时声音破裂）：「借来的力量？」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「力量是借的。手，是我的。」
+      对白（万界监者，成年男性，声线低沉带金属回响，如神谕般空旷，语速极慢，被击伤时声音破裂）：「那就看看……你能站多久。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-017-L02, role: reference_image, label: 图1}
+    - {file: CHAR-001-L04, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+
+- segment_id: EP64-SEG02
+  shot_ids: [EP64-S03, EP64-S04]
+  duration_sec: 10
+  speakers: [CHAR-017, CHAR-001]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】万界监者 CHAR-017-L02（金色神甲，银白长发）【图2】林渊 CHAR-001-L04（白色仙袍）【图3】天裂谷·谷心法阵 SCENE-030。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MLS 固定镜头：图1单手前推——金色神甲全身符文同时亮起如白昼，一道比上集更强的金白能量光柱从掌心射出，撕裂沿途空气，碎石化为金色液体。图2来不及躲闪，金白仙气在掌间形成护盾迎击。两种仙人之力碰撞——冲击波将空间裂隙撕得更大，金色闪电在碰撞点密集放电。
+      镜头2（5秒）MCU 缓推：图2被震退——白仙袍肩部撕裂，袖口冒烟，金白仙气剧烈波动如风中残烛。咬紧牙关稳住身形，掌心吞噬印记光芒忽明忽暗。嘴角渗出鲜血，但没有后退。瞳孔中金色星辰从暗淡到暴涨，像风暴中心。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（万界监者，成年男性，声线低沉带金属回响，如神谕般空旷，语速极慢，被击伤时声音破裂）：「仙人之境？」
+      对白（万界监者，成年男性，声线低沉带金属回响，如神谕般空旷，语速极慢，被击伤时声音破裂）：「不过尔尔。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「好强……他还没用全力。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「一直在试探。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-017-L02, role: reference_image, label: 图1}
+    - {file: CHAR-001-L04, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+
+- segment_id: EP64-SEG03
+  shot_ids: [EP64-S05, EP64-S06]
+  duration_sec: 9
+  speakers: [CHAR-001, CHAR-017]
+  refs:
+    scene_id: SCENE-030
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+    scene_urls:
+      SCENE-030: https://placeholder.example/SCENE-030.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（白色仙袍，半毁）【图2】万界监者 CHAR-017-L02（金色神甲）【图3】天裂谷·谷心法阵 SCENE-030。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）MLS 固定镜头：图1从碎石中猛然飞起——白仙袍半毁，金白仙气从体内如火山般爆发。掌心吞噬印记化为金色漩涡，周围所有灵力被吞噬，形成一个微型宇宙在掌间缓缓旋转。眼瞳中星辰旋转如风暴。
+      镜头2（4秒）MCU 镜头推近：图1双手在胸前合掌——一个金色球体在掌心成形，球体中无数星辰旋转，散发宇宙初开般的璀璨光芒。远处图2微微抬眉，金色眼眸中闪过一丝兴趣。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「萧长老……这是最后了。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「万界归一·创世——」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「创世——！」
+      对白（万界监者，成年男性，声线低沉带金属回响，如神谕般空旷，语速极慢，被击伤时声音破裂）：「哦？」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-017-L02, role: reference_image, label: 图2}
+    - {file: SCENE-030, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+
+- segment_id: EP64-SEG04
+  shot_ids: [EP64-S07, EP64-S08]
+  duration_sec: 10
+  speakers: [CHAR-001]
+  refs:
+    scene_id: SCENE-032
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（白色仙袍）【图2】万界监者 CHAR-017-L02（金色神甲）【图3】天裂谷·万丈高空 SCENE-032。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）LS 固定镜头：万丈高空战场——图1推出掌中金色球体，微型宇宙化为金白光柱直冲图2。图2单手前推——同样的金白光柱从掌心射出。两种微型宇宙在空中碰撞——接触瞬间，天地被刺目的白光吞没。金色冲击波以接触点为中心向四面八方扩散。下方九道光柱剧烈震荡，天空裂隙被撕得更大。
+      镜头2（5秒）LS 镜头拉远：两个微型宇宙持续碰撞——金色能量风暴在空中肆虐，空间碎片如碎裂的镜面漂浮在四周。图1被能量撕裂，白仙袍半毁，金白仙气几乎耗尽。图2纹丝不动，金色神甲表面裂纹扩大但光芒更盛。碰撞引发的空间崩塌正在蔓延，金色裂纹如蛛网在天空中扩散。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「接好了——！」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「挡不住……空间在——」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「碎了。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-017-L02, role: reference_image, label: 图2}
+    - {file: SCENE-032, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+
+- segment_id: EP64-SEG05
+  shot_ids: [EP64-S09, EP64-S10]
+  duration_sec: 15
+  speakers: [CHAR-001, CHAR-017]
+  refs:
+    scene_id: SCENE-032
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  # ⚠️ SEMANTIC_WARNING: SEG05 duration 15s exceeds 12s budget. Scene-writer should verify S09 duration (10s may be 5s).
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（白色仙袍，半毁）【图2】万界监者 CHAR-017-L02（金色神甲，裂纹满布）【图3】天裂谷·万丈高空 SCENE-032。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）MCU 缓推：图1面部特写——金白光芒在脸上明灭不定，金色瞳孔骤缩。死死盯着碰撞中心上方的天空裂隙，裂隙正以肉眼可见的速度扩大。金色光芒从裂隙中涌出，照亮下方的九道光柱。吞噬印记剧烈跳动，像在感应某种力量。
+      镜头2（5秒）MS 固定镜头：图2站在崩塌的空间中纹丝不动，金色神甲满是裂纹但眼中光芒更盛。银白长发在能量风暴中飞舞。低头看着裂隙，金色眼眸中闪过一丝意味深长的光。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「吞噬印记……在回应什么？」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「裂隙在继续扩大……有东西要出来了。」
+      对白（万界监者，成年男性，声线低沉带金属回响，如神谕般空旷，语速极慢，被击伤时声音破裂）：「你看那裂隙。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……什么？」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-017-L02, role: reference_image, label: 图2}
+    - {file: SCENE-032, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+
+- segment_id: EP64-SEG06
+  shot_ids: [EP64-S11, EP64-S12]
+  duration_sec: 10
+  speakers: [CHAR-017, CHAR-001]
+  refs:
+    scene_id: SCENE-032
+  assets:
+    look_urls:
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  api:
+    text: |
+      【图1】林渊 CHAR-001-L04（白色仙袍，半毁）【图2】万界监者 CHAR-017-L02（金色神甲）【图3】天裂谷·万丈高空 SCENE-032。
+      竖屏9比16连贯叙事。
+      镜头1（4秒）MLS 镜头拉远：图2站在裂隙下方，裂隙在身后如一道巨大的金色伤疤横贯天际。金色光芒从裂隙中倾泻而出，照亮图2的轮廓如金甲天神。图1在远处，白仙袍半毁，金白仙气微弱闪烁。
+      镜头2（6秒）MCU 缓推：图1面部特写——抬头望向裂隙深处，金色瞳孔骤缩如针尖。裂隙中金光涌动，隐约可见一个巨大的人形轮廓正在靠近。吞噬印记疯狂跳动，像在感应一种超越分身的力量。后退一步，脚下空间碎片碎裂。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（万界监者，成年男性，声线低沉带金属回响，如神谕般空旷，语速极慢，被击伤时声音破裂）：「那不是裂缝。」
+      对白（万界监者，成年男性，声线低沉带金属回响，如神谕般空旷，语速极慢，被击伤时声音破裂）：「那是一扇门。收割下界的门。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「那是——」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「他的气息……比分身强太多了。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-001-L04, role: reference_image, label: 图1}
+    - {file: CHAR-017-L02, role: reference_image, label: 图2}
+    - {file: SCENE-032, role: reference_image, label: 图3}
+  transition_to_next: hard_cut
+
+- segment_id: EP64-SEG07
+  shot_ids: [EP64-S13]
+  duration_sec: 5
+  speakers: []
+  refs:
+    scene_id: SCENE-032
+  assets:
+    look_urls:
+      CHAR-017-L02: https://placeholder.example/CHAR-017-L02.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  api:
+    text: |
+      【图1】万界监者 CHAR-017-L02（金色神甲参考）【图2】天裂谷·万丈高空 SCENE-032。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）LS 镜头拉远：裂隙中——一只覆盖金色天界符文神甲的巨大手臂从金光中伸出，每一根手指散发毁天灭地的力量。金色符文如群星闪烁，照亮整片天空。手臂抓住裂隙边缘，空间碎片从边缘纷纷剥落，整片天空在颤抖。九道光柱被这股力量压得弯曲。
+      画面全程无任何文字、字幕、标题、水印。
+      本段无对白无语音，禁止画面中出现任何文字。中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-017-L02, role: reference_image, label: 图1}
+    - {file: SCENE-032, role: reference_image, label: 图2}
+  transition_to_next: hard_cut
+
+- segment_id: EP64-SEG08
+  shot_ids: [EP64-S14, EP64-S15]
+  duration_sec: 8
+  speakers: [CHAR-017, CHAR-001]
+  refs:
+    scene_id: SCENE-032
+  assets:
+    look_urls:
+      CHAR-017-L03: https://placeholder.example/CHAR-017-L03.png
+      CHAR-001-L04: https://placeholder.example/CHAR-001-L04.png
+    scene_urls:
+      SCENE-032: https://placeholder.example/SCENE-032.png
+  api:
+    text: |
+      【图1】万界监者本体 CHAR-017-L03（金色全身神甲，天界符文如星河流转，银白长发）【图2】林渊 CHAR-001-L04（白色仙袍，半毁）【图3】天裂谷·万丈高空 SCENE-032。
+      竖屏9比16连贯叙事。
+      镜头1（5秒）LS 镜头拉远：裂隙被两只金色巨手撑开——图1本体从裂隙中缓缓挤出。金色全身神甲上天界符文如星河流转，银白长发如瀑布倾泻，金色眼眸中闪烁着毁天灭地的光芒。身形比分身更大、更耀眼、更压迫——整片天空都被金光吞没。
+      镜头2（3秒）MLS 固定镜头：图1本体完全显现——金色神甲覆盖全身，天界符文如群星流转。俯视图2，金色眼眸中没有任何情感，只有绝对的审判。图2在他脚下渺小如尘埃，白仙袍半毁，金白仙气微弱闪烁。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（万界监者，成年男性，声线低沉带金属回响，如神谕般空旷，语速极慢，被击伤时声音破裂）：「你面对的——」
+      对白（万界监者，成年男性，声线低沉带金属回响，如神谕般空旷，语速极慢，被击伤时声音破裂）：「从始至终，都不只是一个分身。」
+      对白（林渊，成年男性，少年声线逐渐成熟，语调低沉克制，语速偏慢，关键时刻声音压低越怒越冷）：「……完了。」
+      画面全程无任何文字、字幕、标题、水印。
+      中国仙侠玄幻短剧，真人拍摄质感，东方古典美学，写实风格，竖屏9比16，文字、字幕、水印、现代元素、西方风格、过于写实、低质量、模糊、变形。
+    content_roles:
+    - {file: CHAR-017-L03, role: reference_image, label: 图1}
+    - {file: CHAR-001-L04, role: reference_image, label: 图2}
+    - {file: SCENE-032, role: reference_image, label: 图3}
+  transition_to_next: hard_cut

@@ -1,0 +1,196 @@
+episode_id: EP02
+source_md: 剧本/EP02/EP02_系统修复中.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: true
+  prompt_suffix: "Vertical 9:16 continuous narrative, modern Chinese urban setting, realistic drama style, warm morning sunlight, no brand logos, no platform UI, no text overlay"
+  negative_prompt: "Watermark, text overlay, subtitles, brand logo, platform UI, background music, distorted faces, cartoon style, 3D rendering"
+
+voice_prompts:
+  CHAR-001: "成年女性，28岁，声线明亮带吐槽节奏，语速中偏快"
+  CHAR-002: "成年男性，30岁，声线偏低沉，语速偏慢，初期冷感"
+  CHAR-003: "中性合成语音，冷感机械声带轻微电子音效"
+
+shots:
+  - shot_id: EP02-S01
+    duration_sec: 5
+    mode: i2v_ref
+    refs: { scene_id: SCENE-004, look_ids: [CHAR-001-L01] }
+    assets: { look_urls: { CHAR-001-L01: assets/looks/CHAR-001-L01.png }, scene_urls: { SCENE-004: assets/scenes/SCENE-004.png } }
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-004。中景固定，苏念念从别墅沙发上醒来，晨光照在她身上，伸懒腰打哈欠。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-004, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: CHAR-001, line: "……我还真在这儿睡了一晚？这沙发质量真不错。"}
+      - {speaker: CHAR-003, line: "倒计时：23小时41分钟。系统已重新评估任务协议。"}
+
+  - shot_id: EP02-S02
+    duration_sec: 5
+    refs: { scene_id: SCENE-006 }
+    assets: { scene_urls: { SCENE-006: assets/scenes/SCENE-006.png } }
+    api:
+      text: "【图1】SCENE-006。特写固定，系统界面显示修复模式启动，剧情偏离值进度条出现。"
+      content_roles: [{file: SCENE-006, role: reference_image, label: 图1}]
+    dialogue:
+      - {speaker: CHAR-003, line: "因用户拒绝任务，系统已启动修复模式。新任务将在适当时机推送。"}
+      - {speaker: CHAR-001, line: "哦？还有进度条？满了会怎样？"}
+      - {speaker: CHAR-003, line: "剧情完全偏离——系统自毁。"}
+
+  - shot_id: EP02-S03
+    duration_sec: 5
+    refs: { scene_id: SCENE-004, look_ids: [CHAR-001-L01, CHAR-002-L01] }
+    assets: { look_urls: { CHAR-001-L01: assets/looks/CHAR-001-L01.png, CHAR-002-L01: assets/looks/CHAR-002-L01.png }, scene_urls: { SCENE-004: assets/scenes/SCENE-004.png } }
+    api:
+      text: "【图1】CHAR-002-L01【图2】CHAR-001-L01。中景固定，陆景琛从二楼下来看到苏念念还在沙发上，表情管理需恢复一秒。"
+      content_roles: [{file: CHAR-002-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: CHAR-002, line: "你——还没走？"}
+      - {speaker: CHAR-001, line: "你也没赶我啊。"}
+
+  - shot_id: EP02-S04
+    duration_sec: 5
+    refs: { scene_id: SCENE-004, look_ids: [CHAR-002-L01, CHAR-001-L01] }
+    assets: { look_urls: { CHAR-002-L01: assets/looks/CHAR-002-L01.png, CHAR-001-L01: assets/looks/CHAR-001-L01.png } }
+    api:
+      text: "【图1】CHAR-002-L01【图2】CHAR-001-L01。近景固定，陆景琛看着苏念念被系统弹窗逗笑，眉头微皱但非生气是好奇。"
+      content_roles: [{file: CHAR-002-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: CHAR-002, line: "你笑什么。"}
+      - {speaker: CHAR-001, line: "看到一条搞笑推送。"}
+
+  - shot_id: EP02-S05
+    duration_sec: 6
+    refs: { scene_id: SCENE-004, look_ids: [CHAR-001-L01, CHAR-002-L01] }
+    assets: { look_urls: { CHAR-001-L01: assets/looks/CHAR-001-L01.png, CHAR-002-L01: assets/looks/CHAR-002-L01.png }, scene_urls: { SCENE-004: assets/scenes/SCENE-004.png } }
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-002-L01。中景固定，苏念念走向厨房翻冰箱，陆景琛站在后面看着。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-002-L01, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: CHAR-001, line: "你家冰箱东西挺多但都不太会吃的样子——你吃鸡蛋吗？我给你做个早餐。"}
+      - {speaker: CHAR-002, line: "……你做？"}
+      - {speaker: CHAR-001, line: "不然呢？你来？"}
+
+  - shot_id: EP02-S06
+    duration_sec: 6
+    refs: { scene_id: SCENE-004, look_ids: [CHAR-002-L01, CHAR-001-L01] }
+    assets: { look_urls: { CHAR-002-L01: assets/looks/CHAR-002-L01.png, CHAR-001-L01: assets/looks/CHAR-001-L01.png } }
+    api:
+      text: "【图1】CHAR-002-L01【图2】CHAR-001-L01。特写固定，陆景琛看着她在厨房忙碌，晨光照耀，嘴角不自觉地动了一下。"
+      content_roles: [{file: CHAR-002-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: CHAR-002, line: "……好。"}
+      - {speaker: CHAR-001, line: "好什么？吃煎蛋还是炒蛋？"}
+      - {speaker: CHAR-002, line: "……随便。"}
+
+  - shot_id: EP02-S07
+    duration_sec: 5
+    refs: { scene_id: SCENE-006 }
+    assets: { scene_urls: { SCENE-006: assets/scenes/SCENE-006.png } }
+    api:
+      text: "【图1】SCENE-006。特写固定，系统界面红色警报——男主配合度异常上升。"
+      content_roles: [{file: SCENE-006, role: reference_image, label: 图1}]
+    dialogue:
+      - {speaker: CHAR-003, line: "警告！男主配合度异常上升！检测到非剧本行为——男主亲自吃女主做的早餐。这在剧本中不存在。"}
+
+  - shot_id: EP02-S08
+    duration_sec: 5
+    refs: { scene_id: SCENE-006 }
+    assets: { scene_urls: { SCENE-006: assets/scenes/SCENE-006.png } }
+    api:
+      text: "【图1】SCENE-006。特写推近，系统界面由蓝变红，强制任务推送中。"
+      content_roles: [{file: SCENE-006, role: reference_image, label: 图1}]
+    dialogue:
+      - {speaker: CHAR-003, line: "强制任务已推送——让男主说出他的标志性台词。"你配不上"。必须在10分钟内完成。"}
+
+  - shot_id: EP02-S09
+    duration_sec: 5
+    refs: { scene_id: SCENE-004, look_ids: [CHAR-001-L01] }
+    assets: { look_urls: { CHAR-001-L01: assets/looks/CHAR-001-L01.png }, scene_urls: { SCENE-004: assets/scenes/SCENE-004.png } }
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-004。近景固定，苏念念刚端上煎蛋，系统弹窗跳出强制任务，她叹气。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-004, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: CHAR-001, line: "又来？强制任务是让我刺激你说'你配不上'？(抬头看陆景琛)你困吗？要不要再来杯咖啡？"}
+
+  - shot_id: EP02-S10
+    duration_sec: 5
+    refs: { scene_id: SCENE-004, look_ids: [CHAR-002-L01, CHAR-001-L01] }
+    assets: { look_urls: { CHAR-002-L01: assets/looks/CHAR-002-L01.png, CHAR-001-L01: assets/looks/CHAR-001-L01.png } }
+    api:
+      text: "【图1】CHAR-002-L01【图2】CHAR-001-L01。近景固定，陆景琛接过咖啡喝了一口，语气不定。"
+      content_roles: [{file: CHAR-002-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: CHAR-002, line: "……你为什么不生气。"}
+      - {speaker: CHAR-001, line: "生气什么？因为你该说"你配不上"没说？没说的话我更高兴。"}
+
+  - shot_id: EP02-S11
+    duration_sec: 5
+    refs: { scene_id: SCENE-006 }
+    assets: { scene_urls: { SCENE-006: assets/scenes/SCENE-006.png } }
+    api:
+      text: "【图1】SCENE-006。特写固定，系统界面警告——修复力消耗50%，强制模式提前。"
+      content_roles: [{file: SCENE-006, role: reference_image, label: 图1}]
+    dialogue:
+      - {speaker: CHAR-003, line: "修复力已消耗50%。强制模式提前启动——剩余：8小时。"}
+
+  - shot_id: EP02-S12
+    duration_sec: 5
+    refs: { scene_id: SCENE-004, look_ids: [CHAR-001-L01] }
+    assets: { look_urls: { CHAR-001-L01: assets/looks/CHAR-001-L01.png }, scene_urls: { SCENE-004: assets/scenes/SCENE-004.png } }
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-004。近景固定，苏念念看到倒计时变短了，表情变了一下又恢复，转头看向陆景琛。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-004, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: CHAR-001, line: "8小时……比24小时少了很多啊。(停顿)陆景琛——你今天不用去公司吗？"}
+      - {speaker: CHAR-002, line: "你跟我一起去。"}
+
+  - shot_id: EP02-S13
+    duration_sec: 5
+    refs: { scene_id: SCENE-004, look_ids: [CHAR-001-L01, CHAR-002-L01] }
+    assets: { look_urls: { CHAR-001-L01: assets/looks/CHAR-001-L01.png, CHAR-002-L01: assets/looks/CHAR-002-L01.png } }
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-002-L01。中景固定，苏念念愣住了——他带她去公司？她指指自己的卫衣牛仔裤。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-002-L01, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: CHAR-001, line: "跟你去公司？我穿成这样？"}
+      - {speaker: CHAR-002, line: "我让人送衣服过来。"}
+      - {speaker: CHAR-001, line: "……等一下，你认真的？"}
+      - {speaker: CHAR-002, line: "你不是说你不知道你怎么来的吗？那我现在也没法送你走。"}
+
+  - shot_id: EP02-S14
+    duration_sec: 5
+    refs: { scene_id: SCENE-004, look_ids: [CHAR-001-L01] }
+    assets: { look_urls: { CHAR-001-L01: assets/looks/CHAR-001-L01.png } }
+    api:
+      text: "【图1】CHAR-001-L01。近景固定，苏念念笑了——陆景琛在帮她，他可能自己都没意识到。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}]
+    dialogue:
+      - {speaker: CHAR-001, line: "陆总，你这个"没法送你走"的理由编得——还行。"}
+      - {speaker: CHAR-002, line: "跟上。"}
+
+  - shot_id: EP02-S15
+    duration_sec: 5
+    refs: { scene_id: SCENE-006 }
+    assets: { scene_urls: { SCENE-006: assets/scenes/SCENE-006.png } }
+    api:
+      text: "【图1】SCENE-006。特写固定，系统界面新通知——修复模式第二阶段启动，目标苏雨晴。"
+      content_roles: [{file: SCENE-006, role: reference_image, label: 图1}]
+    dialogue:
+      - {speaker: CHAR-003, line: "修复模式第二阶段启动。目标角色：苏雨晴。将在用户到达新场景后触发。请准备——这不再是新手引导了。"}
+
+  - shot_id: EP02-S16
+    duration_sec: 5
+    refs: { scene_id: SCENE-004, look_ids: [CHAR-001-L01] }
+    assets: { look_urls: { CHAR-001-L01: assets/looks/CHAR-001-L01.png }, scene_urls: { SCENE-004: assets/scenes/SCENE-004.png } }
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-004。近景固定，苏念念上车前系统弹窗一闪，她脚步顿住。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-004, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: CHAR-001, line: "苏雨晴……?(她记得这个名字——剧中恶毒女配)"}
+      - {speaker: CHAR-003, line: "是的。她的任务线将在你到达公司后自动启动。"}
+      - {speaker: CHAR-001, line: "麻烦一个一个来行不行。"}
