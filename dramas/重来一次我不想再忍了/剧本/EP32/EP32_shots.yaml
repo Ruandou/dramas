@@ -1,77 +1,385 @@
-# EP32 shots.yaml
-episode: EP32
-total_duration_sec: 24
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP32/EP32_分镜剧本.md
+# Source shots: 12 (EP32-S01 to EP32-S12)
+# Output shots: 12 (EP32-S01 to EP32-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 88s
+# Output total duration: 88s
+# Gate status: ALL PASS (with non-fatal warnings)
+
+episode_id: EP32
+source_md: 剧本/EP32/EP32_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，第二幕暖橙主调，冷灰色为辅。办公桌自然光，屏幕冷光，咖啡厅暖黄灯光营造谈判氛围。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP32-S01
-    scene_id: SCENE-001
-    type: "`EP32-S01`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `[待补：采购部同事]`"
-  - id: EP32-S02
-    scene_id: SCENE-001
-    type: "`EP32-S02`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP32-S03
-    scene_id: SCENE-001
-    type: "`EP32-S03`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP32-S04
-    scene_id: SCENE-001
-    type: "`EP32-S04`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP32-S05
-    scene_id: SCENE-001
-    type: "`EP32-S05`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP32-S06
-    scene_id: SCENE-001
-    type: "`EP32-S06`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP32-S07
-    scene_id: SCENE-001
-    type: "`EP32-S07`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP32-S08
-    scene_id: SCENE-001
-    type: "`EP32-S08`"
-    duration_sec: 1
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP32-S09
-    scene_id: SCENE-001
-    type: "`EP32-S09`"
+  - shot_id: EP32-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图2】公司大办公室 SCENE-001。
+        午后阳光透过落地窗在桌面拉出斜长光影。中景固定镜头：林晚坐在工位前审查供应商清单，手指停在一行上——拿起座机话筒拨号——放下话筒后打开浏览器搜索。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "采购部吗？盛源科技的资质——之前有合作过吗？"
+      - speaker: CHAR-GRP-46
+        line: "……"
+      - speaker: CHAR-001
+        line: "好，知道了。"
+      - speaker: CHAR-001
+        line: "【内心】报价高35%——采购部说没有合作记录——那它为什么出现在供应商清单上？"
+
+  - shot_id: EP32-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图2】公司大办公室 SCENE-001。
+        特写镜头推近：电脑屏幕加载搜索结果页面——商业关联信息显示盛源科技与盛天资本存在间接股权关联。林晚瞳孔微缩——截图保存——继续往下翻文件。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "【内心】盛源科技——盛天资本的关联企业。报价高35%。"
+      - speaker: CHAR-001
+        line: "【内心】第一层陷阱——供应商。不接，是我不配合资源；接了，欠他人情。"
+      - speaker: CHAR-001
+        line: "【内心】但这不会是你唯一的牌——让我看看还有什么。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图2】公司大办公室 SCENE-001。
+        中景固定镜头：林晚关掉供应商清单，打开预算分配方案文档——12个子项的明细。她的目光快速扫过——手指滚动页面——在第7项停住——继续往下看第9项、第11项——靠到椅背上。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "【内心】第7项——新媒体推广预算——责任人林晚——个人追责。"
+      - speaker: CHAR-001
+        line: "【内心】第9项——危机公关储备金——个人追责。"
+      - speaker: CHAR-001
+        line: "【内心】第11项——渠道拓展试错金——个人追责。"
+      - speaker: CHAR-001
+        line: "【内心】12项预算，3个高风险项全部个人追责。加起来——620万。"
+
+  - shot_id: EP32-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图2】公司大办公室 SCENE-001。
+        特写缓推：林晚的目光落在屏幕上没有移动——屏幕冷白光照映在她脸上——她安静了几秒——嘴角微动——轻声说了一句——然后坐直身体。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "供应商放关系户让我踩——预算设计个人追责让我扛——中间还有刘振东卡我的审批。"
+      - speaker: CHAR-001
+        line: "【内心】三层套——贺云峰，你是真的不打算让我做完。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图2】公司大办公室 SCENE-001。
+        中近景缓推至特写：林晚靠到椅背上看向窗外——午后斜阳——十指交握指节泛白——闭眼——再睁开时目光已变——松开手坐直——把手放回键盘上打开空白Excel表格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "【内心】他在等我发火——等我拍桌子去找他理论——那样他就有了'林晚情绪不稳定，不适合负责大项目'的借口。"
+      - speaker: CHAR-001
+        line: "【内心】我不上这个当。"
+      - speaker: CHAR-001
+        line: "【内心】供应商、预算、审批——三条线，一条条拆。"
+
+  - shot_id: EP32-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图2】公司大办公室 SCENE-001。
+        中景固定镜头：林晚手指在键盘上快速移动——打开原始预算方案——新建工作表——重新分配各项预算——操作精准流畅没有多余停顿——保存——回到供应商清单移动供应商。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "【内心】第7项——拆。高风险归低风险——200万走常规渠道，90万留灵活资金。"
+      - speaker: CHAR-001
+        line: "【内心】第9项——取消储备金名目。150万转入品牌建设——赵总审批路径，不经过刘振东。"
+      - speaker: CHAR-001
+        line: "【内心】第11项——拆成6个小项。风险分摊——每项一个负责人——追责不到我头上。"
+      - speaker: CHAR-001
+        line: "【内心】盛源科技——备选。换备选供应商——报价低30%，无关联。"
+
+  - shot_id: EP32-S07
+    shot_no: 7
+    mode: i2v_ref
     duration_sec: 5
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP32-S10
-    scene_id: SCENE-001
-    type: "`EP32-S10`"
-    duration_sec: 5
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP32-S11
-    scene_id: SCENE-001
-    type: "`EP32-S11`"
-    duration_sec: 1
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP32-S12
-    scene_id: SCENE-001
-    type: "`EP32-S12`"
-    duration_sec: 5
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图2】公司大办公室 SCENE-001【图3】手机 PROP-009。
+        特写镜头推近：屏幕上的Excel表格显示重新设计好的新方案——预算已重新分配、高风险消除——林晚滚动到方案最后一页——风险审核确认签名栏——她看着空白处沉默片刻——保存文件——拿起手机翻开通讯录。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-009, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "【内心】方案完成了——每一层陷阱都绕过去了。"
+      - speaker: CHAR-001
+        line: "【内心】但最后这一关——需要他签。"
+      - speaker: CHAR-001
+        line: "【内心】陆北辰——我需要你看一眼这个方案。"
+
+  - shot_id: EP32-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图3】咖啡厅 SCENE-007。
+        傍晚咖啡厅暖黄灯光木桌窗外暮色——林晚坐在角落位置笔记本电脑打开——陆北辰推门进来，深炭灰西装步伐沉稳——走向她坐下——林晚没有寒暄直接把屏幕转向他——他低头看屏幕目光越来越专注——抬起头看着她。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "你先看看这个。"
+      - speaker: CHAR-005
+        line: "你把预算重新分配了。供应商也换了。高风险项全部拆了。"
+      - speaker: CHAR-001
+        line: "嗯。"
+      - speaker: CHAR-005
+        line: "你绕过了贺云峰所有的陷阱。"
+
+  - shot_id: EP32-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图3】咖啡厅 SCENE-007。
+        中近景固定镜头：陆北辰手指在触摸板上往下滑动——看到最后一页风险审核确认签名栏——手指停住——沉默两三秒——抬起头看着林晚——林晚接住他的目光没有回避。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "我需要你签这个字。"
+      - speaker: CHAR-005
+        line: "你知道这个方案如果出了问题——签字的也要担责任。"
+      - speaker: CHAR-001
+        line: "我知道。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP32-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图3】咖啡厅 SCENE-007。
+        中近景缓推至特写：陆北辰没有移开视线——靠到椅背上沉默片刻——咖啡厅暖黄灯光背景音乐——他开口说——林晚直视他回应。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "林晚——这个字签下去，贺云峰就知道你我是一边的。"
+      - speaker: CHAR-005
+        line: "你准备好让他知道了吗？"
+      - speaker: CHAR-001
+        line: "他从一开始就没打算让我做完这个项目。供应商、预算、审批——三层陷阱——他算好了我接不住。"
+      - speaker: CHAR-001
+        line: "但我不打算按他写的剧本走。"
+
+  - shot_id: EP32-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图3】咖啡厅 SCENE-007。
+        中近景固定镜头：林晚看着陆北辰目光平静没有犹豫——她说话每一个字都很清晰——陆北辰的目光在她脸上停住——沉默了几秒——缓缓坐直身体——手伸向桌上的笔。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "你不签这个字，我也能走完这个项目。但走完之后——贺云峰知道我不按他的剧本走——下一次他会设更深的局。"
+      - speaker: CHAR-001
+        line: "我不需要你替我挡枪。我需要你——和我站在一起。"
+
+  - shot_id: EP32-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图3】咖啡厅 SCENE-007。
+        特写缓推至极端特写定格：陆北辰拿起笔——低头看签名栏——抬起头看着林晚——笔尖移到签名栏上方——悬停——没有落下——定格在笔尖与纸面之间。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "你知道你在对抗什么人吗？"
+      - speaker: CHAR-001
+        line: "我知道。"

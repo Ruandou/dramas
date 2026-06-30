@@ -1,83 +1,268 @@
-# EP32 segments.yaml
-episode: EP32
-total_duration_sec: 24
-total_shots: 12
+episode_id: EP32
+source_md: 剧本/EP32/EP32_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，第二幕暖橙主调，冷灰色为辅。办公桌自然光，屏幕冷光，咖啡厅暖黄灯光营造谈判氛围。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，第二幕暖橙主调，冷灰色为辅。办公桌自然光，屏幕冷光，咖啡厅暖黄灯光营造谈判氛围。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+  # ⚠️ WARNING: CHAR-GRP-46 (采购部同事) has no defined voice_prompt in 声音卡片.md or 角色卡片.md.
+  # Only appears as indistinct phone response (话筒中含混回应). Using generic description.
+  CHAR-GRP-46: "成年男性，30岁左右，采购部员工，话筒中声音含混"
+
 segments:
-  - id: EP32-SEG01
-    scene_id: SCENE-001
-    description: "segment 1"
-    total_duration_sec: 2
-    shots:
-      - id: EP32-S01
-        type: "`EP32-S01`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP32-S02
-        type: "`EP32-S02`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP32-SEG02
-    scene_id: SCENE-001
-    description: "segment 2"
-    total_duration_sec: 2
-    shots:
-      - id: EP32-S03
-        type: "`EP32-S03`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP32-S04
-        type: "`EP32-S04`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP32-SEG03
-    scene_id: SCENE-001
-    description: "segment 3"
-    total_duration_sec: 2
-    shots:
-      - id: EP32-S05
-        type: "`EP32-S05`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP32-S06
-        type: "`EP32-S06`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP32-SEG04
-    scene_id: SCENE-001
-    description: "segment 4"
-    total_duration_sec: 2
-    shots:
-      - id: EP32-S07
-        type: "`EP32-S07`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP32-S08
-        type: "`EP32-S08`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-  - id: EP32-SEG05
-    scene_id: SCENE-001
-    description: "segment 5"
-    total_duration_sec: 10
-    shots:
-      - id: EP32-S09
-        type: "`EP32-S09`"
-        duration_sec: 5
-        description: "`SCENE-007`"
-      - id: EP32-S10
-        type: "`EP32-S10`"
-        duration_sec: 5
-        description: "`SCENE-007`"
-  - id: EP32-SEG06
-    scene_id: SCENE-001
-    description: "segment 6"
-    total_duration_sec: 6
-    shots:
-      - id: EP32-S11
-        type: "`EP32-S11`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-      - id: EP32-S12
-        type: "`EP32-S12`"
-        duration_sec: 5
-        description: "`SCENE-007`"
+  - segment_id: EP32-SEG01
+    shot_ids: [EP32-S01, EP32-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-GRP-46]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤，佩戴员工工牌）【图2】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：午后阳光透过落地窗在桌面拉出斜长光影。林晚坐在工位前审查供应商清单，手指停在一行上——拿起座机话筒拨号——听筒里传来含混回应——放下话筒后打开浏览器搜索。
+        镜头2（6秒）特写 镜头推近：电脑屏幕加载搜索结果页面——商业关联信息显示盛源科技的控股方与盛天资本存在间接股权关联。林晚瞳孔微微收缩——截图保存——继续往下翻文件。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「采购部吗？盛源科技的资质——之前有合作过吗？」
+        对白（采购部同事，成年男性，30岁左右，采购部员工，话筒中声音含混）：「……」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「好，知道了。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「报价高35%——采购部说没有合作记录——那它为什么出现在供应商清单上？」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「盛源科技——盛天资本的关联企业。报价高35%。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「第一层陷阱——供应商。不接，是我不配合资源；接了，欠他人情。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「但这不会是你唯一的牌——让我看看还有什么。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，冷灰色为辅。办公桌自然光，屏幕冷光。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP32-SEG02
+    shot_ids: [EP32-S03, EP32-S04]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤）【图2】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：林晚关掉供应商清单，打开预算分配方案文档——12个子项的预算分配明细。她的目光快速扫过每个子项——手指滚动页面——在第7项"新媒体推广预算：290万——责任人：林晚——追责机制：个人追责"停住——继续往下看第9项、第11项——靠到椅背上。
+        镜头2（6秒）特写 缓推：林晚的目光落在屏幕上没有移动——屏幕冷白光照映在她脸上——她安静了几秒——嘴角微微动了动——轻声说了一句——然后坐直身体，目光从屏幕抬起看向窗外。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「第7项——新媒体推广预算——责任人林晚——个人追责。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「第9项——危机公关储备金——个人追责。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「第11项——渠道拓展试错金——个人追责。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「12项预算，3个高风险项全部个人追责。加起来——620万。」
+        对白（林晚·自语，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「供应商放关系户让我踩——预算设计个人追责让我扛——中间还有刘振东卡我的审批。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「三层套——贺云峰，你是真的不打算让我做完。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，冷灰色为辅。办公桌自然光，屏幕冷光。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP32-SEG03
+    shot_ids: [EP32-S05]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤）【图2】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中近景至特写 缓推：林晚靠到椅背上。她没有看屏幕，转头看向窗外——午后的阳光在玻璃上映出城市天际线的轮廓。她的手放在桌面上，十指交握——指节微微泛白。她的呼吸节奏不太稳。三秒。她闭了一下眼睛。再睁开时——她的目光已经完全变了。她松开交握的手，重新坐直，把手放回键盘上——打开了一个空白Excel表格。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他在等我发火——等我拍桌子去找他理论——那样他就有了'林晚情绪不稳定，不适合负责大项目'的借口。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我不上这个当。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「供应商、预算、审批——三条线，一条条拆。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，冷灰色为辅。办公桌自然光，窗外斜阳营造沉思氛围。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP32-SEG04
+    shot_ids: [EP32-S06, EP32-S07]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤）【图2】公司大办公室 SCENE-001【图3】手机 PROP-009。
+        角色分工：仅图1可操作键盘和手机；图2为静态场景参考。
+        道具：手机（iPhone 7时代智能手机，玫瑰金金属机身，屏幕熄灭黑色反光）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：林晚手指在键盘上快速移动——打开原始预算方案——新建工作表——重新分配各项预算。第7项拆出200万走常规渠道，90万留灵活资金。第9项取消储备金，150万转入品牌建设。第11项拆成6个30万小项。操作精准流畅没有多余停顿——保存——回到供应商清单，把"盛源科技"从主供应商移到"备选"，换上另一家——保存。
+        镜头2（5秒）特写 镜头推近：屏幕上的Excel表格显示重新设计好的方案——预算重新分配、高风险消除、供应商替换。林晚滚动到方案最后一页——"风险审核确认"栏下方有一行小字："战略顾问签字确认：______"——她看着空白处沉默片刻——保存文件——文件名："预算方案_v2_三千万_修订版"——拿起手机翻开通讯录。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「第7项——拆。高风险归低风险——200万走常规渠道，90万留灵活资金。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「第9项——取消储备金名目。150万转入品牌建设——赵总审批路径，不经过刘振东。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「第11项——拆成6个小项。风险分摊——每项一个负责人——追责不到我头上。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「盛源科技——备选。换备选供应商——报价低30%，无关联。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「方案完成了——每一层陷阱都绕过去了。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「但最后这一关——需要他签。」
+        对白（林晚·内心独白，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「陆北辰——我需要你看一眼这个方案。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，冷灰色为辅。办公桌自然光偏暖，展现从愤怒到冷静的心境转变。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-009, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP32-SEG05
+    shot_ids: [EP32-S08, EP32-S09]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图3】咖啡厅 SCENE-007。
+        角色分工：仅图1可操作笔记本电脑；图2可操作触摸板翻阅文档。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中远景至中景 固定镜头：傍晚的咖啡厅，暖黄灯光，木桌，窗外暮色淡淡透进来。林晚坐在最里面的角落位置——笔记本电脑打开，屏幕上是新预算方案。陆北辰推门进来——深炭灰西装，步伐沉稳——他看到了她，走过去坐下。林晚没有寒暄，把屏幕转向他。他低头看屏幕——起初表情平静——几秒后目光专注起来——又过了几秒目光在几个关键数字上停住——看完抬起头看着她。
+        镜头2（6秒）中近景 固定镜头：陆北辰手指在触摸板上往下滑动——看到最后一页——"风险审核确认"签名栏。他的手指停住了。他沉默了两三秒——然后抬起头看着林晚——林晚接住他的目光，没有回避。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你先看看这个。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「你把预算重新分配了。供应商也换了。高风险项全部拆了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「嗯。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「你绕过了贺云峰所有的陷阱。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我需要你签这个字。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「你知道这个方案如果出了问题——签字的也要担责任。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我知道。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，冷灰色为辅。咖啡厅暖黄灯光营造谈判氛围。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP32-SEG06
+    shot_ids: [EP32-S10]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中近景至特写 缓推：陆北辰没有移开视线。他看着林晚——不是审视，是一种"你确定吗"的确认。他没有立刻拿起笔。他靠到椅背上，沉默了片刻。咖啡厅的背景音乐在远处流淌。他开口了——声音依然低沉平稳，但比刚才认真了一度。林晚直视他，没有犹豫地回应。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「林晚——这个字签下去，贺云峰就知道你我是一边的。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「你准备好让他知道了吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他从一开始就没打算让我做完这个项目。供应商、预算、审批——三层陷阱——他算好了我接不住。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「但我不打算按他写的剧本走。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，冷灰色为辅。咖啡厅暖黄灯光营造谈判氛围。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP32-SEG07
+    shot_ids: [EP32-S11]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中近景 固定镜头：林晚看着陆北辰——她的目光平静，没有一丝犹豫的痕迹。她说话声音不大，但每一个字都很清晰。陆北辰的目光在她脸上停住了——他看着她，不是审视，是一种不一样的目光。他沉默了几秒——然后缓缓坐直了身体——手伸向桌上林晚的笔。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你不签这个字，我也能走完这个项目。但走完之后——贺云峰知道我不按他的剧本走——下一次他会设更深的局。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我不需要你替我挡枪。我需要你——和我站在一起。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，冷灰色为辅。咖啡厅暖黄灯光营造谈判氛围。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP32-SEG08
+    shot_ids: [EP32-S12]
+    duration_sec: 11
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）特写至极端特写 缓推至定格：陆北辰拿起了笔。他没有立刻签——他拿着笔，低头看着签名栏。沉默。然后他抬起头，看着林晚。他的目光里有一层她没见过的底色——那不是犹豫，是一种"你确定要走到这一步吗"的最后确认。林晚没有移开目光。陆北辰的笔尖移到了签名栏上方——悬停。没有落下。画面定格在笔尖与纸面之间那一线空隙。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「你知道你在对抗什么人吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我知道。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，冷灰色为辅。咖啡厅暖黄灯光营造紧张但克制的悬念氛围。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

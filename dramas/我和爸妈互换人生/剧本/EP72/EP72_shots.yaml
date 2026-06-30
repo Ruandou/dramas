@@ -1,0 +1,596 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP72/EP72_大结局.md
+# Source shots: 16 (EP72-S01 to EP72-S16)
+# Output shots: 16 (EP72-S01 to EP72-S16)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 114s (6+6+10+6+6+10+10+6+6+6+6+6+6+6+6+12)
+# Output total duration: 114s
+# Gate status: G1✅ G2⚠️(metadata:14, actual:16) G3✅ G4✅
+# ⚠️ G2 NOTE: Source metadata declares 14 shots but actual table contains 16 rows (S01-S16).
+#            Using actual table as authoritative source. Only S16 is skip mode (non-Seedance).
+episode_id: EP72
+source_md: 剧本/EP72/EP72_大结局.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。modern Chinese city, 2024, warm natural lighting, soft focus background, cinematic composition, photorealistic, 9:16 vertical frame, high detail, warm color palette。"
+  negative_prompt: "fantasy elements, magical glowing, anime style, cartoon style, watercolor, oil painting texture, ancient Chinese clothing, pre-modern architecture, black and white, desaturated, low quality, blurry, deformed hands, extra fingers, distorted faces, text, watermark, logo, medieval European, sci-fi, horror, gore, nudity"
+
+shots:
+  - shot_id: EP72-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+    api:
+      text: "【图1】CHAR-001-L01（白色家居T恤，头发松扎在脑后）【图2】SCENE-002。近景 固定：深夜林小夏房间，台灯暖黄色光，林小夏坐在书桌前握着细画笔在画纸上落下最后一笔。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "好了……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-002。特写 镜头推近：林小夏的手放下画笔，指尖轻轻拂过画纸边缘。画纸上四人手拉手站在老宅前，每人胸口一颗发光的心。手指停在那颗最小的心上。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "四双手，四颗心。"
+      - speaker: CHAR-001
+        line: "这是一个家。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S03
+    shot_no: 3
+    mode: t2v
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+    api:
+      text: "大特写 固定：画纸的正面全景。四人手拉手站在老宅红木门前，晚风中头发微飘。四人胸口各有一颗发光的心，颜色从最暖过渡到最深。角落有签名——《四个人的七十二天》林小夏。"
+      content_roles: []
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（白色家居T恤，拖鞋）【图2】SCENE-001。中景 固定：林小夏穿着拖鞋轻手轻脚走过走廊来到客厅门口。客厅灯火通明，茶几上水果盘，电视静音放新闻。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "和以前一样晚——但和以前不一样了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-002-L01（暖色针织开衫，戴眼镜）【图3】CHAR-003-L01（衬衫，银框眼镜）【图4】CHAR-004-L01（黑色T恤）【图5】SCENE-001。中景 固定：林小夏靠在客厅门框上看着——妈妈戴眼镜在沙发角落备课，红笔划着，旁边凉了半杯茶。爸爸在沙发另一头看电脑报表。哥哥站在阳台门边和女朋友视频，压低声音笑。客厅安静而温暖。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图3
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图4
+        - file: SCENE-001
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-001
+        line: "原来幸福的样子——"
+      - speaker: CHAR-001
+        line: "就是不用换一个身体，也能看清彼此的心。"
+      - speaker: CHAR-001
+        line: "不会有人突然摔门了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】CHAR-002-L01（暖色针织开衫，戴眼镜）【图2】CHAR-001-L01（白色家居T恤）【图3】SCENE-001。近景 固定：苏敏坐在沙发上低头改教案，抬头看到女儿站在门口，愣了一秒然后笑了。她把教案放下推了推眼镜。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "画完了？"
+      - speaker: CHAR-001
+        line: "嗯，画完了。"
+      - speaker: CHAR-002
+        line: "明天拿给妈妈看看。"
+      - speaker: CHAR-001
+        line: "好。"
+      - speaker: CHAR-001
+        line: "妈备课的样子，真好。"
+      - speaker: CHAR-002
+        line: "你奶奶说——她明天也来看。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】CHAR-003-L01（衬衫，银框眼镜）【图2】CHAR-001-L01【图3】SCENE-001。近景 固定：林建国戴着银框眼镜盯着电脑屏幕，食指在触摸板上滑动。听到女儿声音抬起头，眼神温和。"
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-003
+        line: "画完了？"
+      - speaker: CHAR-001
+        line: "画完了。"
+      - speaker: CHAR-003
+        line: "好……去睡吧，不早了。"
+      - speaker: CHAR-001
+        line: "爸，你也是。"
+      - speaker: CHAR-001
+        line: "他连关心人都用一个字。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】CHAR-004-L01（黑色T恤）【图2】CHAR-001-L01【图3】SCENE-001。中景 固定：林大宇站在阳台门口，手机屏幕亮着通话中，他压低声音笑着说了句挂断视频。转身看到妹妹靠在门框上，笑着走过来把手机塞进兜里。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "偷看我谈恋爱呢？"
+      - speaker: CHAR-001
+        line: "光明正大地看——跟奶奶学的。"
+      - speaker: CHAR-004
+        line: "毕业创作画完了？明天哥哥请客。"
+      - speaker: CHAR-001
+        line: "好。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】CHAR-003-L01【图4】CHAR-004-L01【图5】SCENE-001。中景 固定：林小夏看着眼前的画面——妈妈放下教案笑着看她，爸爸合上电脑摘了眼镜看她，哥哥的手搭在她肩上。她喉头动了动，深吸一口气。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图3
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图4
+        - file: SCENE-001
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-001
+        line: "妈，爸，哥——谢谢你们。"
+      - speaker: CHAR-002
+        line: "谢什么？"
+      - speaker: CHAR-001
+        line: "谢谢你们让我知道——做一家人，有多好。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】CHAR-003-L01【图4】CHAR-004-L01【图5】SCENE-001。中景 固定：苏敏听完女儿的话愣了一秒，眼眶红了。她朝女儿伸出手。林建国站起来把手放在妻子肩上。林大宇擦了擦鼻子假装看手机。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图3
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图4
+        - file: SCENE-001
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-002
+        line: "过来，小夏。"
+      - speaker: CHAR-002
+        line: "是该谢谢你——你教会了我们，怎么好好说话，怎么好好爱。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-003-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】CHAR-003-L01【图4】CHAR-004-L01【图5】SCENE-001。全景 固定：四人在客厅站在一起——苏敏搂着女儿，手搭在丈夫胳膊上，林小夏靠在妈妈身边，林建国站在外侧，林大宇一手插兜一手搭在爸爸肩上。深夜暖黄灯光打在四人身上，窗外月光照入。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图3
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图4
+        - file: SCENE-001
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-004
+        line: "行了行了——再煽情我又要吃泡面了。"
+      - speaker: CHAR-001
+        line: "哥你明明在抹眼泪。"
+      - speaker: CHAR-004
+        line: "谁哭了——我眼睛进东西了。"
+      - speaker: CHAR-003
+        line: "行了——小夏说得对。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    prop_ids:
+      - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-001.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-002【图3】PROP-001。中景 固定：林小夏推开门——台灯亮着，毕业创作铺在桌上。书桌上碧绿的玉佩安静地躺着，旁边有折叠的纸条，笔迹是奶奶的。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+        - file: PROP-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "这玉佩——不是放在柜子里了吗？"
+      - speaker: CHAR-001
+        line: "奶奶什么时候放的——"
+      - speaker: CHAR-001
+        line: "上面写了字。"
+      - speaker: CHAR-001
+        line: "奶奶的字，我认识。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    prop_ids:
+      - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-001.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-005-L01（中式棉袄，银白发髻）【图3】SCENE-002【图4】PROP-001。慢镜头 特写：林小夏的手指轻轻展开纸条。字迹是奶奶独有的——有点颤但笔锋硬朗。纸条上的字在暖黄灯光下清晰可见。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+        - file: PROP-001
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-001
+        line: "小夏，这枚玉佩以后交给你了。不是因为它有用——而是因为你值得。"
+      - speaker: CHAR-001
+        line: "奶奶……"
+      - speaker: CHAR-001
+        line: "这次，我不会再让玉佩发光了。我会让它——好好亮着。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    prop_ids:
+      - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-001.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-002【图3】PROP-001。近景 缓推：林小夏放下纸条，双手捧起那枚玉佩。碧绿的玉面在台灯下泛着温润微光，红绳在指间垂落。她看着玉佩——这一次没有闪电没有昏迷。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+        - file: PROP-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "没有闪电……没有昏迷。"
+      - speaker: CHAR-001
+        line: "这次——是真的不需要了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP72-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    prop_ids:
+      - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我和爸妈互换人生/PROP-001.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-002【图3】PROP-001。慢镜头 特写：玉佩静静躺在林小夏掌心。玉佩的绿色深处有很淡的暖金色光晕流转，红绳微微晃动，碧绿的玉面映着台灯暖光折射出细碎光点洒在她掌心纹路上。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+        - file: PROP-001
+          role: reference_image
+          label: 图3
+    dialogue: []
+    transition_to_next: dissolve
+
+  - shot_id: EP72-S16
+    shot_no: 16
+    mode: skip
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我和爸妈互换人生/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我和爸妈互换人生/SCENE-002.png
+    api:
+      text: ""
+      content_roles: []
+    dialogue: []
+    transition_to_next: hard_cut
