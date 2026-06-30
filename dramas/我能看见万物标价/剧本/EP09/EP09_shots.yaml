@@ -1,0 +1,495 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP09/EP09_赝品风波.md
+# Source shots: 18 (EP09-S01 to EP09-S18)
+# Output shots: 18 (EP09-S01 to EP09-S18)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s (18 × 5s)
+# Output total duration: 90s (18 × 5s)
+# Gate status: ALL PASS
+
+episode_id: EP09
+source_md: 剧本/EP09/EP09_赝品风波.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "Photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens. No text or subtitles in frame."
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+shots:
+  # ── SEG01 ──
+  - shot_id: EP09-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-005-L01, CHAR-001-L01, CHAR-003-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Mid-shot, static camera. Morning antique market street, sunlight slanting through building gaps onto canvas awnings. CHAR-001-L01 in worn gray t-shirt stands at a stall. CHAR-003-L01 in flashy track jacket munches a steamed bun. CHAR-005-L01 in pink bodycon dress approaches carrying a cloth-wrapped bundle, carefully styled curls backlit with golden rim light."
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "陆辰，这是我家传的花瓶，你帮我看看？"
+      - speaker: CHAR-003
+        line: "辰哥，她昨天还跟周天明——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L01, CHAR-005-L01]
+      # ⚠️ WARNING: [待补：女记者] placeholder extra — pending CHAR-GRP-08 assignment + L01 from character-designer
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+        # CHAR-GRP-08-L01: assets/looks/CHAR-GRP-08-L01.png  # WARNING: no CDN URL — placeholder extra pending
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Mid-shot, push-in. CHAR-001-L01 gaze shifts past CHAR-005-L01 shoulder — across the alley, two cameramen adjusting focus, lens glare catching the sunlight. CHAR-001-L01 lips press thin, eyes sharpen from calm to alert. CHAR-005-L01 maintains her smile but fingers whiten on the cloth bundle edge."
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "……还带了记者？"
+      - speaker: CHAR-005
+        line: "媒体朋友嘛，想拍个鉴宝专题。"
+    transition_to_next: hard_cut
+
+  # ── SEG02 ──
+  - shot_id: EP09-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-005-L01, CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Close-up, static camera. CHAR-005-L01 unwraps the cloth bundle revealing a blue-and-white porcelain vase ~20cm tall, glaze gleaming cold in sunlight. Her red-painted nails contrast against the pale porcelain as she extends it toward CHAR-001-L01. Morning light cuts a sharp chiaroscuro across CHAR-001-L01 angular face. He does not reach for it immediately."
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "你帮我在大家面前鉴定一下——是真品还是赝品。"
+      - speaker: CHAR-001
+        line: "你在考我？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-003-L01, CHAR-005-L01]
+      # ⚠️ WARNING: [待补：围观群众] placeholder extra — pending CHAR-GRP-09 assignment + L01 from character-designer
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+        # CHAR-GRP-09-L01: assets/looks/CHAR-GRP-09-L01.png  # WARNING: no CDN URL — placeholder extra pending
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Mid-shot, static camera. CHAR-003-L01 stuffs the last bite of bun into his mouth, round face shifting from wariness to anger, fists clenching at his sides. Behind him, blurred onlookers crowd in, some raising phones to film. CHAR-005-L01 stares fixedly past CHAR-003-L01 toward CHAR-001-L01, her expression controlled."
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "辰哥别接——她跟周天明串通好的！"
+      - speaker: CHAR-005
+        line: "不敢鉴定？看来'金眼'也没那么神。"
+    transition_to_next: hard_cut
+
+  # ── SEG03 ──
+  - shot_id: EP09-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Extreme close-up, push-in. CHAR-001-L01 reaches for the vase — the instant his fingers touch the glaze, his pupils contract sharply, amber-gold light flickering at the iris edge (AR VFX overlay in post). Above the vase, air shimmers as golden digits begin coalescing (AR floating '¥3,200' in post). Morning sun catches his thick brows, every eyelash crisp. The corner of his mouth lifts — not a smile, but a quiet confirmation."
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "仿品……市场价，三千二。"
+      - speaker: CHAR-001
+        line: "家传的？三千二的高仿。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L01, CHAR-003-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Close-up, static camera. CHAR-003-L01 leans in to read CHAR-001-L01 expression — he recognizes that familiar gleam. His flashy track jacket collar brushes the vase edge and he quickly pulls back. CHAR-001-L01 rotates the vase, thumb tracing the base in a slow precise circle. Morning light flows across the blue-white glaze like a thin sheet of ice."
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "辰哥，看出啥了？"
+      - speaker: CHAR-001
+        line: "看出来了——三千二的玩意儿。"
+    transition_to_next: hard_cut
+
+  # ── SEG04 ──
+  - shot_id: EP09-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Extreme close-up, push-in. Golden data streams accelerate inside CHAR-001-L01 pupils (AR data-flow VFX in post), scanning deeper — not just price but provenance. His facial muscles remain perfectly still, only the eyes move, pupils sweeping from vase rim to base like a scanner. Sunlight throws a highlight on his cheekbone, jawline shadow razor-sharp."
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "不止价格——制作者关联信息……"
+      - speaker: CHAR-001
+        line: "关联：周天明古玩店。上周入库。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L01, CHAR-005-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Close-up, static camera. CHAR-001-L01 sets the vase gently on a stone ledge — unhurried, like placing a teacup. He looks up at CHAR-005-L01 with neither anger nor mockery, only the calm certainty of someone who has seen through the entire scheme. CHAR-005-L01 flinches back half a step under his gaze, the metal clasp of her designer bag catching sunlight. Distant camera red light blinks."
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "周天明的货——那就让他们自己砸自己的脚。"
+      - speaker: CHAR-001
+        line: "行，我给你鉴定——当着所有人的面。"
+    transition_to_next: hard_cut
+
+  # ── SEG05 ──
+  - shot_id: EP09-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L01, CHAR-005-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Mid-shot, static camera. CHAR-001-L01 lifts the vase into direct sunlight — light penetrates the glaze casting a blue-white halo on the stone ledge. More onlookers press in, phone flashlights flickering. CHAR-005-L01 smile wavers, mouth corners twitching unnaturally, groomed brows rising slightly. CHAR-001-L01 voice is quiet but every word carries in the hushed antique street."
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "各位看好了——这只花瓶，不是家传的。"
+      - speaker: CHAR-005
+        line: "你……什么意思？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L01, CHAR-006-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Mid-shot, push-in. CHAR-001-L01 sets the vase down, gaze piercing past CHAR-005-L01 to the back of the crowd — CHAR-006-L01 stands behind two onlookers in a cheap dark suit, collar sweat-soaked, gold chain glinting. Pinned by CHAR-001-L01 stare, his small eyes widen, oily sheen on his bulbous nose catching the sun. He tries to shrink back but freezes."
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "是周天明古玩店上周出厂的高仿品——市场价，三千二。"
+      - speaker: CHAR-006
+        line: "你……你胡说！"
+    transition_to_next: hard_cut
+
+  # ── SEG06 ──
+  - shot_id: EP09-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-006-L01, CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Close-up, static camera. CHAR-006-L01 squeezes through the crowd, a shirt button popped open, gold chain swinging wildly. His small shrewd eyes dart everywhere — reporters, onlookers, CHAR-005-L01 — anywhere but at CHAR-001-L01. Sweat beads roll from temple down oily cheek. Cheap suit sleeves rolled to elbows, stubby fingers flailing in the air."
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "我——我没有！这是栽赃——你血口喷人！"
+      - speaker: CHAR-001
+        line: "周老板，你卖了一辈子假货……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L01, CHAR-006-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Close-up, static camera. CHAR-001-L01 takes one step forward — just one — but CHAR-006-L01 recoils half a step as if shoved. Morning backlight from behind CHAR-001-L01 casts his shadow across CHAR-006-L01 feet. The crowd falls silent except wind through canvas awnings. CHAR-001-L01 thin lips part, each word landing like a nail driven into wood."
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "自己的货，自己认不出来？"
+      - speaker: CHAR-006
+        line: "……"
+    transition_to_next: hard_cut
+
+  # ── SEG07 ──
+  - shot_id: EP09-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L01, CHAR-005-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Close-up, static camera. CHAR-001-L01 turns to CHAR-005-L01 — her styled curls blown askew, a strand stuck to her forehead. Bold red lips part, no words coming out. Designer bag slides from shoulder to elbow crook, she doesn't notice. Camera red lights now point at her and CHAR-006-L01 instead of CHAR-001-L01, blinking like judgmental eyes."
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "陈雅琳，你确定要当众出这个丑？"
+      - speaker: CHAR-005
+        line: "我……我不知道……这是周天明给的……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-003-L01]
+      # ⚠️ WARNING: [待补：女记者] placeholder extra — pending CHAR-GRP-08 assignment + L01 from character-designer
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        # CHAR-GRP-08-L01: assets/looks/CHAR-GRP-08-L01.png  # WARNING: no CDN URL — placeholder extra pending
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Mid-shot, static camera. A female reporter lowers her microphone, exchanging a look with her cameraman — their expressions shift from 'about to report a treasure find' to 'just caught a much bigger story.' Camera pivots toward the ashen-faced CHAR-006-L01 and trembling CHAR-005-L01. CHAR-003-L01 bounces over, round face breaking into barely-contained glee, thick palms slapping together with a clap."
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-GRP-08
+        line: "这不是鉴宝——是有人设局栽赃！"
+        # ⚠️ WARNING: speaker CHAR-GRP-08 [待补：女记者] is a pending placeholder — voice_prompt uses temp value
+      - speaker: CHAR-003
+        line: "偷鸡不成蚀把米——你们俩脸往哪搁？"
+    transition_to_next: hard_cut
+
+  # ── SEG08 ──
+  - shot_id: EP09-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L01, CHAR-005-L01, CHAR-006-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Mid-shot, pull-back. Camera slowly retreats — CHAR-001-L01 stands in sunlight, worn gray t-shirt glowing warm. Behind him, the antique market depth of stone-paved lanes and canvas awnings. Frame left: CHAR-005-L01 head bowed, styled curls hiding half her face, shoulders trembling. Frame right: CHAR-006-L01 hunched, cheap suit looking even cheaper in daylight. The distance between the three forms an invisible dividing line."
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "赝品最值钱的地方——是制作者的签名。"
+      - speaker: CHAR-005
+        line: "……"
+      - speaker: CHAR-006
+        line: "这……这不算……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-003-L01, CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "Mid-shot, tracking. CHAR-003-L01 throws an arm around CHAR-001-L01 shoulders, round face split ear-to-ear in a huge grin. Onlookers begin dispersing but several phones still film — screens showing CHAR-001-L01 holding the vase. Morning sun casts their shadows on the stone pavement, CHAR-003-L01 shadow twice as wide. A passing stall owner gives CHAR-001-L01 a thumbs-up."
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "辰哥你这波绝了——明天头条肯定是你！"
+      - speaker: CHAR-001
+        line: "少来——走，吃饭。"
+    transition_to_next: dissolve
+
+  # ── SEG09 ──
+  - shot_id: EP09-S17
+    shot_no: 17
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-006
+      look_ids: []
+      # CHAR-007 appears back-to-camera only — no L01 used per source note
+    assets:
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-006.png
+    api:
+      text: "Mid-shot, slow push-in. Penthouse office, floor-to-ceiling windows framing a glittering city nightscape — neon and tower lights blur into abstract light patches on dark glass. A black leather chair faces away from camera, revealing only the shoulder line of a dark suit and one hand resting on the armrest — long fingers, a luxury watch face glinting cold in dim light. Golden chandelier micro-light traces the chair silhouette and the back of a man's head."
+      content_roles:
+        - { file: SCENE-006, role: reference_image, label: 图1 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP09-S18
+    shot_no: 18
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-006
+      look_ids: []
+      # CHAR-007 back-to-camera only — no L01
+      # ⚠️ WARNING: [待补：西装助理] placeholder extra — pending CHAR-GRP-10 assignment + L01 from character-designer
+    assets:
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-006.png
+    api:
+      text: "Close-up, static camera. Phone screen cold-white light reflects on the man's hand — the screen shows a news video with a faint silhouette of CHAR-001-L01 holding a vase on an antique street. The man's fingers tap the leather armrest twice, unhurried, rhythmic. Half a meter behind him, a dark-suited figure stands with face hidden in shadow."
+      content_roles:
+        - { file: SCENE-006, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "有意思。"
+      - speaker: CHAR-007
+        line: "查查他。"
+    transition_to_next: hard_cut

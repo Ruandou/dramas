@@ -1,0 +1,409 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP19/EP19_新战场.md
+# Source shots: 12 (EP19-S01 to EP19-S12)
+# Output shots: 12 (EP19-S01 to EP19-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 86s (self-computed: 10+10+12+10+12+12+10+10=86s)
+# Output total duration: 86s
+# Gate status: PASS (⚠️ Gate 3/4 WARNING: [待补：同事]→CHAR-GRP-41 has no L01 or voice_prompt — non-blocking per instructions)
+# ⚠️ NOTE: [待补：同事] replaced by CHAR-GRP-41 (pending L01 image and voice_prompt assignment by production-planner)
+
+episode_id: EP19
+source_md: 剧本/EP19/EP19_新战场.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，第二幕暖橙主调，灰色为辅。职场氛围，新对手登场的暗流涌动感。"
+  negative_prompt: "real celebrity face, real brand logo, animation, cartoon, illustration, manga, text, subtitle, logo"
+
+shots:
+  - shot_id: EP19-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-41  # ⚠️ WARNING: no L01 image available; 待补群演同事, assigned CHAR-GRP-41 pending L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-41: assets/looks/CHAR-GRP-41.png  # ⚠️ WARNING: no CDN URL — CHAR-GRP-41 L01 not yet generated
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】公司大办公室 SCENE-001。竖屏9比16连贯叙事。镜头1（10秒）中景→特写 固定：林晚走进新工位，同事们打招呼叫她「林副总监」，她微笑回应。手机震动——陆北辰消息「昨晚的咖啡……今晚还喝吗？」同事走过来告知新总监到任。画面全程无任何文字、字幕、标题、水印。半写实都市质感，第二幕暖橙主调，灰色为辅。职场氛围。写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "市场总监？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】贺云峰 CHAR-007-L01（藏蓝色细条纹西装+法式翻袖白衬衫+银丝边无框眼镜）【图3】公司走廊 SCENE-013。竖屏9比16连贯叙事。镜头1（10秒）中景→特写→中景 固定：林晚去茶水间接水，在走廊拐角迎面遇到贺云峰。他微笑颔首——精确到毫米的职业微笑。两人擦肩而过。林晚脚步顿了一下，认出他——前世记忆如闪电般闪过。她走进茶水间，手在杯子上微微收紧。画面全程无任何文字、字幕、标题、水印。半写实都市质感，走廊自然光偏冷。写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-013
+          role: reference_image
+          label: 图3
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带）【图2】贺云峰 CHAR-007-L01（藏蓝色细条纹西装+法式翻袖白衬衫）【图3】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图4】公司会议室 SCENE-002。角色分工：图1介绍图2；图3静坐观察。竖屏9比16连贯叙事。镜头1（6秒）中景→中远景 固定：会议室里市场部核心成员围坐。赵总站在投影幕旁介绍新总监贺云峰——语气比平时客气。贺云峰从容微笑，目光扫过全场，在林晚脸上停了一瞬。林晚没有鼓掌，只是看着他。画面全程无任何文字、字幕、标题、水印。半写实都市质感，会议室顶灯偏冷专业照明。写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-002
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-006
+        line: "各位——今天有个重要的消息宣布。"
+      - speaker: CHAR-006
+        line: "这位是贺云峰——总部新任命的市场总监。贺总在行业里深耕多年，以后市场部由他统一管理。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】赵总 CHAR-006-L01【图3】林晚 CHAR-001-L01【图4】公司会议室 SCENE-002。角色分工：图1发言，图2和图3静坐聆听。竖屏9比16连贯叙事。镜头1（6秒）特写→中景 固定：贺云峰发言——「我了解过公司目前的市场布局……有不少亮点，也有很大的优化空间。」他扫视全场，目光精确地在每个人脸上停留相同时间。林晚手指在桌下轻轻敲了两下桌面——焦虑时的习惯。贺云峰说「未来几个月……该保留的保留，该调整的调整。」画面全程无任何文字、字幕、标题、水印。半写实都市质感，会议室专业照明均匀偏冷。写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-002
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-007
+        line: "我了解过公司目前的市场布局——有不少亮点，也有很大的优化空间。"
+      - speaker: CHAR-007
+        line: "未来几个月，我会对当前的业务线做一次全面梳理。该保留的保留，该调整的调整。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】公司会议室 SCENE-002。角色分工：图1与图2对话。竖屏9比16连贯叙事。镜头1（5秒）中景 固定：贺云峰看向林晚，微笑询问。林晚不卑不亢回应。贺云峰说「适应期——我会给你空间的。」对话交锋，表面客气下的试探。画面全程无任何文字、字幕、标题、水印。半写实都市质感。写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "听说市场部最近刚做了一次人事调整——林副总监是新提拔的？"
+      - speaker: CHAR-001
+        line: "是的，贺总。两周前刚任命。"
+      - speaker: CHAR-007
+        line: "两周——时间不长。新官上任的感觉怎么样？"
+      - speaker: CHAR-001
+        line: "跟以前一样——把该做的事做好。其他的，慢慢适应。"
+      - speaker: CHAR-007
+        line: "那就好。适应期——我会给你空间的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】赵总 CHAR-006-L01【图4】公司会议室 SCENE-002。竖屏9比16连贯叙事。镜头1（5秒）中远景 固定：贺云峰转向赵总聊业务数据。赵总说让林晚整理材料。贺云峰目光又回到林晚身上——短暂一瞥。林晚低头假装看笔记本，手微微收紧。会议室气氛从对峙中放松。画面全程无任何文字、字幕、标题、水印。半写实都市质感。写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-002
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-007
+        line: "赵总——公司今年的核心项目，你找个时间给我详细介绍一下？"
+      - speaker: CHAR-006
+        line: "好——我让林晚整理一份材料，她对项目最熟。"
+      - speaker: CHAR-007
+        line: "那正好——麻烦林副总监了。"
+      - speaker: CHAR-001
+        line: "应该的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】公司会议室 SCENE-002。竖屏9比16连贯叙事。镜头1（3秒）特写 固定：贺云峰的特写——他在与人交谈中不经意地看向林晚的方向。镜头2（3秒）特写 固定：林晚的特写——她喝水，目光与贺云峰对上。两人都停了一瞬，没有微笑，没有点头——只是互相看着，带着审视。林晚先移开目光。画面全程无任何文字、字幕、标题、水印。半写实都市质感。写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司会议室 SCENE-002。竖屏9比16连贯叙事。镜头1（6秒）中特写 固定：林晚从座位上站起来，拿起笔记本和水杯走向门口。她在门口停了一拍，没有回头——心里已有决定。推门出去，门在身后关上。画面全程无任何文字、字幕、标题、水印。半写实都市质感。写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】公司会议室 SCENE-002。角色分工：图1说话，图2静听。竖屏9比16连贯叙事。镜头1（6秒）中景→特写 固定：欢迎会散场，林晚手搭在门把手上。贺云峰没有抬头，一边整理文件一边说——「林副总监——我听说了一件事。」林晚停住，转身。贺云峰抬起头隔着几排座位微笑——没有温度。他收拾好文件走出座位，经过她身边时停了一步，低声说——「听说——你眼光很准。我很期待跟你合作。」画面全程无任何文字、字幕、标题、水印。半写实都市质感。写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "林副总监——我听说了一件事。"
+      - speaker: CHAR-007
+        line: "听说——你眼光很准。"
+      - speaker: CHAR-007
+        line: "——我很期待跟你合作。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】公司会议室 SCENE-002。竖屏9比16连贯叙事。镜头1（6秒）特写→大特写 镜头缓推：会议室只剩林晚一人。她站在门口看着贺云峰离开的方向，慢慢松开手。低下头看着自己的手，然后抬头看向窗外城市天际线。她拿出手机打字发送消息——给陆北辰。抬起头，表情平静但带着确认。转身走出会议室，脚步比来时更稳。画面全程无任何文字、字幕、标题、水印。半写实都市质感，暖橙主调。写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司走廊 SCENE-013。竖屏9比16连贯叙事。镜头1（10秒）中景→特写 镜头缓推：林晚从会议室走出来，在走廊里走了几步，然后停下来靠在墙边。午休时间，走廊人不多。她闭了一下眼睛——消化刚才发生的一切。脑海里闪过前世的碎片记忆。她睁开眼，轻轻地呼出一口长气。站直身体，整理了一下衣领，继续往前走，步伐恢复平稳。画面全程无任何文字、字幕、标题、水印。半写实都市质感，走廊正午阳光斜射。写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-013
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP19-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣，胸前副总监工牌在阳光下闪光）【图2】公司大办公室 SCENE-001。竖屏9比16连贯叙事。镜头1（10秒）中景→特写 固定：林晚走回工位坐下。手机屏幕亮起——陆北辰的消息。她看一眼没回复，打开电脑开始打字梳理贺云峰的信息。键盘声持续。阳光照在她的工牌上——副总监三个字在光线中折射出微光。画面全程无任何文字、字幕、标题、水印。半写实都市质感，暖橙主调回归，写实风格，竖屏9比16，无品牌Logo，无平台UI。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut

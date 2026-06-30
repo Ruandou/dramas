@@ -1,0 +1,439 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP12/EP12_钱是最好的底气.md
+# Source shots: 13 (EP12-S01 to EP12-S13)
+# Output shots: 13 (EP12-S01 to EP12-S13)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 86s (自行计算，与 VALIDATION 块一致)
+# Output total duration: 86s
+# Gate status: ALL PASS
+
+episode_id: EP12
+source_md: 剧本/EP12/EP12_钱是最好的底气.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，暖灰调职场剧。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+shots:
+  - shot_id: EP12-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】苏晴 CHAR-004-L01（米白针织衫）【图2】SCENE-007 咖啡厅。中景 固定：咖啡厅午后暖黄灯光洒在深色木桌上。苏晴推门进来快步走到窗边，还没坐下就压低声音开口——脸上兴奋藏都藏不住。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "林晚！我决定了——我要辞职！"
+      - speaker: CHAR-001
+        line: "终于想通了？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】苏晴 CHAR-004-L01（米白针织衫）【图2】林晚 CHAR-001-L01（米白衬衣，外套已脱，袖子挽到小臂）【图3】SCENE-007 咖啡厅。中近景 固定：苏晴坐下语速飞快双手比划着，整个人在发光。林晚看着苏晴眼中有欣慰。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "我想通了！在那个破公司，我再待十年也就是个小组长——"
+      - speaker: CHAR-004
+        line: "我要自己做IP！就用你上次说的方向！"
+      - speaker: CHAR-001
+        line: "然后呢？"
+      - speaker: CHAR-004
+        line: "然后……有一个问题。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】苏晴 CHAR-004-L01（米白针织衫）【图2】SCENE-007 咖啡厅。中近景 固定：苏晴兴奋褪去换成窘迫，低头手指在咖啡杯边缘来回摩挲。这个问题困扰了她好几天——最终还是得面对现实。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "我算了算，启动最少要五万块。"
+      - speaker: CHAR-004
+        line: "我这两年存了一点……但还差三万。"
+      - speaker: CHAR-004
+        line: "我不想问我爸妈要——他们本来就不支持我做这个。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白衬衣，袖挽小臂）【图2】苏晴 CHAR-004-L01（米白针织衫）【图3】SCENE-007 咖啡厅。中景 固定：林晚没有立刻接话。她把咖啡杯放下看着苏晴。苏晴以为她在犹豫赶紧摆手——但林晚不是在想要不要借，是在想怎么让苏晴没心理负担。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "缺多少——我补给你。"
+      - speaker: CHAR-004
+        line: "啊？你说什么？"
+      - speaker: CHAR-001
+        line: "我说——差的数目，我补给你。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】苏晴 CHAR-004-L01（米白针织衫）【图2】林晚 CHAR-001-L01（米白衬衣）【图3】SCENE-007 咖啡厅。中近景 固定：苏晴瞪大眼睛半天没反应过来。三万块不是小数目。她看着林晚——对方表情不像开玩笑。林晚已经拿出手机解锁打开转账界面，动作没有一丝犹豫。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "不行不行不行——三万块不是小数目！你自己也要生活的！"
+      - speaker: CHAR-001
+        line: "我知道。"
+      - speaker: CHAR-004
+        line: "林晚——你听我说——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白衬衣，午后阳光照在侧脸镀上柔和光晕）【图2】SCENE-007 咖啡厅。特写 固定：林晚放下手机抬起头直视苏晴的眼睛。表情认真而温柔——没有施舍的意味，只有朋友之间最纯粹的信任。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "苏晴，你听我说。"
+      - speaker: CHAR-001
+        line: "你是我唯一信得过的人。我不想你因为钱——错过这个机会。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】苏晴 CHAR-004-L01（米白针织衫）【图2】SCENE-007 咖啡厅。特写 固定：苏晴愣住了。她张了张嘴想说点什么但所有话都堵在喉咙。眼眶一下子就红了。她偏过头不想让林晚看到自己的眼泪——但眼泪不听话顺着脸颊滑下来。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "林晚……"
+      - speaker: CHAR-004
+        line: "你为什么……对我这么好？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白衬衣）【图2】苏晴 CHAR-004-L01（米白针织衫）【图3】SCENE-007 咖啡厅。中景 固定：林晚看着苏晴笑了——不是安慰式笑容，而是"你真的不知道你有多好"的认真。她伸出手覆在苏晴手背上。两只手交叠在暖黄色木桌上——一只白皙修长，一只因紧张微微蜷曲。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "因为你也对我好过。"
+      - speaker: CHAR-001
+        line: "而且——我信你。这笔钱，你会赚回来的。"
+      - speaker: CHAR-004
+        line: "万一我亏了呢？"
+      - speaker: CHAR-001
+        line: "不会的。就算亏了——我也认。"
+      - speaker: CHAR-004
+        line: "林晚——你给我等着。我一定让你这笔投资……翻十倍。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白衬衣）【图2】SCENE-007 咖啡厅。中景 固定：苏晴已走。咖啡桌上两个杯子——一个空的，一个还有半杯凉掉的拿铁。林晚独自坐在窗边低头看手机——转账成功页面亮着。她盯着数字看了一会儿，抬头看向窗外街上人来人往。轻轻锁屏。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "（内心独白）三万块……前世我用三万块买了个包。那时候觉得——那就是底气。"
+      - speaker: CHAR-001
+        line: "（内心独白）现在才知道——真正的底气，是我敢给出去。"
+      - speaker: CHAR-001
+        line: "（内心独白）值了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白衬衣，已从咖啡厅回家）【图2】林晚家 SCENE-005。中景 固定：林晚公寓夜晚。一盏暖黄台灯是唯一光源。她推门进来脱下外套挂好走到床边坐下。拿出手机打开银行应用——屏幕光映在安静的脸上。她看着数字三千二百块，没有叹气，只是眨眼后锁屏。手机震动——微信语音消息。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "三千二百块……"
+      - speaker: CHAR-004
+        line: "（语音消息）林晚——我到啦。你放心，我会好好干的。晚安。"
+      - speaker: CHAR-001
+        line: "嗯。晚安。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白衬衣）【图2】林晚家 SCENE-005。中近景 固定：刚听完语音手机又响——来电显示苏晴。林晚接起来靠在床头没有说话等着对面开口。电话那头传来苏晴带着鼻音的声音——哭过之后的通透和坚定。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "喂？"
+      - speaker: CHAR-004
+        line: "（电话那头）林晚……我就是想跟你说一声——谢谢。"
+      - speaker: CHAR-001
+        line: "你已经说过了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白衬衣）【图2】林晚家 SCENE-005。特写 固定：林晚听着嘴角带着笑意。苏晴在电话那头声音从鼻音变成笑。林晚没有打断只是安静地听着。窗外城市夜景万家灯火——她的小公寓只是其中一盏，但这盏灯足够温暖。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "（电话那头）你等着。我一定会让你骄傲的。"
+      - speaker: CHAR-001
+        line: "我知道。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白衬衣）【图2】林晚家 SCENE-005。中景转中远景 镜头缓拉：林晚放下手机坐在床边，环视自己的小房间——床、书桌、堆书的角落、一盏暖黄灯。简陋但安心。她深呼吸一次开口了——不是对自己说的，更像是跟这个夜晚做一个约定。窗外霓虹灯光在夜色中闪烁映在她清澈眼睛里。镜头缓缓拉远——她一个人坐在暖黄灯光下的身影变小但并不孤单。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "没事。会赚回来的。"
+    transition_to_next: hard_cut

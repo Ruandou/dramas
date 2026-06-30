@@ -1,0 +1,441 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP31/EP31_分镜剧本.md
+# Source shots: 12 (EP31-S01 to EP31-S12)
+# Output shots: 12 (EP31-S01 to EP31-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 81s (12+12+12+12+9+12+12)
+# Output total duration: 81s
+# Gate status: ALL PASS
+
+episode_id: EP31
+source_md: 剧本/EP31/EP31_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，第二幕暖橙主调，冷灰色为辅。公司走廊明亮冷光，会议室正式灯光，办公桌自然光，家中深夜暖黄台灯营造私密思考氛围。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+shots:
+  - shot_id: EP31-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装外套敞开）【图2】CHAR-007-L01（藏蓝色细条纹西装，无框眼镜）【图3】SCENE-013。MLS→MS 固定镜头：公司走廊，上午明亮光线透过玻璃墙洒入。林晚拿着咖啡杯从走廊一头走来，贺云峰从另一头缓步走来——步伐从容不迫。两人走近，贺云峰微笑开口。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-013
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "林副总监？久仰——我是贺云峰，新任CMO。"
+      - speaker: CHAR-001
+        line: "贺总。欢迎。"
+      - speaker: CHAR-007
+        line: "下午三点的会——你应该已经收到通知了。"
+      - speaker: CHAR-001
+        line: "收到了。下午见。"
+      - speaker: CHAR-001
+        line: "贺云峰——他来了。比预想中快了两个月——来就来吧。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装外套）【图2】SCENE-013。特写 固定镜头：贺云峰走远后，林晚站在原地。她没有回头看他——只是站在原地，目光看向前方但没在看任何东西。她的手握着咖啡杯——指节微微发白。她闭了一下眼——很短的一下，再睁开时目光已经恢复了完全的平静。她继续往前走。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-013
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "该来的总会来——那就看看，他到底想下什么棋。"
+    transition_to_next: dissolve
+
+  - shot_id: EP31-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-007-L01（藏蓝细条纹西装+无框眼镜）【图2】CHAR-001-L01（海军蓝西装外套+米白衬衣）【图3】SCENE-002。中景 固定镜头：小会议室。贺云峰坐在主位，面前摊着一份文件。林晚坐在他对面——中间隔着整个桌面的距离。贺云峰开门见山谈压力测试。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "总部决定在市场部推行压力测试——让新任副总监在三个月内完成全年KPI。"
+      - speaker: CHAR-007
+        line: "三个月——完成一整年的指标。这是对你的考验，林副总监。"
+      - speaker: CHAR-001
+        line: "全年KPI的基准数据是多少？"
+      - speaker: CHAR-007
+        line: "按去年的数据——三千万。三个月。"
+      - speaker: CHAR-001
+        line: "分摊到月——一千万一个月？"
+      - speaker: CHAR-007
+        line: "对。"
+      - speaker: CHAR-001
+        line: "团队的编制能增加吗？"
+      - speaker: CHAR-007
+        line: "不能。就用现有的人。"
+      - speaker: CHAR-001
+        line: "一千万一个月——不加人不增预算——他在等我拒绝。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装外套）【图2】SCENE-002。特写 镜头推近：林晚没有回避目光。她的脑海里在快速计算——她直视贺云峰，像在等他继续出招。会议室里的空调声格外清晰。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "短视频赛道Q3会有一波爆发——全力铺开，配合口碑传播——极限操作，能打。"
+      - speaker: CHAR-001
+        line: "这就是你的测试——看我接，还是躲。你在等我拒绝——那我就偏不。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装外套）【图2】CHAR-007-L01（藏蓝细条纹西装+无框眼镜）【图3】SCENE-002。MCU→CU 固定镜头：林晚开口了——声音平静。她说「我接」。贺云峰微微一怔，笑意深了一度。林晚提出预算条件时，贺云峰动作停住了，重新靠回椅背，目光变了。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "我接。"
+      - speaker: CHAR-007
+        line: "不问问怎么完成？"
+      - speaker: CHAR-001
+        line: "问了你也不会告诉我答案。"
+      - speaker: CHAR-007
+        line: "有意思。那——我等你的结果。"
+      - speaker: CHAR-001
+        line: "但我有一个条件——项目期间，预算审批走直线，直接到我这里，不经过中间层。"
+      - speaker: CHAR-007
+        line: "你这是在谈条件？"
+      - speaker: CHAR-001
+        line: "我在谈——怎么完成你给的任务。"
+      - speaker: CHAR-007
+        line: "可以。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装外套）【图2】SCENE-002。CU→MCU 镜头拉远：贺云峰站起来，拿着文件走出会议室。他走后，林晚没有立刻站起来——她坐在原位，安静了片刻。她缓缓呼出一口气，低头看了一眼自己的手，然后站起来，拿起笔记本和咖啡杯走向门口。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "三个月三千万——他给了任务，我接了条件。这一局算平手。"
+      - speaker: CHAR-001
+        line: "但他答应预算直线答应得太快了——要么他觉得我完不成——要么——"
+      - speaker: CHAR-001
+        line: "——他还有别的牌。"
+    transition_to_next: dissolve
+
+  - shot_id: EP31-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装外套）【图2】SCENE-001。中近景 固定镜头：林晚回到工位。她拉下百叶窗让自己处于半私密空间，从抽屉最底层拿出牛皮纸信封，抽出名单平铺在桌面上。她的手指沿着名单往下滑——在一个名字上停住：刘振东。她打开公司内部系统搜索。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "刘振东——前世公司被收购后，来接掌财务的人。"
+      - speaker: CHAR-001
+        line: "之前只知道他是贺云峰的人——现在我要知道他在哪个部门，管什么。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装外套，电脑冷光映在脸上）【图2】SCENE-001。特写 镜头推近：电脑屏幕的冷光映在林晚脸上。搜索结果——刘振东，部门：财务部，职位：高级财务专员。她的目光在「财务部」三个字上停住——呼吸节奏变慢了。她继续往下翻看职责范围——项目预算审核，供应商付款审批。她靠在椅背上，目光没有离开屏幕。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "刘振东——财务部，高级财务专员。"
+      - speaker: CHAR-001
+        line: "项目预算审核——供应商付款审批——市场部的每一笔开支，都要经过他。"
+      - speaker: CHAR-001
+        line: "三个月三千万——而他的人握着预算审批权。这就是他的牌——他从一开始就没打算让我完成。"
+      - speaker: CHAR-001
+        line: "但我知道得太早了——早到足够把棋重新下一遍。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装外套，电脑屏幕冷光）【图2】SCENE-001。特写 缓推：林晚没有关掉页面。她看着屏幕上刘振东的职位信息，缓缓把目光移开看向窗外——午后的阳光在桌面投下一道明亮的光带。她收回目光，打开了一个浏览器标签页，输入了一个数据查询平台的网址。她输入了刘振东的名字和身份证号，等待页面加载。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "预算审批权只是面上的——我要看看，你的底牌到底是什么。"
+      - speaker: CHAR-001
+        line: "刘振东——让我看看你的钱——有没有不该有的东西。"
+    transition_to_next: dissolve
+
+  - shot_id: EP31-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-002.png
+    api:
+      text: "【图1】CHAR-001-L01（还穿着白天的海军蓝西装外套）【图2】SCENE-005（深夜家中书桌，台灯亮着）【图3】PROP-002（金属U盘）。中景 固定镜头：深夜的林晚家。台灯亮着。林晚坐在书桌前还穿着白天的西装外套——没来得及换。她打开笔记本电脑，从包里拿出U盘插上。她深吸一口气，打开白天查询平台的页面，开始查看刘振东的公开金融信息——信贷记录正常，房贷正常。她的表情一直平静。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+        - file: PROP-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "信贷记录正常……房贷正常……信用卡正常——看起来没有任何问题。"
+      - speaker: CHAR-001
+        line: "工资入账……日常消费……房贷扣款——都很正常——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】CHAR-001-L01（电脑冷光映在脸上）【图2】SCENE-005。特写 镜头推近→定格：林晚的手指停在触摸板上——她的目光锁定在一行交易记录上。一笔固定金额——每月一次，同一日期，同一个对公账户转入。备注栏——三个字。她放大了那行数据，盯着备注栏。她截了图，打开记事本，把日期、金额、备注一个字一个字打下来。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "等等——这是什么？"
+      - speaker: CHAR-001
+        line: "每个月——固定日期——同一金额——从同一个对公账户转入——"
+      - speaker: CHAR-001
+        line: "备注——'咨询费'。"
+      - speaker: CHAR-001
+        line: "每个月一笔固定咨询费——财务部的人——在收钱。"
+      - speaker: CHAR-001
+        line: "贺云峰在财务部安插了人——这个人每个月在收一笔说不清来源的钱。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP31-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】CHAR-001-L01（还穿着白天的西装外套）【图2】SCENE-005（深夜书桌，屏幕冷光为主光源）【图3】PROP-009（手机）。大特写 镜头推近→定格：桌面——记事本界面上静静躺着林晚刚刚打下的那行字。屏幕的冷光映在画面上。林晚的手放在鼠标上，没有移动。她拿起手机翻到陆北辰的号码——拇指悬停在拨号键上方——没有按下去。她放下手机，目光回到屏幕上。画面缓缓定格。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+        - file: PROP-009
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "刘振东——你背后到底是谁？每个月一笔咨询费——收钱的是你，还是替人收的？"
+      - speaker: CHAR-001
+        line: "这张网——比我想象的还要深。"
+    transition_to_next: hard_cut

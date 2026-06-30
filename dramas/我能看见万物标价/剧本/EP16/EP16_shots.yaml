@@ -1,0 +1,519 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP16/EP16_古玩王的诞生.md
+# Source shots: 17 (EP16-S01 to EP16-S17)
+# Output shots: 17 (EP16-S01 to EP16-S17)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 91s
+# Output total duration: 91s
+# Gate status: ALL PASS
+# WARNINGS:
+#   - [待补：老客户] appears in S01, S09 — no formal CHAR-GRP-## assigned yet.
+#     Trigger: inter-episode extra backfill sub-cycle (production-planner → character-designer).
+#     Shots/segments referencing this extra use placeholder ref IDs with WARNING annotations.
+
+episode_id: EP16
+source_md: 剧本/EP16/EP16_古玩王的诞生.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens. 禁止画面中出现任何文字或字幕。"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+shots:
+  # ── SEG01: 金眼一锤 (SCENE-004) ──
+  - shot_id: EP16-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L02
+        # [待补：老客户] — no formal ID yet
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】鼎丰拍卖行展厅 SCENE-004。近景 固定：图1坐VIP鉴定台前，右手托白瓷杯，瞳孔琥珀色微光一闪，对面客户紧张搓膝盖。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "真的。雍正官窑——一百二十万。"
+      - speaker: "[待补：老客户]"  # WARNING: placeholder extra, no formal CHAR-GRP-## yet
+        line: "陆先生一句话——定了！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】赵大壮 CHAR-003-L01（花哨橙色运动外套）【图2】陆辰 CHAR-001-L02（深蓝西装）【图3】鼎丰拍卖行展厅 SCENE-004。中景 固定：图1拍客户肩膀咧嘴得意，客户告辞图1递名片，图2把白瓷杯放回丝绒垫薄唇微抿。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "金眼说话——一个字都不带差的。"
+      - speaker: CHAR-001
+        line: "林少卿在查我——但已经查不动了。"
+    transition_to_next: hard_cut
+
+  # ── SEG02: 苏念的认可 (SCENE-004) ──
+  - shot_id: EP16-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】苏念 CHAR-002-L01（深灰职业西装套裙，珍珠耳钉）【图2】陆辰 CHAR-001-L02（深蓝西装）【图3】鼎丰拍卖行展厅 SCENE-004。近景 固定：图1站玻璃展柜旁，杏眼微抬看图2，手握鉴定报告轻敲纸页边缘，薄唇带不易察觉弧度。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "半年前你鉴定东西还结巴——现在看一眼就出价了？"
+      - speaker: CHAR-001
+        line: "眼睛不骗人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: "【图1】苏念 CHAR-002-L01（深灰职业西装套裙，珍珠耳钉）【图2】陆辰 CHAR-001-L02（深蓝西装）【图3】鼎丰拍卖行展厅 SCENE-004。特写 镜头推近：图1杏眼占满画面上半部，瞳孔有赞赏与好奇，珍珠耳钉暖光投在脸颊，薄唇微动。图2侧脸在画面下方，浓眉平直嘴角从容。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "金眼——这称号……你担得起。"
+      - speaker: CHAR-001
+        line: "从她嘴里说出来——比任何客户夸我都重。"
+    transition_to_next: hard_cut
+
+  # ── SEG03: 经纪人上岗 (SCENE-005) ──
+  - shot_id: EP16-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png
+    api:
+      text: "【图1】赵大壮 CHAR-003-L01（花哨运动外套）【图2】陆辰 CHAR-001-L02（深蓝西装）【图3】鉴定工作室 SCENE-005。中景 固定：图1叉腰堵工作室门口挡住客户，手掌比停手势大嗓门。图2坐工学椅上嘴角微扬。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "今天约满了——明天请早！"
+      - speaker: CHAR-003
+        line: "辰哥，明儿四个约——全是大客户。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png
+    api:
+      text: "【图1】苏念 CHAR-002-L01（深灰职业西装套裙）【图2】赵大壮 CHAR-003-L01（花哨运动外套）【图3】鉴定工作室 SCENE-005。近景 固定：图1站工作台前翻设备清单，杏眼扫平板。图2凑过来炫耀，图1终于抬眼薄唇微弯。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "大壮——你什么时候学会说\"高端客户\"了？"
+      - speaker: CHAR-003
+        line: "我这经纪人——接待、报价、挡驾——哪样不行？"
+    transition_to_next: hard_cut
+
+  # ── SEG04: 入股 (SCENE-005) ──
+  - shot_id: EP16-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png
+    api:
+      text: "【图1】苏念 CHAR-002-L01（深灰职业西装套裙，珍珠耳钉）【图2】陆辰 CHAR-001-L02（深蓝西装，银色手表）【图3】鉴定工作室 SCENE-005。近景 固定：图1转身面对图2，杏眼扫过工作室设备，双手环胸珍珠耳钉暖光微晃。图2靠椅背看她，目光柔软。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "紫外灯功率偏低——换一台。"
+      - speaker: CHAR-001
+        line: "都听苏老师的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png
+    api:
+      text: "【图1】苏念 CHAR-002-L01（深灰职业西装套裙）【图2】赵大壮 CHAR-003-L01（花哨运动外套）【图3】鉴定工作室 SCENE-005。近景 固定：图1薄唇上扬微小弧度，从文件夹抽出协议轻拍工作台。图2从后面探出脑袋，圆脸写满被忽略不满。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "工作室算我入股——设备清单我负责。"
+      - speaker: CHAR-003
+        line: "合着我这经纪人就是搬运工呗……"
+    transition_to_next: hard_cut
+
+  # ── SEG05: 玉佩现身 (SCENE-005) ──
+  - shot_id: EP16-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L02
+        # [待补：老客户] — no formal ID yet
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-001.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝西装）【图2】鉴定工作室 SCENE-005【图3】古玉碎片 PROP-001。特写 镜头推近：客户从布袋取出翠绿玉佩，图1伸手接过指腹触碰玉面瞬间瞳孔骤然收缩琥珀色金光猛地亮起，手指微颤能力共振，下意识摸向口袋里图3。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: "[待补：老客户]"  # WARNING: placeholder extra
+        line: "陆先生——帮我掌掌眼？"
+      - speaker: CHAR-001
+        line: "这材质——翠绿色泽，半透质地……"
+      - speaker: CHAR-001
+        line: "和我那块碎片——一模一样。"
+      - speaker: CHAR-001
+        line: "能力反应不对——金光在跳。从没有过这么强的波动。"
+    transition_to_next: hard_cut
+
+  # ── SEG06: 坐标浮现 (SCENE-005) ──
+  - shot_id: EP16-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝西装）【图2】鉴定工作室 SCENE-005。特写 固定：图1把玉佩举到台灯下，琥珀色金光从眼底溢出在玉面投下金色光晕，视野中浮现金色坐标数字，薄唇紧抿浓眉下瞳孔倒映跳动金色数据流。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "不是价格……是一组坐标。"
+      - speaker: CHAR-001
+        line: "地理坐标——它在告诉我一个地方。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝西装）【图2】赵大壮 CHAR-003-L01（花哨运动外套）【图3】鉴定工作室 SCENE-005。近景 固定：图1放下玉佩眼底金光消退，表情从困惑变成决断，站起摸出车钥匙。图2从门口探进半个脑袋，圆脸疑惑厚唇抿紧。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "辰哥——出什么事了？"
+      - speaker: CHAR-001
+        line: "有个地方——得去。"
+      - speaker: CHAR-001
+        line: "能力第一次给的不是价格——说明这东西，比钱重要。"
+    transition_to_next: hard_cut
+
+  # ── SEG07: 废弃仓库 (SCENE-011) ──
+  - shot_id: EP16-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-011.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝西装）【图2】赵大壮 CHAR-003-L01（花哨运动外套）【图3】废弃仓库外 SCENE-011。全景 固定：郊区废弃仓库混凝土外墙剥落，波纹铁门锈迹斑斑，门缝枯黄杂草。图1深蓝西装与废墟格格不入，目光锁定铁门上褪色涂鸦和模糊圆形图案。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "这地方荒得瘆人……"
+      - speaker: CHAR-001
+        line: "铁门上那个图案——和坐标吻合。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L02
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-011.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-001.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝西装）【图2】废弃仓库外 SCENE-011【图3】古玉碎片 PROP-001。近景 镜头推近：图1走向铁门皮鞋踩过碎玻璃，阴沉天光勾出冷白肩轮廓，右手掏出图3翠绿玉面灰白天光下泛微弱琥珀光泽，举到眼前瞳孔金光微闪，视线在碎片纹路与铁门图案间来回比对。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "辰哥——要不先报警……"
+      - speaker: CHAR-001
+        line: "门上的图案——和碎片的纹路……"
+    transition_to_next: hard_cut
+
+  # ── SEG08: 符号吻合 (SCENE-011) ──
+  - shot_id: EP16-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L02
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-011.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-001.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝西装）【图2】废弃仓库外 SCENE-011【图3】古玉碎片 PROP-001。特写 固定：图1修长手指拂过铁门锈蚀表面蹭掉锈尘，露出清晰同心圆纹符号，把图3贴上符号边缘纹路线条严丝合缝对接。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "碎片纹路和这符号——完全吻合。"
+      - speaker: CHAR-001
+        line: "不是巧合——有人刻意把它们分开。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-011.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝西装）【图2】赵大壮 CHAR-003-L01（花哨运动外套）【图3】废弃仓库外 SCENE-011。近景 固定：图2凑过来圆脸血色更红，大眼瞪着门上符号和图1手中碎片，厚唇微张说不出话，后退半步。图1缓缓后退一步，深蓝西装背影在仓库前显得渺小。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "辰哥……这什么情况？"
+      - speaker: CHAR-001
+        line: "这个符号——不只这里有。"
+      - speaker: CHAR-003
+        line: "哪、哪还有？"
+    transition_to_next: hard_cut
+
+  # ── SEG09: 万象阁的影子 (SCENE-011) ──
+  - shot_id: EP16-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-011.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝西装）【图2】废弃仓库外 SCENE-011。近景 镜头推近：图1站仓库门前，阴沉天光映在深色瞳孔灰蓝色调，琥珀色金光已消退只残留暖意，视线从门上符号移向远方城区方向，下颌线条绷得极紧。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "秦老的茶馆——墙上也有这个符号。"
+      - speaker: CHAR-001
+        line: "三个地方——同一个符号。有人在指路。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP16-S17
+    shot_no: 17
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-011.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝西装）【图2】赵大壮 CHAR-003-L01（花哨运动外套）【图3】废弃仓库外 SCENE-011。中景 固定：图2站图1身后圆脸表情凝固，大眼视线在图1后背和门上符号间跳动。枯叶从两人之间掠过。图1没有回头，目光定在符号中心瞳孔深处有闪。画面在凝视符号侧脸定格。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "辰哥……陷阱还是宝藏？"
+      # △ 陆辰没有回答 — non-verbal stage direction, no dialogue line generated
+      - speaker: CHAR-001
+        line: "指路还是设局——推开这扇门就知道了。"
+    transition_to_next: hard_cut

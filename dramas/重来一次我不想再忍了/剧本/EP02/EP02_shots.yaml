@@ -1,0 +1,429 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP02/EP02_分镜剧本.md
+# Source shots: 12 (EP02-S01 to EP02-S12)
+# Output shots: 12 (EP02-S01 to EP02-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s (MD VALIDATION claims 80s)
+# Output total duration: 80s (self-calculated: 6+6+6+6+5+5+12+6+6+12+5+5 = 80s)
+# Gate status: ALL PASS (G1: 80s ∈ [75,100] ✅ | G2: 12=12 ✅ | G3: ✅ | G4: ✅ (with WARNINGs for GRP-07~10))
+#
+# ⚠️ NOTE: CHAR-GRP-07-L01~10-L01 reference images not yet generated.
+#   Local paths used as fallback. See Gate 3/4 notes in build report.
+# ⚠️ NOTE: CHAR-GRP-07~10 voice_prompts not in 声音卡片.md; inferred from 待补群演清单.
+#   Production-planner should add entries to 声音卡片.md before API submission.
+
+episode_id: EP02
+source_md: 剧本/EP02/EP02_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，暖灰调职场剧风格。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo、血腥、暴力、超自然特效、发光、时光隧道"
+
+shots:
+  # ===== SEG01: 风起（Hook Zone·刺探式）SCENE-001 =====
+  - shot_id: EP02-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-07-L01  # 同事A — WARNING: L01 not yet generated
+        - CHAR-GRP-08-L01  # 同事B — WARNING: L01 not yet generated
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-07-L01: assets/looks/CHAR-GRP-07-L01.png  # WARNING: no CDN URL — L01 not yet generated
+        CHAR-GRP-08-L01: assets/looks/CHAR-GRP-08-L01.png  # WARNING: no CDN URL — L01 not yet generated
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】CHAR-001-L01（林晚·海军蓝西装）【图2】SCENE-001。MS 固定：格子间办公区午后阳光斜射，灰色地毯上光影条纹。图1坐在工位前盯着电脑屏幕，手机搁在键盘边。两个同事从身后端着咖啡走过，低声交谈飘进耳朵。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-GRP-07
+        line: "听说了没？下周公司要主推新媒体转型方案，谁先提谁露脸！"
+      - speaker: CHAR-GRP-08
+        line: "真的假的？那机会可大了……你写不写？"
+      - speaker: CHAR-GRP-07
+        line: "我？没那本事。不过听说大老板特别重视这个方向。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（林晚）【图2】SCENE-001。CU 缓推：图1手指停在键盘上方，瞳孔微微收缩。阳光在脸上切出一半明一半暗——暗处那只眼睛亮了一下。缓慢勾起嘴角，像猎人听到猎物脚步声。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "下周的转型方案……就是这个时间点。"
+      - speaker: CHAR-001
+        line: "前世这个机会被陈莉抢了先。这次——是我的。"
+    transition_to_next: hard_cut
+
+  # ===== SEG02: 夜战（Substance Zone·碎片式）SCENE-005 =====
+  - shot_id: EP02-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】CHAR-001-L01（林晚·灰色T恤+扎马尾）【图2】SCENE-005（林晚家·深夜）。MS 固定：深夜出租屋，只有台灯和笔记本电脑屏幕的光。图1穿着宽松灰色T恤头发随意扎起，坐小书桌前飞快打字。桌上散落手写笔记和营销书籍，凉透的咖啡在角落。屏幕光映在专注的脸上。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "新媒体矩阵搭建、KOL孵化体系、内容电商闭环……"
+      - speaker: CHAR-001
+        line: "2016年，这些概念还没人系统性地提出过。"
+      - speaker: CHAR-001
+        line: "预算表、时间线、ROI预测……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】CHAR-001-L01（林晚·侧脸）【图2】SCENE-005。CU 固定：图1侧脸被屏幕冷光勾勒清晰轮廓。手指在键盘上飞舞，偶尔停下思索一两秒，然后继续打字——每个动作都带着确定。窗外城市夜色，零星几盏灯还亮着。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "前世踩过的每一个坑——预算超支、渠道选错、内容方向偏了……全都记得。"
+      - speaker: CHAR-001
+        line: "这套方案，没有人能拒绝。"
+    transition_to_next: hard_cut
+
+  # ===== SEG03: 发送（Substance Zone·蓄力式）SCENE-005 =====
+  - shot_id: EP02-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】CHAR-001-L01（林晚）【图2】SCENE-005。ECU→CU 缓推：鼠标箭头悬停在邮件客户端「发送」按钮上。收件人栏写着「赵总」，抄送栏写着「大老板」。光标闪烁一下然后静止。图1手握着鼠标，食指悬在左键上方。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "匿名邮箱、新注册的账号……追查不到源头。"
+      - speaker: CHAR-001
+        line: "发出去……就没有回头路了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】CHAR-001-L01（林晚）【图2】SCENE-005。CU 固定：图1的脸。她深吸一口气闭上眼——睫毛轻微颤抖。然后睁开眼，目光极坚定，手指用力按下鼠标左键。屏幕光在她瞳孔中闪烁了一下。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "不发——才是最大回头路。"
+      - speaker: CHAR-001
+        line: "第一张牌，打出去了。"
+    transition_to_next: hard_cut
+
+  # ===== SEG04: 第二天·风声（Substance Zone·刺探式）SCENE-001 =====
+  - shot_id: EP02-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-09-L01  # 同事C — WARNING: L01 not yet generated
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-09-L01: assets/looks/CHAR-GRP-09-L01.png  # WARNING: no CDN URL — L01 not yet generated
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（林晚）【图2】SCENE-001（次日早晨）。MS 固定：次日早晨阳光明媚。图1刚在工位坐下，同事小跑过来表情兴奋压低声音，手指敲了敲桌面。办公区比平时热闹，隐约听到几个人在小声议论。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-GRP-09
+        line: "林晚！出大事了——有人给赵总发了份新媒体方案，大老板直接转发了全公司！"
+      - speaker: CHAR-001
+        line: "匿名方案？谁写的这么厉害？"
+      - speaker: CHAR-GRP-09
+        line: "不知道！群里都炸了，说方案写得太牛了，不像咱们部门的人写的。"
+      - speaker: CHAR-001
+        line: "或许是新来的高人呢。"
+      - speaker: CHAR-GRP-09
+        line: "也是……我先去忙了，回头聊。"
+      - speaker: CHAR-001
+        line: "大老板转发全公司……效果比预想的好十倍。"
+    transition_to_next: hard_cut
+
+  # ===== SEG05: 试探（Substance Zone·权力翻转）SCENE-001 =====
+  - shot_id: EP02-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-006-L01（赵总·浅蓝衬衣+条纹领带）【图2】CHAR-001-L01（林晚）【图3】SCENE-001。MS 固定：图1从办公室走出来拿着保温杯，路过图2工位时停了一下，心情不错地靠在隔板上点点头。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "小林，那份匿名方案你看了吧？觉得怎么样？"
+      - speaker: CHAR-001
+        line: "看了。思路很新，KOL孵化那块特别落地。"
+      - speaker: CHAR-006
+        line: "你也这么想？行。你多研究研究这个方向，回头可能让你参与。"
+      - speaker: CHAR-001
+        line: "好的，谢谢赵总。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（林晚）【图2】SCENE-001。CU 固定：图1目送图2背影回办公室。垂下眼，嘴角弧度从礼貌微笑变成真正带着掌控感的笑意。窗外阳光正好，眼中映出一小片光亮。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "他完全没往我身上想。"
+      - speaker: CHAR-001
+        line: "第一步——成了。"
+    transition_to_next: hard_cut
+
+  # ===== SEG06: 来我办公室（Cliffhanger Zone·碎片式）SCENE-001 =====
+  - shot_id: EP02-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】CHAR-001-L01（林晚）【图2】SCENE-001。CU→MS 固定：手机在桌面震动——屏幕亮起显示新邮件通知。图1拿起手机，目光扫过发件人名字——「大老板」。表情瞬间凝固。手指轻点屏幕展开邮件正文。手机上三个字。手机震动来电——屏幕上显示「赵总」。接起。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "赵总。"
+      - speaker: CHAR-006
+        line: "小林，大老板让你去他办公室一趟。知道什么事吗？"
+      - speaker: CHAR-001
+        line: "不知道。我现在过去。"
+      - speaker: CHAR-001
+        line: "不是通过赵总转达……是大老板直接找的我。"
+      - speaker: CHAR-001
+        line: "方案——被看到了。"
+    transition_to_next: hard_cut
+
+  # ===== SEG07: 走上这条路（Cliffhanger Zone·蓄力式）SCENE-013 =====
+  - shot_id: EP02-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】CHAR-001-L01（林晚）【图2】SCENE-013（公司走廊）。MS 镜头跟随：图1从工位起身穿过开放办公区走向电梯间。阳光透过落地窗在身后拉出长影。步伐从容但握手机的手微微收紧。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-013
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "前世的我，在这个时间点——还在等别人给机会。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP02-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-10-L01  # 同事D — WARNING: L01 not yet generated
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-10-L01: assets/looks/CHAR-GRP-10-L01.png  # WARNING: no CDN URL — L01 not yet generated
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】CHAR-001-L01（林晚）【图2】SCENE-013（电梯前）。MCU 固定：电梯前图1按下上行键，指示灯亮起。同事从旁边经过随口打招呼。图1转头微笑回应——笑容里有重生者特有的通透和底气。电梯门「叮」一声打开，暖光从门缝透出。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-013
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-GRP-10
+        line: "林晚，出去啊？"
+      - speaker: CHAR-001
+        line: "嗯。大老板找我。"
+      - speaker: CHAR-GRP-10
+        line: "大老板？……厉害了！"
+    transition_to_next: hard_cut

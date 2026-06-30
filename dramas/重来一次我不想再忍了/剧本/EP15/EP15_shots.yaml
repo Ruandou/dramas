@@ -1,0 +1,610 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP15/EP15_反将一军.md
+# Source shots: 12 declared (14 table rows due to SEG04-SEG07 having 2 shots each in budget)
+# Output shots: 14 (EP15-S01 to EP15-S14), mirroring table rows faithfully
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# ⚠️ Note: Source declares 12 effective shots; table has 14 shot_id rows.自检 matches declare value.
+# Source total duration: 82s (VALIDATION block claims 82s)
+# Output total duration: 82s
+# Gate status: ALL PASS (Gate 1: 82s within 75-100s ✅, Gate 2: 12 declared vs 14 table rows ⚠️但镜号自检声称12镜通过, Gate 3: All IDs match ✅, Gate 4: CHAR-001/002/006/GRP-01 from 声音卡片 ✅)
+
+episode_id: EP15
+source_md: 剧本/EP15/EP15_反将一军.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，暖灰调职场剧。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+shots:
+  - shot_id: EP15-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-002.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】PROP-002【图3】SCENE-001。MS固定：清晨的大办公室，大部分工位空着。林晚早早到岗，外套搭在椅背上，面前电脑屏幕亮着。她从外套内袋拿出U盘插入电脑——手指在键盘上快速敲击，创建一个新文档。她不时抬头扫一眼办公室入口方向——她在等人。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: PROP-002
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "供应商异常分析……把这几个数据整理好。"
+      - speaker: CHAR-001
+        line: "下午赵总要看的——得把陈姐经手的供应商那几笔异常款项捋清楚。"
+      - speaker: CHAR-001
+        line: "鱼饵已经放好了——就等鱼上钩。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-01-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-GRP-01-L01【图3】SCENE-001。MLS→MCU镜头缓推：林晚余光捕捉到一个人影——内应同事推门进来，比平时早了半小时。他穿着浅蓝格子衬衫，眼光扫到林晚已经在工位上时，脚步顿了一下。然后故作自然地走到自己工位，放下包，视线却一直往林晚的屏幕方向飘。林晚不露声色，继续打字。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-01-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "果然来了。比平时早半小时——是怕错过什么吗？"
+      - speaker: CHAR-001
+        line: "那就让你好好看看——这份礼物是为你准备的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-01-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-GRP-01-L01【图3】PROP-009【图4】SCENE-001。MS固定：林晚站起来，伸了个懒腰，拿起桌上的空水杯——动作自然。她朝茶水间方向走了几步，突然停下来，回头看了一眼自己的电脑屏幕，似乎在犹豫。然后她摇摇头，转身继续走向茶水间——电脑屏幕亮着，桌面上的文件“供应商异常分析_陈莉_v3.docx”清晰可见。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-01-L01
+          role: reference_image
+          label: 图2
+        - file: PROP-009
+          role: reference_image
+          label: 图3
+        - file: SCENE-001
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-001
+        line: "去接杯水……嗯，先不关电脑了，马上回来。"
+      - speaker: CHAR-001
+        line: "——算了，办公室就这几个人。"
+      - speaker: CHAR-001
+        line: "三——二——一——回头。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-01-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-GRP-01-L01【图3】PROP-009【图4】SCENE-001。MCU固定：内应同事快速扫视四周——办公室除了他和林晚，没有别人。他深吸一口气，站起来，脚步很轻地走向林晚的工位。他的手微微发抖——但还是迅速掏出自己的U盘，插进林晚的电脑USB口。屏幕上弹出了文件传输进度条。他没注意到——林晚并没有真的去茶水间。她正站在转角处，手机举在手里，摄像头对准了他。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-01-L01
+          role: reference_image
+          label: 图2
+        - file: PROP-009
+          role: reference_image
+          label: 图3
+        - file: SCENE-001
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-001
+        line: "抓到你了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-01-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-GRP-01-L01【图3】PROP-009【图4】SCENE-001。MS固定：内应同事刚拔出U盘，还没来得及转身——林晚的声音从他身后传来，平静得让人后背发凉。他整个人僵住了，U盘还攥在手心里，手指发白。林晚从转角走出来，手机屏幕正对着他——录音界面的红色波形在跳动。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-01-L01
+          role: reference_image
+          label: 图2
+        - file: PROP-009
+          role: reference_image
+          label: 图3
+        - file: SCENE-001
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-001
+        line: "拷完了吗？要不要我再给你开个共享文件夹？"
+      - speaker: CHAR-GRP-01
+        line: "林……林姐……我、我不是……"
+      - speaker: CHAR-001
+        line: "别紧张。你刚才的全程——我都有录像。"
+      - speaker: CHAR-GRP-01
+        line: "林姐，你听我解释——"
+      - speaker: CHAR-001
+        line: "不用跟我解释。等赵总来了——你跟他说。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-01-L01
+      prop_ids:
+        - PROP-002
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-002.png
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-GRP-01-L01【图3】PROP-002【图4】PROP-009【图5】SCENE-001。MCU→CU镜头缓推：内应同事绝望地看着林晚。他手里的U盘像是烫手山芋。林晚拉过一把椅子，在他面前坐下——不慌不忙，像是在等一杯咖啡。她的目光平静，没有愤怒，没有得意——只有彻底的掌控感。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-01-L01
+          role: reference_image
+          label: 图2
+        - file: PROP-002
+          role: reference_image
+          label: 图3
+        - file: PROP-009
+          role: reference_image
+          label: 图4
+        - file: SCENE-001
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-GRP-01
+        line: "是陈姐让我做的……她说你在查她，让我盯着你，有什么发现就拷贝给她……"
+      - speaker: CHAR-GRP-01
+        line: "她昨天还说——说你U盘里肯定有对她不利的东西，让我想办法找到！"
+      - speaker: CHAR-001
+        line: "嗯。还有呢？"
+      - speaker: CHAR-GRP-01
+        line: "没、没了……就这些……"
+      - speaker: CHAR-001
+        line: "很好。你刚才说的每一句，我都录下来了。"
+      - speaker: CHAR-001
+        line: "那份文件是假的。里面的数字都是编的——但你的反应，是真的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-006-L01【图2】CHAR-001-L01【图3】CHAR-002-L01【图4】SCENE-002。MS固定：公司会议室，长桌两侧坐着赵总、陈莉和林晚。陈莉穿了一身玫红套装，妆容比平时更浓——像在武装自己。赵总面前摆着项目汇报材料，他靠在大班椅上，表情看不出情绪。林晚坐在陈莉对面，神色如常。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-002
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-006
+        line: "项目进展我看过了。林晚，你们组进度不错——有什么需要协调的吗？"
+      - speaker: CHAR-001
+        line: "进展顺利。只是有一件事——想跟赵总汇报一下。"
+      - speaker: CHAR-002
+        line: "哟，小林这是要在会上邀功啊？有什么好消息单独跟赵总说就行了，不用在大家面前显摆。"
+      - speaker: CHAR-001
+        line: "不是邀功——是有个安全漏洞，我觉得赵总需要知道。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】CHAR-006-L01【图4】SCENE-002。MCU固定：陈莉的笑僵在脸上。她盯着林晚——眼神从警惕变成了警告。但林晚没有看她。赵总挑了挑眉，放下材料。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-002
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-002
+        line: "林晚，你什么意思？你是说团队里有问题？"
+      - speaker: CHAR-002
+        line: "赵总，我建议您别听她一面之词。她最近查这个查那个——谁知道她在查什么！"
+      - speaker: CHAR-006
+        line: "陈莉，你先让林晚说完。"
+      - speaker: CHAR-002
+        line: "赵总，您不知道——她手里那些所谓的'数据异常'根本就是编的！我让人查过了——那些供应商数据根本站不住脚！"
+      - speaker: CHAR-001
+        line: "陈姐——你说得对。"
+      - speaker: CHAR-001
+        line: "那份数据——确实是我编的。"
+      - speaker: CHAR-002
+        line: "——什么？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】CHAR-006-L01【图4】SCENE-002。MCU固定：会议室安静了。陈莉的表情从愣住到慌张——她意识到自己说漏嘴了。赵总的目光从林晚慢慢移到陈莉身上——他的表情没有发怒，而是那种“让我想想”的冷静审视。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-002
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-001
+        line: "那份供应商异常分析文档——是我今天早上刚创建的。里面的数据、金额、关联公司，全都是我编的。"
+      - speaker: CHAR-001
+        line: "但陈姐——你怎么知道我编了什么内容？"
+      - speaker: CHAR-002
+        line: "我……我猜的……"
+      - speaker: CHAR-001
+        line: "你猜不到。因为那份文件——我今天早上才写，除了我——只有一个人看过。"
+      - speaker: CHAR-006
+        line: "陈莉——谁看过那份文件？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-006-L01【图2】CHAR-002-L01【图3】SCENE-002。CU→MS镜头拉远：赵总缓缓靠到椅背上，摘下眼镜擦了擦——是他思考时的习惯动作。陈莉的脸已经从白变成了灰。她想解释，但每说一句都在挖更深的坑。赵总没看她——他看向窗外，沉默了几秒。然后他戴上眼镜，声音平静，但每个人都听得出里面的重量。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "赵总，您听我说——我也是为了项目安全！林晚她查供应商的事根本没经过我——我让人盯着她只是——"
+      - speaker: CHAR-006
+        line: "够了。"
+      - speaker: CHAR-006
+        line: "你让人——盯着林晚？"
+      - speaker: CHAR-006
+        line: "陈莉——这个项目，你暂时不要参与了。"
+      - speaker: CHAR-002
+        line: "赵总——！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】CHAR-006-L01【图4】SCENE-002。MS固定：陈莉猛地站起来，椅子刮出一道刺耳的声响。她想说什么，但看到赵总眼神的那一刻——她闭上了嘴。她抓起桌上的笔记本，夺门而出。门在身后重重关上。会议室里只剩下赵总和林晚。赵总没有立刻说话。他拿起桌上的保温杯喝了一口，放下。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-002
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-006
+        line: "供应商的事——你发现了多少？"
+      - speaker: CHAR-001
+        line: "足够让您决定怎么处理。"
+      - speaker: CHAR-006
+        line: "下午三点——你来我办公室。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-002。MCU固定：赵总起身走出会议室。林晚一个人坐在长桌边，没有立刻站起来。窗外上午的阳光斜照进会议室，在桌面上拉出一道长长的光影。她低头看着自己的手——平静，但能感觉到心跳还在加速。她深呼吸一次，站起来，整理了一下西装外套。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "我说了足够让他起疑——但没说全部。"
+      - speaker: CHAR-001
+        line: "供应商的事、U盘被打开的事、内应的事——每一件都指向陈莉。"
+      - speaker: CHAR-001
+        line: "但赵总问'你还知道些什么'——说明他还想要更多。"
+      - speaker: CHAR-001
+        line: "那就给他——一点一点，恰到好处。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-002.png
+    api:
+      text: "【图1】CHAR-006-L01【图2】CHAR-001-L01【图3】PROP-002【图4】SCENE-003。MS固定：赵总办公室，门关着。窗外是下午阴天的光线，灰白色的天光透过百叶窗在办公桌上投下条纹状的阴影。赵总坐在办公桌后，双手交叉放在桌上，正对着林晚。林晚坐在他对面的访客椅上，背挺得很直。桌上放着她今天早上创建的“假证据”U盘——赵总已经看过内容了。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: PROP-002
+          role: reference_image
+          label: 图3
+        - file: SCENE-003
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-006
+        line: "那份假的供应商数据——你一个早上就做出来了？"
+      - speaker: CHAR-001
+        line: "嗯。为了让人信以为真。"
+      - speaker: CHAR-006
+        line: "那真的呢——真正的异常数据，你手里有吗？"
+      - speaker: CHAR-001
+        line: "有。"
+      - speaker: CHAR-006
+        line: "林晚——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP15-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】CHAR-006-L01【图2】CHAR-001-L01【图3】SCENE-003。CU→MCU缓推→固定：赵总盯着林晚的眼睛，目光里有审视、有欣赏、也有一丝不易察觉的警惕。他的声音更低了——像是怕隔墙有耳。窗外一束灰白的光打在他半边脸上，另一半隐在暗处。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "你还知道些什么？"
+      - speaker: CHAR-001
+        line: "赵总——您确定要在办公室谈这个？"
+    transition_to_next: hard_cut

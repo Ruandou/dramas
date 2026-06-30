@@ -1,0 +1,278 @@
+episode_id: EP14
+source_md: 剧本/EP14/EP14_拍卖会的搅局者.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+voice_prompts:
+  CHAR-001: "Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones"
+  CHAR-002: "Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes"
+  CHAR-007: "Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked"
+  # WARNING: 以下群演 voice_prompt 待补（pending CHAR-GRP assignment + 声音卡片条目）
+  # "[待补：拍卖师]": pending — 约35岁男性，亢奋有穿透力
+  # "[待补：拍卖行高管]": pending — 约50岁男性，不满语气
+  # "[待补：竞买人A]": pending — 约45岁男性，嘲讽质疑
+  # "[待补：首席鉴定师]": pending — 约55岁女性，声音发颤
+
+segments:
+  - segment_id: EP14-SEG01
+    shot_ids: [EP14-S01, EP14-S02]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】苏念 CHAR-002-L01（深灰职业西装套裙，白丝衬衫，珍珠耳钉，低马尾）【图2】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带，银色手表）【图3】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：Warm-lit VIP preview room, a Ming dynasty blue-and-white porcelain vase under a single spotlight in a central glass display case, deep rich glaze glowing like a night sky. 图1 stands beside the case holding a bidding list at her side, neat low ponytail, pearl earrings catching the warm light. 图2 stands directly in front of the case in a dark navy suit, sharp shoulder line under the spotlight, gaze locked on the vase — faint amber glow at the edge of his pupils.
+        镜头2（5秒）特写 推近：图2's pupil fills the frame — amber light blazes suddenly, flickers violently like a disrupted signal. His thick brows furrow tightly, jaw muscle clenches into a line, a thin sheen of sweat on his forehead. His expression under the warm light grows heavier than before — the interference from the real object far stronger than from a photograph.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「就是它——明代永乐青花。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「估价五千万。你觉得呢？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「还在跳——比照片上厉害十倍。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「你脸色不对。看到了什么？」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP14-SEG02
+    shot_ids: [EP14-S03, EP14-S04]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带）【图2】苏念 CHAR-002-L01（深灰职业西装套裙，珍珠耳钉）【图3】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1's eyeball trembles slightly — amber light flickers in and out of his pupil like a candle tossed by wind. Chaotic digital fragments reorganize, revealing "¥0" and a blurry line of text forming below. His breathing shifts to short gasps as if choked. Veins rise on the back of his hand beneath the suit sleeve, knuckles clench involuntarily. Warm preview-room light falls on his face yet makes his complexion look ashen.
+        镜头2（5秒）近景 固定：图1's lips move faintly, his voice so low only he himself can hear. Behind him 图2 steps forward half a pace, pearl earrings swaying gently — on his face she sees an expression she has never witnessed before: not composure, not calm assessment, but genuine shock. Between them the blue-and-white vase stands quietly in its spotlight, soft halo on the glaze — a fifty-million-yuan "treasure" that in 图1's eyes now wears an entirely different face.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「价格显示零——不是假的，是……没有价格。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「关联栏——有一行字。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「关联栏写着——一个人的死亡。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「……什么？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「这件东西——不能拍。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: audio_bridge
+
+  - segment_id: EP14-SEG03
+    shot_ids: [EP14-S05]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带）【图2】苏念 CHAR-002-L01（深灰职业西装套裙，珍珠耳钉）【图3】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 跟随：A grand auction hall — polished white marble floors reflect shattered crystal-chandelier light, three rows of red velvet seats filled with suited buyers, bidding cards lined up like silent weapons. On the auction platform the porcelain vase is moved under a spotlight, its glaze glowing deep blue in the strong light. 图1 and 图2 sit in the second row by the aisle; 图1 leans forward, hands clasped white-knuckled on his knees. 图2 turns to look at him, noticing his jawline pulled taut like a tightened string.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「苏念——这东西有问题。关联一个人的命。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「关联死亡？你确定？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「我的眼——没骗过我。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「拍卖已经启动——没有证据，我拦不住。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「没人会信——但我不能坐在这看着。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP14-SEG04
+    shot_ids: [EP14-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]  # WARNING: [待补：拍卖师] speaker pending CHAR-GRP assignment
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带）【图2】苏念 CHAR-002-L01（深灰职业西装套裙，珍珠耳钉）【图3】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定：The auctioneer's voice echoes through the hall — bidding cards rise and fall, numbers snowballing ever higher. 图1 sits rigid in his chair, spine shifting from a lean-forward to a locked-straight posture, gripping the armrests so hard the suit fabric wrinkles at the shoulders. 图2 beside him watches his profile — his expression gradually freezes from anxiety into a look of absolute resolve she has never seen before. Crystal chandelier light shatters on the marble floor, mingling with the cold glow of bidding numbers like a tightening net.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（拍卖师，Male, 35 years old, energetic and penetrating voice, fast enthusiastic pace, professional auctioneer chanting rhythm）：「三千万起拍——三千五！四千万！」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「四千五百万了——再不出手就来不及。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「你想做什么？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「我要让这场拍卖——停下来。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「陆辰——你疯了？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「证据……我需要证据。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    # ⚠️ SEMANTIC_WARNING: [待补：拍卖师] speaker has no formal CHAR-GRP ID or L01 look; voice_prompt is a temporary placeholder. Pending 集间群演回补子循环.
+    transition_to_next: hard_cut
+
+  - segment_id: EP14-SEG05
+    shot_ids: [EP14-S07, EP14-S08]
+    duration_sec: 11
+    speakers: [CHAR-001]  # WARNING: [待补：拍卖行高管] and [待补：竞买人A] pending
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带，银色手表）【图2】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 跟随：图1 strides toward the auction platform — dark navy suit jacket hem lifting slightly with his brisk pace. Every eye in the room snaps to him; buyers on red velvet seats whisper to each other, some frowning, some open-mouthed. He reaches the spotlight; the vase sits less than a meter away on its stand, the spotlight turning its glaze into a deep-blue mirror. A flash of amber glow in his pupils as he leans in to examine the vase base, gaze sharp as a scalpel.
+        镜头2（6秒）特写 固定：The hall erupts — people stand, whispers swell into a roar. 图1 stands at center stage under the spotlight, his dark suit shimmering with a silver-gray sheen in the strong light. Not a trace of panic on his face — thick brows level, thin lips pressed into a faint line, like an unsheathed blade. He extends one finger toward an almost invisible spot on the vase base, the fingertip hovering without touching the glaze, tracing a line in the air.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（拍卖行高管，Male, 50 years old, authoritative and displeased tone, medium pace, stern and commanding）：「这位先生——拍卖进行中，请回座。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「这件瓷瓶——是赝品。」
+        对白（竞买人A，Male, 45 years old, mocking and skeptical tone, medium to fast pace, derisive and challenging）：「赝品？你是谁——鼎丰的鉴定团队都过了！」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「瓶底有一处激光蚀刻——现代工艺。肉眼看不到——但我的眼能看到。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「真品胎质均匀。这件——底足密度不均，是高仿注浆胎。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    # ⚠️ SEMANTIC_WARNING: [待补：拍卖行高管] and [待补：竞买人A] speakers have no formal CHAR-GRP IDs; voice_prompts are temporary placeholders.
+    transition_to_next: hard_cut
+
+  - segment_id: EP14-SEG06
+    shot_ids: [EP14-S09, EP14-S10]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]  # WARNING: [待补：首席鉴定师] pending
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装，银色手表）【图2】苏念 CHAR-002-L01（深灰职业西装套裙，珍珠耳钉，低马尾）【图3】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：The chief appraiser — a silver-haired woman wearing white gloves, holding a 10× loupe — bends over to examine the vase base. 图1 stands two paces away, arms crossed, suit sleeves riding up slightly to reveal a silver watch on his wrist. The hall is dead silent — only the faint sound of the loupe touching porcelain. The spotlight casts two shadows on the marble floor, one long and one short, like a ruler measuring the distance between real and fake.
+        镜头2（5秒）近景 固定：The auction is halted; staff begin removing the vase. 图2 rises from her seat, walks through the agitated crowd to 图1's side. She studies his profile — the spotlight still on, warm side-light gilding the shoulder line of his dark suit with a golden edge. Her almond eyes hold a complex light: professional shock, and something deeper — a quiet confirmation. Pearl earrings glint in the lamplight.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（首席鉴定师，Female, 55 years old, authoritative and refined tone, measured professional pace quickening with excitement, speaks with weight and precision, voice trembles slightly when confirming rare finds）：「……瓶底确有现代激光编号。这是——赝品。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「五千万——差点变成一场笑话。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「五千万的赝品——高仿骗过了所有人。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「如果我没看出来呢？」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「你救的不只是拍卖行。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    # ⚠️ SEMANTIC_WARNING: [待补：首席鉴定师] speaker has no formal CHAR-GRP ID; voice_prompt is a temporary placeholder (reused from CHAR-GRP-03 高级鉴定师 voice card entry for this episode only).
+    transition_to_next: audio_bridge
+
+  - segment_id: EP14-SEG07
+    shot_ids: [EP14-S11, EP14-S12]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-007-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】林少卿 CHAR-007-L01（定制深蓝三件套西装，丝质灰色衬衫，银色袖扣，名表，油头后梳）【图2】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带）【图3】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 缓推：图2 walks toward the hall exit — the silhouette of his dark navy suit stretching long on the marble corridor. A voice drifts from the VIP box direction, low and unhurried, every word dripping with unquestionable superiority. 图2 stops. At the corridor's end, 图1 emerges from behind a half-open suite door — immaculate navy three-piece suit, silk dove-gray shirt, silver cufflinks flashing in the corridor light, hair slicked back with precision, thin lips curved in a contemptuous half-smile. Hands in trouser pockets, appraising 图2 like a just-acquired collectible.
+        镜头2（5秒）近景 固定：图2's steps falter — shoulders tighten beneath his suit. 图1 stands three paces away, his three-piece tailoring exceeding 图2's suit by more than one tier of luxury, a luxury watch peeking from his cuff. Cold white overhead light casts both shadows on the marble floor — one ahead, one behind, like two chess pieces placed on a board. In 图1's narrow eyes, beneath the superiority, lurks something deeper: a hunter's excitement upon discovering prey.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林少卿，Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked）：「有意思。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「你谁？」
+        对白（林少卿，Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked）：「那个瓷瓶——是我安排的。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「你安排的？」
+        对白（林少卿，Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked）：「一件试探——看你的眼睛能不能看穿它。」
+        对白（林少卿，Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked）：「你——到底是什么人？」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP14-SEG08
+    shot_ids: [EP14-S13, EP14-S14]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-007-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带）【图2】林少卿 CHAR-007-L01（定制深蓝三件套西装，名表，油头后梳）【图3】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1's face fills the frame — beneath thick brows, dark pupils show no flinch, no retreat, only a calmness that 图2 is unaccustomed to seeing on an opponent's face. The suit collar casts a sharp shadow under the cold white corridor light, making his jawline look harder than usual. His thin lips press together once — not tension, but absorption of information. Deep in his pupils, a flash of amber glow flickers and dies instantly, like a lamp deliberately dimmed. 图2 steps back half a pace, smile unchanged.
+        镜头2（5秒）近景 缓慢拉远：图2 turns and walks back toward the VIP suite — the silhouette of his three-piece suit receding under the corridor lights, dress shoes clicking on marble like a metronome. 图1 stands alone at the center of the corridor, a solitary figure in dark navy under cold white light. He glances down at his right hand — fingers trembling faintly, the aftershock of running his ability too hard. The green glow of an exit sign at the corridor's far end reflects on his profile, mingling with the last trace of amber residue in his pupils.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「你费五千万——就为了试探我？」
+        对白（林少卿，Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked）：「钱能解决的问题——都不是问题。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「这个人——比瓷瓶危险得多。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「从这一秒起——我成了某个人的猎物。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

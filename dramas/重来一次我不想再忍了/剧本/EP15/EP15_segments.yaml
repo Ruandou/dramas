@@ -1,0 +1,308 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP15/EP15_反将一军.md
+# Source shots: 12 declared (14 table rows)
+# Output shots: 14 (EP15-S01 to EP15-S14), mirroring table rows faithfully
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# ⚠️ Note: Source declares 12 effective shots; table has 14 shot_id rows. Self-check matches declare value.
+# Source total duration: 82s (VALIDATION block)
+# Output total duration: 82s
+# Gate status: ALL PASS (Gate 1: 82s within 75-100s ✅, Gate 2: 12 declared vs 14 rows ⚠️, Gate 3: IDs match ✅, Gate 4: all voice prompts from 声音卡片.md ✅)
+
+episode_id: EP15
+source_md: 剧本/EP15/EP15_反将一军.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，暖灰调职场剧。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，暖灰调职场剧。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-002: "成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺"
+  CHAR-006: "成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力"
+  CHAR-GRP-01: "成年男性，30岁，声线普通，心虚时语速变快，被揭穿时结巴慌张"
+
+segments:
+  - segment_id: EP15-SEG01
+    shot_ids: [EP15-S01, EP15-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-GRP-01]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-002.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】内应同事 CHAR-GRP-01-L01（浅蓝格子衬衫）【图3】U盘 PROP-002【图4】公司大办公室 SCENE-001。
+        角色分工：仅图1可操作电脑和U盘；图2仅观察，不触碰任何物品。
+        道具：银色金属U盘（PROP-002），从图1外套内袋取出。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MS 固定：清晨大办公室，大部分工位空着。图1早早到岗，外套搭在椅背上，从外套内袋拿出U盘插入电脑，手指在键盘上快速敲击创建新文档，不时抬头扫一眼办公室入口方向——她在等人。
+        镜头2（6秒）MLS→MCU 镜头缓推：图1余光捕捉到一个人影——图2推门进来，比平时早了半小时。他眼光扫到图1已在工位时脚步顿了一下，故作自然地走到自己工位放下包，视线却一直往图1屏幕方向飘。图1不露声色继续打字。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「供应商异常分析……把这几个数据整理好。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「下午赵总要看的——得把陈姐经手的供应商那几笔异常款项捋清楚。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「鱼饵已经放好了——就等鱼上钩。」
+        对白（内应同事，成年男性，30岁，声线普通，心虚时语速变快，被揭穿时结巴慌张）：「她怎么来这么早……」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「果然来了。比平时早半小时——是怕错过什么吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那就让你好好看看——这份礼物是为你准备的。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP15-SEG02
+    shot_ids: [EP15-S03, EP15-S04]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-GRP-01]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】内应同事 CHAR-GRP-01-L01（浅蓝格子衬衫）【图3】手机 PROP-009【图4】公司大办公室 SCENE-001。
+        角色分工：仅图1可触碰手机；图2仅观察和操作电脑USB口。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MS 固定：图1站起来伸了个懒腰，拿起桌上的空水杯。她朝茶水间方向走了几步，突然停下来回头看了一眼自己的电脑屏幕，似乎在犹豫，然后摇摇头转身继续走向茶水间——电脑屏幕亮着，桌面上文件"供应商异常分析_陈莉_v3.docx"清晰可见。
+        镜头2（5秒）MCU 固定：图2快速扫视四周——办公室除了他和图1，没有别人。他深吸一口气站起来，脚步很轻地走向图1工位。手微微发抖，迅速掏出自己的U盘插进电脑USB口。他没注意到——图1并没有真的去茶水间，她正站在转角处，手机举在手里，摄像头对准了他。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「去接杯水……嗯，先不关电脑了，马上回来。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「——算了，办公室就这几个人。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「三——二——一——回头。」
+        对白（内应同事，成年男性，30岁，声线普通，心虚时语速变快，被揭穿时结巴慌张）：「没人……」
+        对白（内应同事，成年男性，30岁，声线普通，心虚时语速变快，被揭穿时结巴慌张）：「快——抓紧时间——陈姐说必须拿到那份异常数据。」
+        对白（内应同事，成年男性，30岁，声线普通，心虚时语速变快，被揭穿时结巴慌张）：「99%……100%——好了！」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「抓到你了。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: PROP-009, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP15-SEG03
+    shot_ids: [EP15-S05, EP15-S06]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-GRP-01]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-002.png
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】内应同事 CHAR-GRP-01-L01（浅蓝格子衬衫）【图3】U盘 PROP-002【图4】手机 PROP-009【图5】公司大办公室 SCENE-001。
+        角色分工：仅图1可持有手机和U盘；图2不得触碰任何物品。
+        道具：银色金属U盘（PROP-002），从图2手中交出；手机（PROP-009），图1用于录像和录音。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MS 固定：图2刚拔出U盘还没来得及转身——图1的声音从身后传来，平静得让人后背发凉。图2整个人僵住了，U盘攥在手心里手指发白。图1从转角走出来，手机屏幕正对着他——录音界面红色波形在跳动。
+        镜头2（5秒）MCU→CU 镜头缓推：图2绝望地看着图1，手里的U盘像是烫手山芋。图1拉过一把椅子在他面前坐下——不慌不忙像是在等一杯咖啡。目光平静，没有愤怒，没有得意——只有彻底的掌控感。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「拷完了吗？要不要我再给你开个共享文件夹？」
+        对白（内应同事，成年男性，30岁，声线普通，心虚时语速变快，被揭穿时结巴慌张）：「林……林姐……我、我不是……」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「别紧张。你刚才的全程——我都有录像。」
+        对白（内应同事，成年男性，30岁，声线普通，心虚时语速变快，被揭穿时结巴慌张）：「林姐，你听我解释——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不用跟我解释。等赵总来了——你跟他说。」
+        对白（内应同事，成年男性，30岁，声线普通，心虚时语速变快，被揭穿时结巴慌张）：「是陈姐让我做的……她说你在查她，让我盯着你，有什么发现就拷贝给她……」
+        对白（内应同事，成年男性，30岁，声线普通，心虚时语速变快，被揭穿时结巴慌张）：「她昨天还说——说你U盘里肯定有对她不利的东西，让我想办法找到！」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「嗯。还有呢？」
+        对白（内应同事，成年男性，30岁，声线普通，心虚时语速变快，被揭穿时结巴慌张）：「没、没了……就这些……」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「很好。你刚才说的每一句，我都录下来了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那份文件是假的。里面的数字都是编的——但你的反应，是真的。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+        - { file: PROP-009, role: reference_image, label: 图4 }
+        - { file: SCENE-001, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP15-SEG04
+    shot_ids: [EP15-S07, EP15-S08]
+    duration_sec: 12
+    speakers: [CHAR-006, CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】陈莉 CHAR-002-L01（玫红套装）【图4】公司会议室 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MS 固定：公司会议室，长桌两侧坐着图1、图3和图2。图3穿了一身玫红套装，妆容比平时更浓——像在武装自己。图1面前摆着项目汇报材料，他靠在大班椅上，表情看不出情绪。图2坐在图3对面，神色如常。
+        镜头2（6秒）MCU 固定：图3的笑僵在脸上。她盯着图2——眼神从警惕变成了警告。但图2没有看她。图1挑了挑眉放下材料。图2正要开口，图3抢先一步——语气从阴阳怪气变成了攻击性。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「项目进展我看过了。林晚，你们组进度不错——有什么需要协调的吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「进展顺利。只是有一件事——想跟赵总汇报一下。」
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「哟，小林这是要在会上邀功啊？有什么好消息单独跟赵总说就行了，不用在大家面前显摆。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不是邀功——是有个安全漏洞，我觉得赵总需要知道。」
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「林晚，你什么意思？你是说团队里有问题？」
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「赵总，我建议您别听她一面之词。她最近查这个查那个——谁知道她在查什么！」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「陈莉，你先让林晚说完。」
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「赵总，您不知道——她手里那些所谓的'数据异常'根本就是编的！我让人查过了——那些供应商数据根本站不住脚！」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「陈姐——你说得对。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那份数据——确实是我编的。」
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「——什么？」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+    # ⚠️ SEMANTIC_WARNING: Segment has 3 unique speakers (CHAR-006, CHAR-001, CHAR-002) exceeding the ≤2 limit. This is a 3-person meeting scene inherent to the narrative. Consider splitting into single-shot sub-segments if API requires.
+
+  - segment_id: EP15-SEG05
+    shot_ids: [EP15-S09, EP15-S10]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002, CHAR-006]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】陈莉 CHAR-002-L01（玫红套装）【图3】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带）【图4】公司会议室 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：会议室安静了。图2的表情从愣住到慌张——她意识到自己说漏嘴了。图3的目光从图1慢慢移到图2身上——他的表情不是发怒，而是"让我想想"的冷静审视。图2开始结结巴巴想补救。
+        镜头2（6秒）CU→MS 镜头拉远：图3缓缓靠到椅背上，摘下眼镜擦了擦——是他思考时的习惯动作。图2的脸已经从白变成了灰。图3没看她——看向窗外沉默了几秒。然后他戴上眼镜，声音平静但每个人都听得出里面的重量。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那份供应商异常分析文档——是我今天早上刚创建的。里面的数据、金额、关联公司，全都是我编的。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「但陈姐——你怎么知道我编了什么内容？」
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「我……我猜的……」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你猜不到。因为那份文件——我今天早上才写，除了我——只有一个人看过。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「陈莉——谁看过那份文件？」
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「赵总，您听我说——我也是为了项目安全！林晚她查供应商的事根本没经过我——我让人盯着她只是——」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「够了。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「你让人——盯着林晚？」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「陈莉——这个项目，你暂时不要参与了。」
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「赵总——！」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+    # ⚠️ SEMANTIC_WARNING: Segment has 3 unique speakers exceeding the ≤2 limit. Same meeting scene continuation.
+
+  - segment_id: EP15-SEG06
+    shot_ids: [EP15-S11, EP15-S12]
+    duration_sec: 12
+    speakers: [CHAR-002, CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】陈莉 CHAR-002-L01（玫红套装）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带）【图4】公司会议室 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MS 固定：图1猛地站起来，椅子刮出一道刺耳声响。她想说什么，但看到图3眼神那一刻闭上了嘴。她抓起桌上笔记本夺门而出，门在身后重重关上。会议室里只剩下图3和图2——安静得能听到空调低鸣。图3没有立刻说话，拿起保温杯喝了一口放下。
+        镜头2（6秒）MCU 固定：图3起身走出会议室。图2一个人坐在长桌边，没有立刻站起来。窗外上午阳光斜照进会议室，在桌面上拉出一道长长的光影。她低头看着自己的手——平静但能感觉到心跳还在加速。她深呼吸一次，站起来整理了一下西装外套。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字】
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「——行。赵总，您说了算。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「供应商的事——你发现了多少？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「足够让您决定怎么处理。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「下午三点——你来我办公室。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我说了足够让他起疑——但没说全部。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「供应商的事、U盘被打开的事、内应的事——每一件都指向陈莉。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「但赵总问'你还知道些什么'——说明他还想要更多。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那就给他——一点一点，恰到好处。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+    # ⚠️ SEMANTIC_WARNING: Segment has 3 unique speakers exceeding the ≤2 limit. Meeting scene conclusion.
+
+  - segment_id: EP15-SEG07
+    shot_ids: [EP15-S13, EP15-S14]
+    duration_sec: 12
+    speakers: [CHAR-006, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-002.png
+    api:
+      text: |
+        【图1】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】U盘 PROP-002【图4】赵总办公室 SCENE-003。
+        角色分工：仅图2可触碰U盘。
+        道具：银色金属U盘（PROP-002），放在桌上，赵总已看过内容。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MS 固定：图3办公室，门关着。窗外下午阴天灰白天光透过百叶窗在办公桌上投下条纹状阴影。图3坐在办公桌后双手交叉放在桌上，正对着图2。图2坐在对面访客椅上背挺得很直。桌上放着她今早创建的"假证据"U盘——图3已看过内容。
+        镜头2（6秒）CU→MCU 缓推→固定：图3盯着图2的眼睛，目光里有审视、有欣赏、也有一丝不易察觉的警惕。他的声音更低了——像是怕隔墙有耳。窗外一束灰白的光打在他半边脸上，另一半隐在暗处。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「那份假的供应商数据——你一个早上就做出来了？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「嗯。为了让人信以为真。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「那真的呢——真正的异常数据，你手里有吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「有。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「林晚——」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「你还知道些什么？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「赵总——您确定要在办公室谈这个？」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+        - { file: SCENE-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut

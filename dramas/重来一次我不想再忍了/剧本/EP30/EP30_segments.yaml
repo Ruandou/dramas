@@ -1,0 +1,234 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP30/EP30_分镜剧本.md
+# Source shots: 12 (EP30-S01 to EP30-S12)
+# Source segments: 7 (EP30-SEG01 to EP30-SEG07)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 82s (self-check: 82s)
+# Output total duration: 82s
+# Gate status: ALL PASS
+
+episode_id: EP30
+source_md: 剧本/EP30/EP30_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，第二幕暖橙主调。苏晴工作室暖色创意氛围，咖啡厅温馨午后，林晚家夜晚暖黄灯光。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，第二幕暖橙主调。苏晴工作室暖色创意氛围，咖啡厅温馨午后，林晚家夜晚暖黄灯光。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-004: "成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句"
+
+segments:
+  - segment_id: EP30-SEG01
+    shot_ids: [EP30-S01, EP30-S02]
+    duration_sec: 12
+    speakers: [CHAR-004]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-009.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01（米白针织开衫，头发扎小马尾）【图2】苏晴工作室 SCENE-009（粉色背景布半垂，几台电脑屏幕，环形灯暖光，堆放设备）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：下午的光线透过窗户照进来，混合显示器冷光和环形灯暖光。图1正坐在电脑前戴着耳机专注剪辑视频，鼠标点击和键盘敲击声，表情认真投入。
+        镜头2（6秒）特写 固定：电脑屏幕右上角弹出新邮件通知。图1原本在调色调，随意一瞥后动作停住了。放下鼠标点开邮件——眼睛瞬间亮了。她一把扯下耳机从椅子上弹起来——纯然的惊喜。捂着嘴转了半圈，又低头看了一遍确认没错——脸上绽开巨大的笑容。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「不会吧……真的假的？！」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「林晚！林晚你一定要接！！」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙主调，苏晴工作室暖色创意氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: audio_bridge
+
+  - segment_id: EP30-SEG02
+    shot_ids: [EP30-S03, EP30-S04]
+    duration_sec: 11
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-009.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01（米白针织开衫，马尾辫）【图2】苏晴工作室 SCENE-009（电脑、粉色背景布、设备）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中近景 固定：图1的电话接通了。她几乎是喊出来的——在工作室里来回走动坐不住。她报告接到品牌合作的消息。电话那头的林晚恭喜她。图1笑得合不拢嘴——问晚上有没有空要请客。挂断后握着手机在原地又跳了一下，看着电脑屏幕上的邮件深吸一口气，像是在确认这一切是真的。
+        镜头2（6秒）中近景转特写 缓推：图1在工作室里安静了几秒。从狂喜中沉淀下来后表情里多了一层动容——"我终于做到了"。她打开附件合同快速滑了几页没有细看——确认了金额和产品清单后关掉。说等晚上见了林晚再一起看。笑容依然灿烂——她想先享受这一刻的快乐。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「林晚！我接到合作了！！第一个品牌合作！！」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「真的？恭喜你——是哪家品牌？」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「一个护肤品牌——他们看了我最近几期视频，觉得风格很搭！林晚你今天晚上有空吗？我请客！必须庆祝！」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「好——晚上见。地方我来定。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「真的来了——我的第一个合作。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「合同……晚上见了林晚再一起看吧。今天——先高兴。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙主调，苏晴工作室暖色创意氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP30-SEG03
+    shot_ids: [EP30-S05, EP30-S06]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01（杏色外套）【图2】林晚 CHAR-001-L01（海军蓝西装敞穿）【图3】咖啡厅 SCENE-007（暖黄灯光，靠窗座位）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：傍晚咖啡厅。图1坐在靠窗位置面前放着两杯拿铁——她比图2先到。看到图2走进来立刻挥手动作大得像怕她看不见。图2笑着走过去坐下。图1把手机翻过来展示品牌合作邮件，滔滔不绝讲品牌背景——做了功课的。图2接过手机仔细看了看一边看一边点头——真心认可。图1听到评价笑得眼睛弯成月牙。
+        镜头2（6秒）中近景 固定：图1端起咖啡喝了一口，满脸笑意。她畅想未来——说等合作做好了会有更多品牌找来，账号就能稳定变现了。眼睛里闪着创业者特有的光。图2看着她没有打断——在紧张战线中图1的快乐是仅有的纯粹温暖。等图1畅想得差不多了，图2端起咖啡用随意的话轻轻转了话题——问合同的事。语气很轻不想扫兴，但问题必须问。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「你看——就是这家。我做了功课的，他们的品牌调性和我的内容风格很搭，而且他们之前合作过的博主反馈都挺好的。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「确实不错——你的第一条合作，选这个品牌是理性的选择。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「是吧？我也觉得！」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「等这一条合作数据好了——后面肯定还会有更多品牌找来。到时候我就可以稳定变现了——不用再只靠流量分成活着了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「合同——你仔细看了吗？」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「还没——今天太高兴了，看不进去。我大概扫了一眼，没什么大问题。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙主调，咖啡厅温馨午后，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP30-SEG04
+    shot_ids: [EP30-S07, EP30-S08]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装敞穿）【图2】苏晴 CHAR-004-L01（杏色外套）【图3】咖啡厅 SCENE-007（暖黄灯光，傍晚）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景转特写 镜头推近：图1听到"没什么大问题"时没有立刻接话。端起咖啡杯喝了一口争取了几秒思考时间——不想在最高兴的时候泼冷水但她必须说。放下杯子后语气轻柔但认真了一些。她说第一次合作最容易被合同条款坑到——独家绑定、版权归属、肖像权使用范围等等。图2听着撅了撅嘴觉得她太谨慎了。图1看着她的表情没有再坚持——笑了笑说"那就好"。但目光在手机上多停留了一秒——她选择不说，有些东西看了合同才知道。
+        镜头2（6秒）中景转中近景 固定：图2没有注意到图1那一瞬间的沉默。她继续高兴地说着拍摄计划——日常vlog风格、什么文案方向。越说越兴奋。图1坐在对面微笑着听偶尔点头附和——表情完全是为朋友开心的闺蜜。但观众知道微笑背后她已经决定要替图1把合同从头到尾看一遍。两人碰了一下咖啡杯像是干杯。图2的笑容灿烂毫无防备。图1的笑容温暖但底下带着一层浅浅的警觉。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「苏晴——第一次合作，最容易出问题的地方不是钱，是合同条款。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「放心吧——我大概看了一下，没什么独家绑定或者奇怪的条款。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「独家绑定是一方面——还有版权归属、肖像权使用范围、合作期后的限制……这些你都要看清楚。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「知道啦林妈妈——我会看的。今天先让我高兴一天，明天我再慢慢研究。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「好——那就好。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「我打算用那种日常vlog的风格来拍——不要太广告感，让观众觉得自然。文案我也想好了……」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「祝你第一条合作——爆款。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「借你吉言！」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙主调，咖啡厅温馨午后，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP30-SEG05
+    shot_ids: [EP30-S09, EP30-S10]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（家居服）【图2】林晚家 SCENE-005（书桌、台灯、合同纸面）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：夜晚。图1穿着家居服坐在书桌前——就是深夜研读名单的那个位置。但今晚桌上放的是一份打印合同。台灯照亮纸面。她已通读了一遍正在翻第二遍——目光专注。她拿起手机发了一条消息给苏晴要电子版。几分钟后收到打开对照阅读。表情从专注变成认真审视。
+        镜头2（5秒）特写 镜头推近：翻到合同第三页。目光在靠下位置的某一条款上停住了。读了一遍——眉头轻轻皱了一下——又读了一遍。合作期内不得为同类竞品提供推广——这是标准排他。但后面跟了一句：合作期满后六个月内仍不得为任何同类竞品进行商业推广。放下合同靠到椅背上看天花板——在想这个条款的实际含义。六个月——对一个刚起步的博主来说等于砍掉美妆护肤线一半的商业空间。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「晴晴——合同电子版方便发我一份吗？我想看看品牌方的合作流程。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙主调，林晚家夜晚暖黄灯光，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP30-SEG06
+    shot_ids: [EP30-S11]
+    duration_sec: 12
+    speakers: []
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（家居服）【图2】林晚家 SCENE-005（书桌、台灯、合同纸面）【图3】手机 PROP-009。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）特写转大特写 镜头推近：图1重新坐直身体把合同翻回目录页开始系统检查隐藏条款——找"同类竞品"定义范围、合作期后限制、违约责任界定。一行一行读——表情越来越冷静但翻页越来越快——每翻一页就多发现一个问题。"同类竞品"定义权在品牌方——可以随时把任何品牌定义为竞品。违约金额不高但"违约"定义宽泛。看完最后一页合上合同——没有摔没有生气。安静坐了几秒然后拿起手机翻到号码看了一眼时间——晚上十一点二十七分。犹豫了两秒按下了拨号键。接通前的等待中表情平静但底下是"幸好我看了"的后怕。
+        本段无对白无语音，禁止画面中出现任何文字。
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙主调，林晚家夜晚暖黄灯光，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+        - { file: PROP-009, role: reference_image, label: 图3 }
+    transition_to_next: audio_bridge
+
+  - segment_id: EP30-SEG07
+    shot_ids: [EP30-S12]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（家居服）【图2】林晚家 SCENE-005（书桌、台灯、合同纸面第三页）。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中近景转特写 固定转定格：电话接通。话筒里传来苏晴的声音——刚被吵醒的迷糊和担心。图1听到后语气放温柔了一些但直接问合同里那个"独家绑定"条款看到了吗。电话那头沉默了——很长的一拍。那沉默本身就是答案。苏晴问"哪一条"。图1告诉她合作期满后六个月内不能接任何同类竞品，定义权在品牌方手里。电话那头又是几秒沉默。图1低头看了一眼桌上摊开的合同——第三页那条条款在台灯下清晰可见。她说别急——明天一起看怎么处理，一起想办法。画面定格在合同那条关键条款的特写上——文字在暖黄灯光下清晰。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「喂？林晚？怎么了——这么晚打给我——出什么事了？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「苏晴——合同里那个独家绑定条款——你看到了吗？」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「……独家绑定？哪一条？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「合作期满后六个月内，你不能接任何同类竞品。而且——'同类竞品'的定义权在他们手里。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「明天我们一起看这条条款怎么处理。别急——我们一起想办法。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙主调，林晚家夜晚暖黄灯光，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

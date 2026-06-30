@@ -1,0 +1,248 @@
+episode_id: EP04
+source_md: 剧本/EP04/EP04_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，暖橙调咖啡馆氛围。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，暖橙调咖啡馆氛围。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo、血腥、暴力"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-004: "成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句"
+  CHAR-GRP-14: "成年男性，45岁，声线市侩带威胁感，假笑时语气圆滑，命令时短促有力"  # ⚠️ 未见声音卡片/角色卡片，从角色描述推定，需 production-planner 补充
+
+segments:
+  - segment_id: EP04-SEG01
+    shot_ids: [EP04-S01, EP04-S02]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01（米白针织衫，卡其西裤）【图2】林晚 CHAR-001-L01（海军蓝西装外套，米白衬衣）【图3】咖啡馆 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：咖啡馆午后暖黄光线透过落地窗洒在木桌上，苏晴坐在角落卡座里低头撕着杯垫边角纸屑散落，林晚从门口快步走来放下包在她对面坐下。
+        镜头2（5秒）中近景 镜头推近：苏晴深吸一口气眼眶微微泛红但硬撑着没让眼泪掉下来，窗外斜阳在她侧脸切出一道明暗交界线。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「怎么了？电话里声音都不对。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「……今天发工资了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「被扣了？」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「扣了两千。说是'绩效不达标'。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你上个月不是做了三个爆款？」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「他说——新人要熬。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙调咖啡馆氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG02
+    shot_ids: [EP04-S03, EP04-S04]
+    duration_sec: 11
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01（米白针织衫）【图2】林晚 CHAR-001-L01（海军蓝西装外套）【图3】咖啡馆 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：苏晴低下头手指捏着杯垫边角指甲泛白，声音因为委屈而发抖但她努力说得平静。
+        镜头2（6秒）中近景 固定：林晚没有立刻回应端起柠檬水喝了一口目光微微发冷，放下杯子时杯底碰到桌面发出比平时重的一声轻响，窗外阳光在她瞳孔中收成一个锐利的光点。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「上个月三个爆款，播放量部门前三。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「结果他去给自己表弟发奖金，说我'新人指标没完成'。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「指标多少？」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「月涨粉五万。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「苏晴。你信我吗？」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙调咖啡馆氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG03
+    shot_ids: [EP04-S05, EP04-S06]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套）【图2】苏晴 CHAR-004-L01（米白针织衫）【图3】咖啡馆 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景 固定：林晚向前倾身双手交叠放在桌上语气平稳有力像在做经过计算的判断，苏晴被她认真的表情怔住下意识坐直了身体。
+        镜头2（5秒）特写 镜头推近：林晚用食指在桌面画了一个弧线像是在画一条上升的曲线，笃定的语气带着不容置疑的自信。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「辞职吧。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「啊？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你做短视频那么厉害——为什么要给别人打工？」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「可我……我一个人怎么做？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「做个人IP。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「三个月内，短视频风口会全面爆发。现在入场——是最好的时间。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「风口……万一我抓不住呢？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你缺的不是风口。是信自己一回。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙调咖啡馆氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG04
+    shot_ids: [EP04-S07, EP04-S08]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01（米白针织衫）【图2】林晚 CHAR-001-L01（海军蓝西装外套）【图3】咖啡馆 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：苏晴沉默了几秒手指交叉又松开，目光在桌面和林晚之间来回跳动，"创业"这个词让她感到遥远又陌生。
+        镜头2（5秒）中近景 固定：苏晴抬头眼眶已经泛红动了动嘴唇想说点什么但喉咙发紧，林晚伸手越过桌面轻轻握住她放在桌上的手指尖温热。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「我没做过账号……怎么定位、怎么拍、怎么变现，我全都不懂。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「万一做不起来呢？连现在的工作都丢了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你不做——就一定起不来。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「晚晚，你为什么会觉得……我行？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「因为我见过你拼尽全力做一件事的样子。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你天生就该发光。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙调咖啡馆氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG05
+    shot_ids: [EP04-S09]
+    duration_sec: 9
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01（米白针织衫，眼眶含泪）【图2】林晚 CHAR-001-L01（海军蓝西装外套）【图3】咖啡馆 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（9秒）特写到的大特写 缓推：镜头缓缓推进林晚的面部特写，她的目光温暖而笃定语气柔和但每个字都有分量，窗外的午后光线在她的瞳孔边缘镀上一层温暖的金色光晕，苏晴的眼眶彻底红了一滴泪顺着脸颊滑落但她用力点了点头像在给自己勇气。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你值得更好的。不是以后——是现在。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「我……试试。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不是试试。是做。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「你做。就你做。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙调咖啡馆氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG06
+    shot_ids: [EP04-S10, EP04-S11]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-GRP-14, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01（米白针织衫）【图2】林晚 CHAR-001-L01（海军蓝西装外套）【图3】咖啡馆 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景到中全景 摇镜：两人正说着咖啡馆的门被猛然推开风铃发出急促碰撞声，一个穿皱巴巴深灰夹克的中年男人快步走进来目光扫了一圈锁定苏晴角落，他脸上挂着假笑但眼神阴沉。
+        镜头2（6秒）中景 固定：老板从口袋里掏出一份折叠的纸展开拍在桌上是一份竞业限制协议，动作带着居高临下的轻蔑，林晚不动声色地坐直身体目光从协议上扫过然后抬眼看着老板。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「老、老板？」
+        对白（苏晴老板，成年男性，45岁，声线市侩带威胁感，假笑时语气圆滑，命令时短促有力）：「苏晴啊，在这呢。」
+        对白（苏晴老板，成年男性，45岁，声线市侩带威胁感，假笑时语气圆滑，命令时短促有力）：「聊什么呢？电话也不接。」
+        对白（苏晴老板，成年男性，45岁，声线市侩带威胁感，假笑时语气圆滑，命令时短促有力）：「既然想走，把这个签了。」
+        对白（苏晴老板，成年男性，45岁，声线市侩带威胁感，假笑时语气圆滑，命令时短促有力）：「两年内不许做同类内容。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「什么？！凭什么？！」
+        对白（苏晴老板，成年男性，45岁，声线市侩带威胁感，假笑时语气圆滑，命令时短促有力）：「凭你签过保密协议——公司的内容体系、创作方法论，都是商业机密。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你说完了吗？」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙调咖啡馆氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG07
+    shot_ids: [EP04-S12]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-GRP-14]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套）【图2】苏晴 CHAR-004-L01（米白针织衫，眼眶还红着）【图3】咖啡馆 SCENE-007。
+        角色分工：仅图1可拿起协议递给对方；图2站在一旁注视不触碰任何物品。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）特写到中景 缓推→固定：林晚没有站起来甚至没有提高音量，她只是缓缓放下手中的杯子杯底碰到木桌发出一声清晰的闷响，她抬眼直视老板目光从温和变成刀刃，苏晴站在旁边看看老板又看看林晚眼睛还红着但已经不抖了，镜头缓缓推进到林晚面部特写她嘴角带着一丝极淡的笑意但眼睛里没有笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「好。法庭见。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「竞业限制的前提是——公司支付了竞业补偿金。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「您付过吗？」
+        对白（苏晴老板，成年男性，45岁，声线市侩带威胁感，假笑时语气圆滑，命令时短促有力）：「你、你是谁？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「走吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖橙调咖啡馆氛围，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

@@ -1,0 +1,495 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP18/EP18_分镜剧本.md
+# Source shots declared: 13 (metadata) / actual rows: 13
+# Output shots: 13 (EP18-S01 to EP18-S13)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration (declared): 88s
+# Output total duration (calculated): 76s
+# ⚠️ NOTE: 12s discrepancy — source validation claims (12/12/11/10/12/11/8/12)=88s over 8 segments, 
+#   but actual table has 7 segments with durations (12/12/11/10/11/8/12)=76s. 
+#   SEG05/S06 in source have duration mismatches vs shot table.
+# Gate status: ALL PASS (with warnings)
+
+episode_id: EP18
+source_md: 剧本/EP18/EP18_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，暖灰调→暖橙过渡，第一幕落幕的情感落点。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+shots:
+  - shot_id: EP18-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】CHAR-006-L01（浅蓝衬衣+条纹领带）【图2】CHAR-001-L01（海军蓝西装+米白衬衣）【图3】SCENE-003。MS 固定镜头：赵总办公室上午阳光明媚，赵总坐在办公桌后面前摆着一份人事任命文件，林晚坐在对面。赵总拿起文件没有直接递给她而是先看了她一眼。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "从今天起——市场部副总监。"
+      - speaker: CHAR-006
+        line: "大老板亲自批的。我是推荐人。"
+      - speaker: CHAR-001
+        line: "——谢谢赵总。"
+      - speaker: CHAR-006
+        line: "不用谢我——是你自己挣来的。"
+      - speaker: CHAR-006
+        line: "林晚——三个月前我把那个烂摊子项目交给你的时候……说实话，我没想到你能走到今天这一步。"
+      - speaker: CHAR-001
+        line: "我也没想到。"
+      - speaker: CHAR-001
+        line: "【内心】不是没想到——而是上辈子，我没能走到这一步。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】CHAR-006-L01（浅蓝衬衣+条纹领带）【图2】CHAR-001-L01（海军蓝西装+米白衬衣）【图3】SCENE-003。CU 固定镜头：赵总站起来走到窗边背对着林晚，沉默了几秒，语气比刚才低沉。他说陈莉的调令，然后转过身看着林晚。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "陈莉的事——她今天就会收到调令。去华东分公司，市场支持岗。"
+      - speaker: CHAR-006
+        line: "我知道——你和她之间的事，不止是工作上的矛盾。"
+      - speaker: CHAR-006
+        line: "……但这几个月发生的很多事——让我明白了一个道理。"
+      - speaker: CHAR-006
+        line: "看人——不能只看资历。"
+      - speaker: CHAR-006
+        line: "行了——去忙吧。"
+      - speaker: CHAR-001
+        line: "赵总——"
+      - speaker: CHAR-001
+        line: "谢谢。"
+      - speaker: CHAR-001
+        line: "【内心】这一句'谢谢'——跟上辈子最后那天对他说的那句——完全不一样。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-002-L01（素色衬衫，平底鞋——非艳丽职场装，首次不以红色裹身裙形象出现）【图2】SCENE-001。MS 固定镜头：大办公室里陈莉站在自己工位前把个人物品装进纸箱，穿着素色衬衫没有化妆。她动作很慢像是在拖延什么。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "【内心】昨天还是副总监候选人——今天连工位都要让出来。"
+      - speaker: CHAR-002
+        line: "【内心】华东分公司……市场支持岗。说白了——就是把我发配到没人去的边缘部门。"
+      - speaker: CHAR-002
+        line: "【内心】林晚……你不会得意太久的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-002-L01（素色衬衫+平底鞋）【图2】CHAR-001-L01（海军蓝西装+米白衬衣）【图3】SCENE-001。MLS 固定镜头：陈莉抱起纸箱准备离开——刚好林晚从赵总办公室走出来，两人在走廊中间迎面相遇。整个办公室的人都屏住了呼吸。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "行了——不用送了。我知道路。"
+      - speaker: CHAR-001
+        line: "陈姐——好走。"
+      - speaker: CHAR-002
+        line: "林晚——你……确实比我以为的厉害。"
+      - speaker: CHAR-002
+        line: "但我还是那句话——这个行业，没你想的那么简单。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装+米白衬衣，胸前佩戴工牌PROP-008）【图2】SCENE-001。CU→MS 镜头缓拉：陈莉走进电梯门关上。林晚站在原地看着电梯楼层数字变化直到B1。她走回新工位——副总监独立隔间，站在新工位前摸了摸桌沿，阳光照在干净的桌面上。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "【内心】她走了。"
+      - speaker: CHAR-001
+        line: "【内心】三个月前——我蹲在楼梯间里，被赵总训完，被她抢了功，连哭都不敢出声。"
+      - speaker: CHAR-001
+        line: "【内心】现在——她是被调走的那一个。我是坐在这里的那一个。"
+      - speaker: CHAR-001
+        line: "【内心】前世——这个位置，是她坐了三年后升上去的。"
+      - speaker: CHAR-001
+        line: "【内心】这一世——是我。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装+米白衬衣）【图2】SCENE-001。MCU 固定镜头：林晚坐在新工位上手机震动，她拿起来看——苏晴发来一张几个月前在咖啡厅拍的合影，照片里的她和现在的她判若两人。手机又震——苏晴消息「今晚天台？老地方。给你带了好东西🍷」。林晚忍不住笑了出来。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "——天台。老地方。"
+      - speaker: CHAR-001
+        line: "【内心】前世——我输给了时间，输给了人心，输给了一切我以为是'命运'的东西。"
+      - speaker: CHAR-001
+        line: "【内心】这一世——我才发现，命运是可以改的。"
+      - speaker: CHAR-001
+        line: "【内心】而我——还没改够。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-36
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-36: assets/looks/CHAR-GRP-36-L01.png  # WARNING: no CDN URL — group performer (擦肩同事) no L01 generated yet
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装+米白衬衣）【图2】SCENE-001。MS 跟随镜头：林晚走向电梯途中迎面走来一个年轻同事，看到她有点拘谨地停了一下说'林……林副总监'。林晚愣了一瞬然后笑着拍了拍他的肩膀说别紧张还是叫林姐就行。同事放松下来笑了。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-GRP-36
+        line: "林……林副总监。"
+      - speaker: CHAR-001
+        line: "别紧张——还是叫我林姐就行。"
+      - speaker: CHAR-GRP-36
+        line: "林姐——恭喜你！"
+      - speaker: CHAR-001
+        line: "谢谢。晚上别加班太晚。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装外套被风吹起）【图2】SCENE-004。MS→MLS 镜头跟随→主观：电梯门打开顶楼到了，林晚推开通往天台的那扇铁门。傍晚的风灌进来。她走上天台视野豁然开朗——整座城市在夕阳下铺展开来，高楼玻璃幕墙反射金色光，天际线被暖橙色晚霞染透。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "【内心】每一次上天台——心情都不一样。"
+      - speaker: CHAR-001
+        line: "【内心】第一次——是绝望到想放弃一切。第二次——是决定不再忍了。第三次——是告诉苏晴'你是我唯一信得过的人'。第四次——是收到了妈妈的短信说'闺女你瘦了没'。"
+      - speaker: CHAR-001
+        line: "【内心】而这一次——是来确认。"
+      - speaker: CHAR-001
+        line: "【内心】确认——我真的做到了。"
+    transition_to_next: dissolve
+
+  - shot_id: EP18-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装外套被风吹得微微扬起）【图2】SCENE-004。MLS→LS 镜头缓推→固定：天色完全暗下来，城市亮起千万盏灯，黄浦江两岸灯火辉煌。林晚还站在天台上外套被风吹起，她没有看手机没有想工作，只是安静地看着这片城市。夜风清凉，她的嘴角带着一丝若有若无的笑意。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "【内心】三个月前——我蹲在楼梯间里，对自己说——如果人生能重来一次……"
+      - speaker: CHAR-001
+        line: "【内心】然后——它真的重来了。"
+      - speaker: CHAR-001
+        line: "【内心】那时候我以为——重来一次，只是为了报仇，为了不让那些欺负过我的人好过。"
+      - speaker: CHAR-001
+        line: "【内心】但后来发现——最重要的不是让他们输。"
+      - speaker: CHAR-001
+        line: "【内心】而是让我自己——赢。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装，瞳孔里反射着城市灯火）【图2】SCENE-004。CU→ECU 镜头缓推：镜头缓缓推进林晚的脸——瞳孔里反射着城市的灯火。她的表情没有大喜大悲而是一种深沉的笃定的平静。她轻轻吸了一口气然后发自心底地笑了。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "【内心】陈莉说得对——这个行业没我想的那么简单。"
+      - speaker: CHAR-001
+        line: "【内心】但她也说错了一件事——她以为我还是那个会忍气吞声的林晚。"
+      - speaker: CHAR-001
+        line: "【内心】那个林晚——三个月前，就已经不见了。"
+      - speaker: CHAR-001
+        line: "【内心】接下来——还有更大的仗要打。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装外套被风吹起一角）【图2】SCENE-004（城市夜景璀璨背景）。MLS 固定镜头：林晚从天台的栏杆边转身走回天台入口，城市夜景在她身后铺展成璀璨背景。她走了两步站定了，抬头看了看夜空，看到最亮的那一颗星，笑了笑然后转身准备下楼。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "【内心】不知道从什么时候开始——我不再害怕'明天'了。"
+      - speaker: CHAR-001
+        line: "【内心】前世——我最怕的事就是天亮。因为天亮就意味着又要去那个地方，面对那些人，假装一切很好。"
+      - speaker: CHAR-001
+        line: "【内心】现在——我有点期待天亮了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装）【图2】CHAR-005-L01（深灰休闲外套+浅灰针织衫——非西装正式造型）【图3】SCENE-004。MS→CU 固定镜头：林晚推开天台的门——愣住了。陆北辰站在门外，穿着深灰色休闲外套里面是浅灰针织衫，手里端着两杯咖啡——一杯已喝一小口，另一杯还是满的温热的。他看到林晚愣了一下，嘴角浮起一个带着温度的笑，抬起那杯没喝过的咖啡朝她递过去。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "——天台的风……大吗？"
+      - speaker: CHAR-001
+        line: "……你什么时候来的？"
+      - speaker: CHAR-005
+        line: "路过楼下——顺手买了两杯。"
+      - speaker: CHAR-005
+        line: "本来打算自己喝两杯的——"
+      - speaker: CHAR-005
+        line: "——现在看来——有一杯可以省下来了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP18-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装）【图2】CHAR-005-L01（深灰休闲外套+浅灰针织衫）【图3】SCENE-004。MS→MLS 镜头拉远→固定：林晚看着那杯被递过来的咖啡还冒着热气。她没有立刻接，看着陆北辰的眼睛。她伸手接过了咖啡，手指碰到杯壁的瞬间温热的触感从指尖传遍全身。她低下头看着手中的咖啡杯忍不住笑了。陆北辰也端起自己的咖啡喝了一口。两人都没有说话。天台的风轻轻吹过，城市灯火在身后铺成璀璨银河。镜头缓缓拉远——两个人的身影在星光和城市灯火中变得很小但很近。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "……谢谢。"
+      - speaker: CHAR-001
+        line: "你怎么知道我在这里？"
+      - speaker: CHAR-005
+        line: "猜的。"
+    transition_to_next: hard_cut

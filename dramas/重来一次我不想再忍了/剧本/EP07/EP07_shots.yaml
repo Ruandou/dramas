@@ -1,0 +1,436 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP07/EP07_烂摊子变机会.md
+# Source shots: 12 (EP07-S01 to EP07-S12)
+# Output shots: 12 (EP07-S01 to EP07-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
+episode_id: EP07
+source_md: 剧本/EP07/EP07_烂摊子变机会.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，暖灰调职场剧。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+shots:
+  - shot_id: EP07-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装，工牌佩戴）【图2】SCENE-007（咖啡厅午后暖黄灯光）【图3】PROP-009（手机）。中景 固定：咖啡厅角落，林晚提前到了，桌上摊开华创项目资料夹和笔记本电脑，她低头翻看文件，眉头微蹙，用手指在笔记本边缘轻敲两下，拿起手机确认时间。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+        - file: PROP-009
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "华创科技——2017年B轮融资，估值20亿。2019年上市，翻了十倍。"
+      - speaker: CHAR-001
+        line: "现在是2016年——正是抄底合作的窗口期。陈莉以为是甩锅，其实是在给我送牌。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-18-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-18-L01: assets/looks/CHAR-GRP-18-L01.png  # WARNING: no CDN URL — CHAR-GRP-18 L01 尚未生成，需 character-designer 回补
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装）【图2】CHAR-GRP-18-L01（约40岁中年男人，衣着讲究面带倦容）【图3】SCENE-007。中景 固定：一个四十岁左右的中年男人走进咖啡厅，面带倦容和不耐烦，扫了一眼厅内，目光落在林晚身上，微微皱眉。林晚合上资料，起身微笑招呼。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-18-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "张总？您好，我是林晚。感谢您抽空过来。"
+      - speaker: CHAR-GRP-18
+        line: "林小姐，我直说了——我对你们公司已经没信心了。今天来，就是走个流程。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-18-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-18-L01: assets/looks/CHAR-GRP-18-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】CHAR-GRP-18-L01（中年男人，深色商务装）【图2】CHAR-001-L01【图3】SCENE-007。近景中景 固定：客户坐下后把公文包往旁边一放，语气带着积压已久的不满，罗列合作问题。林晚没有打断，认真点头，目光平视对方。"
+      content_roles:
+        - file: CHAR-GRP-18-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-GRP-18
+        line: "去年Q4的项目延期、上个月的需求响应拖了一周——你们公司的服务，说实话，跟价钱不匹配。"
+      - speaker: CHAR-001
+        line: "您说的这些，我入职后都复盘过。确实是我们的问题。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-007。近景中景 固定：客户愣住——以为林晚会辩解但她没有。林晚趁停顿把笔记本电脑转向客户，屏幕上显示行业数据分析，她深吸一口气。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "所以今天我不是来劝您续约的——我是来给您看一些数据。看完之后，如果您还想解约，我亲自帮您走完所有流程。"
+      - speaker: CHAR-GRP-18
+        line: "……你倒是跟你们公司其他人不太一样。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-18-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-18-L01: assets/looks/CHAR-GRP-18-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-GRP-18-L01【图3】SCENE-007。近景中景 镜头拉近：林晚把电脑屏幕转向客户，用手指着图表上的关键数据点，语气笃定流畅。客户表情从不屑变成认真，从认真变成惊讶，凑近屏幕又靠回椅背重新审视林晚。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-18-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "贵行业未来18个月的用户增长率会超过300%。现在做品牌投放和数字化转型，成本最低、窗口期最短——错过这个节点，三年内会被市场淘汰。"
+      - speaker: CHAR-GRP-18
+        line: "这些数据——行业报告里从来没见过。你从哪来的？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-007。特写 固定：林晚直视客户，嘴角带着从容的微笑，声音平静不急不缓。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "我长期跟踪这个行业，有自己的数据交叉验证体系。张总——信我一次，半年后你会感谢今天的决定。"
+      - speaker: CHAR-001
+        line: "他不能追问太多……再问下去，我的'研究渠道'就编不下去了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-18-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-18-L01: assets/looks/CHAR-GRP-18-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】CHAR-GRP-18-L01【图2】CHAR-001-L01【图3】SCENE-007。中景 固定：客户沉默了七八秒，低头看数据又抬头看林晚，手指在桌上轻敲。林晚不说话，端起咖啡慢慢喝了一口。窗外午后阳光移了一寸，光斑落在桌角。客户叹了口气，伸手拿起茶杯。"
+      content_roles:
+        - file: CHAR-GRP-18-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-GRP-18
+        line: "……好。我再给你们三个月。但如果数据不准——"
+      - speaker: CHAR-001
+        line: "您可以随时终止合同，我绝不拦您。"
+      - speaker: CHAR-GRP-18
+        line: "你很有信心。"
+      - speaker: CHAR-001
+        line: "不是有信心——是我知道这条路是对的。"
+      - speaker: CHAR-001
+        line: "成了。前世这个客户跑了之后，陈莉被骂了半年。这一世——这是我的业绩。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-002-L01（红色裹身裙，大耳环）【图2】SCENE-001（公司大办公室，下午阳光从落地窗斜照）。中景 固定：陈莉从茶水间出来，手里端着一杯茶，经过林晚工位时放慢脚步，瞥见华创项目文件夹。她正露出幸灾乐祸表情，却看到林晚正拿着手机通话，脸上带着轻松的微笑。陈莉端杯子的手顿了一下。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "她在跟谁打电话……笑得出来？"
+      - speaker: CHAR-002
+        line: "华创那个项目明明要黄了。她还笑？"
+      - speaker: CHAR-002
+        line: "装——肯定在硬撑。过两天有她哭的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-013（公司走廊，傍晚落地窗外橘色天空）。中景 固定：傍晚走廊，林晚从咖啡厅回来，步伐轻松，低头翻看手机消息——华创客户发来确认信息，她微笑了一下，正要继续往前走，突然停住脚步，慢慢抬起头。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-013
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "搞定了……华创这条线接上了。"
+      - speaker: CHAR-001
+        line: "这个案子做好了，下一步就可以争取——"
+      - speaker: CHAR-001
+        line: "……有人。"
+      - speaker: CHAR-001
+        line: "那边转角——有人看着我。"
+    transition_to_next: audio_bridge
+
+  - shot_id: EP07-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】CHAR-005-L01（深炭灰西装，面容冷峻）【图2】CHAR-001-L01【图3】SCENE-013。中景 固定：走廊转角处，一个身影缓步走出来——深炭灰西装，身高约一米八三，面容冷峻。眼神锐利如手术刀，落在林晚身上。夕阳从落地窗斜射，在他脸上切出半边阴影半边光明。他开口，声音低沉平稳。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-013
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "林晚？"
+      - speaker: CHAR-001
+        line: "我是。您是——"
+      - speaker: CHAR-005
+        line: "刚才在咖啡厅——你给华创客户看的那组数据。行业增长率300%，用户迁移曲线……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】CHAR-005-L01【图2】CHAR-001-L01【图3】SCENE-013。近景中景 固定：陆北辰往前走了一步，距离拉近。林晚没有后退但呼吸节奏变了。他低头看着她，语气没有恶意，但审视感让人无处遁形。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-013
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "你那个数据判断——依据是什么？"
+      - speaker: CHAR-001
+        line: "长期跟踪行业，有自己的研究渠道。您是——公司的人？"
+      - speaker: CHAR-005
+        line: "有意思。"
+      - speaker: CHAR-001
+        line: "他看到了全部。连数据细节都注意到了。这个男人——不简单。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】CHAR-005-L01【图2】CHAR-001-L01【图3】SCENE-013。中景到特写 缓推（推向林晚面部）：男人转身朝走廊另一端走去，步伐沉稳没有回头。林晚站在原地，看着他的背影被走廊光线吞没，手指微微收紧。镜头缓缓推向林晚的面部特写——表情从从容慢慢变成凝重。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-013
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "改天聊聊——林晚。"
+      - speaker: CHAR-001
+        line: "……"
+      - speaker: CHAR-001
+        line: "他叫得出我的名字……但不知道他是谁。"
+      - speaker: CHAR-001
+        line: "前世公司没有这号人。他的出现——比我的记忆早了。"
+      - speaker: CHAR-001
+        line: "你是谁。"
+    transition_to_next: hard_cut

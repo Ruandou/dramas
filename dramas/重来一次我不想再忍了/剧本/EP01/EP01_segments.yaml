@@ -1,0 +1,372 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP01/EP01_重生之始.md
+# Source shots: 15 (EP01-S01 to EP01-S15)
+# Output segments: 11 (EP01-SEG01 to EP01-SEG11)
+# Mapping: shots 1:1, segments per source SEG definition
+# Source total duration: 104s (MD VALIDATION claims 104s)
+# Output total duration: 104s (self-calculated: 10+10+10+8+10+8+8+10+10+10+10 = 104s)
+# Gate status: ALL PASS (G1: 104s ∈ [90,120] ✅ | G2: 15=15 ✅ | G3: ✅ | G4: ✅)
+#
+# ⚠️ SEMANTIC_WARNING: SEG02 contains 4 speakers (CHAR-001, CHAR-002, CHAR-GRP-05, CHAR-GRP-06)
+#   exceeding ≤2 limit. Single shot (S03, 10s) cannot be split without breaking narrative integrity.
+#   Source .md defines SEG02 as one uninterrupted beat. Reported to drama-director for confirmation.
+#
+# ⚠️ NOTE: CHAR-GRP-05-L01 and CHAR-GRP-06-L01 reference images not yet generated.
+#   Local paths used as fallback. See Gate 3/4 notes in build report.
+
+episode_id: EP01
+source_md: 剧本/EP01/EP01_重生之始.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，暖灰调职场剧风格。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，暖灰调职场剧风格。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo、血腥、暴力、超自然特效、发光、时光隧道"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-002: "成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺"
+  CHAR-006: "成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力"
+  CHAR-GRP-05: "成年女性，28岁，低声吐槽，语速快带不满"  # WARNING: INFERRED — not from 声音卡片.md; from 角色索引 "市场部女同事，看不惯陈莉作风"
+  CHAR-GRP-06: "成年男性，32岁，小声附和，语速轻快带八卦感"  # WARNING: INFERRED — not from 声音卡片.md; from 角色索引 "市场部男同事，附和同事甲"
+
+segments:
+  # ===== SEG01: 抢功（冲突爆发·刺探式）SCENE-001 =====
+  - segment_id: EP01-SEG01
+    shot_ids: [EP01-S01, EP01-S02]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣，胸前蓝色工牌挂绳，手机搁在键盘边）【图2】陈莉 CHAR-002-L01（红色裹身裙+大耳环）【图3】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：午后阳光透过百叶窗在格子间投下明暗条纹，图1坐在工位前低头翻看手中的方案打印稿，微微抿唇，眼神专注中带着一丝不安。
+        镜头2（5秒）中景 镜头跟随：图2从后面快步走来，红色裙在灰调格子间格外扎眼，直接伸手从图1桌上抽走方案翻了两页，脸上浮起职业假笑。图1抬头，手还悬在半空，笑容僵住。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「最后检查一遍，别出纰漏……今天汇报很重要。」
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「小林啊，你这方案我帮你看看。年轻人火候不到，容易被挑毛病。」
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「你那个数据模块我帮你调了调，整体顺多了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……谢谢陈姐。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧风格，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ===== SEG02: 抢功完成（权力翻转·刺探式）SCENE-001 =====
+  - segment_id: EP01-SEG02
+    shot_ids: [EP01-S03]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002, CHAR-GRP-05, CHAR-GRP-06]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+        CHAR-GRP-05-L01: assets/looks/CHAR-GRP-05-L01.png  # WARNING: no CDN URL — L01 not yet generated
+        CHAR-GRP-06-L01: assets/looks/CHAR-GRP-06-L01.png  # WARNING: no CDN URL — L01 not yet generated
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】陈莉 CHAR-002-L01（红色裹身裙）【图2】林晚 CHAR-001-L01（海军蓝西装）【图3】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中远景 固定：图1拿着方案走到办公区中央，提高音量，像展示战利品一样朝大家扬了扬手中的纸。几个同事从格子间探出头来交换眼神。图2跟在两步外，手指在身侧攥紧又松开。夕阳斜照，在图1脸上打出胜利者的光影。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「大家看——这方案我帮小林改了三个晚上，重点全在这儿了！」
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「年轻人嘛，总要有前辈带一带才行。」
+        对白（同事甲，成年女性，28岁，低声吐槽，语速快带不满）：「又来了……明明是小林的方案。」
+        对白（同事乙，成年男性，32岁，小声附和，语速轻快带八卦感）：「陈姐就这风格，习惯了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「三个晚上？她拿走才十分钟……」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「算了……说了又有什么用。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧风格，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    # ⚠️ SEMANTIC_WARNING: 4 speakers in single segment (exceeds ≤2 limit). Single shot (10s) cannot be split.
+    transition_to_next: hard_cut
+
+  # ===== SEG03: 赵总训斥（权力压制·蓄力式）SCENE-003 =====
+  - segment_id: EP01-SEG03
+    shot_ids: [EP01-S04, EP01-S05]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: |
+        【图1】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带，银边眼镜）【图2】林晚 CHAR-001-L01（海军蓝西装）【图3】赵总办公室 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1靠在大班椅上，手里拿着那份已被陈莉改过的方案，眉头拧着。他把方案往桌上一扔，纸张滑开。图2站在桌前双手交握在身前，姿态恭顺，肩微微缩着。
+        镜头2（5秒）中近景 固定：图2嘴唇微张想解释，图1已经低头挥手——一副"不必多说"的姿态。窗外斜阳在图2侧脸上切出一半明亮一半暗影。她深吸一口气，把话连同尊严一起咽回去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「林晚，这份方案数据不扎实，逻辑也乱。你自己看看。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「要不是陈莉帮你改了改，你拿这个去汇报？丢的是整个部门的脸。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……是，赵总，我回去改。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「三年了……功劳是别人的，背锅的是我。每次都一样。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧风格，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ===== SEG04: 楼梯间崩溃（情绪低谷·碎片式）SCENE-014 =====
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S06]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-014
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装）【图2】公司楼梯间 SCENE-014。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景→近景 缓推：图1推开楼梯间的消防门，脚步声在空旷的水泥楼道里回响。她靠在灰墙上，缓缓滑坐到台阶上，双手抱住膝盖，把头深深埋下去。安全出口的绿色指示灯发出幽暗的光，在她身上投下一层冷绿的色调。远处传来模糊的办公室噪音，像来自另一个世界。镜头缓推至近景。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「忍了三年……到底还要忍多久……」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「每天讨好这个讨好那个……最后谁在乎。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「好累……真的好累。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧风格，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-014, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ===== SEG05: 眩晕觉醒（重生觉醒·独白递进）SCENE-014 =====
+  - segment_id: EP01-SEG05
+    shot_ids: [EP01-S07]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-014
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装，坐在台阶上）【图2】公司楼梯间 SCENE-014。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景→极近景 缓推→固定：图1揉了揉太阳穴，动作突然顿住——她皱眉，视线变模糊，眼前的水泥墙面开始旋转。她下意识扶住墙壁，呼吸变急促。绿色指示灯的光在她瞳孔中扩散、扭曲。镜头缓推进瞳孔特写——画面快速切换（非特效，用快切模拟记忆碎片）：2025年办公桌上堆积的文件→会议室里人事经理冷漠的脸→她抱着纸箱走出办公楼→天台，风把头发吹乱→酒杯从手中滑落。切回楼梯间，她猛地睁大眼睛，像溺水的人刚浮出水面。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「怎么……头好晕……」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这些画面是什么……那是2025年？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我被裁了？那我现在……我回来了？」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧风格，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-014, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ===== SEG06: 记忆归位（情绪爆发·独白递进）SCENE-014 =====
+  - segment_id: EP01-SEG06
+    shot_ids: [EP01-S08]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-014
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装，坐在楼梯台阶上，泪痕未干）【图2】公司楼梯间 SCENE-014。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中近景 固定：图1缓缓抬起头，眼泪还挂在脸上，但眼神已经彻底变了——那不是29岁受气包的委屈眼神，而是一个38岁、经历过所有背叛和跌倒的女人突然回到十年前的目光。瞳孔微微颤抖，嘴角从紧抿变成一丝不敢相信的颤抖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「2016年……我真的……回来了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「九年的记忆全在脑子里……行业趋势、人事变动……全都记得清清楚楚。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「老天给了第二次机会……这一次，我不会再忍了。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧风格，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-014, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ===== SEG07: 清算决心（细节确认·碎片式）SCENE-014 =====
+  - segment_id: EP01-SEG07
+    shot_ids: [EP01-S09]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-014
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+      prop_urls:
+        PROP-008: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-008.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装，胸前工牌）【图2】公司楼梯间 SCENE-014。【图3】工牌 PROP-008。
+        角色分工：仅图1可触碰胸前工牌；图3为静态道具参考。
+        道具：蓝色员工工牌（挂绳式，带公司Logo和姓名"林晚"），挂在图1胸前。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 固定：图1扶着墙慢慢站起来，拍了拍裤子上的灰。她深吸一口气，挺直脊背——这个动作和前几分钟的她判若两人。她低头看了一眼胸前的工牌：市场专员。然后抬眼看向安全门的方向，绿光映在她脸上，但这一次她不再是困兽。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「陈莉你抢了我多少……赵总你偏心了多久……我都记着。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「下周公司会推新媒体方案……谁先提谁被大老板看中。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「今晚就写方案。第一张牌——我先出。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧风格，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-014, role: reference_image, label: 图2 }
+        - { file: PROP-008, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ===== SEG08: 走廊交锋（新生的第一次对峙·权力翻转）SCENE-013 =====
+  - segment_id: EP01-SEG08
+    shot_ids: [EP01-S10]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装）【图2】陈莉 CHAR-002-L01（红色裹身裙，端着咖啡杯）【图3】公司走廊 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中远景→中景 固定：图1推开楼梯间的门走进走廊，暖色夕阳在落地窗上拉出长长的光影。她刚从楼梯间出来，正撞上图2——图2手里端着咖啡杯，看到图1红肿的眼圈，嘴角浮起惯常的轻蔑笑意。她准备像往常一样踩上一脚。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「哟，林晚，哭完了？姐姐也是为你好——职场嘛，得经得起——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「说完了？」
+        对白（陈莉，成年女性，35岁，声线偏尖细，语速较快，带职场老油条的圆滑感，生气时提高八度带刺）：「你……」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那我先去忙了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「连看她这张脸……都觉得好笑了。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧风格，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ===== SEG09: 回到出租屋（独处·平静的力量）SCENE-005 =====
+  - segment_id: EP01-SEG09
+    shot_ids: [EP01-S11, EP01-S12]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装）【图2】林晚家 SCENE-005（小书桌、台灯暖黄光、堆满书的角落）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：出租屋的门打开，图1走进来。房间很小但整洁：一张床、小书桌、堆满书的角落，台灯发出暖黄的光。她靠在门边站了几秒，环顾这个熟悉的、简陋的空间，眼底有复杂的情感——怀念、感慨、还有一丝庆幸。
+        镜头2（5秒）中景 固定：图1走到书桌前，手指拂过桌面那本空白的笔记本。她拉开椅子坐下，翻开第一页，拿起笔。笔尖悬在纸面上方——她停了一秒，然后落笔写下几个字。暖黄灯光勾勒出她专注的侧脸轮廓。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这个房间……九年后我搬了六次家，越搬越小。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「没想到还能回来。但这次不一样了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「新媒体转型方案……打好这张牌，就能翻盘。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「每一步都算好了。这次没人能挡我的路。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧风格，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ===== SEG10: 镜子对话（面对自己·独白递进）SCENE-005 =====
+  - segment_id: EP01-SEG10
+    shot_ids: [EP01-S13, EP01-S14]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+工牌）【图2】林晚家 SCENE-005（穿衣镜、台灯暖黄光）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 镜头跟随：图1站起身，走到房间角落的穿衣镜前。镜子里映出她的全身——海军蓝西装、胸前的工牌、年轻的面容。她微微歪头看着镜中的自己，眼神从审视变成一种温柔的接纳，像在凝视一个久别重逢的故人。
+        镜头2（5秒）中近景 缓推：图1靠近镜子，伸出食指轻轻触碰镜面——指尖抵着镜中自己的指尖。台灯暖黄的光勾勒出她的侧脸轮廓，眼中有泪光在闪，但嘴角是上扬的。那是一种"终于明白了"的表情。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「好久不见，29岁的我。你也不知道以后会变成什么样。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「上一世活得太累了……讨好所有人，委屈了自己九年。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「被裁的时候，没有一个人替我说过话。这一次，我只为自己活。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧风格，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ===== SEG11: 金句结尾（决心·悬念钩 H-SUS）SCENE-005 =====
+  - segment_id: EP01-SEG11
+    shot_ids: [EP01-S15]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装，站在穿衣镜前，台灯暖光映在脸上）【图2】林晚家 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写 慢推：镜头缓慢推近图1的脸——她收回抵在镜面的手指，站直身体，深吸一口气。她看着镜中的自己——不再是那个29岁的受气包，而是带着九年记忆的觉醒者。她的眼神从复杂变成全然的坚定，瞳孔中映着台灯的暖光，像一簇燃烧的火苗。嘴角缓缓上扬，形成一个自信的、带着预知一切的微笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这一世……我不会再忍了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「2016年……我知道这一年会发生什么。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「来日方长。我们慢慢算。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖灰调职场剧风格，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    transition_to_next: fade

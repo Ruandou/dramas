@@ -1,0 +1,301 @@
+episode_id: EP06
+source_md: 剧本/EP06/EP06_周天明的圈套.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+voice_prompts:
+  CHAR-001: "Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones"
+  CHAR-003: "Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing"
+  CHAR-006: "Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality"
+  CHAR-GRP-08: "Male, 40 years old, flat and formulaic professional tone, medium pace, precise and emotionless diction, speaks like reading from a template, no personal warmth"  # WARNING: temp placeholder — CHAR-GRP-08 not in 声音卡片.md
+
+segments:
+  # ════════════════════════════════════════════
+  # SEG01 — 能力余波（独白递进）
+  # ════════════════════════════════════════════
+  - segment_id: EP06-SEG01
+    shot_ids: [EP06-S01]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤牛仔裤）【图2】秦老茶馆 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）大特写 镜头推近：空荡茶馆残棋桌上，图1低头看右手食指——疤痕上金光正在消退如萤火虫般闪烁后熄灭，暮色从窗棂格子筛进柔光在手背投下条纹暗影，图1攥拳站起身。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「刚苏醒……」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「秦老到底什么来头，连数字都看不透。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「先不管了。这能力——得用起来。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「得去趟周天明那儿，把碎片拿回来。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - {file: CHAR-001-L01, role: reference_image, label: 图1}
+        - {file: SCENE-003, role: reference_image, label: 图2}
+    transition_to_next: hard_cut
+
+  # ════════════════════════════════════════════
+  # SEG02 — 拦路虎（刺探式·周天明发难）
+  # ════════════════════════════════════════════
+  - segment_id: EP06-SEG02
+    shot_ids: [EP06-S02, EP06-S03]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+        CHAR-GRP-08-L01: assets/looks/CHAR-GRP-08-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤牛仔裤）【图2】周天明 CHAR-006-L01（廉价深色西装金链子金戒指）【图3】律师 CHAR-GRP-08-L01（银框眼镜深色西装公文包）【图4】周天明古董店 SCENE-001。
+        角色分工：图2双手叉腰拍柜台；图3从公文包取文件铺柜台；图1双手自然下垂不触碰任何物品。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：古董店门口，图2挺着啤酒肚挡在货架通道中间，金链子在昏灯下反光，图1刚进门与图2打照面脚步顿了一瞬又继续走，柜台上老算盘和黄铜秤被挤到角落，灰尘在两人之间光束里浮动。
+        镜头2（5秒）近景 固定：图2侧身让开半步朝身后一抬下巴，图3从阴影里走出来推了推银框眼镜，从公文包里抽出一份泛黄A4纸平铺在柜台玻璃上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「陆辰，你来得正好。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「周老板，找我什么事？」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「少装蒜。仓库里那块玉——是我的东西。」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「王律师，给他看看。」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「白纸黑字，你自己签的名。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - {file: CHAR-001-L01, role: reference_image, label: 图1}
+        - {file: CHAR-006-L01, role: reference_image, label: 图2}
+        - {file: CHAR-GRP-08-L01, role: reference_image, label: 图3}
+        - {file: SCENE-001, role: reference_image, label: 图4}
+    transition_to_next: hard_cut
+
+  # ════════════════════════════════════════════
+  # SEG03 — 员工协议（蓄力式·律师施压）
+  # ════════════════════════════════════════════
+  - segment_id: EP06-SEG03
+    shot_ids: [EP06-S04, EP06-S05]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-GRP-08]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-GRP-08-L01: assets/looks/CHAR-GRP-08-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】律师 CHAR-GRP-08-L01（银框眼镜深色西装）【图2】陆辰 CHAR-001-L01（灰旧T恤牛仔裤）【图3】周天明古董店 SCENE-001。
+        角色分工：图1用手指点合同条款；图2双手自然下垂不触碰任何物品。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）近景 固定：图1用白净指关节点了点合同第三条款，指甲修剪整齐与古董店灰尘格格不入，推银框眼镜语气像念说明书；图2低头看合同表情纹丝不动，柜台上旧灯泡嗡嗡作响。
+        镜头2（5秒）大特写 镜头推近：图2眼瞳微微收缩，能力自动激活，合同纸面上方浮现一行金色AR数字"法律效力：12%"，数字稳定冰冷如判决书，图2嘴角微扬又压回。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（律师，Male, 40 years old, flat and formulaic professional tone, medium pace, precise and emotionless diction, speaks like reading from a template, no personal warmth）：「第三条，工作期间发现的一切物品归店铺所有。」
+        对白（律师，Male, 40 years old, flat and formulaic professional tone, medium pace, precise and emotionless diction, speaks like reading from a template, no personal warmth）：「违反即属违约，须全额赔偿。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「百分之十二……跟废纸有什么区别。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「有意思。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - {file: CHAR-GRP-08-L01, role: reference_image, label: 图1}
+        - {file: CHAR-001-L01, role: reference_image, label: 图2}
+        - {file: SCENE-001, role: reference_image, label: 图3}
+    transition_to_next: hard_cut
+
+  # ════════════════════════════════════════════
+  # SEG04 — 在这条街我说了算（刺探式·施压）
+  # ════════════════════════════════════════════
+  - segment_id: EP06-SEG04
+    shot_ids: [EP06-S06, EP06-S07]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-003, CHAR-006]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】周天明 CHAR-006-L01（廉价深色西装金链子金戒指）【图2】陆辰 CHAR-001-L01（灰旧T恤牛仔裤）【图3】大壮 CHAR-003-L01（花哨运动外套白T恤）【图4】周天明古董店 SCENE-001。
+        角色分工：图1双手拍柜台手指戳合同；图2双手在裤兜里不触碰任何物品；图3上前一步挡在图2身前。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1双手拍在玻璃柜台上震得老算盘珠子弹起，脸凑近图2，油腻皮肤在灯光下反光，金戒指敲着玻璃响；图2纹丝不动手指在裤兜里轻攥。
+        镜头2（5秒）近景 固定：图1站直双手叉腰下巴扬起，金链子从领口滑出晃了一下；图3终于忍不住上前一步挡在图2身前，圆脸上表情从紧张变愤怒。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「这行水深，你小子不懂规矩。」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「白纸黑字——二百九十万，一分不少。」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「在这条街，我说了算。」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「周老板，你还请律师，至于吗。」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「规矩。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - {file: CHAR-006-L01, role: reference_image, label: 图1}
+        - {file: CHAR-001-L01, role: reference_image, label: 图2}
+        - {file: CHAR-003-L01, role: reference_image, label: 图3}
+        - {file: SCENE-001, role: reference_image, label: 图4}
+    transition_to_next: hard_cut
+
+  # ════════════════════════════════════════════
+  # SEG05 — 废纸一张（权力翻转·冷静反击）
+  # ════════════════════════════════════════════
+  - segment_id: EP06-SEG05
+    shot_ids: [EP06-S08, EP06-S09]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤牛仔裤）【图2】周天明 CHAR-006-L01（廉价深色西装金链子金戒指）【图3】周天明古董店 SCENE-001。
+        角色分工：图1伸手点合同条款；图2双手自然下垂不触碰任何物品。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1伸手轻推遮挡者前迈一步，与图2之间只隔一个柜台，灯光从图1背后打来在图2脸上投下阴影，图1伸手点了点合同条款语气不急不慢，图2得意笑容开始僵在脸上。
+        镜头2（6秒）近景 镜头推近：图1向前又迈半步声音压低每个字清晰如钉，目光扫过仓库方向——货架深处堆着标着"古董"的灰尘纸盒；图2跟着目光看去脸色一下子变了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「周老板，这份合同你仔细看过吗。」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「什么意思？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「法律效力——百分之十二。」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「你胡说什么。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「你的合同，连纸钱都不值。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「倒是你仓库里那批'古董'……」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「你说什么？」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - {file: CHAR-001-L01, role: reference_image, label: 图1}
+        - {file: CHAR-006-L01, role: reference_image, label: 图2}
+        - {file: SCENE-001, role: reference_image, label: 图3}
+    transition_to_next: hard_cut
+
+  # ════════════════════════════════════════════
+  # SEG06 — 工商来了（蓄力式·陆辰出刀）
+  # ════════════════════════════════════════════
+  - segment_id: EP06-SEG06
+    shot_ids: [EP06-S10, EP06-S11]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+        CHAR-GRP-08-L01: assets/looks/CHAR-GRP-08-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤牛仔裤）【图2】周天明 CHAR-006-L01（廉价深色西装金链子金戒指）【图3】律师 CHAR-GRP-08-L01（银框眼镜深色西装公文包）【图4】周天明古董店 SCENE-001。
+        角色分工：图1双手自然下垂不触碰任何物品；图2手撑柜台后缩攥衬衫下摆；图3在图2身后合上公文包。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）近景 镜头推近：图1嘴角一弯声音不高但每个字如钉子钉进墙里，目光从仓库方向收回落在图2脸上，灯光在图1瞳孔里映出冷光；图2额头冒出细密汗珠，金链子在颤抖的脖子上晃了一下。
+        镜头2（5秒）特写 固定：图2脸从红变白手从柜台缩回去攥住衬衫下摆，图3在图2身后推眼镜悄悄合上公文包扣子发出轻响，金戒指在柜台留下一个汗湿指印。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「工商来了，你说了算吗。」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「你……你怎么知道仓库的事。」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「陆辰，咱们有话好说……」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「王律师……走。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - {file: CHAR-001-L01, role: reference_image, label: 图1}
+        - {file: CHAR-006-L01, role: reference_image, label: 图2}
+        - {file: CHAR-GRP-08-L01, role: reference_image, label: 图3}
+        - {file: SCENE-001, role: reference_image, label: 图4}
+    transition_to_next: hard_cut
+
+  # ════════════════════════════════════════════
+  # SEG07 — 利息而已（碎片式·大壮兴奋→陆辰冷句）
+  # ════════════════════════════════════════════
+  - segment_id: EP06-SEG07
+    shot_ids: [EP06-S12, EP06-S13]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L01（灰旧T恤牛仔裤）【图2】大壮 CHAR-003-L01（花哨运动外套白T恤）【图3】周天明古董店 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头跟随：图1转身朝门口走，图2小跑跟上胖脸上笑开了花，身后柜台边周天明整个人像被抽了筋，店门口昏灯在两人背影上拉出长长影子。
+        镜头2（5秒）近景 固定：图1在门口停步侧头看了看门框上褪色招牌，暮色里眼睛闪了一下——不是金光是纯粹锐利，整了整衣领声音不高但每个字都砸在地上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「辰哥，他脸都绿了。」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「这波太绝了。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「走。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「利息而已。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「本金……以后一笔一笔算。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「碎片还在他仓库里。这笔账，没那么简单。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - {file: CHAR-001-L01, role: reference_image, label: 图1}
+        - {file: CHAR-003-L01, role: reference_image, label: 图2}
+        - {file: SCENE-001, role: reference_image, label: 图3}
+    transition_to_next: fade
+
+  # ════════════════════════════════════════════
+  # SEG08 — 暗流（留白·悬念收束）
+  # ════════════════════════════════════════════
+  - segment_id: EP06-SEG08
+    shot_ids: [EP06-S14]
+    duration_sec: 5
+    speakers: [CHAR-006]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-001.png
+    api:
+      text: |
+        【图1】周天明 CHAR-006-L01（廉价深色西装金链子金戒指）【图2】周天明古董店 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：店内只剩图1一人，呆站在柜台后面双手撑在玻璃上指节发白，律师已经不见了，货架深处标着"古董"的纸盒在昏灯下投出长长暗影，手机在柜台上震动屏幕亮起被图1手掌盖住来电显示。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「陆辰……你别逼我。」
+        对白（周天明，Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality）：「他要是把仓库的事捅出去……不行，得找人。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens.
+      content_roles:
+        - {file: CHAR-006-L01, role: reference_image, label: 图1}
+        - {file: SCENE-001, role: reference_image, label: 图2}
+    transition_to_next: hard_cut

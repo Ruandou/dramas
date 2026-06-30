@@ -1,0 +1,350 @@
+episode_id: EP09
+source_md: 剧本/EP09/EP09_赝品风波.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "Photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens. No text or subtitles in frame."
+  prompt_suffix_silent: "No dialogue or speech in this segment. No text or subtitles in frame. Photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens."
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+voice_prompts:
+  CHAR-001: "Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones"
+  CHAR-003: "Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing"
+  CHAR-005: "Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes"
+  CHAR-006: "Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality"
+  CHAR-007: "Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked"
+  # ⚠️ WARNING: CHAR-GRP-08 [待补：女记者] — placeholder voice_prompt pending production-planner assignment
+  CHAR-GRP-08: "Female, 30 years old, professional and excited tone, fast pace, news reporter delivery style"  # TEMP placeholder
+  # ⚠️ WARNING: CHAR-GRP-10 [待补：西装助理] — no dialogue in EP09, voice_prompt not needed
+
+segments:
+  # ═══════════════════════════════════════════
+  # SEG01 — 陷阱（陈雅琳设局→记者逼近）
+  # ═══════════════════════════════════════════
+  - segment_id: EP09-SEG01
+    shot_ids: [EP09-S01, EP09-S02]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: |
+        【图1】CHAR-005-L01 (pink bodycon dress, designer bag, styled curls)【图2】CHAR-001-L01 (worn gray t-shirt, old jeans)【图3】CHAR-003-L01 (flashy track jacket, white tee)【图4】Antique market street SCENE-002.
+        Role assignment: 图1 carries a cloth-wrapped bundle; 图2 stands still at stall; 图3 eats a steamed bun.
+        Prop: cloth-wrapped bundle containing a blue-white porcelain vase (~20cm tall).
+        Vertical 9:16 continuous narrative.
+        Shot 1 (5s) mid-shot static: Morning antique market, sunlight slanting through building gaps onto canvas awnings casting sharp light bands. 图2 stands at a familiar stall. 图3 munches a steamed bun beside him, track jacket zipper open. 图1 approaches from the street entrance carrying a cloth bundle, carefully styled curls backlit with golden rim light, steady purposeful steps.
+        Shot 2 (5s) mid-shot push-in: 图2 gaze shifts past 图1 shoulder — across the alley, two cameramen adjusting lens focus, lens glare catching sunlight as a sharp white dot. 图2 lips press thin, eyes sharpen from calm to alert. 图1 maintains her smile but fingers whiten on the cloth bundle edge.
+        [Dialogue below is for voice synthesis only; strictly no text displayed on screen]
+        Dialogue (CHAR-005, Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes): 「陆辰，这是我家传的花瓶，你帮我看看？」
+        Dialogue (CHAR-003, Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing): 「辰哥，她昨天还跟周天明——」
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「……还带了记者？」
+        Dialogue (CHAR-005, Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes): 「媒体朋友嘛，想拍个鉴宝专题。」
+        No text, subtitles, titles, or watermarks throughout.
+        Modern Chinese urban antique market, photorealistic drama style, vertical 9:16, no brand logos, no platform UI.
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════
+  # SEG02 — 施压（陈雅琳激将→大壮护短→围观加压）
+  # ═══════════════════════════════════════════
+  - segment_id: EP09-SEG02
+    shot_ids: [EP09-S03, EP09-S04]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: |
+        【图1】CHAR-005-L01 (pink bodycon dress, red lipstick, red nails)【图2】CHAR-001-L01 (worn gray t-shirt, angular jawline)【图3】CHAR-003-L01 (flashy track jacket, round face)【图4】Antique market street SCENE-002.
+        Role assignment: 图1 holds and presents the vase; 图2 observes without touching; 图3 clenches fists protectively.
+        Prop: blue-white porcelain vase (~20cm tall), cold-gleaming glaze, unwrapped from cloth bundle.
+        Vertical 9:16 continuous narrative.
+        Shot 1 (5s) close-up static: 图1 unwraps the cloth bundle revealing a blue-white porcelain vase, glaze gleaming cold in sunlight. Her red-painted nails contrast sharply against pale porcelain as she extends it toward 图2. Morning light cuts a chiaroscuro line across 图2 angular face. He does not reach for it immediately, gaze resting on the vase for two seconds.
+        Shot 2 (5s) mid-shot static: 图3 stuffs the last bite of bun into his mouth, round face shifting from wariness to anger, two thick fists clenching at his sides. Behind him seven or eight onlookers have gathered, some raising phones to film (background figures blurred). 图1 stares fixedly past 图3 toward 图2, expression controlled and challenging.
+        [Dialogue below is for voice synthesis only; strictly no text displayed on screen]
+        Dialogue (CHAR-005, Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes): 「你帮我在大家面前鉴定一下——是真品还是赝品。」
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「你在考我？」
+        Dialogue (CHAR-003, Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing): 「辰哥别接——她跟周天明串通好的！」
+        Dialogue (CHAR-005, Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes): 「不敢鉴定？看来'金眼'也没那么神。」
+        No text, subtitles, titles, or watermarks throughout.
+        Modern Chinese urban antique market, photorealistic drama style, vertical 9:16, no brand logos, no platform UI.
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════
+  # SEG03 — 看穿（接瓶→能力激活→标价读取）
+  # ═══════════════════════════════════════════
+  - segment_id: EP09-SEG03
+    shot_ids: [EP09-S05, EP09-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: |
+        【图1】CHAR-001-L01 (worn gray t-shirt, angular jawline, thick brows)【图2】CHAR-003-L01 (flashy track jacket, round face)【图3】Antique market street SCENE-002.
+        Role assignment: 图1 holds and examines the vase; 图2 leans in to observe.
+        Prop: blue-white porcelain vase (~20cm tall), cold glaze surface.
+        Vertical 9:16 continuous narrative.
+        Shot 1 (5s) extreme close-up push-in: 图1 reaches for the vase — the instant his fingers touch the glaze, pupils contract sharply, amber-gold light flickering at iris edge (golden AR VFX overlay in post). Above the vase, air shimmers as golden digits begin coalescing (AR floating ¥3,200 in post). Morning sun catches his thick brows, every eyelash visible. Mouth corner lifts — not a smile but quiet confirmation.
+        Shot 2 (5s) close-up static: 图2 leans in to read 图1 expression — recognizing that familiar gleam in his eyes. 图2 flashy jacket collar brushes the vase edge, he quickly pulls back. 图1 rotates the vase slowly, thumb tracing the base in a precise circle. Morning light flows across the blue-white glaze like a thin sheet of ice.
+        [Dialogue below is for voice synthesis only; strictly no text displayed on screen]
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「仿品……市场价，三千二。」
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「家传的？三千二的高仿。」
+        Dialogue (CHAR-003, Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing): 「辰哥，看出啥了？」
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「看出来了——三千二的玩意儿。」
+        No text, subtitles, titles, or watermarks throughout.
+        Modern Chinese urban antique market, photorealistic drama style, vertical 9:16, no brand logos, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════
+  # SEG04 — 溯源（深挖关联→锁定周天明→反击布局）
+  # ═══════════════════════════════════════════
+  - segment_id: EP09-SEG04
+    shot_ids: [EP09-S07, EP09-S08]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: |
+        【图1】CHAR-001-L01 (worn gray t-shirt, concentrated gaze)【图2】CHAR-005-L01 (pink bodycon dress, designer bag with metal clasp)【图3】Antique market street SCENE-002.
+        Role assignment: 图1 holds and scans the vase, then sets it down; 图2 stands waiting, does not touch anything.
+        Prop: blue-white porcelain vase on stone ledge.
+        Vertical 9:16 continuous narrative.
+        Shot 1 (5s) extreme close-up push-in: Golden data streams accelerate inside 图1 pupils (AR data-flow VFX in post), reading deeper layers — not just price but provenance. Facial muscles perfectly still, only eyes move, pupils sweeping from vase rim to base like a scanner. Sunlight highlights cheekbone, jawline shadow razor-sharp.
+        Shot 2 (5s) close-up static: 图1 sets the vase gently on a stone ledge — unhurried, like placing a teacup. He looks up at 图2 with neither anger nor mockery, only the calm certainty of someone who has seen through the entire scheme. 图2 flinches back half a step under his gaze, designer bag metal clasp catching sunlight. Distant camera red light blinks.
+        [Dialogue below is for voice synthesis only; strictly no text displayed on screen]
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「不止价格——制作者关联信息……」
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「关联：周天明古玩店。上周入库。」
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「周天明的货——那就让他们自己砸自己的脚。」
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「行，我给你鉴定——当着所有人的面。」
+        No text, subtitles, titles, or watermarks throughout.
+        Modern Chinese urban antique market, photorealistic drama style, vertical 9:16, no brand logos, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════
+  # SEG05 — 揭穿（当众揭穿→陈雅琳慌乱→周天明暴露）
+  # ═══════════════════════════════════════════
+  - segment_id: EP09-SEG05
+    shot_ids: [EP09-S09, EP09-S10]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-005, CHAR-006]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: |
+        【图1】CHAR-001-L01 (worn gray t-shirt, calm authoritative posture)【图2】CHAR-005-L01 (pink bodycon dress, fading smile)【图3】CHAR-006-L01 (cheap dark suit, gold chain, oily face)【图4】Antique market street SCENE-002.
+        Role assignment: 图1 holds and presents the vase; 图2 and 图3 react.
+        Prop: blue-white porcelain vase, held up in sunlight.
+        Vertical 9:16 continuous narrative.
+        Shot 1 (5s) mid-shot static: 图1 lifts the vase into direct sunlight — light penetrates the glaze casting a blue-white halo on the stone ledge. More onlookers press in, phone flashlights flickering. 图2 smile wavers, mouth corners twitching unnaturally, groomed brows rising. 图1 voice is quiet but every word carries clearly in the hushed street.
+        Shot 2 (5s) mid-shot push-in: 图1 sets the vase down, gaze piercing past 图2 to the crowd — 图3 stands behind two onlookers in a cheap dark suit, collar sweat-soaked, gold chain glinting at neck. Pinned by 图1 stare, 图3 small eyes widen, oily sheen on bulbous nose catching sun. He tries to shrink back but freezes in place.
+        [Dialogue below is for voice synthesis only; strictly no text displayed on screen]
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「各位看好了——这只花瓶，不是家传的。」
+        Dialogue (CHAR-005, Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes): 「你……什么意思？」
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「是周天明古玩店上周出厂的高仿品——市场价，三千二。」
+        Dialogue (CHAR-006, Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality): 「你……你胡说！」
+        No text, subtitles, titles, or watermarks throughout.
+        Modern Chinese urban antique market, photorealistic drama style, vertical 9:16, no brand logos, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════
+  # SEG06 — 碾压（周天明狡辩→陆辰步步紧逼→金句）
+  # ═══════════════════════════════════════════
+  - segment_id: EP09-SEG06
+    shot_ids: [EP09-S11, EP09-S12]
+    duration_sec: 10
+    speakers: [CHAR-006, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: |
+        【图1】CHAR-006-L01 (cheap dark suit, popped button, gold chain swinging, sweaty oily face)【图2】CHAR-001-L01 (worn gray t-shirt, perfectly still, thin lips)【图3】Antique market street SCENE-002.
+        Role assignment: 图1 gestures wildly; 图2 stands motionless.
+        Vertical 9:16 continuous narrative.
+        Shot 1 (5s) close-up static: 图1 squeezes through the crowd, a shirt button popped open, gold chain swinging wildly on chest. Small shrewd eyes dart everywhere — reporters, onlookers, anyone but 图2. Sweat beads roll from temple down oily cheek to chin. Cheap suit sleeves rolled to elbows, stubby fingers flailing in the air.
+        Shot 2 (5s) close-up static: 图2 takes one step forward — just one — but 图1 recoils half a step as if shoved. Morning backlight from behind 图2 casts his shadow across 图1 feet. Crowd falls silent except wind through canvas awnings. 图2 thin lips part, each word landing like a nail driven into wood. 图1 mouth opens twice, not a single word comes out.
+        [Dialogue below is for voice synthesis only; strictly no text displayed on screen]
+        Dialogue (CHAR-006, Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality): 「我——我没有！这是栽赃——你血口喷人！」
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「周老板，你卖了一辈子假货……」
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「自己的货，自己认不出来？」
+        Dialogue (CHAR-006, Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality): 「……」
+        No text, subtitles, titles, or watermarks throughout.
+        Modern Chinese urban antique market, photorealistic drama style, vertical 9:16, no brand logos, no platform UI.
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════
+  # SEG07 — 反杀（转向陈雅琳→媒体反转→大壮嘲讽）
+  # ═══════════════════════════════════════════
+  - segment_id: EP09-SEG07
+    shot_ids: [EP09-S13, EP09-S14]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-005, CHAR-GRP-08, CHAR-003]
+    # ⚠️ WARNING: CHAR-GRP-08 [待补：女记者] is a pending placeholder — voice_prompt uses temp value
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+        # CHAR-GRP-08-L01: assets/looks/CHAR-GRP-08-L01.png  # WARNING: no CDN URL — placeholder extra pending
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: |
+        【图1】CHAR-001-L01 (worn gray t-shirt, calm gaze)【图2】CHAR-005-L01 (pink bodycon dress, disheveled curls, smudged lipstick)【图3】CHAR-003-L01 (flashy track jacket, grinning round face)【图4】Antique market street SCENE-002.
+        Role assignment: 图1 turns to address 图2; 图3 claps hands in celebration.
+        Vertical 9:16 continuous narrative.
+        Shot 1 (5s) close-up static: 图1 turns to 图2 — her styled curls blown askew, a strand stuck to forehead. Bold red lips part, no words coming out. Designer bag slides from shoulder to elbow crook, she doesn't notice. Camera red lights have pivoted toward her and 图3 instead of 图1, blinking like judgmental eyes.
+        Shot 2 (5s) mid-shot static: A female reporter lowers her microphone, exchanging a look with her cameraman — expressions shift from 'about to report a treasure find' to 'just caught a much bigger story.' Camera pivots toward the ashen-faced man and trembling woman. 图3 bounces over from the side, round face breaking into barely-contained glee, two thick palms slapping together with a loud clap.
+        [Dialogue below is for voice synthesis only; strictly no text displayed on screen]
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「陈雅琳，你确定要当众出这个丑？」
+        Dialogue (CHAR-005, Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes): 「我……我不知道……这是周天明给的……」
+        Dialogue (CHAR-GRP-08, Female, 30 years old, professional and excited tone, fast pace, news reporter delivery style): 「这不是鉴宝——是有人设局栽赃！」
+        Dialogue (CHAR-003, Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing): 「偷鸡不成蚀把米——你们俩脸往哪搁？」
+        No text, subtitles, titles, or watermarks throughout.
+        Modern Chinese urban antique market, photorealistic drama style, vertical 9:16, no brand logos, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ═══════════════════════════════════════════
+  # SEG08 — 余波（金句落地→名声扩散→情绪释放）
+  # ═══════════════════════════════════════════
+  - segment_id: EP09-SEG08
+    shot_ids: [EP09-S15, EP09-S16]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-005, CHAR-006, CHAR-003]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: |
+        【图1】CHAR-001-L01 (worn gray t-shirt, calm upright stance)【图2】CHAR-005-L01 (pink bodycon dress, head bowed, trembling shoulders)【图3】CHAR-006-L01 (cheap dark suit, hunched posture, ashen face)【图4】CHAR-003-L01 (flashy track jacket, ear-to-ear grin)【图5】Antique market street SCENE-002.
+        Role assignment: 图1 stands center, does not look at 图2 or 图3; 图4 throws arm around 图1.
+        Vertical 9:16 continuous narrative.
+        Shot 1 (5s) mid-shot pull-back: Camera slowly retreats — 图1 stands in sunlight, worn t-shirt glowing warm. Behind him the antique market depth of stone lanes and canvas awnings. Frame left: 图2 head bowed, styled curls hiding half her face, shoulders trembling. Frame right: 图3 hunched, cheap suit looking even cheaper in daylight. The distance between the three forms an invisible dividing line.
+        Shot 2 (5s) mid-shot tracking: 图4 throws an arm around 图1 shoulders, round face split ear-to-ear in a huge grin. Onlookers begin dispersing but several phones still film. Morning sun casts their shadows on stone pavement, 图4 shadow twice as wide. A passing stall owner gives 图1 a thumbs-up.
+        [Dialogue below is for voice synthesis only; strictly no text displayed on screen]
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「赝品最值钱的地方——是制作者的签名。」
+        Dialogue (CHAR-005, Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes): 「……」
+        Dialogue (CHAR-006, Male, 45 years old, oily and cunning tone, medium pace with sly inflections, uses street-smart jargon, arrogant and bullying when speaking down, servile and flattering when speaking up, nasal quality): 「这……这不算……」
+        Dialogue (CHAR-003, Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing): 「辰哥你这波绝了——明天头条肯定是你！」
+        Dialogue (CHAR-001, Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones): 「少来——走，吃饭。」
+        No text, subtitles, titles, or watermarks throughout.
+        Modern Chinese urban antique market, photorealistic drama style, vertical 9:16, no brand logos, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-002, role: reference_image, label: 图5 }
+    transition_to_next: dissolve
+
+  # ═══════════════════════════════════════════
+  # SEG09 — 幕后（新闻传阅→神秘男人→悬念钩切断）
+  # ═══════════════════════════════════════════
+  - segment_id: EP09-SEG09
+    shot_ids: [EP09-S17, EP09-S18]
+    duration_sec: 10
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-006.png
+    api:
+      text: |
+        【图1】Private club lounge SCENE-006.
+        Vertical 9:16 continuous narrative.
+        Shot 1 (5s) mid-shot slow push-in: Penthouse office, floor-to-ceiling windows framing a glittering city nightscape — neon and tower lights blur into abstract patches on dark glass. A black leather chair faces away from camera, revealing only the shoulder line of a dark suit and one hand on the armrest — long fingers, luxury watch face glinting cold in dim light. Golden chandelier micro-light traces the chair silhouette and the back of a man's head.
+        Shot 2 (5s) close-up static: Phone screen cold-white light reflects on the man's hand — screen shows a news video with a faint silhouette of a young man holding a vase on an antique street. The man's fingers tap the leather armrest twice, unhurried, rhythmic. Half a meter behind him, a dark-suited figure stands with face hidden in shadow.
+        [Dialogue below is for voice synthesis only; strictly no text displayed on screen]
+        Dialogue (CHAR-007, Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked): 「有意思。」
+        Dialogue (CHAR-007, Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked): 「查查他。」
+        No text, subtitles, titles, or watermarks throughout.
+        European-style luxury private club, photorealistic drama style, vertical 9:16, no brand logos, no platform UI.
+      content_roles:
+        - { file: SCENE-006, role: reference_image, label: 图1 }
+    transition_to_next: hard_cut

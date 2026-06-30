@@ -1,0 +1,444 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP03/EP03_陈莉的第一次吃瘪.md
+# Source shots: 12 (EP03-S01 to EP03-S12)
+# Output shots: 12 (EP03-S01 to EP03-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s
+# Output total duration: 80s
+# Gate status: ALL PASS
+
+episode_id: EP03
+source_md: 剧本/EP03/EP03_陈莉的第一次吃瘪.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，暖灰调职场剧。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+shots:
+  - shot_id: EP03-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-012-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+        CHAR-012-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-012-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】CHAR-012-L01【图3】CHAR-006-L01【图4】SCENE-002。中景 固定：会议室白板前，图1站在白板前面带笑容手持马克笔，图2靠坐在长桌主位手交叉，图3坐旁边微微点头。图1提高音量宣布。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-012-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-002
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-002
+        line: "这个方案我改了好几版——小林初稿深度不够，核心逻辑我帮她重写的。"
+      - speaker: CHAR-002
+        line: "年轻人嘛，方向感还差一点，有前辈带才能出好活儿。"
+      - speaker: CHAR-006
+        line: "嗯，陈莉这次确实用了心。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-002。中近景 固定：图1坐在长桌角落，面前摊开笔记本电脑。听到陈莉的话，图1没有争辩，只垂下眼睑——嘴角有几乎看不见的弧度，手指在键盘侧面叩了一下。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "一字不差。连我举的案例都在照搬。"
+      - speaker: CHAR-001
+        line: "让她先说。说得越多，待会儿摔得越重。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】SCENE-002。中景 固定：图1合上电脑，抬头看向图2，语气平和像在请教问题。图2的笑容微不可察地僵了一瞬。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "陈姐，您刚才提到'重写核心逻辑'——方案里那个用户分层运营模型，三个核心指标是什么？"
+      - speaker: CHAR-002
+        line: "这个……核心指标嘛，活跃度、转化率，这些基础指标还需要我说？"
+      - speaker: CHAR-001
+        line: "嗯。那分层标准是按什么维度划分的？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】SCENE-002。特写 固定：图1张了张嘴，眼神出现一瞬间的空白。图1干笑了两声试图掩饰。图2安静地坐着，等待回答。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "这个……分层标准是团队讨论的——具体的让技术那边出就行……"
+      - speaker: CHAR-001
+        line: "答案全在方案第二章。她连翻都没翻过。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-002。中景 固定：图1站起来，把笔记本转向众人。屏幕显示文件夹\"详细信息\"视图——文件名、创建时间、修改时间一字排开。图1滑动触控板，时间戳滚动展示。窗外晨光在图1脸上切出明暗交界。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "陈姐，您说'改了好几版'——请问第一版是什么时候开始写的？"
+      - speaker: CHAR-001
+        line: "我电脑里的记录显示——方案初稿，5月12号23:47创建。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-012-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+        CHAR-012-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-012-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】CHAR-012-L01【图4】SCENE-002。特写转中景 缓推：镜头缓慢推近图1——图1抬起头，目光越过电脑屏幕直直看向图2。图3的目光随着图1的视线移到图2脸上。图2的脸从红变白。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-012-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-002
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-001
+        line: "终稿，5月13号凌晨2点15分修改完成。"
+      - speaker: CHAR-001
+        line: "邮件是13号上午9点发的。"
+      - speaker: CHAR-001
+        line: "陈姐——您的'指导'，是什么时候的事？"
+      - speaker: CHAR-002
+        line: "我……我的意思是——我在邮件基础上帮你优化了几个点……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-012-L01
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-012-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-012-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】CHAR-012-L01【图2】CHAR-001-L01【图3】CHAR-002-L01【图4】CHAR-006-L01【图5】SCENE-002。中远景转中景 固定：会议室三秒沉默——能听到空调风声的安静。图1靠在椅背上，手指在桌面轻叩两下，目光从图2移到图3又移回图2。图3想插话，图1抬手制止。图4低头翻笔记本。"
+      content_roles:
+        - file: CHAR-012-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图3
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图4
+        - file: SCENE-002
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-012
+        line: "方案是你写的？"
+      - speaker: CHAR-001
+        line: "是。"
+      - speaker: CHAR-012
+        line: "好。下午来我办公室，聊落地计划。"
+      - speaker: CHAR-002
+        line: "大老板，我确实帮她——"
+      - speaker: CHAR-012
+        line: "陈莉，多指导年轻人是好事。以后继续保持。"
+      - speaker: CHAR-001
+        line: "他什么都没多说。但这一句——就够了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-001。中景 固定：图1从会议室走出，回到开放办公区工位刚坐下。一个年轻男同事借故从旁边路过，压低声音快速说了一句后又若无其事走开。格子间午间阳光斜照，桌面投下温暖光影。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-GRP-11
+        line: "牛。陈姐那脸——我记一年。"
+      - speaker: CHAR-001
+        line: "谢谢。"
+      - speaker: CHAR-001
+        line: "赢了一次。虽然只是第一步。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-001。中近景 固定：图1端起杯子喝水——手已经不抖了。图1靠在椅背上，看电脑屏幕上自己的脸。屏幕保护的计时器跳动。图1关掉\"修改记录\"文件夹，轻轻吐出一口气。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "这一口气——憋了三年。"
+      - speaker: CHAR-001
+        line: "但我不会只满足于赢一次。"
+      - speaker: CHAR-001
+        line: "这才第一张牌。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】SCENE-013。中景 固定：洗手间空荡无人，只有水龙头滴水声。图1站在洗手台前，对着镜子补口红。图1盯着镜子里的自己——表情从方才会议上的强撑微笑，一点一点塌成阴冷。口红在手里被拧出来又旋回去，动作机械而压抑。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-013
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-002
+        line: "林晚……你藏得够深。让我当众难堪。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-002-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】CHAR-002-L01【图2】SCENE-013【图3】PROP-009。中近景 固定：图1拿出手机翻开通讯录，按下拨号键，把手机贴在耳边压低声音——口红还握在另一只手里，指节发白。镜子里眼神变得锐利。"
+      content_roles:
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-013
+          role: reference_image
+          label: 图2
+        - file: PROP-009
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "帮我查个人——林晚，市场部的。"
+      - speaker: CHAR-002
+        line: "看她最近跟谁走得近，有没有什么把柄。"
+      - speaker: CHAR-002
+        line: "对……越快越好。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01【图2】SCENE-001。特写 固定：图1坐在工位上，余光扫到陈莉从洗手间方向走回来——脚步从容，脸色恢复如常，甚至冲路过的人微笑了一下。但那个笑容太快恢复、太完整了。图1的手指停在键盘上，目光微微收紧。窗外午后阳光在图1瞳孔中凝成一个小点。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "她从洗手间回来了……表情恢复得太快了。"
+      - speaker: CHAR-001
+        line: "不像她的风格。她一定在计划什么。"
+      - speaker: CHAR-001
+        line: "但我不会给你机会的。这一世——换我盯你。"
+    transition_to_next: hard_cut
