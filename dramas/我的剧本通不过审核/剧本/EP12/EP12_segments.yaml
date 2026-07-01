@@ -1,0 +1,339 @@
+episode_id: EP12
+source_md: 剧本/EP12/EP12_我的剧本通不过审核.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。"
+  negative_prompt: "真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格"
+
+voice_prompts:
+  CHAR-001: "女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑"
+  CHAR-004: "女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句"
+  CHAR-007: "男性，17岁，声线少年清亮，语速跳跃思维活跃，正式场合会刻意压低装成熟"
+
+segments:
+  - segment_id: EP12-SEG01
+    shot_ids: [EP12-S01]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙，左手腕露出倒计时印记）【图2】长安侯府·沈长渊居所 SCENE-003（清晨书房，竹帘透进淡金色晨光）。
+        道具：PROP-006（倒计时印记，左手腕内侧淡金色数字71，微微发光）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定：清晨侯府书房，图1独坐在书案前，左手袖口微微撩起露出手腕上淡金色数字印记71。她没有看手腕但右手手指无意识地抚过印记表面。晨光在她脸上勾勒出疲惫的轮廓——她一夜没睡好。桌上摊着空白宣纸，毛笔搁在砚台上墨已干透。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「71天。71次决定。不能再浪费了。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「之前一直想的是'怎么出去'——但也许该先想的是'他们想要什么'。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「苏晚晴想要独立线……翠微想要加戏……那其他人呢？」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无文字或字幕出现在画面中。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP12-SEG02
+    shot_ids: [EP12-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙）【图2】翠微 CHAR-004-L01（鹅黄色交领短衫+长裙，双丫髻彩色发带）【图3】长安侯府·沈长渊居所 SCENE-003（书房）。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中景 固定：图2端着一盏茶走进来看到图1对着空白宣纸发呆。她把茶盏放在桌上探头看了看那张什么也没写的纸，又看了看图1手腕上若隐若现的印记。她咬了咬嘴唇放下茶盘在旁边坐下来，声音比平时轻了很多——自从昨天看到天裂之后语气词也收敛了不少。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「小姐……我有一个想法……不知道当讲不当讲。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「你说。」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「你就不能……先别急着改？先问问每个角色想要什么。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「……你的意思是——先采访再动笔？」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「对！你以前都是闷头写——写完了才告诉我们。但如果你先问我们呢？也许——我们想要的和你想的，不一样。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无文字或字幕出现在画面中。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP12-SEG03
+    shot_ids: [EP12-S03, EP12-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】赵景和 CHAR-007-L01（明黄色龙袍略显宽松，身形偏瘦）【图2】御花园 SCENE-006（春光明媚，太湖石假山，牡丹盛开，朱漆亭台）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景 固定（t2v无参考角色图）：春光明媚御花园全景——太湖石假山错落有致，牡丹盛开蝴蝶飞舞，蜿蜒石溪上漂浮粉色花瓣，远处六角朱漆亭台，回廊朱红柱子蜿蜒延伸。整个花园沐浴温暖金色春光中。无人物。
+        镜头2（6秒）中景 固定：朱漆亭中图1背对镜头站着，低头看石桌上一盘棋局手里捏着一枚白子迟迟没有落下——眉头微蹙嘴唇微微嘟起。听到脚步声抬起头转过身来——年轻略带圆润的脸庞，大眼清澈，努力板出皇帝的威严但眼神藏不住少年的好奇。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵景和，男性，17岁，声线少年清亮，语速跳跃思维活跃，正式场合会刻意压低装成熟）：「林小姐？稀客。」
+        对白（赵景和，男性，17岁，声线少年清亮，语速跳跃思维活跃，正式场合会刻意压低装成熟）：「朕还以为——你忙着改剧本，没空来看朕的花园呢。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「这就是赵景和？我写的那个优柔寡断的小皇帝——看起来比剧本里生动多了。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无文字或字幕出现在画面中。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ⚠️ SEMANTIC_WARNING: SEG04 split from original SEG04 (source shots 5-6) due to 3-speaker constraint.
+  # SEG04a contains shot 5 only (2 speakers: CHAR-001, CHAR-007).
+  - segment_id: EP12-SEG04a
+    shot_ids: [EP12-S05]
+    duration_sec: 6
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙）【图2】翠微 CHAR-004-L01（鹅黄衫裙，双丫髻彩色发带）【图3】赵景和 CHAR-007-L01（明黄色龙袍）【图4】御花园 SCENE-006。
+        道具：PROP-008（鹅黄绣帕，绣有比翼鸟图案）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图3的目光越过图1落在她身后半步远的图2身上。那一眼停留的时间超过礼貌范畴——视线从图2的发髻移到眉眼之间然后移开但移开的速度并不快。他努力让表情保持皇帝的淡然但耳根微微泛红。图2被他看得有些不自在往图1身后缩了缩。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「陛下认识我的丫鬟？」
+        对白（赵景和，男性，17岁，声线少年清亮，语速跳跃思维活跃，正式场合会刻意压低装成熟）：「朕——认识。上次寿宴时见过。」
+        对白（赵景和，男性，17岁，声线少年清亮，语速跳跃思维活跃，正式场合会刻意压低装成熟）：「她那天打翻了太妃的茶盏。朕记得很清楚。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无文字或字幕出现在画面中。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ⚠️ SEMANTIC_WARNING: 3 speakers in single shot (CHAR-001, CHAR-004, CHAR-007); cannot split further.
+  - segment_id: EP12-SEG04b
+    shot_ids: [EP12-S06]
+    duration_sec: 6
+    speakers: [CHAR-001, CHAR-004, CHAR-007]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙）【图2】翠微 CHAR-004-L01（鹅黄衫裙，脸红低头）【图3】赵景和 CHAR-007-L01（明黄色龙袍）【图4】御花园 SCENE-006。
+        道具：PROP-008（鹅黄绣帕，翠微藏在腰间）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图2的脸一下子红了——她也记得那天。她低着头手指下意识摸到腰间塞着的绣帕——鹅黄色的比翼鸟绣帕。图1看到图2摸绣帕的动作又看到图3的目光跟着她的手移动——瞬间了然。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「那天……是奴婢手滑了……多谢陛下替奴婢解围。」
+        对白（赵景和，男性，17岁，声线少年清亮，语速跳跃思维活跃，正式场合会刻意压低装成熟）：「举手之劳。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「哦——原来早就见过了。而且两个人都记得。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无文字或字幕出现在画面中。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ⚠️ SEMANTIC_WARNING: SEG05 split from original SEG05 (source shots 7-8) due to 3-speaker constraint.
+  # SEG05a contains shot 7 only (2 speakers: CHAR-001, CHAR-007).
+  - segment_id: EP12-SEG05a
+    shot_ids: [EP12-S07]
+    duration_sec: 6
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙）【图2】翠微 CHAR-004-L01（鹅黄衫裙）【图3】赵景和 CHAR-007-L01（明黄色龙袍）【图4】御花园 SCENE-006（朱漆亭中）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1决定不再绕弯子，走上前一步单刀直入说出此行的目的。图3听到"采访"两个字时愣了一下——这个词不在他的词汇库里。但他很快跟上，低头沉默几秒。当他再抬起头时表情从少年气的随意变成认真带着脆弱感的坦诚。他看向图2——不是看了一眼而是直视了很久。然后他开口了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「陛下——实话说，我今天来是想问你一个问题。你想要什么？作为这个世界的角色——你真正想要的是什么？」
+        对白（赵景和，男性，17岁，声线少年清亮，语速跳跃思维活跃，正式场合会刻意压低装成熟）：「朕想要的东西很简单——朕想要翠微。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无文字或字幕出现在画面中。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ⚠️ SEMANTIC_WARNING: 3 speakers in single shot (CHAR-001, CHAR-004, CHAR-007); cannot split further.
+  - segment_id: EP12-SEG05b
+    shot_ids: [EP12-S08]
+    duration_sec: 6
+    speakers: [CHAR-001, CHAR-004, CHAR-007]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙）【图2】翠微 CHAR-004-L01（鹅黄衫裙，脸红透）【图3】赵景和 CHAR-007-L01（明黄色龙袍，神情认真）【图4】御花园 SCENE-006。
+        道具：PROP-008（比翼鸟绣帕，翠微攥在手中）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图2猛地抬头瞳孔地震。她张了张嘴发不出声音，脸颊从粉红变成通红。她下意识后退半步手指攥紧了绣帕——比翼鸟刺绣被指节压得变了形。图1也愣住了——她以为图3会说想要亲政或摆脱太妃控制之类的话。他说话时的眼神不是少年的冲动而是一种已经想了很久的确定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「陛……陛下？您说什么——？」
+        对白（赵景和，男性，17岁，声线少年清亮，语速跳跃思维活跃，正式场合会刻意压低装成熟）：「朕说——朕想要你。不是当宫女，不是当嫔妃——是当朕的妻子。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「好家伙——我以为他是个优柔寡断的小皇帝……他比谁都果断啊。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无文字或字幕出现在画面中。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP12-SEG06
+    shot_ids: [EP12-S09, EP12-S10]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙，袖口下印记若隐若现）【图2】翠微 CHAR-004-L01（鹅黄衫裙，脸红低头揉绣帕）【图3】赵景和 CHAR-007-L01（明黄色龙袍）【图4】御花园 SCENE-006。
+        角色分工：仅图1可露出手腕印记；图3说话时有帝王的无奈神情。
+        道具：PROP-006（倒计时印记，图1手腕上数字71若隐若现）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景 固定：图2站在原地脸红得像要滴血手里的绣帕揉成一团。她低下头不敢看图3也不敢看图1。图3说出这句话后像卸下一个重担肩膀微微放松。但他的下一句话让花园气氛瞬间沉了下来——声音没有变轻但语气里多了清醒的无奈。
+        镜头2（6秒）近景 固定：图1脑子里飞速运转——太妃控制着皇帝婚事。她低头看自己的手腕——袖口下淡金色71若隐若现。然后她抬起头看着眼前这个少年皇帝认真的眼神又看了一眼旁边红着脸攥着绣帕的图2。她做了一个决定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵景和，男性，17岁，声线少年清亮，语速跳跃思维活跃，正式场合会刻意压低装成熟）：「但太妃不会答应的。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「为什么？」
+        对白（赵景和，男性，17岁，声线少年清亮，语速跳跃思维活跃，正式场合会刻意压低装成熟）：「朕的亲事——在她手里。她早就给朕物色好了人选——是她的侄女。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「如果我帮你呢？」
+        对白（赵景和，男性，17岁，声线少年清亮，语速跳跃思维活跃，正式场合会刻意压低装成熟）：「你？」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「我是编剧。我写剧情——但我现在知道，写之前得先问你们想要什么。你说你想要翠微——好，我帮你写这条路。但我也需要你帮我一个忙。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无文字或字幕出现在画面中。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ⚠️ SEMANTIC_WARNING: 3 speakers in single shot (CHAR-001, CHAR-004, CHAR-007); cannot split further.
+  - segment_id: EP12-SEG07
+    shot_ids: [EP12-S11]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-004, CHAR-007]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙）【图2】翠微 CHAR-004-L01（鹅黄衫裙，低头展示绣帕）【图3】赵景和 CHAR-007-L01（明黄色龙袍）【图4】御花园 SCENE-006（朱漆亭中）。
+        道具：PROP-008（比翼鸟绣帕，鹅黄色真丝，比翼鸟苏绣）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中近景 固定：图3没有立刻回答图1的交易提议，他的目光再次落在地2身上。图2低着头但她的手在做一件她自己都没注意到的事——她把那方被揉皱的绣帕慢慢展开抚平折好，然后下意识往前递了半寸——把自己最珍贵的东西亮出来的姿态。图3看到了绣帕上的比翼鸟刺绣。他的表情从少年的紧张变成安静的带着柔光的微笑。他没有说话——但那个微笑就是回答。图1站在两人之间看着这个无声的瞬间嘴角不自觉地扬起。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵景和，男性，17岁，声线少年清亮，语速跳跃思维活跃，正式场合会刻意压低装成熟）：「这个……是你绣的？」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「嗯……小姐帮奴婢画的图样。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「好家伙——我写的定情信物，他们自己先认了。这比我的剧本浪漫多了。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「原来我之前只顾着写剧情……从来没认真看过他们之间已经发生的事。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无文字或字幕出现在画面中。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP12-SEG08
+    shot_ids: [EP12-S12]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙）【图2】翠微 CHAR-004-L01（鹅黄衫裙）【图3】赵景和 CHAR-007-L01（明黄色龙袍）【图4】御花园 SCENE-006（全景，回廊阴影中有深紫色身影）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）全景 固定：御花园春光灿烂，亭中三人还在说话。镜头缓缓拉远——越过盛开的牡丹花丛越过太湖石的缝隙。在花园深处回廊的阴影中——一个深紫色宫装的背影一闪而过隐入柱后。那个身影停留的时间太久离开的时机太精准——在赵景和说出"朕想要翠微"的那一刻她侧了侧头。镜头停留在空无一人的回廊拐角——阳光照不到的阴影里一根深紫色袖口的边缘还露在外面没有完全藏好。有人在偷听而且没有离开。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「终于找到一点能用的方法了——先问他们想要什么，再动笔。好，下一个采访谁呢？」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「……等等。刚才回廊那边——是不是有人？」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「……不，应该只是风。御花园这么大，怎么可能有人偷听。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无文字或字幕出现在画面中。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut

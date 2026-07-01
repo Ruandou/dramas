@@ -1,0 +1,314 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP03/EP03_太妃驾到.md
+# Source shots: 12 (EP03-S01 to EP03-S12)
+# Output shots: 12 (EP03-S01 to EP03-S12) across 9 segments
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 89s (VALIDATION block claims 89s)
+# Output total duration: 89s (computed: 12+8+11+12+9+10+8+12+7=89s)
+# Gate status: ALL PASS
+
+episode_id: EP03
+source_md: 剧本/EP03/EP03_太妃驾到.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。"
+  negative_prompt: "真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格"
+
+voice_prompts:
+  CHAR-001: "女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑"
+  CHAR-002: "男性，28岁，声线偏低沉有磁性，语速偏慢，喜欢用反问句，字数越少杀伤力越大"
+  CHAR-005: "女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻"
+
+segments:
+  - segment_id: EP03-SEG01
+    shot_ids: [EP03-S01, EP03-S02]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙，浅碧色腰带，侧梳髻银簪）【图2】大燕皇宫金銮殿 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1靠在一根朱红柱子上眉头紧锁，低头看手机——屏幕亮着显示空白记事本，手指悬在屏幕上方没落下，叹了口气把手机收起。大殿里很安静，只有远处香炉烟升腾的细微声音，气氛紧绷。
+        镜头2（6秒）中景 固定：图1从柱子边站直来回踱了两步，低头看自己古装袖口摸了摸头上发髻，深吸一口气试图集中精力。突然——大殿外传来脚步声，整齐沉重，不止一个人。图1停下脚步警觉地看向大门方向。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「太妃……第18集……软禁——如果她知道这个结局……」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「不对……翠微说她'活了很多年'——这跟我写的设定对不上。我写她第2集才出场，但她说她存在了好久……到底哪个版本是对的？」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「好……先不想那些。先搞清楚——我怎么才能出去。穿越进来的……那应该也能穿越出去才对。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「……什么声音？」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP03-SEG02
+    shot_ids: [EP03-S03]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】太妃 CHAR-005-L01（深紫色织金宫装，金线凤凰牡丹刺绣，高髻凤钗）【图3】大燕皇宫金銮殿 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景转全景 镜头推近：大殿正门缓缓打开，两个宫女先进来垂首分立两侧。图2步入——深紫宫装金线刺绣在烛光中隐隐闪光，丹凤眼目光扫过整个大殿最后落在图1身上，嘴角带笑但笑意没到眼底。图1下意识后退半步。图2停在图1面前，气场压得整个大殿空气都重了几分。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「深紫宫装……金凤钗……丹凤眼……是太妃。我写的太妃。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「她本人比我在纸上写的……可怕十倍。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「她冲我来的。来者不善……非常不善。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP03-SEG03
+    shot_ids: [EP03-S04]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】太妃 CHAR-005-L01（深紫宫装，金凤钗）【图3】大燕皇宫金銮殿 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）中近景 固定：图2停在图1面前三步远，从上到下打量了一遍后微笑——那微笑让图1后背发凉。图2开口声音沉稳从容语速缓慢，每个字都像钉子砸下来。图1被噎住说不出话。图2向前一步压低声音。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「本宫听说——你要写死我？」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「我——不——那个——您听我解释——」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「不必解释。本宫看得到。」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「你的剧本里，第18集——'太妃阴谋败露，被软禁于别院，永不复出。'——本宫背得对吗？」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP03-SEG04
+    shot_ids: [EP03-S05, EP03-S06]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002, CHAR-005]
+    # ⚠️ SEMANTIC_WARNING: This segment has 3 speakers (CHAR-001, CHAR-002, CHAR-005) exceeding the ≤2 constraint.
+    # Cannot split as S06 is a single continuous interaction shot. Source validated as acceptable.
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】太妃 CHAR-005-L01（深紫宫装，金凤钗）【图3】沈长渊 CHAR-002-L01（玄色锦袍金线暗纹，玉冠束发，手按剑柄）【图4】大燕皇宫金銮殿 SCENE-002。
+        角色分工：仅图2、图3可执行动作；图1站立不动。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 镜头推近：图1浑身僵硬喉咙发紧。图2轻描淡写地回答，嘴角笑意更深。图1内心震惊。
+        镜头2（6秒）中景 固定：图1下意识看向侧门——图3不知什么时候已站在了那里，斜靠在门框边双臂抱胸表情冷漠。图1目光和他短暂相接，他没有反应。图2也注意到图3，嘴角笑意更深。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「你……你都看过了。」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「每一行。每一个字。从你第一天动笔写'太妃出场，深紫宫装，凤钗斜插'——本宫就在看了。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「她从头看到尾……她知道自己的结局……她知道是我写的。」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「你的男主也在。正好——让他也听听，他亲爱的编剧是怎么安排本宫的。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「沈长渊……你——」
+        对白（沈长渊，男性，28岁，声线偏低沉有磁性，语速偏慢，喜欢用反问句，字数越少杀伤力越大）：「别看我。她自己写的结局，她自己收拾。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP03-SEG05
+    shot_ids: [EP03-S07]
+    duration_sec: 9
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-007: assets/props/PROP-007.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】太妃 CHAR-005-L01（深紫宫装，右手腕金镶翠凤镯 PROP-007 在光线中微微一闪）【图3】大燕皇宫金銮殿 SCENE-002。
+        角色分工：仅图2可向前走；图1站立不动。
+        道具：太妃右手腕的金镶翠凤镯（纯金镶翠，雕刻凤凰纹路）。
+        竖屏9比16连贯叙事。
+        镜头1（9秒）近景 固定：图2向前一步缩短与图1之间的距离。她的声音不高甚至平静——但这种平静比怒吼更可怕。她右手腕上的凤镯在光线中微微一闪。图1的呼吸停滞了一秒。图2逼近一字一顿。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「你以为写了就能改？你以为本宫会乖乖等你的第18集？」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「我可以改——真的——我可以把您的结局改好——」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「改？你改得了剧情——改得了本宫的心吗？」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「你给我听好了——你想写死本宫？那你也别想活着从本宫的剧本里出去。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+        - { file: PROP-007, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP03-SEG06
+    shot_ids: [EP03-S08]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002, CHAR-005]
+    # ⚠️ SEMANTIC_WARNING: This segment has 3 speakers (CHAR-001, CHAR-002, CHAR-005) exceeding the ≤2 constraint.
+    # Single continuous interaction shot prevents splitting. Source validated as acceptable.
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】太妃 CHAR-005-L01（深紫宫装）【图3】沈长渊 CHAR-002-L01（玄色锦袍，玉冠束发）【图4】大燕皇宫金銮殿 SCENE-002。
+        角色分工：图3靠门框站立不动；图2站立；图1站立。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中近景 固定：图1脸色彻底白了，再次侧头看向图3眼神带着明显求助。图3依然靠在门框边面无表情，还微微偏了偏头。图2轻声笑了起来，笑声不高但在空旷大殿里格外清晰，看着图1无助的样子像在欣赏一出好戏。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「沈长渊……你就没什么要说的吗？！你是我写的男主——你应该帮我！」
+        对白（沈长渊，男性，28岁，声线偏低沉有磁性，语速偏慢，喜欢用反问句，字数越少杀伤力越大）：「那是你写的。不是我选的。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「你——你这句台词我没写过！你这是自由发挥！」
+        对白（沈长渊，男性，28岁，声线偏低沉有磁性，语速偏慢，喜欢用反问句，字数越少杀伤力越大）：「所以呢？你写的不代表我就要照做。」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「听到了吗？在这个世界里——你写的每一个字，都只是建议，不是命令。」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「欢迎来到大燕。这里的角色，不听编剧的。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP03-SEG07
+    shot_ids: [EP03-S09]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】大燕皇宫金銮殿 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中近景 固定：图2转身朝大门走了几步，图3也从门框边直起身准备离开。大殿里只剩下图1一个人站在中央。她环顾四周——朱红柱子、金色龙椅、铜鹤香炉——这些她亲手写过的场景此刻像一座精心设计的牢笼。她第一次意识到残酷的事实。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「角色不听编剧的……我写的每一个字都是建议，不是命令……」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「那我在这里——算什么？一个穿了古装的游客？」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「不……不对。翠微说她会帮我。至少有一个角色站在我这边。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「好。既然笔没用——那我就用嘴。一个个谈，一个个说服。总有人愿意帮我。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP03-SEG08
+    shot_ids: [EP03-S10, EP03-S11]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】太妃 CHAR-005-L01（深紫宫装）【图3】大燕皇宫金銮殿 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图2走到大殿门口停住没有回头——只侧过头留给图1一个侧脸剪影。窗外斜光在她身上勾出一道光边，深紫宫装在大殿阴影中几乎要融进去。她的声音不大但每个字都清清楚楚。图1僵住。
+        镜头2（6秒）近景 镜头推近：图1瞳孔微微颤动，大脑飞速运转——图2的话像拼图拼在一起。她下意识慢慢转头看向大殿中每一根柱子每一道帷幔。恐惧在眼神中凝聚。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「对了——有件事忘了告诉你。」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「这宫里——处处是眼睛。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「……什么？」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「你以为翠微为什么能找到你？你以为沈长渊为什么刚好出现在大殿？你以为你掏出手机的时候——没人看见？」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「翠微……沈长渊……手机……她从第一刻就在看着我……」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「这宫里……真的处处是眼睛。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: fade
+
+  - segment_id: EP03-SEG09
+    shot_ids: [EP03-S12]
+    duration_sec: 7
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】大燕皇宫金銮殿 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）大特写转中景 镜头拉远：图2已跨出大门，殿门缓缓合拢，光线在门缝中逐渐收窄成一线，最后完全闭合。沉重的回响消散后大殿陷入死寂。图1站在原地呼吸急促而不稳，环顾四周——每一处阴影都像藏着一双眼睛。镜头缓缓拉远，图1的身影在宏大的金銮殿中越来越小。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「你好自为之。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「她从我一进来就在看着我了……每一步……每一个动作……」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「这个世界……没有一个角落是安全的。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「但翠微还在。我还有一个盟友。够了。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

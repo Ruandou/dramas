@@ -1,0 +1,422 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP07/EP07_天牢之夜.md
+# Source shots: 12 (EP07-S01 to EP07-S12)
+# Output shots: 12 (EP07-S01 to EP07-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
+episode_id: EP07
+source_md: 剧本/EP07/EP07_天牢之夜.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。"
+  negative_prompt: "真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格"
+
+shots:
+  - shot_id: EP07-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L02
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png  # WARNING: no CDN URL
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-005-L01（深紫宫装）【图2】SCENE-007【图3】CHAR-001-L02（淡紫襦裙）【图4】CHAR-004-L01（鹅黄衫裙）。中景 固定：太妃寝宫大门被推开，阳光涌入昏暗内殿，侍卫闯入铠甲碰撞。图4挡在图3身前，图1端坐主位端茶盏，神色从容。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图3
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-005
+        line: "来得正好。"
+      - speaker: CHAR-005
+        line: "宫中出现妖言惑众者——拿下。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-004-L01（鹅黄衫裙）【图2】CHAR-005-L01（深紫宫装）【图3】SCENE-007。中近景 固定：图1张开手臂挡在林小满身前护主，一名侍卫上前抓人，图1一把推开侍卫手。图2微微挑眉看着。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "你们凭什么抓人！她什么都没做——"
+      - speaker: CHAR-005
+        line: "倒是个忠心护主的。一起带走。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-005-L01（深紫宫装）【图2】SCENE-007。近景 镜头推近：图1依然坐在主位上，逆光中轮廓镶金边，目送林小满被带走方向，嘴角带着若有若无的笑意。捋了捋手腕上的凤镯，凤镯在昏暗中微微发凉的光一闪而过。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "天牢阴暗潮湿——林姑娘好生待着，想清楚了，本宫再来问你。"
+      - speaker: CHAR-005
+        line: "别急着找帮手——这宫里，本宫说了算。"
+    transition_to_next: dissolve
+
+  - shot_id: EP07-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】SCENE-004。中景 镜头跟随：图1被侍卫粗鲁推着走下天牢石阶，火把在墙上摇曳，影子忽长忽短。图1绊了一下被拽了一把。石阶尽头一排铁笼，空气中弥漫霉味和铁锈味。水滴声从深处传来。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "慢点——我自己会走——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】CHAR-004-L01（鹅黄衫裙）【图3】SCENE-004。中景 固定：铁门被拉开并被推进牢房，铁门哐地关上锁链哗啦作响。图1跌坐在潮湿稻草上环顾四周——铁栏锈迹斑斑，火把投下跳动阴影，水珠从石缝渗出。图2靠在她身边坐下，脸色发白。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "天牢……还真的是天牢。"
+      - speaker: CHAR-004
+        line: "小姐……对不起——我刚才没拦住她们。"
+      - speaker: CHAR-001
+        line: "你拦什么拦——你还把自己搭进来了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-004-L01（鹅黄衫裙，头发微乱）【图2】SCENE-004。近景 固定：图1靠在潮湿石壁上双手抱膝，火把光在她脸上跳动，表情不再活泼而在认真思考。她压低声音开口。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "小姐……有件事，我一直没来得及跟你说。"
+      - speaker: CHAR-004
+        line: "太妃她……在这个世界里存在的时间，比你写的要长。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙沾了稻草灰尘）【图2】SCENE-004。特写 镜头推近：图1瞳孔微微收缩，脑子飞速转动，张嘴欲言声音发涩。火光在她脸上跳动。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "比我写的长……是什么意思？"
+      - speaker: CHAR-001
+        line: "我写的太妃是第2集登场的——"
+      - speaker: CHAR-004
+        line: "不是'第2集'的时间。我是说——她好像已经在这个世界里活了很多很多年。比剧本时间长得多。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】SCENE-004。大特写 固定：图1靠在铁栏上眼神放空推理，火光在脸上跳跃，嘴唇微微翕动像在跟自己对话。火光在她眼中闪烁。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "比剧本时间长……那就是说……她可能是前任编剧留下的？或者是——她自己……"
+      - speaker: CHAR-001
+        line: "如果太妃的存在时间比设定长……那她经历的编剧不止我一个。她可能见过前几个穿越进来的编剧——知道他们怎么来的、怎么走的……"
+      - speaker: CHAR-001
+        line: "那她知道的——比我以为的多得多。"
+    transition_to_next: dissolve
+
+  - shot_id: EP07-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】CHAR-004-L01（鹅黄衫裙）【图3】SCENE-004。中景 固定：深夜天牢比白天更暗，火把烧短光线微弱。图1靠在石壁上半阖着眼，图2靠在她肩上睡着呼吸均匀。水滴声规律地响着。远处传来铁门开启的沉重声响。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】CHAR-002-L01（玄色锦袍玉冠）【图3】SCENE-004。中近景 固定：铁门声惊醒图2，走廊尽头高大黑影显现——脚步沉稳从容。黑影在牢门前停下，火光照亮他的脸。他隔着铁栏看着图1，手里没有钥匙没有武器。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "沈……沈世子？"
+      - speaker: CHAR-002
+        line: "出去。我有话问她。"
+      - speaker: CHAR-004
+        line: "小姐……"
+      - speaker: CHAR-001
+        line: "没事。去旁边等我。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】CHAR-002-L01（玄色锦袍玉冠）【图3】SCENE-004。近景 固定：图2站在铁栏外，图1站在铁栏内，两人面对面。火把在图2身后燃烧，他的脸一半光明一半阴影。他看着图1，目光里有从未见过的认真。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "我可以救你出去。"
+      - speaker: CHAR-001
+        line: "你——你能？"
+      - speaker: CHAR-002
+        line: "但你要先回答我一个问题。"
+      - speaker: CHAR-001
+        line: "……什么问题？"
+      - speaker: CHAR-002
+        line: "我在你剧本里——是第几行字？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP07-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】CHAR-002-L01（玄色锦袍玉冠）【图3】SCENE-004。大特写 镜头推近：图1愣住了，嘴微微张开但说不出话。问题像石子投入深潭在心中激起涟漪。图1张了张嘴又闭上。火把噼啪作响，水滴声滴答滴答。图2隔着铁栏看着她，一言不发地等待着。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "……"
+      - speaker: CHAR-001
+        line: "第几行字……他问我他是第几行字……"
+      - speaker: CHAR-001
+        line: "我——我不知道该怎么回答——因为他早已不止是'字'了。"
+    transition_to_next: hard_cut

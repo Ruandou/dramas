@@ -1,0 +1,416 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP06/EP06_前女主.md
+# Source shots: 12 (EP06-S01 to EP06-S12)
+# Output shots: 12 (EP06-S01 to EP06-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s (self-calculated from shot durations: 5+5+11+6+6+6+6+11+6+6+11+11=90s)
+# Output total duration: 90s
+# Gate status: ALL PASS
+
+episode_id: EP06
+source_md: 剧本/EP06/EP06_前女主.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。"
+  negative_prompt: "真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格"
+
+shots:
+  - shot_id: EP06-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】SCENE-006（御花园）。中景 镜头跟随：御花园春光明媚，花瓣随风飘落。林小满独自走在碎石小径上，一手抚着额头，表情复杂。她走到假山旁停下，低头看着地上的一片花瓣出神。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "世界自己会写剧情……那还要我干什么……"
+      - speaker: CHAR-001
+        line: "当一个编剧连活都被AI抢了——这是什么人间惨剧。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】CHAR-006-L01（月白色长裙，银线暗纹）【图3】SCENE-006（御花园）。中近景 固定：林小满正要转身，一个清冷的女声从假山另一侧传来。她停住脚步循声望去——一个月白长裙的女子从假山后缓步走出，裙摆拂过花瓣。女子面容清冷，眼神直视林小满。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-006
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "林小满。我等你很久了。"
+      - speaker: CHAR-001
+        line: "你……认识我？"
+      - speaker: CHAR-006
+        line: "你不认识我？你亲手写的我。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-006-L01
+      prop_ids:
+        - PROP-003
+    assets:
+      look_urls:
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+      prop_urls:
+        PROP-003: assets/props/PROP-003.png
+    api:
+      text: "【图1】CHAR-006-L01（月白色长裙，玉簪固定长发）【图2】SCENE-006（御花园）【图3】PROP-003（剧本手稿拓印版）。近景 镜头推近：苏晚晴站在假山旁，春风吹动月白裙摆。从袖中取出一沓纸——剧本手稿拓印版。翻开某一页，指尖点着上面的文字，抬眼看着林小满。语气平稳但字字带刺。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+        - file: PROP-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "《燕京奇缘》女主角设定——苏晚晴，穿越女，与长安侯世子沈长渊相识相爱。"
+      - speaker: CHAR-006
+        line: "这是你最初写的大纲。女主角：苏晚晴。"
+      - speaker: CHAR-006
+        line: "但后来你改了。你把女主换成了'一个没有名字的原创女主'——你用来穿越的那个角色。而我——被你降成了女配。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】SCENE-006（御花园）。特写 固定：林小满脸色变了——从困惑到震惊再到心虚。张了张嘴想辩解却无言以对。下意识后退半步，手不自觉地攥紧衣袖。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "我……我那是……"
+      - speaker: CHAR-001
+        line: "剧情需要调整……后面会让你的戏份——"
+      - speaker: CHAR-006
+        line: "后面？你写的后面——我嫁给了某个连名字都没写的配角将军，然后被一笔带过。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】CHAR-006-L01（月白色长裙，清冷气质）【图2】SCENE-006（御花园）。近景 固定：苏晚晴逼近一步，声音不高但每个字都像淬了冰。眼神里有被背叛的痛——不是愤怒，是失望。风吹动她的发丝，她伸手拨开，动作里带着克制住的颤抖。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-006
+        line: "我查过你所有的写作记录。创作时间、修改日志、版本号——全部。"
+      - speaker: CHAR-006
+        line: "你在写第7版的时候，决定把女主换成自己。而我——变成了'前女主'。"
+      - speaker: CHAR-006
+        line: "前女主。呵。我甚至不是一个完整的角色——只是一个被你用完就扔的设定。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】SCENE-006（御花园）。近景 固定：林小满表情从心虚变成了愧疚。低下头不敢看苏晚晴的眼睛。咬着下唇，沉默了几秒。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "我……我当时没想那么多。"
+      - speaker: CHAR-001
+        line: "我以为角色不会记得——我以为你们只是纸上的字——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】CHAR-006-L01（月白色长裙，清冷气质）【图2】SCENE-006（御花园）。大特写 固定：苏晚晴瞳孔微微收缩。沉默了两秒——那两秒里表情从愤怒变成一种更复杂的东西：受伤。她转开头，看着远处飞舞的花瓣，声音低了下去。又转回视线，眼神清冷。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-006
+        line: "我以为你起码会道歉。"
+      - speaker: CHAR-006
+        line: "但你没有。你只是在找借口。"
+      - speaker: CHAR-001
+        line: "我不是那个意思——"
+      - speaker: CHAR-006
+        line: "那你是什么意思？你写了我，又删了我——你问过我的意见吗？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】CHAR-006-L01（月白色长裙）【图2】CHAR-001-L02（淡紫色襦裙）【图3】SCENE-006（御花园）。中近景 固定：两人之间短暂的沉默。风穿过花园吹动两人的衣袂和发丝。苏晚晴深吸一口气，重新收拾好情绪，语气变得冷静而理智——她在谈条件了。直视林小满的眼睛一字一顿。林小满表情从愧疚变成紧张。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图2
+        - file: SCENE-006
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "我给你一个机会。"
+      - speaker: CHAR-006
+        line: "把我改回女主。恢复我原有的戏份和结局。"
+      - speaker: CHAR-001
+        line: "但现在的剧情线已经——"
+      - speaker: CHAR-006
+        line: "那是你的问题，不是我的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】SCENE-006（御花园）。特写 固定：林小满咬住嘴唇，眼神闪烁——飞速思考。她的犹豫被苏晚晴看得一清二楚。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "改回女主……不是那么简单的事。剧情都已经——"
+      - speaker: CHAR-006
+        line: "我知道你在想什么。你觉得我是在无理取闹。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】CHAR-006-L01（月白色长裙）【图2】SCENE-006（御花园）。近景 固定：苏晚晴向前走一步靠近林小满，声音压低到只有两人能听见。嘴角带着意味深长的弧度——'我还有牌没打'的表情。把手里的剧本手稿折好收进袖中，拍了拍袖口上的花瓣，动作从容。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-006
+        line: "如果你不改——我就去找太妃。"
+      - speaker: CHAR-001
+        line: "你——"
+      - speaker: CHAR-006
+        line: "听说她也在找你麻烦。你猜——她愿意用一个叛徒交换一个编剧吗？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png
+    api:
+      text: "【图1】CHAR-006-L01（月白色长裙）【图2】SCENE-006（御花园）。中景 镜头跟随→固定：苏晚晴不再等回应。转身，月白裙摆划过一个利落的弧线，迈步沿着小径走去。背影在花树间渐行渐远——没有回头，没有犹豫。春日的阳光照在她身上，却感觉不到一丝暖意。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-006
+        line: "三天。三天之内，我要你的答复。"
+      - speaker: CHAR-006
+        line: "否则——你就等着同时面对我和太妃吧。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP06-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】CHAR-004-L01（鹅黄色短衫，团扇在手）【图3】SCENE-003（沈长渊书房）。中景 固定：侯府书房内，林小满推门而入，脸色很差。翠微正坐在书案旁等她，手里端着茶盏。看到林小满的表情立刻收住笑容。林小满走到书案前扶着桌沿低头不语。竹影在窗纸上晃动，光线在脸上掠过，明暗交错。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "小姐？你怎么了？"
+      - speaker: CHAR-001
+        line: "翠微。——我好像又多了一个敌人。"
+      - speaker: CHAR-004
+        line: "又多了一个？除了太妃——还有谁？"
+      - speaker: CHAR-001
+        line: "苏晚晴。我原来写的那个女主。"
+      - speaker: CHAR-004
+        line: "她——她也觉醒了？"
+    transition_to_next: hard_cut

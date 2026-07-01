@@ -1,0 +1,289 @@
+episode_id: EP07
+source_md: 剧本/EP07/EP07_天牢之夜.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。"
+  negative_prompt: "真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格"
+
+voice_prompts:
+  CHAR-001: "女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑"
+  CHAR-002: "男性，28岁，声线偏低沉有磁性，语速偏慢，喜欢用反问句，字数越少杀伤力越大"
+  CHAR-004: "女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句"
+  CHAR-005: "女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻"
+
+segments:
+  - segment_id: EP07-SEG01
+    shot_ids: [EP07-S01, EP07-S02]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-004]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png  # WARNING: no CDN URL
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】太妃 CHAR-005-L01（深紫色织金宫装）【图2】太妃寝宫 SCENE-007【图3】林小满 CHAR-001-L02（淡紫色交领襦裙）【图4】翠微 CHAR-004-L01（鹅黄色短衫长裙）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：寝宫大门被推开，阳光涌入昏暗内殿，两名带刀侍卫闯入铠甲碰撞。图3后退一步，图4挡在她身前。图1端坐主位端茶盏，神色从容。
+        镜头2（5秒）中近景 固定：图4张开手臂护住图3，一把推开侍卫的手臂。图1微微挑眉。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「来得正好。」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「宫中出现妖言惑众者——拿下。」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「你们凭什么抓人！她什么都没做——」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「倒是个忠心护主的。一起带走。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图3 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP07-SEG02
+    shot_ids: [EP07-S03]
+    duration_sec: 12
+    speakers: [CHAR-005]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】太妃 CHAR-005-L01（深紫色织金宫装，凤镯在腕）【图2】太妃寝宫 SCENE-007。
+        角色分工：仅图1可触碰道具（凤镯）；图1端坐不移动。
+        道具：太妃的凤镯（金镶翠凤镯，纯金镶翠雕刻凤凰纹路，戴在右手腕）。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）近景 镜头推近：图1依然坐在主位上没有站起来，逆光中轮廓镶着一层金边。她目送林小满被带走的方向，嘴角带着一丝若有若无的笑意。她捋了捋手腕上的凤镯，凤镯在昏暗中微微发凉的光一闪而过。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「天牢阴暗潮湿——林姑娘好生待着，想清楚了，本宫再来问你。」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「别急着找帮手——这宫里，本宫说了算。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP07-SEG03
+    shot_ids: [EP07-S04, EP07-S05]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙，沾了稻草和灰尘）【图2】翠微 CHAR-004-L01（鹅黄衫裙，头发微乱）【图3】天牢 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头跟随：图1被侍卫粗鲁推着走下天牢石阶，火把在墙上摇曳将影子拉得忽长忽短。图1绊了一下被拽了一把。石阶尽头一排铁笼，空气潮湿霉味和铁锈味混杂。水滴声从深处传来。
+        镜头2（6秒）中景 固定：铁门拉开被推进牢房，铁门哐地关上锁链哗啦作响。图1跌坐在潮湿稻草上环顾四周——铁栏锈迹斑斑，火把投下跳动阴影，水珠从石缝渗出。图2靠在她身边坐下，脸色发白但眼神没有后悔。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「慢点——我自己会走——」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「天牢……还真的是天牢。」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「小姐……对不起——我刚才没拦住她们。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「你拦什么拦——你还把自己搭进来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP07-SEG04
+    shot_ids: [EP07-S06, EP07-S07]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】翠微 CHAR-004-L01（鹅黄衫裙，头发微乱）【图2】林小满 CHAR-001-L02（淡紫襦裙沾了稻草）【图3】天牢 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1靠在潮湿石壁上双手抱膝，火把光在她脸上跳动，表情不再活泼而在认真思考。她压低声音开口。
+        镜头2（6秒）特写 镜头推近：图2瞳孔微微收缩，脑子飞速转动，张嘴欲言声音发涩。火光在她脸上跳动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「小姐……有件事，我一直没来得及跟你说。」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「太妃她……在这个世界里存在的时间，比你写的要长。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「比我写的长……是什么意思？」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「我写的太妃是第2集登场的——」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「不是'第2集'的时间。我是说——她好像已经在这个世界里活了很多很多年。比剧本时间长得多。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP07-SEG05
+    shot_ids: [EP07-S08]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】天牢 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）大特写 固定：图1靠在铁栏上眼神放空，火光在脸上跳跃，嘴唇微微翕动像在跟自己对话。她在推理——翠微的话像一把钥匙打开了一扇从未注意过的门。火光在她眼中闪烁。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「比剧本时间长……那就是说……她可能是前任编剧留下的？或者是——她自己……」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「如果太妃的存在时间比设定长……那她经历的编剧不止我一个。她可能见过前几个穿越进来的编剧——知道他们怎么来的、怎么走的……」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「那她知道的——比我以为的多得多。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP07-SEG06a
+    shot_ids: [EP07-S09]
+    duration_sec: 6
+    speakers: []
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】翠微 CHAR-004-L01（鹅黄衫裙）【图3】天牢 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：深夜天牢比白天更暗，火把烧短光线微弱。图1靠在石壁上半阖着眼，图2靠在她肩上睡着呼吸均匀。水滴声规律地响着。远处传来铁门开启的沉重声响。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP07-SEG06b
+    shot_ids: [EP07-S10]
+    duration_sec: 6
+    # ⚠️ SEMANTIC_WARNING: 3 speakers (CHAR-004, CHAR-002, CHAR-001) in single-shot quick exchange
+    # exceeds ≤2 limit, but cannot be split further within one shot. Kept for narrative integrity.
+    speakers: [CHAR-004, CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】翠微 CHAR-004-L01（鹅黄衫裙）【图3】沈长渊·古装 CHAR-002-L01（玄色锦袍玉冠）【图4】天牢 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景 固定：走廊尽头高大黑影显现——脚步沉稳从容。黑影在牢门前停下，火光照亮他的脸——图3。他一身玄色锦袍玉冠，隔着铁栏看着图1。图2惊醒。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「沈……沈世子？」
+        对白（沈长渊·古装，男性，28岁，声线偏低沉有磁性，语速偏慢，喜欢用反问句，字数越少杀伤力越大）：「出去。我有话问她。」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「小姐……」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「没事。去旁边等我。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP07-SEG07
+    shot_ids: [EP07-S11]
+    duration_sec: 11
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】沈长渊·古装 CHAR-002-L01（玄色锦袍玉冠）【图3】天牢 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）近景 固定：图2站在铁栏外，图1站在铁栏内，两人面对面。火把在图2身后燃烧，他的脸一半光明一半阴影。他没有急着说话，只是看着图1，目光里有从未见过的认真。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈长渊·古装，男性，28岁，声线偏低沉有磁性，语速偏慢，喜欢用反问句，字数越少杀伤力越大）：「我可以救你出去。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「你——你能？」
+        对白（沈长渊·古装，男性，28岁，声线偏低沉有磁性，语速偏慢，喜欢用反问句，字数越少杀伤力越大）：「但你要先回答我一个问题。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「……什么问题？」
+        对白（沈长渊·古装，男性，28岁，声线偏低沉有磁性，语速偏慢，喜欢用反问句，字数越少杀伤力越大）：「我在你剧本里——是第几行字？」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP07-SEG08
+    shot_ids: [EP07-S12]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-004: assets/scenes/SCENE-004.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】沈长渊·古装 CHAR-002-L01（玄色锦袍玉冠）【图3】天牢 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）大特写 镜头推近：图1愣住了，嘴微微张开但没有字出来。沈长渊的问题像一颗石子投入深潭——在她心中激起一圈又一圈涟漪。她张了张嘴又闭上。火把噼啪作响，水滴声滴答滴答。图2隔着铁栏看着她，一言不发地等待着。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「……」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「第几行字……他问我他是第几行字……」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「我——我不知道该怎么回答——因为他早已不止是'字'了。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

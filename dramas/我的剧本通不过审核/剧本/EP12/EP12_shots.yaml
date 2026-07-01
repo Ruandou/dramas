@@ -1,0 +1,513 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP12/EP12_我的剧本通不过审核.md
+# Source shots: 12 (EP12-S01 to EP12-S12)
+# Output shots: 12 (EP12-S01 to EP12-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
+episode_id: EP12
+source_md: 剧本/EP12/EP12_我的剧本通不过审核.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。"
+  negative_prompt: "真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格"
+
+shots:
+  - shot_id: EP12-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+      prop_ids:
+        - PROP-006
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-006: assets/props/PROP-006.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙·左手腕印记可见）【图2】SCENE-003（侯府书房·清晨）【图3】PROP-006（倒计时印记·数字71）。近景 固定：清晨侯府书房，竹帘透进淡金色晨光。林小满独坐在书案前，左手袖口微微撩起——露出手腕上淡金色数字印记：71。她没有看手腕，但右手手指无意识地抚过印记表面。晨光在她脸上勾勒出疲惫的轮廓——她一夜没睡好。桌上摊着空白宣纸，毛笔搁在砚台上墨已干透。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+        - file: PROP-006
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "71天。71次决定。不能再浪费了。"
+      - speaker: CHAR-001
+        line: "之前一直想的是'怎么出去'——但也许该先想的是'他们想要什么'。"
+      - speaker: CHAR-001
+        line: "苏晚晴想要独立线……翠微想要加戏……那其他人呢？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】CHAR-004-L01（鹅黄衫裙）【图3】SCENE-003（侯府书房）。中景 固定：翠微端着一盏茶走进来，看到林小满对着空白宣纸发呆。她把茶盏放在桌上探头看了看那张什么也没写的纸，又看了看林小满手腕上若隐若现的印记。她咬了咬嘴唇放下茶盘在旁边坐下来，声音比平时轻了很多。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "小姐……我有一个想法……不知道当讲不当讲。"
+      - speaker: CHAR-001
+        line: "你说。"
+      - speaker: CHAR-004
+        line: "你就不能……先别急着改？先问问每个角色想要什么。"
+      - speaker: CHAR-001
+        line: "……你的意思是——先采访再动笔？"
+      - speaker: CHAR-004
+        line: "对！你以前都是闷头写——写完了才告诉我们。但如果你先问我们呢？也许——我们想要的和你想的，不一样。"
+    transition_to_next: dissolve
+
+  - shot_id: EP12-S03
+    shot_no: 3
+    mode: t2v
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids: []
+    assets:
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】御花园 SCENE-006。全景 固定：春光明媚的御花园全景——太湖石假山错落有致，牡丹盛开，蝴蝶在花间飞舞，蜿蜒石溪流过花园中央水面上漂浮粉色花瓣。远处一座六角朱漆亭台，回廊朱红柱子蜿蜒延伸。整个花园沐浴在温暖金色春光中，色彩饱满生机盎然。无人物。"
+      content_roles:
+        - file: SCENE-006
+          role: reference_image
+          label: 图1
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-007-L01（明黄龙袍·身形偏瘦龙袍略宽松）【图2】SCENE-006（御花园·朱漆亭）。中景 固定：朱漆亭中少年背对镜头站着。明黄色龙袍在春光中格外醒目但因身形偏瘦龙袍略显宽松肩线没有撑起来。他低头看石桌上一盘棋局手里捏着一枚白子迟迟没有落下——眉头微蹙嘴唇微微嘟起。听到脚步声抬起头转过身来——年轻略带圆润的脸庞大眼清澈，努力板出皇帝的威严但眼神藏不住少年的好奇。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-006
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-007
+        line: "林小姐？稀客。"
+      - speaker: CHAR-007
+        line: "朕还以为——你忙着改剧本，没空来看朕的花园呢。"
+      - speaker: CHAR-001
+        line: "这就是赵景和？我写的那个优柔寡断的小皇帝——看起来比剧本里生动多了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-008
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-008: assets/props/PROP-008.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】CHAR-004-L01（鹅黄衫裙·双丫髻彩色发带）【图3】CHAR-007-L01（明黄龙袍）【图4】SCENE-006（御花园）【图5】PROP-008（鹅黄绣帕·比翼鸟刺绣）。中景 固定：赵景和目光越过林小满落在她身后半步远的翠微身上。那一眼停留的时间超过礼貌范畴——视线从翠微的发髻移到她的眉眼之间，然后移开但移开的速度并不快。耳根微微泛红。翠微被他看得有些不自在往林小满身后缩了缩。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-006
+          role: reference_image
+          label: 图4
+        - file: PROP-008
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-001
+        line: "陛下认识我的丫鬟？"
+      - speaker: CHAR-007
+        line: "朕——认识。上次寿宴时见过。"
+      - speaker: CHAR-007
+        line: "她那天打翻了太妃的茶盏。朕记得很清楚。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-008
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-008: assets/props/PROP-008.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】CHAR-004-L01（鹅黄衫裙·脸红低头）【图3】CHAR-007-L01（明黄龙袍）【图4】SCENE-006（御花园）【图5】PROP-008（绣帕）。近景 固定：翠微的脸一下子红了——她也记得那天。她低着头手指下意识摸到腰间塞着的绣帕——鹅黄色的比翼鸟绣帕。林小满看到翠微摸绣帕的动作又看到赵景和的目光跟着她的手移动——瞬间了然。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-006
+          role: reference_image
+          label: 图4
+        - file: PROP-008
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-004
+        line: "那天……是奴婢手滑了……多谢陛下替奴婢解围。"
+      - speaker: CHAR-007
+        line: "举手之劳。"
+      - speaker: CHAR-001
+        line: "哦——原来早就见过了。而且两个人都记得。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】CHAR-004-L01（鹅黄衫裙）【图3】CHAR-007-L01（明黄龙袍）【图4】SCENE-006（御花园·亭中）。中景 固定：林小满决定不再绕弯子，走上前一步单刀直入说出此行的目的。赵景和听到「采访」两个字时愣了一下——这个词不在他的词汇库里。但他很快跟上了，低头沉默几秒。当他再抬起头时表情从少年气的随意变成认真的带着脆弱感的坦诚。他看向翠微——不是看了一眼而是直视了很久。然后他开口了。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-006
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-001
+        line: "陛下——实话说，我今天来是想问你一个问题。你想要什么？作为这个世界的角色——你真正想要的是什么？"
+      - speaker: CHAR-007
+        line: "朕想要的东西很简单——朕想要翠微。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-008
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-008: assets/props/PROP-008.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】CHAR-004-L01（鹅黄衫裙·脸红）【图3】CHAR-007-L01（明黄龙袍）【图4】SCENE-006（御花园）【图5】PROP-008（绣帕）。近景 固定：翠微猛地抬头瞳孔地震。她张了张嘴发不出声音，脸颊从粉红变成通红。她下意识后退半步手指攥紧了绣帕——比翼鸟刺绣被指节压得变了形。林小满也愣住了——她以为赵景和会说想要亲政或摆脱太妃控制之类的话。他说话时的眼神不是少年的冲动而是一种已经想了很久的确定。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-006
+          role: reference_image
+          label: 图4
+        - file: PROP-008
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-004
+        line: "陛……陛下？您说什么——？"
+      - speaker: CHAR-007
+        line: "朕说——朕想要你。不是当宫女，不是当嫔妃——是当朕的妻子。"
+      - speaker: CHAR-001
+        line: "好家伙——我以为他是个优柔寡断的小皇帝……他比谁都果断啊。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】CHAR-004-L01（鹅黄衫裙·脸红低头·揉绣帕）【图3】CHAR-007-L01（明黄龙袍）【图4】SCENE-006（御花园）。中近景 固定：翠微站在原地脸红得像要滴血手里的绣帕揉成一团。她低下头不敢看赵景和也不敢看林小满。赵景和说出这句话后像卸下一个重担肩膀微微放松。但他的下一句话让花园气氛瞬间沉了下来——声音没有变轻但语气里多了清醒的无奈。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-006
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-007
+        line: "但太妃不会答应的。"
+      - speaker: CHAR-001
+        line: "为什么？"
+      - speaker: CHAR-007
+        line: "朕的亲事——在她手里。她早就给朕物色好了人选——是她的侄女。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-006
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-006: assets/props/PROP-006.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙·袖口下印记若隐若现）【图2】CHAR-004-L01（鹅黄衫裙）【图3】CHAR-007-L01（明黄龙袍）【图4】SCENE-006（御花园）【图5】PROP-006（倒计时印记·数字71）。近景 固定：林小满脑子里飞速运转——太妃控制着皇帝的婚事。她低头看自己的手腕——袖口下淡金色71若隐若现。然后她抬起头看着眼前这个少年皇帝认真的眼神又看了一眼旁边红着脸攥着绣帕的翠微。她做了一个决定。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-006
+          role: reference_image
+          label: 图4
+        - file: PROP-006
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-001
+        line: "如果我帮你呢？"
+      - speaker: CHAR-007
+        line: "你？"
+      - speaker: CHAR-001
+        line: "我是编剧。我写剧情——但我现在知道，写之前得先问你们想要什么。你说你想要翠微——好，我帮你写这条路。但我也需要你帮我一个忙。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-008
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-008: assets/props/PROP-008.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】CHAR-004-L01（鹅黄衫裙·低头展开绣帕）【图3】CHAR-007-L01（明黄龙袍）【图4】SCENE-006（御花园·亭中）【图5】PROP-008（比翼鸟绣帕）。中近景 固定：赵景和没有立刻回答林小满的交易提议，他的目光再次落在翠微身上。翠微低着头但她的手在做一件她自己都没注意到的事——她把那方被揉皱的绣帕慢慢展开抚平折好，然后下意识往前递了半寸——把自己最珍贵的东西亮出来的姿态。赵景和看到了绣帕上的比翼鸟刺绣。他的表情从少年的紧张变成安静的带着柔光的微笑。林小满站在两人之间看着这个无声的瞬间嘴角不自觉地扬起。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-006
+          role: reference_image
+          label: 图4
+        - file: PROP-008
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-007
+        line: "这个……是你绣的？"
+      - speaker: CHAR-004
+        line: "嗯……小姐帮奴婢画的图样。"
+      - speaker: CHAR-001
+        line: "好家伙——我写的定情信物，他们自己先认了。这比我的剧本浪漫多了。"
+      - speaker: CHAR-001
+        line: "原来我之前只顾着写剧情……从来没认真看过他们之间已经发生的事。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP12-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-007-L01: assets/looks/CHAR-007-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-006: assets/scenes/SCENE-006.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L02（淡紫襦裙）【图2】CHAR-004-L01（鹅黄衫裙）【图3】CHAR-007-L01（明黄龙袍）【图4】SCENE-006（御花园）。全景 固定：御花园春光灿烂，亭中三人还在说话。镜头缓缓拉远——越过盛开的牡丹花丛越过太湖石的缝隙。在花园深处回廊的阴影中——一个深紫色宫装的背影一闪而过隐入柱后。那个身影停留的时间太久离开的时机太精准——在赵景和说出「朕想要翠微」的那一刻她侧了侧头。镜头停留在空无一人的回廊拐角——阳光照不到的阴影里一根深紫色袖口的边缘还露在外面没有完全藏好。有人在偷听而且没有离开。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-006
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-001
+        line: "终于找到一点能用的方法了——先问他们想要什么，再动笔。好，下一个采访谁呢？"
+      - speaker: CHAR-001
+        line: "……等等。刚才回廊那边——是不是有人？"
+      - speaker: CHAR-001
+        line: "……不，应该只是风。御花园这么大，怎么可能有人偷听。"
+    transition_to_next: hard_cut

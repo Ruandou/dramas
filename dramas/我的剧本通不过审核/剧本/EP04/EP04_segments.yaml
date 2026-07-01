@@ -1,0 +1,264 @@
+episode_id: EP04
+source_md: 剧本/EP04/EP04_编剧权限.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。"
+  negative_prompt: "真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格"
+
+voice_prompts:
+  CHAR-001: "女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑"
+  CHAR-004: "女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句"
+  CHAR-005: "女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻"
+
+segments:
+  - segment_id: EP04-SEG01
+    shot_ids: [EP04-S01, EP04-S02]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙，浅碧色腰带）【图2】翠微 CHAR-004-L01（鹅黄色交领短衫，团扇在手）【图3】长安侯府·沈长渊居所 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1坐在书案前，手指焦虑地敲着桌面，眉头紧锁，案上摊着空白宣纸和毛笔。窗外竹影摇曳，竹帘半卷，暖金光从窗棂斜射。
+        镜头2（5秒）近景 固定：图2歪头看着图1，压低声音凑近一步，用团扇半掩着嘴。窗外竹影在图2脸上投下条纹状光影。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「太妃说这宫里处处是眼睛……我连出这个门都不安全。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「还说我写死了她——我根本没写到第18集啊！」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「小姐……你是编剧对吧？」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「那你能不能……改一下？就像改剧本那样？」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无动漫卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG02
+    shot_ids: [EP04-S03, EP04-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙，浅碧色腰带）【图2】翠微 CHAR-004-L01（鹅黄色交领短衫，团扇在手）【图3】长安侯府·沈长渊居所 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 镜头推近：图1闭上眼睛，眉头微蹙，手在空中无意识比划，像在触摸无形的键盘。周围空气凝滞——竹叶停止晃动，光线微妙闪烁。
+        镜头2（6秒）中景 固定：世界像电脑屏幕刷新——暖金色变成纯白再恢复。图2身体僵住，团扇停在半空，眼睛睁大无焦点。图1也僵住，眼睛闭着。0.5秒后一切恢复。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「修改……我在写剧本时是怎么改的……」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「把太妃的阴谋……从第18集推迟到第28集……推迟——」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「……刚才那是什么？」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「……哎？」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「我刚才……是不是……卡住了？」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无动漫卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG03
+    shot_ids: [EP04-S05, EP04-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙，浅碧色腰带）【图2】翠微 CHAR-004-L01（鹅黄色交领短衫，团扇在手）【图3】长安侯府·沈长渊居所 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中近景 固定：图1缓缓睁眼，看向自己的手，环视四周——书案、竹帘、窗外竹影。低头看案上空白宣纸，纸还是白的。
+        镜头2（5秒）近景 固定：图2摇了摇脑袋，从恍惚中回神。揉着太阳穴，表情困惑。团扇从手里滑落一半，赶紧接住。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「……变了？没变？好像什么都没有发生……」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「难道我失败了？」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「小姐……我刚才好像……做了个梦？」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「很短很短的梦……梦到你把太妃娘娘的戏份……往后挪了好多集。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无动漫卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG04
+    shot_ids: [EP04-S07]
+    duration_sec: 10
+    speakers: [CHAR-005]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-005-L01: assets/looks/CHAR-005-L01.png
+      scene_urls:
+        SCENE-007: assets/scenes/SCENE-007.png
+      prop_urls:
+        PROP-007: assets/props/PROP-007.png
+    api:
+      text: |
+        【图1】太妃 CHAR-005-L01（深紫色织金宫装，金线凤凰刺绣）【图2】太妃寝宫 SCENE-007（深紫色帷幔，铜鹤香炉）【图3】金镶翠凤镯 PROP-007。
+        道具：PROP-007（纯金镶翠凤镯，雕刻凤凰纹路，世界刷新时散发暖金色光芒）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 缓推：图1坐在矮榻上，手中端着青瓷茶盏。世界闪烁瞬间手微微一顿，茶盏水面荡开涟漪。缓缓抬眼看向手腕——图3正散发极淡暖金色光芒后消退。放下茶盏，嘴角浮起一丝冷笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「呵……动作倒是快。」
+        对白（太妃，女性，40岁，声线沉稳有威严，语速从容偏慢，用长句排比，越生气声音越轻）：「第7个……果然比前面几个胆子大些。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无动漫卡通风格。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+        - { file: PROP-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG05
+    shot_ids: [EP04-S08]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙，浅碧色腰带）【图2】翠微 CHAR-004-L01（鹅黄色交领短衫，团扇在手）【图3】长安侯府·沈长渊居所 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中近景 镜头推近：图1猛地转向图2，眼睛亮起——意识到什么。图2还在揉太阳穴努力回忆梦境细节，表情从困惑变成认真。图1的呼吸变快。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「你说什么？你梦见我改了太妃的戏？」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「嗯……本来在第18集……你把它挪到第28集了。」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「但我怎么会梦到这个？我又没看过你写的完整剧本……」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「她记得。修改之前的世界线——她记得。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无动漫卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG06
+    shot_ids: [EP04-S09]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙，浅碧色腰带）【图2】翠微 CHAR-004-L01（鹅黄色交领短衫，团扇在手）【图3】长安侯府·沈长渊居所 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）近景 固定：图1站起来，在书房里来回踱步，手指按着太阳穴整理思路。图2跟随她的动作，眼神好奇又不安。图1停下，转身面对图2——兴奋与紧张交织的表情。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「所以——我刚才确实做了改动。太妃的阴谋从第18集被我挪到了第28集。」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「真的改了？那太妃娘娘她——」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「她知道了。刚才那一瞬间——她肯定感觉到了。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「但你——你也记得。你记得修改前的版本。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无动漫卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG07
+    shot_ids: [EP04-S10]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙，浅碧色腰带）【图2】翠微 CHAR-004-L01（鹅黄色交领短衫，团扇在手）【图3】长安侯府·沈长渊居所 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中近景 固定：图2低头看着自己的手，像在确认自己还是自己。抬头看图1，眼神复杂——"我记得我不该记得的事"。图1也看着她。窗外的竹影在微风中晃动，光线从竹帘缝隙切成一条条明暗相间的光带。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「所以……你改一次，我就多记得一些原本不存在的事？」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「不只是你——可能所有人都这样。太妃也知道——她知道世界变了。」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「那……如果以后你又改了——我又会多记得一些？」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「……应该是的。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无动漫卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG08
+    shot_ids: [EP04-S11, EP04-S12]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫色交领襦裙，浅碧色腰带）【图2】翠微 CHAR-004-L01（鹅黄色交领短衫，团扇在手）【图3】长安侯府·沈长渊居所 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）大特写 镜头推近：图2的瞳孔微微收缩。她想了很久，手不自觉地绞着团扇边缘。空气安静得能听到窗外竹叶沙沙声。开口时声音比之前低了很多。
+        镜头2（6秒）中景 固定：图2抬起头看图1，脸色微微发白。图1呼吸停滞。两人对视。窗外竹影晃动，光线暗了一分。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「小姐……如果说——」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「你改一次，我们就多记得一点。」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「那……改太多的话……会怎样？」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「小姐……我有点害怕。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「我……我不知道。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色，写实风格，竖屏9比16，无真实历史人物或朝代名，无现代品牌Logo，无血腥暴力，无性暗示，无政治隐喻，无动漫卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

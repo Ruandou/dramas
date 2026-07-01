@@ -1,0 +1,593 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP01/EP01_我的剧本通不过审核.md
+# Source shots: 15 (EP01-S01 to EP01-S15)
+# Output shots: 15 (EP01-S01 to EP01-S15)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 120s
+# Output total duration: 120s
+# Gate status: ALL PASS
+
+episode_id: EP01
+source_md: 剧本/EP01/EP01_我的剧本通不过审核.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。"
+  negative_prompt: "真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格"
+
+shots:
+  # ===== SEG01 — 凌晨赶稿 (SCENE-001) =====
+  - shot_id: EP01-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-001: assets/props/PROP-001.png  # WARNING: no CDN URL
+        PROP-002: assets/props/PROP-002.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（灰色连帽卫衣）【图2】SCENE-001（出租屋书桌）【图3】PROP-001（笔记本电脑）【图4】PROP-002（手机）。特写 固定：深夜书桌上暖黄台灯是唯一光源，一双布满血丝的眼睛盯着屏幕，手指在键盘上飞速敲击，指甲边缘有啃咬痕迹，手边一杯咖啡已经凉透浮着一层油光。屏幕文档标题栏显示文档名。手机屏幕亮起，微信通知弹出。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+        - file: PROP-001
+          role: reference_image
+          label: 图3
+        - file: PROP-002
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-008
+        line: "小满啊——第13遍了！你上个月就说改完了！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+        - PROP-002
+        - PROP-003
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-001: assets/props/PROP-001.png  # WARNING: no CDN URL
+        PROP-002: assets/props/PROP-002.png  # WARNING: no CDN URL
+        PROP-003: assets/props/PROP-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（灰色连帽卫衣，低马尾）【图2】SCENE-001（出租屋书桌，堆满稿件）【图3】PROP-001（笔记本电脑）【图4】PROP-002（手机）【图5】PROP-003（剧本手稿）。中近景 固定：林小满穿着宽松灰色卫衣，头发扎成低马尾，黑眼圈明显。一只手按在键盘上，另一只手抓起手机查看消息。桌上散乱的A4打印稿堆成小山——每页都有红笔修改痕迹，边角卷起。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+        - file: PROP-001
+          role: reference_image
+          label: 图3
+        - file: PROP-002
+          role: reference_image
+          label: 图4
+        - file: PROP-003
+          role: reference_image
+          label: 图5
+    dialogue:
+      - speaker: CHAR-001
+        line: "改了改了在改了……15版……我就不信这回过不了……"
+    transition_to_next: hard_cut
+
+  # ===== SEG02 — 咖啡之灾 (SCENE-001) =====
+  - shot_id: EP01-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-001: assets/props/PROP-001.png  # WARNING: no CDN URL
+        PROP-002: assets/props/PROP-002.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（灰色连帽卫衣）【图2】SCENE-001（出租屋书桌，咖啡杯在手边）【图3】PROP-001（笔记本电脑）【图4】PROP-002（手机）。中景 镜头跟随：手机屏幕再次亮起，图1烦躁地抓起手机边看消息边伸手去够咖啡杯，视线没离开手机。手指碰到杯沿，杯子倾斜——深褐色液体漫过杯口涌出来。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+        - file: PROP-001
+          role: reference_image
+          label: 图3
+        - file: PROP-002
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-008
+        line: "今！天！我！要！稿！子！"
+      - speaker: CHAR-001
+        line: "知道了知道了……这不正在改嘛……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+      prop_urls:
+        PROP-001: assets/props/PROP-001.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（手部特写）【图2】SCENE-001（桌面）【图3】PROP-001（笔记本电脑键盘）。大特写 镜头推近：咖啡泼在键盘上，液体渗入按键缝隙。屏幕出现彩色条纹剧烈闪烁，笔记本充电口冒出一缕白烟，火花噼啪闪动。图1的手悬在半空，瞳孔放大，嘴张开。屏幕最后一次闪烁，白光亮到刺眼吞没画面。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+        - file: PROP-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "哎——别别别——我的大纲——！"
+      - speaker: CHAR-001
+        line: "完了完了——第15版还在里面——！"
+    transition_to_next: dissolve
+
+  # ===== SEG03 — 穿越 (SCENE-001→过渡) =====
+  - shot_id: EP01-S05
+    shot_no: 5
+    mode: skip
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-001
+      look_ids: []
+      prop_ids: []
+    assets:
+      look_urls: {}
+      scene_urls:
+        SCENE-001: assets/scenes/SCENE-001.png  # WARNING: no CDN URL
+      prop_urls: {}
+    api:
+      text: "纯白画面过渡。固定镜头：纯白画面从刺眼的白缓缓暗下来变成暖金色光芒，画面边缘模糊轮廓晃动像透过水面看东西。声音从模糊到清晰——远处有低沉回响。缓慢呼吸声，眼球在动睫毛闪烁。"
+      content_roles: []
+    dialogue:
+      - speaker: CHAR-001
+        line: "……我死了吗？"
+      - speaker: CHAR-001
+        line: "不对……有光……有声音……"
+      - speaker: CHAR-001
+        line: "等等——我没保存——第15版——！"
+      - speaker: CHAR-001
+        line: "这地板……好硬。而且——是石头？"
+    transition_to_next: dissolve
+
+  # ===== SEG04 — 金銮殿醒来 (SCENE-002) =====
+  - shot_id: EP01-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L02
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙，浅碧色腰带）【图2】SCENE-002（大燕皇宫金銮殿）。中景 缓推：林小满趴在冰冷的深色石地上。镜头从紧闭的双眼缓缓上移，焦点从模糊到清晰——朱红巨柱冲天而起，雕梁画栋，尽头金色龙椅在香炉烟雾中若隐若现。她缓缓撑起身体——淡紫色交领襦裙，浅碧色腰带，外罩半透明纱衣。她摸到自己的发髻和银簪，手放下来——手腕上戴着串珠细镯。表情从不信变成惊恐。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "不是我的衣服……"
+      - speaker: CHAR-001
+        line: "头发也盘起来了？还有这个镯子——我从来没买过这种东西。"
+      - speaker: CHAR-001
+        line: "这不是做梦。这是真的。"
+    transition_to_next: hard_cut
+
+  # ===== SEG05 — 确认穿越 (SCENE-002) =====
+  - shot_id: EP01-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L02
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】SCENE-002（金銮殿全景）。中近景 固定：林小满摇摇晃晃站起来，古装裙摆拖在地上，她绊了一下提起裙子露出惊讶表情。她环视金銮殿——朱红柱、金漆龙纹、铜鹤香炉、深红帷幔。表情从恐惧变成难以置信的确认。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-002
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "这个场景……金銮殿……朱红柱子……金漆龙纹……"
+      - speaker: CHAR-001
+        line: "这是我写的《燕京奇缘》第一幕的开场！第3场的布景描述！"
+      - speaker: CHAR-001
+        line: "不是吧……熬夜写稿写到穿越？这剧情我自己都没写过！"
+    transition_to_next: hard_cut
+
+  # ===== SEG06 — 脚步声 (SCENE-002) =====
+  - shot_id: EP01-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色襦裙）【图2】CHAR-002-L01（玄色锦袍，玉冠束发）【图3】SCENE-002（金銮殿侧门光影）。中景 固定：空旷大殿传来脚步声——沉稳、缓慢、带着金属碰击声。图1猛地转身循声望去。大殿侧门光影中走出高大身影——玄色锦袍金线暗纹云纹刺绣，玉冠束发，黑发披散在肩背，腰悬长剑手按剑柄。逆光走来，面容逐渐清晰——剑眉凤眼，下颌线棱角分明，表情冷漠但眼神分明是'又来了'的不耐烦。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "……谁？！"
+      - speaker: CHAR-001
+        line: "这里是哪？我怎么会——"
+      - speaker: CHAR-001
+        line: "……这个背影……我认识……长安侯世子沈长渊……我写他写了三万字……"
+    transition_to_next: hard_cut
+
+  # ===== SEG07 — 命运台词 (SCENE-002) =====
+  - shot_id: EP01-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色襦裙）【图2】CHAR-002-L01（玄色锦袍）【图3】SCENE-002（金銮殿）。中近景 固定：图2停在几步之外，居高临下打量图1——目光从头顶扫到脚尖，像在检查一件货物。他微微偏头，嘴角没有笑意。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "又来了一个编剧。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色襦裙）【图2】CHAR-002-L01（玄色锦袍，逆光）【图3】SCENE-002（金銮殿）。近景 固定：图1的表情凝固。她张了张嘴发不出声。大脑飞速运转——他知道我是编剧？'又'是什么意思？他等过我？"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "你——你怎么知道——不是——你是谁？！"
+      - speaker: CHAR-001
+        line: "不对。他知道我是编剧。他知道！而且他的语气——他等过我？"
+    transition_to_next: hard_cut
+
+  # ===== SEG08 — 确认身份 (SCENE-002) =====
+  - shot_id: EP01-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色襦裙）【图2】CHAR-002-L01（玄色锦袍，双臂抱胸）【图3】SCENE-002（金銮殿）。中景 固定：图2双臂抱在胸前冷冷吐出三个字。图1的眼睛瞪大——她当然知道这个名字。她后退了半步上下打量他——玄色锦袍、金线云纹、腰悬长剑——和她写的外貌描写一字不差。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "沈长渊。"
+      - speaker: CHAR-001
+        line: "沈……沈长渊？！《燕京奇缘》的沈长渊？长安侯世子？"
+      - speaker: CHAR-002
+        line: "你写的。"
+      - speaker: CHAR-001
+        line: "不是——我写的是小说啊！你不是应该活在文档里吗？！"
+    transition_to_next: hard_cut
+
+  # ===== SEG09 — 他知道一切 (SCENE-002) =====
+  - shot_id: EP01-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色襦裙）【图2】CHAR-002-L01（玄色锦袍）【图3】SCENE-002（金銮殿）。近景 固定：图2绕着图1走了半步，姿态从容。声音低沉平稳像在念一份报告。每一个数字都精准地击中她——她背后发凉，这个人知道她的一切。她往后退了半步，手指绞着袖口。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "你改到第15版大纲了。凌晨三点十三分。咖啡洒了，液体会渗进键盘。"
+      - speaker: CHAR-001
+        line: "你怎么连这个都知道？！"
+      - speaker: CHAR-002
+        line: "因为你不是第一个。"
+    transition_to_next: hard_cut
+
+  # ===== SEG10 — "上一个" (SCENE-002) =====
+  - shot_id: EP01-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色襦裙）【图2】CHAR-002-L01（玄色锦袍）【图3】SCENE-002（金銮殿）。中近景 固定：图1像被击中一样愣在原地。'不是第一个'这四个字在她脑子里炸开。她下意识追问声音干涩。图2没回答，只是看着她——眼神里有怜悯、有冷漠、还有见怪不怪的疲惫。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "不是第一个？什么意思——之前还有人穿越进来？"
+      - speaker: CHAR-002
+        line: "有。"
+      - speaker: CHAR-001
+        line: "那她呢？她现在在哪？她也写完了大纲回去了？"
+      - speaker: CHAR-002
+        line: "没有人知道。没有人再见过她。"
+    transition_to_next: hard_cut
+
+  # ===== SEG11 — 消失的前任 (SCENE-002) =====
+  - shot_id: EP01-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色襦裙）【图2】CHAR-002-L01（玄色锦袍）【图3】SCENE-002（金銮殿）。近景 镜头推近：漫长的沉默后，图2终于开口。声音很轻但每个字都清晰。图1的脸一寸一寸变白——'跑出去了'是什么意思？从哪里跑？跑到哪？呼吸变得急促，声音发抖。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-002
+        line: "上一个也是这么来的。凌晨，电脑短路，穿越。她站起来，拍掉身上的灰，说——'这剧情我写过，我知道怎么出去。'"
+      - speaker: CHAR-002
+        line: "然后她哭着从那扇门跑出去了。再也没有人见过她。"
+      - speaker: CHAR-001
+        line: "什么叫'再也没有人见过她'？！她没回现实世界？还困在——某个地方？！"
+    transition_to_next: hard_cut
+
+  # ===== SEG12 — 独留金銮殿 (SCENE-002) =====
+  - shot_id: EP01-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-002-L01: assets/looks/CHAR-002-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: assets/scenes/SCENE-002.png  # WARNING: no CDN URL
+      prop_urls: {}
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色襦裙）【图2】CHAR-002-L01（玄色锦袍，转身离去）【图3】SCENE-002（金銮殿全景）。中景转全景 镜头拉远：图2不再回答。他转身，玄色锦袍下摆扫过石地，朝侧门走去。图1下意识追了两步但被其气势逼停。大门缓缓合上发出沉重回响。镜头缓缓拉远，图1孤零零站在空旷的金銮殿中央——巨大朱红柱子、金碧辉煌龙椅、飘浮香炉烟雾，衬托得她无比渺小。她低头看自己的手——古装袖口——又抬头看紧闭的大门。身影在画面中越来越小。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-002-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-002
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "你等等——你去哪？你还没告诉我——"
+      - speaker: CHAR-002
+        line: "想活命就自己找答案。别指望我。"
+      - speaker: CHAR-001
+        line: "上一个编剧……消失了……"
+      - speaker: CHAR-001
+        line: "我穿进了自己写的剧本。角色认识我。而且——我不是第一个。"
+      - speaker: CHAR-001
+        line: "那……我会是最后一个吗？"

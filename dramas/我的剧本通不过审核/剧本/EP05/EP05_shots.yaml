@@ -1,0 +1,410 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP05/EP05_世界在补全.md
+# Source shots: 12 (EP05-S01 to EP05-S12)
+# Output shots: 12 (EP05-S01 to EP05-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s (self-calculated from shot durations: 5+5+6+6+11+6+6+11+6+6+12+10=90s)
+# Output total duration: 90s
+# Gate status: ALL PASS
+
+episode_id: EP05
+source_md: 剧本/EP05/EP05_世界在补全.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。双世界视觉反差——古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色；现实世界为低饱和暖色调写实风格、米白+灰蓝色调。"
+  negative_prompt: "真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格"
+
+shots:
+  - shot_id: EP05-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】CHAR-004-L01（鹅黄色短衫，团扇在手）【图3】SCENE-003。中景 固定：书房内，翠微坐在小杌子上摇团扇。林小满站起来走到窗边看竹影，忽然转身，脸上带着'我有个主意'的表情，俯身凑近翠微。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "翠微，我有个想法。"
+      - speaker: CHAR-004
+        line: "……你不会又想改什么吧？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】SCENE-003。近景 固定：林小满笑了——不是苦笑，是真想到了好办法的笑容。她压低声音像在分享秘密。窗外竹影在她脸上晃动，光线在她眼中闪烁。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "我要给你加戏。"
+      - speaker: CHAR-001
+        line: "一条完整的——和某个人有关的感情线。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: "【图1】CHAR-004-L01（鹅黄色短衫，团扇在手）【图2】SCENE-003。中近景 固定：翠微眼睛一亮——随即又暗下来，取而代之的是怀疑。她歪着头，用团扇半掩着嘴，眼神从期待变成审视，像一只警觉的小猫。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "加戏？你？"
+      - speaker: CHAR-004
+        line: "你上一轮给我写的台词——'小姐小心'重复了七遍。七遍！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】CHAR-004-L01（鹅黄色短衫，团扇在手）【图3】SCENE-003。中近景 固定：翠微站起来掰着手指数，语速越来越快越来越夸张。林小满表情从自信变尴尬，摸后颈，视线飘向窗外又飘回来。翠微数完后叉腰看着她。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "第3集'小姐小心'，第4集'小姐这边走'——然后第5集又是'小姐小心'，第6集第7集第8集——连续三集一模一样的『小姐小心』！"
+      - speaker: CHAR-004
+        line: "你确定你能写好感情线？"
+      - speaker: CHAR-001
+        line: "呃……那次是……赶稿嘛……这次真的不一样！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】SCENE-003。特写 缓推：林小满深吸一口气，闭上眼睛。手微微抬起，手指在空中悬停——像钢琴家在准备演奏前的那一刻。光线在她周围微微聚拢。眉头轻蹙又舒展——她在'写'。几个呼吸后睁眼，嘴角浮起满意。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "我现场写一段给你看。"
+      - speaker: CHAR-001
+        line: "御花园……春光明媚……翠微路过假山……"
+      - speaker: CHAR-001
+        line: "赵景和在亭子里……手里拿着奏折但根本没在看……"
+      - speaker: CHAR-001
+        line: "写好了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】CHAR-004-L01（鹅黄色短衫，团扇在手）【图3】SCENE-003。近景 固定：林小满看向翠微，眼神带着'你看好了'的自信。她用语言描绘——像在朗读一段文字。翠微起初还审视，但很快被吸引了。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "御花园，春末。你——翠微——端着一碟新做的桂花糕路过假山。"
+      - speaker: CHAR-001
+        line: "风吹落一片花瓣，落在你发间。你没注意到。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: "【图1】CHAR-004-L01（鹅黄色短衫，团扇在手）【图2】SCENE-003。大特写 固定：翠微眼睛慢慢睁大。她原本歪着的头不知不觉正了过来，扇子也放下了。当听到'他看到了你发间的花瓣'时，脸颊泛起红晕，下意识抬手摸自己的发髻。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "赵景和在亭子里——他看到了你。看到了你发间的那片花瓣。"
+      - speaker: CHAR-004
+        line: "他……他看到了？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】CHAR-004-L01（鹅黄色短衫，团扇在手）【图3】SCENE-003。中近景 固定：林小满收声，微笑看翠微。翠微好一会儿才回过神，脸上有明显的红晕，眼神亮晶晶——那种'被看到了'的动容。她低头看自己的团扇，又抬头看林小满。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "他叫住你，说——'你发间有片花瓣。'然后他伸手——帮你拿了下来。"
+      - speaker: CHAR-004
+        line: "这……这是我能有的剧情？"
+      - speaker: CHAR-004
+        line: "我以为我永远就是'小姐小心'了……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: "【图1】CHAR-004-L01（鹅黄色短衫，团扇在手）【图2】SCENE-003。近景 固定：翠微深吸一口气，抬起头。她看着林小满，眼神从感动变成坚定——像做了重要决定。她把团扇握紧，站起来，比刚才认真了很多。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-004
+        line: "小姐——我帮你。"
+      - speaker: CHAR-004
+        line: "宫里的路我熟，每个人的脾气我都知道。太妃那边有什么动静——我第一个告诉你。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】CHAR-004-L01（鹅黄色短衫，团扇在手）【图3】SCENE-003。中景 固定：翠微转身快步走向门口，走了两步又回头，脸上重新浮起活泼笑容，冲林小满眨了眨眼，然后跑出去了。脚步声在走廊里逐渐远去。林小满站在书房中央看着翠微消失的方向。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "对了小姐——那段御花园……帮我写完整点。我可等着呢！"
+      - speaker: CHAR-001
+        line: "保证写完。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】SCENE-003。中近景 固定：翠微走远了。书房安静下来，竹影在窗纸上缓缓晃动。林小满嘴角带着笑意，闭上眼睛'查看'脑内编辑器。笑容凝固，猛地睁眼又闭上重新查看——表情从不信变成震惊。呼吸变快，手扶上书案边缘。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "御花园……桂花糕……花瓣……嗯都写好了……"
+      - speaker: CHAR-001
+        line: "……等等。"
+      - speaker: CHAR-001
+        line: "赵景和的回应……我写了这部分吗？"
+      - speaker: CHAR-001
+        line: "我没写。但我看到了完整的对话——他叫住她、伸手、摘花瓣——我根本没写过这段！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP05-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png
+    # NOTE: PROP-008 (翠微的绣帕) is ⏭️ 角色内置 — rendered as part of character design, no separate prop ref
+    api:
+      text: "【图1】CHAR-001-L02（淡紫色交领襦裙）【图2】SCENE-003。特写 镜头推近：林小满缓缓坐下，手从书案边沿滑落。指尖碰到案角一个柔软的物体——她低头看去。书案角落里静静躺着一方鹅黄色绣帕，绣着比翼鸟。她拿起绣帕翻看，瞳孔收缩。攥紧绣帕，抬头看向窗外摇曳的竹影。"
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "这段不是我写的……那——是谁写的？"
+      - speaker: CHAR-001
+        line: "我写翠微的时候——剧本世界自动把皇帝那边的反应补齐了。"
+      - speaker: CHAR-001
+        line: "这个世界……有自己的意志。它不需要我——它自己在编剧情。"
+    transition_to_next: hard_cut

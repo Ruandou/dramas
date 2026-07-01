@@ -1,0 +1,414 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP08/EP08_我的剧本通不过审核.md
+# Source shots: 12 (EP08-S01 to EP08-S12)
+# Output shots: 12 (EP08-S01 to EP08-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
+episode_id: EP08
+source_md: 剧本/EP08/EP08_我的剧本通不过审核.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。古装悬疑短剧风格，暖调烛光与冷调屏幕光对比。"
+  negative_prompt: "真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 封建迷信, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格"
+
+shots:
+  - shot_id: EP08-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（浅青绡衣，穿越第七日妆发略松散）【图2】CHAR-004-L01（靛蓝布衣丫鬟装，双丫髻）【图3】SCENE-003。中景 固定：暮色从花格窗透入屋内渐暗。图1独坐窗边软榻，手不自觉地按在胸口衣襟处。图2提纱罩油灯进来，橘黄烛火驱散暮色，在墙上投出摇曳影子。图2将灯放在案上，看向图1。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "小姐，您又坐了一个下午。天都黑透了。"
+      - speaker: CHAR-001
+        line: "……嗯，没留意。"
+      - speaker: CHAR-004
+        line: "奴婢给您传晚膳吧？您午间也没怎么用。"
+      - speaker: CHAR-001
+        line: "不饿。"
+      - speaker: CHAR-001
+        line: "第七天了。还是什么都找不到。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP08-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（浅青绡衣）【图2】CHAR-004-L01（靛蓝布衣）【图3】SCENE-003。中特写 缓推：图1手在衣襟处无意识摩挲，透过绡衣料隐约可见手机的长方轮廓。图2走近两步目光落在那处凸起上，面露好奇。图1察觉视线手猛地停住脸色微变。烛火在侧脸跳动。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "小姐，您怀里揣着什么？这两日常见您摸着。"
+      - speaker: CHAR-001
+        line: "没……没什么。你下去吧，我想静一静。"
+      - speaker: CHAR-004
+        line: "……是。奴婢就在廊下，您有事唤我。"
+      - speaker: CHAR-001
+        line: "差点被她看见。这东西不该出现在这里。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP08-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（浅青绡衣）【图2】SCENE-003。特写 固定：图1侧耳倾听门外——脚步声渐远。确认安全后从怀中缓缓掏出手机（PROP-002）。烛火映在黑色屏幕上像一面不祥的镜子。深吸一口气拇指按下电源键，屏幕亮起冷白光打在她脸上，与暖橙烛火形成强烈冷暖对比。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "有信号……这怎么可能……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP08-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（浅青绡衣，脸被手机冷光照亮）【图2】SCENE-003。大特写 镜头推近：手机屏幕特写——信号格满格。图1手指微微颤抖划过屏幕确认不是幻觉，瞳孔微缩，嘴唇微张。屏幕冷光映在眼中，倒映出信号图标。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "穿越到的世界，为什么会有信号？"
+      - speaker: CHAR-001
+        line: "这里不是古代吗……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP08-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（浅青绡衣）【图2】SCENE-003。大特写 固定：手机屏幕特写。信号格满格。机身一震顶部弹出一条短信通知。发送者：无号码。图1手指悬停在屏幕上方犹豫两秒，屏住呼吸点开。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "短信……这个年代不该有信号才对……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP08-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（浅青绡衣）【图2】SCENE-003。特写 缓推：图1的脸被手机冷光照亮，一字一字读着屏幕上的字，眉头越皱越紧。烛火在左侧脸晃动，右边脸是冷白屏幕光——一张脸被两种光切成两半。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "第7个，你还有65天。"
+      - speaker: CHAR-001
+        line: "谁发的？第7个是什么？65天又是什么……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP08-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（浅青绡衣）【图2】SCENE-003。大特写 固定：手机屏幕特写。图1下滑短信看到附件图片缩略图，指尖颤抖着点开。转圈加载中——她屏住呼吸，心跳肉眼可见地加速。烛火在屏幕边缘晃动。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "还带了一张照片……"
+      - speaker: CHAR-001
+        line: "快加载……让我看看是谁……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP08-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+        CHAR-003-L01: assets/looks/CHAR-003-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（浅青绡衣）【图2】CHAR-003-L01（白衬衫，画廊白墙前侧身回眸）【图3】SCENE-003。特写 镜头推近：手机屏幕上照片加载完成——白衬衫的沈长渊站在挂满油画的画廊白墙前，侧身回眸，那张脸和古装沈长渊一模一样但装束背景完全不同。图1瞳孔骤缩，手开始颤抖手机差点滑落。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "沈……长渊？"
+      - speaker: CHAR-001
+        line: "同样的脸……不同的世界……"
+      - speaker: CHAR-001
+        line: "他在现代世界？！"
+    transition_to_next: audio_bridge
+
+  - shot_id: EP08-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（浅青绡衣，脸色煞白）【图2】CHAR-004-L01（靛蓝布衣）【图3】SCENE-003。中景 镜头拉远：图2推门快步进来，看到图1脸色煞白如纸，手藏在身后微微发抖。烛火因开门带风剧烈晃动，人影在墙上扭曲。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "小姐？奴婢听到您在说话……出什么事了？"
+      - speaker: CHAR-004
+        line: "您脸色怎么这么差？是不是病了？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP08-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（浅青绡衣）【图2】CHAR-004-L01（靛蓝布衣）【图3】SCENE-003。中特写 固定：图1将手机死死攥在左手藏到身后，右手抬起做'没事'手势。努力调整表情但眼角的惊惶没藏住。图2狐疑地盯着她。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "没……我没事。就是看到一只飞蛾扑了灯。"
+      - speaker: CHAR-004
+        line: "可您的脸色——"
+      - speaker: CHAR-001
+        line: "真的没事。你快去歇着吧，我也要睡了。"
+      - speaker: CHAR-004
+        line: "……是。那奴婢给您把烛火添上。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP08-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（浅青绡衣）【图2】CHAR-004-L01（靛蓝布衣）【图3】SCENE-003。中景 镜头跟随：图2添好灯油走到门口，回头看了图1一眼。图1坐在榻边背对烛火看不清表情。图2欲言又止轻轻合上门，门轴吱呀一声。门缝中最后一线烛光收窄——图1的脸重新沉入阴影，然后缓缓从身后拿出手机低头凝视屏幕，冷白的光再次亮起。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "小姐……您有什么事，一定要唤奴婢。"
+      - speaker: CHAR-001
+        line: "嗯。"
+      - speaker: CHAR-001
+        line: "65天……不管是倒计时还是期限……我必须找到答案。"
+      - speaker: CHAR-001
+        line: "既然有信号，那这个世界一定还有别的现代痕迹。"
+      - speaker: CHAR-001
+        line: "倒计时……已经开始。"
+    transition_to_next: dissolve
+
+  - shot_id: EP08-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: "【图1】CHAR-001-L01（浅青绡衣，手部入镜）【图2】SCENE-003。大特写 固定：纯冷白画面渐显——手机屏幕的大特写。短信界面：发送者号码为空。'第7个，你还有65天。'一行字。下方是照片缩略图——白衬衫男人的侧影。一支颤抖的手（图1）进入画面边缘，指尖在'65天'三个字上缓缓划过停住。烛火在屏幕表面跳动了一下——灭了。屏幕暗下去，只剩一条细细的冷光收缩成一点。黑屏。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut

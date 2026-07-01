@@ -1,0 +1,293 @@
+episode_id: EP10
+source_md: 剧本/EP10/EP10_我的剧本通不过审核.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。"
+  negative_prompt: "真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格"
+
+voice_prompts:
+  CHAR-001: "女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑"
+  CHAR-004: "女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句"
+  CHAR-006: "女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'"
+
+segments:
+  - segment_id: EP10-SEG01
+    shot_ids: [EP10-S01, EP10-S02]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】翠微 CHAR-004-L01（鹅黄衫裙，双丫髻彩色发带）【图3】侯府书房 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：清晨的侯府书房，窗外竹影在晨光中摇曳。图2提着裙摆匆匆跑进来，神色慌张，发髻上的彩色发带因奔跑而晃动。图1正坐在书案前，手里拿着一卷书——但其实她在想事情，眼神放空。听到脚步声她抬起头。
+        镜头2（5秒）近景 固定：图2走近两步，压低声音，眼中带着焦虑。图1的手指攥紧了书卷——关节发白。她的脑子里飞速运转：昨晚图2才报信说太妃在查沈长渊身世，今天一早人就被调走了。这不是巧合。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「小姐！不好了——太妃娘娘今早以'整肃京畿防务'为名，把侯爷调去城郊军营了！」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「什么？！」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「今早天没亮就走的！说是至少要去半个月——连收拾行李的时间都没给！」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「她这是在拔我的帮手……先查身世，再调走人——太妃要动手了。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG02
+    shot_ids: [EP10-S03]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】翠微 CHAR-004-L01（鹅黄衫裙）【图3】苏晚晴 CHAR-006-L01（月白玉裙）【图4】侯府书房 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：图1还在消化消息，门口传来脚步声和一声清冷的轻咳。三人同时转头——图3站在门口，月白色长裙在晨光中泛着柔和的光泽。她脸上挂着淡淡的、意味深长的笑意，扫了一眼图2慌张的神情，又看向图1紧绷的脸。她不请自来，缓步走进书房。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「看来我来得不是时候？」
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「还是——正是时候？」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「苏晚晴？你来干什么。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG03
+    shot_ids: [EP10-S04, EP10-S05]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】苏晚晴 CHAR-006-L01（月白玉裙）【图3】侯府书房 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景 固定：图2没有回答图1的问题，而是径直走到书案前，目光落在图1腰间——那里有一个不该出现在古装世界的物件：手机的一角从衣襟中露出。图2的视线在那个角落停了半秒，然后抬起眼看着图1。
+        镜头2（6秒）近景 固定：图1的手下意识地捂住腰间藏手机的位置。她的表情从不信到恐惧——图2不应该知道手机的事。图2淡然一笑，走到窗边，背对晨光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「你在查手机吧。你那个房东——和沈长渊长得一模一样的那个人。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「你——你怎么——」
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「你写的设定——我是一个从现代穿越到大燕的甜宠女主。你忘了？我保留了所有现代记忆。」
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「你创造了这个世界——但你控制不了它。就像你控制不了那些超出你剧本的事。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG04
+    shot_ids: [EP10-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】苏晚晴 CHAR-006-L01（月白玉裙）【图3】侯府书房 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中近景 固定：图1慢慢放下捂住腰间的手。她盯着图2，脑子里疯狂回溯自己写过的设定——是的，她确实写了"穿越女苏晚晴，从现代穿越到大燕"。她当时只是为了甜宠套路随便写的穿越设定。她从未想过——这个设定意味着图2拥有现代人的全部认知。图1后背一阵发凉。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「你记得现代的事？手机……互联网……你全都看得懂？」
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「不但看得懂。那天你拿出手机看照片的时候——我站在你身后，瞥到了一眼。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「你知道多少？」
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「够多了。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG05
+    shot_ids: [EP10-S07]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】苏晚晴 CHAR-006-L01（月白玉裙）【图3】侯府书房 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：图2走回书案前，神色从意味深长变得认真。她双手撑在桌面上，身体微微前倾——气势不在图1之下。窗外晨光在她侧脸上投下半明半暗的光影。图1靠在书架上，双臂抱在胸前，警惕地打量着眼前这个"自己写的角色"。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「我不是来威胁你的。我是来谈交易的。」
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「我不要当女主了。你帮我写一条独立线——我要在燕京开酒楼。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「……你不想争男主了？」
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「男主是你的。我早看出来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG06
+    shot_ids: [EP10-S08, EP10-S09]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】苏晚晴 CHAR-006-L01（月白玉裙）【图3】侯府书房 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1的表情从不信慢慢变成审视。她看着图2——这个她随手写的"穿越女配"，此刻站在她面前，眼神清澈坚定，没有怨恨，没有算计，只有一种平静的决心。图1突然意识到：她从未认真想过图2想要什么。
+        镜头2（5秒）特写 固定：图2直起身，目光直视图1——这个被她称为"编剧"的人。她的声音不大，但每个字都带着重量。这是她觉醒后第一次对一个编剧说出自己真正想要的东西。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「穿越女就必须和王爷在一起？那是你写的套路，不是我的人生。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「你是认真的。」
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「我从没这么认真过。我帮你保守所有秘密——太妃的事、房东的事、这张照片的事。你帮我写一个结局——不依附任何男人的结局。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「……好。我答应你。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG07
+    shot_ids: [EP10-S10]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】翠微 CHAR-004-L01（鹅黄衫裙）【图3】苏晚晴 CHAR-006-L01（月白玉裙）【图4】侯府书房 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：交易达成后，气氛稍微缓和。图2从震惊中回过神来，想起还有更重要的事没说。她走到图1身边，神色比刚才更严肃。图3也安静下来，听图2说话——她虽然不站队太妃，但也不希望自己的"新剧本"被太妃毁掉。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「对了小姐——我今早还打听到，太妃最近在联络朝中大臣。好像在谋划什么大事。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「具体是什么事？」
+        对白（翠微，女性，18岁，声线活泼娇俏，语速快语气词丰富，喜欢用叠词和夸张感叹句）：「打听不到。但连侯爷都被调走了——她已经开始拔你的帮手了。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG08
+    shot_ids: [EP10-S11]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-004-L01: assets/looks/CHAR-004-L01.png  # WARNING: no CDN URL
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】翠微 CHAR-004-L01（鹅黄衫裙）【图3】苏晚晴 CHAR-006-L01（月白玉裙）【图4】侯府书房 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中近景 固定：图1深吸一口气，走到书案前，拿起毛笔——但没有蘸墨。她看着空白的纸卷，又抬头看图3。窗外晨光渐亮，竹影在纸窗上晃动。她放下笔，转身面对两人——一个是她的吐槽搭子，一个曾是她的对手。她做出了决定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「好。太妃要玩——那就玩。她拔我的帮手，我也找我的帮手。」
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「每个穿越女，都该有自己的故事。不一定非要是谁的附庸。」
+        对白（林小满·内心，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「苏晚晴……比我想象的聪明太多了。而且——她不坏。她只是不想当工具人。」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG09
+    shot_ids: [EP10-S12]
+    duration_sec: 8
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: assets/looks/CHAR-001-L02.png  # WARNING: no CDN URL
+        CHAR-006-L01: assets/looks/CHAR-006-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-003: assets/scenes/SCENE-003.png  # WARNING: no CDN URL
+    api:
+      text: |
+        【图1】林小满 CHAR-001-L02（淡紫襦裙）【图2】苏晚晴 CHAR-006-L01（月白玉裙）【图3】侯府书房 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 固定：图2走到门口，晨光勾勒出她月白色长裙的轮廓。她突然停下脚步，没有回头。图1正准备坐下，听到她的声音停住了动作。图2侧过头，光线只照亮了她半张脸——另一半在阴影中，表情看不真切。她的声音里带着一种图1从未听过的认真。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「对了——我还有一个条件。」
+        对白（林小满，女性，26岁，声线明亮带吐槽感，语速偏快，紧张时话多且碎，常用幽默掩盖焦虑）：「你说。」
+        对白（苏晚晴，女性，24岁，声线清冷偏文艺，语速适中，喜欢用比喻说话，自嘲时带'呵'）：「你手机里那个男人的照片……你难道不想知道——他到底是谁吗？」
+        画面全程无任何文字、字幕、标题、水印。
+        古装世界为饱和度较高的水墨彩绘质感、暖金+朱红主色。写实风格，竖屏9比16，真实历史人物或朝代名, 现代品牌Logo, 血腥暴力, 性暗示, 政治隐喻, 文字或字幕出现在画面中, 动漫风格, 卡通风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
