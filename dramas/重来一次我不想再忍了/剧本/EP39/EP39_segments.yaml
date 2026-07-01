@@ -1,83 +1,247 @@
-# EP39 segments.yaml
-episode: EP39
-total_duration_sec: 16
-total_shots: 12
+episode_id: EP39
+source_md: 剧本/EP39/EP39_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，第二幕暖橙主调，灰色为辅。早晨办公室以自然晨光为主光源，暖白调中带一丝冷意；监控室屏幕冷白荧光；走廊窗光与阴影对比明显。整体营造从震惊到冷静再到达希望的视觉过渡。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，第二幕暖橙主调，灰色为辅。早晨办公室以自然晨光为主光源，暖白调中带一丝冷意；监控室屏幕冷白荧光；走廊窗光与阴影对比明显。整体营造从震惊到冷静再到达希望的视觉过渡。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+  # ⚠️ WARNING: [待补：值夜班保安] not in 声音卡片.md — voice_prompt unavailable (needs 集间群演回补子循环)
+
 segments:
-  - id: EP39-SEG01
-    scene_id: SCENE-013
-    description: "segment 1"
-    total_duration_sec: 2
-    shots:
-      - id: EP39-S01
-        type: "`EP39-S01`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP39-S02
-        type: "`EP39-S02`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP39-SEG02
-    scene_id: SCENE-013
-    description: "segment 2"
-    total_duration_sec: 2
-    shots:
-      - id: EP39-S03
-        type: "`EP39-S03`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP39-S04
-        type: "`EP39-S04`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP39-SEG03
-    scene_id: SCENE-013
-    description: "segment 3"
-    total_duration_sec: 2
-    shots:
-      - id: EP39-S05
-        type: "`EP39-S05`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP39-S06
-        type: "`EP39-S06`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP39-SEG04
-    scene_id: SCENE-013
-    description: "segment 4"
-    total_duration_sec: 6
-    shots:
-      - id: EP39-S07
-        type: "`EP39-S07`"
-        duration_sec: 1
-        description: "`SCENE-013`"
-      - id: EP39-S08
-        type: "`EP39-S08`"
-        duration_sec: 5
-        description: "`SCENE-013`"
-  - id: EP39-SEG05
-    scene_id: SCENE-013
-    description: "segment 5"
-    total_duration_sec: 2
-    shots:
-      - id: EP39-S09
-        type: "`EP39-S09`"
-        duration_sec: 1
-        description: "`SCENE-013`"
-      - id: EP39-S10
-        type: "`EP39-S10`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP39-SEG06
-    scene_id: SCENE-013
-    description: "segment 6"
-    total_duration_sec: 2
-    shots:
-      - id: EP39-S11
-        type: "`EP39-S11`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP39-S12
-        type: "`EP39-S12`"
-        duration_sec: 1
-        description: "`SCENE-001`"
+  - segment_id: EP39-SEG01
+    shot_ids: [EP39-S01, EP39-S02]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-002.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图2】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）MLS→MCU 镜头缓推：早晨办公室，晨光从落地窗斜照，光线里飘着微尘。图1提着包走到工位区域——脚步突然停住。工位一片狼藉：抽屉拉开到最大，文件散落一地，键盘掉在地上，笔筒倒了。图1站在原地像被钉住一样。晨光照在她半边脸上，另一半在阴影里。
+        镜头2（6秒）MCU→CU 镜头跟随：图1放下包快步走向角落保险柜，脚步急切。她蹲下——保险柜金属门虚掩，锁扣处有撬痕，金属变形，漆面被工具刮出白痕。她看了几秒撬痕，伸手慢慢拉开柜门——里面空荡荡，U盘不见了，公司文件也被翻乱了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……有人来过。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「昨晚那个黑影——他回来了——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「U盘……被拿走了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他看到了……昨晚那个黑影——他看到了我放进去——」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP39-SEG02
+    shot_ids: [EP39-S03, EP39-S04]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图2】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）CU 固定：图1蹲在保险柜前，手握柜门边缘。她低下头咬紧牙关——太阳穴青筋微凸。晨光从背后照过来，影子投在墙上拉得很长。三秒安静——只有空调嗡鸣。然后她抬起头，紧闭一下眼睛又睁开——情绪从愤怒翻涌变成克制。她站起来伸手去拿口袋里的手机，动作很稳但指尖触到屏幕时有一瞬停顿。
+        镜头2（6秒）MCU 固定：图1已拨通电话，手机贴在耳边，站在窗前背对满室狼藉，面朝窗外早晨城市天际线。她声音压低但每个字清楚。对方在电话里说了什么——她听着，眉头微微舒展——不是放松，是知道有人会来的那种安心。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「先别慌……慌就输了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「谁做的——怎么进来的——从哪查起——一件一件来。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「陆北辰。你来公司一趟——U盘被拿走了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「保险柜被撬了。监控还没查——等你一起。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我二十分钟到。你别一个人在办公室——去人多的地方。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP39-SEG03
+    shot_ids: [EP39-S05, EP39-S06]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣，领口微敞，外套搭在手臂上）【图3】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）CU→MCU 固定：挂了电话后图1蹲下检查被撬抽屉，用笔帽挑起被撬坏的小锁——锁芯被暴力工具拧断。她又看散落的文件——都是普通材料被翻过又扔回。她的目光顺着地面移动——看到墙角地面上几个模糊的脚印。
+        镜头2（6秒）MS 固定：图2快步走进来，比预计快——领口微敞。他看到景象后眉头往下压了一度，走到图1身边蹲下看了看撬痕，又站起来环顾四周。他看向图1，直接切入正题。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「抽屉是被专用工具撬开的……专业手法。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「穿鞋套了——但鞋底带了灰尘进来——有备而来。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不是临时起意——是计划好的。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「看过了——只有你的工位被翻，别的区域没事？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「嗯。目标明确——就是冲我的保险柜来的。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「走。去看监控。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP39-SEG04
+    shot_ids: [EP39-S07, EP39-S08]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005, "[待补：值夜班保安]"]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】公司走廊/监控室 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MS 固定：监控室小屏幕前，屏幕冷白光映在三人脸上。图1站在操作台后双手抱臂目光紧锁屏幕。图2站在她身侧一手撑着操作台边缘身体前倾。保安半身在画面前景操作键盘，快速拖动时间轴——凌晨一点、两点、三点——深夜办公室空镜快速闪过。保安手指停在凌晨三点零七分——画面突然黑了。
+        镜头2（6秒）CU→MCU 固定：保安在操作台前操作，调出系统日志——凌晨3:07到3:42有人登录监控后台删除了录像。登录账号是管理员权限，IP是公司内网地址。保安额头冒汗声音发虚。图2沉吟。图3沉默——表情没有崩溃，是下坠到底之后的安静。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「就是这里——三点零七分——」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「倒回去再看一遍。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「被剪了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「内部干的……不是外贼。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺云峰的人——就在这个公司里——就在我们身边。」
+        # ⚠️ WARNING: [待补：值夜班保安] voice_prompt unavailable — using generic placeholder
+        对白（值班保安，30岁男性，声线普通带紧张感，心虚时语速变快）：「这个……登录的IP是公司内网地址。也就是说——是咱们公司内部的人操作的。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「能拿到管理员权限的——不多。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+# ⚠️ SEMANTIC_WARNING: EP39-S07/S08 reference [待补：值夜班保安] which has no L01 image or assigned voice_prompt in asset registry. Requires 集间群演回补子循环 (production-planner → character-designer → scene-writer).
+
+  - segment_id: EP39-SEG05
+    shot_ids: [EP39-S09]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】公司走廊 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）MCU 固定：走廊上，图1靠墙站着目光垂向地面。图2站在对面一手插兜一手拿手机，快速查了名单后抬头看图1，冷静分析局面。图1听着没有说话——她在脑中拼碎片。然后她突然抬起头看向图2——目光里有不甘但没有绝望。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「整个公司有监控管理权限的——IT主管、行政总监、还有两个保安队长。贺云峰要找到其中一个不难。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「他比我们想的准备得更充分。U盘——现在大概率已经在他手上了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他知道赵总倒戈了——昨晚上那个黑影就是他的人——亲眼看着我放进去的。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他知道我有什么——他拿走了——但他不知道——」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP39-SEG06
+    shot_ids: [EP39-S10, EP39-S11]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝外套松开，米白衬衣）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图3】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）CU 固定：图1坐在工位上，手撑着额头目光失焦盯着桌面。远处图2在不远处低声打电话。她在脑中快速过动作——从赵总办公室拿到U盘→咖啡厅查数据→回公司放保险柜。手指撑着额头指节泛白。突然——手指停住了。
+        镜头2（6秒）MCU→CU 镜头缓缓推近：图1慢慢抬起头，目光从失焦变成聚焦——看向放在桌上的手机。图2打完电话走回来看到她表情变化——从绝望底部浮上来的光。他走近两步没有说话。图1拿起手机，手指划过屏幕，呼吸变轻了。她看向图2——那个眼神里没有得意，只有一种确认。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「拿到U盘……咖啡厅查数据……确认转账记录……」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「等等——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我昨晚——在咖啡厅——看完数据之后——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我昨晚……开云同步了。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「想到什么了？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「等一下——让我确认——」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP39-SEG07
+    shot_ids: [EP39-S12]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝外套松开，米白衬衣）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图3】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）CU→MCU 固定：图1打开手机云存储APP——页面加载进度条转动。她屏住呼吸。文件夹打开——「转账记录_刘振东.xlsx」「资金流向图_v3.jpg」「贺云峰-跨季末结算表.xlsx」——时间戳昨晚23:37。图1看着屏幕三秒没有说话。然后她慢慢把手机转向图2。她的嘴角浮起一丝弧度——绝境中发现自己还有底牌的微翘。晨光从落地窗照进来，光线似乎暖了一些。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「在……都在……每一个文件都在——时间戳23:37——我昨晚同步的——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他拿走了U盘——但他不知道——云备份还在。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「……你没告诉他——你有备份的习惯。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「现在——牌还在我手上。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

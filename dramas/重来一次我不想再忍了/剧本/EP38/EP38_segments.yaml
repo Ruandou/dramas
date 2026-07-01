@@ -1,83 +1,232 @@
-# EP38 segments.yaml
-episode: EP38
-total_duration_sec: 31
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP38/EP38_分镜剧本.md
+# Source shots: 12 (EP38-S01 to EP38-S12)
+# Output segments: 7
+# Source total duration: 76s
+# Output total duration: 76s
+# Gate status: ALL PASS
+
+episode_id: EP38
+source_md: 剧本/EP38/EP38_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，第二幕暖橙主调，灰色为辅。赵总办公室以暖色台灯为主光源，咖啡厅暖黄灯光+暮色窗光，深夜办公室只亮着安全灯和走廊微光，营造安静紧张的氛围。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，第二幕暖橙主调，灰色为辅。赵总办公室以暖色台灯为主光源，咖啡厅暖黄灯光+暮色窗光，深夜办公室只亮着安全灯和走廊微光，营造安静紧张的氛围。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+  CHAR-006: "成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力"
+
 segments:
-  - id: EP38-SEG01
-    scene_id: SCENE-003
-    description: "segment 1"
-    total_duration_sec: 7
-    shots:
-      - id: EP38-S01
-        type: "`EP38-S01`"
-        duration_sec: 6
-        description: "`SCENE-003`"
-      - id: EP38-S02
-        type: "`EP38-S02`"
-        duration_sec: 1
-        description: "`SCENE-003`"
-  - id: EP38-SEG02
-    scene_id: SCENE-003
-    description: "segment 2"
-    total_duration_sec: 12
-    shots:
-      - id: EP38-S03
-        type: "`EP38-S03`"
-        duration_sec: 6
-        description: "`SCENE-003`"
-      - id: EP38-S04
-        type: "`EP38-S04`"
-        duration_sec: 6
-        description: "`SCENE-003`"
-  - id: EP38-SEG03
-    scene_id: SCENE-003
-    description: "segment 3"
-    total_duration_sec: 2
-    shots:
-      - id: EP38-S05
-        type: "`EP38-S05`"
-        duration_sec: 1
-        description: "`SCENE-003`"
-      - id: EP38-S06
-        type: "`EP38-S06`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-  - id: EP38-SEG04
-    scene_id: SCENE-003
-    description: "segment 4"
-    total_duration_sec: 6
-    shots:
-      - id: EP38-S07
-        type: "`EP38-S07`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-      - id: EP38-S08
-        type: "`EP38-S08`"
-        duration_sec: 5
-        description: "`SCENE-007`"
-  - id: EP38-SEG05
-    scene_id: SCENE-003
-    description: "segment 5"
-    total_duration_sec: 2
-    shots:
-      - id: EP38-S09
-        type: "`EP38-S09`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-      - id: EP38-S10
-        type: "`EP38-S10`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP38-SEG06
-    scene_id: SCENE-003
-    description: "segment 6"
-    total_duration_sec: 2
-    shots:
-      - id: EP38-S11
-        type: "`EP38-S11`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP38-S12
-        type: "`EP38-S12`"
-        duration_sec: 1
-        description: "`SCENE-001`"
+  - segment_id: EP38-SEG01
+    shot_ids: [EP38-S01, EP38-S02]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: |
+        【图1】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带+深灰西裤，领带微微松开）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图3】赵总办公室 SCENE-003（傍晚，暖色台灯为主光源，暮色斜照）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）MCU 固定：赵总办公室门虚掩，台灯是唯一光源。赵总坐在办公桌后，桌上放着一个银色U盘。他看了看U盘又看了看门口——像下定了决心把U盘推向林晚。手在U盘上多停留一秒——指尖泛白。林晚没有立刻拿——看着赵总的眼睛等他开口。暮色把两人轮廓映成剪影。
+        镜头2（6秒）CU 固定：林晚低头看着桌上U盘，伸手拿起——动作很轻很稳。U盘在掌心反射出灯光。她看向赵总——没有激动只有郑重。握紧U盘收进口袋。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「这就是你要的东西。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「刘振东和他之间的每一笔转账——都在里面。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「赵总……这份东西对您意味着什么,您清楚。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「清楚。辞职信——我已经写好了,在抽屉里放着。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我不会让您走到那一步。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅。赵总办公室以暖色台灯为主光源。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP38-SEG02
+    shot_ids: [EP38-S03, EP38-S04]
+    duration_sec: 11
+    speakers: [CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: |
+        【图1】赵总 CHAR-006-L01（摘下眼镜捏了捏眉心，疲惫沧桑）【图2】林晚 CHAR-001-L01（安静倾听）【图3】赵总办公室 SCENE-003（暖色台灯，暮色渐深）。
+        竖屏9比16连贯叙事。
+        镜头3（5秒）MCU 固定：赵总靠回椅背摘下眼镜捏了捏眉心。台灯黄光照在他疲惫的脸上——五十岁的人在这一刻显得比平时老了十岁。沉默几秒后放下手看向林晚。没说官话——说的是真心话。
+        镜头4（6秒）CU 固定：赵总说着说着眼眶有点泛红——但他忍住了。他低头把桌上女儿的照片转过来给林晚看——小女孩穿着病号服但笑得很灿烂。赵总看着照片嘴角浮起一丝笑然后又收住。抬起头目光里是一个父亲做出了正确选择的笃定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「林晚。我做这个决定不是为了你。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「是为了我自己。我五十岁了——不想这辈子到老了,想起来,自己连底线都没守住。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「小慧昨天说——爸爸,你好像跟以前不一样了。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「我说——爸爸找到了,比钱更重要的东西。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅。赵总办公室以暖色台灯为主光源。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP38-SEG03
+    shot_ids: [EP38-S05]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（站起来看着赵总，郑重承诺）【图2】赵总 CHAR-006-L01（慢慢戴上眼镜，长长舒了一口气）【图3】赵总办公室 SCENE-003（台灯黄光温暖的一圈）。
+        竖屏9比16连贯叙事。
+        镜头5（10秒）CU→MCU 固定：林晚看着赵总——这个曾经让她寒心过的上司此刻正在把自己最脆弱的一面交给她。她没有说谢谢——用最平静但最有分量的语气说出了承诺。赵总没有点头也没有说话——长长地舒了一口气像是憋了很久终于能呼吸了。重新戴上眼镜恢复了一点管理者的样子——但眼神不一样了。林晚起身准备离开时他在身后轻声说了一句话——每个字都像钉子。林晚在门口顿了一下走了出去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺云峰不会知道是您给的。您和您女儿——这次,我来保护。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「林晚。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「别输。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅。赵总办公室以暖色台灯为主光源。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP38-SEG04
+    shot_ids: [EP38-S06, EP38-S07]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    props:
+      PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-002.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（只穿米白衬衣，脱了西装外套搭在椅背上）【图2】咖啡厅 SCENE-007（夜，暖黄吊灯+笔记本电脑屏幕冷白补光）【图3】U盘 PROP-002（银色金属，握在林晚手心）。
+        角色分工：仅图1操作笔记本电脑和U盘；图2为环境背景禁止互动。
+        道具：银色金属U盘，约5cm长，旋转盖设计，表面有细微磨损痕迹。
+        竖屏9比16连贯叙事。
+        镜头6（5秒）CU 固定：咖啡厅角落卡座，笔记本电脑屏幕冷白光映着林晚的脸。她插上U盘快速浏览文件——Excel表格密密麻麻的数字和日期。手指停在了一笔特别大的金额上，眉头微微皱起——确认了的笃定。窗外城市夜灯光，咖啡厅飘着轻柔爵士乐。
+        镜头7（6秒）MCU 固定：林晚合上电脑拔下U盘握在手心。看了看四周——没人注意这个角落。把U盘放进口袋端起已经凉了的咖啡喝了一口——表情若有所思。放下杯子目光透过窗户看向城市夜景。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「果然……每一笔跨季末的转账——都借刘振东的账户走了一遍。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺云峰……你没想到吧。你最信任的人——把钥匙交给了我。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅。咖啡厅暖黄灯光+暮色窗光。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP38-SEG05
+    shot_ids: [EP38-S08, EP38-S09]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣，外套脱下搭在椅背上）【图2】林晚 CHAR-001-L01（米白衬衣）【图3】咖啡厅 SCENE-007（暖黄灯光）。
+        竖屏9比16连贯叙事。
+        镜头8（5秒）MS 固定：陆北辰从门口走进来快步到林晚桌前坐下。脱下外套眉头微蹙像是赶路时一直在想事情。林晚把电脑转给他看。陆北辰俯身快速扫过数据——几秒抓住关键。靠回椅背沉默两秒开口。
+        镜头9（6秒）CU 固定：陆北辰的问题让空气安静了片刻。林晚没有立刻回答——看着屏幕最后一次确认判断后关上电脑看向陆北辰。眼神果决——她确定贺云峰已经在怀疑赵总了。陆北辰看着她——目光有担忧更多的是信任。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「就是这些？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「嗯。刘振东是贺云峰的白手套——每个季末的转账,走的都是他的私人账户。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「足够立案了。但你确定要现在动手？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他已经在怀疑赵总了。再等——证据就没机会用了。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「你一个人扛得住？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我有你。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅。咖啡厅暖黄灯光+暮色窗光。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP38-SEG06
+    shot_ids: [EP38-S10, EP38-S11]
+    duration_sec: 12
+    speakers: []
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣，穿过黑暗办公区）【图2】公司大办公室 SCENE-001（深夜，安全灯冷白微光，一排排工位如剪影）。
+        竖屏9比16连贯叙事。
+        镜头10（6秒）MLS→MCU 镜头缓推：深夜办公室只有安全灯发出微弱白光。林晚独自穿过办公区，脚步声在空旷中带着轻微回音。她走到保险柜前蹲下——金属柜面反射头顶安全灯光。从口袋拿出U盘握在手心看了一眼——输入密码打开保险柜金属门。铰链转动声在安静中格外清晰。
+        镜头11（6秒）CU→MCU 固定：林晚把U盘轻轻放进保险柜和文件放在一起。看着U盘停顿了一秒——无声的确认——然后关上柜门转动锁栓。金属碰撞的咔哒声在空旷中回荡。她站起来拍了拍手准备离开。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，第二幕暖橙主调，灰色为辅。深夜办公室只亮着安全灯和走廊微光，营造安静紧张的氛围。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP38-SEG07
+    shot_ids: [EP38-S12]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（站在黑暗办公室中转头看向门口）【图2】公司大办公室 SCENE-001（深夜，安全灯绿光，走廊空无一人）。
+        竖屏9比16连贯叙事。
+        镜头12（10秒）MCU→主观→ELS 固定→快速摇镜→固定：林晚站起身拍了拍手准备转身离开。就在转头瞬间——余光扫到门口方向——一个黑影在门框边一闪而过。她的身体瞬间僵住。她猛地转头看向门口——镜头快速摇向门口——走廊空无一人只有安全指示灯绿色微光在墙壁上投下冷色光晕。空调嗡鸣声在安静中格外清晰。镜头切回客观——林晚保持转头看向门口的姿势，表情已经变了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……谁？」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅。深夜办公室只亮着安全灯和走廊微光，营造安静紧张的氛围。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

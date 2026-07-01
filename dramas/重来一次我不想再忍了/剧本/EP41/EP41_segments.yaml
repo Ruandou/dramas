@@ -1,96 +1,278 @@
-# EP41 segments.yaml
-episode: EP41
-total_duration_sec: 49
-total_shots: 14
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP41/EP41_线人.md
+# Source shots: 14 (EP41-S01 to EP41-S14)
+# Output shots: 14 (EP41-S01 to EP41-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 84s
+# Output total duration: 84s
+# Gate status: ALL PASS (non-fatal gates skipped per user instruction)
+
+episode_id: EP41
+source_md: 剧本/EP41/EP41_线人.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP19-45暖橙主调，灰色为辅。办公室日光灯为主光源，赵总办公室暖黄台灯补光，走廊自然光+冷白灯混合，茶水间偏冷调。整体营造从密谋到播种到收网再到悬念揭开的视觉递进。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP19-45暖橙主调，灰色为辅。办公室日光灯为主光源，茶水间偏冷调。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-006: "成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力"
+  CHAR-GRP-20: "成年男性，35岁，声线偏文弱，紧张时语速略快带结巴，放松时稍显轻快，分享秘密时压低音量"  # 刘振东 — ⚠️ 临时voice_prompt，非声音卡片正式条目
+  CHAR-GRP-25: "成年男性，30岁，声线年轻，语气带着好奇和试探"  # 财务同事 — ⚠️ 临时voice_prompt
+  CHAR-GRP-26: "成年男性，30岁，声线普通，语速中速"  # 同事A — ⚠️ 临时ID+voice_prompt，需回补
+  CHAR-GRP-27: "成年女性，30岁，声线普通，语速中速"  # 同事B — ⚠️ 临时ID+voice_prompt，需回补
+
 segments:
-  - id: EP41-SEG01
-    scene_id: SCENE-013
-    description: "segment 1"
-    total_duration_sec: 7
-    shots:
-      - id: EP41-S01
-        type: "`EP41-S01`"
-        duration_sec: 6
-        description: "`SCENE-003`"
-      - id: EP41-S02
-        type: "`EP41-S02`"
-        duration_sec: 1
-        description: "`SCENE-003`"
-  - id: EP41-SEG02
-    scene_id: SCENE-013
-    description: "segment 2"
-    total_duration_sec: 7
-    shots:
-      - id: EP41-S03
-        type: "`EP41-S03`"
-        duration_sec: 1
-        description: "`SCENE-003`"
-      - id: EP41-S04
-        type: "`EP41-S04`"
-        duration_sec: 6
-        description: "`SCENE-003`"
-  - id: EP41-SEG03
-    scene_id: SCENE-013
-    description: "segment 3"
-    total_duration_sec: 12
-    shots:
-      - id: EP41-S05
-        type: "`EP41-S05`"
-        duration_sec: 6
-        description: "`SCENE-001`"
-      - id: EP41-S06
-        type: "`EP41-S06`"
-        duration_sec: 6
-        description: "`SCENE-001`"
-  - id: EP41-SEG04
-    scene_id: SCENE-013
-    description: "segment 4"
-    total_duration_sec: 7
-    shots:
-      - id: EP41-S07
-        type: "`EP41-S07`"
-        duration_sec: 6
-        description: "`SCENE-001`"
-      - id: EP41-S08
-        type: "`EP41-S08`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP41-SEG05
-    scene_id: SCENE-013
-    description: "segment 5"
-    total_duration_sec: 2
-    shots:
-      - id: EP41-S09
-        type: "`EP41-S09`"
-        duration_sec: 1
-        description: "`SCENE-013`"
-      - id: EP41-S10
-        type: "`EP41-S10`"
-        duration_sec: 1
-        description: "`SCENE-013`"
-  - id: EP41-SEG06
-    scene_id: SCENE-013
-    description: "segment 6"
-    total_duration_sec: 2
-    shots:
-      - id: EP41-S11
-        type: "`EP41-S11`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP41-S12
-        type: "`EP41-S12`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP41-SEG07
-    scene_id: SCENE-013
-    description: "segment 7"
-    total_duration_sec: 12
-    shots:
-      - id: EP41-S13
-        type: "`EP41-S13`"
-        duration_sec: 6
-        description: "`SCENE-001`"
-      - id: EP41-S14
-        type: "`EP41-S14`"
-        duration_sec: 6
-        description: "`SCENE-001`"
+  - segment_id: EP41-SEG01
+    shot_ids: [EP41-S01, EP41-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: |
+        【图1】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带+深灰西裤）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】赵总办公室 SCENE-003（磨砂玻璃门，百叶窗，暖黄台灯）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：赵总办公室门关着——磨砂玻璃透进走廊模糊人影。图1坐在办公桌后身体前倾声音压低，面前放着一份打开的费用报销单。图2坐在对面侧耳听着目光专注沉静。午后暖光从百叶窗缝隙透进来在桌面上投下一道道光影条纹。
+        镜头2（6秒）CU→MCU 固定：图2微微前倾的姿态没有变，但眼神变了——不是惊讶，是"抓住了线头"的锐利。她没有立刻回应，沉默了两秒——让消息在脑中落定。图1看着她等她消化。窗外传来远处办公室键盘敲击声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「财务那边有个情况，我觉得你该知道。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「您说。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「刘振东——经手贺总账目的那个人——昨天找我了。说想辞职。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「因为压力太大——扛不住了？」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「他说最近查账的风声紧，他晚上都睡不好。再这样下去……怕出事。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「怕了好——怕了……才有机可乘。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。办公室日光灯为主光源，赵总办公室暖黄台灯补光。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP41-SEG02
+    shot_ids: [EP41-S03, EP41-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】赵总 CHAR-006-L01【图3】赵总办公室 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：图2听了图1那句"怕了好"，微微皱了一下眉——然后他理解了。他的手停在桌面上停下了敲击的动作。图1没有说话，靠进椅背目光没有离开图2的眼睛——她在等他问出下一句话。窗外的光线随着一片云飘过微微暗了一瞬，然后又恢复了亮度。图2终于开口了——声音带着"你说下去"的邀请。
+        镜头2（6秒）CU→MCU 推近：图2的表情从疑惑变成了慢慢理解——眼睛亮了一下，然后身子往后靠了靠，像是在脑中把整个计划过了一遍。他伸手拿起桌上的茶杯喝了一口——这个动作代表他已经在考虑"怎么执行"了。图1看着他慢慢地理解、接受，继续说下去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「你又有主意了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他现在最怕的是什么？不是查账——是被查到自己头上。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「对。所以他想跑。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不用他跑——让他觉得……查他的人已经不在了。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「你的意思是——让我放话出去——说你被架空了？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不止架空——就说我被上面叫去谈话了，调查不了了。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「他知道了这个消息——那根绷紧的弦就松了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「人一放松——嘴就松了。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「行。我来办。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。办公室日光灯为主光源，赵总办公室暖黄台灯补光。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP41-SEG03
+    shot_ids: [EP41-S05, EP41-S06]
+    duration_sec: 12
+    speakers: [CHAR-006]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】赵总 CHAR-006-L01（端着茶杯）【图2】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MS 固定：公司大办公室过道上，图1端着茶杯站住，像是正好碰上了两个下属。他说话的声音不大不小——恰好能让附近几个工位的人听到。他姿态随意，语气带着"闲聊八卦"的那种放松。旁边的两个同事凑近了听，表情越来越惊讶。
+        镜头2（6秒）MS→MCU 跟随：隔了几个工位的茶水区角落，一个三十五岁左右的男性——刘振东（CHAR-GRP-20）——正端着水杯站在那里接水。他听到了不远处图1和同事聊天的声音——关键的那几句传过来了："林晚被叫去谈话了……估计待不久了。"他接水的动作慢了下来，目光从饮水机的水流上移开，转向声音传来的方向。他听完后关上饮水机开关，拿起水杯走回自己的工位——但他的脚步比来时轻了，肩膀的紧绷度肉眼可见地松了下来。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「唉——林晚那事你们听说了吗？」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「上面找她谈话了——估计待不久了。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「能干的不如会站的。这话我就跟你们说说——别往外传啊。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。办公室日光灯为主光源。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+    # ⚠️ SEMANTIC_WARNING: 源剧本中[待补：同事A]（CHAR-GRP-26）和[待补：同事B]（CHAR-GRP-27）各有1句台词，因无正式L01形象及voice_prompt已从对白区块略去。视觉描述保留"两个同事"的叙事。
+
+  - segment_id: EP41-SEG04
+    shot_ids: [EP41-S07, EP41-S08]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-GRP-20, CHAR-GRP-25]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】公司大办公室·工位区 SCENE-001【图2】林晚 CHAR-001-L01（海军蓝西装）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：刘振东（CHAR-GRP-20）坐回工位，打开了电脑。他没有立刻投入工作——他靠在椅背上，盯着屏幕发了几秒呆，然后慢慢地、长长地呼出一口气——像是绷了好几天的弦终于松了。旁边的工位上，财务同事（CHAR-GRP-25）探过头来压着声音问他。刘振东的回答带着一种压不住的轻松——他拿起水杯喝了一口水，这是他这几天来第一次能安心地喝下一口水。
+        镜头2（6秒）MCU→CU 固定：隔着几排工位和半透明玻璃隔断，图2站在过道里没有在做事——她手里拿着一份文件夹，目光越过电脑屏幕边沿看着刘振东的方向。她看到刘振东靠在椅背上喝水、和同事说话时放松的姿态、呼出那口气时肩膀垮下来的弧线。她垂下眼翻了一页文件夹——动作很轻很自然。但嘴角有一个几乎不可见的、极为克制的弧度——不是笑，是"确认"。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（刘振东，成年男性，35岁，声线偏文弱，紧张时语速略快带结巴，放松时稍显轻快，分享秘密时压低音量）：「嗯……听说了。」
+        对白（刘振东，成年男性，35岁，声线偏文弱，紧张时语速略快带结巴，放松时稍显轻快，分享秘密时压低音量）：「别瞎说。我没什么好担心的。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那根弦……松了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「现在——轮到我敲门了。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。办公室日光灯为主光源。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: SCENE-001, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+    # ⚠️ SEMANTIC_WARNING: SEG04 含3 speakers（CHAR-001, CHAR-GRP-20, CHAR-GRP-25），2 speakers为对话对白，CHAR-001为内心独白。CHAR-GRP-25台词已略去因 speaker 上限。
+    # ⚠️ SEMANTIC_WARNING: CHAR-GRP-20（刘振东）和 CHAR-GRP-25（财务同事）无正式 L01 形象或 voice_prompt。voice_prompt 为估算。
+
+  - segment_id: EP41-SEG05
+    shot_ids: [EP41-S09]
+    duration_sec: 6
+    speakers: [CHAR-001, CHAR-GRP-20]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤，领口少了一枚平时总别着的胸针——细微的"已在交接中"暗示）【图2】公司走廊 SCENE-013（走廊尽头窗户，上午自然光）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MLS→MCU 跟随：上午自然光从走廊尽头窗户照进来。图1站在打印机旁低头整理一沓刚打印好的文件。刘振东（CHAR-GRP-20）从洗手间方向走出来经过打印机——图1自然地叫住他拿出一张费用报销单，语气轻松平常。刘振东接过单子，态度明显松弛——他甚至主动开了一句玩笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「刘哥——正好，我这有张单子你帮我签一下？」
+        对白（刘振东，成年男性，35岁，声线偏文弱，紧张时语速略快带结巴，放松时稍显轻快，分享秘密时压低音量）：「行啊——拿过来吧。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「最近公司事真不少——听说上面在查好几个部门的账？」
+        对白（刘振东，成年男性，35岁，声线偏文弱，紧张时语速略快带结巴，放松时稍显轻快，分享秘密时压低音量）：「查呗——那些账都做得很干净的。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。走廊自然光+冷白灯混合。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+    # ⚠️ SEMANTIC_WARNING: CHAR-GRP-20（刘振东）无 L01 形象或正式 voice_prompt。
+
+  - segment_id: EP41-SEG06
+    shot_ids: [EP41-S10]
+    duration_sec: 6
+    speakers: [CHAR-001, CHAR-GRP-20]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】公司走廊 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）CU→MCU 固定：图1接过签好的单子没有急着走——她顺势把话题往下带了一寸，语气仍然是"纯粹闲聊"的调子。刘振东（CHAR-GRP-20）签完字把笔还回来，但被那句"贺总那边的人确实厉害"牵住了——他停顿了一下压低声音回了一句。这句话让图1的指尖微微收紧——但她脸上没有任何变化。她没有追问——只是点了点头自然地收好单子微笑道谢。刘振东警觉地看了她一眼快速走开。图1看着他的背影，在转身那一瞬间，脸上的随意笑容消失了——沉静取而代之。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「是嘛……那贺总那边的人确实厉害——账做得滴水不漏。」
+        对白（刘振东，成年男性，35岁，声线偏文弱，紧张时语速略快带结巴，放松时稍显轻快，分享秘密时压低音量）：「你不懂——那套体系……不是一个人搞得定的。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「是嘛……那背后还有人？」
+        对白（刘振东，成年男性，35岁，声线偏文弱，紧张时语速略快带结巴，放松时稍显轻快，分享秘密时压低音量）：「算了算了，不聊这个——我先忙了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「行——谢谢刘哥。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。走廊自然光+冷白灯混合。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+    # ⚠️ SEMANTIC_WARNING: CHAR-GRP-20（刘振东）无 L01 形象或正式 voice_prompt。
+
+  - segment_id: EP41-SEG07
+    shot_ids: [EP41-S11, EP41-S12]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】公司大办公室 SCENE-001【图3】手机 PROP-009。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：图1回到自己工位。她把报销单放在桌面上但没有再看它一眼——目光落在手机屏幕上。她解锁手机打开和赵总的聊天窗口，指尖悬停在键盘上方顿了一瞬——她在想怎么措辞。然后她开始打字，打完之后又看了一遍，确认每一个字都是她想要的意思，然后按下了发送键。手机屏幕亮了一下显示"已发送"。她锁上手机靠在椅背上，目光看向窗外。午后斜光在她的侧脸上形成明暗分界线——半边亮半边暗。
+        镜头2（6秒）CU 缓推：特写图1的脸。午后光影在她脸上流动——窗外的云移动了，光线微微暗了一点然后又恢复了。她的表情不是胜利的轻松——而是一种"拼图碎片终于对上"的沉静。她微微眯起眼像是在脑中重新计算什么。嘴角动了一下——不是笑，是某种更为克制的"有意思"的微表情。她拿起手机又看了一眼刚才发出的消息，然后放下手机重新开始整理桌上的文件——动作恢复了冷静但比之前多了一份笃定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他说'不是一个人搞得定的'——他知道的不只是账目。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他知道背后还有人。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「什么叫'不是一个人搞得定的'——意思是——这套体系上面还有一层。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那就顺着这条线……继续往下挖。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。办公室日光灯为主光源，午后斜阳。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP41-SEG08
+    shot_ids: [EP41-S13, EP41-S14]
+    duration_sec: 12
+    speakers: [CHAR-GRP-20, CHAR-GRP-25]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】公司大办公室·茶水间 SCENE-001（冷白日光灯，白色台面）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MS 固定：茶水间。刘振东（CHAR-GRP-20）端着咖啡杯靠在台面边，旁边的财务同事（CHAR-GRP-25）端着一杯水压低声音在跟他聊天。茶水间光线偏冷——白色日光灯从头顶打下。刘振东的姿态比上午更放松了——"林晚被架空"的消息经过一天发酵已让他彻底放下戒备。同事压低声音问起那笔账的事。刘振东表情微微一变——他说"你别往外传"时声音里带上了一丝真实的紧张。
+        镜头2（6秒）CU→ECU 缓推：刘振东警惕地看了一眼茶水间门口——确认没人。他凑近同事的脸，声音低到几乎耳语。同事的表情从好奇变成了震惊——瞳孔微微放大。刘振东说完那句话后立刻退开了，像是后悔自己说得太多。他端起咖啡杯喝了一口，用"别问了"结束了对话。镜头缓缓推向刘振东的眼睛——那里面有一丝后悔、有一丝恐惧。低沉的弦乐长音——画面渐暗。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（刘振东，成年男性，35岁，声线偏文弱，紧张时语速略快带结巴，放松时稍显轻快，分享秘密时压低音量）：「她被架空了还查什么……现在是她自身难保。」
+        对白（刘振东，成年男性，35岁，声线偏文弱，紧张时语速略快带结巴，放松时稍显轻快，分享秘密时压低音量）：「那笔钱……你别往外传。」
+        对白（刘振东，成年男性，35岁，声线偏文弱，紧张时语速略快带结巴，放松时稍显轻快，分享秘密时压低音量）：「其实那些钱……不是贺总一个人的事。」
+        对白（刘振东，成年男性，35岁，声线偏文弱，紧张时语速略快带结巴，放松时稍显轻快，分享秘密时压低音量）：「别问了。知道太多对你不好。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。茶水间偏冷调，与对话内容的"冷感"呼应。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: SCENE-001, role: reference_image, label: 图1 }
+    transition_to_next: hard_cut
+    # ⚠️ SEMANTIC_WARNING: SEG08 含3 speakers（CHAR-GRP-20, CHAR-GRP-25），CHAR-GRP-25的3句台词（「东哥——林晚真的不查了？」「那你之前说的那笔钱——贺总那个——」「……那是谁的？」）已略去因 speakers ≤2 约束。仅保留 CHAR-GRP-20 的4句台词。
+    # ⚠️ SEMANTIC_WARNING: CHAR-GRP-20 和 CHAR-GRP-25 无正式 L01 形象或 voice_prompt。

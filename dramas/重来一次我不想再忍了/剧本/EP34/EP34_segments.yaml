@@ -1,83 +1,244 @@
-# EP34 segments.yaml
-episode: EP34
-total_duration_sec: 21
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP34/EP34_分镜剧本.md
+# Source shots: 12 → Output segments: 7
+# Output total duration: 80s
+# Gate status: ALL PASS (non-fatal gates skipped per user override)
+
+episode_id: EP34
+source_md: 剧本/EP34/EP34_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，第二幕暖橙主调，灰色为辅。天台黄昏暖橙光线，城市天际线为背景，晚风吹拂增添氛围感。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，第二幕暖橙主调，灰色为辅。天台黄昏暖橙光线，城市天际线为背景，晚风吹拂增添氛围感。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+
 segments:
-  - id: EP34-SEG01
-    scene_id: SCENE-004
-    description: "segment 1"
-    total_duration_sec: 2
-    shots:
-      - id: EP34-S01
-        type: "`EP34-S01`"
-        duration_sec: 1
-        description: "`SCENE-004`"
-      - id: EP34-S02
-        type: "`EP34-S02`"
-        duration_sec: 1
-        description: "`SCENE-004`"
-  - id: EP34-SEG02
-    scene_id: SCENE-004
-    description: "segment 2"
-    total_duration_sec: 2
-    shots:
-      - id: EP34-S03
-        type: "`EP34-S03`"
-        duration_sec: 1
-        description: "`SCENE-004`"
-      - id: EP34-S04
-        type: "`EP34-S04`"
-        duration_sec: 1
-        description: "`SCENE-004`"
-  - id: EP34-SEG03
-    scene_id: SCENE-004
-    description: "segment 3"
-    total_duration_sec: 2
-    shots:
-      - id: EP34-S05
-        type: "`EP34-S05`"
-        duration_sec: 1
-        description: "`SCENE-004`"
-      - id: EP34-S06
-        type: "`EP34-S06`"
-        duration_sec: 1
-        description: "`SCENE-004`"
-  - id: EP34-SEG04
-    scene_id: SCENE-004
-    description: "segment 4"
-    total_duration_sec: 6
-    shots:
-      - id: EP34-S07
-        type: "`EP34-S07`"
-        duration_sec: 5
-        description: "`SCENE-004`"
-      - id: EP34-S08
-        type: "`EP34-S08`"
-        duration_sec: 1
-        description: "`SCENE-004`"
-  - id: EP34-SEG05
-    scene_id: SCENE-004
-    description: "segment 5"
-    total_duration_sec: 2
-    shots:
-      - id: EP34-S09
-        type: "`EP34-S09`"
-        duration_sec: 1
-        description: "`SCENE-004`"
-      - id: EP34-S10
-        type: "`EP34-S10`"
-        duration_sec: 1
-        description: "`SCENE-004`"
-  - id: EP34-SEG06
-    scene_id: SCENE-004
-    description: "segment 6"
-    total_duration_sec: 7
-    shots:
-      - id: EP34-S11
-        type: "`EP34-S11`"
-        duration_sec: 1
-        description: "`SCENE-004`"
-      - id: EP34-S12
-        type: "`EP34-S12`"
-        duration_sec: 6
-        description: "`SCENE-004`"
+  - segment_id: EP34-SEG01
+    shot_ids: [EP34-S01, EP34-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套）【图2】陆北辰 CHAR-005-L01（深炭灰西装，领口略松）【图3】天台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MLS 固定：天台全景。傍晚暖橙色天空，城市天际线铺开。林晚独自站在围栏边背对镜头，双手撑栏杆望着远方。风轻轻吹起她的头发。暖橙余晖勾勒轮廓。
+        镜头2（6秒）MS 镜头跟随：天台门被推开，金属摩擦声。陆北辰走出来，端着两杯冒热气咖啡。他看到林晚背影，直接走过去，在她身旁站定递咖啡。林晚没有回头但伸手接过——指尖触碰纸杯温度时肩膀微微松了一下。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「就知道你在这。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你怎么上来的？」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「会议结束了。看到你不在座位上——就猜到了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「谢谢。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP34-SEG02
+    shot_ids: [EP34-S03, EP34-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套）【图2】陆北辰 CHAR-005-L01（深炭灰西装）【图3】天台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：林晚转身背靠栏杆侧对陆北辰。她喝了一口咖啡，呼出一口气。暖橙余晖照在她半边脸上，表情柔和坦诚。陆北辰看着远方开口，声音温和。
+        镜头2（6秒）CU 固定：林晚听了他的回答微微点头，目光里多了一层认可。她转回去面对城市，声音更自然了些。两人之间的沉默很短——是知道不说话也不尴尬的沉默。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「你还好吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「还好。就是——需要停一下。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「嗯。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「周明远的事——谢谢你帮我查出来。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「不用谢。我不是在帮你——我需要知道盛天资本的布局。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你说话从来不带客套。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「没必要。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「也是。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「其实——我就是想一个人待一会儿。不是躲——是想清楚。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我明白。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP34-SEG03
+    shot_ids: [EP34-S05]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套）【图2】陆北辰 CHAR-005-L01（深炭灰西装）【图3】天台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）MCU 固定：沉默几秒。林晚侧过头看向陆北辰——语气随意但目光认真。陆北辰顿了一下，端咖啡的手停了一瞬。他开口时没看她——看向远方，每个字间隔稍长。提到'开面馆'时语气平淡，但'从来不问我做什么'语速突然慢了一拍。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你家人知道你在这里做的事吗？」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我爸——大概会说我疯了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「为什么？」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「他以前也是做生意的。后来被人做空了——一无所有。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「他现在在老家开面馆。从来不问我做什么。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「或许他不是不想问——是不敢问。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「……也许吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP34-SEG04
+    shot_ids: [EP34-S06, EP34-S07]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套）【图2】陆北辰 CHAR-005-L01（深炭灰西装）【图3】天台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：林晚收回目光看向前方。城市光线从暖橙过渡到带淡紫的深蓝。她开口时声音带着分享的暖意——说到母亲发来的视频时嘴角不自觉上扬，真实温暖的笑容。
+        镜头2（6秒）CU 固定：陆北辰转过头看着她——她脸上的那抹笑容在暮色中显得很真实。他看了她两秒，目光比刚才柔和了一些。开口时声音很低。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我妈以前也不理解我。总觉得女孩子不该太拼——找个好人嫁了才是正路。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「但最近她变了。前几天给我发了条视频——那种讲'独立女性也很幸福'的正能量视频。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「她大概不知道我已经不需要这种鼓励了——但我知道，那是她在说'我支持你'。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「她变了。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「挺好的。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP34-SEG05
+    shot_ids: [EP34-S08, EP34-S09]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套）【图2】陆北辰 CHAR-005-L01（深炭灰西装）【图3】天台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：林晚重新望向远方。天际线完全变成深蓝与暖橙的交界——一天中最温柔的时刻。城市灯光星星点点亮起。她的声音放得很轻。陆北辰侧过头看她——目光里多了一层之前没有的东西，不是暧昧，是看见了一个同类的确认。
+        镜头2（6秒）MS 固定：两人再次陷入沉默——舒适得不需要填充的安静。城市灯光一盏盏亮起，如同脚下星河。晚风吹动林晚额前碎发。两人之间的距离比刚才近了一点——被无声的引力牵引。
+        【以下对白仅供语音合成，严禁在画面中显示任何文字】
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「其实我们都一样——都在让父母接受一个他们不理解的自己。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「你说得对。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我们还挺像的。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我应该早点认识你的。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP34-SEG06
+    shot_ids: [EP34-S10, EP34-S11]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套）【图2】陆北辰 CHAR-005-L01（深炭灰西装）【图3】天台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：林晚低头看纸杯——咖啡见底杯壁温凉。她轻呼一口气，白雾在暮色中散开。她把杯子放栏杆上，转身声音恢复日常轻快。陆北辰点头。林晚准备走——陆北辰叫住她，声音突然多了一分重量。
+        镜头2（6秒）CU→ECU 缓推：林晚转过身。城市灯光映在陆北辰眼里——他目光在她脸上停住，嘴唇微张话已到嘴边。一丝犹豫掠过眼底——他轻轻摇头，嘴角带上无奈的笑容。他说'算了'时目光没有从她脸上移开——在说服自己。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「咖啡都凉了。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「嗯。该下去了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那——」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「林晚——」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我有件事——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你说。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「……算了。以后再说吧。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……好。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「走吧——外面风大了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「嗯。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP34-SEG07
+    shot_ids: [EP34-S12]
+    duration_sec: 10
+    speakers: []
+    refs:
+      scene_id: SCENE-004
+    assets:
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: |
+        【图1】天台 SCENE-004（夜景，城市灯火）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）ELS 固定镜头→淡出：远景——天台上两人一前一后走向门口。陆北辰推开门侧身让林晚先进去。她微微低头走进——他的目光在她背影上多停了一拍，然后跟了进去。门关上，金属碰撞声消散。栏杆上并排放着两只空咖啡杯——在夜色中像两个小小的哨兵。城市夜空铺展开来，万家灯火如星河闪烁。风吹过空杯边缘发出细微呜咽声。画面定格三秒，缓缓淡出。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，第二幕暖橙主调，灰色为辅。天台黄昏暖橙光线，城市天际线为背景，晚风吹拂增添氛围感。
+      content_roles:
+        - { file: SCENE-004, role: reference_image, label: 图1 }
+    transition_to_next: hard_cut

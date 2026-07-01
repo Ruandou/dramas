@@ -1,83 +1,267 @@
-# EP62 segments.yaml
-episode: EP62
-total_duration_sec: 96
-total_shots: 12
+episode_id: EP62
+source_md: 剧本/EP62/EP62_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。本集场景：高层私人茶室，傍晚到入夜，暖黄灯光为主，深色木质装饰，窗外城市天际线渐次亮起灯火。氛围安静、私密、带着老派贵气。情绪氛围从紧张地试探→克制地展示→被考验的压力→获得认可的感动→决断与条件的转化。转场节奏：中→中→中→快→中→中→慢→爆发。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP46-72温暖明亮主调。本集场景：高层私人茶室，傍晚到入夜，暖黄灯光为主，深色木质装饰，窗外城市天际线渐次亮起灯火。氛围安静、私密、带着老派贵气。情绪氛围从紧张地试探→克制地展示→被考验的压力→获得认可的感动→决断与条件的转化。转场节奏：中→中→中→快→中→中→慢→爆发。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-013: "成年男性，75岁，声线苍老但有力，语速从容，充满智慧感"
+
 segments:
-  - id: EP62-SEG01
-    scene_id: SCENE-007
-    description: "segment 1"
-    total_duration_sec: 2
-    shots:
-      - id: EP62-S01
-        type: "`EP62-S01`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-      - id: EP62-S02
-        type: "`EP62-S02`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-  - id: EP62-SEG02
-    scene_id: SCENE-007
-    description: "segment 2"
-    total_duration_sec: 14
-    shots:
-      - id: EP62-S03
-        type: "`EP62-S03`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-      - id: EP62-S04
-        type: "`EP62-S04`"
-        duration_sec: 13
-        description: "`SCENE-007`"
-  - id: EP62-SEG03
-    scene_id: SCENE-007
-    description: "segment 3"
-    total_duration_sec: 26
-    shots:
-      - id: EP62-S05
-        type: "`EP62-S05`"
-        duration_sec: 13
-        description: "`SCENE-007`"
-      - id: EP62-S06
-        type: "`EP62-S06`"
-        duration_sec: 13
-        description: "`SCENE-007`"
-  - id: EP62-SEG04
-    scene_id: SCENE-007
-    description: "segment 4"
-    total_duration_sec: 14
-    shots:
-      - id: EP62-S07
-        type: "`EP62-S07`"
-        duration_sec: 13
-        description: "`SCENE-007`"
-      - id: EP62-S08
-        type: "`EP62-S08`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-  - id: EP62-SEG05
-    scene_id: SCENE-007
-    description: "segment 5"
-    total_duration_sec: 14
-    shots:
-      - id: EP62-S09
-        type: "`EP62-S09`"
-        duration_sec: 13
-        description: "`SCENE-007`"
-      - id: EP62-S10
-        type: "`EP62-S10`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-  - id: EP62-SEG06
-    scene_id: SCENE-007
-    description: "segment 6"
-    total_duration_sec: 26
-    shots:
-      - id: EP62-S11
-        type: "`EP62-S11`"
-        duration_sec: 13
-        description: "`SCENE-007`"
-      - id: EP62-S12
-        type: "`EP62-S12`"
-        duration_sec: 13
-        description: "`SCENE-007`"
+  - segment_id: EP62-SEG01
+    shot_ids: [EP62-S01, EP62-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-013]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结+银白短发）【图3】高层私人茶室 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中全景 固定：高层私人茶室落地窗外上海天际线剪影——天空从灰蓝向深蓝过渡城市灯光开始零星亮起。深色木质墙面上挂着一幅水墨画，暖黄灯光从复古吊灯中倾泻而下。一张老式红木茶桌两人对坐。林晚脊背挺直双手放在膝上姿态从容但肩膀微微收紧。对面老人银白短发深蓝色三件套西装红领结系得一丝不苟，正在沏茶动作缓慢而精确。
+        镜头2（6秒）中近景 缓推：林晚的坐姿没有变但放在膝上的手指微微收紧了半秒然后松开。窗外最后的天光在她脸上投下柔和的暖色——茶室灯光在她瞳孔里映出两点金色。她微微抬起下巴——不是傲慢是确认自己的位置。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「谢谢您愿意见我。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「你在电话里说——想跟我做笔交易。我很好奇——你拿什么跟我做交易。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「拿一个信息——一个您目前还不知道，但很快就需要知道的信息。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「哦？」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-013-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP62-SEG02
+    shot_ids: [EP62-S03, EP62-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-013]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结+银白短发）【图3】高层私人茶室 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头3（6秒）特写 固定：林晚的脸。暖黄茶室灯光从侧面照亮她的轮廓半张脸在光里半张脸在柔和的阴影中。表情很平静但眼睛在快速转动像在整理一段复杂的记忆。她端起茶杯没有喝只是让那股温热透过杯壁传到指尖。
+        镜头4（6秒）中景到中近景 缓推：老人端着茶杯的手停住了。他没有喝那口茶而是慢慢把茶杯放回桌面——动作比之前更慢。他抬起头第一次正眼看向林晚。那双苍老的眼睛里不再只是好奇——有了一丝重新评估的意味。窗外第一盏城市灯光在他银框眼镜上反射出一个光点。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「十年前——您拒绝了一笔投资。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「一家做AI医疗影像的初创公司。创始人是个戴着厚眼镜的年轻人，拿着一份在您看来'太早了'的商业计划书。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那家公司三年后——被一家美国巨头以四十亿美金收购。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「那笔交易——我没有公开讨论过。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「你是怎么知道的？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我做了很多功课——在打电话给您之前。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-013-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP62-SEG03
+    shot_ids: [EP62-S05, EP62-S06]
+    duration_sec: 12
+    speakers: [CHAR-013, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结+银白短发）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】高层私人茶室 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头5（6秒）特写 固定：老人的脸。岁月在他脸上刻下深刻的纹路但他的眼睛像两颗被打磨了七十多年的宝石——表面的温和之下是冷锐的判断力。他不再沏茶了。他双手交握放在桌面上身体微微前倾——那是一个"现在我们来谈正事"的姿态。
+        镜头6（6秒）大特写 固定：老人的眼睛。那双七十多年阅历的眼睛在听到林晚的话时瞳孔没有任何放大表情没有任何变化。但他在林晚说完之后没有立刻回应——那沉默本身就是一种反应。过了大概两秒他开口了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「盛天资本的收购案——我有关注。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「他们在二级市场已经拿了超过42%。窗口期还剩不到三周。你现在的筹码——在我看来，不够。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「如果我说——我有办法让周明轩在收购过程中违规操作呢？」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「具体说说。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「盛天资本四年前在做一起跨境并购时——曾经被证监部门发过问询函。那次问询虽然没公开定论，但内部调查报告显示，他们在交易过程中存在信息不对称操作。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「同样的手法——他们现在正在对这家公司用。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-013-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP62-SEG04
+    shot_ids: [EP62-S07, EP62-S08]
+    duration_sec: 12
+    speakers: [CHAR-013, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】高层私人茶室 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头7（6秒）中近景 固定：老人放下茶杯指尖轻轻在桌面上点了两下——一个思考的姿态。窗外夜色已经完全降临城市的万家灯火在他身后铺展开来。他的半张脸在灯光中半张脸在阴影里。那张历经沧桑的面孔上嘴角微微动了一下——不是笑是一种更复杂的表情。
+        镜头8（6秒）特写 固定：林晚的脸。暖黄灯光从侧上方洒下来她的表情没有求饶没有卑微——是一种坦荡。她在赌桌上亮出了自己所有的牌包括那张最危险的自白：我没有证据我只是知道。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「你知道这些信息——为什么不自己去证监会举报？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「因为我没有证据。我只是知道这件事会发生。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「但如果有足够分量的人出面——事情就可以从'传闻'变成'线索'。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我知道这听起来很疯狂。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「但我说的是实话。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「我知道。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-013-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP62-SEG05
+    shot_ids: [EP62-S09]
+    duration_sec: 10
+    speakers: [CHAR-013, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结+银白短发）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】高层私人茶室 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头9（10秒）中景 跟随：老人慢慢站起身走向落地窗。他背对着林晚双手背在身后望着窗外的城市夜景——万家灯火在他脚下铺展开来。林晚仍然坐在茶桌前没有动看着他的背影——那个略驼但挺直的脊背像一棵老树的轮廓。老人转过身看着她，缓缓走回茶桌前坐下拿起茶壶为她续了一杯茶——动作里已经没有了最初的仪式般的距离感而是一种更亲近的姿态。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「盛天资本四年前并购案被问询的事——行业内知道的人不超过五个。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「你不应该知道这件事——但你知道了。这说明——你做了我没预料到的功课。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「让我换一个说法——你是目前为止，第一个用我不了解的牌，打赢了我一局的人。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-013-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP62-SEG06
+    shot_ids: [EP62-S10]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-013]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结+银白短发）【图3】高层私人茶室 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头10（10秒）特写到极致特写 缓推：林晚端着那杯他亲手续的茶没有喝。茶杯在指尖间微微倾斜——她的手在发抖不是因为恐惧是因为一种她此刻无法命名的东西涌了上来。前世的记忆在这一刻重叠了——她想起了前世这位老人在一次公开活动中提到她的名字说了一句"这姑娘有灵气"。此刻她坐在他对面他的目光穿过茶室的暖光落在她身上——她忽然明白了前世那句话是真的。她的眼眶微微泛红但她在控制用深呼吸把那层情绪压下去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我来之前——准备了很多种说法。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「没想到——您已经知道了。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「我知道的——是你能找到这里，已经证明了你的判断力。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「剩下的——你需要证明给我看。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-013-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP62-SEG07
+    shot_ids: [EP62-S11]
+    duration_sec: 10
+    speakers: [CHAR-013, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结+银白短发）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】高层私人茶室 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头11（10秒）中景 固定：茶室两人隔着茶桌对坐。老人放下茶杯用一块白色手帕擦拭了一下手指动作从容不带丝毫犹豫。窗外夜色正浓城市灯光在落地窗上反射出温暖的光斑。林晚的坐姿依然端正但她的呼吸不自觉地放慢了——她感觉到答案即将揭晓。老人抬起头看着她目光平静而笃定，那双眼睛深处有一种经历过无数风浪后才有的笃定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「盛天资本的问询函——我可以出面推动。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「以我的名义。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「谢谢您。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「但我有一个条件。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-013-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP62-SEG08
+    shot_ids: [EP62-S12]
+    duration_sec: 10
+    speakers: [CHAR-013, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结+银白短发）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】高层私人茶室 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头12（10秒）特写到中景 拉远：特写开始——老人的脸。暖黄灯光从侧面打在他的脸上将皱纹的阴影拉深。他的目光平静但锐利——像最后一枚棋子从指尖落下之前的那个瞬间。然后镜头缓缓拉远变成两人的中景——茶桌暖光窗外夜色以及林晚那张从准备接受条件到突然愣住的脸。她的表情变化极其细微——眉头轻轻抬了一下瞳孔微微放大——不是因为恐惧是因为她没想到是这个条件。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「我要见你那个——传说中的原型机。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「您……说的是那个还没发布的新项目？」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「我看过你们的产品发布会视频——也听几个技术圈的朋友提起过。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「能让盛天资本在发布会当天股价暴跌20%的东西——我想亲眼看到。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「好。我安排。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-013-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

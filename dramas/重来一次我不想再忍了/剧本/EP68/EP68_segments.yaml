@@ -1,92 +1,221 @@
-# EP68 segments.yaml
-episode: EP68
-total_duration_sec: 80
-total_shots: 13
+episode_id: EP68
+source_md: 剧本/EP68/EP68_投资传奇的礼物.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。温暖明亮色调，暖橙氛围。现代都市环境。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。真人实拍质感，电影级色彩，浅景深。温暖明亮色调，暖橙氛围。现代都市环境。"
+  negative_prompt: "real celebrity face, real brand logo, ancient costume, weapon, military uniform, gun, explosion, anime style, cartoon style, horror, blood, supernatural visual effect"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+  CHAR-013: "成年男性，75岁，声线苍老但有力，语速从容，充满智慧感"
+
 segments:
-  - id: EP68-SEG01
-    scene_id: SCENE-001
-    description: "segment 1"
-    total_duration_sec: 12
-    shots:
-      - id: EP68-S01
-        type: "中景"
-        duration_sec: 6
-        description: "投资传奇约林晚单独喝咖啡。他从公文包里拿出一份文件。"
-      - id: EP68-S02
-        type: "近景"
-        duration_sec: 6
-        description: "他把文件推到林晚面前。"
-  - id: EP68-SEG02
-    scene_id: SCENE-001
-    description: "segment 2"
-    total_duration_sec: 12
-    shots:
-      - id: EP68-S03
-        type: "特写"
-        duration_sec: 6
-        description: "文件封面写着"盛天资本——结构重组与退出方案"。林晚抬头。"
-      - id: EP68-S04
-        type: "近景"
-        duration_sec: 6
-        description: "投资传奇喝了一口茶。"
-  - id: EP68-SEG03
-    scene_id: SCENE-001
-    description: "segment 3"
-    total_duration_sec: 12
-    shots:
-      - id: EP68-S05
-        type: "中景"
-        duration_sec: 6
-        description: "林晚翻看文件，越看越心惊。"
-      - id: EP68-S06
-        type: "近景"
-        duration_sec: 6
-        description: "林晚合上文件："代价是什么？""
-  - id: EP68-SEG04
-    scene_id: SCENE-001
-    description: "segment 4"
-    total_duration_sec: 12
-    shots:
-      - id: EP68-S07
-        type: "中景"
-        duration_sec: 6
-        description: "林晚沉默了很久。"
-      - id: EP68-S08
-        type: "近景"
-        duration_sec: 6
-        description: "投资传奇看着窗外。"
-  - id: EP68-SEG05
-    scene_id: SCENE-001
-    description: "segment 5"
-    total_duration_sec: 12
-    shots:
-      - id: EP68-S09
-        type: "近景"
-        duration_sec: 6
-        description: "林晚眼眶微红，但没有让眼泪流下来。"
-      - id: EP68-S10
-        type: "中景"
-        duration_sec: 6
-        description: "投资传奇站起身。"
-  - id: EP68-SEG06
-    scene_id: SCENE-001
-    description: "segment 6"
-    total_duration_sec: 12
-    shots:
-      - id: EP68-S11
-        type: "中景"
-        duration_sec: 6
-        description: "林晚回到办公室，把文件放在桌上。陆北辰在等她。"
-      - id: EP68-S12
-        type: "近景"
-        duration_sec: 6
-        description: "陆北辰看着她。林晚终于露出一个发自内心的笑容。"
-  - id: EP68-SEG07
-    scene_id: SCENE-001
-    description: "segment 7"
-    total_duration_sec: 8
-    shots:
-      - id: EP68-S13
-        type: "中景"
-        duration_sec: 8
-        description: "夕阳透过落地窗照进来。林晚和陆北辰并肩站在窗前。"
+  - segment_id: EP68-SEG01
+    shot_ids: [EP68-S01, EP68-S02]
+    duration_sec: 12
+    speakers: [CHAR-013]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：午后咖啡厅，图1从公文包里拿出一份文件放在桌上，图2坐在对面看着。
+        镜头2（6秒）近景 固定：图1将文件推到图2面前。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「硅谷演讲的效果很好——三天内我收到了七个投资意向。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「这是你的礼物。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-013-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP68-SEG02
+    shot_ids: [EP68-S03, EP68-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-013]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】投资传奇 CHAR-013-L01【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：文件封面写着"盛天资本——结构重组与退出方案"，图1缓缓抬起头，眼神惊讶。
+        镜头2（6秒）近景 固定：图2端起茶杯从容地喝了一口茶，放下茶杯。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这是——」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「周明轩的董事会不是铁板一块。他最大的投资人——是我以前的学生。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-013-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP68-SEG03
+    shot_ids: [EP68-S05, EP68-S06]
+    duration_sec: 12
+    speakers: [CHAR-013, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】投资传奇 CHAR-013-L01【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1低头翻看文件，眉头渐皱，越看越心惊。图2坐在对面从容注视。
+        镜头2（6秒）近景 固定：图1合上文件，直视图2。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「只要你同意——他会在下周的董事会上提出撤资动议。周明轩——会被盛天资本董事会罢免。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「代价是什么？」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「没有代价。就当——是给一个值得投资的年轻人的礼物。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-013-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP68-SEG04
+    shot_ids: [EP68-S07, EP68-S08]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-013]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】投资传奇 CHAR-013-L01【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1沉默良久，垂眸看着面前的文件，室内只有咖啡厅的背景轻音乐。
+        镜头2（6秒）近景 固定：图2转头看向窗外，目光悠远，仿佛在回忆什么。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「您为什么要帮我？」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「我年轻的时候——也有一个人这样帮过我。后来他去世了。我没来得及还他人情。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-013-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP68-SEG05
+    shot_ids: [EP68-S09, EP68-S10]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-013]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】投资传奇 CHAR-013-L01【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1眼眶微红，嘴唇轻轻抿住，但努力没有让眼泪流下来。眼神中充满感激与坚定。
+        镜头2（6秒）中景 固定：图2缓缓站起身，拿起搭在椅背上的外套，转身准备离开。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「谢谢您。」
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「别谢我。去赢。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-013-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP68-SEG06
+    shot_ids: [EP68-S11, EP68-S12]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】陆北辰 CHAR-005-L01（深炭灰西装）【图3】公司办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：傍晚，图1推门走进办公室，把文件放在桌上。图2已在室内等她，转身看向她。
+        镜头2（6秒）近景 固定：图2深深看着图1。图1终于露出一个发自内心的笑容，带着如释重负的轻松。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「什么情况？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我们赢了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「周明轩——会被盛天资本罢免。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP68-SEG07
+    shot_ids: [EP68-S13]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】公司办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 固定：夕阳透过落地窗照进来，金色光芒洒满办公室。图1和图2并肩站在窗前，望着窗外的城市天际线。画面温暖宁静。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「原来这条路走到尽头——不是复仇。是自由。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

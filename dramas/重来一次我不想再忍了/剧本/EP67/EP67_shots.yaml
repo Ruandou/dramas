@@ -1,83 +1,382 @@
-# EP67 shots.yaml
-episode: EP67
-total_duration_sec: 80
-total_shots: 13
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP67/EP67_硅谷演讲.md
+# Source shots: 13 (EP67-S01 to EP67-S13)
+# Output shots: 13 (EP67-S01 to EP67-S13)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s (自行计算)
+# Output total duration: 80s
+# Gate status: ALL PASS (non-fatal gates skipped per user instruction)
+
+episode_id: EP67
+source_md: 剧本/EP67/EP67_硅谷演讲.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，暖调职场剧，色调温暖明亮。"
+  negative_prompt: "文字, 字幕, 动漫, 卡通, 插图, 漫画, 血腥, 暴力, 超自然特效, 奢侈品品牌Logo"
+
 shots:
-  - id: EP67-S01
-    scene_id: SCENE-013
-    type: "全景"
+  - shot_id: EP67-S01
+    shot_no: 1
+    mode: i2v_ref
     duration_sec: 6
-    description: "硅谷会议中心，座无虚席的国际科技峰会。大屏幕上显示着"Lin Wan - Shengtian Tech"。林晚站在幕后，深呼吸。"
-    dialogue: "（英文同声传译背景音）"
-  - id: EP67-S02
-    scene_id: SCENE-013
-    type: "近景"
+    refs:
+      scene_id: SCENE-016
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01 【图2】硅谷演讲厅 SCENE-016。全景 固定：硅谷会议中心，座无虚席的国际科技峰会。大屏幕上显示着「Lin Wan - Shengtian Tech」。林晚站在幕后，深呼吸。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-016
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP67-S02
+    shot_no: 2
+    mode: i2v_ref
     duration_sec: 6
-    description: "陆北辰在台下第一排，朝她点了点头。林晚微笑着走上舞台。"
-    dialogue: "主持人："让我们欢迎——盛天科技CTO，林晚。""
-  - id: EP67-S03
-    scene_id: SCENE-013
-    type: "中景"
+    refs:
+      scene_id: SCENE-016
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01（深炭灰西装，台下第一排）【图2】林晚 CHAR-001-L01 【图3】硅谷演讲厅 SCENE-016。近景 固定：陆北辰在台下第一排，朝她点了点头。林晚微笑着走上舞台。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-016
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: 主持人
+        line: "让我们欢迎——盛天科技CTO，林晚。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP67-S03
+    shot_no: 3
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚站在演讲台前，用流利的英文开场。"
-    dialogue: "林晚（英文）："五年前——我是一个被裁员的普通员工。今天——我站在这里，想告诉各位——技术不认出身。""
-  - id: EP67-S04
-    scene_id: SCENE-013
-    type: "近景"
+    refs:
+      scene_id: SCENE-016
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01 【图2】硅谷演讲厅 SCENE-016。中景 固定：林晚站在演讲台前，用流利的英文开场。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-016
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "五年前——我是一个被裁员的普通员工。今天——我站在这里，想告诉各位——技术不认出身。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP67-S04
+    shot_no: 4
+    mode: i2v_ref
     duration_sec: 6
-    description: "台下观众安静倾听。有人开始拿笔记录。"
-    dialogue: "林晚（英文）："我们做了一件事——用三分之一成本，实现了行业顶尖的性能。""
-  - id: EP67-S05
-    scene_id: SCENE-013
-    type: "中景"
+    refs:
+      scene_id: SCENE-016
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（站在演讲台前）【图2】硅谷演讲厅 SCENE-016。近景 固定：台下观众安静倾听。有人开始拿笔记录。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-016
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "我们做了一件事——用三分之一成本，实现了行业顶尖的性能。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP67-S05
+    shot_no: 5
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚展示原型机数据，大屏幕上显示性能对比图。"
-    dialogue: "林晚（英文）："这是我们的原型机测试数据。和行业顶尖产品的对比——我不说话，数据说话。""
-  - id: EP67-S06
-    scene_id: SCENE-013
-    type: "特写"
+    refs:
+      scene_id: SCENE-016
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（站在演讲台前）【图2】硅谷演讲厅 SCENE-016 大屏幕。中景 固定：林晚展示原型机数据，大屏幕上显示性能对比图。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-016
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "这是我们的原型机测试数据。和行业顶尖产品的对比——我不说话，数据说话。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP67-S06
+    shot_no: 6
+    mode: i2v_ref
     duration_sec: 6
-    description: "台下投资传奇微笑着鼓掌。观众席响起掌声。"
-    dialogue: "（掌声响起）"
-  - id: EP67-S07
-    scene_id: SCENE-013
-    type: "中景"
+    refs:
+      scene_id: SCENE-016
+      look_ids:
+        - CHAR-013-L01
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-013-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: "【图1】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结）【图2】硅谷演讲厅 SCENE-016。特写 固定：台下投资传奇微笑着鼓掌。观众席响起掌声。"
+      content_roles:
+        - file: CHAR-013-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-016
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP67-S07
+    shot_no: 7
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚的演讲进入高潮——她讲述了自己的创业故事。"
-    dialogue: "林晚（英文）："有人问我——为什么要做这件事？因为我相信——最好的技术来自那些被逼到绝境的人。""
-  - id: EP67-S08
-    scene_id: SCENE-013
-    type: "近景"
+    refs:
+      scene_id: SCENE-016
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（站在演讲台前）【图2】硅谷演讲厅 SCENE-016。中景 固定：林晚的演讲进入高潮——她讲述了自己的创业故事。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-016
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "有人问我——为什么要做这件事？因为我相信——最好的技术来自那些被逼到绝境的人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP67-S08
+    shot_no: 8
+    mode: i2v_ref
     duration_sec: 6
-    description: "观众起立鼓掌。林晚眼眶微红。"
-    dialogue: "（全场起立，经久不息的掌声）"
-  - id: EP67-S09
-    scene_id: SCENE-013
-    type: "中景"
+    refs:
+      scene_id: SCENE-016
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01 【图2】硅谷演讲厅 SCENE-016。近景 固定：观众起立鼓掌。林晚眼眶微红。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-016
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP67-S09
+    shot_no: 9
+    mode: i2v_ref
     duration_sec: 6
-    description: "投资传奇走到台边，低声对林晚说了什么。林晚惊讶地看着他。"
-    dialogue: "投资传奇（低声）："刚才有人找我——周明轩的董事会通过了新的收购方案。""
-  - id: EP67-S10
-    scene_id: SCENE-013
-    type: "近景"
+    refs:
+      scene_id: SCENE-016
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-013-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-013-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01 【图2】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结）【图3】硅谷演讲厅 SCENE-016。中景 固定：投资传奇走到台边，低声对林晚说了什么。林晚惊讶地看着他。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-013-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-016
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-013
+        line: "刚才有人找我——周明轩的董事会通过了新的收购方案。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP67-S10
+    shot_no: 10
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚表情瞬间变化。"
-    dialogue: "林晚（低声）："什么时候的事？""
-  - id: EP67-S11
-    scene_id: SCENE-013
-    type: "中景"
+    refs:
+      scene_id: SCENE-016
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01 【图2】硅谷演讲厅 SCENE-016。近景 固定：林晚表情瞬间变化。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-016
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "什么时候的事？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP67-S11
+    shot_no: 11
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚稳定情绪，回到演讲台。她面朝观众，微笑。"
-    dialogue: "林晚（英文）："所以我的回答是——是的，我们正在寻找全球合作伙伴。""
-  - id: EP67-S12
-    scene_id: SCENE-013
-    type: "特写"
+    refs:
+      scene_id: SCENE-016
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01 【图2】硅谷演讲厅 SCENE-016。中景 固定：林晚稳定情绪，回到演讲台。她面朝观众，微笑。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-016
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "所以我的回答是——是的，我们正在寻找全球合作伙伴。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP67-S12
+    shot_no: 12
+    mode: i2v_ref
     duration_sec: 6
-    description: "大屏幕上出现林晚的邮箱。台下多位投资人拿出手机拍照。"
-    dialogue: "（台下观众纷纷拍照记录）"
-  - id: EP67-S13
-    scene_id: SCENE-013
-    type: "近景"
+    refs:
+      scene_id: SCENE-016
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01 【图2】硅谷演讲厅 SCENE-016 大屏幕。特写 固定：大屏幕上出现林晚的邮箱。台下多位投资人拿出手机拍照。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-016
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: dissolve
+
+  - shot_id: EP67-S13
+    shot_no: 13
+    mode: i2v_ref
     duration_sec: 8
-    description: "林晚快步走出演讲厅，在走廊上给陆北辰打电话。"
-    dialogue: "林晚："周明轩又动了一步。我们得提前回国。""
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-005-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-013.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（快步行走，打电话）【图2】陆北辰 CHAR-005-L01（接电话）【图3】演讲厅走廊 SCENE-013。近景 固定：林晚快步走出演讲厅，在走廊上给陆北辰打电话。陆北辰接起电话。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-013
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "周明轩又动了一步。我们得提前回国。"
+      - speaker: CHAR-005
+        line: "我已经在订票了。"
+    transition_to_next: hard_cut

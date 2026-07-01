@@ -1,83 +1,389 @@
-# EP72 shots.yaml
-episode: EP72
-total_duration_sec: 84
-total_shots: 13
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP72/EP72_大结局.md
+# Source shots: 13 (EP72-S01 to EP72-S13)
+# Output shots: 13 (EP72-S01 to EP72-S13)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 84s
+# Output total duration: 84s
+# Gate status: SKIPPED (user overrode non-fatal gates)
+# NOTE: Scene IDs corrected per visual content (SEG-4/5/7=SCENE-004, SEG-6=SCENE-014)
+
+episode_id: EP72
+source_md: 剧本/EP72/EP72_大结局.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。温暖明亮色调，大结局的暖橙金色光感。现代都市环境。"
+  negative_prompt: "real celebrity face, real brand logo, ancient costume, weapon, military uniform, gun, explosion, anime style, cartoon style"
+
 shots:
-  - id: EP72-S01
-    scene_id: SCENE-011
-    type: "全景"
+  - shot_id: EP72-S01
+    shot_no: 1
+    mode: i2v_ref
     duration_sec: 6
-    description: "一场新书签售会。林晚坐在桌前，面前摆着她的自传（PROP-006）——《重来一次，我不想再忍了》。"
-    dialogue: "(读者排队的声音)"
-  - id: EP72-S02
-    scene_id: SCENE-011
-    type: "中景"
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（白色西装套装）【图2】签售会 SCENE-011。全景 固定：一场新书签售会。图1坐在桌前，面前摆着她的自传《重来一次，我不想再忍了》，读者排着队。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-011
+          role: reference_image
+          label: 图2
+    dialogue: []
+
+  - shot_id: EP72-S02
+    shot_no: 2
+    mode: i2v_ref
     duration_sec: 6
-    description: "一个年轻女孩走到她面前，手里拿着书。林晚接过，翻开扉页。"
-    dialogue: "女孩："林老师——您这本书——救了我。"林晚抬头，微笑。"
-  - id: EP72-S03
-    scene_id: SCENE-011
-    type: "近景"
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】签售会 SCENE-011。中景 固定：一个年轻女孩走到桌前，手里拿着书。图1接过书，翻开扉页，抬头温暖微笑。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-011
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-GRP-06
+        line: "林老师——您这本书——救了我。"
+
+  - shot_id: EP72-S03
+    shot_no: 3
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚在扉页上写下："你也可以。""
-    dialogue: "林晚："是你自己救了自己。书——只是告诉你——你不是一个人。""
-  - id: EP72-S04
-    scene_id: SCENE-011
-    type: "中景"
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】签售会 SCENE-011。近景 固定：图1在扉页上认真写下赠言——你也可以。笔尖在纸面上沙沙滑动。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-011
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "是你自己救了自己。书——只是告诉你——你不是一个人。"
+
+  - shot_id: EP72-S04
+    shot_no: 4
+    mode: i2v_ref
     duration_sec: 6
-    description: "女孩抱紧书，眼眶湿润。转身离开。林晚看着她的背影。"
-    dialogue: "林晚（内心）："每一代女孩——都在同一间楼梯间里哭过。但现在的她们——手里有地图了。""
-  - id: EP72-S05
-    scene_id: SCENE-011
-    type: "中景"
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】签售会 SCENE-011。中景 固定：女孩抱紧书，眼眶湿润，转身离开。图1看着她的背影，目光中带着跨越时空的欣慰与共鸣。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-011
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "每一代女孩——都在同一间楼梯间里哭过。但现在的她们——手里有地图了。"
+
+  - shot_id: EP72-S05
+    shot_no: 5
+    mode: i2v_ref
     duration_sec: 6
-    description: "签售结束。林晚站起来，活动了一下肩膀。苏晴走过来。"
-    dialogue: "苏晴（笑）："林大作家——累不累？"林晚："比你当年做短视频——轻松多了。""
-  - id: EP72-S06
-    scene_id: SCENE-011
-    type: "近景"
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（白色西装）【图2】苏晴 CHAR-004-L01（米色针织衫）【图3】签售会 SCENE-011。中景 固定：签售结束。图1站起来活动肩膀。图2走过来，笑着看着她。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-011
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "林大作家——累不累？"
+      - speaker: CHAR-001
+        line: "比你当年做短视频——轻松多了。"
+
+  - shot_id: EP72-S06
+    shot_no: 6
+    mode: i2v_ref
     duration_sec: 6
-    description: "陆北辰从人群外走来，手里拿着一杯咖啡。"
-    dialogue: "陆北辰："还是老规矩——天台上喝？"林晚接过咖啡："走。""
-  - id: EP72-S07
-    scene_id: SCENE-011
-    type: "全景"
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01（深炭灰西装）【图2】签售会 SCENE-011。近景 固定：图1从人群外走来，手里端着一杯咖啡，微笑着看向图2方向。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-011
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "还是老规矩——天台上喝？"
+      - speaker: CHAR-001
+        line: "走。"
+
+  - shot_id: EP72-S07
+    shot_no: 7
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚和陆北辰站在天台上。城市的景色尽收眼底。"
-    dialogue: "陆北辰："写这本书的时候——哭了几次？""
-  - id: EP72-S08
-    scene_id: SCENE-011
-    type: "近景"
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】天台 SCENE-004。全景 固定：两人并肩站在天台上，夕阳洒落，城市天际线在远处铺开。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "写这本书的时候——哭了几次？"
+
+  - shot_id: EP72-S08
+    shot_no: 8
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚想了想。"
-    dialogue: "林晚："三次。写EP52的时候——写楼梯间的时候——写最后一章的时候。""
-  - id: EP72-S09
-    scene_id: SCENE-011
-    type: "中景"
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】天台 SCENE-004。近景 固定：图1想了想，目光望向远方，嘴角带着微笑。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "三次。写EP52的时候——写楼梯间的时候——写最后一章的时候。"
+
+  - shot_id: EP72-S09
+    shot_no: 9
+    mode: i2v_ref
     duration_sec: 6
-    description: "陆北辰从口袋里掏出那枚硬币。"
-    dialogue: "陆北辰："还记得这个吗？"林晚笑了："记得。一块钱。""
-  - id: EP72-S10
-    scene_id: SCENE-011
-    type: "近景"
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】天台 SCENE-004。中景 固定：图2从口袋里掏出一枚一元硬币，两指夹着举起。图1看着硬币，笑了。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "还记得这个吗？"
+      - speaker: CHAR-001
+        line: "记得。一块钱。"
+
+  - shot_id: EP72-S10
+    shot_no: 10
+    mode: i2v_ref
     duration_sec: 6
-    description: "陆北辰把硬币抛向空中，接住。"
-    dialogue: "陆北辰："当初我说——等我们真的赢了的那一天——用它买杯咖啡。今天——该兑现了。""
-  - id: EP72-S11
-    scene_id: SCENE-011
-    type: "闪回"
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】天台 SCENE-004。近景 固定：图1把硬币抛向空中，金色的夕阳下硬币翻转——接住。嘴角带着历经所有风雨后的释然微笑。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "当初我说——等我们真的赢了的那一天——用它买杯咖啡。今天——该兑现了。"
+
+  - shot_id: EP72-S11
+    shot_no: 11
+    mode: i2v_ref
     duration_sec: 6
-    description: "六年前。年轻的林晚蹲在楼梯间哭泣。另一个年轻的同事走过——没有人停下来。"
-    dialogue: "林晚（画外音）："六年前——我蹲在那里哭。没有人在我面前停下来。""
-  - id: EP72-S12
-    scene_id: SCENE-011
-    type: "闪回"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】林晚（年轻）CHAR-001-L01【图2】楼梯间 SCENE-014。闪回镜头：六年前。图1年轻时蹲在楼梯间角落哭泣，肩膀抖动。另一个年轻同事走过——没有人停下来。冷灰色调。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-014
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "六年前——我蹲在那里哭。没有人在我面前停下来。"
+
+  - shot_id: EP72-S12
+    shot_no: 12
+    mode: i2v_ref
     duration_sec: 6
-    description: "现在的林晚站在楼梯间门口，阳光透过窗子照进来。她推门走出去。"
-    dialogue: "林晚（画外音）："所以——六年后——我回来——成了那个停下来的人。""
-  - id: EP72-S13
-    scene_id: SCENE-011
-    type: "全景"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。闪回转现实：图1站在楼梯间门口，阳光透过窗子照进来，在她身上形成光晕。她推开门，走出去，脚步笃定。色调从冷灰转为暖金。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-014
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "所以——六年后——我回来——成了那个停下来的人。"
+
+  - shot_id: EP72-S13
+    shot_no: 13
+    mode: i2v_ref
     duration_sec: 12
-    description: "林晚和陆北辰并肩站在天台上。夕阳将两个人的影子拉得很长。城市在脚下铺开，无边无际。"
-    dialogue: "林晚（画外音，独白）："有人问我——重来一次，最想改变什么？""
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】天台 SCENE-004。全景 缓缓拉开：两人并肩站在天台上，夕阳将影子拉得很长。城市天际线在脚下铺开，无边无际。图1端起咖啡杯，碰了碰图2的杯子。镜头缓缓拉开，城市天际线在温暖夕阳中发光。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "有人问我——重来一次，最想改变什么？"
+      - speaker: CHAR-001
+        line: "我的答案是——什么都不改变。因为每一次跌倒——每一次哭——每一次觉得撑不下去的瞬间——最后都把我带到了这里。"
+      - speaker: CHAR-001
+        line: "重来一次——不是为了避开所有的坑。是为了——在掉进坑里的时候——知道自己爬得出来。"

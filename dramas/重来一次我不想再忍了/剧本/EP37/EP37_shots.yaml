@@ -1,77 +1,420 @@
-# EP37 shots.yaml
-episode: EP37
-total_duration_sec: 32
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP37/EP37_分镜剧本.md
+# Source shots: 12 (EP37-S01 to EP37-S12)
+# Output shots: 12 (EP37-S01 to EP37-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s
+# Output total duration: 80s
+# Gate status: ALL PASS
+# ⚠️ WARNING: EP37 contains [待补：赵总的女儿小慧] - no CHAR-GRP ID assigned yet
+
+episode_id: EP37
+source_md: 剧本/EP37/EP37_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，第二幕暖橙主调，灰色为辅。赵总办公室以暖色台灯+暮色窗光混合为主，夜晚医院以冷白荧光灯+蓝色夜光为主，冷暖对比暗喻赵总处境的两面性。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP37-S01
-    scene_id: SCENE-018
-    type: "`EP37-S01`"
-    duration_sec: 1
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-001`"
-  - id: EP37-S02
-    scene_id: SCENE-018
-    type: "`EP37-S02`"
-    duration_sec: 1
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-001`"
-  - id: EP37-S03
-    scene_id: SCENE-018
-    type: "`EP37-S03`"
-    duration_sec: 1
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-001`, `CHAR-006`"
-  - id: EP37-S04
-    scene_id: SCENE-018
-    type: "`EP37-S04`"
-    duration_sec: 1
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-001`, `CHAR-006`"
-  - id: EP37-S05
-    scene_id: SCENE-018
-    type: "`EP37-S05`"
-    duration_sec: 1
-    description: "`SCENE-018`"
-    dialogue: "`CHAR-001`"
-  - id: EP37-S06
-    scene_id: SCENE-018
-    type: "`EP37-S06`"
+  - shot_id: EP37-S01
+    shot_no: 1
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-018`"
-    dialogue: "`CHAR-006`, `CHAR-001`"
-  - id: EP37-S07
-    scene_id: SCENE-018
-    type: "`EP37-S07`"
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤，背着包准备下班）【图2】赵总办公室 SCENE-003（暮色从落地窗斜照，门虚掩透出灯光）。MLS 固定：公司走廊暮色从落地窗斜照，大部分工位的灯已熄。赵总办公室门虚掩透出一线灯光。林晚背着包准备下班走过赵总办公室时，里面传来压低声音近乎恳求的嗓音——不是平时那个官腔十足的赵总。林晚停住脚步，身体微微侧向那扇门。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-006
+        line: "……再宽限几天……就几天……我一定凑到……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP37-S02
+    shot_no: 2
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-018`"
-    dialogue: "`CHAR-006`, `CHAR-001`"
-  - id: EP37-S08
-    scene_id: SCENE-018
-    type: "`EP37-S08`"
-    duration_sec: 1
-    description: "`SCENE-018`"
-    dialogue: "`CHAR-001`, `CHAR-006`"
-  - id: EP37-S09
-    scene_id: SCENE-018
-    type: "`EP37-S09`"
-    duration_sec: 1
-    description: "`SCENE-018`"
-    dialogue: "`CHAR-001`, `CHAR-006`"
-  - id: EP37-S10
-    scene_id: SCENE-018
-    type: "`EP37-S10`"
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】赵总办公室 SCENE-003（暮色）。MCU 固定：林晚站在门外没有立刻走开也没有推门。她等了两三秒听完了电话最后几句。赵总的声音里有被逼到绝境的惶恐——一个五十岁的管理者在低声下气求人。林晚眉头微微皱起——意识到赵总的秘密比她想象的深。办公室内传来电话被挂断的闷响。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-003
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-006
+        line: "……好……我知道……我再想办法……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP37-S03
+    shot_no: 3
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-018`"
-    dialogue: "`CHAR-006`, `CHAR-001`"
-  - id: EP37-S11
-    scene_id: SCENE-018
-    type: "`EP37-S11`"
-    duration_sec: 1
-    description: "`SCENE-018`"
-    dialogue: "`CHAR-001`, `CHAR-006`"
-  - id: EP37-S12
-    scene_id: SCENE-018
-    type: "`EP37-S12`"
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带+深灰西裤）【图3】赵总办公室 SCENE-003。MCU 固定：林晚敲门推门进去。赵总正慌乱地收拾桌面文件——手指在发抖，几页纸从手里滑落到地上。抬头看到林晚勉强挤出管理者镇定的笑容——太刻意。林晚视线扫过桌面——一张印着儿童医院住院部血液科字样的单据露出一半边。赵总注意到她的目光条件反射般把纸塞进抽屉，动作太急纸角夹在了抽屉缝里。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "赵总，周报我放您桌上了。"
+      - speaker: CHAR-006
+        line: "好……放在那儿就行。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP37-S04
+    shot_no: 4
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-018`"
-    dialogue: "`CHAR-006`, `CHAR-001`"
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】赵总 CHAR-006-L01【图3】赵总办公室 SCENE-003。CU→MCU 固定：林晚没有追问那张纸的事。平静汇报了几句工作日程——声音平稳如常。赵总心不在焉地点头目光游移不敢与她对视，攥着笔的手指关节泛白。林晚说完以我先走了结束对话转身离开。走出办公室后她没有直接走向电梯——在走廊里站定拿出手机默记了那张单据上医院的名称。表情从平静变成若有所思。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "最近辛苦了……项目收尾了吧？"
+      - speaker: CHAR-001
+        line: "差不多了。那我先走了。"
+      - speaker: CHAR-006
+        line: "嗯……早点回。"
+    transition_to_next: dissolve
+
+  - shot_id: EP37-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-018.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣，站在医院走廊）【图2】儿童医院病房 SCENE-018（夜，冷白荧光灯，病床上有小女孩戴口罩）。MLS推至MCU 镜头缓推：夜晚医院走廊安静空旷，白炽灯冷白的光，地面瓷砖反射苍白光线。林晚站在一扇病房门外透过门上玻璃窗望进去。病房内赵总坐在小病床边椅子上背对门。床上躺着一个七八岁小女孩——脸色苍白戴口罩，大眼睛映着灯光倒影，床头挂着输液袋。赵总握着女儿的手低头——肩膀在微微颤抖。镜头从中全景缓慢推进到中近景——林晚目光从警觉慢慢变成安静的理解。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-018
+          role: reference_image
+          label: 图2
+    dialogue: []
+    # ⚠️ SEMANTIC_WARNING: Scene contains [待补：赵总的女儿小慧] background character — no CHAR-GRP ID assigned
+    transition_to_next: hard_cut
+
+  - shot_id: EP37-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-018.png
+    api:
+      text: "【图1】赵总 CHAR-006-L01（浅蓝衬衣下摆从西裤扯出一角，匆忙赶来医院的痕迹）【图2】林晚 CHAR-001-L01【图3】医院走廊 SCENE-018（夜，冷白荧光灯）。MCU 固定：赵总轻轻带上门转身——愣住了。看到林晚站在几步之外的走廊上。空气凝固三秒。赵总表情从震惊到尴尬到羞愧到疲惫的认命。手里的纸杯被捏得变了形。他低下头把捏扁的纸杯丢进旁边垃圾桶，声音沙哑地开口。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-018
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "你都看到了。"
+      - speaker: CHAR-001
+        line: "嗯。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP37-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-018.png
+    api:
+      text: "【图1】赵总 CHAR-006-L01【图2】林晚 CHAR-001-L01【图3】医院走廊 SCENE-018（冷白荧光灯，长影子）。CU 固定：赵总靠着走廊墙壁低着头，声音像是从胸腔里挤出来的。没有看林晚——不敢。走廊白炽灯冷白照着把两人影子拉得很长。林晚站在面前没有打断没有安慰——安静地听着。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-018
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "白血病……发现三个月了。"
+      - speaker: CHAR-006
+        line: "化疗、骨髓配型、进口药……一个月的费用，顶我半年工资。"
+      - speaker: CHAR-001
+        line: "贺云峰——知道？"
+      - speaker: CHAR-006
+        line: "他不知道从哪儿听说的……主动来找我。"
+      - speaker: CHAR-006
+        line: "他帮我垫了第一期治疗费。条件是——以后他让我怎么投票，我就怎么投。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP37-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-018.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（拿起手机拨号，屏幕暖白光是唯一暖色光源）【图2】赵总 CHAR-006-L01（难以置信的表情）【图3】医院走廊 SCENE-018。MCU 固定：赵总说完像被抽干了力气闭上眼睛头靠在墙上。林晚没有立刻回应——短暂沉默。然后她做了一个让他意想不到的动作：拿出手机翻了翻通讯录找到一个号码直接拨了过去。电话接通。她的声音平静而清晰。赵总睁开眼睛看着她——难以置信。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-018
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "喂，李姐……我是林晚。打扰了。"
+      - speaker: CHAR-001
+        line: "我记得您母亲当年在协和医院治过血液病——方便帮我联系一下主治医生吗？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP37-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-018.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（挂断电话放回口袋）【图2】赵总 CHAR-006-L01（眼眶泛红）【图3】医院走廊 SCENE-018。CU→MCU 固定：林晚挂断电话放回口袋看向赵总。告诉他协和医院已经打好招呼了——语气没有任何邀功的意思。赵总张了张嘴想说什么但喉咙像被堵住。眼眶泛红——不是因为脆弱，是因为太久没有人伸手拉过他一把。走廊白炽灯把一切照得太清楚——一滴眼泪顺着他的鼻翼滑下来。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-018
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "协和医院血液科——我已经联系好了。他们明天就会联系你安排转院。"
+      - speaker: CHAR-006
+        line: "林晚……我……我不知道说什么……"
+      - speaker: CHAR-001
+        line: "你什么都别说。"
+      - speaker: CHAR-006
+        line: "你为什么要帮我？你应该——恨我才对。"
+      - speaker: CHAR-001
+        line: "你不是坏人。你只是——走投无路了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP37-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-018.png
+    api:
+      text: "【图1】赵总 CHAR-006-L01（靠着墙用手背擦眼睛）【图2】林晚 CHAR-001-L01【图3】医院走廊 SCENE-018（冷白荧光灯）。CU 固定：赵总靠着墙眼泪终于没忍住。用手背擦了擦眼睛——擦了又有新的涌出来。一个五十岁的男人在医院走廊冷白灯光下哭得像放下所有防备的孩子。深呼吸了好几次声音断断续续。林晚没有别开目光——坦然地原地看着他给他时间。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-018
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "林晚……谢谢你。"
+      - speaker: CHAR-006
+        line: "真的……谢谢你。"
+      - speaker: CHAR-001
+        line: "不客气。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP37-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-018.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】赵总 CHAR-006-L01【图3】医院走廊 SCENE-018。CU→MCU 固定：林晚等他情绪稍微平复后看着他泛红的眼睛开口了。语气依然平静——但这句话的内容让赵总止住了眼泪。他看着她眼神从纯粹的感激慢慢变成复杂的了然。他知道——她帮他是有条件的。而最让他意外的是——他发现自己竟然不想拒绝。沉默了几秒呼吸从急促慢慢平稳。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-018
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "但接下来——你得帮我一件事。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP37-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-018
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-018: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-018.png
+    api:
+      text: "【图1】赵总 CHAR-006-L01（手里攥着被捏扁的纸杯）【图2】林晚 CHAR-001-L01（转身离去，背影被冷白灯拉长）【图3】医院走廊 SCENE-018（冷白荧光灯，空旷）。MLS 固定：赵总没有问什么事。沉默了几秒——然后缓慢地但坚定地点了点头。那个点头不重但分量足够。林晚看着他，嘴角没有笑但眼底有一丝温度——不是利用弱者的快感，而是找到了破局点的确信。她转身离开，脚步声在空旷的走廊里回响渐远。赵总站在原地手里还攥着被捏扁的纸杯，转过身隔着病房门上的玻璃看了一眼里面熟睡的女儿。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-018
+          role: reference_image
+          label: 图3
+    dialogue: []
+    # ⚠️ SEMANTIC_WARNING: Scene contains [待补：赵总的女儿小慧] background character — no CHAR-GRP ID assigned
+    transition_to_next: hard_cut

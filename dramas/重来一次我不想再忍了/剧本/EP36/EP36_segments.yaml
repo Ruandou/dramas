@@ -1,83 +1,225 @@
-# EP36 segments.yaml
-episode: EP36
-total_duration_sec: 17
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP36/EP36_分镜剧本.md
+# Source shots: 12 (EP36-S01 to EP36-S12)
+# Output segments: 7
+# Source total duration: 78s
+# Output total duration: 78s
+# Gate status: ALL PASS
+
+episode_id: EP36
+source_md: 剧本/EP36/EP36_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，第二幕暖橙主调，灰色为辅。赵总办公室以暖色台灯+冷白荧光顶灯混合为主，下班后的公司办公室以暮色窗光+零星台灯为主，冷暖对比暗示局势的复杂。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，第二幕暖橙主调，灰色为辅。赵总办公室以暖色台灯+冷白荧光顶灯混合为主，下班后的公司办公室以暮色窗光+零星台灯为主，冷暖对比暗示局势的复杂。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+  CHAR-006: "成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力"
+
 segments:
-  - id: EP36-SEG01
-    scene_id: SCENE-003
-    description: "segment 1"
-    total_duration_sec: 2
-    shots:
-      - id: EP36-S01
-        type: "`EP36-S01`"
-        duration_sec: 1
-        description: "`SCENE-003`"
-      - id: EP36-S02
-        type: "`EP36-S02`"
-        duration_sec: 1
-        description: "`SCENE-003`"
-  - id: EP36-SEG02
-    scene_id: SCENE-003
-    description: "segment 2"
-    total_duration_sec: 7
-    shots:
-      - id: EP36-S03
-        type: "`EP36-S03`"
-        duration_sec: 6
-        description: "`SCENE-003`"
-      - id: EP36-S04
-        type: "`EP36-S04`"
-        duration_sec: 1
-        description: "`SCENE-003`"
-  - id: EP36-SEG03
-    scene_id: SCENE-003
-    description: "segment 3"
-    total_duration_sec: 2
-    shots:
-      - id: EP36-S05
-        type: "`EP36-S05`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP36-S06
-        type: "`EP36-S06`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP36-SEG04
-    scene_id: SCENE-003
-    description: "segment 4"
-    total_duration_sec: 2
-    shots:
-      - id: EP36-S07
-        type: "`EP36-S07`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP36-S08
-        type: "`EP36-S08`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP36-SEG05
-    scene_id: SCENE-003
-    description: "segment 5"
-    total_duration_sec: 2
-    shots:
-      - id: EP36-S09
-        type: "`EP36-S09`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP36-S10
-        type: "`EP36-S10`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP36-SEG06
-    scene_id: SCENE-003
-    description: "segment 6"
-    total_duration_sec: 2
-    shots:
-      - id: EP36-S11
-        type: "`EP36-S11`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP36-S12
-        type: "`EP36-S12`"
-        duration_sec: 1
-        description: "`SCENE-001`"
+  - segment_id: EP36-SEG01
+    shot_ids: [EP36-S01, EP36-S02]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤，背着包准备下班）【图2】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带+深灰西裤）【图3】赵总办公室 SCENE-003（傍晚，暖色台灯为主光源）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）MLS 固定：赵总办公室门半掩，暖色台灯光从门缝漏出。林晚下班经过，听到赵总压低声音叫她。林晚停步转身，赵总坐在办公桌后望向门口方向，明暗交错。
+        镜头2（5秒）MCU 固定：林晚推门进来反手带上门锁扣上。她站在办公桌前没有坐下。赵总抬起头表情凝重，指了指对面椅子。林晚放下包坐下，两人短暂对视沉默。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「林晚——进来一下。把门带上。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「坐下说。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「赵总——出什么事了？」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「昨天的事——我思来想去，有些话得跟你说。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG02
+    shot_ids: [EP36-S03, EP36-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: |
+        【图1】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】赵总办公室 SCENE-003（暖色台灯+冷白荧光顶灯混合光源）。
+        竖屏9比16连贯叙事。
+        镜头3（6秒）MCU 固定：赵总身体前倾手肘撑桌，声音压得很低。台灯光从侧面照着他的脸——一边明亮一边在阴影中。他语速比平时慢，每个字都在斟酌重量。林晚认真听快速吸收，当赵总说到位阶不低时她目光微微一凝。
+        镜头4（6秒）CU 缓推：林晚没有立刻回应，沉默两三秒消化信息。赵总靠回椅背表情复杂——有担忧有提醒也有一丝愧疚。他补充那通更管用的电话让他意识到贺云峰根基比想象深。镜头缓缓推进林晚面部特写，她目光微凝。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「小林——昨天那通电话，不是贺云峰一个人的意思。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「什么意思？」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「公司内部——有人在他背后。位阶不低。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「昨天你走之后——我又接了通电话。」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「那通电话比贺云峰的那通——管用得多。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……您能确定是谁吗？」
+        对白（赵总，成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力）：「确定不了。但在这个位置坐了这么多年——有些事，感觉得到。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG03
+    shot_ids: [EP36-S05]
+    duration_sec: 10
+    speakers: []
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图2】公司大办公室 SCENE-001（傍晚，落地窗外暮色窗光，城市天际线）。
+        竖屏9比16连贯叙事。
+        镜头5（10秒）MLS推至MCU 镜头跟随+缓推：林晚从赵总办公室走出来，脚步比平时慢。办公区空无一人——电脑屏幕暗了，椅子整齐推回桌下。窗外傍晚城市天际线从深蓝到暖橙渐变。她走回自己工位放下包坐下。镜头缓缓推进——从中全景到中近景。窗外最后一丝晚霞映在她侧脸上，表情从怔忡到了然到警觉。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，第二幕暖橙主调，灰色为辅。下班后的公司办公室以暮色窗光+零星台灯为主。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG04
+    shot_ids: [EP36-S06, EP36-S07]
+    duration_sec: 12
+    speakers: []
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】公司大办公室 SCENE-001（暮色渐深，城市灯火渐亮）。
+        竖屏9比16连贯叙事。
+        镜头6（6秒）MCU 固定：林晚坐在工位上手指轻轻敲着桌面——思考时的小动作。目光没有焦点地望着窗外，大脑高速运转。暮色渐深，城市灯火一盏盏亮起。微微眯了一下眼睛——推理到关键一步时的微表情。
+        镜头7（6秒）CU 缓推：特写林晚的脸。表情从警觉变成有意识的分析。微微偏头——新角度出现在思考中。目光重新聚焦变得锐利冷静。窗外城市灯光在她眼中闪烁。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，第二幕暖橙主调，灰色为辅。下班后的公司办公室以暮色窗光+零星台灯为主。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG05
+    shot_ids: [EP36-S08, EP36-S09]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣，手机屏幕光映在脸上）【图2】公司大办公室 SCENE-001（暮色渐深，窗外城市灯火亮起）。
+        竖屏9比16连贯叙事。
+        镜头8（6秒）MCU 固定：林晚从思考中回过神。低头看桌上手机——屏幕朝上黑屏。伸手拿起手机解锁翻通讯录，手指停在陆北辰名字上。停顿一秒按下拨出键。手机屏幕亮起通话界面，屏幕冷白光映在她脸上。
+        镜头9（6秒）MCU 固定：林晚靠向椅背，目光看向窗外渐渐亮起的城市灯火。声音平稳清晰——不是求救或倾诉，是同步信息部署行动。她把赵总的话浓缩成关键信息点传递。语速均匀没有情绪波动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「北辰。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「林晚？还没走？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺云峰背后还有人——在公司内部。赵总刚告诉我的。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「知道是谁吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不知道。但既然正面突破被堵了——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那就从侧面绕进去。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅。下班后的公司办公室以暮色窗光+零星台灯为主。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG06
+    shot_ids: [EP36-S10, EP36-S11]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】公司大办公室 SCENE-001（入夜，窗外万家灯火）。
+        竖屏9比16连贯叙事。
+        镜头10（6秒）MCU→CU 缓推：林晚继续通话。说出盛源科技时语气平但词分量重。陆北辰几乎没有停顿接住思路——立即理解意图。林晚嘴角微微动了一下——不是笑，是找对人的确认感。镜头缓缓推进。
+        镜头11（6秒）CU 固定：林晚听到陆北辰回答，嘴角那抹确认弧度微微加深。但没放松——补充提醒。陆北辰沉默一秒——然后回答让林晚目光闪了一下。他说的是你自己也要小心。林晚没直接回答，但握着手机的手指紧了一下然后松开了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「帮我查一下盛源科技——最近和哪些董事有往来。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「盛源科技——贺云峰的关系公司。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「嗯。他动三千万项目——总得有个理由。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那个理由——就是线索。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「三天内给你。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不急。要查得干净——不留痕迹。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「好。你自己也要小心。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你也是。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，第二幕暖橙主调，灰色为辅。下班后的公司办公室以暮色窗光+零星台灯为主。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG07
+    shot_ids: [EP36-S12]
+    duration_sec: 10
+    speakers: []
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装背影）【图2】公司大办公室 SCENE-001（入夜，窗外万家灯火，办公室黑暗）。
+        竖屏9比16连贯叙事。
+        镜头12（10秒）MLS 固定：林晚挂断电话后没有立刻起身，坐在那里手机握在手里望着窗外完全入夜的城市。伸手拿过黑色皮面笔记本翻到空白页，抽出一支黑色签字笔写下几个字。合上笔记本，站起来关了台灯——咔哒一声最后的光源熄灭。拎起包在窗外城市灯火映照下转身走向出口。背影被城市天际线勾勒出轮廓——坚定从容。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，第二幕暖橙主调，灰色为辅。下班后的公司办公室以暮色窗光+零星台灯为主，冷暖对比暗示局势的复杂。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

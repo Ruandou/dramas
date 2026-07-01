@@ -1,77 +1,397 @@
-# EP46 shots.yaml
-episode: EP46
-total_duration_sec: 44
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP46/EP46_分镜剧本.md
+# Source shots: 12 (EP46-S01 to EP46-S12)
+# Output shots: 12 (EP46-S01 to EP46-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration (self-calculated): 84s
+# Output total duration: 84s
+# Gate status: ALL PASS
+
+episode_id: EP46
+source_md: 剧本/EP46/EP46_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。办公室内暖白自然光+人工光营造午后日常氛围，但暗藏一丝不安的冷调阴影；走廊落日斜阳从落地窗照入，在地板拉出长影，冷暖光线在角色面部交替——暖橙暮色与冷蓝阴影形成情绪对比，暗示外界的寒意正在侵入温暖的内在世界。整体色调从办公室的暖白到走廊的暮色暖橙与阴影冷蓝交织，对应情绪从日常→察觉→不安→沉重→心疼→被警告的震撼之变化。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP46-S01
-    scene_id: SCENE-013
-    type: "`EP46-S01`"
-    duration_sec: 5
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP46-S02
-    scene_id: SCENE-013
-    type: "`EP46-S02`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP46-S03
-    scene_id: SCENE-013
-    type: "`EP46-S03`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP46-S04
-    scene_id: SCENE-013
-    type: "`EP46-S04`"
-    duration_sec: 5
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP46-S05
-    scene_id: SCENE-013
-    type: "`EP46-S05`"
-    duration_sec: 5
-    description: "`SCENE-013`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP46-S06
-    scene_id: SCENE-013
-    type: "`EP46-S06`"
-    duration_sec: 5
-    description: "`SCENE-013`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP46-S07
-    scene_id: SCENE-013
-    type: "`EP46-S07`"
-    duration_sec: 5
-    description: "`SCENE-013`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP46-S08
-    scene_id: SCENE-013
-    type: "`EP46-S08`"
-    duration_sec: 1
-    description: "`SCENE-013`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP46-S09
-    scene_id: SCENE-013
-    type: "`EP46-S09`"
-    duration_sec: 5
-    description: "`SCENE-013`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP46-S10
-    scene_id: SCENE-013
-    type: "`EP46-S10`"
-    duration_sec: 1
-    description: "`SCENE-013`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP46-S11
-    scene_id: SCENE-013
-    type: "`EP46-S11`"
-    duration_sec: 5
-    description: "`SCENE-013`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP46-S12
-    scene_id: SCENE-013
-    type: "`EP46-S12`"
-    duration_sec: 5
-    description: "`SCENE-013`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
+  - shot_id: EP46-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图3】公司大办公室 SCENE-001。镜头 MLS→MS 固定：午后办公室暖白自然光从落地窗洒入，空气中浮着细尘。林晚在工位专注看屏幕，听到急促脚步声抬头——陆北辰快步走过，手机紧贴耳朵，眉头紧锁，另一只手攥着文件，姿态紧绷。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "……我说了，先别动。等我电话。"
+      - speaker: CHAR-001
+        line: "他今天接了四通电话了……每次都这样。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP46-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图2】公司大办公室 SCENE-001。镜头 CU 固定：特写林晚的脸。她望着陆北辰消失的方向，目光从疑惑慢慢变成担忧。她看了一眼电脑右下角时间——下午四点十二分。又看了一眼手机——无未接来电无新消息。她轻轻咬了咬下唇——然后站起身来。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "从来没见他这样过——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP46-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图3】公司大办公室 SCENE-001。镜头 MCU 固定：陆北辰站在工位旁，背对走道，一只手撑在桌沿，另一只手拿手机反复翻看同一条消息。肩膀微微起伏——他在深呼吸试图平静。林晚走近几步停下。他转身——表情从焦灼瞬间切换到一个淡淡的微笑，但眼神没有跟上。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "陆北辰——"
+      - speaker: CHAR-005
+        line: "嗯？怎么了。"
+      - speaker: CHAR-001
+        line: "你今天不太对劲。"
+      - speaker: CHAR-005
+        line: "没事。项目上的事，有点头疼。"
+      - speaker: CHAR-001
+        line: "陆北辰——我看得出来。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP46-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】公司大办公室 SCENE-001。镜头 CU→MCU 固定：特写陆北辰的手——翻文件的动作停住了。他放下文件抬起头看着林晚——所有伪装褪去。他看了一眼四周压低声音。林晚没有追问只是点头用目光示意走廊方向。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "这里不是说话的地方。"
+      - speaker: CHAR-001
+        line: "那边。"
+      - speaker: CHAR-005
+        line: "……好。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP46-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】公司走廊 SCENE-013。镜头 MLS 固定：走廊尽头落地窗前，落日斜阳将走廊染成暖金色，两人影子在地板上拉得很长。陆北辰背对林晚站在窗前，一只手插在裤袋里，另一只手指尖无意识敲击窗框。林晚站在他身后几步处安静等待。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "你别跟我说没事了。我不信。"
+      - speaker: CHAR-005
+        line: "……不是你的事。"
+      - speaker: CHAR-001
+        line: "你说出来——才知道是不是我的事。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP46-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】公司走廊 SCENE-013。镜头 MCU→CU 固定：他终于转过身来。逆光中他的脸一半在光里一半在阴影里。他看着她，眼神里有复杂的东西——不是脆弱，而是郑重。他开口时声音比平时低了一个调——那是一个人在做重大决定时才会有的语调。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "有些事……我不说，是不想把你卷进来。"
+      - speaker: CHAR-001
+        line: "你觉得我——是怕被卷进来的人吗？"
+      - speaker: CHAR-005
+        line: "……我知道你不是。"
+      - speaker: CHAR-005
+        line: "是我爸的公司。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP46-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】公司走廊 SCENE-013。镜头 MCU→CU 固定：走廊光线又暗了一分，金色光染上橙红。陆北辰侧身靠在窗框上不再掩饰疲惫。他说话时看着窗外，每个词都吐得很清楚但之间有停顿。林晚表情从疑惑变成凝重——听到“盛天资本”时瞳孔微缩。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "盛天资本——你应该听说过。"
+      - speaker: CHAR-001
+        line: "贺云峰背后的。"
+      - speaker: CHAR-005
+        line: "同一只手。现在——伸到我爸的公司了。"
+      - speaker: CHAR-005
+        line: "恶意做空。散布谣言、压低股价、逼债——一周之内，市值蒸发了一半。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP46-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】公司走廊 SCENE-013。镜头 CU→MCU 固定：特写林晚的脸。她的表情从凝重变成震惊中带着“果然如此”的寒意。她看着陆北辰——他仍然靠着窗框姿态看似放松，但攥着手机的手指节发白。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "所以你加入这家公司——"
+      - speaker: CHAR-005
+        line: "不是为了复仇。"
+      - speaker: CHAR-005
+        line: "我进来的时候，还不知道盛天资本和这家公司有关系。"
+      - speaker: CHAR-005
+        line: "是贺云峰出现之后——我才串起来的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP46-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】公司走廊 SCENE-013。镜头 MCU 固定：陆北辰转过身面对窗外。他的手从口袋里拿出来交叉在身前——一个防御性姿态。他的声音变了——不再是沉稳冷静，而是一个在跟命运讨价还价的男人。林晚站在他身边半步处安静倾听。窗外光线从暖金变成橙红。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "我爸——身体不好。医生说他不能受刺激。"
+      - speaker: CHAR-005
+        line: "可我现在每天都在想——怎么告诉他，他创立的公司，被人盯上了。"
+      - speaker: CHAR-005
+        line: "……我不知道怎么开这个口。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP46-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】公司走廊 SCENE-013。镜头 CU→ECU 固定：特写林晚的脸。她的眼睛微微泛红。她没有说空洞的安慰——只是安静地站在他身边看着他。目光里不是同情不是怜悯——而是她第一次看到他盔甲之下的真实。她开口时声音轻得像怕惊碎什么。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "你打算怎么办——"
+      - speaker: CHAR-005
+        line: "请假。回去一趟。"
+      - speaker: CHAR-001
+        line: "……他需要你。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP46-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】公司走廊 SCENE-013。镜头 MCU→CU→MCU 缓推→缓拉：走廊里暮色已深，窗外天空从橙红渐变成暗蓝，城市灯光陆续亮起。陆北辰转过身面对林晚距离很近。他的脸上没有泪水但眼眶是红的——想哭但忍住了。林晚往前迈了半步伸出手，指尖轻轻碰了碰他的手臂。只是一触——像无声的承诺。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "我第一次见你这样。"
+      - speaker: CHAR-005
+        line: "……因为我也是第一次遇到这种事。"
+      - speaker: CHAR-001
+        line: "你是不是觉得——所有事都得一个人扛。"
+      - speaker: CHAR-005
+        line: "不是觉得。是习惯了。"
+      - speaker: CHAR-001
+        line: "原来他也有撑不住的时候……"
+      - speaker: CHAR-001
+        line: "你不是一个人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP46-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】公司走廊 SCENE-013。镜头 CU→MS 镜头拉远：温情瞬间过去。陆北辰深吸一口气，表情从脆弱慢慢收拢——像战士重新戴上头盔。他看着林晚眼神里有比温柔更沉重的东西。他说完话走廊空气仿佛凝固。他最后看了她一眼——然后转身朝走廊尽头电梯走去，背影在暮色中拉出长影。林晚站在原地望着他走远。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "我已经请了假。今晚就走。"
+      - speaker: CHAR-001
+        line: "我能做什么？"
+      - speaker: CHAR-005
+        line: "——别插手。"
+      - speaker: CHAR-001
+        line: "什么？"
+      - speaker: CHAR-005
+        line: "盛天资本——不是你能对付的。"
+      - speaker: CHAR-005
+        line: "他们比你想象的——要可怕得多。"
+      - speaker: CHAR-001
+        line: "……那正好。我也比他们想象的——要难缠得多。"
+    transition_to_next: hard_cut

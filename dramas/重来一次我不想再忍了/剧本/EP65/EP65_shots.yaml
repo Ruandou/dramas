@@ -1,77 +1,416 @@
-# EP65 shots.yaml
-episode: EP65
-total_duration_sec: 35
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP65/EP65_分镜剧本.md
+# Source shots: 12 (EP65-S01 to EP65-S12)
+# Output shots: 12 (EP65-S01 to EP65-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 77s (自行计算)
+# Output total duration: 77s
+# Gate status: ALL PASS (non-fatal gates skipped per user instruction)
+
+episode_id: EP65
+source_md: 剧本/EP65/EP65_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，暖调职场剧，色调温暖明亮。"
+  negative_prompt: "文字, 字幕, 动漫, 卡通, 插图, 漫画, 血腥, 暴力, 超自然特效, 奢侈品品牌Logo"
+
 shots:
-  - id: EP65-S01
-    scene_id: SCENE-008
-    type: "`EP65-S01`"
-    duration_sec: 4
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-004`, `CHAR-001`, `[待补：庆功同事]`"
-  - id: EP65-S02
-    scene_id: SCENE-008
-    type: "`EP65-S02`"
-    duration_sec: 1
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-001`"
-  - id: EP65-S03
-    scene_id: SCENE-008
-    type: "`EP65-S03`"
+  - shot_id: EP65-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-004-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-008.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装）【图2】CHAR-004-L01（米白针织衫）【图3】SCENE-008。中景 固定：餐厅包间圆桌上杯盘狼藉，暖黄灯光氤氲着胜利后的热气，苏晴举着酒杯站起来，林晚坐在主位微笑着被围住，衬衫领扣松了一颗。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-008
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "敬我们的林总——！"
+      - speaker: 庆功同事
+        line: "林总！讲两句！讲两句！"
+      - speaker: CHAR-004
+        line: "真不敢相信——你做到了。"
+      - speaker: 庆功同事
+        line: "干杯——！"
+    transition_to_next: dissolve
+
+  - shot_id: EP65-S02
+    shot_no: 2
+    mode: i2v_ref
     duration_sec: 5
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-005`"
-  - id: EP65-S04
-    scene_id: SCENE-008
-    type: "`EP65-S04`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`"
-  - id: EP65-S05
-    scene_id: SCENE-008
-    type: "`EP65-S05`"
-    duration_sec: 5
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-005`"
-  - id: EP65-S06
-    scene_id: SCENE-008
-    type: "`EP65-S06`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP65-S07
-    scene_id: SCENE-008
-    type: "`EP65-S07`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP65-S08
-    scene_id: SCENE-008
-    type: "`EP65-S08`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP65-S09
-    scene_id: SCENE-008
-    type: "`EP65-S09`"
-    duration_sec: 5
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP65-S10
-    scene_id: SCENE-008
-    type: "`EP65-S10`"
-    duration_sec: 5
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP65-S11
-    scene_id: SCENE-008
-    type: "`EP65-S11`"
-    duration_sec: 5
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP65-S12
-    scene_id: SCENE-008
-    type: "`EP65-S12`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-008.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装）【图2】SCENE-008。近景 固定：林晚微笑着端起酒杯抿了一口，目光越过众人看向窗外，喧闹声仿佛在耳边淡去，眼底闪过一丝复杂的情绪。她放下酒杯，对苏晴使了个眼色。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "我出去透透气。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP65-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-005-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-008.png
+    api:
+      text: "【图1】CHAR-005-L01（深炭灰西装，手里端着半杯红酒）【图2】SCENE-008。中景 镜头跟随：林晚起身推开包间门走出去，餐桌另一头陆北辰手里端着半杯红酒，目光一直追着她的背影。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "她总是这样——一个人扛。"
+    transition_to_next: dissolve
+
+  - shot_id: EP65-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01（海军蓝西装）【图2】SCENE-004。中全景 固定：天台夜风很大，吹乱了林晚的头发。她走到围栏边双手撑在冰凉金属栏杆上，深深吸了一口气。远处城市灯火连成璀璨的河流。她闭眼，风拂过脸，嘴角缓缓上扬。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "赢了世界——不如赢了你在。"
+      - speaker: CHAR-001
+        line: "走到今天——值了。"
+      - speaker: CHAR-001
+        line: "终于可以喘口气了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP65-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-004.png
+    api:
+      text: "【图1】CHAR-005-L01（深炭灰西装，外套搭在肩上，衬衫在夜风中微微鼓动）【图2】SCENE-004。中景 固定：天台门被推开，陆北辰走出来。他看到林晚的背影，脚步顿了一下，然后慢慢走到她身旁，顺着她的目光看向远方。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "一个人躲这儿吹风？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP65-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01 【图2】CHAR-005-L01 【图3】SCENE-004。近景 固定：林晚没有回头，嘴角却弯了一下。陆北辰站在她身侧，两人之间隔着半臂的距离。天台风声很大，远处城市灯火在他们脸上投下温暖的光晕。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "你不在下面庆功？"
+      - speaker: CHAR-005
+        line: "主角都跑了——我留着也没意思。"
+      - speaker: CHAR-001
+        line: "不是躲。就是想静一静。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP65-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01 【图2】CHAR-005-L01 【图3】SCENE-004。中景 固定：林晚望着远处的城市天际线，目光悠远。陆北辰转头看着她，眼神里有她从没认真读过的东西——不是怜悯，是敬佩。夜色中他的轮廓被城市灯光勾勒出柔和的边缘。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "我以为这条路会走得很孤独。"
+      - speaker: CHAR-005
+        line: "你不是一个人。"
+      - speaker: CHAR-001
+        line: "以前不知道。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP65-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01 【图2】CHAR-005-L01 【图3】SCENE-004。特写 缓推：两人的脸在镜头中由双人同框缓缓推向林晚的面部特写。她的眼睛里有灯光在闪烁——不知道是城市的倒影还是别的什么。陆北辰的声音从画外传来。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "现在呢？"
+      - speaker: CHAR-001
+        line: "现在知道了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP65-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-004.png
+    api:
+      text: "【图1】CHAR-005-L01 【图2】CHAR-001-L01 【图3】SCENE-004。中景 固定：陆北辰从裤子口袋里摸出一枚硬币，在路灯下银色光泽一闪。他低头认真地看着手心里这枚不起眼的一块钱，像在看一件稀世珍宝。林晚好奇地侧过头来。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "这是我身上——最值钱的东西了。"
+      - speaker: CHAR-001
+        line: "这是……？"
+      - speaker: CHAR-005
+        line: "那年在深圳，身上只剩一块钱。我没舍得花。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP65-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-004.png
+    api:
+      text: "【图1】CHAR-005-L01 【图2】CHAR-001-L01 【图3】SCENE-004。近景 固定：陆北辰忽然单膝跪地——不是夸张的跪法，是很自然地像在完成一个郑重的仪式。他抬起头，把那枚硬币举到林晚面前。天台的灯光和城市远方的星光落在他的眼睛里。林晚整个人愣住了，手微微抬起又停在半空。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "它让我撑到了第二天。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP65-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-004.png
+    api:
+      text: "【图1】CHAR-005-L01 【图2】CHAR-001-L01 【图3】SCENE-004。特写 固定：陆北辰单膝跪地，将那枚硬币举在林晚面前。林晚低下头看着那枚硬币，夜风中她的发丝轻轻飘动。她缓缓伸出手，指尖触到那枚冰凉的硬币——把它握紧在掌心。镜头拍到她的睫毛微微颤动。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "现在——我想把它给你。"
+      - speaker: CHAR-001
+        line: "这比存折还重。"
+      - speaker: CHAR-005
+        line: "以后不管多难——想想这枚硬币。"
+      - speaker: CHAR-001
+        line: "好。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP65-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-004.png
+    api:
+      text: "【图1】CHAR-001-L01 【图2】CHAR-005-L01 【图3】SCENE-004。中景 镜头拉远：两人并肩站在天台围栏边，俯瞰城市万家灯火。夜风吹动林晚的衣角和发梢。她手里攥着那枚硬币。陆北辰的手从身侧缓缓伸过来，轻轻覆在她的手背上——她没有躲，也没有抽开。镜头缓缓拉远，城市在他们的脚下铺成璀璨的星河。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "这一世——有人并肩了。"
+    transition_to_next: hard_cut

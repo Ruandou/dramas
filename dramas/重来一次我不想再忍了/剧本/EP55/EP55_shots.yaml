@@ -1,77 +1,437 @@
-# EP55 shots.yaml
-episode: EP55
-total_duration_sec: 24
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP55/EP55_分镜剧本.md
+# Source shots: 12 (EP55-S01 to EP55-S12)
+# Output shots: 12 (EP55-S01 to EP55-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 82s (self-calculated: 6×10+10+12=82s)
+# Output total duration: 82s
+# Gate status: SKIPPED (non-fatal — per user instruction)
+
+episode_id: EP55
+source_md: 剧本/EP55/EP55_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。本集全程深夜→清晨公司大办公室场景：SEG01-03深夜冷白LED灯光+窗外城市夜景（少量暖色点光源），SEG04-05凌晨过渡（窗外天色从深蓝渐变为灰白），SEG06-07清晨灰白自然光+冷白室内光。色调以冷蓝灰为主但保持半写实的温暖质感。转场节奏：专注→高强度→挫折→突破→测试→崩溃→绝望的逆U型情绪线。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP55-S01
-    scene_id: SCENE-001
-    type: "`EP55-S01`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-GRP-04`"
-  - id: EP55-S02
-    scene_id: SCENE-001
-    type: "`EP55-S02`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-GRP-04`"
-  - id: EP55-S03
-    scene_id: SCENE-001
-    type: "`EP55-S03`"
-    duration_sec: 4
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-GRP-04`, `CHAR-001`"
-  - id: EP55-S04
-    scene_id: SCENE-001
-    type: "`EP55-S04`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-GRP-04`"
-  - id: EP55-S05
-    scene_id: SCENE-001
-    type: "`EP55-S05`"
-    duration_sec: 4
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-GRP-04`, `CHAR-001`"
-  - id: EP55-S06
-    scene_id: SCENE-001
-    type: "`EP55-S06`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP55-S07
-    scene_id: SCENE-001
-    type: "`EP55-S07`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-GRP-04`"
-  - id: EP55-S08
-    scene_id: SCENE-001
-    type: "`EP55-S08`"
-    duration_sec: 4
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-GRP-04`, `CHAR-001`"
-  - id: EP55-S09
-    scene_id: SCENE-001
-    type: "`EP55-S09`"
-    duration_sec: 4
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-GRP-04`, `CHAR-001`"
-  - id: EP55-S10
-    scene_id: SCENE-001
-    type: "`EP55-S10`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-GRP-04`"
-  - id: EP55-S11
-    scene_id: SCENE-001
-    type: "`EP55-S11`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-GRP-04`"
-  - id: EP55-S12
-    scene_id: SCENE-001
-    type: "`EP55-S12`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-GRP-04`"
+  - shot_id: EP55-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】小王 CHAR-GRP-04-L01（灰色卫衣+牛仔裤+黑框眼镜）【图3】公司大办公室·技术区 SCENE-001。中景 固定：深夜的公司大办公室——其他工位灯光全熄，落地窗外城市灯火如星。技术区角落一盏LED台灯亮着，冷白光照在堆满设计图纸和电路板的工作台上。林晚从文件袋里抽出一整套技术方案——图纸上画着前世记忆中的核心架构。小王看着那些图纸——表情从困惑变为认真——手指在一个关键模块上停住。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-04-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "小王——有件事——只有你能做。"
+      - speaker: CHAR-GRP-04
+        line: "林姐——这个架构——我们之前论证过——做不了。"
+      - speaker: CHAR-001
+        line: "如果按传统做法——确实不行。但换个思路呢？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】小王 CHAR-GRP-04-L01【图3】公司大办公室 SCENE-001。中近景 固定：小王顺着林晚手指的方向看过去——新的架构图让他愣了一下。他的手指在线路上划了一下——快速在脑子里推演——然后表情从不信变成了认真——能行。他抬头看林晚，眼里有真正的认真。林晚看了一眼落地窗外城市的夜色——盛天不会等他们。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-04-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-GRP-04
+        line: "这个思路——我没见过。但如果数据通道走这个路径——能行。"
+      - speaker: CHAR-001
+        line: "盛天那边——最多给我们一周。这个项目——必须在这几天内跑通。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-GRP-04-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】小王 CHAR-GRP-04-L01（灰色卫衣+黑框眼镜）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】公司大办公室 SCENE-001。特写 固定：小王坐在电脑前敲代码——遇到一个他从未见过的算法分支。他反复看了几遍——传统解法不适用。他转头看向林晚——却发现林晚已经在纸上画出了那个分支的解决方案——画得很流畅——没有停顿——像是早就知道会卡在这里。"
+      content_roles:
+        - file: CHAR-GRP-04-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-GRP-04
+        line: "林姐——这个算法——你从哪看到的？这根本不是这个行业在用的——"
+      - speaker: CHAR-001
+        line: "能做出来吗？"
+      - speaker: CHAR-GRP-04
+        line: "——能。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】小王 CHAR-GRP-04-L01【图3】公司大办公室 SCENE-001。中景 固定：小王已经开始动手实现算法——键盘敲击声在空旷的办公室里回荡——密集、专注——像心跳。林晚站在他身后看了一会儿——然后转身走到窗边。落地窗外城市的灯火在深夜中静默——玻璃上映着她的倒影——身后是小王专注敲代码的剪影。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-04-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "（内心）前世我见过这个系统上线——在庆功宴上远远看着技术团队欢呼——但那时候我只是个旁观者。这一次——我要亲手做出来。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-GRP-04-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】小王 CHAR-GRP-04-L01（灰色卫衣+黑框眼镜）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】公司大办公室 SCENE-001。中近景 固定：凌晨——桌上散落着三个空咖啡杯和两个能量饮料罐。小王盯着屏幕——眉头紧锁——代码在同一个位置反复报错。他试了几种方案——每个走到一半就卡死——烦躁地摘下眼镜揉了揉眼睛。林晚从窗边走过来——俯身看屏幕。"
+      content_roles:
+        - file: CHAR-GRP-04-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-GRP-04
+        line: "不行——数据通道的优先级——跟我预想的不一样。"
+      - speaker: CHAR-001
+        line: "差在哪？"
+      - speaker: CHAR-GRP-04
+        line: "两套数据的接口冲突——代码逻辑没问题——但底层调度顺序不对——传统方式走不通。"
+      - speaker: CHAR-001
+        line: "试过参数互换吗？"
+      - speaker: CHAR-GRP-04
+        line: "试了三种方案——全部卡在同一个位置。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】公司大办公室 SCENE-001。特写→大特写 镜头推近：林晚看着屏幕上的报错信息——她缓缓闭上眼睛——她不是在放松——她是在回忆。前世的某个画面——技术分享会的台下——她远远看着台上的架构师——他的PPT翻到了某一页——他说了一句话——碎片在脑海中拼接。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "（内心）我记得……那场分享会……他说过——不是怎么解决——而是——问题的本质——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】小王 CHAR-GRP-04-L01（灰色卫衣+黑框眼镜）【图3】公司大办公室 SCENE-001。中近景 固定：林晚睁开眼睛——目光落在桌上的笔上——拿起笔——在纸的背面快速画出逻辑图——不是代码——是问题的本质图和参数调换方案——画得很快——没有犹豫。小王侧过头来看——一开始漫不经心——然后视线被钉住了——眼睛亮了起来。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-04-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "不是接口不兼容——是数据通道的优先级设置反了。第三层的参数——应该放在第五层的位置——第五层——提到最前面。"
+      - speaker: CHAR-GRP-04
+        line: "……对——对！如果把这个参数和这个调换——那整个数据流——会顺很多。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-GRP-04-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】小王 CHAR-GRP-04-L01（灰色卫衣+黑框眼镜）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】公司大办公室 SCENE-001。中景 固定：小王接过笔——在纸上快速补充——越写越快——越写越兴奋——年轻工程师在灵感爆发的瞬间忘记了疲惫。林晚站在旁边看着——嘴角微微上扬——那是创作突破时才有的表情。窗外——深蓝的天际线开始泛起极淡的灰白——天快亮了。"
+      content_roles:
+        - file: CHAR-GRP-04-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-GRP-04
+        line: "可以——这个逻辑可以走通！底层调度顺序重新排一下——所有接口数据就顺了——林姐——你一个做市场的——怎么懂这个？"
+      - speaker: CHAR-001
+        line: "别问了——做出来再说。"
+      - speaker: CHAR-001
+        line: "（内心）前世那位架构师说过——问题的本质不是技术——是看问题的方式不一样。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-GRP-04-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】小王 CHAR-GRP-04-L01【图2】林晚 CHAR-001-L01【图3】公司大办公室·工作台 SCENE-001。中景 固定：清晨五点半——落地窗外城市的天际线从深蓝渐变成橘粉再过渡到灰白。工作台上——原型机（银色金属外壳）已经组装完成——在晨光中泛着柔和的光泽。小王在做最后的代码整合——键盘声急促密集——像冲刺的运动员在最后几步加速。林晚站在工作台前——指尖轻轻拂过原型机外壳——冰冷的金属触感让她确认这一切是真实的。"
+      content_roles:
+        - file: CHAR-GRP-04-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-GRP-04
+        line: "代码整合完了。逻辑全部通过——可以试试了。"
+      - speaker: CHAR-001
+        line: "……启动吧。"
+      - speaker: CHAR-001
+        line: "（内心）所有牌——都押在这一刻了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】小王 CHAR-GRP-04-L01【图3】公司大办公室·原型机前 SCENE-001。中近景→特写 固定：小王深吸一口气——伸手按下原型机主面板上的启动按钮。屏幕亮起——自检界面——进度条开始加载——1%——17%——34%——55%——两人屏住呼吸——盯着屏幕——林晚甚至忘了呼吸——67%——进度条停住了。一秒——两秒——三秒——没有前进。办公室安静得能听到墙上时钟的秒针声。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-04-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "……怎么停了？"
+      - speaker: CHAR-GRP-04
+        line: "不知道——它在卡——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】小王 CHAR-GRP-04-L01【图3】公司大办公室·原型机前 SCENE-001。特写 固定：屏幕开始闪烁——进度条周围的字符像多米诺骨牌一样逐行崩塌——然后——屏幕瞬间黑了——从头到尾——没有画面——没有任何反应。小王手忙脚乱地按了几次重启键——没反应——打开后台日志——快速滚动——随着他看到更深层的错误信息——表情从不信变成了僵硬。林晚站在旁边——看到他的表情变化——心沉了下去。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-04-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-GRP-04
+        line: "不该啊——逻辑是对的——没有问题的——"
+      - speaker: CHAR-001
+        line: "重启——查看日志——看看是什么问题。"
+      - speaker: CHAR-GRP-04
+        line: "不是小bug——是底层逻辑——核心代码有致命错误——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP55-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣，通宵后略显凌乱）【图2】小王 CHAR-GRP-04-L01（灰色卫衣+黑框眼镜，眼睛布满血丝）【图3】公司大办公室·清晨 SCENE-001。中景 固定：清晨六点——阳光从落地窗外斜照进来，办公室安静得像一潭死水。小王靠在椅背上——盯着天花板——刚刚说了那句'要全部重写'之后整个人像被抽空了。原型机安静地躺在工作台上——银色外壳在阳光下反着光——但屏幕一片漆黑——像一块冰冷的废铁。林晚站在原地没有说话——看着那台原型机——一整个通宵的成果全部凝固在那块黑屏里。她的手机亮了一下——屏幕上弹出一条消息——她没有去看——窗外的城市已经完全苏醒——车流声从楼下隐隐传来。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-GRP-04-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-GRP-04
+        line: "——要全部重写。"
+      - speaker: CHAR-001
+        line: "（内心）不能重写——我们没有时间了。"
+    transition_to_next: hard_cut

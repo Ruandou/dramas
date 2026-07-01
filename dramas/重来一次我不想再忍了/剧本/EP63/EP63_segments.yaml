@@ -1,83 +1,256 @@
-# EP63 segments.yaml
-episode: EP63
-total_duration_sec: 47
-total_shots: 12
+episode_id: EP63
+source_md: 剧本/EP63/EP63_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。本集场景：高端餐厅私人包间，夜晚，深色木质装饰，暖黄灯光聚焦餐桌中央，窗外城市夜景璀璨。氛围表面优雅从容，实质暗流涌动——一场心理战在平静的晚餐对话下展开。情绪氛围从表面从容的试探→心理战的攻防→宁静水面下的暗涌→钩子的无声爆发。转场节奏：中→中→快→中→中→快→慢→爆发。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP46-72温暖明亮主调。本集场景：高端餐厅私人包间，夜晚，深色木质装饰，暖黄灯光聚焦餐桌中央，窗外城市夜景璀璨。氛围表面优雅从容，实质暗流涌动——一场心理战在平静的晚餐对话下展开。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-008: "成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色"
+
 segments:
-  - id: EP63-SEG01
-    scene_id: SCENE-008
-    description: "segment 1"
-    total_duration_sec: 9
-    shots:
-      - id: EP63-S01
-        type: "`EP63-S01`"
-        duration_sec: 1
-        description: "`SCENE-008`"
-      - id: EP63-S02
-        type: "`EP63-S02`"
-        duration_sec: 8
-        description: "`SCENE-008`"
-  - id: EP63-SEG02
-    scene_id: SCENE-008
-    description: "segment 2"
-    total_duration_sec: 9
-    shots:
-      - id: EP63-S03
-        type: "`EP63-S03`"
-        duration_sec: 1
-        description: "`SCENE-008`"
-      - id: EP63-S04
-        type: "`EP63-S04`"
-        duration_sec: 8
-        description: "`SCENE-008`"
-  - id: EP63-SEG03
-    scene_id: SCENE-008
-    description: "segment 3"
-    total_duration_sec: 16
-    shots:
-      - id: EP63-S05
-        type: "`EP63-S05`"
-        duration_sec: 8
-        description: "`SCENE-008`"
-      - id: EP63-S06
-        type: "`EP63-S06`"
-        duration_sec: 8
-        description: "`SCENE-008`"
-  - id: EP63-SEG04
-    scene_id: SCENE-008
-    description: "segment 4"
-    total_duration_sec: 9
-    shots:
-      - id: EP63-S07
-        type: "`EP63-S07`"
-        duration_sec: 8
-        description: "`SCENE-008`"
-      - id: EP63-S08
-        type: "`EP63-S08`"
-        duration_sec: 1
-        description: "`SCENE-008`"
-  - id: EP63-SEG05
-    scene_id: SCENE-008
-    description: "segment 5"
-    total_duration_sec: 2
-    shots:
-      - id: EP63-S09
-        type: "`EP63-S09`"
-        duration_sec: 1
-        description: "`SCENE-008`"
-      - id: EP63-S10
-        type: "`EP63-S10`"
-        duration_sec: 1
-        description: "`SCENE-008`"
-  - id: EP63-SEG06
-    scene_id: SCENE-008
-    description: "segment 6"
-    total_duration_sec: 2
-    shots:
-      - id: EP63-S11
-        type: "`EP63-S11`"
-        duration_sec: 1
-        description: "`SCENE-008`"
-      - id: EP63-S12
-        type: "`EP63-S12`"
-        duration_sec: 1
-        description: "`SCENE-008`"
+  - segment_id: EP63-SEG01
+    shot_ids: [EP63-S01, EP63-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（米白丝绸衬衣，深色西装外套搭椅背）【图2】周明轩 CHAR-008-L01（银灰色高定西装+深灰领带）【图3】浦江畔高端餐厅 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：私人包间深色木质装潢暖黄灯光从复古吊灯倾泻聚焦洁白圆桌。落地窗外黄浦江对岸摩天楼群灯火璀璨。林晚坐背窗位置（脸在暗处），周明轩坐对面主位（脸在光里用白色餐巾擦拭嘴角）。
+        镜头2（6秒）中近景 固定：周明轩的脸。暖黄灯光从侧上方照下轮廓清晰深沉，窗外璀璨夜景的光芒没有映入他的眼睛。嘴角弧度微微加深——他在重新评估眼前这个女人。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「说实话——你约我出来，我有点意外。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「我以为你会躲着我。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我不躲问题。我只解决问题。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「所以——我直接来了。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「解决问题。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「好。我洗耳恭听。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-008, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP63-SEG02
+    shot_ids: [EP63-S03, EP63-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（米白丝绸衬衣）【图2】周明轩 CHAR-008-L01（银灰色高定西装）【图3】浦江畔高端餐厅 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头3（6秒）特写 缓推：林晚的脸。表情很平静但目光里有经过精密计算后的笃定。窗外城市夜景光斑在她瞳孔里折射成细碎光点。她一字一句铺开一张棋盘。
+        镜头4（6秒）特写 固定：周明轩的脸。表情没有任何变化。短暂的沉默后他端起红酒杯喝了一口，放下酒杯过程中目光一直停留在林晚脸上——他在读她。然后缓缓开口。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「三个月——给我三个月。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「如果我能让公司估值翻倍——盛天资本永久放弃收购。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「如果做不到——我手里的所有股份，按你现在的报价出让。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「三个月翻倍。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「你知道这个行业过去五年里——能做到这个增速的公司，不超过三家。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我知道。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「那你应该也知道——如果你输了，你连退路都没有。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我既然坐在这里——就没给自己留退路。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-008, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP63-SEG03
+    shot_ids: [EP63-S05, EP63-S06]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: |
+        【图1】周明轩 CHAR-008-L01（银灰色高定西装）【图2】林晚 CHAR-001-L01（米白丝绸衬衣）【图3】浦江畔高端餐厅 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头5（6秒）中近景 固定：周明轩微微偏头目光从审视变成更锐利的探查。指尖停在杯沿上轻轻摩挲。声音从容但问题像藏在丝绸下的匕首。
+        镜头6（6秒）大特写 固定：周明轩的眼睛。在林晚说出"您担心他站在我这边？"之后瞳孔微微收缩了一下——只有不到半秒。然后他笑了——那不是温暖的笑容，是更复杂的表情——他意识到自己被将了一军。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「你最近见了什么人——我知道吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我见的人很多——您指哪一个？」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「那个退下来很多年的老先生——他最近身体还好吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「如果您说的是那位资深的投资界前辈——他身体很好。不过——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「您担心他站在我这边？」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「你比他口中说的——还要难缠。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「好吧——我答应你。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「三个月。翻倍。如果做不到——你手上所有的股份，按我现在的报价——全归我。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-008, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP63-SEG04
+    shot_ids: [EP63-S07, EP63-S08]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: |
+        【图1】周明轩 CHAR-008-L01（银灰色高定西装）【图2】林晚 CHAR-001-L01（米白丝绸衬衣）【图3】浦江畔高端餐厅 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头7（6秒）中景 固定：周明轩端起酒杯喝了一口后靠向椅背放松了。他望向窗外的夜景语气比之前随意了很多——像一个已经胜券在握的人在晚餐后闲聊。他提到了公司内部那些林晚"不应该知道"的数据。
+        镜头8（6秒）大特写 缓推：林晚的脸。她端着咖啡杯杯沿抵在唇边没有喝。表情没有任何变化但眼睛深处有什么被点亮了——是确认。周明轩说的那些话——公司真实现金流是负的、核心供应商账期紧张——这些数据确实是真的，但他不应该知道得这么详细。她慢慢放下咖啡杯动作比之前更慢。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「你那个原型机——我让人做过评估。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「技术确实不错。但商业化落地至少还要六个月——你等不了那么久。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「你们公司的真实现金流——这个季度是负的。你那批核心供应商的账期已经开始紧张了。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「这些——你应该比我更清楚。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「您对我们公司——了解得真仔细。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「我是个做收购的——不了解对手，怎么赢？」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-008, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP63-SEG05
+    shot_ids: [EP63-S09]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（米白丝绸衬衣）【图2】周明轩 CHAR-008-L01（银灰色高定西装）【图3】浦江畔高端餐厅 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头9（10秒）中景 固定：包间全景两人隔着餐桌对坐。周明轩靠回椅背端着酒杯神态从容中带着胜券在握的松弛。林晚坐在对面姿态端正，握着酒杯的左手指尖力度比刚才重了一点——她在消化刚才发生的一切。桌上红酒在灯光下泛深红色光泽。窗外陆家嘴灯火璀璨。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「三个月——我等着看你的成果。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我不会让您失望的。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「今晚很愉快。比我预想的——有意思得多。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「慢走。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-008, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP63-SEG06
+    shot_ids: [EP63-S10]
+    duration_sec: 10
+    speakers: []
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（米白丝绸衬衣）【图2】浦江畔高端餐厅 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头10（10秒）中近景到中景 拉远：林晚独自站在包间中央门已经关上。她面对着那扇深色木门站了大约两秒——没有动没有说话。然后她缓缓地、极其缓慢地转过身来。脸上没有表情——但那种没有表情恰恰是最有表情的。她的手垂在身侧指尖在微微发抖。她深吸了一口气然后走回餐桌前拉开椅子慢慢坐下，低头看着桌面。
+        本段无对白无语音，禁止画面中出现任何文字。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: SCENE-008, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP63-SEG07
+    shot_ids: [EP63-S11]
+    duration_sec: 12
+    speakers: []
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（米白丝绸衬衣）【图2】录音设备 PROP-004（黑色小巧金属录音设备）【图3】浦江畔高端餐厅 SCENE-008。
+        角色分工：仅图1可触碰道具；图2为固定道具不执行动作。
+        道具：小型黑色金属录音设备（约10cm长，矩形体，一侧有红色指示灯）。
+        竖屏9比16连贯叙事。
+        镜头11（12秒）中景到极特写 跟随：林晚低头看了看桌面然后缓缓弯下腰右手探到桌面下方——指尖触到一个冰冷的金属物件。镜头跟随她的手腕下移。她的手在餐桌底部摸索了一瞬。镜头推成大特写——餐桌底部黑色胶带固定着一个黑色录音设备（PROP-004）。红色指示灯亮——录音中。她的手指轻轻按在设备侧面——没有按停止只是确认它还在工作。然后她慢慢直起身坐回椅子上——脸上完成了布局后的虚脱感消失，取而代之的是更清醒、更锐利的神情。
+        本段无对白无语音，禁止画面中出现任何文字。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: SCENE-008, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP63-SEG08
+    shot_ids: [EP63-S12]
+    duration_sec: 12
+    speakers: []
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（米白丝绸衬衣）【图2】录音设备 PROP-004（黑色小巧金属录音设备）【图3】浦江畔高端餐厅 SCENE-008。
+        角色分工：仅图1可触碰道具；图2为独立物件。
+        道具：黑色录音设备（PROP-004），红色指示灯已熄灭。
+        竖屏9比16连贯叙事。
+        镜头12（12秒）特写到极特写 缓推到固定：特写开始——林晚的脸。暖黄吊灯灯光从上洒下，半张脸在光里半张脸在阴影中。表情很平静——平静到不正常，那是一种大战过后身心耗尽所有情绪的真空状态。目光低垂看着自己摊开的掌心。镜头缓缓下移推向她的手掌——掌心里躺着一个小小的黑色录音设备。侧面的红色指示灯已经熄灭。她的大拇指轻轻摩挲着设备外壳像是在抚摸一件刚完成使命的武器。然后她的手指收拢——将设备握紧在掌心里。手指指关节因为用力而微微泛白。窗外城市夜景光斑透过落地窗落在她的手背上像碎掉的光点。
+        本段无对白无语音，禁止画面中出现任何文字。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: SCENE-008, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

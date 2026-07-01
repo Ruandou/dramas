@@ -1,83 +1,360 @@
-# EP71 shots.yaml
-episode: EP71
-total_duration_sec: 80
-total_shots: 13
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP71/EP71_楼梯间的名片.md
+# Source shots: 13 (EP71-S01 to EP71-S13)
+# Output shots: 13 (EP71-S01 to EP71-S13)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s
+# Output total duration: 80s
+# Gate status: SKIPPED (user overrode non-fatal gates)
+
+episode_id: EP71
+source_md: 剧本/EP71/EP71_楼梯间的名片.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。温暖明亮色调。"
+  negative_prompt: "real celebrity face, real brand logo, ancient costume, weapon, military uniform, gun, explosion, anime style, cartoon style"
+
 shots:
-  - id: EP71-S01
-    scene_id: SCENE-014
-    type: "全景"
+  - shot_id: EP71-S01
+    shot_no: 1
+    mode: i2v_ref
     duration_sec: 6
-    description: "四十年后。林晚已是满头白发的老人。她走进一栋老旧写字楼的楼梯间。"
-    dialogue: "林晚（画外音）："四十年了。""
-  - id: EP71-S02
-    scene_id: SCENE-014
-    type: "中景"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。全景 固定：四十年后，图1已是满头白发的老人（约69岁，白色短发，面容苍老但气质优雅），穿着剪裁得体的深色西装大衣，走进一栋老旧写字楼的楼梯间。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-014
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "四十年了。"
+
+  - shot_id: EP71-S02
+    shot_no: 2
+    mode: i2v_ref
     duration_sec: 6
-    description: "她穿着剪裁得体的西装大衣，气质优雅。环顾这个破旧的楼梯间——一切都没有变。"
-    dialogue: "林晚（画外音）："这个楼梯间——还是和当年一样。""
-  - id: EP71-S03
-    scene_id: SCENE-014
-    type: "中景"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。中景 缓推：图1穿着剪裁得体的西装大衣，气质优雅，环顾破旧的楼梯间——一切都没有变。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-014
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "这个楼梯间——还是和当年一样。"
+
+  - shot_id: EP71-S03
+    shot_no: 3
+    mode: i2v_ref
     duration_sec: 6
-    description: "楼梯间的门被推开。一个年轻女孩冲进来，蹲在角落哭。和四十三年前的林晚一模一样。"
-    dialogue: "（女孩压抑的抽泣声）"
-  - id: EP71-S04
-    scene_id: SCENE-014
-    type: "近景"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。中景 固定：楼梯间的门被推开。一个年轻女孩（20岁左右）冲进来，蹲在角落哭——和四十三年前的林晚一模一样。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-014
+          role: reference_image
+          label: 图2
+    dialogue: []
+
+  - shot_id: EP71-S04
+    shot_no: 4
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚站在楼梯拐角，静静地看着她。"
-    dialogue: "林晚（画外音）："被训了？抢功了？觉得——活不下去了？""
-  - id: EP71-S05
-    scene_id: SCENE-014
-    type: "中景"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。近景 固定：图1站在楼梯拐角，静静地看着蹲在角落哭泣的年轻女孩。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-014
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "被训了？抢功了？觉得——活不下去了？"
+
+  - shot_id: EP71-S05
+    shot_no: 5
+    mode: i2v_ref
     duration_sec: 6
-    description: "女孩抬头，红着眼睛看着这个陌生的老奶奶。"
-    dialogue: "女孩："您——您是——""
-  - id: EP71-S06
-    scene_id: SCENE-014
-    type: "近景"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。中景 固定：年轻女孩抬头，红着眼睛看着眼前的老人。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-014
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-GRP-05
+        line: "您——您是——"
+
+  - shot_id: EP71-S06
+    shot_no: 6
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚微笑着蹲下身。从口袋里取出一张名片（PROP-005），递给她。"
-    dialogue: "林晚："我叫林晚。""
-  - id: EP71-S07
-    scene_id: SCENE-014
-    type: "特写"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。近景 固定：图1微笑着蹲下身，从口袋里取出一张白色名片（烫银林晚字样），递给女孩。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-014
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "我叫林晚。"
+
+  - shot_id: EP71-S07
+    shot_no: 7
+    mode: i2v_ref
     duration_sec: 6
-    description: "名片——"林晚"烫银。下方是她的新公司名称。"
-    dialogue: "林晚："如果你想重新开始——来我这儿。""
-  - id: EP71-S08
-    scene_id: SCENE-014
-    type: "近景"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】名片特写【图2】林晚 CHAR-001-L01【图3】楼梯间 SCENE-014。特写 固定：名片——林晚烫银，下方是新公司名称。昏黄灯光下微微发光。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-014
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "如果你想重新开始——来我这儿。"
+
+  - shot_id: EP71-S08
+    shot_no: 8
+    mode: i2v_ref
     duration_sec: 6
-    description: "女孩看着名片，再看看眼前这个温暖微笑的老人。"
-    dialogue: "女孩："可是——您都不认识我——""
-  - id: EP71-S09
-    scene_id: SCENE-014
-    type: "近景"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。近景 固定：年轻女孩看着名片，再看看眼前这个温暖微笑的老人。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-014
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-GRP-05
+        line: "可是——您都不认识我——"
+
+  - shot_id: EP71-S09
+    shot_no: 9
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚轻轻笑了。"
-    dialogue: "林晚："我认识你。四十年前——我也在这间楼梯间里，哭过。""
-  - id: EP71-S10
-    scene_id: SCENE-014
-    type: "特写"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。近景 固定：图1轻轻笑了，眼角皱纹舒展开来，目光温暖。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-014
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "我认识你。四十年前——我也在这间楼梯间里，哭过。"
+
+  - shot_id: EP71-S10
+    shot_no: 10
+    mode: i2v_ref
     duration_sec: 6
-    description: "女孩愣住了。名片上烫银的名字在昏黄的灯光下微微发光。"
-    dialogue: "林晚："去哭吧。哭完了——来上班。""
-  - id: EP71-S11
-    scene_id: SCENE-014
-    type: "中景"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】名片特写【图2】林晚 CHAR-001-L01【图3】楼梯间 SCENE-014。特写 固定：女孩愣住了。名片上烫银的林晚名字在昏黄灯光下微微发光。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-014
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "去哭吧。哭完了——来上班。"
+
+  - shot_id: EP71-S11
+    shot_no: 11
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚站起身，拍了拍女孩的肩膀，转身缓缓走上楼梯。"
-    dialogue: "女孩（哽咽）："谢谢您……林总。""
-  - id: EP71-S12
-    scene_id: SCENE-014
-    type: "近景"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。中景 固定：图1站起身，拍了拍蹲着女孩的肩膀，转身缓缓走上楼梯。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-014
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-GRP-05
+        line: "谢谢您……林总。"
+
+  - shot_id: EP71-S12
+    shot_no: 12
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚没有回头。但她的嘴角微微上扬。"
-    dialogue: "林晚（画外音）："不用谢。四十年前——也有人该递给我这张名片。""
-  - id: EP71-S13
-    scene_id: SCENE-014
-    type: "全景"
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。近景 固定：图1没有回头，但嘴角微微上扬。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-014
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "不用谢。四十年前——也有人该递给我这张名片。"
+
+  - shot_id: EP71-S13
+    shot_no: 13
+    mode: i2v_ref
     duration_sec: 8
-    description: "林晚走出楼梯间的门，阳光洒进来。女孩蹲在角落，紧紧握着那张名片。楼梯间的门缓缓关上。"
-    dialogue: "林晚（画外音）："但她没等到。所以我来了。""
+    refs:
+      scene_id: SCENE-014
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。全景 固定：图1走出楼梯间的门，阳光洒进来。年轻女孩蹲在角落，紧紧握着那张名片。楼梯间的门缓缓关上。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-014
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "但她没等到。所以我来了。"

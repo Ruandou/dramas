@@ -1,92 +1,203 @@
-# EP71 segments.yaml
-episode: EP71
-total_duration_sec: 80
-total_shots: 13
+episode_id: EP71
+source_md: 剧本/EP71/EP71_楼梯间的名片.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。温暖明亮色调，四十年后的暖金黄回忆感。现代都市环境。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。真人实拍质感，电影级色彩，浅景深。温暖明亮色调。现代都市环境。"
+  negative_prompt: "real celebrity face, real brand logo, ancient costume, weapon, military uniform, gun, explosion, anime style, cartoon style"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-GRP-05: "成年女性，20岁左右，声线年轻，哭泣时含混不清带颤音，感激时温暖真诚"
+
 segments:
-  - id: EP71-SEG01
-    scene_id: SCENE-014
-    description: "segment 1"
-    total_duration_sec: 12
-    shots:
-      - id: EP71-S01
-        type: "全景"
-        duration_sec: 6
-        description: "四十年后。林晚已是满头白发的老人。她走进一栋老旧写字楼的楼梯间。"
-      - id: EP71-S02
-        type: "中景"
-        duration_sec: 6
-        description: "她穿着剪裁得体的西装大衣，气质优雅。环顾这个破旧的楼梯间——一切都没有变。"
-  - id: EP71-SEG02
-    scene_id: SCENE-014
-    description: "segment 2"
-    total_duration_sec: 12
-    shots:
-      - id: EP71-S03
-        type: "中景"
-        duration_sec: 6
-        description: "楼梯间的门被推开。一个年轻女孩冲进来，蹲在角落哭。和四十三年前的林晚一模一样。"
-      - id: EP71-S04
-        type: "近景"
-        duration_sec: 6
-        description: "林晚站在楼梯拐角，静静地看着她。"
-  - id: EP71-SEG03
-    scene_id: SCENE-014
-    description: "segment 3"
-    total_duration_sec: 12
-    shots:
-      - id: EP71-S05
-        type: "中景"
-        duration_sec: 6
-        description: "女孩抬头，红着眼睛看着这个陌生的老奶奶。"
-      - id: EP71-S06
-        type: "近景"
-        duration_sec: 6
-        description: "林晚微笑着蹲下身。从口袋里取出一张名片（PROP-005），递给她。"
-  - id: EP71-SEG04
-    scene_id: SCENE-014
-    description: "segment 4"
-    total_duration_sec: 12
-    shots:
-      - id: EP71-S07
-        type: "特写"
-        duration_sec: 6
-        description: "名片——"林晚"烫银。下方是她的新公司名称。"
-      - id: EP71-S08
-        type: "近景"
-        duration_sec: 6
-        description: "女孩看着名片，再看看眼前这个温暖微笑的老人。"
-  - id: EP71-SEG05
-    scene_id: SCENE-014
-    description: "segment 5"
-    total_duration_sec: 12
-    shots:
-      - id: EP71-S09
-        type: "近景"
-        duration_sec: 6
-        description: "林晚轻轻笑了。"
-      - id: EP71-S10
-        type: "特写"
-        duration_sec: 6
-        description: "女孩愣住了。名片上烫银的名字在昏黄的灯光下微微发光。"
-  - id: EP71-SEG06
-    scene_id: SCENE-014
-    description: "segment 6"
-    total_duration_sec: 12
-    shots:
-      - id: EP71-S11
-        type: "中景"
-        duration_sec: 6
-        description: "林晚站起身，拍了拍女孩的肩膀，转身缓缓走上楼梯。"
-      - id: EP71-S12
-        type: "近景"
-        duration_sec: 6
-        description: "林晚没有回头。但她的嘴角微微上扬。"
-  - id: EP71-SEG07
-    scene_id: SCENE-014
-    description: "segment 7"
-    total_duration_sec: 8
-    shots:
-      - id: EP71-S13
-        type: "全景"
-        duration_sec: 8
-        description: "林晚走出楼梯间的门，阳光洒进来。女孩蹲在角落，紧紧握着那张名片。楼梯间的门缓缓关上。"
+  - segment_id: EP71-SEG01
+    shot_ids: [EP71-S01, EP71-S02]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-014
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（深色西装大衣，满头白发）【图2】楼梯间 SCENE-014（老旧灰墙，绿色安全出口灯）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景 固定：四十年后。图1已是满头白发的老人（约69岁），走进一栋老旧写字楼的楼梯间。灰白墙面斑驳，绿色安全出口灯亮着。
+        镜头2（6秒）中景 缓推：图1穿着剪裁得体的深色西装大衣，气质优雅从容，缓缓环顾这个破旧的楼梯间——一切都没有变，金属扶手掉漆、墙角有裂缝。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「四十年了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这个楼梯间——还是和当年一样。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖金黄回忆色调，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-014, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP71-SEG02
+    shot_ids: [EP71-S03, EP71-S04]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-014
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：楼梯间的门被推开。一个年轻女孩冲进来，蹲在角落哭，肩膀剧烈抽动——和四十三年前的林晚一模一样。
+        镜头2（6秒）近景 固定：图1站在楼梯拐角，静静地看着蹲在角落哭泣的年轻女孩，目光中满是岁月沉淀的理解与心疼。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「被训了？抢功了？觉得——活不下去了？」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖金黄回忆色调，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-014, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP71-SEG03
+    shot_ids: [EP71-S05, EP71-S06]
+    duration_sec: 12
+    speakers: [CHAR-GRP-05, CHAR-001]
+    refs:
+      scene_id: SCENE-014
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：年轻女孩抬头，红着眼睛看着眼前的老人，脸上挂着泪痕，满是困惑和惊讶。
+        镜头2（6秒）近景 固定：图1微笑着蹲下身，动作缓慢但从容。她从口袋里取出一张白色名片（烫银"林晚"字样），递向女孩。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（女孩，成年女性，20岁左右，声线年轻，哭泣时含混不清带颤音，感激时温暖真诚）：「您——您是——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我叫林晚。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖金黄回忆色调，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-014, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP71-SEG04
+    shot_ids: [EP71-S07, EP71-S08]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-GRP-05]
+    refs:
+      scene_id: SCENE-014
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：名片特写——"林晚"二字烫银工艺在昏黄灯光下微微发光，下方印着新公司名称。银色反光在白卡纸上柔和闪耀。
+        镜头2（6秒）近景 固定：年轻女孩看看手中的名片，又抬眼看着眼前这个温暖微笑的老人，眼中泪光闪烁，情绪从悲伤转为困惑与一丝希望的萌芽。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「如果你想重新开始——来我这儿。」
+        对白（女孩，成年女性，20岁左右，声线年轻，哭泣时含混不清带颤音，感激时温暖真诚）：「可是——您都不认识我——」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖金黄回忆色调，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-014, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP71-SEG05
+    shot_ids: [EP71-S09, EP71-S10]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-014
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1轻轻笑了——那是经过岁月淬炼后的通透笑容，眼角皱纹舒展开来，目光温暖如冬日阳光。
+        镜头2（6秒）特写 固定：年轻女孩愣住了。名片上烫银的"林晚"在昏黄灯光下微微发光。女孩的瞳孔微微放大，震惊中带着被理解的情绪涌动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我认识你。四十年前——我也在这间楼梯间里，哭过。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「去哭吧。哭完了——来上班。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖金黄回忆色调，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-014, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP71-SEG06
+    shot_ids: [EP71-S11, EP71-S12]
+    duration_sec: 12
+    speakers: [CHAR-GRP-05, CHAR-001]
+    refs:
+      scene_id: SCENE-014
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1站起身，轻轻拍了拍蹲在角落的年轻女孩的肩膀——那是一个充满力量与温度的触碰，然后转身缓缓走上楼梯，背影坚定。
+        镜头2（6秒）近景 固定：图1没有回头。但她的嘴角微微上扬——那是一个经历了全部苦难之后终于"值得了"的笑容。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（女孩，成年女性，20岁左右，声线年轻，哭泣时含混不清带颤音，感激时温暖真诚）：「谢谢您……林总。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不用谢。四十年前——也有人该递给我这张名片。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖金黄回忆色调，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-014, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP71-SEG07
+    shot_ids: [EP71-S13]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-014
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-014: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-014.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】楼梯间 SCENE-014。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）全景 固定：图1走出楼梯间的门，门外阳光洒进来，在昏暗的楼梯间地面投下一道明亮的光带。年轻女孩蹲在角落，紧紧握着那张名片贴在胸前。楼梯间的门缓缓关上，光线逐渐收窄。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「但她没等到。所以我来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖金黄回忆色调，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-014, role: reference_image, label: 图2 }
+    transition_to_next: dissolve

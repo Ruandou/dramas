@@ -1,79 +1,265 @@
-# EP52 segments.yaml
-episode: EP52
-total_duration_sec: 67
-total_shots: 11
+episode_id: EP52
+source_md: 剧本/EP52/EP52_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。本集为全剧母女情感线高潮（IM-04），光线策略分段：前半（SEG01-06·SCENE-006·林父林母家·傍晚→夜）采用暖黄钨丝灯与暮色混合光，厨房暖光、客厅老式吊灯、柜子里的阴影层次丰富，所有光线指向「家」的温暖与安全感——与EP51的冷调办公室形成最大反差。后半（SEG07-08·SCENE-001·公司·深夜）恢复冷白荧光灯与屏幕冷光，象征战场归来。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP46-72温暖明亮主调。本集为全剧母女情感线高潮（IM-04），光线策略分段：前半（SEG01-06·SCENE-006·林父林母家·傍晚→夜）采用暖黄钨丝灯与暮色混合光，厨房暖光、客厅老式吊灯、柜子里的阴影层次丰富，所有光线指向「家」的温暖与安全感——与EP51的冷调办公室形成最大反差。后半（SEG07-08·SCENE-001·公司·深夜）恢复冷白荧光灯与屏幕冷光，象征战场归来。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-009: "成年女性，55岁，声线偏老派，带市井感，语速偏快爱唠叨，转变后语气变温和含泪"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+  CHAR-GRP-45: "成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉"
+
 segments:
-  - id: EP52-SEG01
-    scene_id: SCENE-001
-    description: "segment 1"
-    total_duration_sec: 18
-    shots:
-      - id: EP52-S01
-        type: "`EP52-S01`"
-        duration_sec: 9
-        description: "`SCENE-006`"
-      - id: EP52-S02
-        type: "`EP52-S02`"
-        duration_sec: 9
-        description: "`SCENE-006`"
-  - id: EP52-SEG02
-    scene_id: SCENE-001
-    description: "segment 2"
-    total_duration_sec: 18
-    shots:
-      - id: EP52-S03
-        type: "`EP52-S03`"
-        duration_sec: 9
-        description: "`SCENE-006`"
-      - id: EP52-S04
-        type: "`EP52-S04`"
-        duration_sec: 9
-        description: "`SCENE-006`"
-  - id: EP52-SEG03
-    scene_id: SCENE-001
-    description: "segment 3"
-    total_duration_sec: 18
-    shots:
-      - id: EP52-S05
-        type: "`EP52-S05`"
-        duration_sec: 9
-        description: "`SCENE-006`"
-      - id: EP52-S06
-        type: "`EP52-S06`"
-        duration_sec: 9
-        description: "`SCENE-006`"
-  - id: EP52-SEG04
-    scene_id: SCENE-001
-    description: "segment 4"
-    total_duration_sec: 10
-    shots:
-      - id: EP52-S07
-        type: "`EP52-S07`"
-        duration_sec: 9
-        description: "`SCENE-006`"
-      - id: EP52-S08
-        type: "`EP52-S08`"
-        duration_sec: 1
-        description: "`SCENE-006`"
-  - id: EP52-SEG05
-    scene_id: SCENE-001
-    description: "segment 5"
-    total_duration_sec: 2
-    shots:
-      - id: EP52-S09
-        type: "`EP52-S09`"
-        duration_sec: 1
-        description: "`SCENE-006`"
-      - id: EP52-S10
-        type: "`EP52-S10`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP52-SEG06
-    scene_id: SCENE-001
-    description: "segment 6"
-    total_duration_sec: 1
-    shots:
-      - id: EP52-S11
-        type: "`EP52-S11`"
-        duration_sec: 1
-        description: "`SCENE-001`"
+  - segment_id: EP52-SEG01
+    shot_ids: [EP52-S01, EP52-S02]
+    duration_sec: 12
+    speakers: [CHAR-009, CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-009-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-006.png
+    api:
+      text: |
+        【图1】林母 CHAR-009-L01（米色印花棉布上衣，碎花围裙，花白短发）【图2】林晚 CHAR-001-L01（灰色居家T恤加薄外套，头发松散未梳理，无化妆）【图3】林父林母家客厅 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：老式小区走廊，昏黄声控灯。林晚站在自家门口，手悬在门铃上方停了两秒，轻轻敲了两下门。门开了——林母站在门口，围着洗得发白的碎花围裙，手上还沾着水珠。她看到林晚的脸——笑容凝固——看了三秒，从散乱的头发看到苍白的脸色。
+        镜头2（6秒）中近景 固定：门在林晚身后关上。玄关暖黄灯光照亮老式客厅——旧沙发、玻璃茶几、老照片。林晚站在玄关没有往里走。林母转身回厨房，声音从厨房传来。林晚站在玄关，闭了一下眼睛——只有三秒——然后睁开。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林母，成年女性，55岁，声线偏老派，带市井感，语速偏快爱唠叨，转变后语气变温和含泪）：「回来了？……吃饭了没？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……妈。」
+        对白（林母，成年女性，55岁，声线偏老派，带市井感，语速偏快爱唠叨，转变后语气变温和含泪）：「进来。外头冷。」
+        对白（林母，成年女性，55岁，声线偏老派，带市井感，语速偏快爱唠叨，转变后语气变温和含泪）：「去坐着。面马上好。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。暖黄钨丝灯与暮色混合光，厨房暖光、客厅老式吊灯，所有光线指向家的温暖与安全感。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP52-SEG02
+    shot_ids: [EP52-S03]
+    duration_sec: 10
+    speakers: [CHAR-009, CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-009-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-006.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（灰色居家T恤加薄外套）【图2】林母 CHAR-009-L01（碎花围裙，花白短发）【图3】林父林母家 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头3（10秒）中景 固定：林晚坐在客厅小饭桌前，面前一碗热腾腾的番茄鸡蛋面——细细的面条卧在金红色汤里，一个荷包蛋，葱花撒在表面。林母在她对面坐下，拿起一件未织完的旧毛衣低头开始织——针线在她粗糙的手指间穿行。她不看她——她让她吃。林晚拿起筷子夹起一箸面——热气扑在脸上——她吃了一口——然后眼泪无声地落入碗里——一滴，两滴，落在汤面上漾开小小的涟漪。林母没有抬头——但她的针停了一瞬——然后继续。她知道女儿在哭。她不说。她让她哭。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林母，成年女性，55岁，声线偏老派，带市井感，语速偏快爱唠叨，转变后语气变温和含泪）：「吃慢点。锅里还有。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。暖黄钨丝灯与暮色混合光，客厅老式吊灯暖光。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP52-SEG03
+    shot_ids: [EP52-S04, EP52-S05]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-009]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-009-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-006.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（灰色居家T恤）【图2】林母 CHAR-009-L01（碎花围裙，布满老茧的手）【图3】林父林母家 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头4（6秒）中近景 固定：林晚放下筷子，碗里的面还剩大半，肩膀微微颤抖。林母放下毛衣针站起来走到林晚身边——没有坐下——只是站在那里，低头看着女儿颤抖的肩膀。她伸出手——那双布满老茧、洗了三十年衣服的手——轻轻放在林晚的头顶，像她小时候那样。林晚压着声音哭出来——从喉咙深处挤出的声音。林母的手从她头顶滑到肩膀。
+        镜头5（6秒）特写 固定：林晚的手紧紧攥着膝盖上的裤子——指节泛白。眼泪一滴一滴落在地板上。林母的手还放在她肩上——粗糙、温暖、微微颤抖。林母轻轻拍了拍林晚的肩——转身走向卧室角落那个老旧的木头柜子。林晚抬起头泪眼模糊地看着母亲的背影。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「妈——我不知道该怎么办了——」
+        对白（林母，成年女性，55岁，声线偏老派，带市井感，语速偏快爱唠叨，转变后语气变温和含泪）：「不想说就不说。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖黄钨丝灯。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP52-SEG04
+    shot_ids: [EP52-S06, EP52-S07]
+    duration_sec: 12
+    speakers: [CHAR-009]
+    refs:
+      scene_id: SCENE-006
+      prop_ids: [PROP-001]
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-009-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-006.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-001.png
+    api:
+      text: |
+        【图1】林母 CHAR-009-L01（花白短发，碎花围裙）【图2】林晚 CHAR-001-L01（坐在饭桌前，泪眼模糊）【图3】林父林母家 SCENE-006【图4】存折 PROP-001（泛蓝封面，金字模糊，边角卷起）。
+        竖屏9比16连贯叙事。
+        角色分工：仅图1可触碰铁盒和存折。
+        道具：老旧铁盒（表面生锈，边角磨损），内存红布包，红布内包裹一本泛蓝存折（A5大小，封面金字「活期储蓄存折」已脱落，边角卷起）。
+        镜头6（6秒）中景 固定：林母半蹲在老木头柜子前，柜门敞开。她从柜子最深处一叠旧衣服下拿出一个生锈铁盒。打开铁盒——里面是一叠证件、几张老照片、一个红布包。她打开红布包——里面是一本存折。蓝色封面已磨损发白。她低头看着存折几秒，然后站起来转身走回客厅。
+        镜头7（6秒）中景→特写 缓推：林母走回林晚面前，打开存折看了一眼数字——二十万——然后合上，递到林晚面前。她的手递出存折时微微颤抖。林晚看着那本递到面前的存折，整个人僵住了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林母，成年女性，55岁，声线偏老派，带市井感，语速偏快爱唠叨，转变后语气变温和含泪）：「妈这辈子——没攒下什么大本事。就这些了——你拿着。」
+        对白（林母，成年女性，55岁，声线偏老派，带市井感，语速偏快爱唠叨，转变后语气变温和含泪）：「妈在呢。别怕。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖黄钨丝灯与暮色混合光，柜子里阴影层次丰富。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+        - { file: PROP-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP52-SEG05
+    shot_ids: [EP52-S08]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-009]
+    refs:
+      scene_id: SCENE-006
+      prop_ids: [PROP-001]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-009-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-006.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（双手捧着存折，满脸是泪）【图2】林母 CHAR-009-L01（围裙，布满老茧的手）【图3】存折 PROP-001（翻开页面，手写数字，二十万）【图4】林父林母家 SCENE-006。
+        竖屏9比16连贯叙事。
+        角色分工：仅图1可触碰存折。
+        道具：存折翻开，内页有一行行手写数字——每月几百、几十、十几块——最后一笔"200,000"。
+        镜头8（12秒）特写→中近景 缓推：林晚双手接过存折——低头看着泛蓝封面——翻开第一页看到一行行手写数字。眼泪落在存折页面上浸湿数字。她抬起头满脸是泪叫了一声"妈"——那个字从胸口最深处涌出来。林母眼眶红了但没让眼泪掉下来——伸手擦林晚脸上的泪，动作笨拙粗糙，像砂纸划过脸颊——然后把她抱进怀里。围裙上还有厨房的烟火气。林晚在母亲肩头哭出声——不是压抑的，是终于可以哭出来的声音。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「妈——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「妈——我好累——」
+        对白（林母，成年女性，55岁，声线偏老派，带市井感，语速偏快爱唠叨，转变后语气变温和含泪）：「累就歇歇。妈这儿——永远有你的地方。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖黄钨丝灯，光线温暖。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+        - { file: SCENE-006, role: reference_image, label: 图4 }
+    transition_to_next: dissolve
+
+  - segment_id: EP52-SEG06
+    shot_ids: [EP52-S09]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-006
+      prop_ids: [PROP-001]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-006.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（灰色居家T恤加薄外套，眼睛还红着）【图2】存折 PROP-001（月光下泛蓝的封面微亮）【图3】林父林母家 SCENE-006。
+        竖屏9比16连贯叙事。
+        角色分工：图1可触碰存折。
+        道具：泛蓝存折放在床头柜上，月光下封面微微发亮。
+        镜头9（10秒）中景 固定：深夜。林晚坐在小时候的书桌前。月光透过老式窗框洒进来，在地板上投下一格一格的光影。存折放在她面前——她伸出手指尖轻轻碰了碰——然后拿起来放进了自己外套的内袋——贴着胸口的位置。她站起来走到母亲房门前——门缝里透出一线暖光。她轻轻说了一句话。门缝里的灯停了一瞬——然后灭了——无声的回应。林晚站在黑暗中——嘴角有一个极微小的弧度——然后转身打开大门走进夜色里。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「妈——我走了。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，深夜月光清冷，母亲房门缝透出暖光。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: PROP-001, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP52-SEG07
+    shot_ids: [EP52-S10]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（灰色居家T恤加薄外套，同前造型）【图2】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头10（10秒）中远景→中景 镜头跟随：深夜公司大楼外，林晚从出租车上下来。夜风很大吹着她的头发。她抬头看大楼——大部分窗口黑着——但公司那一层角落里有一扇窗亮着灯。她停了一下——走进大楼。电梯门打开——走廊里应急灯亮着——她走过空无一人的办公区，脚步声在空旷的走廊里轻轻回响。她在会议室门前停住——门缝里透出光——听到里面有人说话的声音。她手伸向门把手——隔着磨砂玻璃看了一眼——两个模糊身影。她深吸一口气转开门把手。
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，深夜冷白荧光灯与屏幕冷光——从温暖的家回到冰冷的战场。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP52-SEG08
+    shot_ids: [EP52-S11]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+      prop_ids: [PROP-001]
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-001.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装敞开，白衬衣，连夜赶路回来的状态）【图2】林晚 CHAR-001-L01（手握存折）【图3】公司大办公室 SCENE-001【图4】存折 PROP-001（泛蓝封面，握在林晚手中）。
+        竖屏9比16连贯叙事。
+        角色分工：仅图2可触碰存折。
+        道具：泛蓝存折握在图2垂在身侧的手中。
+        镜头11（10秒）中景 固定：会议室的门打开了。陆北辰正站在窗前打电话——听到门声转头——看到林晚——他的目光在她脸上停了一下，看到她哭过的痕迹——他挂了电话。椅子上的苍老身影缓缓转头——花白头发，旧式夹克，面容清瘦，眼神异常清明。陆北辰放下手机，注意到林晚手里握着的存折。他叫她名字的声音放轻了一格。林晚的目光落在老人身上——她问"这位是"。陆北辰沉默了一秒——然后说出了那句话——深夜的会议室里，三个人的轮廓被灯光照亮。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「林晚。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这位是——」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「——这位是我父亲以前的——合伙人。我找了他很久——今天终于找到了。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，深夜冷白荧光灯，会议室灯光。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - { file: PROP-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut

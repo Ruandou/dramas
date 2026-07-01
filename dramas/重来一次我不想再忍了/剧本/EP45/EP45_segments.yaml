@@ -1,96 +1,266 @@
-# EP45 segments.yaml
-episode: EP45
-total_duration_sec: 66
-total_shots: 14
+episode_id: EP45
+source_md: 剧本/EP45/EP45_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP19-45暖橙主调，灰色为辅。走廊冷调灯带+自然光营造冷静布局的氛围；会议室内冷白日光灯+投影屏幕蓝光+午后斜阳形成紧绷对峙的职场博弈感；散会后走廊光线转暖偏暗，暗示风暴暂歇但暗流未消。整体色调从走廊的清冷到会议室的冷锐白，再到散场后走廊的微暖黄昏光，对应情绪从布局→对峙→余波的变化。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP19-45暖橙主调，灰色为辅。走廊冷调灯带+自然光营造冷静布局的氛围；会议室内冷白日光灯+投影屏幕蓝光+午后斜阳形成紧绷对峙的职场博弈感；散会后走廊光线转暖偏暗，暗示风暴暂歇但暗流未消。整体色调从走廊的清冷到会议室的冷锐白，再到散场后走廊的微暖黄昏光，对应情绪从布局→对峙→余波的变化。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+  CHAR-007: "成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑"
+  CHAR-006: "成年男性，50岁，声线粗厚带职场权威感，语速偏缓，不耐烦时短促有力"
+  # ⚠️ WARNING: CHAR-GRP-28 (集团副总) has no voice_prompt in 声音卡片/角色卡片/制片规范.
+  # Per user instruction to skip non-fatal gates, using generated description based on script.
+  CHAR-GRP-28: "成年男性，50岁，声线沉稳有分量，语速偏缓，带高级管理层的从容与审视感"
+
 segments:
-  - id: EP45-SEG01
-    scene_id: SCENE-002
-    description: "segment 1"
-    total_duration_sec: 6
-    shots:
-      - id: EP45-S01
-        type: "`EP45-S01`"
-        duration_sec: 5
-        description: "`SCENE-013`"
-      - id: EP45-S02
-        type: "`EP45-S02`"
-        duration_sec: 1
-        description: "`SCENE-013`"
-  - id: EP45-SEG02
-    scene_id: SCENE-002
-    description: "segment 2"
-    total_duration_sec: 14
-    shots:
-      - id: EP45-S03
-        type: "`EP45-S03`"
-        duration_sec: 7
-        description: "`SCENE-002`"
-      - id: EP45-S04
-        type: "`EP45-S04`"
-        duration_sec: 7
-        description: "`SCENE-002`"
-  - id: EP45-SEG03
-    scene_id: SCENE-002
-    description: "segment 3"
-    total_duration_sec: 8
-    shots:
-      - id: EP45-S05
-        type: "`EP45-S05`"
-        duration_sec: 7
-        description: "`SCENE-002`"
-      - id: EP45-S06
-        type: "`EP45-S06`"
-        duration_sec: 1
-        description: "`SCENE-002`"
-  - id: EP45-SEG04
-    scene_id: SCENE-002
-    description: "segment 4"
-    total_duration_sec: 8
-    shots:
-      - id: EP45-S07
-        type: "`EP45-S07`"
-        duration_sec: 1
-        description: "`SCENE-002`"
-      - id: EP45-S08
-        type: "`EP45-S08`"
-        duration_sec: 7
-        description: "`SCENE-002`"
-  - id: EP45-SEG05
-    scene_id: SCENE-002
-    description: "segment 5"
-    total_duration_sec: 8
-    shots:
-      - id: EP45-S09
-        type: "`EP45-S09`"
-        duration_sec: 7
-        description: "`SCENE-002`"
-      - id: EP45-S10
-        type: "`EP45-S10`"
-        duration_sec: 1
-        description: "`SCENE-002`"
-  - id: EP45-SEG06
-    scene_id: SCENE-002
-    description: "segment 6"
-    total_duration_sec: 8
-    shots:
-      - id: EP45-S11
-        type: "`EP45-S11`"
-        duration_sec: 1
-        description: "`SCENE-002`"
-      - id: EP45-S12
-        type: "`EP45-S12`"
-        duration_sec: 7
-        description: "`SCENE-002`"
-  - id: EP45-SEG07
-    scene_id: SCENE-002
-    description: "segment 7"
-    total_duration_sec: 14
-    shots:
-      - id: EP45-S13
-        type: "`EP45-S13`"
-        duration_sec: 7
-        description: "`SCENE-013`"
-      - id: EP45-S14
-        type: "`EP45-S14`"
-        duration_sec: 7
-        description: "`SCENE-013`"
+  # ── SEG01: 落子（刺探式·从沉默到布局）── SCENE-013 ──
+  - segment_id: EP45-SEG01
+    shot_ids: [EP45-S01, EP45-S02]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图3】公司走廊 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中全景→中景 固定：公司走廊上午，落地窗透进清亮晨光在地砖上拉出长影。图1从走廊另一头走来手里拿着文件夹——他看到靠在窗边的图2。她安静地站在那看着窗外。图1走到她身边站定。
+        镜头2（6秒）中近景→特写 固定：图1看着图2——她的表情在那句"不需要他知道"之后没有丝毫波动。图1伸手轻轻拍了拍她的手臂——一个无声的"我在"。图2低头看了一眼然后抬眼看向走廊尽头的会议室方向。她深吸一口气然后呼出来——像把最后一丝紧张也吐掉了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「确认了？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「今早七点——他调了那份假数据，发给了贺云峰。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「他知道自己在做什么吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不需要他知道。他只需要——把消息送出去。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「贺云峰带了人。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「知道。我等了一早上，就是在等他亮牌。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「走吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，动画、卡通、插画、漫画、文字、字幕、logo。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ── SEG02: 登台（蓄力式·贺云峰亮牌→引荐VP→建立气场）── SCENE-002 ──
+  - segment_id: EP45-SEG02
+    shot_ids: [EP45-S03, EP45-S04]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-GRP-28-L01: assets/looks/CHAR-GRP-28-L01.png  # WARNING: no CDN URL
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】贺云峰 CHAR-007-L01（藏蓝色细条纹西装+法式衬衣+袖扣）【图2】集团副总 CHAR-GRP-28-L01（深灰西装+花白鬓角+银框眼镜）【图3】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带）【图4】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图5】会议室 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景→中全景 固定：会议室内冷白日光灯下长桌两侧坐满了人。图1站在投影屏幕前姿态松弛自信。他身边坐着图2——五十岁上下面容沉稳目光不动声色地扫视全场。图3坐在桌尾表情复杂手指在桌面轻敲。图1用手势引向图2——语气带着精心打磨过的尊敬。
+        镜头2（6秒）中近景→特写 固定：图1的目光落在图4身上——像在看"待会儿要处理的对象"。图4没有回避——她迎了上去。表情平静嘴角带着一丝极淡的弧度——"我等着你呢"的从容。图1看到她的表情微微顿了一下——然后移开视线翻动桌上报告。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「今天很荣幸——我们请到了集团总部的王总，来旁听本季度的部门汇报。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「尤其——是市场部这一季度的表现，王总也很关注。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「那——从市场部开始吧。林副总监——你来？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「好。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，动画、卡通、插画、漫画、文字、字幕、logo。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-28-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-002, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  # ── SEG03: 出招（刺探式·贺云峰施压→数据质疑→林晚不动）── SCENE-002 ──
+  - segment_id: EP45-SEG03
+    shot_ids: [EP45-S05, EP45-S06]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】贺云峰 CHAR-007-L01（藏蓝色细条纹西装）【图2】林晚 CHAR-001-L01（海军蓝西装外套）【图3】会议室 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景→特写 固定：图2起身走到投影屏幕前汇报市场部数据。图1在她讲到新产品线预算执行率时"温和地"插话——抛出通过内鬼拿到的假情报质疑ROI预测。图2停下安静地听他说完——没有打断没有辩解。那安静让整个房间的空气都凝住了。
+        镜头2（6秒）特写→中近景 固定：特写图2的脸。她安静地站了几秒——那几秒的沉默像是被拉长了。然后她开口——她没有回答他的质疑——她问了一个完全不同的方向的问题。图1的笑容在她问出那句话后出现了一道几乎不可见的裂纹。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「等一下——林副总监，你这个ROI预测，和上个版本的偏差好像有点大。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「我这边拿到的独立评估数据——你那个新项目的预期回报率，比你刚才说的低了将近一半。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺总——你说的那个独立评估数据，是哪一天拿到的？」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「……上周三。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「上周三。那正好——是我更新这份预算的前一天。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，动画、卡通、插画、漫画、文字、字幕、logo。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ── SEG04: 收网（权力翻转·林晚亮牌→"你的信息是过期的"→贺云峰裂开）── SCENE-002 ──
+  - segment_id: EP45-SEG04
+    shot_ids: [EP45-S07, EP45-S08]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-GRP-28-L01: assets/looks/CHAR-GRP-28-L01.png  # WARNING: no CDN URL
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套）【图2】贺云峰 CHAR-007-L01（藏蓝色细条纹西装）【图3】集团副总 CHAR-GRP-28-L01（深灰西装+银框眼镜）【图4】会议室 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景→特写 固定：图1翻到报告下一页把新数据展示在投影屏幕上——左右对比差异一目了然。她的声音仍然平静——不是在反击只是在"展示事实"——但那份平静本身就是最锋利的刀。图2脸上的微笑保持住了——但他的眼神变了。那是一种极度隐忍的震惊。
+        镜头2（6秒）特写→中景 固定：特写图2的脸。微笑还挂在嘴角但眼神已冷——微笑从"掌控全局"变成了"保持风度"的僵硬。他的手在桌面上停住了。镜头拉开——会议室里其他人交换眼神。图3的目光从屏幕移到图1身上——带着一丝不易察觉的认可。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我周三早上拿到了一组新的市场反馈数据——产品测试的转化率比预期高出了62%。所以我当天下午更新了整个预算模型。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺总——你手上那份'独立评估'，是我更新之前的数据了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「所以贺总——你那个基于旧数据的担忧，不成立。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不过——我很想知道——你那份独立评估，是谁给你的？」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，动画、卡通、插画、漫画、文字、字幕、logo。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-28-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ── SEG05: 余震（权力翻转·贺云峰收场→王总目光→胜负已分）── SCENE-002 ──
+  - segment_id: EP45-SEG05
+    shot_ids: [EP45-S09, EP45-S10]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-GRP-28, CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-28-L01: assets/looks/CHAR-GRP-28-L01.png  # WARNING: no CDN URL
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】贺云峰 CHAR-007-L01（藏蓝色细条纹西装）【图2】林晚 CHAR-001-L01（海军蓝西装外套）【图3】集团副总 CHAR-GRP-28-L01（深灰西装+银框眼镜）【图4】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带）【图5】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图6】会议室 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景→中近景 固定：图1被最后一个问题噎住了。他停顿了两秒然后笑了——一个很淡的"这一局你赢了"的笑。他岔开了话题。图3开口了——语气平淡但目光落在图2身上带着一丝认可。图4坐在桌尾表情复杂像一个终于看到结果的旁观者。
+        镜头2（6秒）中近景→中景 固定：会议继续了十几分钟但真正的议程已结束。图1明显收敛不再针对图2。图2安静地坐在座位上表情从容。图5坐在会议桌另一侧抬头看了图2一眼——两人交换了一个极短暂的确认眼神。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「信息差而已——没事，继续。」
+        对白（王总，成年男性，50岁，声线沉稳有分量，语速偏缓，带高级管理层的从容与审视感）：「这个数据更新很及时——市场反应能这么快调整模型，不容易。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「谢谢王总。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「成了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「第一步——走完了。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，动画、卡通、插画、漫画、文字、字幕、logo。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-28-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图4 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图5 }
+        - { file: SCENE-002, role: reference_image, label: 图6 }
+    transition_to_next: hard_cut
+
+  # ── SEG06: 散场（碎片式·人走茶凉→贺云峰独坐→沉默中的裂痕）── SCENE-002 ──
+  - segment_id: EP45-SEG06
+    shot_ids: [EP45-S11, EP45-S12]
+    duration_sec: 12
+    speakers: [CHAR-GRP-28, CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-28-L01: assets/looks/CHAR-GRP-28-L01.png  # WARNING: no CDN URL
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套）【图2】集团副总 CHAR-GRP-28-L01（深灰西装+银框眼镜）【图3】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带）【图4】贺云峰 CHAR-007-L01（藏蓝色细条纹西装）【图5】会议室 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景→中近景 固定：会议结束人们陆续散场。图1把笔记本合上放进包里。图2在门口停了一下回头看了看图1然后点了点头——一个非常轻微的动作。图1回了一个颔首。图3经过时脚步顿了一下欲言又止最终只是轻轻拍了拍她肩膀快步走了出去。图1站在原地等所有人都走得差不多了才慢慢拉上包链。
+        镜头2（6秒）中近景→特写 固定：会议室空了。门关上——咔嗒一声。只剩图4一个人。他还坐在原位没有动，手指按在数据对比页上。投影屏幕已熄灭。他安静地坐了很久然后缓缓抬起头看向图1站过的位置。没有愤怒没有崩溃——他笑了。一个很轻的带着凉意的笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王总，成年男性，50岁，声线沉稳有分量，语速偏缓，带高级管理层的从容与审视感）：「林副总监——下一季度的预算会，我希望你来做主汇报。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「好的王总，我会准备好。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「有意思……林晚。真有意思。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，动画、卡通、插画、漫画、文字、字幕、logo。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-28-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-002, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  # ── SEG07: 暗涌（危机钩·走廊独处→电话接通→"大戏才开始"）── SCENE-013 ──
+  - segment_id: EP45-SEG07
+    shot_ids: [EP45-S13, EP45-S14]
+    duration_sec: 12
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】贺云峰 CHAR-007-L01（藏蓝色细条纹西装）【图2】手机 PROP-009【图3】公司走廊 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中全景→中景 固定：公司走廊下午光线从清亮晨光变成了偏暖偏暗的斜阳。图1从会议室走出脚步不急不缓——他在走廊窗边停下拿出手机。屏幕光映在他脸上——他没有立刻拨号先看着窗外像是组织语言。夕阳在他轮廓上镀了一层金边但表情在阴影中。然后他低头拨号。
+        镜头2（6秒）特写→大特写 缓推（推到大特写）：图1侧脸特写。他对着电话听了一会儿然后——他笑了。一个在暮色中意味深长的笑容——"游戏才刚开始"的微笑。他对着电话说了句轻而冷的话——每一个字都带着让人后背发凉的笃定。挂断后把手机放进口袋。他没有立刻离开——站在那看着窗外城市天际线目光深邃沉静。夕阳在他身后沉入天际线。镜头缓推进到他的眼睛——映着最后一抹暮色余晖像一簇即将点燃的火焰。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「帮我查一个人——林晚，市场部副总监。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「你以为这就结束了？」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「大戏——才刚刚开始。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，动画、卡通、插画、漫画、文字、字幕、logo。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: PROP-009, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

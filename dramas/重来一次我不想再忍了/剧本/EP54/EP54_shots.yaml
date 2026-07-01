@@ -1,71 +1,325 @@
-# EP54 shots.yaml
-episode: EP54
-total_duration_sec: 47
-total_shots: 11
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP54/EP54_分镜剧本.md
+# Source shots: 11 (EP54-S01 to EP54-S11)
+# Output shots: 11 (EP54-S01 to EP54-S11)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 76s (self-calculated: 6+6+6+6+6+6+10+6+6+8+10=76s) — 源 .md VALIDATION 声明 76s, 一致 ✅
+# Output total duration: 76s
+# Gate status: SKIPPED (non-fatal — user instruction: "跳过所有不致命门控")
+# ⚠️ NOTE: 源 .md 元数据声明 Seedance 有效镜数=10，实际镜头表行数=11，不一致。按用户指示跳过 Gate 2。
+# ⚠️ NOTE: [待补：眼线同事] 尚无正式 CHAR-GRP-ID 及 L01 形象，按用户指示跳过 Gate 3/4 继续生成。
+
+episode_id: EP54
+source_md: 剧本/EP54/EP54_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。本集前半段公司场景（日间自然光+冷白LED），后半段咖啡厅场景（午后暖黄侧光）。转场节奏：密谋→执行→对手审视→大boss出场→信息不对称的反讽。周明轩出场使用暖调逆光+面部半阴。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP54-S01
-    scene_id: SCENE-003
-    type: "`EP54-S01`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP54-S02
-    scene_id: SCENE-003
-    type: "`EP54-S02`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP54-S03
-    scene_id: SCENE-003
-    type: "`EP54-S03`"
-    duration_sec: 5
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP54-S04
-    scene_id: SCENE-003
-    type: "`EP54-S04`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP54-S05
-    scene_id: SCENE-003
-    type: "`EP54-S05`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `[待补：眼线同事]`"
-  - id: EP54-S06
-    scene_id: SCENE-003
-    type: "`EP54-S06`"
+  - shot_id: EP54-S01
+    shot_no: 1
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-001`"
-    dialogue: "`[待补：眼线同事]`"
-  - id: EP54-S07
-    scene_id: SCENE-003
-    type: "`EP54-S07`"
-    duration_sec: 7
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-007`"
-  - id: EP54-S08
-    scene_id: SCENE-003
-    type: "`EP54-S08`"
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图3】公司大办公室 SCENE-001。中景 固定：公司大办公室的上午——落地窗外明亮天光，同事陆续就座，键盘声和电话声交织。角落工位——林晚和陆北辰像在讨论日常工作。林晚从文件袋里抽出一份文件，封面朝下放在桌上——她的动作很轻，但陆北辰注意到了那份文件的分量。他没有伸手去拿——只是看着她。林晚压低声音开口。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "老贺的条件——给我提了个醒。我们缺的不是钱——是时间。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP54-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】公司大办公室 SCENE-001。特写 固定：林晚把文件翻过来——封面上印着'XX资本——投资意向书（保密）'字样。陆北辰的目光落在封面上——他扫了一眼格式——然后看向林晚，眼神里有询问。林晚微微点头——确认了他的猜测。陆北辰翻开文件看了两页——翻页速度放慢——他看到了关键处。他抬头看林晚——那一眼里有'你知道你在做什么吗'的审视。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "这份文件——是假的。"
+      - speaker: CHAR-001
+        line: "不能更真了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP54-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】公司大办公室 SCENE-001。中近景 固定：陆北辰把文件合上——他没有笑，没有说'好主意'。他的表情在认真评估风险。他看着林晚——问了一个实际问题：贺云峰不是外行。林晚等待着他的问题——她知道他会问。她的回答平静而锋利——她不是在说服他，她是在告诉他她的判断。陆北辰听完她的逻辑——沉默了片刻——然后没有再质疑。他跳过了'要不要做'的问题——直接进入了'怎么做'。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "贺云峰不是外行——章、金额、条款——他看一眼就知道真假。"
+      - speaker: CHAR-001
+        line: "他当然知道。但盛天资本最怕的——不是文件是真是假——是他们不确定——这份文件背后的人——是真的还是假的。"
+      - speaker: CHAR-005
+        line: "消息怎么送过去？"
+      - speaker: CHAR-005
+        line: "知道了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP54-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】公司大办公室 SCENE-001。中景 固定：陆北辰收起手机——他的问题变得短促精准。林晚的回答同样短促——她已经在脑子里推演了很多遍。两人的对话节奏变快——没有废话，没有重复。最后一句话——陆北辰说的——他看着林晚，那一眼里有细微的提醒：这个计划如果被识破——我们会输得更快。林晚接收到了那个提醒——但她没有动摇。她站起身——拿起假文件——动作果断。从背后看——她握着文件走向复印区的背影——瘦削但坚定。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "文件什么时候放？"
+      - speaker: CHAR-001
+        line: "今天下班前。"
+      - speaker: CHAR-005
+        line: "他看到后——反应时间？"
+      - speaker: CHAR-001
+        line: "最快明天早上——贺云峰会拿到照片。"
+      - speaker: CHAR-005
+        line: "如果被他识破——"
+      - speaker: CHAR-001
+        line: "他不会。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP54-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        # [待补：眼线同事] — 无正式 CHAR-GRP-ID 及 L01 形象，跳过 look_urls
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      # WARNING: [待补：眼线同事] 无 L01 参考图，暂不可用于 content_roles
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图2】公司大办公室复印机区 SCENE-001。中景 固定：傍晚的办公室——下班前最后半小时，复印机区没什么人。林晚拿着一叠普通文件走到复印机前——动作随意，像任何一个赶着下班的员工。她复印完文件后拿起原件——但在转身时——那份封面写着'XX资本投资意向书（保密）'的文件——从她手中滑落——掉在复印机侧面的出纸托盘上。她没有立刻发现——走了两步才回头看了一下——但没有回来捡——继续走向工位。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP54-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids: []
+      # [待补：眼线同事] — 无正式 CHAR-GRP-ID 及 L01 形象，跳过
+    assets:
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      # WARNING: [待补：眼线同事] 无 L01 参考图，暂不可用于 content_roles
+    api:
+      text: "【图1】公司大办公室复印机区 SCENE-001。中近景 固定：三秒后——一个戴眼镜的男同事端着茶杯经过。他的目光扫到出纸托盘上那份文件——封面上的字让他的脚步停了下来。他左右看了一眼——没有人注意——他伸手翻开封面——目光快速扫过内容——然后——他拿出手机——拍了一张照片。收起手机——若无其事地走向茶水间——好像什么都没发生过。"
+      content_roles:
+        - { file: SCENE-001, role: reference_image, label: 图1 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP54-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01（藏蓝细条纹西装+法式衬衣+领带+无框眼镜）【图2】赵总办公室 SCENE-003。中近景→特写 镜头推近：贺云峰坐在皮椅上——窗外暮色把他的侧脸轮廓切出一道冷硬的线条。他面前手机屏幕上——是那份意向书的照片。他看了很久——久到屏幕自动变暗——他抬手点了一下——重新亮起。他没有急躁愤怒——但他的手指——在桌面上轻轻叩了两下——那是他在快速思考时的习惯。他层层拆解这份文件——然后拿起私人手机——拨出了电话。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "（内心）XX资本——规模不大——但确实可能被拉来做白衣骑士。5亿——不多不少——刚好卡在让我们犹豫的位置。条款——对管理层友好——反收购的标准配置。"
+      - speaker: CHAR-007
+        line: "（内心）……太标准了。细节写得太精准了——精准到不像是意向书——"
+      - speaker: CHAR-007
+        line: "（内心）但万一是真的——我们不反应——代价更大。"
+      - speaker: CHAR-007
+        line: "周总——有件事——需要您看一下。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP54-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01（银灰色高定西装+白衬衣+未打领带）【图2】贺云峰 CHAR-007-L01（藏蓝细条纹西装）【图3】咖啡厅 SCENE-007。中景 固定：咖啡厅角落——午后暖光从落地窗外斜照进来。周明轩坐在卡座靠窗一侧——背对光——面部有一半在柔和阴影中。银灰色西装没有打领带——从容不迫。贺云峰坐在对面——身体微微前倾——刚刚汇报完那份文件的情况。他说完后安静下来——等待回应。周明轩没有立刻说话。他端起面前的咖啡杯——喝了一口——放下。动作很慢——不是犹豫——是一种'我不需要赶着做决定'的节奏。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "……大概情况就是这样。文件我让人看过了——格式、条款、金额——都很规范。但我总觉得——太规范了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP54-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01【图2】咖啡厅 SCENE-007。特写 固定：周明轩放下咖啡杯——目光从窗外收回来——落在贺云峰脸上。他开口——声音不大——但每一个字都清晰得像在纸上写下来的。他说的第一句话不是对文件的判断——而是一个关于林晚的判断。那句话让贺云峰愣了一下——他花了整个傍晚来分析文件——而周明轩在听完的十秒内就做出了判断。他判断的方式不是看文件真假——而是看人。然后他说出了最终的态度——三个字——平静得像在说今天天气不错。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "她做了一份很漂亮的文件。"
+      - speaker: CHAR-008
+        line: "但你知道——她为什么急着做这份文件吗？"
+      - speaker: CHAR-007
+        line: "……她在拖延时间。"
+      - speaker: CHAR-008
+        line: "她在准备东西——不想让我们知道。"
+      - speaker: CHAR-008
+        line: "——让他们演。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP54-S10
+    shot_no: 10
+    mode: i2v_ref
     duration_sec: 8
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-008`, `CHAR-007`"
-  - id: EP54-S09
-    scene_id: SCENE-003
-    type: "`EP54-S09`"
-    duration_sec: 8
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-008`"
-  - id: EP54-S10
-    scene_id: SCENE-003
-    type: "`EP54-S10`"
-    duration_sec: 8
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-008`, `CHAR-007`"
-  - id: EP54-S11
-    scene_id: SCENE-003
-    type: "`EP54-S11`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01【图2】贺云峰 CHAR-007-L01【图3】咖啡厅 SCENE-007。中景 固定：周明轩说完'让他们演'——没有继续这个话题。他拿起咖啡杯又喝了一口——那种从容不是装出来的——是一种真正的'一切尽在掌握'。贺云峰坐在对面——他接收到了那个态度——但他不确定那三个字背后是真的看穿了还是另有布局——但他不敢问。周明轩放下咖啡杯——目光落向窗外——午后的阳光在他的侧脸上投下一道温暖的轮廓。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "周总——那我们接下来——？"
+      - speaker: CHAR-008
+        line: "什么都不做。等她亮出底牌——再说。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP54-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装）【图2】公司大办公室 SCENE-001。中景 固定：傍晚的办公室——落地窗外城市的天际线在暮色中渐渐亮起灯火。林晚站在窗前——手里握着手机——屏幕上是一条消息。她看完消息——锁屏——把手机握在手中。她的表情——没有笑——但眼底有一丝'第一步走成了'的确定。她看着窗外——城市的灯光在暮色中一盏一盏亮起来。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "（内心）……鱼——咬钩了。"
+    transition_to_next: hard_cut

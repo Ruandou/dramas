@@ -1,77 +1,368 @@
-# EP48 shots.yaml
-episode: EP48
-total_duration_sec: 54
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP48/EP48_分镜剧本.md
+# Source shots: 12 (EP48-S01 to EP48-S12)
+# Output shots: 12 (EP48-S01 to EP48-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration (self-calculated): 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+# ⚠️ NOTE: EP48 uses [待补：前台同事] placeholder (non-fatal, pending production-planner assignment)
+
+episode_id: EP48
+source_md: 剧本/EP48/EP48_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。办公室内暖白晨光，自然光从落地窗洒入，营造日常感但带着一丝凝重——林晚表情里有昨晚未消散的警觉。咖啡厅场景：暖黄灯光+深木色桌椅的质感空间，落地窗透入上午日光。两人隔桌对坐的光线设计：周明轩面朝窗口，面部明亮但眼神沉稳如深潭；林晚背对窗口，面部轮廓分明但在某些角度被阴影覆盖——暗示信息不对称与博弈中的信息暗角。整体色调从办公室的暖白晨光→咖啡厅的暖黄与日光明暗交织→集末冷白与阴影笼罩（她说“他知道了”时光线转为偏冷，阴影加深）。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP48-S01
-    scene_id: SCENE-001
-    type: "`EP48-S01`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP48-S02
-    scene_id: SCENE-001
-    type: "`EP48-S02`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `[待补：前台同事]`"
-  - id: EP48-S03
-    scene_id: SCENE-001
-    type: "`EP48-S03`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP48-S04
-    scene_id: SCENE-001
-    type: "`EP48-S04`"
-    duration_sec: 1
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-001`"
-  - id: EP48-S05
-    scene_id: SCENE-001
-    type: "`EP48-S05`"
-    duration_sec: 8
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-008`, `CHAR-001`"
-  - id: EP48-S06
-    scene_id: SCENE-001
-    type: "`EP48-S06`"
-    duration_sec: 8
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-008`"
-  - id: EP48-S07
-    scene_id: SCENE-001
-    type: "`EP48-S07`"
-    duration_sec: 1
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-001`"
-  - id: EP48-S08
-    scene_id: SCENE-001
-    type: "`EP48-S08`"
-    duration_sec: 8
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-008`"
-  - id: EP48-S09
-    scene_id: SCENE-001
-    type: "`EP48-S09`"
-    duration_sec: 1
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-001`"
-  - id: EP48-S10
-    scene_id: SCENE-001
-    type: "`EP48-S10`"
-    duration_sec: 8
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-008`"
-  - id: EP48-S11
-    scene_id: SCENE-001
-    type: "`EP48-S11`"
-    duration_sec: 8
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-008`, `CHAR-001`"
-  - id: EP48-S12
-    scene_id: SCENE-001
-    type: "`EP48-S12`"
-    duration_sec: 8
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-008`, `CHAR-001`"
+  - shot_id: EP48-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图2】公司大办公室 SCENE-001。镜头 MCU 固定：上午办公室暖白晨光从落地窗洒入。林晚坐在工位前，面前笔记本电脑打开显示股权结构图。她手里端着一杯咖啡但目光不在杯子上——她在走神。同事们在忙碌穿梭偶尔有人打招呼她点头回应但心不在焉。桌上手机屏幕朝上——她在等陆北辰消息。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "陆北辰还没消息……他到家了吗——"
+      - speaker: CHAR-001
+        line: "先不想了。4.7%只是线索——怎么用，才是下一步。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司大办公室 SCENE-001。镜头 MS→MCU 固定：一个公司同事走到林晚工位前——前台工作人员，手里拿着一份文件，脸上带着职业微笑。林晚抬起头放下咖啡杯。同事说出“盛天资本”后林晚表情在0.5秒内从放松切换到警觉但不露声色。她点头道谢但握着咖啡杯的手停顿了一拍才放下。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "盛天资本——"
+      - speaker: CHAR-001
+        line: "我知道了。谢谢。"
+      - speaker: CHAR-001
+        line: "周明轩？——他主动来了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图2】公司大办公室 SCENE-001。镜头 MS 镜头跟随：林晚从工位站起来拿起手机工牌挂回胸前。动作从容但比平时快了一点点。她走过办公区路过陆北辰空着的工位时脚步微不可察地顿了一下——然后继续。电梯间金属门倒映出她的脸——她看着镜像中的自己表情平静但目光在快速运转。电梯到达门缓缓打开——她深吸一口气走了进去。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "陆北辰刚走，周明轩就到了。"
+      - speaker: CHAR-001
+        line: "这不是巧合。"
+      - speaker: CHAR-001
+        line: "好。既然你主动来了——让我看看，你到底是什么人。"
+    transition_to_next: dissolve
+
+  - shot_id: EP48-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图2】咖啡厅 SCENE-007。镜头 MLS→MS 固定：林晚推开咖啡厅玻璃门，门铃轻响。暖黄灯光和咖啡香气扑面而来。她目光迅速扫过室内——靠窗角落一个男人已经坐在那里，面前放着一杯美式咖啡没有动过。这就是盛天资本CEO周明轩。银灰色高定西装，深灰领带一丝不苟，坐姿从容。他的目光在她推门瞬间就已经锁定了她。林晚在看清他的那一刻步伐没有停顿——但已在0.5秒内完成了一次快速评估。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "……是他。比照片上——更难读。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01（银灰色高定西装+白衬衣+深灰领带）【图2】林晚 CHAR-001-L01【图3】咖啡厅 SCENE-007。镜头 MS 固定：林晚走到桌前。周明轩在她走近时站起身——恰到好处的绅士礼节。他伸出手面带微笑——微笑精准控制在礼貌和真诚之间的灰色地带。林晚握上他的手指尖微凉。她坐下来身体微微前倾——不是进攻姿态而是“我准备好听你说”的准备状态。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "林小姐。久仰。"
+      - speaker: CHAR-001
+        line: "周总。"
+      - speaker: CHAR-008
+        line: "冒昧约你下来——希望没有耽误你的工作。"
+      - speaker: CHAR-001
+        line: "周总亲自约见——不敢耽误。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01（银灰色高定西装+白衬衣+深灰领带）【图2】咖啡厅 SCENE-007。镜头 CU 固定：特写周明轩的脸。窗外上午日光在他侧脸形成明暗分界——半边明亮半边阴影。他的表情保持在同一频率上：礼貌的微笑沉稳的目光。他说话时语速均匀没有多余语气词。说到“控股权”时语气没有加重——但在这个场景下重量不言而喻。他端起咖啡杯喝了一口动作从容——在给林晚时间消化也在观察她的第一反应。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "我这个人不太喜欢绕弯子——就直说了。"
+      - speaker: CHAR-008
+        line: "盛天资本——对贵公司的控股权，很感兴趣。"
+      - speaker: CHAR-008
+        line: "价格方面——我可以给你一个无法拒绝的报价。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图2】咖啡厅 SCENE-007。镜头 CU 固定：特写林晚的脸。她的表情没有变化——不是因为不惊讶而是因为不允许自己露出惊讶。但在内心信息正在快速处理：控股权。她端起面前的咖啡杯慢慢喝了一口——这个动作给了她三秒钟缓冲。放下杯子后她直视他，没有直接回答而是抛回一个问题。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "周总这个提议——分量不小。"
+      - speaker: CHAR-001
+        line: "我想知道——盛天资本看中我们什么？"
+      - speaker: CHAR-001
+        line: "毕竟……贵公司的投资履历里——长期持有的案例，不多。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01（银灰色高定西装+白衬衣+深灰领带）【图2】咖啡厅 SCENE-007。镜头 MCU 固定：周明轩听到林晚那句“不多”时——他的微笑没有变化但目光发生了一个极细微的偏移。他不急不缓地回答声音仍然平稳。他身体微微前倾像要分享一个秘密但语气仍然公事公办。他说“我看人”时那两个字带着双关——既在说我看中了你的能力也在说我看透了你。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "功课做得很足。不错。"
+      - speaker: CHAR-008
+        line: "我投资的标准——从来不是看公司。"
+      - speaker: CHAR-008
+        line: "我看人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】咖啡厅 SCENE-007。镜头 MCU 固定：林晚的表情没有破绽——但在周明轩说出“我看人”后她内心有一道警觉的弦被拨动了。她微微侧了一下头像是在思考他话里的意思——然后用一个同样轻巧的问题把焦点抛了回去。她的问题听起来是商务探讨实则在试探周明轩对这家公司的真实动机。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "那周总——看到什么了？"
+      - speaker: CHAR-001
+        line: "贵公司最近在市场动作频繁——我听说，有几家被盛天资本“看好”的公司——最后都被拆解出售了。"
+      - speaker: CHAR-001
+        line: "我们这家——也是这个剧本吗？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01（银灰色高定西装+白衬衣+深灰领带）【图2】咖啡厅 SCENE-007。镜头 CU 固定：周明轩听完林晚那句“这个剧本”后的反应——他的笑容没有消失但笑容的质感变了。三秒沉默。那三秒里他只是看着她目光没有回避也没有加压——他只是在用沉默告诉她你的问题我听懂了。然后他开口声音比之前低了一个调但仍然温和。他说完端起咖啡杯喝了一口目光越过杯沿看着她等她的回应。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "林小姐——你果然有备而来。"
+      - speaker: CHAR-008
+        line: "实话说——我做过评估。你的团队、你的业绩、你在贺云峰那场棋局里的表现。"
+      - speaker: CHAR-008
+        line: "我注意到的——不只是报表上的数字。"
+      - speaker: CHAR-008
+        line: "所以我亲自来了。"
+      - speaker: CHAR-008
+        line: "我们是聪明人——不需要把时间浪费在互相试探上。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01【图2】林晚 CHAR-001-L01【图3】咖啡厅 SCENE-007。镜头 MS 固定：周明轩看了一眼手表——一个控制节奏的动作。他自然地给这场会面画上了一个句号——既有期限又留有余地。他说“三天”——不多不少。林晚坐在对面听完后用两个字回应——“够了。”周明轩点点头站起来整理了一下西装外套动作从容。他转身前看了她一眼——那一眼的时间比正常对视多了半秒。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "好了——今天先聊到这里。"
+      - speaker: CHAR-008
+        line: "三天时间——你考虑一下我的提议。"
+      - speaker: CHAR-001
+        line: "够了。"
+      - speaker: CHAR-008
+        line: "很好。"
+      - speaker: CHAR-008
+        line: "我期待你的答复，林小姐。"
+      - speaker: CHAR-001
+        line: "周总慢走。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP48-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01【图2】林晚 CHAR-001-L01【图3】咖啡厅 SCENE-007。镜头 MS→CU→MS 固定：周明轩已经走到咖啡厅门口一只手已经推开玻璃门——然后他停住了。他转过半个身子目光落在林晚脸上——脸上是那微笑但门外的冷白自然光让他的侧脸一半暖黄一半冷白。他开口语气轻松得像在问这家咖啡不错吧——但内容像精确投下的炸弹。林晚的瞳孔在他说出“我弟弟”三个字的瞬间发生了极细微的变化——身体有一瞬间的僵硬。他看了她两秒得到了想要的反应——微笑加深了一丝——没有等她回答——转身拉开门走了出去。林晚站在原地一动不动。她慢慢坐下目光望着他消失的方向。"
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "对了——"
+      - speaker: CHAR-008
+        line: "听说你认识我弟弟？"
+      - speaker: CHAR-008
+        line: "世界真小。"
+      - speaker: CHAR-001
+        line: "……他知道了。"
+      - speaker: CHAR-001
+        line: "他不是来谈收购的——"
+      - speaker: CHAR-001
+        line: "他是来告诉我——他知道我是谁。"
+    transition_to_next: hard_cut

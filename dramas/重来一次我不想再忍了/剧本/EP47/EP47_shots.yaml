@@ -1,77 +1,380 @@
-# EP47 shots.yaml
-episode: EP47
-total_duration_sec: 24
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP47/EP47_分镜剧本.md
+# Source shots: 12 (EP47-S01 to EP47-S12)
+# Output shots: 12 (EP47-S01 to EP47-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration (self-calculated): 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
+episode_id: EP47
+source_md: 剧本/EP47/EP47_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。办公室内暖白自然光+人工光，贺云峰施压时段色调偏冷硬（冷蓝阴影暗示外部威胁），林晚独处时恢复暖调；深夜林晚家场景以暖黄台灯为主光源，屏幕冷光映在脸上形成冷暖对比——暗示她正在接近危险的真相。整体色调从办公室的冷白/暖白交替到深夜家的暖黄与冷蓝屏幕光交织，对应情绪从外部压力→多线焦灼→专注发现→震撼的深夜觉醒。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP47-S01
-    scene_id: SCENE-005
-    type: "`EP47-S01`"
-    duration_sec: 7
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-007`, `CHAR-001`"
-  - id: EP47-S02
-    scene_id: SCENE-005
-    type: "`EP47-S02`"
-    duration_sec: 7
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-007`, `CHAR-001`"
-  - id: EP47-S03
-    scene_id: SCENE-005
-    type: "`EP47-S03`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP47-S04
-    scene_id: SCENE-005
-    type: "`EP47-S04`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP47-S05
-    scene_id: SCENE-005
-    type: "`EP47-S05`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP47-S06
-    scene_id: SCENE-005
-    type: "`EP47-S06`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP47-S07
-    scene_id: SCENE-005
-    type: "`EP47-S07`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP47-S08
-    scene_id: SCENE-005
-    type: "`EP47-S08`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP47-S09
-    scene_id: SCENE-005
-    type: "`EP47-S09`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`"
-  - id: EP47-S10
-    scene_id: SCENE-005
-    type: "`EP47-S10`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`"
-  - id: EP47-S11
-    scene_id: SCENE-005
-    type: "`EP47-S11`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`"
-  - id: EP47-S12
-    scene_id: SCENE-005
-    type: "`EP47-S12`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`"
+  - shot_id: EP47-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01（藏蓝细条纹西装+法式衬衣+领带）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图3】公司大办公室 SCENE-001。镜头 MLS→MS 固定：下午办公室日光从落地窗斜射，在地板投出几何阴影。贺云峰步伐从容从走廊尽头走来，手里拿着一张数据表，径直走向林晚工位。几个同事抬头看了一眼又迅速低头。他在林晚工位前站定，面带公式化的微笑。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "林副总监——季度考核，还有五天。"
+      - speaker: CHAR-001
+        line: "我知道。"
+      - speaker: CHAR-007
+        line: "你的项目进度——我帮你看了一眼。这个数字……不太乐观。"
+      - speaker: CHAR-001
+        line: "项目周期还没结束。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP47-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】公司大办公室 SCENE-001。镜头 MCU→CU 固定：贺云峰的笑容没有变化——但笑意没有抵达眼底。他微微偏头看了一眼陆北辰空着的工位方向——一个极细微的动作但足以让林晚捕捉到。林晚站起来直视他，眼神坚定。她拿起那张纸放在桌角——动作不重但态度清晰。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "当然。我只是——好心提醒。"
+      - speaker: CHAR-007
+        line: "毕竟……这次的考核标准——比你想的要严格。"
+      - speaker: CHAR-001
+        line: "贺总费心了。"
+      - speaker: CHAR-001
+        line: "数据我自己会看。不劳你——特意跑一趟。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP47-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图2】公司大办公室 SCENE-001。镜头 MCU 固定：贺云峰已转身离开。林晚仍然站着目送他的背影——步伐从容。她坐下来拿起那张数据表快速扫了一眼——数字确实被动过手脚。她轻轻咬住下唇然后打开电脑调出原始数据开始核对。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "……进度数据没问题。他在报表上做了手脚。"
+      - speaker: CHAR-001
+        line: "季度考核五天……贺云峰动手了。陆北辰不在。"
+      - speaker: CHAR-001
+        line: "先把原始数据拉出来——不能让他用假报告定我的考核。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP47-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司大办公室 SCENE-001。镜头 CU 镜头推近：特写林晚的侧脸。手机屏幕亮起——一条微信语音消息。她点开贴近耳边听。陆北辰的声音传来——简短低沉。她的表情从紧绷微微松弛了一瞬。她放下手机没有回复文字而是继续敲击键盘——但动作节奏从急促变得更有条理。窗外日光渐沉办公室的人陆续下班。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "到家了。别担心。"
+      - speaker: CHAR-001
+        line: "他在看手机，在等我消息……我不能让他等太久。"
+      - speaker: CHAR-001
+        line: "先解决贺云峰——再帮他查盛天。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP47-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌，戴着耳机）【图2】公司大办公室 SCENE-001。镜头 MCU 固定：傍晚的办公室，落地窗外天空从淡蓝染上橙红。大部分同事已经下班。图1戴着耳机一边看屏幕上的盛天资本股权结构图一边和陆北辰通话。声音压得很低语速略快。桌上手机屏幕亮着——贺云峰的邮件提醒，她看了一眼没有点开。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "盛天资本的公开资料——我查了。持股结构做了三层嵌套，表面上看是一个正常的基金架构。"
+      - speaker: CHAR-005
+        line: "……但？"
+      - speaker: CHAR-001
+        line: "但每一层的注册地都在不同司法辖区。这是典型的——"
+      - speaker: CHAR-005
+        line: "——隔离设计。查不到最终受益人。"
+      - speaker: CHAR-001
+        line: "对。所以我在找……找他们藏人的地方。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP47-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司大办公室 SCENE-001。镜头 CU 固定：特写林晚的脸。屏幕冷蓝光映在她的脸上，她的眼睛迅速扫描数字。耳机里陆北辰沉默了片刻。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "你今天——贺云峰找你了？"
+      - speaker: CHAR-001
+        line: "你知道了？"
+      - speaker: CHAR-005
+        line: "我不在——他会出手。我猜到了。"
+      - speaker: CHAR-001
+        line: "我能处理。"
+      - speaker: CHAR-005
+        line: "我知道你能。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP47-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图2】公司大办公室 SCENE-001。镜头 MS 镜头拉远：办公室几乎空了，只剩图1工位那盏灯亮着。她摘下耳机揉了揉太阳穴。桌上摊着三样东西：笔记本电脑（左侧项目报表右侧盛天资本资料）、手机（贺云峰的邮件标题可见）、数据表。她看着这三样东西目光依次扫过——然后轻轻闭了一下眼睛再睁开，目光清明了一些。她合上项目报表窗口把盛天资本资料拉到全屏。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "都在同一条时间线上。"
+      - speaker: CHAR-001
+        line: "不急。一个一个来——"
+      - speaker: CHAR-001
+        line: "先打洞，再防狼。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP47-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司大办公室 SCENE-001。镜头 CU 固定：特写林晚的脸。她拿起手机快速打了几个字然后翻面扣在桌上。她重新看向屏幕目光锐利。盛天资本股权结构图铺开——三层嵌套。她放大其中一个节点目光追逐持股链从第一层穿透到第三层。她皱起了眉——第三层之后链条断了。她的手指已经在搜索引擎里输入新的关键词。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "贺总——原始数据已重新拉取。明早十点，到你办公室对。"
+      - speaker: CHAR-001
+        line: "盛天资本的持股结构……表面上看是三层。但如果第四层——被刻意隐藏了呢？"
+    transition_to_next: dissolve
+
+  - shot_id: EP47-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（浅灰棉质T恤，头发松松扎在脑后，居家休闲状态）【图2】林晚家 SCENE-005。镜头 MS→CU 缓推：深夜小书桌前，暖黄台灯在桌上投出光圈照亮笔记本电脑和一叠打印出来的股权结构图。图1穿着简单的浅灰棉质T恤头发松松扎在脑后，面前是一杯凉透的茶。她在一份PDF上用荧光笔标记然后切换到查询界面输入公司注册号。动作越来越快。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "第一层基金——香港注册。第二层控股公司——开曼群岛。第三层——英属维尔京群岛。"
+      - speaker: CHAR-001
+        line: "每一层都换了司法辖区。故意切断追查路径。"
+      - speaker: CHAR-001
+        line: "这种结构太标准了。标准的资产隔离设计。但标准——就意味着有固定的漏洞。"
+    transition_to_next: fade
+
+  - shot_id: EP47-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（浅灰棉质T恤，居家休闲状态）【图2】林晚家 SCENE-005。镜头 CU 固定：特写林晚的脸，屏幕冷蓝光映在她专注的眼眸中。她在对比两份文件——目光在两组数字之间来回移动。第一次没觉得有什么——第二次停下了——第三次瞳孔微微收缩。她把两份文件并排放指尖点在一个不起眼的数字上——4.7%。她盯着那个数字呼吸放轻了。深夜房间空调低鸣声格外清晰。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "第三层公司……持股49%。第四层——应该还有一层。"
+      - speaker: CHAR-001
+        line: "……"
+      - speaker: CHAR-001
+        line: "……找到了。"
+      - speaker: CHAR-001
+        line: "盛天资本第四层控股——注册在一家空壳公司下面。"
+      - speaker: CHAR-001
+        line: "持股比例——4.7%。"
+      - speaker: CHAR-001
+        line: "4.7%——不值得单独设一层来藏——除非……这4.7%的实际持有人——跟周明轩不是同一个人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP47-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（浅灰棉质T恤，居家休闲状态）【图2】林晚家 SCENE-005。镜头 ECU→CU 镜头拉远微调：大特写林晚的眼睛——冷蓝光映在瞳孔中目光快速移动。她打开计算器输入几组数字——持股比例、投票权分配。手指快速敲击然后停下来。结果出来了。她看着数字沉默了很久然后靠到椅背上深吸一口气——不是失望是“果然如此”的确认。她看向窗外城市夜景——深夜灯光星星点点。她的手轻轻握了一下。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "三层壳公司……每层投票权分配……加起来……"
+      - speaker: CHAR-001
+        line: "周明轩名义上控制65%的投票权。但这4.7%的外围持股——如果加上一致行动人协议——实际控制人的投票权，会超过50%。"
+      - speaker: CHAR-001
+        line: "周明轩……不是真正的老板。"
+      - speaker: CHAR-001
+        line: "前世我什么都没看到。这一世——我终于把这些线头——全攥在手里了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP47-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（浅灰棉质T恤，居家休闲状态）【图2】林晚家 SCENE-005。镜头 MCU→CU 固定：林晚拿起手机没有犹豫找到陆北辰的名字按下拨出键。深夜城市灯光在窗外闪烁。听筒等待音——一声——两声——接通了。陆北辰声音带着被从工作中拉出来的沙哑——他也没睡。她没有寒暄直接说出最重要的那句话。声音平稳但用力维持着。电话那头沉默了。深夜两个在不同城市的人同时沉默。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "林晚？"
+      - speaker: CHAR-001
+        line: "我找到了。"
+      - speaker: CHAR-005
+        line: "找到什么——"
+      - speaker: CHAR-001
+        line: "盛天资本的股权结构里——有一个漏洞。"
+      - speaker: CHAR-005
+        line: "什么样的漏洞——"
+      - speaker: CHAR-001
+        line: "周明轩——可能不是盛天资本真正的控制人。"
+      - speaker: CHAR-005
+        line: "……你说什么？"
+      - speaker: CHAR-001
+        line: "真正站在盛天资本背后的——另有其人。"
+    transition_to_next: hard_cut

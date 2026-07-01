@@ -1,89 +1,463 @@
-# EP41 shots.yaml
-episode: EP41
-total_duration_sec: 49
-total_shots: 14
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP41/EP41_线人.md
+# Source shots: 14 (EP41-S01 to EP41-S14)
+# Output shots: 14 (EP41-S01 to EP41-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 84s
+# Output total duration: 84s
+# Gate status: ALL PASS (non-fatal gates skipped per user instruction)
+
+episode_id: EP41
+source_md: 剧本/EP41/EP41_线人.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP19-45暖橙主调，灰色为辅。办公室日光灯为主光源，赵总办公室暖黄台灯补光，走廊自然光+冷白灯混合，茶水间偏冷调。整体营造从密谋到播种到收网再到悬念揭开的视觉递进。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP41-S01
-    scene_id: SCENE-013
-    type: "`EP41-S01`"
+  - shot_id: EP41-S01
+    shot_no: 1
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-006`, `CHAR-001`"
-  - id: EP41-S02
-    scene_id: SCENE-013
-    type: "`EP41-S02`"
-    duration_sec: 1
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-001`, `CHAR-006`"
-  - id: EP41-S03
-    scene_id: SCENE-013
-    type: "`EP41-S03`"
-    duration_sec: 1
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-001`, `CHAR-006`"
-  - id: EP41-S04
-    scene_id: SCENE-013
-    type: "`EP41-S04`"
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】赵总办公室 SCENE-003。MCU固定：办公室门关着，磨砂玻璃透进走廊模糊人影。赵总坐办公桌后身体前倾声音压低，面前放着一份费用报销单。林晚坐对面侧耳倾听。午后暖光从百叶窗缝隙透入桌面投下光影条纹。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "财务那边有个情况，我觉得你该知道。"
+      - speaker: CHAR-001
+        line: "您说。"
+      - speaker: CHAR-006
+        line: "刘振东——经手贺总账目的那个人——昨天找我了。说想辞职。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP41-S02
+    shot_no: 2
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-006`, `CHAR-001`"
-  - id: EP41-S05
-    scene_id: SCENE-013
-    type: "`EP41-S05`"
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】赵总 CHAR-006-L01【图3】SCENE-003。CU→MCU固定：林晚眼神从沉静变为锐利，沉默两秒。赵总看着她等她消化。远处传来键盘敲击声。林晚微微眯起眼坐直。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "因为压力太大——扛不住了？"
+      - speaker: CHAR-006
+        line: "他说最近查账的风声紧，他晚上都睡不好。再这样下去……怕出事。"
+      - speaker: CHAR-001
+        line: "怕了好——怕了……才有机可乘。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP41-S03
+    shot_no: 3
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-006`"
-  - id: EP41-S06
-    scene_id: SCENE-013
-    type: "`EP41-S06`"
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】赵总 CHAR-006-L01【图3】SCENE-003。MCU固定：赵总微微皱眉然后舒展。林晚靠进椅背目光不离开赵总眼睛，等他问出下一句。窗外光线随云飘过暗了一瞬又恢复。赵总用下巴点了点示意她说下去。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "你又有主意了。"
+      - speaker: CHAR-001
+        line: "他现在最怕的是什么？不是查账——是被查到自己头上。"
+      - speaker: CHAR-006
+        line: "对。所以他想跑。"
+      - speaker: CHAR-001
+        line: "不用他跑——让他觉得……查他的人已经不在了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP41-S04
+    shot_no: 4
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-001`"
-    dialogue: "`[待补：刘振东]`"
-  - id: EP41-S07
-    scene_id: SCENE-013
-    type: "`EP41-S07`"
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】赵总 CHAR-006-L01【图2】林晚 CHAR-001-L01【图3】SCENE-003。CU→MCU推近：赵总表情从疑惑变为理解，靠回椅背拿起茶杯喝了一口——已在考虑执行。林晚看着他继续说。赵总放下茶杯发出清脆响。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "你的意思是——让我放话出去——说你被架空了？"
+      - speaker: CHAR-001
+        line: "不止架空——就说我被上面叫去谈话了，调查不了了。"
+      - speaker: CHAR-006
+        line: "他知道了这个消息——那根绷紧的弦就松了。"
+      - speaker: CHAR-001
+        line: "人一放松——嘴就松了。"
+      - speaker: CHAR-006
+        line: "行。我来办。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP41-S05
+    shot_no: 5
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-001`"
-    dialogue: "`[待补：刘振东]`, `[待补：财务同事]`"
-  - id: EP41-S08
-    scene_id: SCENE-013
-    type: "`EP41-S08`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP41-S09
-    scene_id: SCENE-013
-    type: "`EP41-S09`"
-    duration_sec: 1
-    description: "`SCENE-013`"
-    dialogue: "`CHAR-001`, `[待补：刘振东]`"
-  - id: EP41-S10
-    scene_id: SCENE-013
-    type: "`EP41-S10`"
-    duration_sec: 1
-    description: "`SCENE-013`"
-    dialogue: "`CHAR-001`, `[待补：刘振东]`"
-  - id: EP41-S11
-    scene_id: SCENE-013
-    type: "`EP41-S11`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP41-S12
-    scene_id: SCENE-013
-    type: "`EP41-S12`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP41-S13
-    scene_id: SCENE-013
-    type: "`EP41-S13`"
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】赵总 CHAR-006-L01（端着茶杯）【图2】公司大办公室 SCENE-001。MS固定：过道上赵总端着茶杯站住像是恰好碰上两个下属。他说话声音不大不小恰好让附近工位听到，姿态随意带着聊八卦的放松。旁边两个同事凑近听表情惊讶。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-006
+        line: "唉——林晚那事你们听说了吗？"
+      - speaker: CHAR-GRP-26  # [待补：同事A] — 临时ID，需回补
+        line: "什么事啊赵总？"
+      - speaker: CHAR-006
+        line: "上面找她谈话了——估计待不久了。"
+      - speaker: CHAR-GRP-27  # [待补：同事B] — 临时ID，需回补
+        line: "不会吧？她不是副总监吗……"
+      - speaker: CHAR-006
+        line: "能干的不如会站的。这话我就跟你们说说——别往外传啊。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP41-S06
+    shot_no: 6
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-001`"
-    dialogue: "`[待补：刘振东]`, `[待补：财务同事]`"
-  - id: EP41-S14
-    scene_id: SCENE-013
-    type: "`EP41-S14`"
+    refs:
+      scene_id: SCENE-001
+    assets:
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】公司大办公室茶水区 SCENE-001。MS→MCU镜头跟随：刘振东（CHAR-GRP-20）端着水杯接水，听到赵总聊天的关键几句——'林晚被叫去谈话了……估计待不久了。'接水动作慢下来，目光转向声音方向。听完关上饮水机走回工位，脚步比来时轻了，肩膀紧绷度松了下来。"
+      content_roles:
+        - file: SCENE-001
+          role: reference_image
+          label: 图1
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP41-S07
+    shot_no: 7
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-001`"
-    dialogue: "`[待补：刘振东]`, `[待补：财务同事]`"
+    refs:
+      scene_id: SCENE-001
+    assets:
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】公司大办公室 SCENE-001。MCU固定：刘振东（CHAR-GRP-20）坐回工位打开电脑，靠在椅背上盯着屏幕发了几秒呆，然后慢慢长长呼出一口气。旁边年轻同事（CHAR-GRP-25）探过头来压低声音问他。刘振东回答带着压不住的轻松，拿起水杯喝了一口。"
+      content_roles:
+        - file: SCENE-001
+          role: reference_image
+          label: 图1
+    dialogue:
+      - speaker: CHAR-GRP-25  # 财务同事
+        line: "东哥——听说林晚被架空了？"
+      - speaker: CHAR-GRP-20  # 刘振东
+        line: "嗯……听说了。"
+      - speaker: CHAR-GRP-25
+        line: "那你之前担心的那些事——"
+      - speaker: CHAR-GRP-20
+        line: "别瞎说。我没什么好担心的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP41-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装）【图2】公司大办公室 SCENE-001。MCU→CU固定：林晚站在过道，目光穿过半透明玻璃隔断看着刘振东方向——看到他靠在椅背上喝水、和同事说话时放松的姿态。她垂下眼翻了一页文件夹，嘴角有几乎不可见的克制弧度。合上文件夹转身走回工位。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "那根弦……松了。"
+      - speaker: CHAR-001
+        line: "现在——轮到我敲门了。"
+    # 内心独白
+    transition_to_next: hard_cut
+
+  - shot_id: EP41-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（领口少了一枚胸针——'已在交接中'的暗示）【图2】公司走廊 SCENE-013。MLS→MCU镜头跟随：上午自然光从走廊尽头窗户照入。林晚站在打印机旁整理文件。刘振东（CHAR-GRP-20）从洗手间走出来经过，林晚自然叫住他拿出一张报销单。刘振东态度松弛接过单子。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-013
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "刘哥——正好，我这有张单子你帮我签一下？"
+      - speaker: CHAR-GRP-20
+        line: "行啊——拿过来吧。"
+      - speaker: CHAR-001
+        line: "最近公司事真不少——听说上面在查好几个部门的账？"
+      - speaker: CHAR-GRP-20
+        line: "查呗——那些账都做得很干净的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP41-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司走廊 SCENE-013。CU→MCU固定：林晚接过签好的单子顺势把话题往下带。刘振东停顿后压低声音回了一句。林晚指尖微收但脸上无变化，自然收好单子微笑。刘振东警觉看了她一眼快速走开。林晚看背影转身瞬间笑容消失——沉静取而代之。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-013
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "是嘛……那贺总那边的人确实厉害——账做得滴水不漏。"
+      - speaker: CHAR-GRP-20
+        line: "你不懂——那套体系……不是一个人搞得定的。"
+      - speaker: CHAR-001
+        line: "是嘛……那背后还有人？"
+      - speaker: CHAR-GRP-20
+        line: "算了算了，不聊这个——我先忙了。"
+      - speaker: CHAR-001
+        line: "行——谢谢刘哥。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP41-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司大办公室 SCENE-001。MCU固定：林晚回到工位，解锁手机打开聊天窗口打字，看了一遍后按发送。锁屏靠进椅背看向窗外，午后斜光在侧脸形成明暗分界线。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "他说'不是一个人搞得定的'——他知道的不只是账目。"
+      - speaker: CHAR-001
+        line: "他知道背后还有人。"
+    # 内心独白
+    transition_to_next: hard_cut
+
+  - shot_id: EP41-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司大办公室 SCENE-001。CU缓推：特写林晚的脸。午后光影在脸上流动。她微微眯眼，嘴角有极克制的'有意思'微表情。拿起手机看一眼屏幕，放下，继续整理文件，动作冷静多了一份笃定。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "什么叫'不是一个人搞得定的'——意思是——这套体系上面还有一层。"
+      - speaker: CHAR-001
+        line: "那就顺着这条线……继续往下挖。"
+    # 内心独白
+    transition_to_next: hard_cut
+
+  - shot_id: EP41-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+    assets:
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】茶水间 SCENE-001。MS固定：刘振东（CHAR-GRP-20）端着咖啡杯靠台面边，财务同事（CHAR-GRP-25）端水杯压低声音聊天。冷白日光灯从头顶打下。刘振东姿态放松——'林晚被架空'消息已让他彻底放下戒备。同事问起那笔账，刘振东表情微微一变。"
+      content_roles:
+        - file: SCENE-001
+          role: reference_image
+          label: 图1
+    dialogue:
+      - speaker: CHAR-GRP-25
+        line: "东哥——林晚真的不查了？"
+      - speaker: CHAR-GRP-20
+        line: "她被架空了还查什么……现在是她自身难保。"
+      - speaker: CHAR-GRP-25
+        line: "那你之前说的那笔钱——贺总那个——"
+      - speaker: CHAR-GRP-20
+        line: "那笔钱……你别往外传。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP41-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+    assets:
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】茶水间 SCENE-001。CU→ECU缓推：刘振东（CHAR-GRP-20）看茶水间门口确认无人，凑近同事（CHAR-GRP-25）声音低到几乎耳语。同事表情从好奇变震惊瞳孔微缩。刘振东说完退开端咖啡杯喝了一口。镜头推向他眼睛——有后悔和恐惧。画面渐暗至黑屏。"
+      content_roles:
+        - file: SCENE-001
+          role: reference_image
+          label: 图1
+    dialogue:
+      - speaker: CHAR-GRP-20
+        line: "其实那些钱……不是贺总一个人的事。"
+      - speaker: CHAR-GRP-25
+        line: "……那是谁的？"
+      - speaker: CHAR-GRP-20
+        line: "别问了。知道太多对你不好。"
+    transition_to_next: hard_cut

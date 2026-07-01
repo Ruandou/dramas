@@ -1,83 +1,271 @@
-# EP48 segments.yaml
-episode: EP48
-total_duration_sec: 54
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP48/EP48_分镜剧本.md
+# Source shots: 12 (EP48-S01 to EP48-S12)
+# Output shots: 12 (EP48-S01 to EP48-S12)
+# Mapping: 1:1
+# Source total duration (self-calculated): 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+# ⚠️ NOTE: EP48 uses [待补：前台同事] placeholder (non-fatal, pending production-planner assignment)
+
+episode_id: EP48
+source_md: 剧本/EP48/EP48_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: '禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。办公室内暖白晨光，自然光从落地窗洒入，营造日常感但带着一丝凝重——林晚表情里有昨晚未消散的警觉。咖啡厅场景：暖黄灯光+深木色桌椅的质感空间，落地窗透入上午日光。两人隔桌对坐的光线设计：周明轩面朝窗口，面部明亮但眼神沉稳如深潭；林晚背对窗口，面部轮廓分明但在某些角度被阴影覆盖——暗示信息不对称与博弈中的信息暗角。整体色调从办公室的暖白晨光→咖啡厅的暖黄与日光明暗交织→集末冷白与阴影笼罩（她说“他知道了”时光线转为偏冷，阴影加深）。'
+  prompt_suffix_silent: '本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP46-72温暖明亮主调。办公室内暖白晨光，自然光从落地窗洒入，营造日常感但带着一丝凝重——林晚表情里有昨晚未消散的警觉。咖啡厅场景：暖黄灯光+深木色桌椅的质感空间，落地窗透入上午日光。两人隔桌对坐的光线设计：周明轩面朝窗口，面部明亮但眼神沉稳如深潭；林晚背对窗口，面部轮廓分明但在某些角度被阴影覆盖——暗示信息不对称与博弈中的信息暗角。整体色调从办公室的暖白晨光→咖啡厅的暖黄与日光明暗交织→集末冷白与阴影笼罩（她说“他知道了”时光线转为偏冷，阴影加深）。'
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-008: "成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色"
+
 segments:
-  - id: EP48-SEG01
-    scene_id: SCENE-001
-    description: "segment 1"
-    total_duration_sec: 2
-    shots:
-      - id: EP48-S01
-        type: "`EP48-S01`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP48-S02
-        type: "`EP48-S02`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP48-SEG02
-    scene_id: SCENE-001
-    description: "segment 2"
-    total_duration_sec: 2
-    shots:
-      - id: EP48-S03
-        type: "`EP48-S03`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP48-S04
-        type: "`EP48-S04`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-  - id: EP48-SEG03
-    scene_id: SCENE-001
-    description: "segment 3"
-    total_duration_sec: 16
-    shots:
-      - id: EP48-S05
-        type: "`EP48-S05`"
-        duration_sec: 8
-        description: "`SCENE-007`"
-      - id: EP48-S06
-        type: "`EP48-S06`"
-        duration_sec: 8
-        description: "`SCENE-007`"
-  - id: EP48-SEG04
-    scene_id: SCENE-001
-    description: "segment 4"
-    total_duration_sec: 9
-    shots:
-      - id: EP48-S07
-        type: "`EP48-S07`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-      - id: EP48-S08
-        type: "`EP48-S08`"
-        duration_sec: 8
-        description: "`SCENE-007`"
-  - id: EP48-SEG05
-    scene_id: SCENE-001
-    description: "segment 5"
-    total_duration_sec: 9
-    shots:
-      - id: EP48-S09
-        type: "`EP48-S09`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-      - id: EP48-S10
-        type: "`EP48-S10`"
-        duration_sec: 8
-        description: "`SCENE-007`"
-  - id: EP48-SEG06
-    scene_id: SCENE-001
-    description: "segment 6"
-    total_duration_sec: 16
-    shots:
-      - id: EP48-S11
-        type: "`EP48-S11`"
-        duration_sec: 8
-        description: "`SCENE-007`"
-      - id: EP48-S12
-        type: "`EP48-S12`"
-        duration_sec: 8
-        description: "`SCENE-007`"
+  - segment_id: EP48-SEG01
+    shot_ids: [EP48-S01, EP48-S02]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图2】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：上午办公室暖白晨光从落地窗洒入。图1坐在工位前笔记本电脑打开显示股权结构图。她手里端着一杯咖啡但目光不在杯子上——她在走神等着陆北辰的消息。
+        镜头2（6秒）MS→MCU 固定：一个公司前台同事走到图1工位前手里拿着一份文件说楼下有位周先生找她——盛天资本的。图1表情在0.5秒内从放松切换到警觉但不露声色。她点头道谢但握着咖啡杯的手停顿了一拍才放下。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「陆北辰还没消息……他到家了吗——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「先不想了。4.7%只是线索——怎么用，才是下一步。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「盛天资本——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我知道了。谢谢。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「周明轩？——他主动来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。办公室内暖白晨光，自然光从落地窗洒入，营造日常感但带着一丝凝重——林晚表情里有昨晚未消散的警觉，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP48-SEG02
+    shot_ids: [EP48-S03]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图2】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头3（10秒）MS 镜头跟随：图1从工位站起来拿起手机工牌挂回胸前。动作从容但比平时快了一点。她走过办公区路过陆北辰空着的工位时脚步微不可察地顿了一下——然后继续。电梯间金属门倒映出她的脸——表情平静但目光在快速运转。电梯到达门缓缓打开——她深吸一口气走了进去。电梯门合上映出她冷静的侧脸。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP46-72温暖明亮主调。办公室内暖白晨光，自然光从落地窗洒入，营造日常感但带着一丝凝重——林晚表情里有昨晚未消散的警觉，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP48-SEG03
+    shot_ids: [EP48-S04, EP48-S05]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】周明轩 CHAR-008-L01（银灰色高定西装+白衬衣+深灰领带）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头4（6秒）MLS→MS 固定：图2推开咖啡厅玻璃门。暖黄灯光和咖啡香气扑面而来。她目光迅速扫过室内——靠窗角落一个男人已经坐在那里，面前放着一杯美式咖啡没有动过。这就是图1——盛天资本CEO周明轩。银灰色高定西装深灰领带一丝不苟坐姿从容。他的目光在她推门瞬间就已经锁定了她。
+        镜头5（6秒）MS 固定：图2走到桌前。图1在她走近时站起身伸出手面带微笑——微笑精准控制在礼貌和真诚之间的灰色地带。图2握上他的手指尖微凉。她坐下来身体微微前倾——"我在这里我准备好听你说"的准备状态。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……是他。比照片上——更难读。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「林小姐。久仰。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「周总。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「冒昧约你下来——希望没有耽误你的工作。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「周总亲自约见——不敢耽误。」
+        画面全程无任何文字、字幕、标题、水印。
+        咖啡厅场景：暖黄灯光+深木色桌椅的质感空间，落地窗透入上午日光。两人隔桌对坐的光线设计：图1面朝窗口面部明亮但眼神沉稳如深潭；图2背对窗口面部轮廓分明但在某些角度被阴影覆盖——暗示信息不对称与博弈中的信息暗角，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP48-SEG04
+    shot_ids: [EP48-S06, EP48-S07]
+    duration_sec: 12
+    speakers: [CHAR-008, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】周明轩 CHAR-008-L01（银灰色高定西装+白衬衣+深灰领带）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头6（6秒）CU 固定：特写图1的脸。窗外上午日光在他侧脸形成明暗分界——半边明亮半边阴影。他的表情保持在同一频率上：礼貌的微笑沉稳的目光。说到"控股权"时语气没有加重但重量不言而喻。他端起咖啡杯喝了一口动作从容——在给图2时间消化也在观察她的第一反应。
+        镜头7（6秒）CU 固定：特写图2的脸。她的表情没有变化——不是不惊讶而是不允许自己露出惊讶。她端起咖啡杯慢慢喝了一口——这个动作给了她三秒钟缓冲。放下杯子后她直视他，没有直接回答而是抛回一个问题。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「我这个人不太喜欢绕弯子——就直说了。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「盛天资本——对贵公司的控股权，很感兴趣。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「价格方面——我可以给你一个无法拒绝的报价。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「周总这个提议——分量不小。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我想知道——盛天资本看中我们什么？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「毕竟……贵公司的投资履历里——长期持有的案例，不多。」
+        画面全程无任何文字、字幕、标题、水印。
+        咖啡厅场景：暖黄灯光+深木色桌椅的质感空间，落地窗透入上午日光。图1面朝窗口面部明亮但眼神沉稳如深潭；图2背对窗口面部被阴影覆盖——暗示信息不对称，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP48-SEG05
+    shot_ids: [EP48-S08, EP48-S09]
+    duration_sec: 12
+    speakers: [CHAR-008, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】周明轩 CHAR-008-L01（银灰色高定西装+白衬衣+深灰领带）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头8（6秒）MCU 固定：图1听到图2那句"不多"时——微笑没有变化但目光发生了一个极细微的偏移。他不急不缓地回答身体微微前倾像要分享一个秘密。他说"我看人"时那两个字带着双关——既说我看中了你的能力也在说我看透了你。
+        镜头9（6秒）MCU 固定：图2的表情没有破绽——但在图1说出"我看人"后她内心有一道警觉的弦被拨动了。她用同样轻巧的问题把焦点抛了回去——问图1看到什么了引出"拆解出售"的质疑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「功课做得很足。不错。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「我投资的标准——从来不是看公司。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「我看人。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那周总——看到什么了？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贵公司最近在市场动作频繁——我听说，有几家被盛天资本"看好"的公司——最后都被拆解出售了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我们这家——也是这个剧本吗？」
+        画面全程无任何文字、字幕、标题、水印。
+        咖啡厅场景：暖黄灯光+深木色桌椅的质感空间，落地窗透入上午日光。两人隔桌对坐，一个面朝窗口面部明亮，一个背对窗口面部被阴影覆盖——信息不对称，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP48-SEG06
+    shot_ids: [EP48-S10]
+    duration_sec: 12
+    speakers: [CHAR-008]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】周明轩 CHAR-008-L01（银灰色高定西装+白衬衣+深灰领带）【图2】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头10（12秒）CU 固定：图1听完图2那句"这个剧本"后——笑容没有消失但质感变了。三秒沉默。那三秒里他只是看着她目光没有回避也没有加压——用沉默告诉你你的问题我听懂了。然后他开口声音比之前低了一个调但仍然温和。他开始收紧回应——做过评估、注意到的不仅是报表上的数字、所以亲自来了。最后他说"我们是聪明人"——承认了互相试探的实质。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「林小姐——你果然有备而来。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「实话说——我做过评估。你的团队、你的业绩、你在贺云峰那场棋局里的表现。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「我注意到的——不只是报表上的数字。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「所以我亲自来了。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「我们是聪明人——不需要把时间浪费在互相试探上。」
+        画面全程无任何文字、字幕、标题、水印。
+        咖啡厅场景：暖黄灯光+深木色桌椅的质感空间。图1面朝窗口面部明亮但眼神沉稳如深潭——暗示从容与掌控，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+      - { file: SCENE-007, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP48-SEG07
+    shot_ids: [EP48-S11]
+    duration_sec: 10
+    speakers: [CHAR-008, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】周明轩 CHAR-008-L01（银灰色高定西装+白衬衣+深灰领带）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头11（10秒）MS 固定：图1看了一眼手表——一个控制节奏的动作。他自然地给这场会面画上句号——"三天"。不多不少——既不长到让图2慢慢布局反击也不短到显得在逼她。图2听完后用两个字回应——"够了。"图1点点头站起来整理了一下西装外套。他转身前看了图2一眼——那一眼比正常对视多了半秒——像在记住什么。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「好了——今天先聊到这里。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「三天时间——你考虑一下我的提议。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「够了。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「很好。」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「我期待你的答复，林小姐。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「周总慢走。」
+        画面全程无任何文字、字幕、标题、水印。
+        咖啡厅场景：暖黄灯光+深木色桌椅。图1面朝窗口面部明亮，图2背对窗口面部被阴影覆盖——暗示信息不对称与博弈中的信息暗角，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP48-SEG08
+    shot_ids: [EP48-S12]
+    duration_sec: 10
+    speakers: [CHAR-008, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】周明轩 CHAR-008-L01（银灰色高定西装+白衬衣+深灰领带）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头12（10秒）MS→CU→MS 固定：图1已经走到咖啡厅门口一只手已经推开玻璃门——然后他停住了。他转过半个身子目光落在图2脸上——笑容仍在但门外的冷白自然光让他的侧脸一半暖黄一半冷白。他的语气轻松得像在闲聊但内容像精确投下的炸弹——"听说你认识我弟弟？"图2的瞳孔瞬间发生极细微的变化——身体有一瞬间的僵硬。他看了她两秒得到了想要的反应——微笑加深——转身拉开门走了出去。图2站在原地一动不动然后慢慢坐下目光望着他消失的方向。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「对了——」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「听说你认识我弟弟？」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「世界真小。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……他知道了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他不是来谈收购的——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他是来告诉我——他知道我是谁。」
+        画面全程无任何文字、字幕、标题、水印。
+        集末冷白与阴影笼罩——她说"他知道了"时光线转为偏冷阴影加深，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

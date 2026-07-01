@@ -1,89 +1,518 @@
-# EP40 shots.yaml
-episode: EP40
-total_duration_sec: 64
-total_shots: 14
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP40/EP40_分镜剧本.md
+# Source shots: 14 (EP40-S01 to EP40-S14)
+# Output shots: 14 (EP40-S01 to EP40-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 84s
+# Output total duration: 84s
+# Gate status: ALL PASS (non-fatal gates skipped per instruction)
+
+episode_id: EP40
+source_md: 剧本/EP40/EP40_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP19-45暖橙主调，灰色为辅。早晨居所暖黄灯光为主光源，咖啡厅暖白光+木色+窗外自然光。整体营造从沉着谋划到假装示弱再到贺云峰得意收尾的视觉递进。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP40-S01
-    scene_id: SCENE-005
-    type: "`EP40-S01`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`"
-  - id: EP40-S02
-    scene_id: SCENE-005
-    type: "`EP40-S02`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP40-S03
-    scene_id: SCENE-005
-    type: "`EP40-S03`"
-    duration_sec: 5
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP40-S04
-    scene_id: SCENE-005
-    type: "`EP40-S04`"
-    duration_sec: 5
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP40-S05
-    scene_id: SCENE-005
-    type: "`EP40-S05`"
-    duration_sec: 1
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-001`"
-  - id: EP40-S06
-    scene_id: SCENE-005
-    type: "`EP40-S06`"
-    duration_sec: 1
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-001`, `CHAR-007`"
-  - id: EP40-S07
-    scene_id: SCENE-005
-    type: "`EP40-S07`"
-    duration_sec: 7
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-007`, `CHAR-001`"
-  - id: EP40-S08
-    scene_id: SCENE-005
-    type: "`EP40-S08`"
-    duration_sec: 7
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-007`, `CHAR-001`"
-  - id: EP40-S09
-    scene_id: SCENE-005
-    type: "`EP40-S09`"
-    duration_sec: 7
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-007`, `CHAR-001`"
-  - id: EP40-S10
-    scene_id: SCENE-005
-    type: "`EP40-S10`"
-    duration_sec: 7
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-007`, `CHAR-001`"
-  - id: EP40-S11
-    scene_id: SCENE-005
-    type: "`EP40-S11`"
-    duration_sec: 7
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-007`, `CHAR-001`"
-  - id: EP40-S12
-    scene_id: SCENE-005
-    type: "`EP40-S12`"
-    duration_sec: 1
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-001`, `CHAR-007`"
-  - id: EP40-S13
-    scene_id: SCENE-005
-    type: "`EP40-S13`"
-    duration_sec: 7
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-007`"
-  - id: EP40-S14
-    scene_id: SCENE-005
-    type: "`EP40-S14`"
-    duration_sec: 7
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-007`"
+  - shot_id: EP40-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套披在椅背上，只穿米白衬衣）【图2】林晚家 SCENE-005。镜头MCU固定：图1站在小书桌前，桌上摊着一份离职协议——打印好的，签名处空着。她拿起笔在手里转了转，看着协议。床头柜上手机屏幕亮着——云备份文件夹截图。晨光从小窗户照进来，在墙面投下斜长影。表情平静——不是放弃的平静，是决定好了的沉着。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "反击的机会就在手里……但我不能现在出牌。"
+      - speaker: CHAR-001
+        line: "贺云峰以为他拿走了我的一切——让他多得意两天。"
+      - speaker: CHAR-001
+        line: "等他彻底把后背亮给我——我再出手。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01（衬衣领微敞，没有打领带）【图2】林晚 CHAR-001-L01【图3】林晚家 SCENE-005。镜头MS固定：图1从客厅方向走过来，手里端着一杯水。他看到桌上离职协议，脚步停了一瞬——目光在纸上定格两秒，然后抬起来看图2。他放下水杯，没有去拿协议，只是站在桌对面隔着那张纸和上面的空白签名处看着她。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-005
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "你确定要这么做？"
+      - speaker: CHAR-001
+        line: "他想看到我输——我得让他满意地看到。"
+      - speaker: CHAR-001
+        line: "信任——是打出来的。但麻痹——是演出来的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】林晚家 SCENE-005。镜头CU→MCU固定：图1没有立刻回应。他拿起离职协议翻看了一下——条款简明，主动离职、放弃赔偿、三天内交接完毕。他把协议放回桌上，目光没有离开纸面，沉默了几秒后才开口——声音比刚才轻了一些。图2接过他的话，语速不紧不慢。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-005
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "如果他不够信呢？如果他拿到协议、签了字——还不放心——"
+      - speaker: CHAR-001
+        line: "他的自负——会替我把后半场演完。"
+      - speaker: CHAR-005
+        line: "他的自负不会。但他的谨慎会。"
+      - speaker: CHAR-001
+        line: "所以我带了真的退路给他看——空白的离职协议，他亲眼看着我签。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】林晚家 SCENE-005。镜头MCU镜头推近：图1看着文件袋沉默了两秒。然后他伸手拿起水杯喝了一口——这个动作的意思是「我不拦你了」。他的眉头松了半度，但仍有一丝紧绷留在眉尾。图2看到他表情细微的变化——笑了一下，不是开心的笑，是「放心，我能搞定」的默契微笑。她开始整理衬衣领口，准备穿上西装外套。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-005
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "连这个都准备了——看来是劝不住你了。"
+      - speaker: CHAR-001
+        line: "演戏——就要演到细节里。"
+      - speaker: CHAR-001
+        line: "他会信的。因为他太想赢了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装整齐穿着，但姿态不同平时：肩膀微内收，走路节奏慢了一拍）【图2】咖啡厅 SCENE-007。镜头MLS→MCU跟随：咖啡厅午后，暖白光从落地窗透进。图1推开玻璃门走进来——她在门口停了一瞬，目光扫过店内，然后落在靠窗位置。贺云峰已经坐在那里。她深吸一口气——肉眼几乎察觉不到——然后朝他走过去。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "稳住。他在看我的第一步。"
+      - speaker: CHAR-001
+        line: "钟声响了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01（藏蓝细条纹西装+无框眼镜）【图2】林晚 CHAR-001-L01【图3】咖啡厅 SCENE-007。镜头MCU固定：图1在对面坐着看图2——不露痕迹地审视。他端起自己的咖啡杯，没有急着开口。图2没有让他等太久——她微微低下头，双手放在桌上指尖轻轻交握——示弱的肢体语言。她的声音比平时低了一些，带着略微收敛的音色。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "林副总监。比我想的早。"
+      - speaker: CHAR-001
+        line: "贺总约的——不敢迟到。"
+      - speaker: CHAR-007
+        line: "主动约我——不像是你的风格。"
+      - speaker: CHAR-001
+        line: "风格……也会变的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】咖啡厅 SCENE-007。镜头CU→MCU固定：图1听了回答没有立刻回应。他慢慢地端起咖啡杯喝了一口，放下杯子时目光没有离开图2的脸——他在读她。图2让自己保持着一个「勉强镇定但已经输了」的姿态：手握着咖啡杯但不喝，目光落在桌面上偶尔抬一半又垂下去。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "所以——你今天来，是准备跟我说什么？"
+      - speaker: CHAR-001
+        line: "我来——认输。"
+      - speaker: CHAR-007
+        line: "……认输？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】咖啡厅 SCENE-007。镜头MCU固定：图1笑容保持得很好，但眼神变了——从玩味的审视变成真正的掂量。他没有急着接话，给自己几秒钟消化。图2没有在沉默中补充什么——她知道这个空档是他的试探。她只是保持姿势目光落在咖啡杯上，安静等他开口。图1终于开口——换了一个角度刺探。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "U盘里的东西——你不打算要了？"
+      - speaker: CHAR-001
+        line: "东西不在我手上了——我还要什么。"
+      - speaker: CHAR-007
+        line: "你甘心？"
+      - speaker: CHAR-001
+        line: "不甘心——又能怎么样。"
+      - speaker: CHAR-001
+        line: "他在看我的眼睛——他在找破绽。稳住。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】咖啡厅 SCENE-007。镜头MCU固定：图1看图2的眼睛——他想要的那句话已被说出。他的身体微微靠回椅背，姿态比刚才松弛了一些——「赢定了」的从容开始浮上来。他端起咖啡杯，这一次喝的动作比刚才随意了。他放下杯子开始问下一步——从试探转向「谈条件」。这个转换很细微，但图2捕捉到了。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "所以你今天来——是想跟我谈什么？"
+      - speaker: CHAR-001
+        line: "你拿你想拿的——我退我该退的。"
+      - speaker: CHAR-007
+        line: "说具体点。"
+      - speaker: CHAR-001
+        line: "我走。公司归你——我主动离职。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】咖啡厅 SCENE-007。镜头CU→MCU镜头推近：图1的目光落在那份协议上。他没有立刻伸手去拿——先看了几秒，然后抬起眼重新看图2的脸。嘴角浮起一丝极其微小的弧度——「嗯，和我想的差不多」的内部确认。他伸手拿过协议翻了翻——条款清晰。他看完后把协议放在桌上，手指在纸面上轻轻敲了两下。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "这么大牺牲？"
+      - speaker: CHAR-001
+        line: "不然呢——我还有选择的余地吗？"
+      - speaker: CHAR-007
+        line: "……确实没有了。"
+      - speaker: CHAR-001
+        line: "他信了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】咖啡厅 SCENE-007。镜头MCU固定：图1不再犹豫了。他把协议推回给图2——不是拒绝，是示意她签字。他从西装内袋拿出钢笔放在协议上——居高临下的「大方」。图2看着那支笔停了一瞬——然后拿起它拔开笔帽。她没有立刻签——先把协议翻到签名页又从头到尾看了一遍条款。她提起笔，在签名处落笔——流畅地签下自己的名字。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "三天。做完交接，离开公司。U盘的事——我不追究你私自查我的账。"
+      - speaker: CHAR-001
+        line: "谢谢贺总。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】贺云峰 CHAR-007-L01【图3】咖啡厅 SCENE-007。镜头MS→MCU镜头跟随：图1站起来——动作很慢，像是最后的力气被抽走了一样。她把椅子轻轻推回原位，拿起包。图2没有站起来送她——他靠在椅背上微笑着看她做这一切。图1转身走了两步——停住了。她没有回头，只是侧过头背对着他说了一句话——然后继续走向门口。推开门时午后阳光照在她的侧脸上——风铃响起。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "贺总——公司交给你了。别让它……死得太快。"
+      - speaker: CHAR-007
+        line: "不送。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】咖啡厅 SCENE-007。镜头MCU固定：图1没有立刻动。他端起咖啡杯慢慢地享受般喝完最后一口。放下杯子时他伸手拿起签了字的协议在手里轻轻晃了晃——像在确认战利品重量。然后他从口袋里拿出手机翻出号码拨出——脸上的笑容从面对图2时的公式化微笑变成了压不住的那种得意。他靠进椅背翘起腿，姿态彻底放松下来。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-007
+        line: "搞定了。"
+      - speaker: CHAR-007
+        line: "嗯。她认输了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】咖啡厅 SCENE-007。镜头CU缓推：图1保持着打电话的姿势。午后阳光斜照在侧脸上，无框眼镜反射着窗外光芒看不清眼神——但嘴角那丝弧度说明了一切。他听着电话那头说了什么，微微点头，挂断电话后没有立刻起身——他把手机放在桌上，拿起协议又看了一遍签名。他轻轻弹了一下纸面，纸张发出清脆声响。他收起协议站起来整理了一下西装衣领——步履从容地走向门口。背影消失在门外。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-007
+        line: "她亲自来谈的——签了离职协议。三天内走人。"
+      - speaker: CHAR-007
+        line: "我说过——她不是我的对手。"
+      - speaker: CHAR-007
+        line: "以退为进？退得太真——就是真输了。"
+    transition_to_next: hard_cut

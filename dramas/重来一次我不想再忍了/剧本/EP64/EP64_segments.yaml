@@ -1,92 +1,215 @@
-# EP64 segments.yaml
-episode: EP64
-total_duration_sec: 80
-total_shots: 13
+episode_id: EP64
+source_md: 剧本/EP64/EP64_危险游戏.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。本集场景交替于公司办公室（SCENE-001）、咖啡厅（SCENE-007）和公司走廊（SCENE-013），从清晨到深夜。情绪氛围从突发危机的紧迫→寻求援手的试探→办公室对峙的暗涌→深夜等待的寂静→电话悬念的爆发。转场节奏：快→中→中→中→快→慢→爆发。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP46-72温暖明亮主调。现代都市职场环境。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+  CHAR-007: "成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑"
+  CHAR-008: "成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色"
+
 segments:
-  - id: EP64-SEG01
-    scene_id: SCENE-013
-    description: "segment 1"
-    total_duration_sec: 12
-    shots:
-      - id: EP64-S01
-        type: "中景"
-        duration_sec: 6
-        description: "林晚早早到办公室，发现电脑上有一封未读邮件。点开——脸色一变。"
-      - id: EP64-S02
-        type: "特写"
-        duration_sec: 6
-        description: "屏幕上是银行的通知函——公司账户被"异常交易审查"冻结。林晚拿起手机。"
-  - id: EP64-SEG02
-    scene_id: SCENE-013
-    description: "segment 2"
-    total_duration_sec: 12
-    shots:
-      - id: EP64-S03
-        type: "中景"
-        duration_sec: 6
-        description: "陆北辰快步走来，林晚把手机给他看。他皱眉。"
-      - id: EP64-S04
-        type: "近景"
-        duration_sec: 6
-        description: "林晚："他不需要伸手——他只需要打一个电话。冻结审查，走流程七天。七天之后——我们所有供应商都会断供。""
-  - id: EP64-SEG03
-    scene_id: SCENE-013
-    description: "segment 3"
-    total_duration_sec: 12
-    shots:
-      - id: EP64-S05
-        type: "中景"
-        duration_sec: 6
-        description: "林晚和陆北辰坐在咖啡厅角落。桌上摊着一堆文件。"
-      - id: EP64-S06
-        type: "近景"
-        duration_sec: 6
-        description: "林晚看着他："多大的人情？"陆北辰沉默了一下。"
-  - id: EP64-SEG04
-    scene_id: SCENE-013
-    description: "segment 4"
-    total_duration_sec: 12
-    shots:
-      - id: EP64-S07
-        type: "近景"
-        duration_sec: 6
-        description: "陆北辰拿着手机走出咖啡厅。林晚独自坐在座位上，看着窗外。"
-      - id: EP64-S08
-        type: "中景"
-        duration_sec: 6
-        description: "陆北辰回来，坐下。表情平静。"
-  - id: EP64-SEG05
-    scene_id: SCENE-013
-    description: "segment 5"
-    total_duration_sec: 12
-    shots:
-      - id: EP64-S09
-        type: "中景"
-        duration_sec: 6
-        description: "林晚在工位上整理文件。贺云峰从她身边走过。"
-      - id: EP64-S10
-        type: "近景"
-        duration_sec: 6
-        description: "林晚抬头，微笑。"
-  - id: EP64-SEG06
-    scene_id: SCENE-013
-    description: "segment 6"
-    total_duration_sec: 10
-    shots:
-      - id: EP64-S11
-        type: "中景"
-        duration_sec: 6
-        description: "公司只剩林晚一人。她盯着手机，等待银行的到账通知。时间一分一秒过去。"
-      - id: EP64-S12
-        type: "特写"
-        duration_sec: 4
-        description: "手机屏幕亮起——银行到账通知。林晚呼出一口气。"
-  - id: EP64-SEG07
-    scene_id: SCENE-013
-    description: "segment 7"
-    total_duration_sec: 10
-    shots:
-      - id: EP64-S13
-        type: "近景"
-        duration_sec: 10
-        description: "林晚走出办公室，准备回家。手机震动——来电显示：周明轩。她接起。"
+  - segment_id: EP64-SEG01
+    shot_ids: [EP64-S01, EP64-S02]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景：清晨公司办公室，林晚早早到工位。她发现电脑上有一封未读邮件——点开查看，脸色骤变。
+        镜头2（6秒）特写：电脑屏幕上显示银行通知函——公司账户被"异常交易审查"冻结。林晚立刻拿起手机拨号。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「冻结？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「陆北辰——出事了。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP64-SEG02
+    shot_ids: [EP64-S03, EP64-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图3】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头3（6秒）中景：陆北辰快步走来。林晚把手机给他看——他皱眉看着屏幕。
+        镜头4（6秒）近景：林晚神情凝重，语速快而清晰，分析局势。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「周明轩的手能伸到银行去？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他不需要伸手——他只需要打一个电话。冻结审查，走流程七天。七天之后——我们所有供应商都会断供。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP64-SEG03
+    shot_ids: [EP64-S05, EP64-S06]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头5（6秒）中景：中午咖啡厅角落。桌上摊着一堆文件。林晚和陆北辰对坐低声交谈——他开口时神色有些复杂。
+        镜头6（6秒）近景：林晚看着他追问。陆北辰沉默了一下才回答——那段沉默里有不愿提及的往事。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我认识一个人——在银行信贷部。但他欠我人情。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「多大的人情？」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我爸出事后——唯一没躲的人。可以试试。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP64-SEG04
+    shot_ids: [EP64-S07, EP64-S08]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头7（6秒）近景：陆北辰拿着手机走出咖啡厅去打电话。林晚独自坐在座位上，看着窗外——眼神里有感激也有不忍。
+        镜头8（6秒）中景：陆北辰回来，坐下。他表情平静——事情办妥了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「明天下午。资金到账。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP64-SEG05
+    shot_ids: [EP64-S09, EP64-S10]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】贺云峰 CHAR-007-L01（藏蓝细条纹西装+无框眼镜）【图3】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头9（6秒）中景：下午办公室。林晚在工位上整理文件。贺云峰从她身边走过，停步，语带挑衅地问话。
+        镜头10（6秒）近景：林晚抬头，微笑回应——那微笑里有底牌，从容不迫。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「林副总监——还撑得住吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「撑不撑得住——明天见分晓。贺总。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP64-SEG06
+    shot_ids: [EP64-S11, EP64-S12]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头11（6秒）中景：入夜后公司只剩林晚一人。她坐在工位上盯着手机，等待银行到账通知。安静中只有时钟滴答声——时间一分一秒过去，她的神情越来越紧张。
+        镜头12（4秒）特写：手机屏幕亮起——银行到账通知。林晚如释重负呼出一口气。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「第一局——拿下了。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP64-SEG07
+    shot_ids: [EP64-S13]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】公司走廊 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头13（10秒）近景：深夜公司走廊。林晚走出办公室准备回家。手机震动——来电显示：周明轩。她接起电话，脚步顿住——定格。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「林晚——你以为——就你有牌？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「——你什么意思？」
+        对白（周明轩，成年男性，45岁，声线低沉沉稳，带资本家的从容与圆熟，语速极稳，喜怒不形于色）：「明天见。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，写实风格，竖屏9比16，无品牌Logo，无平台UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: SCENE-013, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

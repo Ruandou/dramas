@@ -1,89 +1,529 @@
-# EP44 shots.yaml
-episode: EP44
-total_duration_sec: 20
-total_shots: 14
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP44/EP44_分镜剧本.md
+# Source shots: 14 (EP44-S01 to EP44-S14)
+# Output shots: 14 (EP44-S01 to EP44-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 84s
+# Output total duration: 84s
+# Gate status: ALL PASS (per user instruction: skip non-fatal)
+# Note: [待补：IT运维] mapped to CHAR-GRP-26 per user instruction. CHAR-GRP-26-L01 not yet in CDN registry.
+
+episode_id: EP44
+source_md: 剧本/EP44/EP44_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP19-45暖橙主调，灰色为辅。苏晴工作室暖黄工作灯+显示屏冷光营造深夜调查的专注氛围；林晚家书桌台灯暖黄+屏幕冷白+窗外夜色营造独自追查的孤寂；公司办公室均匀日光灯+午后斜阳+电脑屏幕蓝光营造职场悬疑的冷静紧张。整体色调从工作室的暖黄逐渐过渡到办公室的清冷，对应情绪从警觉到真相浮现的冷静化。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP44-S01
-    scene_id: SCENE-005
-    type: "`EP44-S01`"
-    duration_sec: 4
-    description: "`SCENE-009`"
-    dialogue: "`CHAR-004`, `CHAR-001`"
-  - id: EP44-S02
-    scene_id: SCENE-005
-    type: "`EP44-S02`"
-    duration_sec: 1
-    description: "`SCENE-009`"
-    dialogue: "`CHAR-001`, `CHAR-004`"
-  - id: EP44-S03
-    scene_id: SCENE-005
-    type: "`EP44-S03`"
-    duration_sec: 1
-    description: "`SCENE-009`"
-    dialogue: "`CHAR-001`, `CHAR-004`"
-  - id: EP44-S04
-    scene_id: SCENE-005
-    type: "`EP44-S04`"
-    duration_sec: 4
-    description: "`SCENE-009`"
-    dialogue: "`CHAR-004`, `CHAR-001`"
-  - id: EP44-S05
-    scene_id: SCENE-005
-    type: "`EP44-S05`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`"
-  - id: EP44-S06
-    scene_id: SCENE-005
-    type: "`EP44-S06`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`"
-  - id: EP44-S07
-    scene_id: SCENE-005
-    type: "`EP44-S07`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `[待补：IT运维]`"
-  - id: EP44-S08
-    scene_id: SCENE-005
-    type: "`EP44-S08`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP44-S09
-    scene_id: SCENE-005
-    type: "`EP44-S09`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP44-S10
-    scene_id: SCENE-005
-    type: "`EP44-S10`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP44-S11
-    scene_id: SCENE-005
-    type: "`EP44-S11`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP44-S12
-    scene_id: SCENE-005
-    type: "`EP44-S12`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP44-S13
-    scene_id: SCENE-005
-    type: "`EP44-S13`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP44-S14
-    scene_id: SCENE-005
-    type: "`EP44-S14`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
+  - shot_id: EP44-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-009.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】苏晴 CHAR-004-L01（米白针织衫）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图3】苏晴工作室 SCENE-009【图4】手机 PROP-009。MS→MCU 固定：深夜工作室，外卖餐盒没收，笔记本电脑屏幕亮着显示私信列表。苏晴坐在电脑前翻出神秘粉丝的所有私信记录。林晚站在旁边撑着桌沿，目光专注，下颌微微收紧。工作灯投下一个暖黄圆，两个人的脸一半在光里一半在阴影中。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-009
+          role: reference_image
+          label: 图3
+        - file: PROP-009
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-004
+        line: "都在这里了——十三天前开始发的，一共十七条。"
+      - speaker: CHAR-001
+        line: "最早一条发的什么？"
+      - speaker: CHAR-004
+        line: "她说——'苏晴你好，我是林晚姐的老同事，好久没见她了，特别想联系她。可以帮帮忙吗？'"
+    transition_to_next: hard_cut
+
+  - shot_id: EP44-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】苏晴 CHAR-004-L01【图3】苏晴工作室 SCENE-009。CU→MCU 固定：特写林晚的脸——听到'老同事'时眼神没有明显变化但嘴角微微抿了一下。她问发信时段，苏晴回答大部分是工作日上午十点到下午四点，周末和晚上几乎没有。林晚眼神一闪说'工作日。白天。'——没有说出后半句但脑中已经响了那个信号。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-009
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "她发信的时间——你有注意过集中在什么时段吗？"
+      - speaker: CHAR-004
+        line: "大部分是工作日……上午十点到下午四点之间。"
+      - speaker: CHAR-004
+        line: "周末和晚上几乎没有。"
+      - speaker: CHAR-001
+        line: "……工作日。白天。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP44-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-009.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】苏晴 CHAR-004-L01【图3】苏晴工作室 SCENE-009【图4】手机 PROP-009。MCU 固定：林晚直起身拉开旁边椅子坐下来，动作从容但苏晴能感觉到她在切换模式。林晚拿出手机放在桌上提议用苏晴的账号去试探那个粉丝。苏晴愣了一下立刻明白，手指放到键盘上打字发送。两人同时看向屏幕。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-009
+          role: reference_image
+          label: 图3
+        - file: PROP-009
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-001
+        line: "你给她回一条——就说——'林晚姐听说了你，她也想认识你，方便说下你叫什么名字吗？'"
+      - speaker: CHAR-004
+        line: "'方便说下你叫什么名字吗'——发了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP44-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-009
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-009.png
+    api:
+      text: "【图1】苏晴 CHAR-004-L01【图2】林晚 CHAR-001-L01【图3】苏晴工作室 SCENE-009。CU→ECU 固定：消息发出不到十五秒对方头像亮了。苏晴读回复后倒吸一口气——下意识看电脑右下角时间：21:52。林晚也看到了那个时间。她调转手机屏幕朝苏晴——锁屏显示'周四 21:52'。两人同时安静了一瞬——验证了某个猜测后的心照不宣的沉默。"
+      content_roles:
+        - file: CHAR-004-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-009
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-004
+        line: "她说——'我有点不好意思，就是一个老同事，名字不重要。'"
+      - speaker: CHAR-004
+        line: "……姐，她回得太快了。"
+      - speaker: CHAR-001
+        line: "晚上九点五十二分。一个自称离职的人——秒回私信。"
+      - speaker: CHAR-001
+        line: "她不只是上班时间在线。她现在就在。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP44-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套未脱）【图2】林晚家书桌 SCENE-005。MS→MCU 缓推：深夜林晚家，窗帘半掩，窗外零星灯火。台灯暖黄光，笔记本电脑冷白光映在她脸上——她正在追踪账号IP地址，浏览器开着几个后台页面，命令行窗口闪烁着代码行。手指在键盘上快速敲击后停下等待结果。屏幕光芒在她瞳孔中跳动。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "她用了代理……跳了三层IP。"
+      - speaker: CHAR-001
+        line: "但如果她在公司内部……内网的出口IP是固定的。"
+      - speaker: CHAR-001
+        line: "……公司内网。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP44-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】林晚家书桌 SCENE-005。CU→ECU 固定：特写林晚的脸——电脑冷光照亮五官，表情凝固，不是震惊是'果然如此'的冷静确认。她慢慢靠在椅背上沉默三秒，脑中飞速重组信息。目光落在屏幕右上方时间：凌晨一点十七分。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "不是前员工。"
+      - speaker: CHAR-001
+        line: "不是离职的人——是现在坐在公司里、每天和我擦肩而过的人。"
+      - speaker: CHAR-001
+        line: "有人在公司的电脑上，用马甲号——监视我。"
+    transition_to_next: dissolve
+
+  - shot_id: EP44-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-26-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-26-L01: assets/looks/CHAR-GRP-26-L01.png  # WARNING: no CDN URL — CHAR-GRP-26-L01 not yet generated
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】IT运维 CHAR-GRP-26-L01（格子衬衫）【图3】公司大办公室 SCENE-001。MLS→MS 固定：上午公司开放办公区，键盘声此起彼伏，阳光斜照在地板上拉出长影。林晚坐在工位前翻看打印出来的系统日志和权限记录表。IT运维同事站在她桌旁拿着平板解释后台数据。林晚翻到第二页手指停在一行上抬头提问。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-GRP-26
+        line: "林副总监，这是上周所有调取过项目权限记录的日志——按您说的，筛掉了技术部的人。"
+      - speaker: CHAR-001
+        line: "这份逻辑是在市场部内部——能同时接触到我说的那三个项目的人——名单上还有几个人？"
+      - speaker: CHAR-GRP-26
+        line: "去掉实习生和新人……有权限的，加上您自己——六个人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP44-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+工牌）【图2】公司大办公室 SCENE-001。CU 固定：林晚低头看着名单上六个名字一个一个看过去——有的是她带出来的下属，有的是平级同事——她的目光在一个名字上多停了一秒。她抬眼望向远处办公区，脑中做减法：排除昨天请假的人、排除不在工位的人、排除没有动机的人。一个一个划掉。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "她知道我出差的准确日期——说明她能看到我的行程共享。她知道我三年前的项目细节——说明她那时就在公司。"
+      - speaker: CHAR-001
+        line: "排除掉不可能的人——剩下的……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP44-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司大办公室 SCENE-001【图3】手机 PROP-009。MCU 固定：林晚面前名单已被笔划掉四个名字还剩两个。她翻到日志最后一页看时间戳——正是她出差的那几天。她拿起手机拨号，没有寒暄直接同步信息。声音平静得像在朗读一份已经写好的报告。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+        - file: PROP-009
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "能在我出差时调取旧项目档案——说明这个人有审计权限，或是拿到了有权限的人的账号。"
+      - speaker: CHAR-001
+        line: "贺云峰——他作为CMO，有跨部门调阅的权限。"
+      - speaker: CHAR-001
+        line: "陈莉——她调走了，但她一手搭建了市场部的档案系统。如果她想留后门，不难。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP44-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司大办公室 SCENE-001【图3】手机 PROP-009。CU→ECU 缓推：特写林晚的脸，阳光落在左侧脸颊右侧隐没在阴影中。她的表情在说'还有第三种可能'之前有了微妙变化——不是恐惧不是愤怒，是更复杂的东西。她没有说出那个名字。电话那头传来苏晴的画外音轻声追问。林晚的沉默在电话中变成了重量的传递。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+        - file: PROP-009
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "……还有第三种可能。"
+      - speaker: CHAR-001
+        line: "有人用了我信任的人的账号。或者……"
+    transition_to_next: hard_cut
+
+  - shot_id: EP44-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司大办公室 SCENE-001【图3】手机 PROP-009。MCU 固定：林晚打开手机上的加密笔记应用建新条目，开始打字——每打一个名字念出来。第一个贺云峰，第二个陈莉。第三个——她的拇指悬在屏幕上方停了两秒，然后打下了第三个名字但没有念出来。她把手机从耳边拿开看了一眼屏幕又放回耳边。电话那头苏晴还在追问。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+        - file: PROP-009
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "……贺云峰。"
+      - speaker: CHAR-001
+        line: "陈莉。"
+      - speaker: CHAR-001
+        line: "……还有。"
+      - speaker: CHAR-001
+        line: "三个方向。一个动机最直接——一个留了后门——还有一个……"
+      - speaker: CHAR-001
+        line: "……我还在确认。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP44-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司大办公室 SCENE-001【图3】手机 PROP-009。ECU→CU 固定：林晚挂断电话把手机放在桌上屏幕朝上——备忘录三行字清晰可见。前两行打的是全名，第三行只有两个字。她看着那两个字表情比愤怒和恐惧更深——像是推开了一扇以为锁着的门发现里面一直有人。她缓缓靠向椅背，午后的阳光在她脸上慢慢移开。办公区嘈杂声重新涌入听觉但对她来说世界已经不一样了。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+        - file: PROP-009
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "三个嫌疑人。前两个——意料之中。"
+      - speaker: CHAR-001
+        line: "第三个——查到底。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP44-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司大办公室 SCENE-001【图3】手机 PROP-009。MS→MCU 固定：林晚保持靠向椅背的姿势，桌面手机屏幕还亮着。办公区嘈杂声流动但她的世界是安静的——她在消化那个'第三种可能'的寒意。午后的阳光从她颧骨上慢慢消退像温度在一点点流失。她没有动。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+        - file: PROP-009
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "秘密账号、工作日白天在线、知道我的行程和项目经历……"
+      - speaker: CHAR-001
+        line: "可以接触到我的日程共享……还有审计权限的账号。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP44-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】公司大办公室 SCENE-001【图3】手机 PROP-009。CU→ECU→大特写 缓推：林晚侧脸特写，半张脸在阴影中半张脸被残余光线微照亮。手机震动了——来电。屏幕亮起，光在黑暗中骤然亮起照亮她低垂的睫毛。她缓缓低头看向来电显示，瞳孔微微收缩了一下。她没有立刻接，盯着那个名字像是第一次真正看清这个人。手指伸向手机但在触碰到屏幕前停住了。她抬起头看向前方——眼底不是愤怒是比愤怒更冷的审视。镜头缓推推进到瞳孔，映着手机屏幕微弱的跳动光点。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+        - file: PROP-009
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "原来是你。"
+    transition_to_next: hard_cut

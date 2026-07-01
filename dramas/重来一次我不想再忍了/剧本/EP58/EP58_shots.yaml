@@ -1,89 +1,409 @@
-# EP58 shots.yaml
-episode: EP58
-total_duration_sec: 41
-total_shots: 14
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP58/EP58_分镜剧本.md
+# Source shots: 14 (EP58-S01 to EP58-S14)
+# Output shots: 14 (EP58-S01 to EP58-S14)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 92s
+# Output total duration: 92s
+# Gate status: ALL PASS
+
+episode_id: EP58
+source_md: 剧本/EP58/EP58_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。本集全程发布会日间场景：舞台主灯光（暖白聚光灯+追光）+LED大屏蓝白色背光，观众席满座，媒体记者区闪光灯不断。色调温暖明亮，对比鲜明——舞台上聚光区的暖白与台下暗场的对比，营造发布会高光时刻氛围。贺云峰镜头偏冷调处理。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP58-S01
-    scene_id: SCENE-011
-    type: "`EP58-S01`"
-    duration_sec: 1
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-001`"
-  - id: EP58-S02
-    scene_id: SCENE-011
-    type: "`EP58-S02`"
-    duration_sec: 1
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-001`, `CHAR-007`, `CHAR-005`"
-  - id: EP58-S03
-    scene_id: SCENE-011
-    type: "`EP58-S03`"
-    duration_sec: 1
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-001`"
-  - id: EP58-S04
-    scene_id: SCENE-011
-    type: "`EP58-S04`"
-    duration_sec: 7
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-007`, `CHAR-001`"
-  - id: EP58-S05
-    scene_id: SCENE-011
-    type: "`EP58-S05`"
-    duration_sec: 1
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-001`"
-  - id: EP58-S06
-    scene_id: SCENE-011
-    type: "`EP58-S06`"
-    duration_sec: 1
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-001`, `CHAR-GRP-04`"
-  - id: EP58-S07
-    scene_id: SCENE-011
-    type: "`EP58-S07`"
-    duration_sec: 4
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-GRP-04`, `CHAR-001`"
-  - id: EP58-S08
-    scene_id: SCENE-011
-    type: "`EP58-S08`"
-    duration_sec: 1
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-001`"
-  - id: EP58-S09
-    scene_id: SCENE-011
-    type: "`EP58-S09`"
-    duration_sec: 1
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-001`"
-  - id: EP58-S10
-    scene_id: SCENE-011
-    type: "`EP58-S10`"
-    duration_sec: 7
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-007`"
-  - id: EP58-S11
-    scene_id: SCENE-011
-    type: "`EP58-S11`"
-    duration_sec: 7
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-007`, `CHAR-001`"
-  - id: EP58-S12
-    scene_id: SCENE-011
-    type: "`EP58-S12`"
-    duration_sec: 1
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-001`, `CHAR-007`"
-  - id: EP58-S13
-    scene_id: SCENE-011
-    type: "`EP58-S13`"
-    duration_sec: 1
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-001`, `CHAR-005`, `CHAR-GRP-04`"
-  - id: EP58-S14
-    scene_id: SCENE-011
-    type: "`EP58-S14`"
-    duration_sec: 7
-    description: "`SCENE-011`"
-    dialogue: "`CHAR-007`"
+  - shot_id: EP58-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装，银色胸针）【图2】发布会舞台 SCENE-011。舞台中央聚光灯下，LED大屏散发柔和蓝白背光。台下黑压压观众席，前排记者区相机镜头瞄准舞台。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "九个月前——有人问我，一家做软件的公司，凭什么去做硬件。"
+      - speaker: CHAR-001
+        line: "我的回答是——因为我们不是在造一台机器。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+        - CHAR-005-L01
+      prop_ids:
+        - PROP-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+      prop_urls:
+        PROP-007: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01（深炭灰西装）【图3】贺云峰 CHAR-007-L01（藏蓝细条纹西装）【图4】满座观众席 SCENE-011【图5】原型机 PROP-007。镜头拉远建立完整空间：左侧展示台上原型机静置透明防尘罩下，台侧小王待命，第一排陆北辰端坐，最后一排贺云峰双臂交叉面无表情。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-011, role: reference_image, label: 图4 }
+        - { file: PROP-007, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "我们是在回答一个所有行业都在问的问题——当数据能预测行为，当机器能理解意图——我们怎么跟它相处。"
+      - speaker: CHAR-001
+        line: "今天——我们带来了答案。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】发布舞台 SCENE-011。图1走到展示台前揭开防尘罩，按下原型机演示按钮——机器启动嗡鸣屏幕亮起，进度条走到一半画面停住逐行暗下去。她又按了一次没反应。近景特写下她眼底掠过一瞬震惊随即压下。台下开始低声交谈议论声像涟漪扩散。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "看来设备比我还紧张。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】观众席 SCENE-011。正反打：图2站在暗掉的展示台前，台下议论声扩大，前排记者低头按手机。切到最后一排——图1是唯一完全静止的人，嘴角微微上扬几乎不可察觉，调整坐姿右手轻搭扶手像一个正在欣赏棋局成形的棋手。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "不好意思——稍等一分钟。这个问题——我来解决。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】发布舞台 SCENE-011。特写：图1独自站在舞台中央，LED大屏因故障处于待机状态，整个舞台光线暗了一度。她安静站在原地深吸一口气对着麦克风说话，微表情从震惊到接受到已有对策。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "大家知道做技术的人最怕什么吗？"
+      - speaker: CHAR-001
+        line: "——最怕一切太顺利。"
+      - speaker: CHAR-001
+        line: "刚才那段小插曲——正好回答了一个你们没问但一定在想的问题。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】小王 CHAR-GRP-04-L01【图3】发布舞台 SCENE-011。图1从讲台上拿起一个备用平板控制器，动作从容像本来就是流程的一部分。议论平息所有人盯着她手里的平板。她侧头向舞台侧方看了一眼——图2正紧张地看着她——她轻轻点头，图2立刻转身跑向后场。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-04-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "我刚才说了——今天要展示的不是一台机器——是一个方向。方向——不会因为一条数据线被拔了——就消失。"
+      - speaker: CHAR-001
+        line: "所以——我们准备了B方案。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-GRP-04-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-002.png
+    api:
+      text: "【图1】小王 CHAR-GRP-04-L01【图2】林晚 CHAR-001-L01【图3】发布舞台 SCENE-011【图4】U盘 PROP-002。舞台侧方灯光亮起，图1推着小推车快步上台——车上是一台银色笔记本电脑和便携显示器。他迅速连接设备后退到一边。图2走上前从口袋里掏出一个小U盘插入电脑，手指没有一丝颤抖。"
+      content_roles:
+        - { file: CHAR-GRP-04-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-GRP-04
+        line: "林姐——B方案全部就绪。跟彩排一模一样。"
+      - speaker: CHAR-001
+        line: "我知道。我算到了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】发布舞台 SCENE-011。图1按下回车键——屏幕亮起，数据可视化系统实时运转流畅稳定。镜头拉远：台下投资人身体前倾记者重新举起相机闪光灯亮起。图1转过身屏幕光芒映在她脸上。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "刚才那台原型机是我们团队一千多个小时的成果——但真正的技术从来不止一个载体。"
+      - speaker: CHAR-001
+        line: "这是一个完全不同的展示环境——但你们马上会看到——核心逻辑一模一样。"
+      - speaker: CHAR-001
+        line: "真正的技术——不挑舞台。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】发布舞台 SCENE-011。图1站在屏幕前手持翻页器，大屏幕数据流像活的一样涌动。镜头缓慢拉远展现全场动态：记者们在笔记本上敲字，投资人交头接耳表情从疑虑变关注，第一排陆北辰嘴角有几乎不可察觉的上扬。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "这套系统的核心不是一个硬件——是一套算法逻辑。"
+      - speaker: CHAR-001
+        line: "今天你们看到的只是一个入口——真正有价值的是它背后处理数据的方式。而且——它不依赖特定的硬件才能跑。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】观众席 SCENE-011。特写——最后一排的图1，表情在一秒一秒变化。从容微笑消失→下颚收紧咬紧牙关→右手握拳指节泛白→身体前倾像试图凑近看清局势。目光从屏幕移到林晚身上，瞳孔里映着舞台的光但眼睛比光冷。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】观众席 SCENE-011。正反打：主持人刚要开口点名——一个声音从最后一排响起。图1站起来整了整西装领口不紧不慢，直接开口语速均匀声线平滑偏冷。全场目光从舞台转向最后一排。图2站在台上看到了他，没有任何意外。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "林总——很精彩的演示。只是好奇——一家公司三个月内从软件跨越到硬件——拿出了这样完整的产品逻辑。行业内的人都知道——这通常需要一到两年。你们——是怎么做到的？"
+      - speaker: CHAR-001
+        line: "贺总这个问题问得很好——也问到了我们最想分享的部分。所以——我准备好了全部研发记录。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP58-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】贺云峰 CHAR-007-L01【图3】观众席 SCENE-011。图1点击翻页器——大屏幕出现详细时间轴，项目启动到今天的每一个关键节点，专利申报号、第三方测试报告、算法组件版本追溯——每一页都是可验证证据。图2站在原地没有坐下也没有追问，沉默几秒后缓缓坐下。有记者回头看了一眼坐下的图2。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "我们用了三个月——不是因为运气——是因为从第一天起，我们就知道终点在哪。——下一位。"
+    transition_to_next: dissolve
+
+  - shot_id: EP58-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】小王 CHAR-GRP-04-L01【图4】后台 SCENE-011。发布会后台几个人挤在一台手机前，屏幕显示财经快讯弹窗：股价盘中暴涨20%。图3盯着数字眼睛瞪圆。图2站在人群外围没有看手机看的是图1——表情平静但那种平静里有很深的情绪。图1站在人群中心看着快讯表情复杂——有释然有疲惫有一瞬恍惚，然后抬起头对图3说了一句话。画面边缘——贺云峰的身影无声消失在侧门。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-04-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-011, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-GRP-04
+        line: "林姐——百分之二十！涨了百分之二十！"
+      - speaker: CHAR-001
+        line: "还不够。"
+      - speaker: CHAR-001
+        line: "这只是开始。"
+    transition_to_next: fade
+
+  - shot_id: EP58-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01【图2】酒店走廊 SCENE-011。图1靠在墙边，领口松了一扣领带——首次出现不完美细节。手机贴在耳边听着电话那头先说完然后开口，声音恢复平滑偏冷但冷静里带着'我低估她了'的承认。说完没有立刻放下手机看着暗掉的屏幕沉默几秒，然后放好手机整理领带恢复无懈可击，转身走向走廊深处。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "周总。"
+      - speaker: CHAR-007
+        line: "发布会很成功。"
+      - speaker: CHAR-007
+        line: "比我预想的成功。"
+      - speaker: CHAR-007
+        line: "她手里——还有东西。"
+    transition_to_next: hard_cut

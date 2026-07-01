@@ -1,83 +1,256 @@
-# EP46 segments.yaml
-episode: EP46
-total_duration_sec: 44
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP46/EP46_分镜剧本.md
+# Source shots: 12 (EP46-S01 to EP46-S12)
+# Output shots: 12 (EP46-S01 to EP46-S12)
+# Mapping: 1:1
+# Source total duration (self-calculated): 84s
+# Output total duration: 84s
+# Gate status: ALL PASS
+
+episode_id: EP46
+source_md: 剧本/EP46/EP46_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。办公室内暖白自然光+人工光营造午后日常氛围，但暗藏一丝不安的冷调阴影；走廊落日斜阳从落地窗照入，在地板拉出长影，冷暖光线在角色面部交替——暖橙暮色与冷蓝阴影形成情绪对比，暗示外界的寒意正在侵入温暖的内在世界。整体色调从办公室的暖白到走廊的暮色暖橙与阴影冷蓝交织，对应情绪从日常→察觉→不安→沉重→心疼→被警告的震撼之变化。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP46-72温暖明亮主调。办公室内暖白自然光+人工光营造午后日常氛围，但暗藏一丝不安的冷调阴影；走廊落日斜阳从落地窗照入，在地板拉出长影，冷暖光线在角色面部交替——暖橙暮色与冷蓝阴影形成情绪对比，暗示外界的寒意正在侵入温暖的内在世界。整体色调从办公室的暖白到走廊的暮色暖橙与阴影冷蓝交织，对应情绪从日常→察觉→不安→沉重→心疼→被警告的震撼之变化。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+
 segments:
-  - id: EP46-SEG01
-    scene_id: SCENE-013
-    description: "segment 1"
-    total_duration_sec: 6
-    shots:
-      - id: EP46-S01
-        type: "`EP46-S01`"
-        duration_sec: 5
-        description: "`SCENE-001`"
-      - id: EP46-S02
-        type: "`EP46-S02`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP46-SEG02
-    scene_id: SCENE-013
-    description: "segment 2"
-    total_duration_sec: 6
-    shots:
-      - id: EP46-S03
-        type: "`EP46-S03`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP46-S04
-        type: "`EP46-S04`"
-        duration_sec: 5
-        description: "`SCENE-001`"
-  - id: EP46-SEG03
-    scene_id: SCENE-013
-    description: "segment 3"
-    total_duration_sec: 10
-    shots:
-      - id: EP46-S05
-        type: "`EP46-S05`"
-        duration_sec: 5
-        description: "`SCENE-013`"
-      - id: EP46-S06
-        type: "`EP46-S06`"
-        duration_sec: 5
-        description: "`SCENE-013`"
-  - id: EP46-SEG04
-    scene_id: SCENE-013
-    description: "segment 4"
-    total_duration_sec: 6
-    shots:
-      - id: EP46-S07
-        type: "`EP46-S07`"
-        duration_sec: 5
-        description: "`SCENE-013`"
-      - id: EP46-S08
-        type: "`EP46-S08`"
-        duration_sec: 1
-        description: "`SCENE-013`"
-  - id: EP46-SEG05
-    scene_id: SCENE-013
-    description: "segment 5"
-    total_duration_sec: 6
-    shots:
-      - id: EP46-S09
-        type: "`EP46-S09`"
-        duration_sec: 5
-        description: "`SCENE-013`"
-      - id: EP46-S10
-        type: "`EP46-S10`"
-        duration_sec: 1
-        description: "`SCENE-013`"
-  - id: EP46-SEG06
-    scene_id: SCENE-013
-    description: "segment 6"
-    total_duration_sec: 10
-    shots:
-      - id: EP46-S11
-        type: "`EP46-S11`"
-        duration_sec: 5
-        description: "`SCENE-013`"
-      - id: EP46-S12
-        type: "`EP46-S12`"
-        duration_sec: 5
-        description: "`SCENE-013`"
+  - segment_id: EP46-SEG01
+    shot_ids: [EP46-S01, EP46-S02]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图3】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MLS→MS 固定：午后办公室暖白自然光从落地窗洒入，空气中浮着细尘。林晚在工位专注看屏幕，听到急促脚步声抬头——图1快步走过她的工位，手机紧贴耳朵，眉头紧锁，另一只手攥着文件，姿态紧绷，没有看她。
+        镜头2（6秒）CU 固定：特写图2的脸。她望着图1消失的方向，目光从疑惑慢慢变成担忧。她看了一眼电脑右下角时间——下午四点十二分。又看了一眼手机——无消息。她轻轻咬了咬下唇，然后站起身来。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「……我说了，先别动。等我电话。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他今天接了四通电话了……每次都这样。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「从来没见他这样过——」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。办公室内暖白自然光+人工光营造午后日常氛围，但暗藏一丝不安的冷调阴影，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP46-SEG02
+    shot_ids: [EP46-S03, EP46-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图3】公司大办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头3（6秒）MCU 固定：图2站在工位旁背对走道，一只手撑在桌沿，另一只手拿手机反复翻看消息。肩膀微微起伏——他在深呼吸。图1走近几步停下。他转身——表情从焦灼瞬间切换到一个淡淡的微笑，但眼神没有跟上，那个切换太熟练了。
+        镜头4（6秒）CU→MCU 固定：特写图2的手——翻文件的动作停住了。他放下文件抬起头看着图1——所有伪装褪去。他看了一眼四周压低声音。图1没有追问只是点头用目光示意走廊方向。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「陆北辰——」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「嗯？怎么了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你今天不太对劲。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「没事。项目上的事，有点头疼。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「陆北辰——我看得出来。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「这里不是说话的地方。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那边。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「……好。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。办公室内暖白自然光+人工光营造午后日常氛围，但暗藏一丝不安的冷调阴影，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP46-SEG03
+    shot_ids: [EP46-S05, EP46-S06]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图3】公司走廊 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头5（6秒）MLS 固定：走廊尽头落地窗前，落日斜阳将走廊染成暖金色，两人影子在地板上拉得很长。图1背对图2站在窗前，一只手插在裤袋里，另一只手指尖无意识敲击窗框。图2站在他身后几步处安静等待。暖金光线勾勒他的轮廓，只有敲击窗框的手指暴露焦灼。
+        镜头6（6秒）MCU→CU 固定：他终于转过身来。逆光中他的脸一半在光里一半在阴影里。他看着她眼神里有复杂的东西——不是脆弱，而是"我说了之后你就再也不能假装不知道了"的郑重。他开口时声音比平时低了一个调。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你别跟我说没事了。我不信。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「……不是你的事。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你说出来——才知道是不是我的事。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「有些事……我不说，是不想把你卷进来。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你觉得我——是怕被卷进来的人吗？」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「……我知道你不是。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「是我爸的公司。」
+        画面全程无任何文字、字幕、标题、水印。
+        走廊落日斜阳从落地窗照入，在地板拉出长影，冷暖光线在角色面部交替——暖橙暮色与冷蓝阴影形成情绪对比，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-013, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP46-SEG04
+    shot_ids: [EP46-S07, EP46-S08]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图3】公司走廊 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头7（6秒）MCU→CU 固定：走廊光线又暗了一分，金色光染上橙红。图1侧身靠在窗框上不再掩饰疲惫。他说话时看着窗外，每个词都吐得很清楚但之间有停顿。图2表情从疑惑变成凝重——听到"盛天资本"时瞳孔微缩。
+        镜头8（6秒）CU→MCU 固定：特写图2的脸。表情从凝重变成震惊中带着"果然如此"的寒意。她看图1——他仍然靠着窗框姿态看似放松，但攥着手机的手指节发白。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「盛天资本——你应该听说过。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺云峰背后的。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「同一只手。现在——伸到我爸的公司了。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「恶意做空。散布谣言、压低股价、逼债——一周之内，市值蒸发了一半。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「所以你加入这家公司——」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「不是为了复仇。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我进来的时候，还不知道盛天资本和这家公司有关系。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「是贺云峰出现之后——我才串起来的。」
+        画面全程无任何文字、字幕、标题、水印。
+        走廊落日斜阳从落地窗照入，冷暖光线在角色面部交替——暖橙暮色与冷蓝阴影形成情绪对比，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-013, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP46-SEG05
+    shot_ids: [EP46-S09, EP46-S10]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图3】公司走廊 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头9（6秒）MCU 固定：图1转过身面对窗外。他的手从口袋里拿出来交叉在身前——一个防御性姿态。他的声音变了——不再是沉稳冷静，而是一个在跟命运讨价还价的男人。图2站在他身边半步处安静倾听。窗外光线从暖金变成橙红。
+        镜头10（6秒）CU→ECU 固定：特写图2的脸。她的眼睛微微泛红。她没有说空洞的安慰——只是安静地站在他身边看着他。目光里不是同情不是怜悯——而是她第一次看到他盔甲之下的真实。她开口时声音轻得像怕惊碎什么。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我爸——身体不好。医生说他不能受刺激。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「可我现在每天都在想——怎么告诉他，他创立的公司，被人盯上了。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「……我不知道怎么开这个口。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你打算怎么办——」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「请假。回去一趟。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……他需要你。」
+        画面全程无任何文字、字幕、标题、水印。
+        走廊落日斜阳从落地窗照入，在地板拉出长影，冷暖光线在角色面部交替——暖橙暮色与冷蓝阴影形成情绪对比，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-013, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP46-SEG06
+    shot_ids: [EP46-S11]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图3】公司走廊 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头11（12秒）MCU→CU→MCU 缓推→缓拉：走廊里暮色已深，窗外天空从橙红渐变成暗蓝，城市灯光陆续亮起。图1转过身面对图2距离很近。他的脸上没有泪水但眼眶是红的——想哭但忍住了。图2往前迈了半步伸出手指尖轻轻碰了碰他的手臂——只是一触。然后她开口声音温柔但坚定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我第一次见你这样。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「……因为我也是第一次遇到这种事。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你是不是觉得——所有事都得一个人扛。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「不是觉得。是习惯了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你不是一个人。」
+        画面全程无任何文字、字幕、标题、水印。
+        走廊落日斜阳，暖橙暮色与冷蓝阴影形成情绪对比，暗示外界的寒意正在侵入温暖的内在世界，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-013, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP46-SEG07
+    shot_ids: [EP46-S12]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+炭灰西裤+工牌）【图3】公司走廊 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头12（12秒）CU→MS 镜头拉远：温情瞬间过去。图1深吸一口气表情从脆弱慢慢收拢——像战士重新戴上头盔。他看着图2眼神里有比温柔更沉重的东西。他说完话走廊空气仿佛凝固。他最后看了她一眼那一眼里有太多来不及说的——然后转身朝走廊尽头电梯走去，背影在暮色中拉出长影。图2站在原地望着他走远，表情从心疼慢慢变成"你不让我管我偏要管"的坚定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我已经请了假。今晚就走。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我能做什么？」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「——别插手。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「什么？」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「盛天资本——不是你能对付的。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「他们比你想象的——要可怕得多。」
+        画面全程无任何文字、字幕、标题、水印。
+        走廊落日斜阳，暖橙暮色与冷蓝阴影形成情绪对比，暗示外界的寒意正在侵入温暖的内在世界，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+    content_roles:
+      - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+      - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+      - { file: SCENE-013, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

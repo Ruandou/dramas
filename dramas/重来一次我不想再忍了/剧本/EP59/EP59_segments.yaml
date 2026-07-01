@@ -1,83 +1,266 @@
-# EP59 segments.yaml
-episode: EP59
-total_duration_sec: 36
-total_shots: 12
+episode_id: EP59
+source_md: 剧本/EP59/EP59_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。本集全程会议室傍晚场景：落地窗外城市华灯初上，暖橙色霞光与室内暖光交织。色调温暖柔和，对比细腻——暮色蓝调与室内暖光的交错。情感氛围从喜悦→放松→暧昧→被打断→警觉→战斗准备的情绪六重奏。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP46-72温暖明亮主调。本集会议室傍晚场景。写实风格，竖屏9比16。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+
 segments:
-  - id: EP59-SEG01
-    scene_id: SCENE-002
-    description: "segment 1"
-    total_duration_sec: 6
-    shots:
-      - id: EP59-S01
-        type: "`EP59-S01`"
-        duration_sec: 1
-        description: "`SCENE-002`"
-      - id: EP59-S02
-        type: "`EP59-S02`"
-        duration_sec: 5
-        description: "`SCENE-002`"
-  - id: EP59-SEG02
-    scene_id: SCENE-002
-    description: "segment 2"
-    total_duration_sec: 6
-    shots:
-      - id: EP59-S03
-        type: "`EP59-S03`"
-        duration_sec: 5
-        description: "`SCENE-002`"
-      - id: EP59-S04
-        type: "`EP59-S04`"
-        duration_sec: 1
-        description: "`SCENE-002`"
-  - id: EP59-SEG03
-    scene_id: SCENE-002
-    description: "segment 3"
-    total_duration_sec: 6
-    shots:
-      - id: EP59-S05
-        type: "`EP59-S05`"
-        duration_sec: 1
-        description: "`SCENE-002`"
-      - id: EP59-S06
-        type: "`EP59-S06`"
-        duration_sec: 5
-        description: "`SCENE-002`"
-  - id: EP59-SEG04
-    scene_id: SCENE-002
-    description: "segment 4"
-    total_duration_sec: 6
-    shots:
-      - id: EP59-S07
-        type: "`EP59-S07`"
-        duration_sec: 5
-        description: "`SCENE-002`"
-      - id: EP59-S08
-        type: "`EP59-S08`"
-        duration_sec: 1
-        description: "`SCENE-002`"
-  - id: EP59-SEG05
-    scene_id: SCENE-002
-    description: "segment 5"
-    total_duration_sec: 6
-    shots:
-      - id: EP59-S09
-        type: "`EP59-S09`"
-        duration_sec: 5
-        description: "`SCENE-002`"
-      - id: EP59-S10
-        type: "`EP59-S10`"
-        duration_sec: 1
-        description: "`SCENE-002`"
-  - id: EP59-SEG06
-    scene_id: SCENE-002
-    description: "segment 6"
-    total_duration_sec: 6
-    shots:
-      - id: EP59-S11
-        type: "`EP59-S11`"
-        duration_sec: 5
-        description: "`SCENE-002`"
-      - id: EP59-S12
-        type: "`EP59-S12`"
-        duration_sec: 1
-        description: "`SCENE-002`"
+  - segment_id: EP59-SEG01
+    shot_ids: [EP59-S01, EP59-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids:
+        - PROP-010
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+      prop_urls:
+        PROP-010: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-010.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装，袖口水渍）【图2】陆北辰 CHAR-005-L01（深炭灰西装，外套解开扣子）【图3】会议室 SCENE-002【图4】香槟 PROP-010。
+        角色分工：图1可双手握香槟瓶开瓶；图2可递纸巾；图3室内背景不互动。
+        道具：香槟（一瓶深绿色玻璃瓶+金色箔帽，两只水晶杯，淡金色液体）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：傍晚的会议室，落地窗外城市天际线被暮色浸染成一片暖橙。图1穿着发布会那套海军蓝西装——袖口还残留着拧铁丝时沾上的水渍。她双手握住香槟瓶颈，金属丝在指尖一圈圈松开。表情没有警惕没有计算没有紧绷——只是一个终于可以喘口气的人。图2靠在桌对面西装外套解开了扣子领口微松，看着她拧开铁丝嘴角带着一点笑意。
+        镜头2（6秒）中近景 固定：图2递过一张纸巾，目光在她溅上水渍的袖口上停了一瞬然后落在她脸上——那目光不是评判是欣赏。图1接过纸巾随口接了一句。图2笑了一下——不是礼貌性微笑是被她的放松感染了。暖橙色霞光从落地窗斜照进来，在两人之间的桌面上铺开一片温暖的光晕。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「开了开了——太久没开了，手生了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「比发布会成功。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「你什么都会。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「开香槟——我可没练过。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你笑什么？」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「笑你——放松下来的时候，跟台上判若两人。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。本集会议室傍晚场景：暖橙色霞光从落地窗斜射，暮色与室内暖光融合营造温暖亲密氛围。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+        - { file: PROP-010, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP59-SEG02
+    shot_ids: [EP59-S03, EP59-S04]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-010
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+      prop_urls:
+        PROP-010: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-010.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】会议室 SCENE-002【图4】香槟 PROP-010（水晶杯+金色酒液）。
+        角色分工：图1可倒香槟；图2可接杯碰杯。
+        道具：两只水晶香槟杯，半杯淡金色气泡酒液。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景→特写 镜头推进：图1拿起另一只水晶杯，瓶口倾斜——淡金色的香槟沿着杯壁滑下气泡在酒液中升腾。他将两只都斟到半满，然后拿起一杯递向图2。窗外的霞光透过杯壁在桌面投下一小片琥珀色的光影晃动。
+        镜头2（6秒）中近景 固定：两只水晶杯轻轻相碰——清脆的声响在空旷的会议室里回荡。两人隔着杯沿对视。图1的目光从杯中升起的气泡移到图2的眼睛上——他的眼睛里有暖光不是窗外那种是更深的更近的什么。她握着酒杯没有立刻喝他也没有。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「敬发布会。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「敬我们。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「敬你。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……你是不是对每个人嘴都这么甜。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「你见过我跟别人开香槟？」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。本集会议室傍晚场景。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+        - { file: PROP-010, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP59-SEG03
+    shot_ids: [EP59-S05, EP59-S06]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01（深炭灰西装，姿态放松）【图3】会议室 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：两人靠在会议桌边沿姿态放松。落地窗外城市灯火一颗颗亮起——远处的电视塔、近处的写字楼格子窗、街道上的车灯河流。香槟杯半满气泡还在无声上升。安静但不是尴尬——是不需要找话题填补的沉默。图1看着窗外的灯火目光柔和没有防备。
+        镜头2（6秒）中近景→特写 镜头缓推：图1没有立刻回答。他看着图1侧脸的轮廓——暮色光影在她脸上画出柔和的明暗交界，睫毛在霞光中投下淡淡的阴影。他等了几秒才开口——像怕回答太快会让这个敞开的瞬间重新关上。他开口时图1转回头看他——眼神里有惊讶。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这几天——我每天都以为撑不过去。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我知道。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你知道？」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我看得出来。你没露怯——这就够了。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。本集会议室傍晚场景：暮色蓝调与室内暖光交错，两人面部在侧光下呈现柔和的明暗对比。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP59-SEG04
+    shot_ids: [EP59-S07, EP59-S08]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】会议室 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中近景 固定：会议室陷入一种新的安静——和刚才不同不是空白是满的。图1轻轻放下酒杯转回身。他离她很近——近到能看见她睫毛在暮色光线下投出的淡淡阴影。他开口时声音放得极轻——不是商量的语气是"我只说给你一个人听"的语气。他说完"下次"时图2的呼吸停了一瞬。
+        镜头2（6秒）特写 固定：图1的脸。他的那句"下次"像一颗石子投入她心里平静的水面——涟漪一圈圈扩散。她张了张嘴想说点什么来打破这种让她心跳加速的沉默——但没说出来。窗外城市的灯火在她瞳孔里映出温暖的光点。最后她低下头藏起那一瞬的失控说了一个字。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「林晚。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「嗯？」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「……没什么。下次——别一个人扛。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……好。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。本集会议室傍晚场景。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP59-SEG05
+    shot_ids: [EP59-S09, EP59-S10]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】会议室 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：暧昧刚刚在空气里落定——西装口袋里手机震动声响起在安静的会议室里格外刺耳。像一颗石子投入平静水面，所有刚刚凝聚起来的暖意被瞬间击碎。图1低头看了一眼手机屏幕——那一瞬间表情变化极快：柔和褪去眼底那点暖光暗了换上了一种图2非常熟悉的表情——警觉。他看了图2一眼——那个眼神不是在征求同意是一种无声的道歉——然后接起电话。
+        镜头2（6秒）特写 固定：图2站在原地看着他走到窗边的背影。笑容完全消失——取而代之的是一种经历过太多突发危机的人才会有的平静。她看着他的背影看着他的肩膀线条从放松慢慢收紧——她知道了不管电话那头说的是什么——不是好消息。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「……我接一下。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「好。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。本集会议室傍晚场景：窗外天色暗下，室内光线从暖黄变为偏冷白——情绪降温的视觉映射。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP59-SEG06
+    shot_ids: [EP59-S11]
+    duration_sec: 10
+    speakers: [CHAR-005]
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装，背对镜头→转身）【图2】会议室 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中近景 镜头缓推→固定：图1站在窗边背对图2（林晚）。城市的灯火在他面前的玻璃上流淌——他的倒影和窗外的夜色重叠。他的姿态看起来很放松——一只手插在西裤口袋里。但他的肩膀线条已经出卖了他。他听完电话那头的话沉默了几秒——那种沉默不是消化信息是确认。然后他开口了声音低而沉——像压在石头下面。三个短促的问题每问一句肩膀就收紧一分。他挂掉电话手垂下来没有立刻转身——需要那一两秒消化。然后他转过来隔着几米的距离看着图2（林晚）。他的眼神平静——但那种平静是暴风雨前的海面。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「……消息可靠吗？」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「——什么时候的事？」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「……我知道了。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「他说——周明轩没有接受休战。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「他私下接触了三个大股东——拿到了收购承诺。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。本集会议室场景：窗外天色全暗，蓝黑色夜幕取代暖橙暮色，室内灯光偏冷白。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP59-SEG07
+    shot_ids: [EP59-S12]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装）【图2】陆北辰 CHAR-005-L01（深炭灰西装）【图3】会议室 SCENE-002。
+        道具：桌上两只半满香槟杯，淡金色液体中气泡还在上升。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中全景→特写 镜头缓推：隔着会议桌两个人对视。桌上是两只半满的香槟杯——淡金色液体里气泡还在不知疲倦地上升。窗外城市的灯火依然璀璨但在这一刻那些灯光不再温暖只是亮着。图1沉默了几秒然后做了一个很小的动作——伸出右手轻轻将面前的香槟杯推到一边。那个动作很轻但在这一刻的分量超过了一切语言。她抬起头看着图2——她的眼神在那几秒内完成了变化：短暂的失神褪去柔和褪去露出下面的东西——不是愤怒是决心。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「所以——仗还没打完。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「还没打完。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「那就继续打。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。本集会议室场景：窗外全黑，室内偏冷白照明，香槟杯在桌上形成"庆祝→放下"的符号转换。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

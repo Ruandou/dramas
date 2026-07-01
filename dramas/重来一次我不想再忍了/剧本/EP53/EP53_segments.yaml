@@ -1,83 +1,238 @@
-# EP53 segments.yaml
-episode: EP53
-total_duration_sec: 24
-total_shots: 12
+episode_id: EP53
+source_md: 剧本/EP53/EP53_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。本集为全剧联盟形成的关键转折（三人结盟），光线策略：全片为公司大办公室·深夜·会议室场景。落地窗外的城市夜景（冷蓝/暗夜霓虹）与会议桌上台灯的暖黄光形成强烈冷暖对比。冷调背景（窗外城市灯火稀疏）与暖调前景（台灯光晕照射在每个人脸上）。三角构图暗示三股力量汇聚——每个人被不同方向的光勾勒出轮廓。交谈中光线稳定柔和，仅通过角色面部受光比例的变化传递情绪微差——可信赖的暖光面vs隐藏的阴影面。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP46-72温暖明亮主调。本集为全剧联盟形成的关键转折（三人结盟），光线策略：全片为公司大办公室·深夜·会议室场景。落地窗外的城市夜景（冷蓝/暗夜霓虹）与会议桌上台灯的暖黄光形成强烈冷暖对比。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+  CHAR-GRP-45: "成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉"
+
 segments:
-  - id: EP53-SEG01
-    scene_id: SCENE-001
-    description: "segment 1"
-    total_duration_sec: 6
-    shots:
-      - id: EP53-S01
-        type: "`EP53-S01`"
-        duration_sec: 5
-        description: "`SCENE-001`"
-      - id: EP53-S02
-        type: "`EP53-S02`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP53-SEG02
-    scene_id: SCENE-001
-    description: "segment 2"
-    total_duration_sec: 2
-    shots:
-      - id: EP53-S03
-        type: "`EP53-S03`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP53-S04
-        type: "`EP53-S04`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP53-SEG03
-    scene_id: SCENE-001
-    description: "segment 3"
-    total_duration_sec: 6
-    shots:
-      - id: EP53-S05
-        type: "`EP53-S05`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP53-S06
-        type: "`EP53-S06`"
-        duration_sec: 5
-        description: "`SCENE-001`"
-  - id: EP53-SEG04
-    scene_id: SCENE-001
-    description: "segment 4"
-    total_duration_sec: 6
-    shots:
-      - id: EP53-S07
-        type: "`EP53-S07`"
-        duration_sec: 5
-        description: "`SCENE-001`"
-      - id: EP53-S08
-        type: "`EP53-S08`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP53-SEG05
-    scene_id: SCENE-001
-    description: "segment 5"
-    total_duration_sec: 2
-    shots:
-      - id: EP53-S09
-        type: "`EP53-S09`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP53-S10
-        type: "`EP53-S10`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-  - id: EP53-SEG06
-    scene_id: SCENE-001
-    description: "segment 6"
-    total_duration_sec: 2
-    shots:
-      - id: EP53-S11
-        type: "`EP53-S11`"
-        duration_sec: 1
-        description: "`SCENE-001`"
-      - id: EP53-S12
-        type: "`EP53-S12`"
-        duration_sec: 1
-        description: "`SCENE-001`"
+  - segment_id: EP53-SEG01
+    shot_ids: [EP53-S01, EP53-S02]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001, CHAR-GRP-45]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装敞开，白衬衣微皱，连夜赶路状态）【图2】林晚 CHAR-001-L01（灰色居家T恤加薄外套，同EP52造型）【图3】公司大办公室会议室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：深夜，会议室门合上。三角站位：陆北辰靠在窗边，老贺（60岁花白头发，深灰旧式夹克，面容清瘦）坐会议桌一侧，林晚站在门边。陆北辰先开口——声音比平时慢了一拍——"贺叔——这就是林晚。"老贺没有站起握手寒暄——他安静看了林晚三秒——那三秒像一个无声的回合——然后开口问出了第一个问题。
+        镜头2（6秒）中近景 固定：林晚没有立刻回答。她走过去在会议桌对面坐下——拉开椅子、坐下、把两只手放在桌面上——不急不缓。她抬起头看老贺说——"我知道周明轩要的不是公司。他要的是'远航资产包'——陆北辰父亲留下的那个。"老贺的眼神动了一下——那是他从进会议室以来第一次露出意外的表情。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「贺叔——这就是林晚。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺叔。」
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「北辰说你很不一样。我这个人说话直——你凭什么觉得——你能翻这个盘？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我知道周明轩要的不是公司。他要的是「远航资产包」——陆北辰父亲留下的那个。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「公司只是跳板。拿到资产包——才是他的真正目标。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖黄台灯为主光源，窗外冷蓝夜景，三角构图。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP53-SEG02
+    shot_ids: [EP53-S03, EP53-S04]
+    duration_sec: 12
+    speakers: [CHAR-GRP-45, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（灰色居家T恤加薄外套）【图2】公司大办公室会议室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头3（6秒）中近景 固定：老贺没有立刻回应林晚的回答。他沉默了两秒——然后开始连环追问。问题像连珠炮不尖锐但不给人喘息——手指在桌面上轻轻叩了两下。林晚的回答越来越短越来越准：知道、三年、有陆北辰有您加上我三个、我手里有一笔数目不大但够了。老贺最后压低声音确认——"你知道——从坐在这里开始——你已经站在周明轩的对面了。这一步——回不了头。"
+        镜头4（6秒）特写 固定：老贺最后一个问题落下来——林晚几乎没有犹豫，在他话音落下的瞬间就给出回答，看着他的眼睛——"从我醒来的那天起——我就没有再给自己留过后路。"老贺没有笑——但他靠回了椅背——那个动作是从进攻切换到倾听模式的信号。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「你知道那个资产包牵扯多少人吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「知道。」
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「你知道盛天资本的人在这件事上布局了多久？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「三年。」
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「你有多少人？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「有陆北辰。有您。加上我——三个。」
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「你有多少钱？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我手里——有一笔。数目不大——但够了。」
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「你知道——从坐在这里开始——你已经站在周明轩的对面了。这一步——回不了头。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「从我醒来的那天起——我就没有再给自己留过后路。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖黄台灯，窗外冷蓝夜景。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP53-SEG03
+    shot_ids: [EP53-S05, EP53-S06]
+    duration_sec: 10
+    speakers: [CHAR-GRP-45, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01（深炭灰西装敞开）【图3】公司大办公室会议室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头5（5秒）中景 固定：老贺靠回椅背后沉默了一会儿，然后开口——语气从追问变成了陈述。"资本市场我混了三十年——见过太多人。有些人敢拼——但没看清就动——那是送死。有些人看清了——但不敢动——那是浪费。你是第三种——你看清了——你也敢动。"他顿了顿——"我能帮你们牵线——在这个圈子里，还有几个人卖我面子。"
+        镜头6（5秒）中景 固定：老贺的话让会议室气氛微妙松动——不是问题解决的轻松，是最难的一关终于过去的微微松弛。陆北辰站在窗边微微低了一下头——一个几乎看不出来的放松。老贺看了看两人——然后对陆北辰说了一句不是关于商业的话："北辰——你父亲当年看人的眼光——一直很准。"陆北辰叫了一声"贺叔"——那两个字里带着他很少流露的信任与敬意。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「资本市场我混了三十年——见过太多人。有些人敢拼——但没看清就动——那是送死。有些人看清了——但不敢动——那是浪费。」
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「你是第三种——你看清了——你也敢动。」
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「我能帮你们牵线——在这个圈子里，还有几个人卖我面子。」
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「北辰——你父亲当年看人的眼光——一直很准。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「贺叔——」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖黄台灯，室外冷蓝夜景。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP53-SEG04
+    shot_ids: [EP53-S07, EP53-S08]
+    duration_sec: 12
+    speakers: [CHAR-GRP-45, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】公司大办公室会议室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头7（6秒）中景 固定：老贺沉默了一会儿——然后说了一个故事。二十年前他被人做局赔光所有，整个上海滩没人敢接他的电话。陆北辰的父亲——那时候刚起步不算有钱——给了他一笔钱。没有合同——没有利息——没有还款期限。他说——「我信你。别让我看错人。」老贺的声音平淡像在说一件日常旧事——但每一个细节都很清楚。深夜的会议室里只有空调的低频声。
+        镜头8（6秒）中近景 固定：老贺的故事讲完了。他抬起眼睛看着林晚——目光已经变了——不是面试者的审视——是将士看同袍的确认。他开口说——"这个局——我入了。"那三个字像一块石头落进深水。林晚微微点头——是最郑重的回应。她看向陆北辰——他也在看她——那一眼里有深夜的疲惫、被信任的温暖、和"我们不是孤军奋战了"的确定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「二十年前——我被人做局——赔光了所有。整个上海滩没人敢接我的电话。是你父亲——他那时候刚起步——不算有钱——但他给了我一张支票。没有合同——没有利息——没有还款期限。他说——'我信你。别让我看错人。'」
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「这个局——我入了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺叔——谢谢。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖黄台灯，老贺面部在暖光下多了一层柔和——情感转折的视觉化。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP53-SEG05
+    shot_ids: [EP53-S09]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-GRP-45, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】公司大办公室会议室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头9（10秒）中景 固定：老贺入局后林晚没有让气氛停留在感动中——她迅速整理情绪，开始说起具体打法。语速不快但每句话都在搭建框架——"贺叔——资本端的人脉牵线——您来负责。""持股路径和数据分析——你和你的团队。盛天的每一步增持——我们都要提前知道。""公司内部的战术和反击节奏——我来。我们在三个方向上同时推进——才能打乱他们的步调。"老贺听完沉默了两秒——然后转头看了一眼陆北辰——那一眼里不是认可——是一种更复杂的东西——惊讶——和"你小子找对人了"的确认。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺叔——资本端的人脉牵线——您来负责。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「持股路径和数据分析——你和你的团队。盛天的每一步增持——我们都要提前知道。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「公司内部的战术和反击节奏——我来。我们在三个方向上同时推进——才能打乱他们的步调。」
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「北辰——你父亲会为你高兴的。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我也是这么想的。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖黄台灯，三角构图。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP53-SEG06
+    shot_ids: [EP53-S10, EP53-S11]
+    duration_sec: 12
+    speakers: [CHAR-GRP-45, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】公司大办公室会议室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头10（6秒）中近景 固定：就在三人气氛刚刚出现一丝暖意的时候——老贺缓缓举起右手——一个明确的"停一下"的手势。他的声音从刚才的温度变回了沉稳冷静——"先别急。我还有一个条件。"林晚看着他——"您说。"老贺直视林晚——"我能牵线——能把门打开——能把资本圈的老朋友叫到桌前。但是——如果你手里没有实打实的东西——没有你自己拿得出手的东西——谁都不会为你冒险。"
+        镜头11（6秒）特写 固定：老贺的话落进深夜的空气里。林晚没有立刻回答——她的表情没有任何变化——但她的眼神停住了。台灯光照在她的半张脸上——另一半在阴影中。沉默了几秒后她开口——声音没有动摇但简短——暴露出她在快速思考——"……什么样的东西——才算'拿得出手'？"
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「先别急。我还有一个条件。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「您说。」
+        对白（老贺，成年男性，60岁，声线沙哑沉稳，带老派江湖气，语速从容，回忆往事时语气平淡但情感深沉）：「我能牵线——能把门打开——能把资本圈的老朋友叫到桌前。但是——如果你手里没有实打实的东西——没有你自己拿得出手的东西——谁都不会为你冒险。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……什么样的东西——才算'拿得出手'？」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖黄台灯，面部半明半暗。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP53-SEG07
+    shot_ids: [EP53-S12]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（灰色居家T恤加薄外套）【图2】陆北辰 CHAR-005-L01（深炭灰西装敞开）【图3】公司大办公室会议室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头12（10秒）中景 固定：会议结束。老贺的脚步声消失在走廊尽头。林晚站在落地窗前双手撑在窗台上——窗外城市的灯火在黎明前变得稀疏，天边最远处有一线极淡的灰蓝色——那是天亮的前兆。陆北辰没有走——他站在她身后不远的地方——没有问"你怎么想"——只是站在那里。林晚背对着他轻声自语——"……拿得出手的东西。"陆北辰开口问——"你想好了？"林晚没有直接回答——她说——"……其实我手里——一直有一张牌。只是——之前没想好要不要打。"她转身看着陆北辰——凌晨的微光从落地窗外透进来，在她的侧脸上勾勒出一道极淡的轮廓。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……拿得出手的东西。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「你想好了？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……其实我手里——一直有一张牌。只是——之前没想好要不要打。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，台灯暖光与天边第一线晨光交界——黎明前。写实风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

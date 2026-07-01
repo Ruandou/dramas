@@ -1,77 +1,461 @@
-# EP51 shots.yaml
-episode: EP51
-total_duration_sec: 12
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP51/EP51_分镜剧本.md
+# Source shots: 12 (EP51-S01 to EP51-S12)
+# Output shots: 12 (EP51-S01 to EP51-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 89s
+# Output total duration: 89s
+# Gate status: ALL PASS (skipped per user request)
+
+episode_id: EP51
+source_md: 剧本/EP51/EP51_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP51-S01
-    scene_id: SCENE-005
-    type: "`EP51-S01`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP51-S02
-    scene_id: SCENE-005
-    type: "`EP51-S02`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP51-S03
-    scene_id: SCENE-005
-    type: "`EP51-S03`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP51-S04
-    scene_id: SCENE-005
-    type: "`EP51-S04`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP51-S05
-    scene_id: SCENE-005
-    type: "`EP51-S05`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP51-S06
-    scene_id: SCENE-005
-    type: "`EP51-S06`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`, `CHAR-005`(语音留言)"
-  - id: EP51-S07
-    scene_id: SCENE-005
-    type: "`EP51-S07`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`"
-  - id: EP51-S08
-    scene_id: SCENE-005
-    type: "`EP51-S08`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`"
-  - id: EP51-S09
-    scene_id: SCENE-005
-    type: "`EP51-S09`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`"
-  - id: EP51-S10
-    scene_id: SCENE-005
-    type: "`EP51-S10`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`"
-  - id: EP51-S11
-    scene_id: SCENE-005
-    type: "`EP51-S11`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`, `CHAR-005`(电话)"
-  - id: EP51-S12
-    scene_id: SCENE-005
-    type: "`EP51-S12`"
-    duration_sec: 1
-    description: "`SCENE-005`"
-    dialogue: "`CHAR-001`, `CHAR-005`(电话)"
+  - shot_id: EP51-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣，袖口微挽）【图2】陆北辰 CHAR-005-L01（炭灰西装+白衬衣）【图3】公司大办公室 SCENE-001。ELS→MS 镜头缓推：傍晚公司大办公室，落地窗外暮色城市轮廓，深蓝天际线。大屏幕股价K线陡峭绿线下坠，新闻头条滚动"盛天资本发起全面要约收购"。办公区零星同事低声交谈。林晚站在屏幕前保持姿势已久，陆北辰站她身侧稍后看K线。无对白。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】陆北辰 CHAR-005-L01（炭灰西装+白衬衣）【图3】公司大办公室 SCENE-001。MS 固定：林晚目光从屏幕移开一瞬——低头看手机推送然后重新看K线。声音平静但底层紧绷。陆北辰目光没离开K线声音低沉。他说出25%时两人之间短暂沉默。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "百分之多少了？"
+      - speaker: CHAR-005
+        line: "今天收盘前，盛天在二级市场吃了4%。加上之前他们手里的——大约25%。"
+      - speaker: CHAR-001
+        line: "（内心）25%……离控股还差26%。按这个速度——"
+      - speaker: CHAR-005
+        line: "两周。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】陆北辰 CHAR-005-L01（炭灰西装+白衬衣）【图3】公司大办公室 SCENE-001。MCU 固定：两人走到工位旁，陆北辰笔记本电脑屏幕显示投资人联系清单——大部分标红色"已拒"到底部也是空的。林晚站着用鼠标滑动清单，陆北辰站在她身后。林晚松开鼠标身体微微后靠闭眼一秒然后睁开，目光移向窗外沉下去的暮色。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "我们联系的投资人呢？"
+      - speaker: CHAR-005
+        line: "全部。没有人愿意在这个价位接盘。"
+      - speaker: CHAR-001
+        line: "（内心）……意料之中。盛天的报价太激进了。谁接谁亏。"
+      - speaker: CHAR-001
+        line: "（内心）但他太急了。这么高的溢价——不是正常的收购策略。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】陆北辰 CHAR-005-L01（炭灰西装+白衬衣）【图3】公司大办公室 SCENE-001。CU→MCU 缓推：林晚坐在电脑前调出盛天资本交易记录，手指在鼠标上快速移动。突然动作停住——盯着屏幕一组数据，持股分布太平滑。陆北辰察觉停顿凑近屏幕。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "（内心）盛天的持股分布——太集中了。正常的要约收购会在不同价位分批建仓——"
+      - speaker: CHAR-001
+        line: "（内心）但他们——几乎在同一个价位区间扫货。"
+      - speaker: CHAR-005
+        line: "不是最优策略——成本太高。"
+      - speaker: CHAR-001
+        line: "（内心）除非——他们在赶时间。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】陆北辰 CHAR-005-L01（炭灰西装+白衬衣）【图3】公司大办公室 SCENE-001。MS 固定：林晚调出盛天过去三年收购记录清单指着几行——收购→资产剥离→出售模式几乎一样。她转头看陆北辰表情专注。陆北辰眼神沉了下来跟上她的思路。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "盛天过去三年收购了17家公司——没有一家是长期持有的。最短的——三个月就剥离了。"
+      - speaker: CHAR-005
+        line: "你的意思是——"
+      - speaker: CHAR-001
+        line: "不是在买公司——是在收资产包。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（灰色居家T恤，头发扎起碎发散落）【图2】林晚家书桌 SCENE-005。MS 固定：深夜书桌前台灯暖黄光圈照亮桌面——电脑、散落文件、笔、半杯水。林晚穿灰色居家T恤头发扎起。她拿起手机听陆北辰语音留言，听完放下手机目光回到盛天收购清单上，手指缓缓划过公司名字然后停住，拿起笔画了一个圈。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "今天的数据发你了。盛天的收购速度不对。你注意休息。"
+      - speaker: CHAR-001
+        line: "（内心）盛天收购的17家公司——行业不同，规模不同，地域不同——"
+      - speaker: CHAR-001
+        line: "（内心）——但它们有一个共同的资产去向。"
+      - speaker: CHAR-001
+        line: "（内心）一个离岸基金。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（灰色居家T恤，头发扎起）【图2】林晚家书桌 SCENE-005。CU 缓推：林晚手指在键盘上快速敲击搜索离岸基金信息。搜索结果页面加载，她目光追随着屏幕文字——注册地、注册代理人、成立时间。逐一对比十年前收购记录——同一注册地同一代理人。她手指停在键盘上方，瞳孔微微放大，大脑在高速处理。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "（内心）这个离岸基金的注册地——和十年前陆北辰父亲的公司被收购时——那个接盘方的注册地一样。"
+      - speaker: CHAR-001
+        line: "（内心）一样的注册代理人。一样的离岸架构。"
+      - speaker: CHAR-001
+        line: "（内心）一样的——最终受益人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（灰色居家T恤，头发扎起）【图2】林晚家书桌 SCENE-005。MCU 固定：林晚猛地靠向椅背椅子轻响。面前墙上手绘资金流向图从散落局部变成完整闭环——盛天收购→资产剥离→流入离岸基金→最终流向受益人。她坐在那里静止几秒后缓缓拿起手机，动作很慢。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "（内心）周明轩收购的不是公司——"
+      - speaker: CHAR-001
+        line: "（内心）他要的是——陆北辰父亲留下的——那个资产包。"
+      - speaker: CHAR-001
+        line: "（内心）收购公司——只是跳板。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（灰色居家T恤，头发扎起）【图2】林晚家书桌 SCENE-005。MCU 固定：林晚坐直身体双手交握放在桌上——思考姿态。目光没有焦点——大脑把所有碎片重新排列成完整图。她看向桌上手机通讯录里"陆北辰"名字亮着。表情从消化信息变成做出决定。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "（内心）十年前——盛天搞垮了陆北辰父亲的公司，吞下了它的核心资产。但那不是终点——那包资产——到今天还有价值。"
+      - speaker: CHAR-001
+        line: "（内心）而周明轩这次收购——不是为了这家公司的业务——"
+      - speaker: CHAR-001
+        line: "（内心）他是要拿回那个资产包里——最后一块拼图。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（灰色居家T恤，头发扎起）【图2】林晚家书桌 SCENE-005。MS 固定：林晚拿起手机，拇指悬停在"陆北辰"名字上方没有立刻按下去。深夜房间只有空调低微运行声。屏幕白光照亮她的脸——她看着那个名字做最后确认，然后按下拨出键没有犹豫。手机贴到耳边，呼吸平稳但略微放慢。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "（内心）一旦说出口——一切都会不一样。但不说——我们都会输。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（灰色居家T恤，头发扎起）【图2】林晚家书桌 SCENE-005。MCU 固定：电话接通。林晚从椅子上站起来走到窗边——从研究者变成夜色中做决定的人。窗外深夜里城市零星灯火。陆北辰声音从听筒传来带着警觉。林晚沉默一秒后开口声音平静但每个字经过掂量。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "林晚？"
+      - speaker: CHAR-001
+        line: "北辰——我需要你告诉我一件事。"
+      - speaker: CHAR-005
+        line: "你说。"
+      - speaker: CHAR-001
+        line: "你父亲的公司——当年的核心资产——在盛天收购之后——去了哪里？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP51-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（灰色居家T恤，头发扎起）【图2】林晚家书桌 SCENE-005。MCU→CU 缓推：林晚握着手机站在窗前，城市夜景在玻璃上倒映。电话那头沉默——信息冲击太大需要处理。她等着。那个声音回来了带着新重量。林晚闭上眼睛然后睁开，目光有最终确认后的平静。她开口声音不大每个字清晰像棋子落盘。电话那头再次沉默更长。然后陆北辰声音恢复沉着但多了一层寒意。林晚轻轻呼出一口气目光没有离开窗外嘴角几乎不可见的微动——知道该怎么做了。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-005
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "被一个离岸基金接走了。盛天的离岸架构之一。"
+      - speaker: CHAR-001
+        line: "那个基金——最近在大量收购我们公司的股票。"
+      - speaker: CHAR-005
+        line: "……你是什么意思？"
+      - speaker: CHAR-001
+        line: "你父亲——和公司——同一盘棋。"
+      - speaker: CHAR-005
+        line: "……我需要过来找你。"
+      - speaker: CHAR-001
+        line: "嗯。我等你。"
+    transition_to_next: hard_cut

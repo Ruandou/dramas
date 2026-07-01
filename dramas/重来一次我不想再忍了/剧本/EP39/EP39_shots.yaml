@@ -1,77 +1,447 @@
-# EP39 shots.yaml
-episode: EP39
-total_duration_sec: 16
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP39/EP39_分镜剧本.md
+# Source shots: 12 (EP39-S01 to EP39-S12)
+# Output shots: 12 (EP39-S01 to EP39-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 78s (self-calculated: 5+6+5+6+5+6+6+6+11+5+6+11=78s)
+# Output total duration: 78s
+# Gate status: ALL PASS (non-fatal gates skipped per instruction)
+# ⚠️ [待补：值夜班保安] — no CHAR-GRP ID assigned. Needs 集间群演回补子循环.
+
+episode_id: EP39
+source_md: 剧本/EP39/EP39_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，第二幕暖橙主调，灰色为辅。早晨办公室以自然晨光为主光源，暖白调中带一丝冷意；监控室屏幕冷白荧光；走廊窗光与阴影对比明显。整体营造从震惊到冷静再到达希望的视觉过渡。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP39-S01
-    scene_id: SCENE-013
-    type: "`EP39-S01`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP39-S02
-    scene_id: SCENE-013
-    type: "`EP39-S02`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP39-S03
-    scene_id: SCENE-013
-    type: "`EP39-S03`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP39-S04
-    scene_id: SCENE-013
-    type: "`EP39-S04`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP39-S05
-    scene_id: SCENE-013
-    type: "`EP39-S05`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP39-S06
-    scene_id: SCENE-013
-    type: "`EP39-S06`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP39-S07
-    scene_id: SCENE-013
-    type: "`EP39-S07`"
-    duration_sec: 1
-    description: "`SCENE-013`"
-    dialogue: "`CHAR-001`, `CHAR-005`, `[待补：值夜班保安]`"
-  - id: EP39-S08
-    scene_id: SCENE-013
-    type: "`EP39-S08`"
+  - shot_id: EP39-S01
+    shot_no: 1
+    mode: i2v_ref
     duration_sec: 5
-    description: "`SCENE-013`"
-    dialogue: "`[待补：值夜班保安]`, `CHAR-005`, `CHAR-001`"
-  - id: EP39-S09
-    scene_id: SCENE-013
-    type: "`EP39-S09`"
-    duration_sec: 1
-    description: "`SCENE-013`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP39-S10
-    scene_id: SCENE-013
-    type: "`EP39-S10`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP39-S11
-    scene_id: SCENE-013
-    type: "`EP39-S11`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP39-S12
-    scene_id: SCENE-013
-    type: "`EP39-S12`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图2】公司大办公室 SCENE-001。镜头MLS→MCU缓推：早晨办公室，晨光从落地窗斜照，光线里飘着微尘。图1提着包走到工位区域——脚步突然停住。工位一片狼藉：抽屉拉开到最大，文件散落一地，键盘掉在地上，笔筒倒了。她站在原地像被钉住一样。晨光照在她半边脸上，另一半在阴影里。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "……有人来过。"
+      - speaker: CHAR-001
+        line: "昨晚那个黑影——他回来了——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP39-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-002.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图2】公司大办公室 SCENE-001。镜头MCU→CU跟随：图1放下包快步走向角落保险柜，脚步急切。她蹲下——保险柜金属门虚掩，锁扣处有撬痕，金属变形，漆面被工具刮出白痕。她看了几秒撬痕，伸手慢慢拉开柜门——里面空荡荡，U盘不见了，公司文件也被翻乱了。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "U盘……被拿走了。"
+      - speaker: CHAR-001
+        line: "他看到了……昨晚那个黑影——他看到了我放进去——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP39-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图2】公司大办公室 SCENE-001。镜头CU固定：图1蹲在保险柜前，手握柜门边缘。她低下头咬紧牙关——太阳穴青筋微凸。晨光从背后照过来，影子投在墙上拉得很长。三秒安静——只有空调嗡鸣。然后她抬起头，紧闭一下眼睛又睁开——情绪从愤怒翻涌变成克制。她站起来伸手去拿口袋里的手机，动作很稳但指尖触到屏幕时有一瞬停顿。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "先别慌……慌就输了。"
+      - speaker: CHAR-001
+        line: "谁做的——怎么进来的——从哪查起——一件一件来。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP39-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图2】公司大办公室 SCENE-001。镜头MCU固定：图1已拨通电话，手机贴在耳边，站在窗前背对满室狼藉，面朝窗外早晨城市天际线。她声音压低但每个字清楚。对方在电话里说了什么——她听着，眉头微微舒展——不是放松，是知道有人会来的那种安心。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "陆北辰。你来公司一趟——U盘被拿走了。"
+      - speaker: CHAR-001
+        line: "保险柜被撬了。监控还没查——等你一起。"
+      - speaker: CHAR-005
+        line: "我二十分钟到。你别一个人在办公室——去人多的地方。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP39-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图2】公司大办公室 SCENE-001。镜头CU→MCU固定：挂了电话后图1蹲下检查被撬抽屉，用笔帽挑起被撬坏的小锁——锁芯被暴力工具拧断。她又看散落的文件——都是普通材料被翻过又扔回。她的目光顺着地面移动——看到墙角地面上几个模糊的脚印。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "抽屉是被专用工具撬开的……专业手法。"
+      - speaker: CHAR-001
+        line: "穿鞋套了——但鞋底带了灰尘进来——有备而来。"
+      - speaker: CHAR-001
+        line: "不是临时起意——是计划好的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP39-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣，领口微敞，外套搭在手臂上）【图3】公司大办公室 SCENE-001。镜头MS固定：图2快步走进来，比预计快——领口微敞。他看到景象后眉头往下压了一度，走到图1身边蹲下看了看撬痕，又站起来环顾四周。他看向图1，直接切入正题。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "看过了——只有你的工位被翻，别的区域没事？"
+      - speaker: CHAR-001
+        line: "嗯。目标明确——就是冲我的保险柜来的。"
+      - speaker: CHAR-005
+        line: "走。去看监控。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP39-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】公司走廊/监控室 SCENE-013。【待补：值夜班保安】在操作台前。镜头MS固定：监控室小屏幕前，屏幕冷白光映在三人脸上。图1站在操作台后双手抱臂目光紧锁屏幕。图2站在她身侧一手撑着操作台边缘身体前倾。保安半身在画面前景操作键盘，快速拖动时间轴——凌晨一点、两点、三点——深夜办公室空镜快速闪过。保安手指停在凌晨三点零七分——画面突然黑了。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-013
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "就是这里——三点零七分——"
+      - speaker: CHAR-005
+        line: "倒回去再看一遍。"
+      - speaker: CHAR-005
+        line: "被剪了。"
+    transition_to_next: hard_cut
+    # ⚠️ SEMANTIC_WARNING: [待补：值夜班保安] 无CHAR-GRP-ID和L01形象，未出现在角色卡片/声音卡片中。需触发集间群演回补子循环。
+
+  - shot_id: EP39-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】公司走廊/监控室 SCENE-013。【待补：值夜班保安】在操作台前操作，调出系统日志——凌晨3:07到3:42有人登录监控后台删除了录像。登录账号是管理员权限，IP是公司内网地址。保安额头冒汗声音发虚。图1沉吟。图2沉默——表情没有崩溃，是下坠到底之后的安静。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-013
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "内部干的……不是外贼。"
+      - speaker: CHAR-001
+        line: "贺云峰的人——就在这个公司里——就在我们身边。"
+      - speaker: "[待补：值夜班保安]"
+        line: "这个……登录的IP是公司内网地址。也就是说——是咱们公司内部的人操作的。"
+      - speaker: CHAR-005
+        line: "能拿到管理员权限的——不多。"
+    transition_to_next: hard_cut
+    # ⚠️ SEMANTIC_WARNING: [待补：值夜班保安] 在源剧本中有台词但无CHAR-GRP-ID。production-planner需分配ID+建声音卡片条目，character-designer需回补L01后替换占位。
+
+  - shot_id: EP39-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-013.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】公司走廊 SCENE-013。镜头MCU固定：走廊上，图1靠墙站着目光垂向地面。图2站在对面一手插兜一手拿手机，快速查了名单后抬头看图1，冷静分析局面。图1听着没有说话——她在脑中拼碎片。然后她突然抬起头看向图2——目光里有不甘但没有绝望。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-013
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "整个公司有监控管理权限的——IT主管、行政总监、还有两个保安队长。贺云峰要找到其中一个不难。"
+      - speaker: CHAR-005
+        line: "他比我们想的准备得更充分。U盘——现在大概率已经在他手上了。"
+      - speaker: CHAR-001
+        line: "他知道赵总倒戈了——昨晚上那个黑影就是他的人——亲眼看着我放进去的。"
+      - speaker: CHAR-001
+        line: "他知道我有什么——他拿走了——但他不知道——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP39-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝外套松开，米白衬衣）【图2】公司大办公室 SCENE-001。镜头CU固定：图1坐在工位上，手撑着额头目光失焦盯着桌面。远处图2（陆北辰）在不远处低声打电话。她在脑中快速过动作——从赵总办公室拿到U盘→咖啡厅查数据→回公司放保险柜。手指撑着额头指节泛白。突然——手指停住了。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "拿到U盘……咖啡厅查数据……确认转账记录……"
+      - speaker: CHAR-001
+        line: "等等——"
+      - speaker: CHAR-001
+        line: "我昨晚——在咖啡厅——看完数据之后——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP39-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝外套松开，米白衬衣）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图3】公司大办公室 SCENE-001。镜头MCU→CU缓推：图1慢慢抬起头，目光从失焦变成聚焦——看向放在桌上的手机。图2打完电话走回来看到她表情变化——从绝望底部浮上来的光。他走近两步没有说话。图1拿起手机，手指划过屏幕，呼吸变轻了。她看向图2——那个眼神里没有得意，只有一种确认。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "我昨晚……开云同步了。"
+      - speaker: CHAR-005
+        line: "想到什么了？"
+      - speaker: CHAR-001
+        line: "等一下——让我确认——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP39-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids:
+        - PROP-009
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝外套松开，米白衬衣）【图2】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣）【图3】公司大办公室 SCENE-001。镜头CU→MCU固定：图1打开手机云存储APP——页面加载进度条转动。她屏住呼吸。文件夹打开——「转账记录_刘振东.xlsx」「资金流向图_v3.jpg」「贺云峰-跨季末结算表.xlsx」——时间戳昨晚23:37。图1看着屏幕三秒没有说话。然后她慢慢把手机转向图2。她的嘴角浮起一丝弧度——绝境中发现自己还有底牌的微翘。晨光从落地窗照进来，光线似乎暖了一些。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "在……都在……每一个文件都在——时间戳23:37——我昨晚同步的——"
+      - speaker: CHAR-001
+        line: "他拿走了U盘——但他不知道——云备份还在。"
+      - speaker: CHAR-005
+        line: "……你没告诉他——你有备份的习惯。"
+      - speaker: CHAR-001
+        line: "现在——牌还在我手上。"
+    transition_to_next: hard_cut

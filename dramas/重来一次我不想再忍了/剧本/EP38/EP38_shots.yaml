@@ -1,77 +1,399 @@
-# EP38 shots.yaml
-episode: EP38
-total_duration_sec: 31
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP38/EP38_分镜剧本.md
+# Source shots: 12 (EP38-S01 to EP38-S12)
+# Output shots: 12 (EP38-S01 to EP38-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 76s
+# Output total duration: 76s
+# Gate status: ALL PASS
+
+episode_id: EP38
+source_md: 剧本/EP38/EP38_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，第二幕暖橙主调，灰色为辅。赵总办公室以暖色台灯为主光源，咖啡厅暖黄灯光+暮色窗光，深夜办公室只亮着安全灯和走廊微光，营造安静紧张的氛围。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP38-S01
-    scene_id: SCENE-003
-    type: "`EP38-S01`"
-    duration_sec: 6
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-006`, `CHAR-001`"
-  - id: EP38-S02
-    scene_id: SCENE-003
-    type: "`EP38-S02`"
-    duration_sec: 1
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-001`, `CHAR-006`"
-  - id: EP38-S03
-    scene_id: SCENE-003
-    type: "`EP38-S03`"
-    duration_sec: 6
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-006`, `CHAR-001`"
-  - id: EP38-S04
-    scene_id: SCENE-003
-    type: "`EP38-S04`"
-    duration_sec: 6
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-006`, `CHAR-001`"
-  - id: EP38-S05
-    scene_id: SCENE-003
-    type: "`EP38-S05`"
-    duration_sec: 1
-    description: "`SCENE-003`"
-    dialogue: "`CHAR-001`, `CHAR-006`"
-  - id: EP38-S06
-    scene_id: SCENE-003
-    type: "`EP38-S06`"
-    duration_sec: 1
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-001`"
-  - id: EP38-S07
-    scene_id: SCENE-003
-    type: "`EP38-S07`"
-    duration_sec: 1
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-001`"
-  - id: EP38-S08
-    scene_id: SCENE-003
-    type: "`EP38-S08`"
+  - shot_id: EP38-S01
+    shot_no: 1
+    mode: i2v_ref
     duration_sec: 5
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP38-S09
-    scene_id: SCENE-003
-    type: "`EP38-S09`"
-    duration_sec: 1
-    description: "`SCENE-007`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP38-S10
-    scene_id: SCENE-003
-    type: "`EP38-S10`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP38-S11
-    scene_id: SCENE-003
-    type: "`EP38-S11`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
-  - id: EP38-S12
-    scene_id: SCENE-003
-    type: "`EP38-S12`"
-    duration_sec: 1
-    description: "`SCENE-001`"
-    dialogue: "`CHAR-001`"
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带+深灰西裤）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣+炭灰西裤）【图3】赵总办公室 SCENE-003（傍晚，暖色台灯为主光源）。MCU 固定：赵总办公室门虚掩，台灯是唯一的光源。赵总坐在办公桌后，桌上放着一个不起眼的银色U盘。他看了看U盘又看了看门口——然后像下定了决心把U盘推向对面坐着的林晚。他的手在U盘上多停留了一秒——指尖微微泛白。林晚没有立刻拿——她看着赵总的眼睛等他开口。暮色从落地窗斜照进来把两人轮廓映成剪影。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "这就是你要的东西。"
+      - speaker: CHAR-006
+        line: "刘振东和他之间的每一笔转账——都在里面。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP38-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】赵总 CHAR-006-L01【图3】赵总办公室 SCENE-003（台灯光）。CU 固定：林晚低头看着桌上的U盘，然后伸手拿起它——动作很轻但很稳。U盘在她掌心反射出台灯的光。她抬起头看向赵总——没有激动的表情只有一份郑重。这个U盘意味着赵总把职业生涯甚至人身安全都交到了她手上。她握紧U盘收进口袋。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "赵总……这份东西对您意味着什么,您清楚。"
+      - speaker: CHAR-006
+        line: "清楚。辞职信——我已经写好了,在抽屉里放着。"
+      - speaker: CHAR-001
+        line: "我不会让您走到那一步。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP38-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】赵总 CHAR-006-L01【图2】林晚 CHAR-001-L01【图3】赵总办公室 SCENE-003（暖色台灯）。MCU 固定：赵总靠回椅背摘下眼镜捏了捏眉心。台灯黄光照在他疲惫的脸上——五十岁的人在这一刻显得比平时老了十岁。沉默了几秒然后放下手看向林晚。没有说官话——这一刻说的是真心话。声音里有疲惫但也有卸下包袱后的轻松。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "林晚。我做这个决定不是为了你。"
+      - speaker: CHAR-006
+        line: "是为了我自己。我五十岁了——不想这辈子到老了,想起来,自己连底线都没守住。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP38-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】赵总 CHAR-006-L01（领带微微松开）【图2】林晚 CHAR-001-L01【图3】赵总办公室 SCENE-003。CU 固定：赵总说着说着眼眶有点泛红——但他忍住了。他低下头把自己桌面上的一张女儿的照片转过来给林晚看——小女孩穿着病号服但笑得很灿烂。赵总看着照片嘴角浮起一丝笑然后又收住。抬起头目光里有一种林晚从未在他脸上见过的东西——不是管理者的威严，而是一个父亲做出了正确选择的笃定。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-006
+        line: "小慧昨天说——爸爸,你好像跟以前不一样了。"
+      - speaker: CHAR-006
+        line: "我说——爸爸找到了,比钱更重要的东西。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP38-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-003.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（站起来看着赵总）【图2】赵总 CHAR-006-L01（慢慢戴上眼镜）【图3】赵总办公室 SCENE-003（台灯黄光在房间留下温暖的一圈）。CU→MCU 固定：林晚看着赵总——这个曾经让她寒心过的上司此刻正在把自己最脆弱的一面交给她。她没有说谢谢——因为她知道赵总需要的不是客套。她看着他用最平静但最有分量的语气说出了承诺。赵总听完没有点头也没有说话——他只是长长地舒了一口气像是憋了很久终于能呼吸了。他重新戴上眼镜恢复了一点管理者的样子——但眼神不一样了。林晚起身准备离开时他轻声说了一句话——每个字都像钉子。林晚在门口顿了一下走了出去。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-003
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "贺云峰不会知道是您给的。您和您女儿——这次,我来保护。"
+      - speaker: CHAR-006
+        line: "林晚。"
+      - speaker: CHAR-006
+        line: "别输。"
+    transition_to_next: dissolve
+
+  - shot_id: EP38-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（脱了西装外套，只穿米白衬衣）【图2】咖啡厅 SCENE-007（夜，暖黄灯光+笔记本电脑屏幕冷白补光）。CU 固定：咖啡厅角落卡座，笔记本电脑屏幕的冷白光照着林晚的脸。她插上U盘快速浏览文件——一个个Excel表格密密麻麻的数字和日期。手指在触摸板上缓慢滑过停在一笔特别大的金额上。眉头微微皱起——不是因为意外而是因为确认了的笃定。窗外城市夜晚灯光，咖啡厅里飘着轻柔的爵士乐。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "果然……每一笔跨季末的转账——都借刘振东的账户走了一遍。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP38-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（只穿米白衬衣，端着凉了的咖啡）【图2】咖啡厅 SCENE-007（夜，暖黄灯光）。MCU 固定：林晚合上电脑拔下U盘握在手心。看了看四周——咖啡厅里只有零星几桌人没人注意她这个角落。把U盘放进口袋端起已经凉了的咖啡喝了一口——表情在咖啡杯后面慢慢变得若有所思。证据在手了但贺云峰不是一个人——背后是盛天资本。放下杯子目光透过窗户看向城市夜景在心里盘算。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "贺云峰……你没想到吧。你最信任的人——把钥匙交给了我。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP38-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01（深炭灰西装+白衬衣，脱下外套搭在椅背上）【图2】林晚 CHAR-001-L01（米白衬衣）【图3】咖啡厅 SCENE-007。MS 固定：陆北辰从门口走进来快步走到林晚桌前坐下。脱下外套搭在椅背上——眉头微微蹙着像是在赶来的路上一直在想事情。林晚把电脑转过来给他看屏幕。陆北辰俯身目光快速扫过那些数据——看东西很快几秒就抓住了关键。靠回椅背沉默两秒然后开口。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "就是这些？"
+      - speaker: CHAR-001
+        line: "嗯。刘振东是贺云峰的白手套——每个季末的转账,走的都是他的私人账户。隐藏路径,但赵总拿到了底账。"
+      - speaker: CHAR-005
+        line: "足够立案了。但你确定要现在动手？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP38-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（关上电脑，目光果决）【图2】陆北辰 CHAR-005-L01（看着她，目光有担忧更多的是信任）【图3】咖啡厅 SCENE-007。CU 固定：陆北辰的问题让空气安静了片刻。林晚没有立刻回答——看着面前的电脑屏幕像是在最后一次确认自己的判断。然后关上电脑看向陆北辰。眼神里没有犹豫——是经过深思熟虑后的果决。她知道贺云峰已经在怀疑赵总了——如果现在不交出去证据可能这辈子都用不上了。陆北辰看着她——目光里有一丝担忧但更多的是信任。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "他已经在怀疑赵总了。再等——证据就没机会用了。"
+      - speaker: CHAR-005
+        line: "你一个人扛得住？"
+      - speaker: CHAR-001
+        line: "我有你。"
+    transition_to_next: dissolve
+
+  - shot_id: EP38-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】公司大办公室 SCENE-001（深夜，只亮着安全灯冷白微光，一排排工位在黑暗中像沉默的剪影）。MLS→MCU 镜头缓推：深夜办公室只有安全灯发出微弱白光。林晚独自穿过办公区，脚步声在空旷的空间里带着轻微回音。她走到自己工位旁的保险柜前蹲下——金属柜面反射头顶安全灯的光。从口袋里拿出U盘握在手心看了一眼——然后输入密码打开保险柜的金属门。铰链转动的声音在安静中格外清晰。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP38-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（蹲在保险柜前）【图2】公司大办公室 SCENE-001（深夜，安全灯微光）。CU→MCU 固定：林晚把U盘轻轻放进保险柜和里面的公司文件放在一起。她看着U盘在文件堆里安静地躺好——这个小小的金属物件里装着可以扳倒贺云峰的全部证据。停顿了一秒——像是在对这个决定做一个无声的确认——然后关上保险柜门转动锁栓。金属碰撞的咔哒声在寂静中格外响亮。她站起来拍了拍手上的灰准备离开。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP38-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（站在原地转头看向门口）【图2】公司大办公室 SCENE-001（深夜，安全灯绿光，走廊空无一人）。MCU→主观→ELS 固定→快速摇镜→固定：林晚站起身拍了拍手准备转身离开。就在她转头的那个瞬间——余光扫到办公室门口的方向——一个黑影在门框边一闪而过。她的身体瞬间僵住。她猛地转头看向门口——镜头随之快速摇向门口——门外的走廊空无一人只有安全指示灯的绿色微光在墙壁上投下冷色的光晕。空调的嗡鸣声在安静中格外清晰。镜头从主观切回客观——林晚站在原地保持转头看向门口的姿势。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "……谁？"
+    transition_to_next: hard_cut

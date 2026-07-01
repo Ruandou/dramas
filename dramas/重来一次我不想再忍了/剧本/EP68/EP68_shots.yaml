@@ -1,83 +1,413 @@
-# EP68 shots.yaml
-episode: EP68
-total_duration_sec: 80
-total_shots: 13
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP68/EP68_投资传奇的礼物.md
+# Source shots: 13 (EP68-S01 to EP68-S13)
+# Output shots: 13 (EP68-S01 to EP68-S13)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s
+# Output total duration: 80s
+# Gate status: ALL PASS
+
+episode_id: EP68
+source_md: 剧本/EP68/EP68_投资传奇的礼物.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。温暖明亮色调，暖橙氛围。现代都市环境。"
+  negative_prompt: "real celebrity face, real brand logo, ancient costume, weapon, military uniform, gun, explosion, anime style, cartoon style, horror, blood, supernatural visual effect"
+
 shots:
-  - id: EP68-S01
-    scene_id: SCENE-001
-    type: "中景"
+  - shot_id: EP68-S01
+    shot_no: 1
+    mode: i2v_ref
     duration_sec: 6
-    description: "投资传奇约林晚单独喝咖啡。他从公文包里拿出一份文件。"
-    dialogue: "投资传奇："硅谷演讲的效果很好——三天内我收到了七个投资意向。""
-  - id: EP68-S02
-    scene_id: SCENE-001
-    type: "近景"
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-013-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】咖啡厅 SCENE-007。中景 固定：午后咖啡厅，图1从公文包里拿出一份文件放在桌上，图2坐在对面看着。"
+      content_roles:
+        - file: CHAR-013-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-013
+        line: "硅谷演讲的效果很好——三天内我收到了七个投资意向。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S02
+    shot_no: 2
+    mode: i2v_ref
     duration_sec: 6
-    description: "他把文件推到林晚面前。"
-    dialogue: "投资传奇："这是你的礼物。""
-  - id: EP68-S03
-    scene_id: SCENE-001
-    type: "特写"
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-013-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】投资传奇 CHAR-013-L01【图2】林晚 CHAR-001-L01【图3】咖啡厅 SCENE-007。近景 固定：图1将文件推到图2面前。"
+      content_roles:
+        - file: CHAR-013-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-013
+        line: "这是你的礼物。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S03
+    shot_no: 3
+    mode: i2v_ref
     duration_sec: 6
-    description: "文件封面写着"盛天资本——结构重组与退出方案"。林晚抬头。"
-    dialogue: "林晚："这是——""
-  - id: EP68-S04
-    scene_id: SCENE-001
-    type: "近景"
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】咖啡厅 SCENE-007。特写 固定：文件封面写着\"盛天资本——结构重组与退出方案\"，图1缓缓抬起头，眼神惊讶。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "这是——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S04
+    shot_no: 4
+    mode: i2v_ref
     duration_sec: 6
-    description: "投资传奇喝了一口茶。"
-    dialogue: "投资传奇："周明轩的董事会不是铁板一块。他最大的投资人——是我以前的学生。""
-  - id: EP68-S05
-    scene_id: SCENE-001
-    type: "中景"
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-013-L01
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】投资传奇 CHAR-013-L01【图2】咖啡厅 SCENE-007。近景 固定：图1端起茶杯，从容地喝了一口茶，放下茶杯。"
+      content_roles:
+        - file: CHAR-013-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-013
+        line: "周明轩的董事会不是铁板一块。他最大的投资人——是我以前的学生。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S05
+    shot_no: 5
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚翻看文件，越看越心惊。"
-    dialogue: "投资传奇："只要你同意——他会在下周的董事会上提出撤资动议。周明轩——会被盛天资本董事会罢免。""
-  - id: EP68-S06
-    scene_id: SCENE-001
-    type: "近景"
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-013-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】投资传奇 CHAR-013-L01【图3】咖啡厅 SCENE-007。中景 固定：图1低头翻看文件，眉头渐皱，越看越心惊。图2坐在对面从容注视。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-013-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-013
+        line: "只要你同意——他会在下周的董事会上提出撤资动议。周明轩——会被盛天资本董事会罢免。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S06
+    shot_no: 6
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚合上文件："代价是什么？""
-    dialogue: "投资传奇："没有代价。就当——是给一个值得投资的年轻人的礼物。""
-  - id: EP68-S07
-    scene_id: SCENE-001
-    type: "中景"
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-013-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】投资传奇 CHAR-013-L01【图3】咖啡厅 SCENE-007。近景 固定：图1合上文件，直视图2。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-013-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-007
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "代价是什么？"
+      - speaker: CHAR-013
+        line: "没有代价。就当——是给一个值得投资的年轻人的礼物。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S07
+    shot_no: 7
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚沉默了很久。"
-    dialogue: "林晚："您为什么要帮我？""
-  - id: EP68-S08
-    scene_id: SCENE-001
-    type: "近景"
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】咖啡厅 SCENE-007。中景 固定：图1沉默良久，垂眸看着面前的文件，室内只有咖啡厅的背景轻音乐。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "您为什么要帮我？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S08
+    shot_no: 8
+    mode: i2v_ref
     duration_sec: 6
-    description: "投资传奇看着窗外。"
-    dialogue: "投资传奇："我年轻的时候——也有一个人这样帮过我。后来他去世了。我没来得及还他人情。""
-  - id: EP68-S09
-    scene_id: SCENE-001
-    type: "近景"
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-013-L01
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】投资传奇 CHAR-013-L01【图2】咖啡厅 SCENE-007。近景 固定：图1转头看向窗外，目光悠远，仿佛在回忆什么。"
+      content_roles:
+        - file: CHAR-013-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-013
+        line: "我年轻的时候——也有一个人这样帮过我。后来他去世了。我没来得及还他人情。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S09
+    shot_no: 9
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚眼眶微红，但没有让眼泪流下来。"
-    dialogue: "林晚："谢谢您。""
-  - id: EP68-S10
-    scene_id: SCENE-001
-    type: "中景"
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】咖啡厅 SCENE-007。近景 固定：图1眼眶微红，嘴唇轻轻抿住，但努力没有让眼泪流下来。眼神中充满感激与坚定。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "谢谢您。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S10
+    shot_no: 10
+    mode: i2v_ref
     duration_sec: 6
-    description: "投资传奇站起身。"
-    dialogue: "投资传奇："别谢我。去赢。"他拿起外套，转身离开。"
-  - id: EP68-S11
-    scene_id: SCENE-001
-    type: "中景"
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-013-L01
+    assets:
+      look_urls:
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-013-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: "【图1】投资传奇 CHAR-013-L01【图2】咖啡厅 SCENE-007。中景 固定：图1缓缓站起身，拿起搭在椅背上的外套，转身准备离开。"
+      content_roles:
+        - file: CHAR-013-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-007
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-013
+        line: "别谢我。去赢。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S11
+    shot_no: 11
+    mode: i2v_ref
     duration_sec: 6
-    description: "林晚回到办公室，把文件放在桌上。陆北辰在等她。"
-    dialogue: "陆北辰："什么情况？"林晚："我们赢了。""
-  - id: EP68-S12
-    scene_id: SCENE-001
-    type: "近景"
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01（深炭灰西装）【图3】公司办公室 SCENE-001。中景 固定：傍晚，图1推门走进办公室，把文件放在桌上。图2已在室内等她，转身看向她。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "什么情况？"
+      - speaker: CHAR-001
+        line: "我们赢了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S12
+    shot_no: 12
+    mode: i2v_ref
     duration_sec: 6
-    description: "陆北辰看着她。林晚终于露出一个发自内心的笑容。"
-    dialogue: "林晚："周明轩——会被盛天资本罢免。""
-  - id: EP68-S13
-    scene_id: SCENE-001
-    type: "中景"
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】公司办公室 SCENE-001。近景 固定：图1深深看着图2。图2终于露出一个发自内心的笑容，带着如释重负的轻松。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "周明轩——会被盛天资本罢免。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP68-S13
+    shot_no: 13
+    mode: i2v_ref
     duration_sec: 8
-    description: "夕阳透过落地窗照进来。林晚和陆北辰并肩站在窗前。"
-    dialogue: "林晚（内心）："原来这条路走到尽头——不是复仇。是自由。""
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】公司办公室 SCENE-001。中景 固定：夕阳透过落地窗照进来，金色光芒洒满办公室。图1和图2并肩站在窗前，望着窗外的城市天际线。画面温暖宁静。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "原来这条路走到尽头——不是复仇。是自由。"
+    dialogue_type: internal_monologue
+    transition_to_next: hard_cut

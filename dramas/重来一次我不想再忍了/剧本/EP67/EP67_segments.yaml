@@ -1,92 +1,210 @@
-# EP67 segments.yaml
-episode: EP67
-total_duration_sec: 80
-total_shots: 13
+episode_id: EP67
+source_md: 剧本/EP67/EP67_硅谷演讲.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，暖调职场剧，色调温暖明亮。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，暖调职场剧，色调温暖明亮。"
+  negative_prompt: "文字, 字幕, 动漫, 卡通, 插图, 漫画, 血腥, 暴力, 超自然特效, 奢侈品品牌Logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+  CHAR-013: "成年男性，75岁，声线苍老但有力，语速从容，充满智慧感"
+
 segments:
-  - id: EP67-SEG01
-    scene_id: SCENE-013
-    description: "segment 1"
-    total_duration_sec: 12
-    shots:
-      - id: EP67-S01
-        type: "全景"
-        duration_sec: 6
-        description: "硅谷会议中心，座无虚席的国际科技峰会。大屏幕上显示着"Lin Wan - Shengtian Tech"。林晚站在幕后，深呼吸。"
-      - id: EP67-S02
-        type: "近景"
-        duration_sec: 6
-        description: "陆北辰在台下第一排，朝她点了点头。林晚微笑着走上舞台。"
-  - id: EP67-SEG02
-    scene_id: SCENE-013
-    description: "segment 2"
-    total_duration_sec: 12
-    shots:
-      - id: EP67-S03
-        type: "中景"
-        duration_sec: 6
-        description: "林晚站在演讲台前，用流利的英文开场。"
-      - id: EP67-S04
-        type: "近景"
-        duration_sec: 6
-        description: "台下观众安静倾听。有人开始拿笔记录。"
-  - id: EP67-SEG03
-    scene_id: SCENE-013
-    description: "segment 3"
-    total_duration_sec: 12
-    shots:
-      - id: EP67-S05
-        type: "中景"
-        duration_sec: 6
-        description: "林晚展示原型机数据，大屏幕上显示性能对比图。"
-      - id: EP67-S06
-        type: "特写"
-        duration_sec: 6
-        description: "台下投资传奇微笑着鼓掌。观众席响起掌声。"
-  - id: EP67-SEG04
-    scene_id: SCENE-013
-    description: "segment 4"
-    total_duration_sec: 12
-    shots:
-      - id: EP67-S07
-        type: "中景"
-        duration_sec: 6
-        description: "林晚的演讲进入高潮——她讲述了自己的创业故事。"
-      - id: EP67-S08
-        type: "近景"
-        duration_sec: 6
-        description: "观众起立鼓掌。林晚眼眶微红。"
-  - id: EP67-SEG05
-    scene_id: SCENE-013
-    description: "segment 5"
-    total_duration_sec: 12
-    shots:
-      - id: EP67-S09
-        type: "中景"
-        duration_sec: 6
-        description: "投资传奇走到台边，低声对林晚说了什么。林晚惊讶地看着他。"
-      - id: EP67-S10
-        type: "近景"
-        duration_sec: 6
-        description: "林晚表情瞬间变化。"
-  - id: EP67-SEG06
-    scene_id: SCENE-013
-    description: "segment 6"
-    total_duration_sec: 12
-    shots:
-      - id: EP67-S11
-        type: "中景"
-        duration_sec: 6
-        description: "林晚稳定情绪，回到演讲台。她面朝观众，微笑。"
-      - id: EP67-S12
-        type: "特写"
-        duration_sec: 6
-        description: "大屏幕上出现林晚的邮箱。台下多位投资人拿出手机拍照。"
-  - id: EP67-SEG07
-    scene_id: SCENE-013
-    description: "segment 7"
-    total_duration_sec: 8
-    shots:
-      - id: EP67-S13
-        type: "近景"
-        duration_sec: 8
-        description: "林晚快步走出演讲厅，在走廊上给陆北辰打电话。"
+  - segment_id: EP67-SEG01
+    shot_ids: [EP67-S01, EP67-S02]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-016
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-005-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（职场装，站在幕后深呼吸）【图2】陆北辰 CHAR-005-L01（深炭灰西装，台下第一排）【图3】硅谷演讲厅 SCENE-016。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景 固定：硅谷会议中心，座无虚席的国际科技峰会。大屏幕上显示着"Lin Wan - Shengtian Tech"。林晚站在幕后，深呼吸。
+        镜头2（6秒）近景 固定：陆北辰在台下第一排，朝她点了点头。林晚微笑着走上舞台。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（主持人）：「让我们欢迎——盛天科技CTO，林晚。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖调职场剧，色调温暖明亮，写实风格，竖屏9比16，无文字，无字幕。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-016, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP67-SEG02
+    shot_ids: [EP67-S03, EP67-S04]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-016
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（站在演讲台前，用英文演讲）【图2】硅谷演讲厅 SCENE-016。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：林晚站在演讲台前，用流利的英文开场。
+        镜头2（6秒）近景 固定：台下观众安静倾听。有人开始拿笔记录。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「五年前——我是一个被裁员的普通员工。今天——我站在这里，想告诉各位——技术不认出身。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我们做了一件事——用三分之一成本，实现了行业顶尖的性能。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖调职场剧，色调温暖明亮，写实风格，竖屏9比16，无文字，无字幕。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-016, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP67-SEG03
+    shot_ids: [EP67-S05, EP67-S06]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-016
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-013-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（站在演讲台前展示数据）【图2】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结，台下鼓掌）【图3】硅谷演讲厅 SCENE-016 大屏幕。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：林晚展示原型机数据，大屏幕上显示性能对比图。
+        镜头2（6秒）特写 固定：台下投资传奇微笑着鼓掌。观众席响起掌声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这是我们的原型机测试数据。和行业顶尖产品的对比——我不说话，数据说话。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖调职场剧，色调温暖明亮，写实风格，竖屏9比16，无文字，无字幕。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-013-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-016, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP67-SEG04
+    shot_ids: [EP67-S07, EP67-S08]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-016
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（站在演讲台前，眼眶微红）【图2】硅谷演讲厅 SCENE-016。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：林晚的演讲进入高潮——她讲述了自己的创业故事。
+        镜头2（6秒）近景 固定：观众起立鼓掌。林晚眼眶微红。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「有人问我——为什么要做这件事？因为我相信——最好的技术来自那些被逼到绝境的人。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖调职场剧，色调温暖明亮，写实风格，竖屏9比16，无文字，无字幕。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-016, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP67-SEG05
+    shot_ids: [EP67-S09, EP67-S10]
+    duration_sec: 12
+    speakers: [CHAR-013, CHAR-001]
+    refs:
+      scene_id: SCENE-016
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+        CHAR-013-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-013-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（演讲台前）【图2】投资传奇 CHAR-013-L01（深蓝三件套西装+红领结，走到台边）【图3】硅谷演讲厅 SCENE-016。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：投资传奇走到台边，低声对林晚说了什么。林晚惊讶地看着他。
+        镜头2（6秒）近景 固定：林晚表情瞬间变化。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（投资传奇，成年男性，75岁，声线苍老但有力，语速从容，充满智慧感）：「刚才有人找我——周明轩的董事会通过了新的收购方案。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「什么时候的事？」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖调职场剧，色调温暖明亮，写实风格，竖屏9比16，无文字，无字幕。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-013-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-016, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP67-SEG06
+    shot_ids: [EP67-S11, EP67-S12]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-016
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+      scene_urls:
+        SCENE-016: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-016.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（微笑，稳定情绪回到演讲台）【图2】硅谷演讲厅 SCENE-016 大屏幕。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：林晚稳定情绪，回到演讲台。她面朝观众，微笑。
+        镜头2（6秒）特写 固定：大屏幕上出现林晚的邮箱。台下多位投资人拿出手机拍照。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「所以我的回答是——是的，我们正在寻找全球合作伙伴。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖调职场剧，色调温暖明亮，写实风格，竖屏9比16，无文字，无字幕。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-016, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP67-SEG07
+    shot_ids: [EP67-S13]
+    duration_sec: 8
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/CHAR-005-L01.png
+      scene_urls:
+        SCENE-013: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/%E9%87%8D%E6%9D%A5%E4%B8%80%E6%AC%A1%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%BF%8D%E4%BA%86/SCENE-013.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（快步行走，打电话）【图2】陆北辰 CHAR-005-L01（接电话）【图3】演讲厅走廊 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）近景 固定：林晚快步走出演讲厅，在走廊上给陆北辰打电话。陆北辰接起电话。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「周明轩又动了一步。我们得提前回国。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我已经在订票了。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，暖调职场剧，色调温暖明亮，写实风格，竖屏9比16，无文字，无字幕。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

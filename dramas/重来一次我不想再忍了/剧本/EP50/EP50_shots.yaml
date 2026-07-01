@@ -1,83 +1,466 @@
-# EP50 shots.yaml
-episode: EP50
-total_duration_sec: 47
-total_shots: 13
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP50/EP50_分镜剧本.md
+# Source shots: 13 (EP50-S01 to EP50-S13)
+# Output shots: 13 (EP50-S01 to EP50-S13)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 98s
+# Output total duration: 98s
+# Gate status: NON-FATAL SKIP (as requested)
+
+episode_id: EP50
+source_md: 剧本/EP50/EP50_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。本集为股东大会场景：大型会议厅，阶梯式座椅，主席台。光线以庄重的暖白顶光为主，讲台聚光灯打亮发言者。演讲前半段（SEG01-04）氛围严肃偏冷，林晚站起时色谱中开始出现暖色——演讲高潮（SEG05-06）暖光渐强。投票与结果阶段（SEG07-09）光线恢复中性，贺云峰面部光线偏暗半档，暗示他第一次在公开场合失势。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP50-S01
-    scene_id: SCENE-012
-    type: "`EP50-S01`"
+  - shot_id: EP50-S01
+    shot_no: 1
+    mode: t2v
     duration_sec: 6
-    description: "`SCENE-012`"
-    dialogue: "`[待补：股东群]`"
-  - id: EP50-S02
-    scene_id: SCENE-012
-    type: "`EP50-S02`"
-    duration_sec: 1
-    description: "`SCENE-012`"
-    dialogue: "`CHAR-001`, `[待补：股东群]`"
-  - id: EP50-S03
-    scene_id: SCENE-012
-    type: "`EP50-S03`"
-    duration_sec: 7
-    description: "`SCENE-012`"
-    dialogue: "`CHAR-007`, `CHAR-006`, `[待补：股东群]`"
-  - id: EP50-S04
-    scene_id: SCENE-012
-    type: "`EP50-S04`"
-    duration_sec: 1
-    description: "`SCENE-012`"
-    dialogue: "`CHAR-001`, `[待补：股东群]`"
-  - id: EP50-S05
-    scene_id: SCENE-012
-    type: "`EP50-S05`"
+    refs:
+      scene_id: SCENE-012
+      look_ids: []
+    assets:
+      look_urls: {}
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-012.png
+    api:
+      text: "股东大会会场 ELS→MLS 镜头缓推：阶梯式深蓝座椅层层叠高几乎满座。主席台上一排长桌——赵总居中位置，贺云峰坐左手边。大屏幕显示年度财务数据摘要（模糊数字图形）。股东们三三两两低声交谈。主持人麦克风被拍了两下——回音在礼堂里弹跳。交谈声慢慢低下去。无角色形象参考图——仅场景。"
+      content_roles:
+        - file: SCENE-012
+          role: reference_image
+          label: 图1
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP50-S02
+    shot_no: 2
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-012`"
-    dialogue: "`CHAR-006`, `CHAR-007`, `CHAR-001`, `[待补：股东群]`"
-  - id: EP50-S06
-    scene_id: SCENE-012
-    type: "`EP50-S06`"
-    duration_sec: 1
-    description: "`SCENE-012`"
-    dialogue: "`CHAR-001`, `[待补：股东群]`, `CHAR-007`, `CHAR-006`"
-  - id: EP50-S07
-    scene_id: SCENE-012
-    type: "`EP50-S07`"
-    duration_sec: 7
-    description: "`SCENE-012`"
-    dialogue: "`CHAR-007`, `[待补：股东群]`"
-  - id: EP50-S08
-    scene_id: SCENE-012
-    type: "`EP50-S08`"
-    duration_sec: 1
-    description: "`SCENE-012`"
-    dialogue: "`CHAR-001`, `[待补：股东群]`"
-  - id: EP50-S09
-    scene_id: SCENE-012
-    type: "`EP50-S09`"
-    duration_sec: 1
-    description: "`SCENE-012`"
-    dialogue: "`CHAR-001`, `[待补：股东群]`"
-  - id: EP50-S10
-    scene_id: SCENE-012
-    type: "`EP50-S10`"
-    duration_sec: 1
-    description: "`SCENE-012`"
-    dialogue: "`CHAR-001`, `[待补：股东群]`, `CHAR-006`"
-  - id: EP50-S11
-    scene_id: SCENE-012
-    type: "`EP50-S11`"
-    duration_sec: 7
-    description: "`SCENE-012`"
-    dialogue: "`CHAR-007`"
-  - id: EP50-S12
-    scene_id: SCENE-012
-    type: "`EP50-S12`"
-    duration_sec: 1
-    description: "`SCENE-012`"
-    dialogue: "`CHAR-001`, `[待补：股东群]`, `[待补：唱票员]`, `CHAR-006`"
-  - id: EP50-S13
-    scene_id: SCENE-012
-    type: "`EP50-S13`"
-    duration_sec: 7
-    description: "`SCENE-012`"
-    dialogue: "`CHAR-007`, `CHAR-001`, `[待补：股东群]`"
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-012.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣+工牌）【图2】股东大会会场 SCENE-012。MS 固定镜头：林晚从侧门走进会场。步伐很稳。她扫了一眼会场——目光在主席台贺云峰位置停留一瞬然后移开。走向第一排靠边座位坐下——放下包，手机屏幕朝下放在桌上。旁边股东侧头看了她一眼没说话。林晚直视前方。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "（内心）来了。"
+      - speaker: CHAR-001
+        line: "（内心）他也来了。都在。"
+      - speaker: CHAR-001
+        line: "（内心）——那就看谁先眨眼。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP50-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-012.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01（藏蓝细条纹西装+法式衬衣无领带）【图2】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带+深灰西裤）【图3】股东大会会场 SCENE-012。MS→MCU 固定镜头：贺云峰站在发言席上。他开口声音温和语速均匀——措辞精确踩在股东焦虑点上——溢价30%、新方向、管理层更迭。他的演讲不长，没有攻击任何人，甚至没提林晚的名字。讲完后停顿了一下——让话沉淀——然后微笑着坐下。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-012
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "盛天资本提出的收购要约——每股溢价30%。在座各位——应该都看到了那份报价。"
+      - speaker: CHAR-007
+        line: "作为公司的一员——我的责任是告诉各位：这是公司历史上——最有诱惑力的一个出价。"
+      - speaker: CHAR-007
+        line: "但诱惑力是一回事——公司的长期价值是另一回事。我建议更换管理层——不是因为谁做得不好——"
+      - speaker: CHAR-007
+        line: "——是公司需要一个新的方向。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP50-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-012.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图2】股东大会会场 SCENE-012。CU 固定镜头：贺云峰坐下后会场短暂沉默。镜头切到林晚的脸。她没有转头看贺云峰——一直看着前方。嘴角几乎难以察觉地微动——不是笑——是果然如此的确认。周围股东开始低声交谈。林晚伸手拿起水杯喝了一口——动作很慢。放下杯子时目光里没有恐惧。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "（内心）每股溢价30%——他站在股东的立场说话，用利益做武器。"
+      - speaker: CHAR-001
+        line: "（内心）温和。体面。无懈可击——"
+      - speaker: CHAR-001
+        line: "（内心）——但他说的每一个字——都是在为拆掉这家公司铺路。"
+      - speaker: CHAR-001
+        line: "（内心）该我上场了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP50-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-006-L01
+        - CHAR-007-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-012.png
+    api:
+      text: "【图1】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带+深灰西裤）【图2】贺云峰 CHAR-007-L01（藏蓝细条纹西装）【图3】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图4】股东大会会场 SCENE-012。MS 固定镜头：主席台上赵总清了清嗓子，拿起议程表看了一眼放下。他开口问有没有不同意见——声音比平时低。三秒全场沉默。没有人举手。贺云峰嘴角有几乎不可见的微扬。赵总张嘴想说那就——话没出口——从第一排靠边位置传来声音——我有。两个字。所有人转头。"
+      content_roles:
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-012
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-006
+        line: "各位股东——对于刚才贺总提出的管理层更迭提议——有没有不同意见？"
+      - speaker: CHAR-001
+        line: "我有。"
+      - speaker: CHAR-007
+        line: "（内心）——她还真站出来了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP50-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-012.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图2】贺云峰 CHAR-007-L01（藏蓝细条纹西装）【图3】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带）【图4】股东大会会场 SCENE-012。MS→MLS 镜头跟随：林晚站起来——没有回头，从第一排沿过道一步一步走向发言席。会场安静到能听见脚步声。她走到发言席前停了一下——伸手调整话筒高度——动作很随意。然后抬起头，目光扫过全场。开口声音不大但每个字清晰。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-012
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-001
+        line: "谢谢赵总。也谢谢在座各位——愿意听我说几句。"
+      - speaker: CHAR-001
+        line: "贺总刚才说——每股溢价30%。他说得很对。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP50-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-012.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01（藏蓝细条纹西装+法式衬衣无领带）【图2】股东大会会场 SCENE-012。CU 固定镜头：切到贺云峰。他坐在主席台上身体微微后靠。表情还是那个温和的微笑——但他放在桌面上的手指原本轻轻交握着，在林晚说他说得很对时——左手拇指在右手手背上轻轻刮了一下。很轻微。他的计算出现了微小的偏差。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-007
+        line: "（内心）——她没有反对。她先承认了——"
+      - speaker: CHAR-007
+        line: "（内心）她不是在反驳他——她在重新定义整个问题。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP50-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-012.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣，站在发言席聚光灯下）【图2】股东大会会场 SCENE-012。MCU 缓推：林晚站在发言席上没有翻页笔没有遥控器。她开始说话——语速不快不慢。承认30%溢价确实高。然后问了一个问题——一家公司被收购拆解卖掉后五年内股东能拿回多少——答案：零。拆解后只剩一堆被零散变卖的资产。她伸手拿起发言台上水瓶拧开喝了一口——动作从容。放下后说了那句核心：但这家公司的真实价值还没有被释放。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "盛天资本给出的溢价——30%。确实高。"
+      - speaker: CHAR-001
+        line: "但我想问在座各位一个问题——一家公司被收购、拆解、卖掉之后——五年之内——股东能拿回多少？"
+      - speaker: CHAR-001
+        line: "零。"
+      - speaker: CHAR-001
+        line: "拆解之后的公司——没有增长，没有未来——只剩一堆被零散变卖的资产。"
+      - speaker: CHAR-001
+        line: "盛天的报价——是一次性买断你们的未来。"
+      - speaker: CHAR-001
+        line: "但这家公司的真正价值——还没有被释放。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP50-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-012.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图2】股东大会会场 SCENE-012。MCU 固定镜头：林晚从西装内袋拿出一张A4纸对折了两下的——展开放在面前像锚点。她开始报数字——过去三年每条产品线复合增长率高于行业平均值12%。新方向市场潜力。两年后估值可翻三倍。说到关键数字时目光从纸上抬起直接望向台下。她放下纸——说完了所有需要说的。剩下的不是她的是他们要做决定的。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "过去三年——我们每条产品线的复合增长率——高于行业平均值12%。"
+      - speaker: CHAR-001
+        line: "如果我们独立发展——新方向的市场潜力——以现有团队的执行力——两年之内——"
+      - speaker: CHAR-001
+        line: "——估值可以翻三倍。"
+      - speaker: CHAR-001
+        line: "不需要被收购。不需要换管理层。不需要把这家公司——交给一群——"
+      - speaker: CHAR-001
+        line: "——不认识它的人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP50-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-012.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图2】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带+深灰西裤）【图3】股东大会会场 SCENE-012。MCU 固定镜头：林晚说完了。她轻轻呼出一口气——安静地站在发言席上。双手放回身体两侧放松。全场三秒完全的沉默。然后掌声开始了——从不同角落同时涌起，变成倾盆大雨。林晚没有笑——轻轻点了一下头。赵总缓缓摘下眼镜用拇指和食指捏了一下鼻梁——然后加入了鼓掌。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-012
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "（内心）我说完了。"
+      - speaker: CHAR-001
+        line: "（内心）——他们听到了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP50-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-012.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01（藏蓝细条纹西装+法式衬衣无领带）【图2】股东大会会场 SCENE-012。CU 固定镜头：贺云峰坐在主席台上——没有鼓掌。没有失态。那个从会议开始就挂着的微笑——消失了。不是变成了愤怒——是消失了。脸上什么表情都没有——空白的面具。他的左手拇指停止了动作。他坐直了身体——很轻——像是在重新部署。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-012
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-007
+        line: "（内心）——她做到了。"
+      - speaker: CHAR-007
+        line: "（内心）有意思。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP50-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-012.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图2】赵总 CHAR-006-L01（浅蓝衬衣+条纹领带+深灰西裤）【图3】股东大会会场 SCENE-012。MS→CU 固定镜头：投票。灰色西装工作人员站在投票箱旁等待最后一张选票。林晚坐在第一排没有回头去看。唱票开始——支持——反对——弃权——机械而均匀。计数板数字交替上升。最后一个名字念完。唱票员抬头宣布结果——53%对47%。林晚没有动——轻轻闭眼两秒然后睁开。那两秒是她允许自己感受赢了。然后睁开眼目光恢复作战状态。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-006-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-012
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: null
+        line: "（唱票员·CHAR-GRP-38·机械地）「支持——反对——支持——弃权——反对——支持——支持——反对——」"
+      - speaker: null
+        line: "（唱票员·CHAR-GRP-38·宣读结果）「支持继续任用现有管理团队的票数——53%。反对——47%。」"
+      - speaker: CHAR-001
+        line: "（内心）……赢了。"
+      - speaker: CHAR-001
+        line: "（内心）——但只是第一局。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP50-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-012
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-012.png
+    api:
+      text: "【图1】贺云峰 CHAR-007-L01（藏蓝细条纹西装+法式衬衣无领带）【图2】林晚 CHAR-001-L01（海军蓝西装外套+米白衬衣）【图3】股东大会会场 SCENE-012。MS→MLS 镜头跟随：贺云峰站起来——先伸手整理西装外套领口动作从容。拿起桌上文件夹自己拿着。走下主席台经过前排时脚步停了一下——没有看林晚——看向前方——声音不大不小落向她那个方向——有意思。两个字。不是愤怒不是认输——是游戏还在继续的确认。林晚没有转头看他。他继续走向出口——步伐从容——推开门——门在身后合上。林晚一直坐到他走出那道门也没有转头——她把那张叠好的A4纸从发言席拿回来对折放进西装内侧口袋——目光落在前方那扇刚合上的门。"
+      content_roles:
+        - file: CHAR-007-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-012
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-007
+        line: "……有意思。"
+      - speaker: CHAR-001
+        line: "（内心）他说了'有意思'——"
+      - speaker: CHAR-001
+        line: "（内心）——他没有认输。"
+      - speaker: CHAR-001
+        line: "（内心）但这一局——赢了就是赢了。"
+      - speaker: CHAR-001
+        line: "（内心）下一局——等他出牌。"
+    transition_to_next: hard_cut

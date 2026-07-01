@@ -1,77 +1,452 @@
-# EP34 shots.yaml
-episode: EP34
-total_duration_sec: 21
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP34/EP34_分镜剧本.md
+# Source shots: 12 (EP34-S01 to EP34-S12)
+# Output shots: 12 (EP34-S01 to EP34-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s
+# Output total duration: 80s
+# Gate status: ALL PASS (non-fatal gates skipped per user override)
+
+episode_id: EP34
+source_md: 剧本/EP34/EP34_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，第二幕暖橙主调，灰色为辅。天台黄昏暖橙光线，城市天际线为背景，晚风吹拂增添氛围感。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+
 shots:
-  - id: EP34-S01
-    scene_id: SCENE-004
-    type: "`EP34-S01`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`"
-  - id: EP34-S02
-    scene_id: SCENE-004
-    type: "`EP34-S02`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP34-S03
-    scene_id: SCENE-004
-    type: "`EP34-S03`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP34-S04
-    scene_id: SCENE-004
-    type: "`EP34-S04`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP34-S05
-    scene_id: SCENE-004
-    type: "`EP34-S05`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP34-S06
-    scene_id: SCENE-004
-    type: "`EP34-S06`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`"
-  - id: EP34-S07
-    scene_id: SCENE-004
-    type: "`EP34-S07`"
-    duration_sec: 5
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-005`"
-  - id: EP34-S08
-    scene_id: SCENE-004
-    type: "`EP34-S08`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP34-S09
-    scene_id: SCENE-004
-    type: "`EP34-S09`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP34-S10
-    scene_id: SCENE-004
-    type: "`EP34-S10`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP34-S11
-    scene_id: SCENE-004
-    type: "`EP34-S11`"
-    duration_sec: 1
-    description: "`SCENE-004`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP34-S12
-    scene_id: SCENE-004
-    type: "`EP34-S12`"
+  - shot_id: EP34-S01
+    shot_no: 1
+    mode: i2v_ref
     duration_sec: 6
-    description: "`SCENE-004`"
-    dialogue: "`—`"
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装外套）【图2】天台 SCENE-004。MLS 固定：天台全景。傍晚暖橙色天空，城市天际线铺开。林晚独自站在围栏边背对镜头，双手撑栏杆，望着远方。风轻轻吹起她的头发。肩背微微放松——暖橙余晖勾勒轮廓，影子拉长在地面。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP34-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01（深炭灰西装，领口略松）【图3】天台 SCENE-004。MS 镜头跟随：天台门被推开，金属摩擦声。陆北辰走出来，手里端着两杯冒热气的咖啡。他看到林晚背影，脚步顿了一下——直接走过去，在她身旁站定，把一杯咖啡递到她身侧。林晚没有回头但伸手接过——指尖触碰纸杯温度时肩膀微微松了一下。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "就知道你在这。"
+      - speaker: CHAR-001
+        line: "你怎么上来的？"
+      - speaker: CHAR-005
+        line: "会议结束了。看到你不在座位上——就猜到了。"
+      - speaker: CHAR-001
+        line: "谢谢。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP34-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】天台 SCENE-004。MCU 固定：林晚转身，背靠栏杆侧对着陆北辰。她喝了一口咖啡，呼出一口气。暖橙余晖照在她半边脸上，表情柔和而坦诚。陆北辰看着远方的天际线开口——声音温和。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "你还好吗？"
+      - speaker: CHAR-001
+        line: "还好。就是——需要停一下。"
+      - speaker: CHAR-005
+        line: "嗯。"
+      - speaker: CHAR-001
+        line: "周明远的事——谢谢你帮我查出来。"
+      - speaker: CHAR-005
+        line: "不用谢。我不是在帮你——我需要知道盛天资本的布局。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP34-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】天台 SCENE-004。CU 固定：林晚听了他的回答微微点头，目光里多了一层认可——她欣赏这种直白。她转回去面对城市，声音更自然了一拍。两人之间的沉默很短——不是无话可说，是知道不说话也不尴尬。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "你说话从来不带客套。"
+      - speaker: CHAR-005
+        line: "没必要。"
+      - speaker: CHAR-001
+        line: "也是。"
+      - speaker: CHAR-001
+        line: "其实——我就是想一个人待一会儿。不是躲——是想清楚。"
+      - speaker: CHAR-005
+        line: "我明白。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP34-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】天台 SCENE-004。MCU 固定：沉默几秒。林晚侧过头看向陆北辰——语气随意但目光认真，自然过渡到私人层面。陆北辰顿了一下——表情没大变化但端咖啡的手停了一瞬。他开口时看向远方，声音平静如陈述别人的故事，但每个字间隔稍长了一点。提到'开面馆'时语气平淡。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "你家人知道你在这里做的事吗？"
+      - speaker: CHAR-005
+        line: "我爸——大概会说我疯了。"
+      - speaker: CHAR-001
+        line: "为什么？"
+      - speaker: CHAR-005
+        line: "他以前也是做生意的。后来被人做空了——一无所有。"
+      - speaker: CHAR-005
+        line: "他现在在老家开面馆。从来不问我做什么。"
+      - speaker: CHAR-001
+        line: "或许他不是不想问——是不敢问。"
+      - speaker: CHAR-005
+        line: "……也许吧。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP34-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】天台 SCENE-004。MCU 固定：林晚收回目光重新看向前方。城市光线从暖橙过渡到带淡紫的深蓝。她开口时声音带着分享的暖意——不是安慰，是用自己的故事回应他的坦诚。她说母亲发来视频时嘴角不自觉微微上扬——真实的不需要掩饰的笑容。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "我妈以前也不理解我。总觉得女孩子不该太拼——找个好人嫁了才是正路。"
+      - speaker: CHAR-001
+        line: "但最近她变了。前几天给我发了条视频——那种讲'独立女性也很幸福'的正能量视频。"
+      - speaker: CHAR-001
+        line: "她大概不知道我已经不需要这种鼓励了——但我知道，那是她在说'我支持你'。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP34-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-005-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】天台 SCENE-004。CU 固定：陆北辰转过头看着林晚——她脸上的笑容在暮色中显得很真实，不是职场中精心计算过的微笑，是温暖的事情带来的纯粹的笑。他看了她两秒，目光比刚才柔和了一些。他开口时声音很低。"
+      content_roles:
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-004
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-005
+        line: "她变了。"
+      - speaker: CHAR-005
+        line: "挺好的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP34-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】天台 SCENE-004。MCU 固定：林晚重新望向远方。天际线完全变成深蓝与暖橙的交界——一天中最温柔的时刻。城市灯光星星点点亮起。她的声音放得很轻。陆北辰侧过头看她——目光里多了一层之前没有的东西——不是暧昧，是看见了一个同类的确认。他脱口而出那句话——声音太轻了，像是说给自己听的。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "其实我们都一样——都在让父母接受一个他们不理解的自己。"
+      - speaker: CHAR-005
+        line: "你说得对。"
+      - speaker: CHAR-001
+        line: "我们还挺像的。"
+      - speaker: CHAR-005
+        line: "我应该早点认识你的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP34-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】天台 SCENE-004。MS 固定：两人再次陷入沉默——不是等待说话的那种沉默，是舒适得不需要填充的安静。城市灯光一盏盏亮起，如同脚下星河。晚风吹动林晚额前碎发。两人之间的距离比刚才近了一点——不是挪动的，是被无声的引力牵引的。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP34-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】天台 SCENE-004。MCU 固定：沉默持续足够久后，林晚低头看手里的纸杯——咖啡见底，杯壁温凉。她轻呼出一口气，白雾在暮色中散开。她把杯子放在栏杆上，转身，声音恢复日常轻快但更松弛。陆北辰看了一眼自己的杯子点头。林晚准备走——陆北辰的声音从身后传来，比刚才突然多了一分重量。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "咖啡都凉了。"
+      - speaker: CHAR-005
+        line: "嗯。该下去了。"
+      - speaker: CHAR-001
+        line: "那——"
+      - speaker: CHAR-005
+        line: "林晚——"
+    transition_to_next: hard_cut
+
+  - shot_id: EP34-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-004
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】天台 SCENE-004。CU→ECU 缓推：林晚转过身。城市灯光映在他眼睛里，让他显得比平时深邃也更脆弱。他的目光在她脸上停住——嘴唇微张，话已到嘴边。但一丝犹豫掠过眼底——他轻轻摇头，嘴角带上无奈的笑容。他说'算了'时目光没有从她脸上移开——他在说服自己。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-004
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-005
+        line: "我有件事——"
+      - speaker: CHAR-001
+        line: "你说。"
+      - speaker: CHAR-005
+        line: "……算了。以后再说吧。"
+      - speaker: CHAR-001
+        line: "……好。"
+      - speaker: CHAR-005
+        line: "走吧——外面风大了。"
+      - speaker: CHAR-001
+        line: "嗯。"
+    transition_to_next: dissolve
+
+  - shot_id: EP34-S12
+    shot_no: 12
+    mode: t2v
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids: []
+      prop_ids: []
+    assets:
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: "【图1】天台 SCENE-004。ELS 固定镜头→淡出：远景——天台上两人一前一后走向门口。陆北辰推开门侧身让林晚先进去。她微微低头走进——他的目光在她背影上多停了一拍，然后他跟着进去。门关上，金属碰撞声消散。栏杆上并排放着两只空咖啡杯。城市夜空铺展，万家灯火如星河闪烁。画面定格三秒，缓缓淡出。"
+      content_roles:
+        - file: SCENE-004
+          role: reference_image
+          label: 图1
+    dialogue: []
+    transition_to_next: hard_cut

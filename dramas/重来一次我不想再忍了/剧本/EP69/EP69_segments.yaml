@@ -1,92 +1,214 @@
-# EP69 segments.yaml
-episode: EP69
-total_duration_sec: 80
-total_shots: 13
+episode_id: EP69
+source_md: 剧本/EP69/EP69_新的开始.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。温暖明亮色调，暖橙氛围。现代都市环境。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。真人实拍质感，电影级色彩，浅景深。温暖明亮色调，暖橙氛围。现代都市环境。"
+  negative_prompt: "real celebrity face, real brand logo, ancient costume, weapon, military uniform, gun, explosion, anime style, cartoon style, horror, blood, supernatural visual effect"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-004: "成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+  CHAR-GRP-HOST: "成年男性，35岁，声线明亮有磁性，语速中速，带主持人的专业感"
+
 segments:
-  - id: EP69-SEG01
-    scene_id: SCENE-001
-    description: "segment 1"
-    total_duration_sec: 12
-    shots:
-      - id: EP69-S01
-        type: "全景"
-        duration_sec: 6
-        description: "明亮的新办公室，落地窗，绿植。林晚站在自己的新办公室里，看着窗外。这是她创业后的新公司。"
-      - id: EP69-S02
-        type: "中景"
-        duration_sec: 6
-        description: "苏晴走进来，手里拿着两杯咖啡。"
-  - id: EP69-SEG02
-    scene_id: SCENE-001
-    description: "segment 2"
-    total_duration_sec: 12
-    shots:
-      - id: EP69-S03
-        type: "中景"
-        duration_sec: 6
-        description: "林晚和苏晴并肩走过开放式办公区。年轻员工们正在忙碌。"
-      - id: EP69-S04
-        type: "近景"
-        duration_sec: 6
-        description: "林晚停下来，看着一个女程序员专注地写代码。她微笑。"
-  - id: EP69-SEG03
-    scene_id: SCENE-001
-    description: "segment 3"
-    total_duration_sec: 12
-    shots:
-      - id: EP69-S05
-        type: "中景"
-        duration_sec: 6
-        description: "剪彩仪式。林晚拿起剪刀。"
-      - id: EP69-S06
-        type: "特写"
-        duration_sec: 6
-        description: "红绸缎被剪断。全场掌声。林晚的眼睛里闪着光。"
-  - id: EP69-SEG04
-    scene_id: SCENE-001
-    description: "segment 4"
-    total_duration_sec: 12
-    shots:
-      - id: EP69-S07
-        type: "中景"
-        duration_sec: 6
-        description: "剪彩后，林晚和陆北辰在咖啡厅休息。"
-      - id: EP69-S08
-        type: "近景"
-        duration_sec: 6
-        description: "陆北辰看着她。"
-  - id: EP69-SEG05
-    scene_id: SCENE-001
-    description: "segment 5"
-    total_duration_sec: 12
-    shots:
-      - id: EP69-S09
-        type: "近景"
-        duration_sec: 6
-        description: "林晚从口袋里掏出那枚硬币（EP65陆北辰给她的），在指尖翻转。"
-      - id: EP69-S10
-        type: "中景"
-        duration_sec: 6
-        description: "陆北辰笑了。"
-  - id: EP69-SEG06
-    scene_id: SCENE-001
-    description: "segment 6"
-    total_duration_sec: 12
-    shots:
-      - id: EP69-S11
-        type: "中景"
-        duration_sec: 6
-        description: "林晚回到原来的公司办公室收拾东西。她环顾这个曾经奋斗了五年的地方。"
-      - id: EP69-S12
-        type: "近景"
-        duration_sec: 6
-        description: "她拿起桌上的相框——里面是和苏晴、陆北辰的合影。"
-  - id: EP69-SEG07
-    scene_id: SCENE-001
-    description: "segment 7"
-    total_duration_sec: 8
-    shots:
-      - id: EP69-S13
-        type: "中景"
-        duration_sec: 8
-        description: "林晚最后看了一眼办公室，关灯，关上门。转身离开。"
+  - segment_id: EP69-SEG01
+    shot_ids: [EP69-S01, EP69-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-017
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-017: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-017.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】苏晴 CHAR-004-L01（米白针织衫+卡其西裤）【图3】新公司办公室 SCENE-017。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景 固定：明亮的新办公室，落地窗，绿植。图1站在窗前看着窗外，背影挺拔。
+        镜头2（6秒）中景 固定：图2端着两杯咖啡走进来，微笑着看向图1。两人相视而笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「三个月前——我还以为这条路走不下去了。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「林总——该剪彩了。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-017, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP69-SEG02
+    shot_ids: [EP69-S03, EP69-S04]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-017
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-017: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-017.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】苏晴 CHAR-004-L01【图3】新公司办公室 SCENE-017。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 缓移：图1和图2并肩走过开放式办公区，年轻员工们在工位上忙碌工作，充满朝气。
+        镜头2（6秒）近景 固定：图1停下来，看着旁边一个女程序员专注地写代码，嘴角浮现出温暖的微笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这些人——把未来押在了我身上。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我不会让他们失望的。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-017, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP69-SEG03
+    shot_ids: [EP69-S05, EP69-S06]
+    duration_sec: 12
+    speakers: [CHAR-GRP-HOST]
+    refs:
+      scene_id: SCENE-017
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-017: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-017.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】新公司办公室 SCENE-017。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：剪彩仪式现场，红绸缎拉好，图1站在中间拿起金色剪刀。
+        镜头2（6秒）特写 固定：红绸缎被剪断，剪刀口合拢的一瞬。图1的眼睛里闪着光，激动与喜悦交织。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（主持人，成年男性，35岁，声线明亮有磁性，语速中速，带主持人的专业感）：「——请林总为我们的新公司剪彩！」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-017, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP69-SEG04
+    shot_ids: [EP69-S07, EP69-S08]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】陆北辰 CHAR-005-L01（深炭灰西装）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：剪彩后，图1和图2在咖啡厅休息，对坐在窗边。
+        镜头2（6秒）近景 固定：图2看着图1，目光温暖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「感觉怎么样？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「比想象中——轻。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「是因为——不用再扛着那些敌人的重量了。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP69-SEG05
+    shot_ids: [EP69-S09, EP69-S10]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】陆北辰 CHAR-005-L01（深炭灰西装）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1从口袋里掏出一枚硬币，在指尖轻轻翻转，低头看着它，若有所思。
+        镜头2（6秒）中景 固定：图2看着图1（画外），嘴角微微上扬，露出温暖的笑容。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这枚硬币——我一直在想，该怎么花。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「留着吧。等我们真的赢了那一天——用它买杯咖啡。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP69-SEG06
+    shot_ids: [EP69-S11, EP69-S12]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】公司办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：傍晚时分，图1回到原来的办公室，环顾四周——这个她奋斗了五年的地方。桌上摆着纸箱。
+        镜头2（6秒）近景 固定：图1拿起桌上的相框，里面是三人合影。她看着照片，嘴角浮现温暖微笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这间办公室——见证了我最狼狈的样子——和最骄傲的时刻。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「都过去了。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP69-SEG07
+    shot_ids: [EP69-S13]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-001.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】公司办公室 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 固定：图1最后环视了一圈办公室，伸手按下墙上的开关，灯光熄灭。她带上门，转身离开，背影消失在走廊尽头。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「第一幕——落幕。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

@@ -1,96 +1,253 @@
-# EP40 segments.yaml
-episode: EP40
-total_duration_sec: 64
-total_shots: 14
+episode_id: EP40
+source_md: 剧本/EP40/EP40_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP19-45暖橙主调，灰色为辅。早晨居所暖黄灯光为主光源，咖啡厅暖白光+木色+窗外自然光。整体营造从沉着谋划到假装示弱再到贺云峰得意收尾的视觉递进。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP19-45暖橙主调，灰色为辅。早晨居所暖黄灯光为主光源，咖啡厅暖白光+木色+窗外自然光。整体营造从沉着谋划到假装示弱再到贺云峰得意收尾的视觉递进。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+  CHAR-007: "成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑"
+
 segments:
-  - id: EP40-SEG01
-    scene_id: SCENE-005
-    description: "segment 1"
-    total_duration_sec: 2
-    shots:
-      - id: EP40-S01
-        type: "`EP40-S01`"
-        duration_sec: 1
-        description: "`SCENE-005`"
-      - id: EP40-S02
-        type: "`EP40-S02`"
-        duration_sec: 1
-        description: "`SCENE-005`"
-  - id: EP40-SEG02
-    scene_id: SCENE-005
-    description: "segment 2"
-    total_duration_sec: 10
-    shots:
-      - id: EP40-S03
-        type: "`EP40-S03`"
-        duration_sec: 5
-        description: "`SCENE-005`"
-      - id: EP40-S04
-        type: "`EP40-S04`"
-        duration_sec: 5
-        description: "`SCENE-005`"
-  - id: EP40-SEG03
-    scene_id: SCENE-005
-    description: "segment 3"
-    total_duration_sec: 2
-    shots:
-      - id: EP40-S05
-        type: "`EP40-S05`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-      - id: EP40-S06
-        type: "`EP40-S06`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-  - id: EP40-SEG04
-    scene_id: SCENE-005
-    description: "segment 4"
-    total_duration_sec: 14
-    shots:
-      - id: EP40-S07
-        type: "`EP40-S07`"
-        duration_sec: 7
-        description: "`SCENE-007`"
-      - id: EP40-S08
-        type: "`EP40-S08`"
-        duration_sec: 7
-        description: "`SCENE-007`"
-  - id: EP40-SEG05
-    scene_id: SCENE-005
-    description: "segment 5"
-    total_duration_sec: 14
-    shots:
-      - id: EP40-S09
-        type: "`EP40-S09`"
-        duration_sec: 7
-        description: "`SCENE-007`"
-      - id: EP40-S10
-        type: "`EP40-S10`"
-        duration_sec: 7
-        description: "`SCENE-007`"
-  - id: EP40-SEG06
-    scene_id: SCENE-005
-    description: "segment 6"
-    total_duration_sec: 8
-    shots:
-      - id: EP40-S11
-        type: "`EP40-S11`"
-        duration_sec: 7
-        description: "`SCENE-007`"
-      - id: EP40-S12
-        type: "`EP40-S12`"
-        duration_sec: 1
-        description: "`SCENE-007`"
-  - id: EP40-SEG07
-    scene_id: SCENE-005
-    description: "segment 7"
-    total_duration_sec: 14
-    shots:
-      - id: EP40-S13
-        type: "`EP40-S13`"
-        duration_sec: 7
-        description: "`SCENE-007`"
-      - id: EP40-S14
-        type: "`EP40-S14`"
-        duration_sec: 7
-        description: "`SCENE-007`"
+  - segment_id: EP40-SEG01
+    shot_ids: [EP40-S01, EP40-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装外套披在椅背上，只穿米白衬衣）【图2】陆北辰 CHAR-005-L01（衬衣领微敞，没有打领带）【图3】林晚家 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：图1站在小书桌前，桌上摊着一份离职协议——打印好的，签名处空着。她拿起笔在手里转了转，看着协议。床头柜上手机屏幕亮着——云备份文件夹截图。晨光从小窗户照进来，在墙面上投下斜长影。表情平静——不是放弃的平静，是决定好了的沉着。
+        镜头2（6秒）MS 固定：图2从客厅方向走过来，手里端着一杯水。他看到桌上的离职协议，脚步停了一瞬——目光在那张纸上定格了两秒，然后抬起来看图1。他放下水杯，没有去拿协议，只是站在桌对面隔着那张纸和上面的空白签名处看着她。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「反击的机会就在手里……但我不能现在出牌。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺云峰以为他拿走了我的一切——让他多得意两天。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「等他彻底把后背亮给我——我再出手。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「你确定要这么做？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他想看到我输——我得让他满意地看到。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「信任——是打出来的。但麻痹——是演出来的。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市职场剧，半写实都市质感，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG02
+    shot_ids: [EP40-S03, EP40-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-005.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰衬衣，袖口挽到小臂）【图2】林晚 CHAR-001-L01（米白衬衣）【图3】林晚家 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）CU→MCU 固定：图1没有立刻回应她的话。他拿起那份离职协议翻看了一下——条款简明，主动离职、放弃赔偿、三天内交接完毕。他把协议放回桌上，目光没有离开纸面，沉默了几秒后才开口——声音比刚才轻了一些，带着"我知道不该问但还是要问"的担忧。图2接过他的话，语速不紧不慢——她已经把所有可能性都想过一遍了。
+        镜头2（6秒）MCU 镜头推近：图1看着那个文件袋，沉默了两秒。然后他伸手拿起水杯喝了一口——这个动作的意思是"我不拦你了"。他的眉头松了半度，但仍有一丝紧绷留在眉尾——理智上他理解她的战略，情感上他不想让她一个人去演这出戏。图2看到了他眉尾那丝紧绷——她笑了笑，不是开心的笑，是"放心，我能搞定"的那种默契的微笑。她开始整理衬衣领口，准备穿上西装外套。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「如果他不够信呢？如果他拿到协议、签了字——还不放心——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他的自负——会替我把后半场演完。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「他的自负不会。但他的谨慎会。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「所以我带了真的退路给他看——空白的离职协议，他亲眼看着我签。」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「连这个都准备了——看来是劝不住你了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「演戏——就要演到细节里。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他会信的。因为他太想赢了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市职场剧，半写实都市质感，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG03
+    shot_ids: [EP40-S05, EP40-S06]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装整齐穿着，但姿态不同平时——肩膀微内收，走路节奏比平时慢了一拍）【图2】贺云峰 CHAR-007-L01（藏蓝细条纹西装+无框眼镜，面前放着一杯美式）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MLS→MCU 镜头跟随：咖啡厅午后，暖白的光线从落地窗透进来，木桌上放着两杯未动的咖啡。图1推开玻璃门走进来——她在门口停了一瞬，目光扫过店内——然后落在靠窗的位置。图2已经坐在那里，姿态从容。他看到图1，微微一笑——不是嘲讽，是"你来赴约了"的轻淡笑意。图1深吸一口气——肉眼几乎察觉不到——然后朝他走过去。
+        镜头2（6秒）MCU 固定：图1在图2对面坐下。图2审视着她——不露痕迹地看了一眼——然后端起自己的咖啡杯，没有急着开口。他在等她先说话——微妙的权力展示。图1没有让他等太久——她微微低下头，双手放在桌上指尖轻轻交握——示弱的肢体语言。她的声音比平时低了一些，带着略微收敛的"我没底气了"的那层音色。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「稳住。他在看我的第一步。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「钟声响了。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「林副总监。比我想的早。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺总约的——不敢迟到。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「主动约我——不像是你的风格。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「风格……也会变的。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市职场剧，半写实都市质感，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG04
+    shot_ids: [EP40-S07, EP40-S08]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）CU→MCU 固定：图1听了回答，没有立刻回应。他慢慢地、不慌不忙地端起咖啡杯，喝了一口。放下杯子的时候，他的目光没有离开图2的脸——他在读她。图2能感觉到那道目光的冰凉触感，但她没有回避——她让自己保持着一个"勉强镇定但已经输了"的姿态：手握着咖啡杯但不喝，目光落在桌面上，偶尔抬一半又垂下去。
+        镜头2（6秒）MCU 固定：图1的笑容保持得很好，但他的眼神变了——从玩味的审视变成了真正的掂量。他没有急着接话，而是给自己几秒钟消化她的话。图2没有在这个沉默中补充什么——她知道这个空档是他的试探，任何多余的解释都会显得假。她只是保持着那个姿势，目光落在自己面前的咖啡杯上，安静地等他开口。图1终于开口了——他没有直接回应"认输"两个字，而是换了一个角度来刺探她话里的水分。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「所以——你今天来，是准备跟我说什么？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我来——认输。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「……认输？」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「U盘里的东西——你不打算要了？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「东西不在我手上了——我还要什么。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「你甘心？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不甘心——又能怎么样。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他在看我的眼睛——他在找破绽。稳住。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市职场剧，半写实都市质感，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG05
+    shot_ids: [EP40-S09, EP40-S10]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】贺云峰 CHAR-007-L01【图2】林晚 CHAR-001-L01【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：图1看着图2的眼睛——他想要的那句话已经被她说出来了。不甘心——但没办法。这正是他想要的状态。他的身体微微靠回椅背，姿态比刚才松弛了一些——不是完全放下戒备，但"赢定了"的那种从容开始浮上来。他端起咖啡杯，这一次喝的动作比刚才随意了。他放下杯子开始问下一步——从试探转向了"谈条件"的模式。
+        镜头2（6秒）CU→MCU 镜头推近：图1的目光落在那份协议上。他没有立刻伸手去拿——他先是看了它几秒，然后抬起眼重新看向图2的脸。他的嘴角浮起一丝极其微小的弧度——"嗯，和我想的差不多"的内部确认。他终于伸手拿过协议翻了翻——条款清晰：主动离职、放弃赔偿金、三天交接完毕。他看完后把协议放在桌上，手指在纸面上轻轻敲了两下——一个思考的信号。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「所以你今天来——是想跟我谈什么？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你拿你想拿的——我退我该退的。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「说具体点。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我走。公司归你——我主动离职。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「这么大牺牲？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不然呢——我还有选择的余地吗？」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「……确实没有了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「他信了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市职场剧，半写实都市质感，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG06
+    shot_ids: [EP40-S11, EP40-S12]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】贺云峰 CHAR-007-L01（藏蓝细条纹西装）【图2】林晚 CHAR-001-L01（海军蓝西装）【图3】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：图1不再犹豫了。他把协议推回给图2——不是拒绝，是示意她签字。他从西装内袋里拿出一支钢笔，放在协议上。这个动作带着一种居高临下的"大方"——"用我的笔签了吧，算是给你最后一点体面。"图2看着那支笔，停了一瞬——然后拿起它，拔开笔帽。她没有立刻签——她先把协议翻到签名页，又从头到尾看了一遍条款。这个"仔细复核"的动作是她计划中的最后一块砖。她提起笔，在签名处落笔——流畅地签下自己的名字。
+        镜头2（6秒）MS→MCU 镜头跟随：图2站起来。她站起来的时候动作很慢——像是最后的力气被抽走了一样。她把椅子轻轻推回原位，拿起自己的包。图1没有站起来送她——他靠在椅背上，微笑着看她做这一切。图2转身走了两步——然后停住了。她没有回头，只是侧过头，背对着他说了一句话——声音里带着一种"最后的体面"——然后继续走向门口。推开门的时候，午后的阳光照在她的侧脸上——风铃再次响起。她走出去了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「三天。做完交接，离开公司。U盘的事——我不追究你私自查我的账。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「谢谢贺总。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺总——公司交给你了。别让它……死得太快。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「不送。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市职场剧，半写实都市质感，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG07
+    shot_ids: [EP40-S13, EP40-S14]
+    duration_sec: 12
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】贺云峰 CHAR-007-L01（藏蓝细条纹西装）【图2】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：图1没有立刻动。他端起咖啡杯，慢慢地、享受般地喝完最后一口。放下杯子时，他伸手拿起那份签了字的协议，在手里轻轻晃了晃——像在确认战利品的重量。然后他从口袋里拿出手机，翻出一个号码。他拨出电话时，脸上的笑容已经换了一副——从面对林晚时的"公式化微笑"变成了属于他自己的、压不住的那种得意的弧度。电话接通了——他靠进椅背，翘起腿，姿态彻底放松下来。
+        镜头2（6秒）CU 缓推：图1保持着打电话的姿势，但没有急着继续说——他在享受这一刻的安静胜利。午后阳光斜照在他的侧脸上，无框眼镜反射着窗外的光，看不清他的眼神——但嘴角那丝弧度已经说明了一切。他听着电话那头说了什么，然后微微点头，挂断电话后没有立刻起身——他把手机放在桌上，拿起那份协议，又看了一遍签名。他轻轻弹了一下纸面，纸张发出清脆的声响。他收起协议，站起来，整理了一下西装衣领——像一个刚刚完成了漂亮一击的人那样，步履从容地走向门口。他的背影消失在咖啡厅门外。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「搞定了。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「嗯。她认输了。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「她亲自来谈的——签了离职协议。三天内走人。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「我说过——她不是我的对手。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「以退为进？退得太真——就是真输了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代都市职场剧，半写实都市质感，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

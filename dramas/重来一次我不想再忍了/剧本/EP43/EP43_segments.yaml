@@ -1,96 +1,264 @@
-# EP43 segments.yaml
-episode: EP43
-total_duration_sec: 50
-total_shots: 14
+episode_id: EP43
+source_md: 剧本/EP43/EP43_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP19-45暖橙主调，灰色为辅。苏晴工作室暖黄工作灯+显示屏冷光营造创业者的专注感；餐厅暖色吊灯+烛光+窗外城市夜景营造温馨庆祝氛围。整体色调从工作室的暖黄奋斗感过渡到餐厅的温柔金色，符合'互相成就的温暖'的主情绪。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP19-45暖橙主调，灰色为辅。苏晴工作室暖黄工作灯+显示屏冷光营造创业者的专注感；餐厅暖色吊灯+烛光+窗外城市夜景营造温馨庆祝氛围。整体色调从工作室的暖黄奋斗感过渡到餐厅的温柔金色，符合'互相成就的温暖'的主情绪。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-004: "成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句"
+
 segments:
-  - id: EP43-SEG01
-    scene_id: SCENE-008
-    description: "segment 1"
-    total_duration_sec: 8
-    shots:
-      - id: EP43-S01
-        type: "`EP43-S01`"
-        duration_sec: 4
-        description: "`SCENE-009`"
-      - id: EP43-S02
-        type: "`EP43-S02`"
-        duration_sec: 4
-        description: "`SCENE-009`"
-  - id: EP43-SEG02
-    scene_id: SCENE-008
-    description: "segment 2"
-    total_duration_sec: 8
-    shots:
-      - id: EP43-S03
-        type: "`EP43-S03`"
-        duration_sec: 4
-        description: "`SCENE-009`"
-      - id: EP43-S04
-        type: "`EP43-S04`"
-        duration_sec: 4
-        description: "`SCENE-009`"
-  - id: EP43-SEG03
-    scene_id: SCENE-008
-    description: "segment 3"
-    total_duration_sec: 8
-    shots:
-      - id: EP43-S05
-        type: "`EP43-S05`"
-        duration_sec: 4
-        description: "`SCENE-008`"
-      - id: EP43-S06
-        type: "`EP43-S06`"
-        duration_sec: 4
-        description: "`SCENE-008`"
-  - id: EP43-SEG04
-    scene_id: SCENE-008
-    description: "segment 4"
-    total_duration_sec: 8
-    shots:
-      - id: EP43-S07
-        type: "`EP43-S07`"
-        duration_sec: 4
-        description: "`SCENE-008`"
-      - id: EP43-S08
-        type: "`EP43-S08`"
-        duration_sec: 4
-        description: "`SCENE-008`"
-  - id: EP43-SEG05
-    scene_id: SCENE-008
-    description: "segment 5"
-    total_duration_sec: 8
-    shots:
-      - id: EP43-S09
-        type: "`EP43-S09`"
-        duration_sec: 4
-        description: "`SCENE-008`"
-      - id: EP43-S10
-        type: "`EP43-S10`"
-        duration_sec: 4
-        description: "`SCENE-008`"
-  - id: EP43-SEG06
-    scene_id: SCENE-008
-    description: "segment 6"
-    total_duration_sec: 2
-    shots:
-      - id: EP43-S11
-        type: "`EP43-S11`"
-        duration_sec: 1
-        description: "`SCENE-008`"
-      - id: EP43-S12
-        type: "`EP43-S12`"
-        duration_sec: 1
-        description: "`SCENE-008`"
-  - id: EP43-SEG07
-    scene_id: SCENE-008
-    description: "segment 7"
-    total_duration_sec: 8
-    shots:
-      - id: EP43-S13
-        type: "`EP43-S13`"
-        duration_sec: 4
-        description: "`SCENE-008`"
-      - id: EP43-S14
-        type: "`EP43-S14`"
-        duration_sec: 4
-        description: "`SCENE-008`"
+  - segment_id: EP43-SEG01
+    shot_ids: [EP43-S01, EP43-S02]
+    duration_sec: 10
+    speakers: [CHAR-004]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-009.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01（米白针织衫）【图2】苏晴工作室 SCENE-009【图3】手机 PROP-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）MS→MCU 固定：傍晚工作室暖黄工作灯，电脑屏幕显示粉丝数1,000,032，苏晴刚结束直播靠在椅背上，拿起手机看到数字后猛地坐直，眼睛瞪大，嘴慢慢张开。
+        镜头2（5秒）CU→ECU 固定：特写苏晴的脸——笑着笑着眼眶泛红，深吸一口气压下酸涩，低头打字删了又打、打了又删，最终按下发送键。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「……真的假的？」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「百万——到了！」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「想说的太多了。算了——」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+        - { file: PROP-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG02
+    shot_ids: [EP43-S03, EP43-S04]
+    duration_sec: 10
+    speakers: [CHAR-004]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-009.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01（浅杏色薄风衣）【图2】苏晴工作室 SCENE-009【图3】手机 PROP-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）MS→MLS 固定：苏晴从椅子上跳起来，抓起浅杏色薄风衣套上，环顾工作室——目光从品牌合作海报、书架运营书、拍摄灯上缓缓扫过，表情从雀跃变成更深的感慨。
+        镜头2（5秒）MCU 固定：苏晴站在门口看手机——林晚回复'到了'二字，她笑了，把手机放进口袋，拉开门，走廊暖光给她的轮廓镀上暖边，她深吸一口气走出去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「第一次来这间屋的时候……四面白墙，一张桌子，一台电脑。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「现在——满了。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「今晚——我请客。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+        - { file: PROP-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG03
+    shot_ids: [EP43-S05, EP43-S06]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01（浅杏色薄风衣）【图2】林晚 CHAR-001-L01（米白色丝质衬衫，深灰西裤）【图3】餐厅 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MLS→MS 固定：暖色吊灯下餐厅靠窗卡座，林晚已坐定，米白丝质衬衫配深灰西裤，气泡水冒着细密气泡。苏晴快步走来放慢脚步，林晚转头笑了。
+        镜头2（6秒）MCU→CU 固定：苏晴身体前倾问起会议，林晚目光在气泡水杯上停了一瞬后抬眼平静回答。苏晴确认后点头，林晚端起杯子把话题带开。烛火在两人之间跳动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「等很久了吧？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「刚到。你的局，你说了算。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「姐——我今天——」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「知道。百万粉。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「你怎么什么都知道！」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「对了……那天的会——怎么样？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「开完了。证据交上去了。等着就行。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「……那就好。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不说我了。说说你——百万粉博主，什么感觉？」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG04
+    shot_ids: [EP43-S07, EP43-S08]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01【图2】林晚 CHAR-001-L01【图3】餐厅 SCENE-008【图4】手机 PROP-009。
+        角色分工：图1可拿起手机展示屏幕；图2接过手机查看。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）CU→MCU 固定：苏晴眼睛亮了，拿出手机翻到品牌合作页面递过桌面，烛台火苗在她眼中跳动。林晚接过手机认真看后嘴角扬起。苏晴收回手机靠在椅背上笑得像中奖。
+        镜头2（6秒）MCU 固定：苏晴说到'苏老师'时自己也觉得新奇好笑，坐直身体一本正经宣布请客。林晚笑着要开口被苏晴竖起手指打断——态度坚决但笑容灿烂。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「你看——第一个品牌爸爸。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不错啊——大牌子。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「第一次——有品牌方拿着钱来找我，说——苏老师，帮我们做一期内容。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「苏老师——他们叫我苏老师！」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「所以——今晚我请客。不许跟我抢。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「苏晴——」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「不许抢。第一单的工资——第一个想请的人就是你。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+        - { file: PROP-009, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG05
+    shot_ids: [EP43-S09, EP43-S10]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+      prop_urls:
+        PROP-010: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-010.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01【图2】林晚 CHAR-001-L01【图3】餐厅 SCENE-008【图4】红酒 PROP-010。
+        角色分工：仅图1可举杯碰杯；图2回应碰杯。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：服务员端来两杯红酒，杯壁水珠在烛光下泛光。苏晴举起杯子安静了几秒，看着酒液，然后抬头看林晚眼眶微红，声音很轻地回忆林晚说过的话。
+        镜头2（6秒）CU→ECU 固定：苏晴说'没有那句话就没有今天的我'声音微抖，深吸一口气举杯说'姐这一杯敬你'。林晚沉默一秒后轻轻碰杯，声音有点哑说'敬你'。两只杯子相碰发出清脆一声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「姐……你还记不记得——那天晚上，你跟我说的话？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「哪句？」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「你说——'你去做，我信你。钱的事我来想办法。'」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「没有那句话——就没有今天的我。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「姐——这一杯，敬你。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「敬你。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+        - { file: PROP-010, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG06
+    shot_ids: [EP43-S11, EP43-S12]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（米白色丝质衬衫）【图2】苏晴 CHAR-004-L01【图3】餐厅 SCENE-008。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：林晚放下酒杯指尖轻轻摩挲杯脚，看着苏晴嘴角带着温柔的笑，声音平静而认真地说最骄傲的事。苏晴愣了一瞬低下头，被那句话击中。
+        镜头2（6秒）MS→MLS 固定：林晚听了她的抱怨笑了一下，端起杯子身体微后靠，目光落在窗外夜景上。她转回头轻轻碰了碰杯子说'挺好的'。苏晴也笑了碰杯说'挺好的'。两人相视一笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「你知道我最骄傲的是什么吗？」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「什么？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不是你做到了百万粉——是你一步一步走过来的样子。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「姐——你非要让我今晚睡不着觉是吧。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我们俩啊——一个从头来过，一个从零开始。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「挺好的。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「挺好的。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG07
+    shot_ids: [EP43-S13, EP43-S14]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-008
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-009.png
+    api:
+      text: |
+        【图1】苏晴 CHAR-004-L01【图2】林晚 CHAR-001-L01（米白色丝质衬衫）【图3】餐厅 SCENE-008【图4】手机 PROP-009。
+        角色分工：图1可拿起手机刷界面；图2不触碰手机，仅端酒杯。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）MCU 固定：晚餐尾声，菜已吃完酒杯见底。苏晴靠在椅背上微醺放松，随手刷手机随口闲聊。林晚端着最后一口红酒安静地听，表情松弛。苏晴随口说有个粉丝老发私信想认识林晚姐，林晚端酒杯的手微微顿了一下。
+        镜头2（6秒）CU→ECU 缓推：苏晴随口补充说粉丝知道林晚在哪个公司、以前做过什么项目——林晚的酒杯停在半空，眼神变了一瞬，慢慢放下酒杯。苏晴看到林晚表情不对笑容收了。林晚问'她说她叫什么了吗'，苏晴说没名字但说以前也是你们公司的——说完自己都愣住了。镜头缓缓推向林晚的脸，从烛光中部分隐入阴影。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「对了——最近有个粉丝，老给我发私信。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「嗯？」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「她说——特别想认识你，林晚姐。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「认识我？」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「嗯——她说她知道你在哪个公司、以前在市场部做什么项目——说得特别准。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「怎么了？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「……她说她叫什么了吗？」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「没……她的ID是一串数字，没名字。」
+        对白（苏晴，成年女性，28岁，声线温暖亲切，语速轻快，带自来熟的活泼感，认真时放缓一字一句）：「不过她说——她以前也是你们公司的。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP19-45暖橙主调，灰色为辅。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-008, role: reference_image, label: 图3 }
+        - { file: PROP-009, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut

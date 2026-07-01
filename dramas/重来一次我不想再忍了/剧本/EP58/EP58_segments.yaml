@@ -1,96 +1,304 @@
-# EP58 segments.yaml
-episode: EP58
-total_duration_sec: 41
-total_shots: 14
+episode_id: EP58
+source_md: 剧本/EP58/EP58_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。本集全程发布会日间场景：舞台主灯光（暖白聚光灯+追光）+LED大屏蓝白色背光，观众席满座，媒体记者区闪光灯不断。色调温暖明亮，对比鲜明——舞台上聚光区的暖白与台下暗场的对比，营造发布会高光时刻氛围。贺云峰镜头偏冷调处理。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。半写实都市质感，EP46-72温暖明亮主调。本集全程发布会日间场景：舞台主灯光暖白聚光灯+LED大屏蓝白色背光，观众席满座。写实风格，竖屏9比16。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+  CHAR-007: "成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑"
+  CHAR-GRP-04: "成年男性，26岁，声线年轻有朝气，语速快，带技术人员的直率"
+
 segments:
-  - id: EP58-SEG01
-    scene_id: SCENE-011
-    description: "segment 1"
-    total_duration_sec: 2
-    shots:
-      - id: EP58-S01
-        type: "`EP58-S01`"
-        duration_sec: 1
-        description: "`SCENE-011`"
-      - id: EP58-S02
-        type: "`EP58-S02`"
-        duration_sec: 1
-        description: "`SCENE-011`"
-  - id: EP58-SEG02
-    scene_id: SCENE-011
-    description: "segment 2"
-    total_duration_sec: 8
-    shots:
-      - id: EP58-S03
-        type: "`EP58-S03`"
-        duration_sec: 1
-        description: "`SCENE-011`"
-      - id: EP58-S04
-        type: "`EP58-S04`"
-        duration_sec: 7
-        description: "`SCENE-011`"
-  - id: EP58-SEG03
-    scene_id: SCENE-011
-    description: "segment 3"
-    total_duration_sec: 2
-    shots:
-      - id: EP58-S05
-        type: "`EP58-S05`"
-        duration_sec: 1
-        description: "`SCENE-011`"
-      - id: EP58-S06
-        type: "`EP58-S06`"
-        duration_sec: 1
-        description: "`SCENE-011`"
-  - id: EP58-SEG04
-    scene_id: SCENE-011
-    description: "segment 4"
-    total_duration_sec: 5
-    shots:
-      - id: EP58-S07
-        type: "`EP58-S07`"
-        duration_sec: 4
-        description: "`SCENE-011`"
-      - id: EP58-S08
-        type: "`EP58-S08`"
-        duration_sec: 1
-        description: "`SCENE-011`"
-  - id: EP58-SEG05
-    scene_id: SCENE-011
-    description: "segment 5"
-    total_duration_sec: 8
-    shots:
-      - id: EP58-S09
-        type: "`EP58-S09`"
-        duration_sec: 1
-        description: "`SCENE-011`"
-      - id: EP58-S10
-        type: "`EP58-S10`"
-        duration_sec: 7
-        description: "`SCENE-011`"
-  - id: EP58-SEG06
-    scene_id: SCENE-011
-    description: "segment 6"
-    total_duration_sec: 8
-    shots:
-      - id: EP58-S11
-        type: "`EP58-S11`"
-        duration_sec: 7
-        description: "`SCENE-011`"
-      - id: EP58-S12
-        type: "`EP58-S12`"
-        duration_sec: 1
-        description: "`SCENE-011`"
-  - id: EP58-SEG07
-    scene_id: SCENE-011
-    description: "segment 7"
-    total_duration_sec: 8
-    shots:
-      - id: EP58-S13
-        type: "`EP58-S13`"
-        duration_sec: 1
-        description: "`SCENE-011`"
-      - id: EP58-S14
-        type: "`EP58-S14`"
-        duration_sec: 7
-        description: "`SCENE-011`"
+  - segment_id: EP58-SEG01
+    shot_ids: [EP58-S01, EP58-S02]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+        - CHAR-007-L01
+      prop_ids:
+        - PROP-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+      prop_urls:
+        PROP-007: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装，银色胸针）【图2】陆北辰 CHAR-005-L01（深炭灰西装）【图3】贺云峰 CHAR-007-L01（藏蓝细条纹西装）【图4】发布会舞台 SCENE-011【图5】原型机 PROP-007（银色金属外壳，透明防尘罩下）。
+        角色分工：图1在舞台中央演讲操作翻页器；图2、图3在台下观众席就座，不触碰舞台设备。
+        道具：原型机（银色铝合金外壳，静置在舞台左侧白色展示台上，透明防尘罩覆盖）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：舞台中央，图1站在聚光灯下，LED大屏散发柔和蓝白背光，整个人被光勾勒出明亮轮廓线。台下黑压压观众席，前排记者区相机镜头从各个角度瞄准舞台。她语气笃定从容。
+        镜头2（6秒）全景 镜头拉远：建立完整空间——左侧白色展示台上原型机静置，舞台侧方小王站在控制台前待命，台下第一排图2端正坐着双手交握目光专注，最后一排靠过道图3双臂交叉面无表情。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「九个月前——有人问我，一家做软件的公司，凭什么去做硬件。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我的回答是——因为我们不是在造一台机器。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我们是在回答一个所有行业都在问的问题——当数据能预测行为，当机器能理解意图——我们怎么跟它相处。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「今天——我们带来了答案。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。本集发布会日间场景：舞台暖白聚光灯+LED大屏蓝白背光，观众席满座。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-011, role: reference_image, label: 图4 }
+        - { file: PROP-007, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP58-SEG02
+    shot_ids: [EP58-S03, EP58-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装）【图2】贺云峰 CHAR-007-L01【图3】发布会舞台 SCENE-011。
+        角色分工：图1在舞台上操作展示台；图2在最后一排观众席就座。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景→特写 镜头推进：图1走到展示台前揭开防尘罩，按下原型机演示按钮——机器启动嗡鸣屏幕亮起，进度条走到一半画面停住逐行暗下去。她又按了一次没反应。近景特写下她眼底掠过一瞬震惊随即压下。台下开始有人低声交谈议论声像涟漪扩散。
+        镜头2（6秒）中景→特写 固定（正反打）：图2站在暗掉的展示台前，台下议论声在扩大前排记者已经开始低头按手机。切到最后一排——图2是唯一完全静止的人。他的嘴角微微上扬几乎不可察觉，调整坐姿右手轻搭在扶手上像一个正在欣赏棋局成形的棋手。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「看来设备比我还紧张。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「不好意思——稍等一分钟。这个问题——我来解决。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。本集发布会日间场景：舞台暖白聚光灯+LED大屏蓝白背光。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP58-SEG03
+    shot_ids: [EP58-S05, EP58-S06]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】小王 CHAR-GRP-04-L01（灰色卫衣）【图3】发布舞台 SCENE-011。
+        角色分工：图1操作讲台和平板控制器；图2在舞台侧方待命后跑向后场。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：图1独自站在舞台中央，LED大屏因原型机故障处于待机状态，整个舞台光线暗了一度。三百多人看着她。她没有回头看机器——安静站在原地深吸一口气对着麦克风说话。微表情从震惊到接受到"我已有对策"的转变。
+        镜头2（6秒）中景 镜头推近：图1从讲台上拿起一个备用平板控制器，动作从容像本来就是流程的一部分。台下议论声平息——所有人都盯着她手里的平板。她侧头向舞台侧方看了一眼——图2正紧张看着她——她轻轻点头，图2立刻转身跑向后场。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「大家知道做技术的人最怕什么吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「——最怕一切太顺利。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「刚才那段小插曲——正好回答了一个你们没问但一定在想的问题。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我刚才说了——今天要展示的不是一台机器——是一个方向。方向——不会因为一条数据线被拔了——就消失。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「所以——我们准备了B方案。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。本集发布会日间场景。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-04-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP58-SEG04
+    shot_ids: [EP58-S07, EP58-S08]
+    duration_sec: 12
+    speakers: [CHAR-GRP-04, CHAR-001]
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-GRP-04-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-002.png
+    api:
+      text: |
+        【图1】小王 CHAR-GRP-04-L01（灰色卫衣，袖口翻起露出白色打底）【图2】林晚 CHAR-001-L01【图3】发布舞台 SCENE-011【图4】U盘 PROP-002（金属银色）。
+        角色分工：图1推车上台连接设备后退到一边；图2从口袋掏出U盘插入电脑操作。
+        道具：U盘（金属银色，与EP15中林晚用来恢复数据的U盘同一款式）。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：舞台侧方灯光亮起，图1推着小推车快步上台——推车上是一台银色笔记本电脑和一个便携显示器。年轻工程师额头上全是汗但动作利落，迅速连接设备后退到一边。图2走上前从口袋里掏出U盘插入电脑——手指没有一丝颤抖。台下完全安静连快门声都停了。
+        镜头2（6秒）特写→中景 镜头拉远：图1按下回车键——一秒停顿——屏幕亮了。数据可视化系统实时运转——流畅稳定令人信服。镜头拉远——台下第一排投资人身体前倾记者们重新举起相机闪光灯再次亮起。图1转过身屏幕光芒映在她脸上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（小王，成年男性，26岁，声线年轻有朝气，语速快，带技术人员的直率）：「林姐——B方案全部就绪。跟彩排一模一样。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我知道。我算到了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「刚才那台原型机是我们团队一千多个小时的成果——但真正的技术从来不止一个载体。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这是一个完全不同的展示环境——但你们马上会看到——核心逻辑一模一样。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「真正的技术——不挑舞台。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。本集发布会日间场景。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-GRP-04-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP58-SEG05
+    shot_ids: [EP58-S09, EP58-S10]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】贺云峰 CHAR-007-L01【图3】发布会舞台 SCENE-011。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景→全景 镜头缓慢拉远：图1站在屏幕前手持翻页器，大屏幕上数据流像活的一样涌动——实时运算动态反馈智能决策路径可视化。每一组数据切换都有掌声跟上。镜头拉远展现全场动态：记者们在笔记本上飞速敲字，投资人交头接耳表情从疑虑变成关注，第一排陆北辰嘴角有一个几乎不可察觉的上扬。
+        镜头2（6秒）特写 固定：最后一排——图2。表情在一秒一秒发生变化——从容微笑消失→下颚微微收紧咬紧牙关→右手握紧拳指节泛白→身体前倾像试图凑近看清局势。目光从屏幕移到图1身上，瞳孔里映着舞台的光但眼睛比光冷。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这套系统的核心不是一个硬件——是一套算法逻辑。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「今天你们看到的只是一个入口——真正有价值的是它背后处理数据的方式。而且——它不依赖特定的硬件才能跑。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。本集发布会日间场景：舞台暖白聚光灯+LED大屏蓝白背光，贺云峰镜头偏冷调处理。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP58-SEG06
+    shot_ids: [EP58-S11, EP58-S12]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: |
+        【图1】贺云峰 CHAR-007-L01（藏蓝细条纹西装）【图2】林晚 CHAR-001-L01（海军蓝西装）【图3】观众席 SCENE-011。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景→特写 固定（正反打）：主持人刚要开口点名——一个声音从最后一排响起，不响但每个字都像独立钉进空气里。图2站起来整了整西装领口不紧不慢，没有举手直接开口——语速均匀声线平滑偏冷带着压迫感。全场的目光从舞台转向最后一排。图1站在台上没有任何意外。
+        镜头2（6秒）中近景 固定：图1点击翻页器——大屏幕上出现一张详细时间轴，从项目启动到今天的每一个关键节点——设计原型测试崩溃修复——全部标注日期和代码提交记录。她继续翻——专利申报号、第三方测试报告、核心算法组件版本追溯。图2站在原地没有坐下也没有追问，沉默几秒后缓缓坐下。有记者回头看了一眼坐下的图2。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「林总——很精彩的演示。只是好奇——一家公司三个月内从软件跨越到硬件——拿出了这样完整的产品逻辑。行业内的人都知道——这通常需要一到两年。你们——是怎么做到的？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「贺总这个问题问得很好——也问到了我们最想分享的部分。所以——我准备好了全部研发记录。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我们用了三个月——不是因为运气——是因为从第一天起，我们就知道终点在哪。——下一位。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。本集发布会日间场景。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP58-SEG07
+    shot_ids: [EP58-S13]
+    duration_sec: 10
+    speakers: [CHAR-GRP-04, CHAR-001]
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+        - CHAR-GRP-04-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-GRP-04-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-GRP-04-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01（深炭灰西装，解开外套扣子）【图3】小王 CHAR-GRP-04-L01（灰色卫衣）【图4】后台 SCENE-011。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中全景→中景 镜头推进→固定：发布会后台，几个人挤在一台手机前。屏幕上是一条财经快讯弹窗——粗体字："新品发布会引发市场追捧，股价盘中暴涨20%，创年内最大单日涨幅。"图3盯着数字眼睛瞪圆张了张嘴没说出话。图2站在人群外围没有看手机看的是图1——表情平静但那种平静里有很深的情绪——不是兴奋是一种"你做到了"的确认。图1站在人群中心看着快讯表情复杂——有释然有疲惫有一瞬恍惚——然后抬起头对图3说了一句话。画面边缘——贺云峰的身影无声消失在侧门。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（小王，成年男性，26岁，声线年轻有朝气，语速快，带技术人员的直率）：「林姐——百分之二十！涨了百分之二十！」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「还不够。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这只是开始。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。后台休息区暖光比舞台聚光灯更柔和自然，手机屏幕冷白光照亮人脸。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-04-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-011, role: reference_image, label: 图4 }
+    transition_to_next: fade
+
+  - segment_id: EP58-SEG08
+    shot_ids: [EP58-S14]
+    duration_sec: 10
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-011.png
+    api:
+      text: |
+        【图1】贺云峰 CHAR-007-L01（藏蓝细条纹西装，领口松了一扣领带）【图2】酒店走廊 SCENE-011。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写→中近景 镜头推进→固定：酒店宴会厅外的走廊——安静得能听见空调低鸣，大理石地面反射着壁灯昏黄的光。远处庆功的喧闹隔着几道墙像另一个世界的回声。图1靠在墙边——姿势依然优雅但他松了一扣领带——全剧至今他第一次出现不完美的细节。手机贴在耳边，他听着电话那头先说完然后开口——声音恢复一贯的平滑偏冷但那种冷静里带着只有了解他的人才能听出来的东西——不是恐惧是"我低估她了"的承认。他说完没有立刻放下手机——看着暗掉的屏幕沉默几秒。然后放好手机整理领带恢复无懈可击——转身走向走廊深处。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「周总。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「发布会很成功。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「比我预想的成功。」
+        对白（贺云峰，成年男性，39岁，声线平滑偏冷，吐字清晰不带情绪，语速均匀，压迫感来自平静中的不容置疑）：「她手里——还有东西。」
+        画面全程无任何文字、字幕、标题、水印。
+        半写实都市质感，EP46-72温暖明亮主调。酒店走廊壁灯偏暗暖黄，冷清安静与庆功温暖热闹形成视觉反差。写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

@@ -1,77 +1,396 @@
-# EP63 shots.yaml
-episode: EP63
-total_duration_sec: 47
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP63/EP63_分镜剧本.md
+# Source shots: 12 (EP63-S01 to EP63-S12)
+# Output shots: 12 (EP63-S01 to EP63-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 92s (self-calculated from shot durations)
+# Output total duration: 92s
+# Gate status: ALL PASS (non-fatal gates skipped per instruction)
+
+episode_id: EP63
+source_md: 剧本/EP63/EP63_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。本集场景：高端餐厅私人包间，夜晚，深色木质装饰，暖黄灯光聚焦餐桌中央，窗外城市夜景璀璨。氛围表面优雅从容，实质暗流涌动——一场心理战在平静的晚餐对话下展开。情绪氛围从表面从容的试探→心理战的攻防→宁静水面下的暗涌→钩子的无声爆发。转场节奏：中→中→快→中→中→快→慢→爆发。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP63-S01
-    scene_id: SCENE-008
-    type: "`EP63-S01`"
-    duration_sec: 1
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-001`, `CHAR-008`"
-  - id: EP63-S02
-    scene_id: SCENE-008
-    type: "`EP63-S02`"
-    duration_sec: 8
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-008`"
-  - id: EP63-S03
-    scene_id: SCENE-008
-    type: "`EP63-S03`"
-    duration_sec: 1
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-001`"
-  - id: EP63-S04
-    scene_id: SCENE-008
-    type: "`EP63-S04`"
-    duration_sec: 8
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-008`"
-  - id: EP63-S05
-    scene_id: SCENE-008
-    type: "`EP63-S05`"
-    duration_sec: 8
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-008`"
-  - id: EP63-S06
-    scene_id: SCENE-008
-    type: "`EP63-S06`"
-    duration_sec: 8
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-008`"
-  - id: EP63-S07
-    scene_id: SCENE-008
-    type: "`EP63-S07`"
-    duration_sec: 8
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-008`"
-  - id: EP63-S08
-    scene_id: SCENE-008
-    type: "`EP63-S08`"
-    duration_sec: 1
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-001`"
-  - id: EP63-S09
-    scene_id: SCENE-008
-    type: "`EP63-S09`"
-    duration_sec: 1
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-001`, `CHAR-008`"
-  - id: EP63-S10
-    scene_id: SCENE-008
-    type: "`EP63-S10`"
-    duration_sec: 1
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-001`"
-  - id: EP63-S11
-    scene_id: SCENE-008
-    type: "`EP63-S11`"
-    duration_sec: 1
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-001`"
-  - id: EP63-S12
-    scene_id: SCENE-008
-    type: "`EP63-S12`"
-    duration_sec: 1
-    description: "`SCENE-008`"
-    dialogue: "`CHAR-001`"
+  - shot_id: EP63-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白丝绸衬衣，外套搭椅背）【图2】周明轩 CHAR-008-L01（银灰高定西装）【图3】高端餐厅 SCENE-008。中景 固定：私人包间深色木质装潢暖黄灯光聚焦洁白圆桌。落地窗外浦江对岸摩天楼群璀璨。图1坐背窗位置，图2坐在对面主位用白色餐巾擦拭嘴角。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-008
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-008
+        line: "说实话——你约我出来，我有点意外。我以为你会躲着我。"
+      - speaker: CHAR-001
+        line: "我不躲问题。我只解决问题。所以——我直接来了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP63-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01（银灰高定西装）【图2】高端餐厅 SCENE-008。中近景 固定：图1的脸暖黄灯光侧上方照下轮廓清晰深沉，窗外璀璨夜景的光芒没有映入他的眼睛。嘴角弧度微微加深——他在重新评估眼前这个人。"
+      content_roles:
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-008
+        line: "解决问题。好。我洗耳恭听。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP63-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白丝绸衬衣）【图2】高端餐厅 SCENE-008。特写 缓推：图1的脸表情平静但目光里有一种经过精密计算后的笃定。窗外城市夜景的光斑在她瞳孔里折射成细碎的光点。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "三个月——给我三个月。"
+      - speaker: CHAR-001
+        line: "如果我能让公司估值翻倍——盛天资本永久放弃收购。"
+      - speaker: CHAR-001
+        line: "如果做不到——我手里的所有股份，按你现在的报价出让。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP63-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01（银灰高定西装）【图2】高端餐厅 SCENE-008。特写 固定：图1的脸表情不变，短暂的沉默后他端起红酒杯喝了一口，放下酒杯过程中目光一直停留在图2方向脸上——在读她。然后缓缓开口。"
+      content_roles:
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-008
+        line: "三个月翻倍。你知道这个行业过去五年里——能做到这个增速的公司，不超过三家。"
+      - speaker: CHAR-001
+        line: "我知道。"
+      - speaker: CHAR-008
+        line: "那你应该也知道——如果你输了，你连退路都没有。"
+      - speaker: CHAR-001
+        line: "我既然坐在这里——就没给自己留退路。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP63-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01（银灰高定西装）【图2】高端餐厅 SCENE-008。中近景 固定：图1微微偏头目光从审视变成更锐利的探查，指尖在杯沿上轻轻摩挲。声音从容但问题锋利。"
+      content_roles:
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-008
+        line: "你最近见了什么人——我知道吗？"
+      - speaker: CHAR-001
+        line: "我见的人很多——您指哪一个？"
+      - speaker: CHAR-008
+        line: "那个退下来很多年的老先生——他最近身体还好吗？"
+      - speaker: CHAR-001
+        line: "如果您说的是那位资深的投资界前辈——他身体很好。不过——您担心他站在我这边？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP63-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01（银灰高定西装）【图2】高端餐厅 SCENE-008。大特写 固定：图1的眼睛。在图2方向说完'您担心他站在我这边？'后瞳孔微缩不到半秒。然后他笑了——一种复杂的表情，意识到自己被将了一军。"
+      content_roles:
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-008
+        line: "你比他口中说的——还要难缠。好吧——我答应你。"
+      - speaker: CHAR-008
+        line: "三个月。翻倍。如果做不到——你手上所有的股份，按我现在的报价——全归我。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP63-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: "【图1】周明轩 CHAR-008-L01（银灰高定西装）【图2】高端餐厅 SCENE-008。中景 固定：图1端起酒杯喝了一口后靠向椅背放松了，望向窗外夜景，语气比之前随意。"
+      content_roles:
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-008
+        line: "你那个原型机——我让人做过评估。技术确实不错。但商业化落地至少还要六个月——你等不了那么久。"
+      - speaker: CHAR-008
+        line: "你们公司的真实现金流——这个季度是负的。你那批核心供应商的账期已经开始紧张了。"
+      - speaker: CHAR-008
+        line: "这些——你应该比我更清楚。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP63-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白丝绸衬衣）【图2】高端餐厅 SCENE-008。大特写 缓推：图1的脸，端着咖啡杯杯沿抵在唇边没有喝。表情没有任何变化但眼睛深处有什么被点亮了——不是愤怒不是恐惧，是确认。她慢慢放下咖啡杯动作比之前更慢。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "您对我们公司——了解得真仔细。"
+      - speaker: CHAR-008
+        line: "我是个做收购的——不了解对手，怎么赢？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP63-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白丝绸衬衣）【图2】周明轩 CHAR-008-L01（银灰高定西装）【图3】高端餐厅 SCENE-008。中景 固定：包间全景两人隔着餐桌对坐。图2靠回椅背端着酒杯神态从容中带着胜券在握的松弛。图1坐在对面姿态端正握着酒杯的左手指尖力度比刚才重了一点。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-008
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-008
+        line: "三个月——我等着看你的成果。"
+      - speaker: CHAR-001
+        line: "我不会让您失望的。"
+      - speaker: CHAR-008
+        line: "今晚很愉快。比我预想的——有意思得多。"
+      - speaker: CHAR-001
+        line: "慢走。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP63-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白丝绸衬衣）【图2】高端餐厅 SCENE-008。中近景到中景 拉远：图1独自站在包间中央门已经关上。她面对着深色木门站了约两秒没有动没有说话。然后缓缓转过身来——脸上没有表情但那种没有表情恰恰是最有表情的。她走回餐桌前拉开椅子慢慢坐下，低头看着桌面。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "他上钩了。"
+      - speaker: CHAR-001
+        line: "真的……上钩了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP63-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白丝绸衬衣）【图2】高端餐厅 SCENE-008。中景到极特写 跟随：图1低头看了看桌面然后缓缓弯下腰右手探到桌面下方——手指触到一个冰冷金属物件。镜头推成大特写——餐桌底部黑色胶带固定着一个黑色录音设备（PROP-004），红色指示灯亮。图1手指轻按设备侧面没有按停止只是确认。然后慢慢直起身坐回椅子上。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "三个月翻倍——我根本没打算赌。"
+      - speaker: CHAR-001
+        line: "我要的——是你刚才说的每一个字。"
+      - speaker: CHAR-001
+        line: "从现在开始——你走的每一步，都在我的棋盘上。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP63-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-008
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-008: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-008.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（米白丝绸衬衣）【图2】高端餐厅 SCENE-008。特写到极特写 缓推到固定：图1的脸暖黄吊灯灯光从上洒下，半张脸在光里半张脸在阴影中。目光低垂看着自己摊开的掌心。镜头缓缓下移推向她的手掌——掌心里躺着黑色录音设备（PROP-004），侧面红色指示灯已熄灭。她的大拇指轻轻摩挲设备外壳然后手指收拢握紧在掌心里。窗外城市夜景光斑透过落地窗落在手背上。"
+      content_roles:
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-008
+          role: reference_image
+          label: 图2
+    dialogue:
+      - speaker: CHAR-001
+        line: "如果我出事了——"
+      - speaker: CHAR-001
+        line: "这个——会在第二天出现在证监会。"
+    transition_to_next: hard_cut

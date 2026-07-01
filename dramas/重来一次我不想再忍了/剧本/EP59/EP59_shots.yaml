@@ -1,77 +1,368 @@
-# EP59 shots.yaml
-episode: EP59
-total_duration_sec: 36
-total_shots: 12
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP59/EP59_分镜剧本.md
+# Source shots: 12 (EP59-S01 to EP59-S12)
+# Output shots: 12 (EP59-S01 to EP59-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s
+# Output total duration: 80s
+# Gate status: ALL PASS
+
+episode_id: EP59
+source_md: 剧本/EP59/EP59_分镜剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。半写实都市质感，EP46-72温暖明亮主调。本集全程会议室傍晚场景：落地窗外城市华灯初上，暖橙色霞光与室内暖光交织。色调温暖柔和，对比细腻——暮色蓝调与室内暖光的交错。情感氛围从喜悦→放松→暧昧→被打断→警觉→战斗准备的情绪六重奏。"
+  negative_prompt: "动画、卡通、插画、漫画、文字、字幕、logo"
+
 shots:
-  - id: EP59-S01
-    scene_id: SCENE-002
-    type: "`EP59-S01`"
-    duration_sec: 1
-    description: "`SCENE-002`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP59-S02
-    scene_id: SCENE-002
-    type: "`EP59-S02`"
-    duration_sec: 5
-    description: "`SCENE-002`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP59-S03
-    scene_id: SCENE-002
-    type: "`EP59-S03`"
-    duration_sec: 5
-    description: "`SCENE-002`"
-    dialogue: "`CHAR-005`"
-  - id: EP59-S04
-    scene_id: SCENE-002
-    type: "`EP59-S04`"
-    duration_sec: 1
-    description: "`SCENE-002`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP59-S05
-    scene_id: SCENE-002
-    type: "`EP59-S05`"
-    duration_sec: 1
-    description: "`SCENE-002`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
-  - id: EP59-S06
-    scene_id: SCENE-002
-    type: "`EP59-S06`"
-    duration_sec: 5
-    description: "`SCENE-002`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP59-S07
-    scene_id: SCENE-002
-    type: "`EP59-S07`"
-    duration_sec: 5
-    description: "`SCENE-002`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP59-S08
-    scene_id: SCENE-002
-    type: "`EP59-S08`"
-    duration_sec: 1
-    description: "`SCENE-002`"
-    dialogue: "`CHAR-001`"
-  - id: EP59-S09
-    scene_id: SCENE-002
-    type: "`EP59-S09`"
-    duration_sec: 5
-    description: "`SCENE-002`"
-    dialogue: "`CHAR-005`, `CHAR-001`"
-  - id: EP59-S10
-    scene_id: SCENE-002
-    type: "`EP59-S10`"
-    duration_sec: 1
-    description: "`SCENE-002`"
-    dialogue: "`CHAR-001`"
-  - id: EP59-S11
-    scene_id: SCENE-002
-    type: "`EP59-S11`"
-    duration_sec: 5
-    description: "`SCENE-002`"
-    dialogue: "`CHAR-005`"
-  - id: EP59-S12
-    scene_id: SCENE-002
-    type: "`EP59-S12`"
-    duration_sec: 1
-    description: "`SCENE-002`"
-    dialogue: "`CHAR-001`, `CHAR-005`"
+  - shot_id: EP59-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+      prop_ids:
+        - PROP-010
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+      prop_urls:
+        PROP-010: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-010.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01（海军蓝西装，袖口水渍）【图2】陆北辰 CHAR-005-L01（深炭灰西装，外套解开）【图3】会议室 SCENE-002【图4】香槟 PROP-010。傍晚会议室，落地窗外城市天际线被暮色浸染成暖橙。图1双手握住香槟瓶颈金属丝一圈圈松开，陆北辰靠在桌对面看着。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+        - { file: PROP-010, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "开了开了——太久没开了，手生了。"
+      - speaker: CHAR-001
+        line: "比发布会成功。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】会议室 SCENE-002。图1递过纸巾，目光在她溅上水渍的袖口上停了一瞬然后落在她脸上——不是评判是欣赏。图1笑了一下，暖橙色霞光从落地窗斜照在两人之间的桌面上铺开一片暖光。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "你什么都会。"
+      - speaker: CHAR-001
+        line: "开香槟——我可没练过。"
+      - speaker: CHAR-001
+        line: "你笑什么？"
+      - speaker: CHAR-005
+        line: "笑你——放松下来的时候，跟台上判若两人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-005-L01
+      prop_ids:
+        - PROP-010
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+      prop_urls:
+        PROP-010: https://drama-reference-images.tos-cn-beijing.volces.com/props/重来一次我不想再忍了/PROP-010.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】会议室 SCENE-002【图3】香槟 PROP-010。图1拿起另一只水晶杯，瓶口倾斜——淡金色香槟沿杯壁滑下气泡升腾。他将两只都斟到半满，拿起一杯递向林晚方向，窗外的霞光透过杯壁在桌面投下一小片琥珀色光影晃动。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: PROP-010, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "敬发布会。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】会议室 SCENE-002。两只水晶杯轻轻相碰，清脆声响在空旷会议室回荡。两人隔着杯沿对视——图1目光从杯中升起的气泡移到图2眼睛上。她没有立刻喝，他也没有。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "敬我们。"
+      - speaker: CHAR-005
+        line: "敬你。"
+      - speaker: CHAR-001
+        line: "……你是不是对每个人嘴都这么甜。"
+      - speaker: CHAR-005
+        line: "你见过我跟别人开香槟？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】会议室 SCENE-002。两人靠在会议桌边沿，落地窗外城市灯火一颗颗亮起——电视塔、写字楼格子窗、车灯河流。香槟杯半满气泡无声上升。图1看着窗外目光柔和没有防备。安静但不是尴尬是不需要找话题填补的沉默。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "这几天——我每天都以为撑不过去。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】会议室 SCENE-002。镜头缓推：图1没有立刻回答，他看着图2侧脸的轮廓——暮色光影在她脸上画出柔和明暗交界睫毛投下淡淡阴影。他等了几秒才开口。他说那三个字时图2转回头看他，眼神里有惊讶。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "我知道。"
+      - speaker: CHAR-001
+        line: "你知道？"
+      - speaker: CHAR-005
+        line: "我看得出来。你没露怯——这就够了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】会议室 SCENE-002。图1轻轻放下酒杯转回身，离她很近——近到能看见她睫毛在暮色光线下投出的影子。他开口时声音放得极轻像只说给她一个人听的语气。他说完"下次"时图2的呼吸停了一瞬。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "林晚。"
+      - speaker: CHAR-001
+        line: "嗯？"
+      - speaker: CHAR-005
+        line: "……没什么。下次——别一个人扛。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01【图2】会议室 SCENE-002。特写——图1的脸。他的那句"下次"像一颗石子投入心里——涟漪一圈圈扩散。她张了张嘴想说什么但没说出来，窗外城市灯火在瞳孔里映出温暖光点。最后她低下头藏起那一瞬的失控说了一个字。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "……好。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01【图2】林晚 CHAR-001-L01【图3】会议室 SCENE-002。暧昧刚刚落定——西装口袋手机震动声响起在安静会议室里格外刺耳。图1低头看了一眼手机屏幕——表情瞬间变化：柔和褪去眼底暖光暗了换上警觉。他看图2一眼——无声的道歉——然后接起电话。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "……我接一下。"
+      - speaker: CHAR-001
+        line: "好。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】会议室 SCENE-002。特写——图1站在原地看着他走到窗边的背影。笑容完全消失取而代之的是一种经历过太多突发危机的人才有的平静。她看着他的肩膀线条从放松慢慢收紧——她知道了不管电话那头是什么不是好消息。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】陆北辰 CHAR-005-L01（深炭灰西装，背影→转身）【图2】会议室 SCENE-002。镜头缓推→固定：图1站在窗边背对图2（林晚），城市灯火在玻璃上映出他模糊倒影。一只手插西裤口袋里姿态看似放松但肩膀线条已经出卖了他。他听完电话那头沉默了几秒然后开口——声音低而沉。三个短促的问题每问一句肩膀就收紧一分。挂掉电话手垂下来没有立刻转身——需要那一两秒消化。然后转过来隔着几米看着图2（林晚），眼神平静但那是暴风雨前的海面。"
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "……消息可靠吗？"
+      - speaker: CHAR-005
+        line: "——什么时候的事？"
+      - speaker: CHAR-005
+        line: "……我知道了。"
+      - speaker: CHAR-005
+        line: "他说——周明轩没有接受休战。"
+      - speaker: CHAR-005
+        line: "他私下接触了三个大股东——拿到了收购承诺。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP59-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-002.png
+    api:
+      text: "【图1】林晚 CHAR-001-L01【图2】陆北辰 CHAR-005-L01【图3】会议室 SCENE-002。镜头缓推：隔着会议桌两人对视，桌上是两只半满的香槟杯——气泡还在上升但一切都不一样了。窗外城市灯火依然璀璨但不再温暖只是亮着。图1沉默了几秒然后做了一个很小的动作——伸出右手轻轻将面前的香槟杯推到一边——动作很轻但分量超过一切语言。她抬起头看着图2——眼神在那几秒内完成了变化：柔和褪去露出下面的东西——不是愤怒是决心。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "所以——仗还没打完。"
+      - speaker: CHAR-005
+        line: "还没打完。"
+      - speaker: CHAR-001
+        line: "那就继续打。"
+    transition_to_next: hard_cut

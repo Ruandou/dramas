@@ -1,96 +1,213 @@
-# EP70 segments.yaml
-episode: EP70
-total_duration_sec: 84
-total_shots: 14
+episode_id: EP70
+source_md: 剧本/EP70/EP70_日出.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。温暖明亮色调，日出暖橙氛围。现代都市环境。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。真人实拍质感，电影级色彩，浅景深。温暖明亮色调，日出暖橙氛围。现代都市环境。"
+  negative_prompt: "real celebrity face, real brand logo, ancient costume, weapon, military uniform, gun, explosion, anime style, cartoon style, horror, blood, supernatural visual effect"
+
+voice_prompts:
+  CHAR-001: "成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳"
+  CHAR-005: "成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔"
+
 segments:
-  - id: EP70-SEG01
-    scene_id: SCENE-017
-    description: "segment 1"
-    total_duration_sec: 12
-    shots:
-      - id: EP70-S01
-        type: "中景"
-        duration_sec: 6
-        description: "林晚在新公司的办公室里加班。窗外天色渐暗。手机震动——陆北辰的消息。"
-      - id: EP70-S02
-        type: "近景"
-        duration_sec: 6
-        description: "林晚微笑着回了一个字："好。""
-  - id: EP70-SEG02
-    scene_id: SCENE-017
-    description: "segment 2"
-    total_duration_sec: 12
-    shots:
-      - id: EP70-S03
-        type: "中景"
-        duration_sec: 6
-        description: "林晚路过那家常去的咖啡厅，买了杯咖啡。店员微笑着递给她。"
-      - id: EP70-S04
-        type: "近景"
-        duration_sec: 6
-        description: "林晚走出咖啡厅，抬头看了看城市的天际线。"
-  - id: EP70-SEG03
-    scene_id: SCENE-017
-    description: "segment 3"
-    total_duration_sec: 12
-    shots:
-      - id: EP70-S05
-        type: "全景"
-        duration_sec: 6
-        description: "林晚推开天台的门。陆北辰已经在那里了，背对着她，看着城市的天际线。"
-      - id: EP70-S06
-        type: "中景"
-        duration_sec: 6
-        description: "林晚走过去，把一杯咖啡递给他。"
-  - id: EP70-SEG04
-    scene_id: SCENE-017
-    description: "segment 4"
-    total_duration_sec: 12
-    shots:
-      - id: EP70-S07
-        type: "中景"
-        duration_sec: 6
-        description: "两人并肩站在天台栏杆前。城市的灯火在脚下铺开。"
-      - id: EP70-S08
-        type: "近景"
-        duration_sec: 6
-        description: "林晚点头。"
-  - id: EP70-SEG05
-    scene_id: SCENE-017
-    description: "segment 5"
-    total_duration_sec: 12
-    shots:
-      - id: EP70-S09
-        type: "近景"
-        duration_sec: 6
-        description: "陆北辰侧过头看着她。"
-      - id: EP70-S10
-        type: "特写"
-        duration_sec: 6
-        description: "林晚看着远方地平线上的一线光。"
-  - id: EP70-SEG06
-    scene_id: SCENE-017
-    description: "segment 6"
-    total_duration_sec: 12
-    shots:
-      - id: EP70-S11
-        type: "全景"
-        duration_sec: 6
-        description: "时间流逝。地平线上出现第一缕金色光芒。城市在晨光中苏醒。"
-      - id: EP70-S12
-        type: "近景"
-        duration_sec: 6
-        description: "陆北辰看着她。"
-  - id: EP70-SEG07
-    scene_id: SCENE-017
-    description: "segment 7"
-    total_duration_sec: 12
-    shots:
-      - id: EP70-S13
-        type: "特写"
-        duration_sec: 6
-        description: "林晚的眼睛。有光在里面。"
-      - id: EP70-S14
-        type: "全景"
-        duration_sec: 6
-        description: "两人并肩站在天台上，看着日出。城市在脚下苏醒。咖啡杯碰在一起。"
+  - segment_id: EP70-SEG01
+    shot_ids: [EP70-S01, EP70-S02]
+    duration_sec: 12
+    speakers: []
+    refs:
+      scene_id: SCENE-017
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-017: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-017.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】新公司办公室 SCENE-017。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：傍晚，图1在新办公室加班，专注看着电脑屏幕。窗外天色渐暗。桌上手机屏幕亮起。
+        镜头2（6秒）近景 固定：图1看着手机屏幕，嘴角微微上扬，露出温柔的笑意。她伸手在屏幕上打了一个字。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。真人实拍质感，电影级色彩，浅景深。温暖明亮色调，日出暖橙氛围。现代都市环境。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-017, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP70-SEG02
+    shot_ids: [EP70-S03, EP70-S04]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-007.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】咖啡厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：傍晚，图1路过那家常去的咖啡厅，推门走进去。店员微笑着递上一杯外带咖啡。
+        镜头2（6秒）近景 固定：图1走出咖啡厅，手里拿着两杯咖啡。她停下脚步，抬头看了看城市的天际线，暮色中灯火渐亮。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这个城市——好像和以前不一样了。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP70-SEG03
+    shot_ids: [EP70-S05, EP70-S06]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】天台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景 固定：天台门被推开，图1已经站在那里，背对着镜头，看着城市天际线。暮色中城市灯火初上。
+        镜头2（6秒）中景 固定：图2走过去，把一杯咖啡递给图1。图1接过咖啡，目光落在图2脸上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「你来了。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这次——轮到我带咖啡了。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP70-SEG04
+    shot_ids: [EP70-S07, EP70-S08]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】天台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：两人并肩站在天台栏杆前，城市的灯火在脚下铺开，夜幕完全降临。
+        镜头2（6秒）近景 固定：图2轻轻点头，目光望向远方夜色，眼神中闪过一丝回忆的重量。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「还记得你第一次在天台上——是什么时候吗？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「重生那天。坐在那里——觉得整个世界都是灰色的。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP70-SEG05
+    shot_ids: [EP70-S09, EP70-S10]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】天台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1侧过头，目光温柔地看向图2所在的方向。夜色中他的轮廓柔和。
+        镜头2（6秒）特写 固定：图2望向远方地平线，那里隐隐有一线微光。她的眼底映着那一线光，眼神温柔而坚定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「现在呢？」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「现在——我觉得天快亮了。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP70-SEG06
+    shot_ids: [EP70-S11, EP70-S12]
+    duration_sec: 12
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: |
+        【图1】陆北辰 CHAR-005-L01（深炭灰西装）【图2】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图3】天台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景 固定：时间流逝感，地平线上出现第一缕金色光芒，城市在晨光中渐渐苏醒。
+        镜头2（6秒）近景 固定：图1凝视着图2（画外），晨光映在他的侧脸上，他的目光深情而坚定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「林晚。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「嗯？」
+        对白（陆北辰，成年男性，34岁，声线低沉有磁性，语速不急不缓，自带稳重感，关切时放轻放柔）：「我喜欢你。从第一次在天台上看到你——就开始了。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP70-SEG07
+    shot_ids: [EP70-S13, EP70-S14]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/重来一次我不想再忍了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/重来一次我不想再忍了/SCENE-004.png
+    api:
+      text: |
+        【图1】林晚 CHAR-001-L01（海军蓝西装+米白衬衣）【图2】陆北辰 CHAR-005-L01（深炭灰西装）【图3】天台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：图1的眼睛，晨光映在瞳孔里，有光芒在闪动。她的嘴角微微上扬。
+        镜头2（6秒）全景 固定：日出时分，金色阳光洒满天际。两人并肩站在天台上，看着远方升起的太阳。咖啡杯轻轻碰在一起，发出清脆声响。城市在脚下苏醒。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「我知道。」
+        对白（林晚，成年女性，29岁，声线清亮有韧性，初期略带犹豫感，觉醒后语速均匀有力，自信时微微上扬，愤怒时压低沉稳）：「这一次——我选对了。」
+        画面全程无任何文字、字幕、标题、水印。
+        温暖明亮的暖橙色调，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
