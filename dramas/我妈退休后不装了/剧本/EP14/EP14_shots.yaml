@@ -1,0 +1,130 @@
+# SOURCE FIDELITY: EP14剧本.md -> 9 shots 1:1 | 90s | ALL PASS
+episode_id: EP14
+defaults: &d
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面具，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+shots:
+  - &s01
+    shot_id: EP14-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 10
+    refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】林家客厅 SCENE-001（清晨，慧芳坐沙发上揪着衣角，面前半碗粥没喝完）【图2】林慧兰 CHAR-001-L01（正在收拾碗筷）【图3】林慧芳 CHAR-010-L01（听到砸门声吓得一抖，脸色刷白）。中景→近景 镜头：安静清晨突然被急促砸门声打破。慧芳吓到发抖。慧兰放下碗镇定起身。紧张氛围。"
+      content_roles: [{file: SCENE-001, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: CHAR-010-L01, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: EXTRA, line: "开门！"}
+      - {speaker: CHAR-010, line: "是他…他怎么找到这里的…"}
+      - {speaker: CHAR-001, line: "你别出声。姐去开门。"}
+      - {speaker: CHAR-010, line: "姐，不要开…他会打人的…"}
+      - {speaker: CHAR-001, line: "有我在。他不敢。"}
+  - <<: *s01
+    shot_id: EP14-S02
+    shot_no: 2
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（走到门口深吸一口气拉开门，表情镇定）【图2】林家客厅 SCENE-001门口玄关（门打开后看到外面站着一个男人）【图3】描述：一个50多岁粗犷男人站在门口，脏兮兮工装夹克，满脸横肉，一身酒气，表情嚣张。中景 门框构图：慧兰开门，门外站着凶悍男人。两人形成对峙构图——门框内慧兰占半边，男人占另半边。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: EXTRA, line: "我找我老婆。让她出来。"}
+      - {speaker: CHAR-001, line: "她不在。你走吧。"}
+      - {speaker: EXTRA, line: "不在？我看着她进去的。让开！"}
+      - {speaker: CHAR-001, line: "我说了，她不在。你再敲我家门，我报警。"}
+  - <<: *s01
+    shot_id: EP14-S03
+    shot_no: 3
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（扶着门框，眼神直视对方，一字一句）【图2】林家客厅 SCENE-001门口玄关。近景 固定镜头：男人伸手要推慧兰。慧兰没动——扶住门框稳住身体。她盯着对方的眼睛，那个眼神让男人停住了。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: EXTRA, line: "你让不让——"}
+      - {speaker: CHAR-001, line: "你碰我一下试试。"}
+      - {speaker: EXTRA, line: "你——"}
+      - {speaker: CHAR-001, line: "我家有监控。你碰我一下，就是入室滋事，够你进去蹲几天。"}
+  - <<: *s01
+    shot_id: EP14-S04
+    shot_no: 4
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（挡在门口，冷静回应）【图2】林家客厅 SCENE-001门口玄关。中景 固定镜头：男人被噎住改换策略——朝屋里喊慧芳的名字。语气从凶狠变成假装可怜。慧兰不为所动，替他一一回答。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: EXTRA, line: "林慧芳！你出来！你不回家孩子咋办？"}
+      - {speaker: CHAR-001, line: "孩子二十多岁了。他自己会做饭。"}
+      - {speaker: EXTRA, line: "咱们结婚二十多年，你就这么狠心？"}
+      - {speaker: CHAR-001, line: "结婚二十多年，你打了她二十多年。你说她狠心？"}
+  - <<: *s01
+    shot_id: EP14-S05
+    shot_no: 5
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（站在门口，表情从平静变成一种看穿一切的笑）【图2】林家客厅 SCENE-001门口玄关。近景 固定镜头：男人恼羞成怒提高声音。慧兰淡淡一笑——那种看穿一切的笑。她的话隔着门也让屋里的慧芳听到了。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: EXTRA, line: "我跟我老婆的事，轮不到你一个外人管！"}
+      - {speaker: CHAR-001, line: "外人？她是我妹妹。你打她的时候，你找别的女人的时候，怎么不说她是'你老婆'？"}
+      - {speaker: EXTRA, line: "你——你懂什么！你一个被老公甩了的女人——"}
+  - <<: *s01
+    shot_id: EP14-S06
+    shot_no: 6
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（沉默两秒——被戳到痛处但迅速恢复平静，拿出手机，手指悬在拨号键上）【图2】林家客厅 SCENE-001门口玄关。特写→近景 镜头：那把刀还是扎到了肉——慧兰表情变了一瞬。但她只沉默了两秒就恢复平静。她平静地拿起手机，手指悬在110拨号键上。那个动作不急不缓但威慑力十足。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: CHAR-001, line: "你说对了。我是被老公甩了。"}
+      - {speaker: CHAR-001, line: "但我懂法律。你再多说一句，我打110。"}
+      - {speaker: EXTRA, line: "你——你敢！"}
+      - {speaker: CHAR-001, line: "你试试我敢不敢。"}
+  - <<: *s01
+    shot_id: EP14-S07
+    shot_no: 7
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（站姿不变，手机举着，眼神坚定）【图2】林家客厅 SCENE-001门口玄关。中景→特写 固定镜头：两人对峙五秒。楼道安静得能听到时钟嘀嗒声。男人的眼神从凶狠变成犹豫——他以为女人都怕事但眼前这个女人是真的会报警。他退了半步。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: EXTRA, line: "好。你狠。"}
+      - {speaker: CHAR-001, line: "走之前我告诉你一句话——你敢再来，我不仅报警，我还帮你老婆起诉离婚、申请保护令。我说到做到。"}
+      - {speaker: EXTRA, line: "你——你一个离婚女人——"}
+      - {speaker: CHAR-001, line: "你再说一句？"}
+  - <<: *s01
+    shot_id: EP14-S08
+    shot_no: 8
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（关上门，靠着门缓缓吐出一口气，手在发抖但她克制着）【图2】林慧芳 CHAR-010-L01（从屋里冲出来一把抱住姐姐）【图3】林家客厅 SCENE-001门口玄关。中景→近景 镜头：男人铁青着脸转身下楼。楼梯间传来踹墙声。慧兰等了三秒确认他走远才关上门。她靠着门缓缓吐气——手在发抖但她不能表现出来。慧芳冲出来抱住她。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-010-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-010, line: "姐！"}
+      - {speaker: CHAR-001, line: "没事。他走了。"}
+      - {speaker: CHAR-010, line: "你刚才…你太厉害了…他从来没那么怕过一个人。"}
+      - {speaker: CHAR-001, line: "怕他就输了。你记住——你越怕他越欺负你。"}
+  - <<: *s01
+    shot_id: EP14-S09
+    shot_no: 9
+    look_ids: [CHAR-001-L01, CHAR-010-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（刚坐下手机响了，看来电显示是大强，接起没说话）【图2】林慧芳 CHAR-010-L01（担心地看着姐姐）【图3】林家客厅 SCENE-001。近景 固定镜头：姐妹俩刚坐下平复心情。手机响——张大强来电。慧兰看着来电显示接起来没说话。电话里传来嘲讽声音。慧兰平静回应后挂断——表情从坚定变成一丝疲惫。慧芳担心地看着她。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-010-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-002, line: "听说你现在成妇联主任了？管起别人的家务事了？"}
+      - {speaker: CHAR-001, line: "你消息倒是灵通。"}
+      - {speaker: CHAR-002, line: "林慧兰，你管好你自己就行了。别到时候惹一身骚。"}
+      - {speaker: CHAR-001, line: "我已经惹了。我不怕。"}
+      - {speaker: CHAR-010, line: "姐…你没事吧？"}
+      - {speaker: CHAR-001, line: "没事。你的事就是我的事。姐不怕。"}

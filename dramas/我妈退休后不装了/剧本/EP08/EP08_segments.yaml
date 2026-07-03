@@ -1,0 +1,285 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP08/EP08_剧本.md
+# Source segments: 9 (SEG01-SEG09)
+# Output segments: 9 (SEG01-SEG09)
+# Mapping: 1:1
+# Total actual shot duration: 90s (9×10s)
+# Output total duration: 90s
+# Gate status: ALL PASS
+
+episode_id: EP08
+source_md: 剧本/EP08/EP08_剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
+voice_prompts:
+  CHAR-001: "中年女声，温暖沉稳但带克制感，语速适中偏慢，语气柔和但句尾有力量感；爆发时有压抑后释放的颤抖感，但不过度戏剧化"
+  CHAR-006: "老年男声，音色温和偏低沉，语速不紧不慢，语气礼貌斯文带书卷气；说话时节奏稳定有分寸感，给人温和可靠的感觉"
+  CHAR-007: "中年女声，音色偏亮偏厚，嗓门大语气直爽，带市井烟火气，语速中等偏快，笑声爽朗有感染力"
+  CHAR-002: "老年男声，低沉粗犷，语速偏慢，语气带命令式和不耐烦；激动时声音发紧有压迫感"
+
+segments:
+  - segment_id: EP08-SEG01
+    shot_ids: [EP08-S01]
+    duration_sec: 10
+    speakers: [CHAR-006, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-006-L01, CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】李建国 CHAR-006-L01（白衬衫灰白短发戴银框眼镜，气质温和）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，开门有些意外）【图3】林家客厅 SCENE-001。中景 固定镜头：午后，林慧兰正在浇花。敲门声开门——门口站着一个穿白衬衫男人，手里抱着一盆开得正好的茉莉花。"
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "你好，请问是林慧兰女士吗？"
+      - speaker: CHAR-001
+        line: "我是…您是？"
+      - speaker: CHAR-006
+        line: "我是李建国。上次在公园，谢谢你帮我捡书。"
+      - speaker: CHAR-001
+        line: "哦…那件事啊，举手之劳。"
+
+  - segment_id: EP08-SEG02
+    shot_ids: [EP08-S02]
+    duration_sec: 10
+    speakers: [CHAR-006, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-006-L01, CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】李建国 CHAR-006-L01（递花，诚恳神情）【图2】林慧兰 CHAR-001-L01（接过花低头看，耳根微红）【图3】林家客厅 SCENE-001。近景 固定镜头：李建国把花递过来，慧兰下意识接过。茉莉花洁白芬芳——她很多年没收到过花了。"
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "那天你走得急，没来得及道谢。这盆茉莉…是我自己养的，希望你喜欢。"
+      - speaker: CHAR-001
+        line: "这…太客气了。我不能收。"
+      - speaker: CHAR-006
+        line: "一盆花而已。你要是不要，我就只能搬回去了。"
+      - speaker: CHAR-001
+        line: "那…谢谢了。"
+
+  - segment_id: EP08-SEG03
+    shot_ids: [EP08-S03]
+    duration_sec: 10
+    speakers: [CHAR-006, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-006-L01, CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】李建国 CHAR-006-L01（温和笑容，慢条斯理）【图2】林慧兰 CHAR-001-L01（不好意思但放松了）【图3】林家客厅 SCENE-001。中景 固定镜头：两人站在门口聊了几句。李建国提到听说她跳舞的事语气真诚。慧兰不习惯被夸奖但发现不讨厌和这个人说话。"
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "听说你跳舞跳得很好？"
+      - speaker: CHAR-001
+        line: "你听说了？"
+      - speaker: CHAR-006
+        line: "广场上都在传。说社区来了个跳舞很厉害的大姐。"
+      - speaker: CHAR-001
+        line: "我就是年轻时候学过一点。"
+      - speaker: CHAR-006
+        line: "学过一点可跳不了那么好。"
+
+  - segment_id: EP08-SEG04
+    shot_ids: [EP08-S04]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-007-L01, CHAR-001-L01, CHAR-006-L01]
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】王翠花 CHAR-007-L01（印花衬衫，风风火火冲上来）【图2】林慧兰 CHAR-001-L01（慌了）【图3】李建国 CHAR-006-L01（礼貌点头）【图4】林家客厅 SCENE-001。近景 固定镜头：翠花的声音从楼道传来。一上楼看到门口站着斯文男人慧兰抱着一盆花，翠花眼睛一亮冲上来。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "慧兰！走了跳——"
+      - speaker: CHAR-007
+        line: "哟！有客人啊！"
+      - speaker: CHAR-001
+        line: "翠花，这是李老师…"
+      - speaker: CHAR-006
+        line: "你好，我是李建国。"
+      - speaker: CHAR-007
+        line: "李老师好。花挺好看啊。"
+
+  - segment_id: EP08-SEG05
+    shot_ids: [EP08-S05]
+    duration_sec: 10
+    speakers: [CHAR-006, CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-007-L01, CHAR-001-L01, CHAR-006-L01]
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】王翠花 CHAR-007-L01（印花衬衫笑得意味深长）【图2】林慧兰 CHAR-001-L01（耳朵通红抱着花）【图3】李建国 CHAR-006-L01（察觉气氛告辞）【图4】林家客厅 SCENE-001。近景 固定镜头：翠花看到慧兰的样子什么都明白了。李建国不好意思告辞。他一走翠花立刻关上门开始轰炸。"
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "那个…我还有事，先走了。花你好好养。"
+      - speaker: CHAR-001
+        line: "哎好…谢谢李老师。"
+      - speaker: CHAR-007
+        line: "李建国——就是上次公园那个？"
+      - speaker: CHAR-001
+        line: "他就是来送个花…"
+      - speaker: CHAR-007
+        line: "送花？四十年了，哪个男人给你送过花？"
+
+  - segment_id: EP08-SEG06
+    shot_ids: [EP08-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01, CHAR-007-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（满脸通红转身去厨房）【图2】王翠花 CHAR-007-L01（跟到门口促狭地笑）【图3】林家客厅 SCENE-001。特写→近景 固定镜头：慧兰被说得满脸通红去厨房倒水。低着头但嘴角控制不住上扬。四十年了——第一次有男人送她花。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "别瞎说。人家就是客气。"
+      - speaker: CHAR-007
+        line: "客气到送花？还自己养的？"
+      - speaker: CHAR-001
+        line: "我哪知道…"
+      - speaker: CHAR-007
+        line: "你知道。你脸红什么。"
+      - speaker: CHAR-001
+        line: "屋里热。"
+
+  - segment_id: EP08-SEG07
+    shot_ids: [EP08-S07]
+    duration_sec: 10
+    speakers: []
+    refs:
+      scene_id: SCENE-006
+      look_ids: [CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: "【图1】张大强 CHAR-002-L01（白衬衫+棕马甲拎着水果抬头看）【图2】社区公园 SCENE-006（楼下视角）。中景 固定镜头：张大强拎着水果走过来打算求和。抬头看到林慧兰家窗户——透过窗户茶几上有一盆白花，慧兰站在花前低头闻香嘴角含笑。他僵住了。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    dialogue: []
+
+  - segment_id: EP08-SEG08
+    shot_ids: [EP08-S08]
+    duration_sec: 10
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-006
+      look_ids: [CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: "【图1】张大强 CHAR-002-L01（白衬衫+棕马甲，脸色铁青水果袋捏紧）【图2】社区公园 SCENE-006。特写 固定镜头：张大强站在楼下水果袋捏紧。脸色从不解变成阴沉最后铁青。他一甩手将水果袋扔进垃圾桶转身大步走了。"
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "（内心）谁送的花…"
+      - speaker: CHAR-002
+        line: "（内心）她是我老婆！才几天就——"
+
+  - segment_id: EP08-SEG09
+    shot_ids: [EP08-S09]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01, CHAR-007-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（坐在沙发上低头闻茉莉花，闭眼微笑）【图2】王翠花 CHAR-007-L01（临走回头）【图3】林家客厅 SCENE-001。近景→特写 固定镜头：慧兰一个人坐在沙发上看着茉莉花。伸出手指轻轻碰花瓣。低头闻了闻闭上眼睛嘴角上扬。阳光照在花上。她不知道窗外发生了什么。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "慧兰，那花好好养着。"
+      - speaker: CHAR-001
+        line: "嗯。"
+      - speaker: CHAR-001
+        line: "（内心）原来收到花…是这种感觉啊。"
+      - speaker: CHAR-001
+        line: "（内心）四十年了…第一次。"

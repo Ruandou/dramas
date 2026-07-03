@@ -1,0 +1,324 @@
+episode_id: EP30
+source_md: 剧本/EP30/EP30_旧照之谜.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+voice_prompts:
+  CHAR-001: "Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones"
+  CHAR-004: "Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal"
+
+segments:
+  # ══════════════════════════════════════════
+  # SEG01 — 照片拍桌（刺探式·质问→回避）
+  # ══════════════════════════════════════════
+  - segment_id: EP30-SEG01
+    shot_ids: [EP30-S01, EP30-S02]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+      prop_urls:
+        PROP-004: assets/props/PROP-004.png  # WARNING: no CDN URL — 场景内置道具
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装+白衬衫，不系领带）【图2】秦老 CHAR-004-L01（中式立领外套+折扇搁桌边）【图3】秦老茶馆 SCENE-003【图4】万象阁旧照片 PROP-004。
+        角色分工：图1可触碰照片；图2可触碰茶壶和茶杯。
+        道具：泛黄黑白旧照片（PROP-004，A5大小，边缘起卷），画面三个年轻人站在门楼前。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：茶馆内景，雕花红木柱投下竖长阴影，墙上水墨山水在柔光中晕开。图1推门而入，门轴吱呀声在空旷茶馆里格外刺耳，径直走到茶桌前，西装下摆随步伐微晃。图2端坐对面，紫砂壶蒸汽在两人之间升起半透明帘幕，银白头发在窗棂格子光中泛着柔光。
+        镜头2（6秒）特写 固定：图1从西装内袋掏出泛黄照片，啪地拍在茶桌上。照片边缘起卷，黑白画面三个年轻人站在门楼前。茶杯被震动溅出几滴茶水，水渍在照片边缘洇开。图2手停在半空，茶壶嘴还冒着热气，倒茶动作凝固。窗棂光影在脸上缓缓移动，格子阴影像笼子的栏杆。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「秦老。我有个东西给您看。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「先喝茶。你脸色不好。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「这个人——您认识吧。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「……你从哪弄来的。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「照片里的人。您认识。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶馆，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+        - { file: PROP-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ══════════════════════════════════════════
+  # SEG02 — 旧照中的名字（蓄力式·沉默→揭示）
+  # ══════════════════════════════════════════
+  - segment_id: EP30-SEG02
+    shot_ids: [EP30-S03, EP30-S04]
+    duration_sec: 11
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+      prop_urls:
+        PROP-004: assets/props/PROP-004.png  # WARNING: no CDN URL — 场景内置道具
+    api:
+      text: |
+        【图1】秦老 CHAR-004-L01（中式立领外套）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】秦老茶馆 SCENE-003【图4】万象阁旧照片 PROP-004。
+        角色分工：图1可触碰照片和茶壶；图2双手撑桌沿，不触碰物品。
+        道具：泛黄黑白旧照片（PROP-004），画面三个年轻人站在门楼前。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 镜头推近：图1脸部特写，细长眼睛从照片移到对面又移回照片，温和微笑没有消失但明显僵了一瞬，眼角皱纹比平时更深。慢慢放下茶壶，壶嘴最后一滴茶水落在桌面，银白头发在侧光中勾勒出清晰轮廓，白色长眉微微颤动。
+        镜头2（6秒）近景 固定：图1伸出瘦长手指轻轻抚过照片表面，指腹在右边棱角分明的年轻人脸上停留一秒，嘴唇动了动像在咀嚼一个含了几十年的名字。墙上水墨画褪色圆形符号在柔光中若隐若现。图2站在桌对面双手撑桌沿，身体前倾，下颌线收紧，浓眉拧成一条线。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「……三十年了。我以为这张照片早就不在了。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「照片里的人——是谁。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「左边这个——是我。年轻时候的我。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「右边这个人……」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「他叫沈万洲。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「沈万洲……秦老和沈万洲，真的认识。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶馆，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+        - { file: PROP-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ══════════════════════════════════════════
+  # SEG03 — 同门之秘（独白递进·追问→震撼）
+  # ══════════════════════════════════════════
+  - segment_id: EP30-SEG03
+    shot_ids: [EP30-S05, EP30-S06]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】秦老 CHAR-004-L01（中式立领外套）【图3】秦老茶馆 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1缓缓坐下，西装肩线在动作中绷了一下。与图2隔着茶桌对坐，紫砂壶蒸汽在两人之间升腾，像一道正在消散的幕帘。图2目光从照片上移开，落在墙上古画的褪色圆形符号上，那个符号在柔光中像一枚沉默的眼睛。图1随图2目光看去又迅速转回，手指无意识敲了两下桌面。
+        镜头2（6秒）特写 固定：图1眼部特写，浓眉下瞳孔微缩，虹膜边缘泛起一丝琥珀色微光，能力下意识的反应。照片中门楼匾额上万象阁三个字在记忆中定格。镜头切回两人对坐构图，图2银白头发和图1深色短发在窗棂光影中形成明暗对比。茶壶蒸汽已变弱，茶在变凉但两人都没碰杯子。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「您和沈万洲——什么关系。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「同门师兄弟。万象阁——我们一起待过的地方。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「万象阁——不是传说。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「您……就是万象阁的人。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「曾经是。很久以前的事了。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「万象阁真的存在过——秦老一直都知道所有秘密。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶馆，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ══════════════════════════════════════════
+  # SEG04 — 走火入魔（刺探式·追问→野心揭露）
+  # ══════════════════════════════════════════
+  - segment_id: EP30-SEG04
+    shot_ids: [EP30-S07, EP30-S08]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】秦老 CHAR-004-L01（中式立领外套+折扇）【图3】秦老茶馆 SCENE-003【图4】古玉碎片 PROP-001。
+        角色分工：图2可触碰折扇；图1右手按向西装内袋。
+        道具：折扇（图2手中，竹骨扇面墨竹），古玉碎片（PROP-001，图1西装内袋中，隔着布料传来温热脉动）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图2拿起折扇没有打开，只是握在手里，拇指沿扇骨缓缓滑动，暴露不安，脸上仍是温和表情。窗棂光线从侧面打来，半张脸在明处半张在暗处。图1注意到这个细节，身体微微前倾，像猎人嗅到猎物气息。
+        镜头2（6秒）近景 固定：图2点了一下头，动作很轻，像在确认一个早该说出口的事实。放下折扇，双手交叠放在茶桌上，姿态从泡茶叙旧变为正式交代。图1右手不自觉按向西装内袋，碎片隔着布料传来微弱温热脉动，像在回应图2的话。茶馆里檀香气味在两人之间弥漫。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「一起研究的什么。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「一种特殊物品的能力。跟你手上那块——一样。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「碎片。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「沈万洲发现了万象阵的秘密——重定万物价值。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「重定万物价值——什么意思。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「由他来决定，什么值钱，什么不值钱。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶馆，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+        - { file: PROP-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ══════════════════════════════════════════
+  # SEG05 — 终极权力（蓄力式·铺垫→金句）
+  # ══════════════════════════════════════════
+  - segment_id: EP30-SEG05
+    shot_ids: [EP30-S09, EP30-S10]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】秦老 CHAR-004-L01（中式立领外套+折扇）【图3】秦老茶馆 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：图1手指无意识按着口袋里的碎片，指节因用力发白。碎片传来的温热感在加强，像一颗微弱的心脏在布料下跳动。瞳孔中琥珀色微光闪了一下又消退，能力在碎片感应下不由自主激活。图2看着他的动作，细长眼睛里闪过一丝极快的心疼，随即被几十年修炼出的沉稳盖住。
+        镜头2（6秒）中景 固定：茶馆全景，雕花柱、水墨画、格子窗棂构成的中式空间里两人对坐的身影被柔光包裹。茶桌上紫砂壶已完全凉了，壶盖凝着一层细密水珠。图2折扇搁在桌面，和泛黄照片并排，扇面墨竹和照片中门楼在同一画面里，像两段被折叠到一起的时间。图1慢慢松开口袋里碎片的手，指腹残留碎片传来的余温。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「这不是能力——是权力。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「沈万洲想要的，就是这种终极权力。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「重定万物价值——不是预言，是权力宣言。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「您阻止了他。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「我试过。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「然后呢。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶馆，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ══════════════════════════════════════════
+  # SEG06 — 反目与碎裂（独白递进·回忆→金句）
+  # ══════════════════════════════════════════
+  - segment_id: EP30-SEG06
+    shot_ids: [EP30-S11, EP30-S12]
+    duration_sec: 11
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: |
+        【图1】秦老 CHAR-004-L01（中式立领外套+折扇）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】秦老茶馆 SCENE-003。
+        角色分工：图1可触碰折扇；图2不触碰物品。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：图1脸部特写，闭了一下眼，再睁开时温和目光里多了一层几十年的疲惫。窗棂格子光影在布满皱纹的脸上移动，像岁月年轮在皮肤上的刻痕。薄唇紧抿一瞬又松开，白色长眉微微颤动。手中折扇不知何时又被拿起，拇指反复摩挲扇骨关节处，那里已被磨得光滑发亮。
+        镜头2（5秒）近景 固定：图1放下折扇，扇骨在桌面上磕出一声轻响。抬眼直视图2，温和面具下第一次露出一丝裂痕，眼底有遗憾有疲惫还有对面前年轻人的某种愧疚。图2坐在对面，身体从紧绷前倾变为微微后靠，不是放松，是被真相的重量压得向后仰。茶桌上旧照片上三个年轻人的笑容在此刻显得格外讽刺。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「我们反目了。他叛离万象阁。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「我没能彻底拦住他。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「"没能"——不是"没有"。秦老试过……但失败了。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「古玉碎片就是那时候被分成了六块。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「六块……就是为了不让任何人凑齐。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「万象阁最后一道防线。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶馆，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ══════════════════════════════════════════
+  # SEG07 — 五缺一（权力翻转·长铺垫→短翻转）
+  # ══════════════════════════════════════════
+  - segment_id: EP30-SEG07
+    shot_ids: [EP30-S13, EP30-S14]
+    duration_sec: 11
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: |
+        【图1】秦老 CHAR-004-L01（中式立领外套）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】秦老茶馆 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1身体微微前倾，从交代历史的姿态切换为发出警告。细长眼睛在柔光中变得锐利，温和微笑完全消失。窗棂光线从图2背后打来，让图1面部处于相对明亮位置，第一次看起来不像慈祥长辈而像一个知道太多秘密的看守者。图2下意识往后缩了半寸。
+        镜头2（6秒）特写 固定：图2手在膝盖上攥成拳头，西装袖口因动作微微上移露出手腕。呼吸变深，胸腔起伏幅度肉眼可见。图1看着他的反应沉默了两秒，然后嘴唇微微张开，像要说出一句犹豫了很久才决定开口的话。茶馆安静得只剩紫砂壶盖上一滴冷凝水坠落的声音。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「沈万洲已经收集了五块。你手上那块——是最后缺的一块。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「所以他会来找我。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「他不会放过你。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「还有什么——您没说的。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「还有最后一件事。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「他的表情……比说沈万洲的时候还沉重。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶馆，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: audio_bridge
+
+  # ══════════════════════════════════════════
+  # SEG08 — 碎片拥有你（碎片式·警告→危机切断）
+  # ══════════════════════════════════════════
+  - segment_id: EP30-SEG08
+    shot_ids: [EP30-S15, EP30-S16]
+    duration_sec: 11
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-001.png
+    api:
+      text: |
+        【图1】秦老 CHAR-004-L01（中式立领外套）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】秦老茶馆 SCENE-003【图4】古玉碎片 PROP-001。
+        角色分工：图1抬手指向图2右手；图2低头看自己右手。
+        道具：古玉碎片（PROP-001），与图2融合中，金色纹路沿手背蔓延。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1缓缓抬起手指指向图2右手，细长眼睛里第一次出现复杂情绪，既是长辈担忧又是看守者面对宿命的无奈。图2顺着图1手指低头看向自己右手，手背上有东西在皮肤下移动。茶馆柔光在脸上投下暖调，但表情骤然冰冷。
+        镜头2（6秒）大特写 镜头推近：图2右手大特写，镜头缓缓推向手背。皮肤下细密金色纹路像毛细血管浮现，从手腕向指尖缓缓蔓延，脉动频率和心跳同步。金色纹路在茶馆柔光中发出微弱琥珀色光，不是能力激活的光，是碎片自身的光芒从皮肤内部透出。纹路爬过手背到达指节处，指尖在微光中微微颤抖。镜头最后停在金色纹路与皮肤纹理交融的边缘，那条线还在缓慢向前推进。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「使用时间越久，碎片就越与你融合。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「到时候——不是你拥有碎片，而是碎片拥有你。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「……融合？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「它已经在……扩散了。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「碎片拥有我——我是不是也在变成另一个沈万洲。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶馆，写实都市剧风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+        - { file: PROP-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut

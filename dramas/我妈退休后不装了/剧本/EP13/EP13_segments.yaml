@@ -1,0 +1,174 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP13/EP13_剧本.md
+# Source segments: 9 (SEG01-SEG09)
+# Output segments: 9 (SEG01-SEG09)
+# Total: 90s
+# Gate: ALL PASS
+
+episode_id: EP13
+source_md: 剧本/EP13/EP13_剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面具，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
+voice_prompts:
+  CHAR-001: "温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音；开导妹妹时语气温暖有力"
+  CHAR-010: "沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音，初期破碎感和无助感明显，后期对话中逐渐获得力量"
+  CHAR-007: "爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音，闺蜜感十足；转为严肃话题时声调突然压低形成反差"
+
+segments:
+  - &seg1
+    segment_id: EP13-SEG01
+    shot_ids: [EP13-S01]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-010]
+    refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（60岁银灰短发家庭主妇装，端两碗白粥从厨房走出）【图2】林慧芳 CHAR-010-L01（55岁面容沧桑，灰蓝旧外套，坐沙发上抱旧布包，憔悴不安）【图3】林家客厅 SCENE-001（晨光透过窗帘洒进来，温暖家庭氛围）。中景 固定镜头：慧兰把粥放在茶几上坐下。慧芳看着粥眼眶发红。清晨温暖光线，柔和家庭氛围。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-010-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-001, line: "趁热吃。昨晚没睡好吧。"}
+      - {speaker: CHAR-010, line: "睡不着。闭上眼睛全是他的脸。"}
+      - {speaker: CHAR-001, line: "慢慢说。不着急。"}
+      - {speaker: CHAR-010, line: "姐…二十年没见，一见面就是来给你添麻烦。"}
+
+  - <<: *seg1
+    segment_id: EP13-SEG02
+    shot_ids: [EP13-S02]
+    speakers: [CHAR-010, CHAR-001]
+    api:
+      text: "【图1】林慧芳 CHAR-010-L01（捧着热粥碗暖手，手指关节粗糙，低头说话）【图2】林慧兰 CHAR-001-L01（坐在妹妹身边，表情从平静到皱眉）【图3】林家客厅 SCENE-001。近景 正反打：慧芳断断续续讲述丈夫出轨三年。慧兰听着眉头越皱越紧。慧芳边说边哽咽——那个画面在脑子里挥之不去。"
+      content_roles: [{file: CHAR-010-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-010, line: "三年前我就知道了…那个女人打电话来家里，说'你老公在我这儿'。"}
+      - {speaker: CHAR-001, line: "你没问他？"}
+      - {speaker: CHAR-010, line: "问？问了他就打我。我想着…忍忍就过去了。"}
+      - {speaker: CHAR-010, line: "可他这次把那个女的带回家——我的床。我回不去了。"}
+
+  - <<: *seg1
+    segment_id: EP13-SEG03
+    shot_ids: [EP13-S03]
+    speakers: [CHAR-010, CHAR-001]
+    api:
+      text: "【图1】林慧芳 CHAR-010-L01（捂着脸哭，肩膀发抖）【图2】林慧兰 CHAR-001-L01（递纸巾，沉默几秒——想起半年前的自己）【图3】林家客厅 SCENE-001。近景 固定镜头：慧芳捂脸哭。慧兰沉默片刻——她想起半年前的自己也是这样坐在沙发上哭。她递过纸巾动作很轻。"
+      content_roles: [{file: CHAR-010-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-001, line: "所以你就跑出来了。"}
+      - {speaker: CHAR-010, line: "我实在没地方去了…他换了门锁，我连家都进不去。"}
+      - {speaker: CHAR-001, line: "你早该来找我。"}
+      - {speaker: CHAR-010, line: "我怕你笑话我。当初你劝我别嫁他，我不听。"}
+      - {speaker: CHAR-001, line: "姐不笑话你。姐也是过来了。"}
+
+  - <<: *seg1
+    segment_id: EP13-SEG04
+    shot_ids: [EP13-S04]
+    speakers: [CHAR-001, CHAR-010]
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（站起来走到窗边，背对妹妹，晨光照背影——脊背挺直）【图2】林慧芳 CHAR-010-L01（坐沙发上不安地看着姐姐的背影）【图3】林家客厅 SCENE-001。中景 固定镜头：慧兰站起来走到窗边。她的背影在晨光里很瘦但很直。慧芳看着姐姐变了——以前那个含胸低头的人不见了。慧兰转身走回来坐下，表情平静但眼神坚定。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-010-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-001, line: "慧芳。"}
+      - {speaker: CHAR-010, line: "嗯？"}
+      - {speaker: CHAR-001, line: "离婚吧。"}
+      - {speaker: CHAR-010, line: "离…离婚？"}
+      - {speaker: CHAR-001, line: "他敢把女人带回家，这个婚必须离。你听姐的。"}
+
+  - <<: *seg1
+    segment_id: EP13-SEG05
+    shot_ids: [EP13-S05]
+    speakers: [CHAR-010, CHAR-001]
+    api:
+      text: "【图1】林慧芳 CHAR-010-L01（慌乱地找借口，眼神躲闪，手指拧在一起）【图2】林慧兰 CHAR-001-L01（平静地坐着，语气温和但坚定，握住妹妹的手）【图3】林家客厅 SCENE-001。近景 正反打：慧芳被「离婚」吓到，条件反射找借口——孩子、钱、没地方去。慧兰太熟悉这些借口了——全是她曾经对自己说的话。慧兰握住妹妹的手一条条讲道理。"
+      content_roles: [{file: CHAR-010-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-010, line: "不行…孩子还没成家，离了婚他咋办？"}
+      - {speaker: CHAR-001, line: "孩子二十多岁了，他有他自己的日子。"}
+      - {speaker: CHAR-010, line: "我没钱请律师…"}
+      - {speaker: CHAR-001, line: "姐帮你请。你忘了？姐也在打离婚官司。"}
+      - {speaker: CHAR-010, line: "你也在打官司？你和大强哥？"}
+
+  - <<: *seg1
+    segment_id: EP13-SEG06
+    shot_ids: [EP13-S06]
+    speakers: [CHAR-001, CHAR-010]
+    api:
+      text: "【图1】林慧芳 CHAR-010-L01（难以置信地看着姐姐，眼神从震惊到感动）【图2】林慧兰 CHAR-001-L01（轻笑一下，眼神平静而坚定，说话带着力量）【图3】林家客厅 SCENE-001。近景 固定镜头：慧芳难以置信地看着姐姐——这个女人说话有条理眼神坚定。慧兰轻笑着讲自己的故事——撕协议、拒绝带孙子、一个人去三亚。慧芳听着眼泪止不住。"
+      content_roles: [{file: CHAR-010-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-001, line: "半年前我也跟你一样。他说离婚我就签字，他说带孩子我就带。"}
+      - {speaker: CHAR-001, line: "后来我想通了——我忍了他四十年，够了。"}
+      - {speaker: CHAR-010, line: "姐…你怎么变得这么强了？"}
+      - {speaker: CHAR-001, line: "因为我不想再跪着了。你也不用跪。"}
+
+  - <<: *seg1
+    segment_id: EP13-SEG07
+    shot_ids: [EP13-S07]
+    speakers: [CHAR-010, CHAR-001]
+    duration_sec: 10
+    api:
+      text: "【图1】林慧芳 CHAR-010-L01（扑过去抱住姐姐，哭得像个孩子，身体发抖）【图2】林慧兰 CHAR-001-L01（接住妹妹，拍着她的背，眼眶红了但忍着不哭）【图3】林家客厅 SCENE-001（晨光照在姐妹身上，温馨感人）。中景 固定镜头：姐妹俩对视几秒。慧芳的眼神从恐惧慢慢变成一丝光——她扑过来抱住姐姐。慧兰接住她像接住一个快要溺亡的人。两人在晨光里抱着哭。情绪高峰段。"
+      content_roles: [{file: CHAR-010-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-010, line: "姐！"}
+      - {speaker: CHAR-001, line: "好了。不哭了。有姐在。"}
+      - {speaker: CHAR-010, line: "姐…我怕。我真的好怕。"}
+      - {speaker: CHAR-001, line: "怕什么。天塌不下来。姐在这儿。"}
+      - {speaker: CHAR-010, line: "为什么他这么对我…我什么都没做错…"}
+
+  - <<: *seg1
+    segment_id: EP13-SEG08
+    shot_ids: [EP13-S08]
+    speakers: [CHAR-007, CHAR-001, CHAR-010]
+    look_ids: [CHAR-001-L01, CHAR-010-L01, CHAR-007-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】王翠花 CHAR-007-L01（推开客厅门冲进来，短发小卷烫红色广场舞队服，手里拎着水果袋，看到姐妹抱头痛哭愣住）【图2】林慧兰 CHAR-001-L01（擦眼泪转头看向门口）【图3】林慧芳 CHAR-010-L01（从姐姐肩头抬头，泪眼朦胧）【图4】林家客厅 SCENE-001。中景 固定镜头：门突然推开，翠花风风火火冲进来。看到姐妹俩抱头痛哭愣了一下。她把水果一放坐下听完慧芳的事拍桌子。"
+      content_roles: [{file: CHAR-007-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: CHAR-010-L01, role: reference_image, label: 图3}, {file: SCENE-001, role: reference_image, label: 图4}]
+    dialogue:
+      - {speaker: CHAR-007, line: "慧兰！我给你买了——"}
+      - {speaker: CHAR-007, line: "哟，这是…"}
+      - {speaker: CHAR-001, line: "翠花，这是我妹妹慧芳。"}
+      - {speaker: CHAR-007, line: "你老公的事我听说了！那种男人就该离！有什么好哭的！"}
+      - {speaker: CHAR-010, line: "阿姨您…"}
+
+  - <<: *seg1
+    segment_id: EP13-SEG09
+    shot_ids: [EP13-S09]
+    speakers: [CHAR-007, CHAR-010, CHAR-001]
+    look_ids: [CHAR-001-L01, CHAR-010-L01, CHAR-007-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】王翠花 CHAR-007-L01（坐下一拍桌子，绘声绘色讲慧兰的辉煌战绩，表情从兴奋突然变为严肃）【图2】林慧芳 CHAR-010-L01（破涕为笑——这是她出事后第一次笑）【图3】林慧兰 CHAR-001-L01（不好意思地低头笑几下，然后警觉抬头看向翠花）【图4】林家客厅 SCENE-001。近景→特写 镜头推近：翠花讲慧兰的战斗力讲得眉飞色舞，慧芳破涕为笑。然后翠花表情突变压低声音——气氛急转直下。慧兰警觉，悬念拉起。"
+      content_roles: [{file: CHAR-007-L01, role: reference_image, label: 图1}, {file: CHAR-010-L01, role: reference_image, label: 图2}, {file: CHAR-001-L01, role: reference_image, label: 图3}, {file: SCENE-001, role: reference_image, label: 图4}]
+    dialogue:
+      - {speaker: CHAR-007, line: "你姐可厉害了！大寿宴上撕协议、蛋糕糊张大强一脸！你是没看见——全场人都傻了！"}
+      - {speaker: CHAR-010, line: "姐你…你真的？"}
+      - {speaker: CHAR-001, line: "别听她夸张…"}
+      - {speaker: CHAR-007, line: "对了慧兰——我刚在楼下碰见一个人。你前夫。"}
+      - {speaker: CHAR-001, line: "他来了？"}
+      - {speaker: CHAR-007, line: "他听说你帮妹妹打官司的事，在楼下跳脚骂街呢。说'林慧兰你等着'。"}

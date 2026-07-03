@@ -1,0 +1,298 @@
+episode_id: EP34
+source_md: 剧本/EP34/EP34_曾经的眼睛.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+# voice_prompts source: 资产/声音卡片.md (P0 authority)
+voice_prompts:
+  CHAR-001: "Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones"
+  CHAR-002: "Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes"
+  CHAR-008: "Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability"
+
+segments:
+  # ── SEG01: 震惊（S01, 8s）──
+  # ⚠️ SEMANTIC_WARNING: SCENE-009 defined as "城市街头/天台"(exterior) but used here as "高档茶室·包间"(interior)
+  - segment_id: EP34-SEG01
+    shot_ids: [EP34-S01]
+    duration_sec: 8
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-009.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装、白衬衫不系领带）【图2】沈万洲 CHAR-008-L01（深灰三件套西装、无框眼镜、银质袖扣）【图3】高档茶室 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 固定镜头：深色胡桃木墙板茶室，紫檀茶桌上紫砂壶热气袅袅，暖黄吊灯洒下柔光，窗外城市灯火冷蓝。图1从门框旁缓缓坐回座位，手指攥紧茶杯边缘。图2纹丝不动，嘴角那抹若有若无的笑意尚未消退。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「空白……你也有过？」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「万象阁。听过吗？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶室环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ── SEG02: 万象阁往事（S02, 10s）──
+  # ⚠️ SEMANTIC_WARNING: SCENE-009 interior/exterior mismatch (see SEG01)
+  - segment_id: EP34-SEG02
+    shot_ids: [EP34-S02]
+    duration_sec: 10
+    speakers: [CHAR-008]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-009.png
+    api:
+      text: |
+        【图1】沈万洲 CHAR-008-L01（深灰三件套西装、无框眼镜）【图2】高档茶室 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写 缓推：图1面部特写，银灰鬓角在暖黄灯光下泛着冷辉。无框眼镜后的双眼微微眯起——不是算计，是某种遥远的回忆。紫砂壶的热气从他下巴前飘过，像一层透明的纱帘。他的表情第一次流露出近乎温柔的东西。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「三十多年前，万象阁。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「一个雨夜，我亲眼看到碎片融进一个人的眼睛里。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「然后……融进了我的。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶室环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ── SEG03: 弱点之眼（S03, 10s）──
+  # ⚠️ SEMANTIC_WARNING: SCENE-009 interior/exterior mismatch (see SEG01)
+  - segment_id: EP34-SEG03
+    shot_ids: [EP34-S03]
+    duration_sec: 10
+    speakers: [CHAR-008]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-009.png
+    api:
+      text: |
+        【图1】沈万洲 CHAR-008-L01（深灰三件套西装、无框眼镜）【图2】高档茶室 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：图1侧面近景，窗外冷蓝城市天际线衬出他的剪影。他双手捧着茶杯却不喝，玻璃窗上他的倒影与城市灯火重叠——像一个人悬浮在两个世界之间。手指在杯沿轻轻摩挲，这是他整场谈话中第一个不安的小动作。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「万象阁不只你和秦老。我曾经是第三个。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「我们的能力同源，但方向不同。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「你看到的是标价。我看到的——是弱点。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶室环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ── SEG04: 裂缝（S04, 8s）──
+  # ⚠️ SEMANTIC_WARNING: SCENE-009 interior/exterior mismatch (see SEG01)
+  - segment_id: EP34-SEG04
+    shot_ids: [EP34-S04]
+    duration_sec: 8
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-009.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装、白衬衫不系领带）【图2】高档茶室 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）近景 固定镜头：图1身体不自觉前倾，双肘撑在膝盖上，十指交叉。茶室暖光在他脸上切割出锐利的阴影线条，眉心深锁。听到"弱点"二字时瞳孔微缩，下颌绷紧——他正在重新理解眼前这个人的全部。深蓝西装袖口银质纽扣在灯光下一闪。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「弱点。所以你在商界——」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「所有东西都有裂缝。我只是比别人先看到。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「他不是看到值多少钱。是看到哪里会碎。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶室环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ── SEG05: 代价（S05, 10s）──
+  # ⚠️ SEMANTIC_WARNING: SCENE-009 interior/exterior mismatch (see SEG01)
+  - segment_id: EP34-SEG05
+    shot_ids: [EP34-S05]
+    duration_sec: 10
+    speakers: [CHAR-008]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-009.png
+    api:
+      text: |
+        【图1】沈万洲 CHAR-008-L01（深灰三件套西装、无框眼镜）【图2】高档茶室 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写 缓推：图1的眼神从超然的平静缓缓转为某种近乎脆弱的东西——眼睑微微下垂，嘴唇抿成一条极细的线。手指在茶杯边缘无意识地转动，暖光在他的无框眼镜上晕开一圈柔和的光环。声音依然平稳，但语速明显比之前慢了半拍。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「代价来得很慢。起初只是吃什么都没味道。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「后来发现，不是味道没了。是感受没了。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「有人把我心里的开关，一个一个拔掉了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶室环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ── SEG06: 母亲的手温（S06+S07, 12s）──
+  # ⚠️ SEMANTIC_WARNING: SCENE-009 interior/exterior mismatch (see SEG01)
+  - segment_id: EP34-SEG06
+    shot_ids: [EP34-S06, EP34-S07]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-009.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装、白衬衫不系领带）【图2】沈万洲 CHAR-008-L01（深灰三件套西装、无框眼镜）【图3】高档茶室 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：两人隔茶桌对坐。图1刚端起茶杯的手停在半空，杯口热气模糊了图2的脸。图2突然停顿——那双几乎从无情绪的眼睛里，有什么东西裂开了一条缝。茶桌上一盏暖灯在他和图1之间投下泾渭分明的光影。
+        镜头2（7秒）特写 缓推：图2闭了一下眼，喉结微微滚动。再睁眼时恢复了那副精密机器的面孔——但眼角有一丝不易察觉的泛红。无框眼镜片上映出图1沉默的倒影。他端起茶杯喝了一口，动作比之前慢了整整一拍。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「什么时候最严重？」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「我妈去世那晚。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「我在走廊里。眼前全是数字——整栋医院的标价。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「可我感受不到我妈最后的手温。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「三十年了。这个数字还在。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶室环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ── SEG07: 两个选择（S08+S09, 12s）── 转场: audio_bridge
+  # ⚠️ SEMANTIC_WARNING: SCENE-009 interior/exterior mismatch (see SEG01)
+  - segment_id: EP34-SEG07
+    shot_ids: [EP34-S08, EP34-S09]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-008]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-009.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装、白衬衫不系领带）【图2】沈万洲 CHAR-008-L01（深灰三件套西装、无框眼镜、银质袖扣）【图3】高档茶室 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：图1没有说话，缓缓放下茶杯。手指在桌面上松开了攥紧的拳头——他听懂了。图2已经站起身来，单手扣上西装扣子，银质袖扣在灯下一闪。窗外城市夜景在他身后铺展开来，像一张巨大的价目表。
+        镜头2（6秒）近景 固定镜头：图2站在窗边，逆光剪影。银灰鬓角在窗外霓虹的冷蓝光中泛出冷辉。他微微侧头看向图1，面容隐在半明半暗中——像一个给出最终判决的法官。声音恢复了机器般的精确与冷酷。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「所以你想要我的碎片——修复你自己。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「你有两个选择。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「一，交出碎片。十辈子花不完的钱。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「二，留着它。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「慢慢体会它吞噬你人性的感觉。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶室环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: audio_bridge
+
+  # ── SEG08: 残茶（S10, 8s）── 含 PROP-001
+  # ⚠️ SEMANTIC_WARNING: SCENE-009 interior/exterior mismatch (see SEG01)
+  - segment_id: EP34-SEG08
+    shot_ids: [EP34-S10]
+    duration_sec: 8
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-009.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-001.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装、白衬衫不系领带）【图2】高档茶室 SCENE-009【图3】古玉碎片 PROP-001。
+        角色分工：仅图1可触碰图3（古玉碎片）；图2为场景环境。
+        道具：古玉碎片（拇指大小，不规则形状，翠绿色半透明翡翠，表面有古老纹路，内部泛出极微弱金色光芒），攥在图1掌心。
+        竖屏9比16连贯叙事。
+        镜头1（8秒）中景 缓推：茶室空了。图1独自坐着，对面只剩一把空椅。两杯残茶搁在桌上——一杯满的没动过，一杯见了底。暖黄灯光下图1的手慢慢摊开，掌心攥着图3，碎片在暗淡灯光中泛出极微弱的金色微光。镜头缓缓推近他攥紧的拳头。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「吞噬人性……他说的是真的吗？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「值不值……我说了算。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市茶室环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  # ── SEG09: 不用眼睛看她（S11+S12, 10s）── 转场: dissolve from SEG08
+  - segment_id: EP34-SEG09
+    shot_ids: [EP34-S11, EP34-S12]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-009.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装、白衬衫不系领带）【图2】苏念 CHAR-002-L01（深灰职业西装套裙、低马尾、珍珠耳钉）【图3】城市街头 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）全景 固定镜头：茶室门外的街边路灯下，图2独自站着等他。暖黄路灯光晕洒在她肩头，深灰职业西装、低马尾整齐利落，耳间珍珠耳钉微闪。她双手交叠在身前，看到茶室门推开时微微抬起了下巴。图1推门出来，冷色霓虹和暖色路灯在他身上交汇——看到图2的瞬间脚步顿了一下。
+        镜头2（5秒）近景 固定镜头：两人隔着几步距离对视。城市夜景在他们身后虚化成一片光斑。夜风拂过图2额前碎发，她似乎感受到了什么——不是言语，是图1目光中某种与以往不同的温度。图2嘴角微微扬起。图1走上前去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「不看。这一次不看她的标价。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「只想用我自己的眼睛，看她。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「等多久了？」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「不重要。你回来了就好。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市街头夜景，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: dissolve

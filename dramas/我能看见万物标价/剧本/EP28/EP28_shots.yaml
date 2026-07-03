@@ -1,0 +1,385 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP28/EP28_周天明的下场.md
+# Source shots: 12 (EP28-S01 to EP28-S12)
+# Output shots: 12 (EP28-S01 to EP28-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 88s (self-calculated: 5+5+6+5+6+5+11+5+6+11+11+11 = 88, matches VALIDATION block)
+# Output total duration: 88s
+# Gate status: ALL PASS
+
+episode_id: EP28
+source_md: 剧本/EP28/EP28_周天明的下场.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+shots:
+  # ── SEG01 ──
+  - shot_id: EP28-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L02, CHAR-003-L01]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02【图2】赵大壮 CHAR-003-L01【图3】古玩街 SCENE-002。中景 固定：清晨古玩街开市，图1深蓝西装微皱走过旧货摊，图2橙色运动外套手拿铜镜咧嘴笑。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "辰哥，这玩意儿值多少？"
+      - speaker: CHAR-001
+        line: "三百。"
+      - speaker: CHAR-003
+        line: "没意思。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP28-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L02, CHAR-003-L01]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02【图2】赵大壮 CHAR-003-L01【图3】古玩街 SCENE-002。近景 固定：图1蹲在画卷摊前手指抚过宣纸边缘，图2凑近圆脸表情从好奇变担心，晨光从帆布篷缝隙洒落。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "辰哥，你眼圈黑的。又做那个梦了？"
+      - speaker: CHAR-001
+        line: "没事。"
+      - speaker: CHAR-001
+        line: "[内心] 碎片安静了。可那句\"不要相信看守者\"——还卡在脑子里。"
+    transition_to_next: hard_cut
+
+  # ── SEG02 ──
+  - shot_id: EP28-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L02, CHAR-006-L02, CHAR-003-L01]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-006-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02【图2】周天明 CHAR-006-L02【图3】赵大壮 CHAR-003-L01【图4】古玩街 SCENE-002。中景 固定：图2蓬头垢面从巷口踉跄走来扑通跪在图1脚边，图1后退半步瞳孔骤缩，图3铜镜差点脱手。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "陆辰！陆辰——求你帮帮我！"
+      - speaker: CHAR-001
+        line: "……周天明？"
+      - speaker: CHAR-003
+        line: "卧槽——这不是你那黑心老板吗？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP28-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-006-L02, CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-006-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L02.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "【图1】周天明 CHAR-006-L02【图2】陆辰 CHAR-001-L02【图3】古玩街 SCENE-002。近景 固定：图1跪地额头几乎贴地双手攥住图2裤脚，脸上泪水混灰尘划出泥痕，图2侧身避开嘴角微微上扬。"
+      content_roles:
+        - { file: CHAR-006-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "我知道你恨我。当年是我瞎了眼。"
+      - speaker: CHAR-006
+        line: "林少卿的人用完我就甩——店没了，房没了……"
+      - speaker: CHAR-001
+        line: "起来说话。"
+    transition_to_next: hard_cut
+
+  # ── SEG03 ──
+  - shot_id: EP28-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-003-L01, CHAR-006-L02]
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        CHAR-006-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L02.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "【图1】赵大壮 CHAR-003-L01【图2】周天明 CHAR-006-L02【图3】古玩街 SCENE-002。中景 固定：图1挡在前面一手指着图2鼻子，图2瑟缩但跪姿不变仰头盯着远处，旁边摊主侧目张望。"
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "帮？你当年怎么对辰哥的？扣工资偷鉴定——忘啦？"
+      - speaker: CHAR-006
+        line: "我不是来求原谅的。我有东西——有用的东西。"
+      - speaker: CHAR-003
+        line: "你还有啥值钱的？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP28-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-006-L02, CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-006-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L02.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "【图1】周天明 CHAR-006-L02【图2】陆辰 CHAR-001-L02【图3】古玩街 SCENE-002。特写 固定：图1从夹克内袋掏出皱巴巴的手绘地图颤抖举向图2方向，眼中有孤注一掷的急切，图2目光落在地图上停了两秒。"
+      content_roles:
+        - { file: CHAR-006-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "林少卿的仓库——城西旧厂房区。藏着从万象阁流出的文物，几十件。"
+      - speaker: CHAR-006
+        line: "每件上面都附着发光的碎片。跟你那块——一模一样。"
+      - speaker: CHAR-001
+        line: "碎片？"
+    transition_to_next: audio_bridge
+
+  # ── SEG04 ──
+  - shot_id: EP28-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-006-L02, CHAR-001-L02, CHAR-003-L01]
+      prop_ids: [PROP-001]
+    assets:
+      look_urls:
+        CHAR-006-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L02.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-001.png
+    api:
+      text: "【图1】周天明 CHAR-006-L02【图2】陆辰 CHAR-001-L02【图3】赵大壮 CHAR-003-L01【图4】古玩街 SCENE-002【图5】古玉碎片 PROP-001。近景 固定：图1跪姿双手把地图举过头顶，图2手指按向口袋碎片微热，图3在后面张嘴。"
+      content_roles:
+        - { file: CHAR-006-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+        - { file: PROP-001, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "亲眼见过。那些碎片附着在文物表面——林少卿把它们当命根子。"
+      - speaker: CHAR-001
+        line: "万象阁流出的文物……沈万洲的东西——怎么会在林少卿手里？"
+      - speaker: CHAR-001
+        line: "[内心] 碎片发热了。要么这人说的是真的——要么……我的能力在被什么东西牵引。"
+      - speaker: CHAR-003
+        line: "万象阁……秦老提过这名字吧？"
+    transition_to_next: hard_cut
+
+  # ── SEG05 ──
+  - shot_id: EP28-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02【图2】古玩街 SCENE-002。特写 推近：图1眼部特写瞳孔泛起琥珀色光晕，金色光芒在虹膜边缘脉动，视野中金色数字浮现（AR叠加效果）。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "[内心] 诚意值……89%。信息价值——一百二十万。"
+      - speaker: CHAR-001
+        line: "[内心] 不算满值。他有私心——但核心情报是真的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP28-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L02, CHAR-003-L01]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02【图2】赵大壮 CHAR-003-L01【图3】古玩街 SCENE-002。近景 固定：图1眼中琥珀色光缓缓消退恢复深棕色，抬手掌心朝外制止图2，晨风吹过帆布篷光影在图1脸上明灭交替。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "辰哥，这老狐狸的话你也信？"
+      - speaker: CHAR-001
+        line: "他说的是真话。89%的真。"
+      - speaker: CHAR-001
+        line: "[内心] 林少卿和沈万洲之间的供应链——这条线，值一百二十万。"
+    transition_to_next: hard_cut
+
+  # ── SEG06 ──
+  - shot_id: EP28-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L02, CHAR-006-L02, CHAR-003-L01]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-006-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02【图2】周天明 CHAR-006-L02【图3】赵大壮 CHAR-003-L01【图4】古玩街 SCENE-002。中景 固定：图1转身居高临下看着图2缓缓伸出掌心朝上，图2仰头泪水糊脸双手攥着地图，图3在后面双手抱胸嘴噘。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "周天明。曾经这条街你说了算。"
+      - speaker: CHAR-001
+        line: "现在——轮到我了。"
+      - speaker: CHAR-006
+        line: "你说……你说……"
+      - speaker: CHAR-003
+        line: "辰哥这是要收编他？"
+    transition_to_next: hard_cut
+
+  # ── SEG07 ──
+  - shot_id: EP28-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L02, CHAR-006-L02]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-006-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L02.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02【图2】周天明 CHAR-006-L02【图3】古玩街 SCENE-002。近景 固定：图1从图2手中抽走皱巴巴的地图展开看了一眼折好放进西装内袋，图2的手空了悬在半空颤了一下缩回去攥着衣角。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "我帮你重新开始。但你得帮我做一件事。"
+      - speaker: CHAR-006
+        line: "什么都行——陆辰你说，我周天明这条命都是你的！"
+      - speaker: CHAR-001
+        line: "别卖命。卖你的脑子就够了。"
+      - speaker: CHAR-006
+        line: "帮你对付林少卿？"
+    transition_to_next: hard_cut
+
+  # ── SEG08 ──
+  - shot_id: EP28-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-002
+      look_ids: [CHAR-001-L02, CHAR-006-L02, CHAR-003-L01]
+      prop_ids: [PROP-001]
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-006-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-006-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-002.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-001.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02【图2】周天明 CHAR-006-L02【图3】赵大壮 CHAR-003-L01【图4】古玩街 SCENE-002【图5】古玉碎片 PROP-001。中景 拉远：图1转身看向街道远处嘴角勾起冷冽弧度，口袋碎片微光透过西装布料，图2跪地仰头望着他，图3咧嘴竖大拇指。镜头缓缓拉远三人形成三角构图。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+        - { file: PROP-001, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "帮我端掉林少卿的后方。"
+      - speaker: CHAR-003
+        line: "这波血赚——白送一个仓库！"
+      - speaker: CHAR-001
+        line: "[内心] 仓库里的碎片……秦老说万象阵需要六块。沈万洲有五块——林少卿手里的，是第几条线？"
+    transition_to_next: hard_cut

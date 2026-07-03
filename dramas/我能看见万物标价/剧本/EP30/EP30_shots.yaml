@@ -1,0 +1,535 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP30/EP30_旧照之谜.md
+# Source shots: 16 (EP30-S01 to EP30-S16)
+# Output shots: 16 (EP30-S01 to EP30-S16)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s (self-calculated: 5+6+5+6+6+6+5+6+6+6+6+5+5+6+5+6)
+# Output total duration: 90s
+# Gate status: ALL PASS
+
+episode_id: EP30
+source_md: 剧本/EP30/EP30_旧照之谜.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+shots:
+  # ── SEG01 ──
+  - shot_id: EP30-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝修身西装+白衬衫）【图2】秦老 CHAR-004-L01（中式立领外套+折扇）【图3】秦老茶馆 SCENE-003。中景 固定：图1推门而入，径直走到茶桌前，图2端坐对面，紫砂壶蒸汽在两人之间升起。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "秦老。我有个东西给您看。"
+      - speaker: CHAR-004
+        line: "先喝茶。你脸色不好。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP30-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-004
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+      prop_urls:
+        PROP-004: assets/props/PROP-004.png  # WARNING: no CDN URL — 场景内置道具
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】秦老 CHAR-004-L01（中式立领外套）【图3】秦老茶馆 SCENE-003【图4】旧照片 PROP-004。特写 固定：图1从西装内袋掏出泛黄照片拍在茶桌上，图2倒茶动作凝固，窗棂格子光影在脸上移动。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+        - { file: PROP-004, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "这个人——您认识吧。"
+      - speaker: CHAR-004
+        line: "……你从哪弄来的。"
+      - speaker: CHAR-001
+        line: "照片里的人。您认识。"
+    transition_to_next: hard_cut
+
+  # ── SEG02 ──
+  - shot_id: EP30-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-004-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: "【图1】秦老 CHAR-004-L01（中式立领外套）【图2】秦老茶馆 SCENE-003。特写 镜头推近：图1脸部特写，目光从照片移到对面又移回，微笑僵了一瞬，缓缓放下茶壶。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "……三十年了。我以为这张照片早就不在了。"
+      - speaker: CHAR-001
+        line: "照片里的人——是谁。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP30-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-001-L02
+      prop_ids:
+        - PROP-004
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+      prop_urls:
+        PROP-004: assets/props/PROP-004.png  # WARNING: no CDN URL — 场景内置道具
+    api:
+      text: "【图1】秦老 CHAR-004-L01（中式立领外套）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】秦老茶馆 SCENE-003【图4】旧照片 PROP-004。近景 固定：图1手指抚过照片表面，指腹在右侧年轻人脸上停留，图2双手撑桌沿前倾。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+        - { file: PROP-004, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "左边这个——是我。年轻时候的我。"
+      - speaker: CHAR-004
+        line: "右边这个人……"
+      - speaker: CHAR-004
+        line: "他叫沈万洲。"
+      - speaker: CHAR-001
+        line: "沈万洲……秦老和沈万洲，真的认识。"
+    transition_to_next: hard_cut
+
+  # ── SEG03 ──
+  - shot_id: EP30-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】秦老 CHAR-004-L01（中式立领外套）【图3】秦老茶馆 SCENE-003。近景 固定：图1缓缓坐下，与图2隔茶桌对坐，紫砂壶蒸汽在两人之间升腾，图2目光落在墙上古画的褪色圆形符号上。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "您和沈万洲——什么关系。"
+      - speaker: CHAR-004
+        line: "同门师兄弟。万象阁——我们一起待过的地方。"
+      - speaker: CHAR-001
+        line: "万象阁——不是传说。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP30-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】秦老 CHAR-004-L01（中式立领外套）【图3】秦老茶馆 SCENE-003。特写 固定：图1眼部特写，浓眉下瞳孔微缩，虹膜边缘泛起琥珀色微光。镜头切回两人对坐，窗棂光影形成明暗对比。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "您……就是万象阁的人。"
+      - speaker: CHAR-004
+        line: "曾经是。很久以前的事了。"
+      - speaker: CHAR-001
+        line: "万象阁真的存在过——秦老一直都知道所有秘密。"
+    transition_to_next: hard_cut
+
+  # ── SEG04 ──
+  - shot_id: EP30-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】秦老 CHAR-004-L01（中式立领外套+折扇）【图3】秦老茶馆 SCENE-003。近景 固定：图2拿起折扇握在手中，拇指沿扇骨滑动，侧光将面部劈成明暗两半，图1身体前倾。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "一起研究的什么。"
+      - speaker: CHAR-004
+        line: "一种特殊物品的能力。跟你手上那块——一样。"
+      - speaker: CHAR-001
+        line: "碎片。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP30-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-001-L02
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-001.png
+    api:
+      text: "【图1】秦老 CHAR-004-L01（中式立领外套）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】秦老茶馆 SCENE-003【图4】古玉碎片 PROP-001。近景 固定：图1放下折扇双手交叠放桌面，姿态从泡茶变为正式交代，图2右手不自觉按向西装内袋。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+        - { file: PROP-001, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "沈万洲发现了万象阵的秘密——重定万物价值。"
+      - speaker: CHAR-001
+        line: "重定万物价值——什么意思。"
+      - speaker: CHAR-004
+        line: "由他来决定，什么值钱，什么不值钱。"
+    transition_to_next: hard_cut
+
+  # ── SEG05 ──
+  - shot_id: EP30-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-001.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】秦老 CHAR-004-L01（中式立领外套）【图3】秦老茶馆 SCENE-003。特写 固定：图1手指无意识按着口袋里的碎片，指节因用力发白，瞳孔中琥珀色微光闪现。图2细长眼睛闪过一丝心疼。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "这不是能力——是权力。"
+      - speaker: CHAR-004
+        line: "沈万洲想要的，就是这种终极权力。"
+      - speaker: CHAR-001
+        line: "重定万物价值——不是预言，是权力宣言。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP30-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+      prop_ids:
+        - PROP-004
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+      prop_urls:
+        PROP-004: assets/props/PROP-004.png  # WARNING: no CDN URL — 场景内置道具
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】秦老 CHAR-004-L01（中式立领外套+折扇）【图3】秦老茶馆 SCENE-003。中景 固定：茶馆全景，雕花柱水墨画格子窗棂构成的中式空间里两人对坐，紫砂壶已凉，折扇和旧照片并排桌面上。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "您阻止了他。"
+      - speaker: CHAR-004
+        line: "我试过。"
+      - speaker: CHAR-001
+        line: "然后呢。"
+    transition_to_next: hard_cut
+
+  # ── SEG06 ──
+  - shot_id: EP30-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-004-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: "【图1】秦老 CHAR-004-L01（中式立领外套+折扇）【图2】秦老茶馆 SCENE-003。特写 固定：图1脸部特写，闭眼再睁，温和目光里多了疲惫，窗棂格子光影在皱纹上移动，拇指反复摩挲扇骨关节。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "我们反目了。他叛离万象阁。"
+      - speaker: CHAR-004
+        line: "我没能彻底拦住他。"
+      - speaker: CHAR-001
+        line: '"没能"——不是"没有"。秦老试过……但失败了。'
+    transition_to_next: hard_cut
+
+  - shot_id: EP30-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-001-L02
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: "【图1】秦老 CHAR-004-L01（中式立领外套）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】秦老茶馆 SCENE-003。近景 固定：图1放下折扇磕出轻响，抬眼直视图2，眼底有遗憾和愧疚。图2从紧绷前倾变为微微后靠。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "古玉碎片就是那时候被分成了六块。"
+      - speaker: CHAR-001
+        line: "六块……就是为了不让任何人凑齐。"
+      - speaker: CHAR-004
+        line: "万象阁最后一道防线。"
+    transition_to_next: hard_cut
+
+  # ── SEG07 ──
+  - shot_id: EP30-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-001-L02
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: "【图1】秦老 CHAR-004-L01（中式立领外套）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】秦老茶馆 SCENE-003。近景 固定：图1身体前倾，温和微笑完全消失，细长眼睛变得锐利。图2下意识往后缩了半寸。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "沈万洲已经收集了五块。你手上那块——是最后缺的一块。"
+      - speaker: CHAR-001
+        line: "所以他会来找我。"
+      - speaker: CHAR-004
+        line: "他不会放过你。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP30-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-004-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】秦老 CHAR-004-L01（中式立领外套）【图3】秦老茶馆 SCENE-003。特写 固定：图1手在膝盖上攥成拳头，呼吸变深胸腔起伏。图2沉默两秒后嘴唇微张，终于要说出犹豫已久的话。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "还有什么——您没说的。"
+      - speaker: CHAR-004
+        line: "还有最后一件事。"
+      - speaker: CHAR-001
+        line: "他的表情……比说沈万洲的时候还沉重。"
+    transition_to_next: audio_bridge
+
+  # ── SEG08 ──
+  - shot_id: EP30-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-001-L02
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+    api:
+      text: "【图1】秦老 CHAR-004-L01（中式立领外套）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】秦老茶馆 SCENE-003。近景 固定：图1缓缓抬手指向图2右手，眼中既有长辈担忧又有看守者面对宿命的无奈。图2低头看向自己右手。"
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "使用时间越久，碎片就越与你融合。"
+      - speaker: CHAR-004
+        line: "到时候——不是你拥有碎片，而是碎片拥有你。"
+      - speaker: CHAR-001
+        line: "……融合？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP30-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L02
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-003.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-001.png
+    api:
+      text: "【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】秦老茶馆 SCENE-003【图3】古玉碎片 PROP-001。大特写 镜头推近：图1右手大特写，皮肤下细密金色纹路像毛细血管浮现，从手腕向指尖蔓延，脉动频率与心跳同步，金色纹路在柔光中发出琥珀色微光。"
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "它已经在……扩散了。"
+      - speaker: CHAR-001
+        line: "碎片拥有我——我是不是也在变成另一个沈万洲。"
+    transition_to_next: hard_cut

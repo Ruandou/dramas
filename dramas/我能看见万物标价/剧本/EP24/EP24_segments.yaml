@@ -1,0 +1,275 @@
+episode_id: EP24
+source_md: 剧本/EP24/EP24_商战棋局.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+voice_prompts:
+  CHAR-001: "Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones"
+  CHAR-005: "Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes"
+  CHAR-007: "Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked"
+  CHAR-009: "Female, 40 years old, strong and authoritative tone, fast and efficient pace, direct business communication style, no unnecessary words, firm and decisive, brief moment of vulnerability when discussing family"
+  # ⚠️ WARNING: [待补：竞标主评审] — pending CHAR-GRP-08+, no voice_prompt assigned; temp line below
+  # PENDING_REVIEWER: "Male, 50 years old, formal and authoritative tone, measured professional pace, impersonal bureaucratic delivery"
+
+segments:
+  # ── SEG01: 峰会入场 ──
+  - segment_id: EP24-SEG01
+    shot_ids: [EP24-S01, EP24-S02, EP24-S03]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-009]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-009-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-006.png
+    api:
+      text: |
+        【图1】方远 CHAR-009-L01（黑色修身西装，银色手镯）【图2】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带）【图3】会所 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）中景 固定：会所入口长廊，金色壁灯在深色大理石地面投下暖黄光斑，图1穿黑色修身西装步伐利落走在前方半步，图2深蓝西装跟随身侧目光沉稳扫过走廊两侧。
+        镜头2（4秒）近景 固定：图1推开大厅双开木门，暖色灯光倾泻在深蓝西装肩线上，瞳孔微微泛起琥珀色光泽，视野边缘浮现金色AR数据碎片闪烁。
+        镜头3（4秒）中景 固定：大厅内部水晶吊灯在穹顶折出碎金光芒，图1端起香槟递给图2银镯与杯壁轻碰，压低声音靠近图2耳侧，图2接过酒杯没喝视线越过图1肩膀扫向大厅深处。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方远，Female, 40 years old, strong and authoritative tone, fast and efficient pace, direct business communication style, no unnecessary words, firm and decisive, brief moment of vulnerability when discussing family）：「今晚到场的，控制了城北半个商圈。」
+        对白（方远，Female, 40 years old, strong and authoritative tone, fast and efficient pace, direct business communication style, no unnecessary words, firm and decisive, brief moment of vulnerability when discussing family）：「别出风头。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「不风头。我看牌。」
+        对白（方远，Female, 40 years old, strong and authoritative tone, fast and efficient pace, direct business communication style, no unnecessary words, firm and decisive, brief moment of vulnerability when discussing family）：「前三排的人——都跟林少卿有过往来。小心。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「我来——看牌的。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-009-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ── SEG02: 全场扫描（独白段） ──
+  - segment_id: EP24-SEG02
+    shot_ids: [EP24-S04]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-006.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带）【图2】会所 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写 缓推：图1瞳孔中琥珀色光芒加深，半透明金色数据流在视野中层层叠叠地涌动，每个人的头顶浮出身价数字、商业意图标签、可信度百分比，目光从左到右缓慢扫过一个接一个读取，表情纹丝不动只有握杯指节微微收紧，镜头缓缓推近至眼部特写金色光点在瞳孔深处旋转。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「身价、意图、可信度……每个人的底牌都摊在我眼前。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「不对——三个人，关联栏……同一个名字。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「沈万洲。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ── SEG03: 棋子锁定 ──
+  # ⚠️ SEMANTIC_WARNING: 3 speakers (CHAR-001, CHAR-009, plus CHAR-001 aside) — exceeds ≤2 limit; source .md defines this beat as single segment
+  - segment_id: EP24-SEG03
+    shot_ids: [EP24-S05, EP24-S06]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-009]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-009-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-006.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带）【图2】方远 CHAR-009-L01（黑色修身西装，银色手镯）【图3】会所 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1视线依次锁定三个人，金色数据流在这三人头顶同时闪烁同一个红色标签，喉结微动下颌线条绷紧，周围觥筹交错的嘈杂声似乎远去。
+        镜头2（6秒）近景 固定：图2侧耳靠近手中香槟杯微微倾斜，杯中液体在壁灯光中晃出金色弧线，听完话后眼神骤变嘴唇抿紧又松开，有人经过时两人装作若无其事碰杯。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「三颗棋子。就坐在今晚的会场里。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「方远。」
+        对白（方远，Female, 40 years old, strong and authoritative tone, fast and efficient pace, direct business communication style, no unnecessary words, firm and decisive, brief moment of vulnerability when discussing family）：「沈万洲的手……伸得这么深？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「截他一条资金线。」
+        对白（方远，Female, 40 years old, strong and authoritative tone, fast and efficient pace, direct business communication style, no unnecessary words, firm and decisive, brief moment of vulnerability when discussing family）：「风险不小。但——我跟你。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  # ── SEG04: 联手布局 ──
+  # ⚠️ SEMANTIC_WARNING: 3 speakers in source (CHAR-001 aside + CHAR-001/CHAR-009 dialogue); source .md defines this beat as single segment
+  - segment_id: EP24-SEG04
+    shot_ids: [EP24-S07, EP24-S08]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-009]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-009-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-006.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带）【图2】方远 CHAR-009-L01（黑色修身西装，银色手镯）【图3】会所 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：竞标区大厅中央U形会议桌，红木桌面上整齐排列项目文件和水杯，图1坐在桌左侧双手交叉放在桌上，深蓝西装肩线在顶灯下切出利落光影，目光落在对面空椅背上搭着的三件套西装外套。
+        镜头2（6秒）近景 固定：图2坐在图1斜对面手指在项目文件上轻点两下另一只手拢住耳侧短发，目光抬起直视图1，桌面台灯在两人之间拉出一道暖光分界线。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「资金线从今晚的竞标切入——最干净。」
+        对白（方远，Female, 40 years old, strong and authoritative tone, fast and efficient pace, direct business communication style, no unnecessary words, firm and decisive, brief moment of vulnerability when discussing family）：「我出资，你出手。对半。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「今晚不动，来不及了。」
+        对白（方远，Female, 40 years old, strong and authoritative tone, fast and efficient pace, direct business communication style, no unnecessary words, firm and decisive, brief moment of vulnerability when discussing family）：「成交。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ── SEG05: 林少卿出手 ──
+  - segment_id: EP24-SEG05
+    shot_ids: [EP24-S09, EP24-S10]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-007-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-006.png
+    api:
+      text: |
+        【图1】林少卿 CHAR-007-L01（定制深蓝三件套西装，丝质口袋巾，油头后梳）【图2】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带）【图3】会所 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1从第一排站起，定制深蓝三件套纹丝不乱，慢条斯理扣上西装扣子薄唇弯出轻蔑弧度，右手从内袋抽出牛皮纸文件指尖在封口弹了一下，身后水晶吊灯碎光在肩线碎成星点。
+        镜头2（6秒）近景 固定：会场哗然低语如潮水涌开，图2坐在原位没动深蓝西装纹丝不动，瞳孔微缩下颌收紧但双手平放桌面，图1已走到评审席前将牛皮纸文件推到主评审面前两指点纸。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林少卿，Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked）：「竞标之前——有份东西，诸位该看看。」
+        对白（林少卿，Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked）：「陆辰先生，资金来源不明。涉嫌洗钱。」
+        对白（林少卿，Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked）：「两年，月薪三千到千万级。资金链——重大疑点。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「竞标还没开始，你就准备了这个？」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ── SEG06: 当面拆穿 ──
+  - segment_id: EP24-SEG06
+    shot_ids: [EP24-S11, EP24-S12]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-007-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-006.png
+    api:
+      text: |
+        【图1】林少卿 CHAR-007-L01（定制深蓝三件套西装，丝质口袋巾，油头后梳）【图2】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带）【图3】会所 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1侧脸特写，细长眼睛浮出胜利者优越感薄唇弯出弧度，微微仰头，油头在吊灯下泛着精密光泽，手指无意识转了一下袖扣银色金属在台灯光中一闪。
+        镜头2（6秒）近景 固定：图2缓缓站起深蓝西装肩线高出图1半个头，俯视图1嘴角没有笑也没有怒表情平静近乎空白，吊灯硬光打出面部棱角，图1轻蔑微笑在听到话的瞬间凝固太阳穴青筋微跳，全场安静只剩空调嗡鸣。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林少卿，Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked）：「Sorry。钱家的规矩——不跟级别不够的人浪费时间。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「你不是在竞标。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「你在替沈万洲跑腿——他知道吗？」
+        对白（林少卿，Male, 30 years old, refined upper-class tone with occasional English phrases, medium pace, condescending and patronizing delivery, polished and elegant on the surface, violent undertone when provoked）：「……你——」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ── SEG07: 48小时 ──
+  # ⚠️ WARNING: [待补：竞标主评审] speaker in S13 — pending CHAR-GRP-08+, no formal ID/look/voice assigned
+  # temp voice_prompt used inline; no look ref available
+  - segment_id: EP24-SEG07
+    shot_ids: [EP24-S13]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-006.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带）【图2】会所 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 缓推：主评审翻了一页文件后合上双手十指交叉压在文件封面上，图1站在原位没动深蓝西装在暖黄灯光中如雕塑，垂眸看了一眼桌上文件又抬眼扫过侧面没有辩解的意思，转身走向大厅门口背脊笔直如刀刃步伐不快不慢，镜头缓缓推近背影暖黄灯光在肩线勾出一道金边渐行渐远。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（竞标主评审，Male, 50 years old, formal and authoritative tone, measured professional pace, impersonal bureaucratic delivery）：「四十八小时。提交完整资金来源证明。否则——行业诚信黑名单。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「不必。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-006, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ── SEG08: 害怕了（悬念钩） ──
+  - segment_id: EP24-SEG08
+    shot_ids: [EP24-S14, EP24-S15]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-005]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-006.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带）【图2】陈雅琳 CHAR-005-L01（粉色紧身连衣裙，精致妆容，棕色卷发）【图3】会所 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：走廊暖黄灯光骤然切换为冷白荧光灯，图1背靠大理石墙面后脑抵着冰凉石面闭眼三秒喉结滚动一次，睁开眼看到走廊另一端图2——棕色卷发粉色连衣裙精致妆容但眼眶微红，双手紧攥牛皮纸文件袋指节发白。
+        镜头2（6秒）特写 固定：图2脸部特写冷白灯光下精致妆容掩盖不住疲惫和恐惧，鲜艳口红与微红眼眶形成刺目反差，将文件袋往前递手指在牛皮纸边缘微微发抖，图1目光从图2脸上移向文件袋没有伸手接也没有转身走，图2低下头棕色卷发垂落遮住半张脸沉默三秒。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陈雅琳，Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes）：「陆辰……这些材料，是林少卿让我准备的。」
+        对白（陈雅琳，Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes）：「他威胁我。不做就动我弟的公司。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「那你现在——为什么告诉我？」
+        对白（陈雅琳，Female, 25 years old, slightly sharp and materialistic tone, medium pace, comparative speech patterns, confident and cutting in early episodes, stammering and emotional in later regret scenes）：「……害怕了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

@@ -1,0 +1,386 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP25/EP25_翻盘48小时.md
+# Source shots: 13 (EP25-S01 to EP25-S13)
+# Output shots: 13 (EP25-S01 to EP25-S13)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s (self-calculated: 5+5+5+5+5+5+10+10+5+5+5+5+10)
+# Output total duration: 80s
+# Gate status: ALL PASS (Gate1=80s∈[75,120] Gate2=13=13 Gate3=OK Gate4=OK Gate5=OK)
+
+episode_id: EP25
+source_md: 剧本/EP25/EP25_翻盘48小时.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+shots:
+  - shot_id: EP25-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids: [CHAR-001-L02, CHAR-005-L01]
+    assets:
+      look_urls:
+        CHAR-001-L02: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png"
+        CHAR-005-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png"
+      scene_urls:
+        SCENE-005: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png"
+    api:
+      text: "【图1】Lu Chen CHAR-001-L02 (dark navy suit, white shirt, sleeves rolled) 【图2】Chen Yalin CHAR-005-L01 (pink dress, messy curls) 【图3】Appraisal Studio SCENE-005. Close-up, static: Night interior, warm desk lamp vs cold white walls, Fig.1 standing at oak workbench in white shirt, Fig.2 at doorway clutching kraft envelope, two meters apart."
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "陆辰……东西在这儿了。"
+      - speaker: CHAR-001
+        line: "你进来。"
+      - speaker: CHAR-005
+        line: "我不敢——"
+      - speaker: CHAR-001
+        line: "不是怪你。进来。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids: [CHAR-005-L01, CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-005-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png"
+        CHAR-001-L02: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png"
+      scene_urls:
+        SCENE-005: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png"
+    api:
+      text: "【图1】Chen Yalin CHAR-005-L01 (pink dress) 【图2】Lu Chen CHAR-001-L02 (white shirt) 【图3】Appraisal Studio SCENE-005. Extreme close-up, static: Fig.1 steps in, heels on wood floor, places kraft envelope under desk lamp, trembling fingers with bitten nails. Fig.2 glances at envelope then at her, jaw shadow under lamp light. Fig.1 eyes redden, turns away."
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "全是他做的。做得天衣无缝。"
+      - speaker: CHAR-005
+        line: "别怪我……"
+      - speaker: CHAR-001
+        line: "怪你自己——选错了边。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids: [CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-001-L02: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png"
+      scene_urls:
+        SCENE-005: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png"
+    api:
+      text: "【图1】Lu Chen CHAR-001-L02 (white shirt, sleeves rolled) 【图2】Appraisal Studio SCENE-005. Extreme close-up, slow push: Fig.1 opens kraft envelope, A4 documents slide out under desk lamp. Pupils glow amber, golden AR data overlays at vision edges. Fingers flip pages, stop on page three, fingertip pressing a line of numbers."
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "做得天衣无缝……但——有个漏洞。"
+      - speaker: CHAR-001
+        line: "他的局，自己就是破绽。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids: [CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-001-L02: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png"
+      scene_urls:
+        SCENE-005: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png"
+    api:
+      text: "【图1】Lu Chen CHAR-001-L02 (white shirt) 【图2】Appraisal Studio SCENE-005. Close-up, static: Fig.1 holds bank statement page under desk lamp. Amber glow deepens in pupils, golden numbers scan across paper surface. Expression shifts from focus to confirmation — mouth tightens subtly. Background: Fig.2 sits on corner sofa, arms crossed, red-rimmed eyes watching."
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "这张。银行流水。"
+      - speaker: CHAR-001
+        line: "转出日期，比这家公司成立还早。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids: [CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-001-L02: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png"
+      scene_urls:
+        SCENE-005: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png"
+    api:
+      text: "【图1】Lu Chen CHAR-001-L02 (white shirt) 【图2】Appraisal Studio SCENE-005. Extreme close-up, static: Bank statement under warm lamp, blurred numbers. Fig.1 index finger pressing a date line, golden data swirling around fingertip. Other hand flips to company registration page, two pages side by side."
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "转出日期三月十五。公司成立——四月一号。"
+      - speaker: CHAR-001
+        line: "先有鸡还是先有蛋。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids: [CHAR-005-L01, CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-005-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-005-L01.png"
+        CHAR-001-L02: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png"
+      scene_urls:
+        SCENE-005: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png"
+    api:
+      text: "【图1】Chen Yalin CHAR-005-L01 (pink dress) 【图2】Lu Chen CHAR-001-L02 (white shirt) 【图3】Appraisal Studio SCENE-005. Close-up, static: Fig.1 stands from sofa, walks two steps in heels, leans near lamp to see papers. Fig.2 draws a circle on statement margin with pen, framing two dates together. Fig.1 lips move but no sound."
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "什么意思？"
+      - speaker: CHAR-001
+        line: "钱从一家还没注册的公司转出来——伪造。"
+      - speaker: CHAR-001
+        line: "源头在哪——查。"
+    transition_to_next: audio_bridge
+
+  - shot_id: EP25-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-004
+      look_ids: [CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png"
+      scene_urls:
+        SCENE-004: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png"
+    api:
+      text: "【图1】Su Nian CHAR-002-L01 (charcoal suit, pearl earrings, low ponytail) 【图2】Auction House SCENE-004. Medium shot, static: Daytime, marble table reflecting window light, crystal chandelier cold sparkle. Fig.1 stands upright, phone at left ear, right fingertips drawing circles on table. Expression shifts from focus to sharp — mouth tightens. Pearl earrings glint in side light."
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "王姐，永泰商贸——帮我查一下。"
+      - speaker: CHAR-002
+        line: "三年，没有实际经营，账户流水八千万？"
+      - speaker: CHAR-002
+        line: "实控人呢？"
+      - speaker: CHAR-002
+        line: "林少卿。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids: [CHAR-001-L02, CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-001-L02: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png"
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png"
+      scene_urls:
+        SCENE-005: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png"
+    api:
+      text: "【图1】Lu Chen CHAR-001-L02 (dark navy suit over white shirt) 【图2】Su Nian CHAR-002-L01 (charcoal suit, pearl earrings) 【图3】Appraisal Studio SCENE-005. Medium shot, slow push: Daytime, daylight through blinds. Fig.2 enters, hands phone to Fig.1. Fig.1 pupils glow amber, golden data flow expands from phone screen onto walls — AR corporate relationship graph. Red line traces fund chain from Yongtai node through shell companies to Fig.1's account."
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "永泰商贸。注册三年，没有实际经营，流水八千万。"
+      - speaker: CHAR-001
+        line: "有意思。"
+      - speaker: CHAR-001
+        line: "找到了——永泰就是源头。"
+      - speaker: CHAR-001
+        line: "钱从永泰走一圈，贴上我的名字再出来。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids: [CHAR-001-L02, CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-001-L02: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png"
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png"
+      scene_urls:
+        SCENE-005: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png"
+    api:
+      text: "【图1】Lu Chen CHAR-001-L02 (suit jacket) 【图2】Su Nian CHAR-002-L01 (charcoal suit) 【图3】Appraisal Studio SCENE-005. Close-up, static: Fig.1 turns to workbench, opens drawer, loads counter-evidence documents into envelope. Fig.2 at his side, sleeve cuffs nearly touching, aligning paper edges. Wall clock second hand ticking audibly."
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "还剩四十分钟。"
+      - speaker: CHAR-001
+        line: "够了。"
+      - speaker: CHAR-001
+        line: "他做的局——自己就是证据。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids: [CHAR-002-L01, CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png"
+        CHAR-001-L02: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png"
+      scene_urls:
+        SCENE-005: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png"
+    api:
+      text: "【图1】Su Nian CHAR-002-L01 (charcoal suit, pearl earrings) 【图2】Lu Chen CHAR-001-L02 (suit jacket) 【图3】Appraisal Studio SCENE-005. Medium shot, static: Fig.1 seals envelope, pushes it to Fig.2 with both hands — decisive motion. Fig.2 takes it, fingers brush hers briefly. Fig.2 grabs car keys, heads to door. Fig.1 leans on desk watching his back, faint smile, pearl earrings glinting in daylight."
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "撤。"
+      - speaker: CHAR-001
+        line: "做局的人，该收场了。"
+      - speaker: CHAR-002
+        line: "他还在等什么呢。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids: [CHAR-001-L02, CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-001-L02: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png"
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png"
+      scene_urls:
+        SCENE-005: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png"
+    api:
+      text: "【图1】Lu Chen CHAR-001-L02 (white shirt only, no jacket) 【图2】Su Nian CHAR-002-L01 (charcoal suit, pearl earrings) 【图3】Appraisal Studio SCENE-005. Close-up, static: Time jump — wall clock shows two hours before deadline. Fig.1 sets down phone with blurred notification screen. Fig.2 rises from chair, pearl earrings swaying. One-second eye contact — tension releases."
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "撤了。"
+      - speaker: CHAR-002
+        line: "洗钱指控——撤了？"
+      - speaker: CHAR-001
+        line: "证据链断了。他伪造的——全翻回来了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-005
+      look_ids: [CHAR-002-L01, CHAR-001-L02]
+    assets:
+      look_urls:
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png"
+        CHAR-001-L02: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png"
+      scene_urls:
+        SCENE-005: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png"
+    api:
+      text: "【图1】Su Nian CHAR-002-L01 (charcoal suit, pearl earrings) 【图2】Lu Chen CHAR-001-L02 (white shirt) 【图3】Appraisal Studio SCENE-005. Extreme close-up, static: Fig.1 almond eyes soften, long lashes cast shadows under cold white light. Bites lower lip then releases. Pearl earrings sway. Faint smile appears. Fig.2 hand reaches from below, fingertip touches her hand briefly — confirmation, not holding hands. Fig.1 looks down, doesn't pull away."
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "四十八小时。你没睡过一分钟。"
+      - speaker: CHAR-001
+        line: "值得。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP25-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids: [CHAR-001-L02, CHAR-002-L01]
+    assets:
+      look_urls:
+        CHAR-001-L02: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png"
+        CHAR-002-L01: "https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png"
+      scene_urls:
+        SCENE-005: "https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-005.png"
+    api:
+      text: "【图1】Lu Chen CHAR-001-L02 (white shirt) 【图2】Su Nian CHAR-002-L01 (charcoal suit) 【图3】Appraisal Studio SCENE-005. Extreme close-up, slow push: Fig.1 at workbench, screen shows residual fund-tracking graph. Pupils glow amber again. Golden data extends along Yongtai fund chain — through shell company nodes, red line points to new endpoint. Pupils contract. Screen cold blue replaces warm lamp light. Encrypted email appears with circular symbol. Camera pushes to eye extreme close-up, amber glow reflecting symbol outline."
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "沈万洲。"
+      - speaker: CHAR-002
+        line: "什么？"
+      - speaker: CHAR-001
+        line: "永泰的资金链末端——离岸账户。户名——沈万洲。"
+      - speaker: CHAR-001
+        line: "不止洗钱。每条线……都牵着同一个人。"
+      - speaker: CHAR-001
+        line: "这封加密邮件——'新世界秩序'。落款的符号……我见过。"
+      - speaker: CHAR-002
+        line: "你脸色不对。看到什么了？"
+      - speaker: CHAR-001
+        line: "比我以为的——大得多。"
+      - speaker: CHAR-001
+        line: "沈万洲——从一开始就在。不是帮林少卿。是在养他。"
+    transition_to_next: hard_cut

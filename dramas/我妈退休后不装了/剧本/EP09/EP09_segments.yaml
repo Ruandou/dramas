@@ -1,0 +1,135 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP09/EP09_剧本.md
+# Source segments: 9 (SEG01-SEG09)
+# Output segments: 9 (SEG01-SEG09)
+# Total: 90s
+# Gate: ALL PASS
+
+episode_id: EP09
+source_md: 剧本/EP09/EP09_剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
+voice_prompts:
+  CHAR-001: "中年女声，温暖沉稳但带克制感，语速适中偏慢，语气柔和但句尾有力量感；爆发时有压抑后释放的颤抖感，但不过度戏剧化"
+  CHAR-002: "老年男声，低沉粗犷，语速偏慢，语气带命令式和不耐烦；激动时声音发紧有压迫感，但不过度咆哮"
+
+segments:
+  - &seg1
+    segment_id: EP09-SEG01
+    shot_ids: [EP09-S01]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001]
+    refs: {scene_id: SCENE-001, look_ids: [CHAR-002-L01, CHAR-001-L01]}
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
+    api:
+      text: "【图1】张大强 CHAR-002-L01（白衬衫皱巴巴表情别扭）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，挡在门口）【图3】林家客厅 SCENE-001。中景 固定镜头：敲门声比平时重。慧兰开门，张大强站在门口表情别扭。"
+      content_roles: [{file: CHAR-002-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-002, line: "慧兰。"}
+      - {speaker: CHAR-001, line: "有事？"}
+      - {speaker: CHAR-002, line: "能进去说吗？"}
+
+  - <<: *seg1
+    segment_id: EP09-SEG02
+    shot_ids: [EP09-S02]
+    api:
+      text: "【图1】张大强 CHAR-002-L01（站在客厅中间，看茉莉花）【图2】林慧兰 CHAR-001-L01（站得远远的）【图3】林家客厅 SCENE-001。近景 固定镜头：慧兰让开门口但没请他坐。张大强深吸一口气说了句软话。"
+      content_roles: [{file: CHAR-002-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-002, line: "这几天我想了很多。"}
+      - {speaker: CHAR-001, line: "嗯。"}
+      - {speaker: CHAR-002, line: "以前是我不好。我脾气大，不会说话。"}
+      - {speaker: CHAR-001, line: "你不是脾气大。你是从来没把我当人看。"}
+
+  - <<: *seg1
+    segment_id: EP09-SEG03
+    shot_ids: [EP09-S03]
+    api:
+      text: "【图1】张大强 CHAR-002-L01（攥拳头又松开，忍住）【图2】林慧兰 CHAR-001-L01（无波无澜）【图3】林家客厅 SCENE-001。近景 固定镜头：张大强被那句'从来没把我当人看'噎住。他忍住了——今天是来求和的。他说了那句准备了几天的话。"
+      content_roles: [{file: CHAR-002-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-002, line: "回来吧。我不离婚了。"}
+      - {speaker: CHAR-001, line: "为什么突然不离婚了？"}
+      - {speaker: CHAR-002, line: "都六十多岁的人了，离什么婚。让人笑话。"}
+      - {speaker: CHAR-001, line: "所以你是怕人笑话，不是觉得对不起我。"}
+
+  - <<: *seg1
+    segment_id: EP09-SEG04
+    shot_ids: [EP09-S04]
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（走到窗边，阳光照脸，回头）【图2】张大强 CHAR-002-L01（急了）【图3】林家客厅 SCENE-001。特写→近景 固定镜头：慧兰走到窗边。阳光照在脸上。她转过身看着这个四十年的男人——第一次用平等的目光看他。然后说出了那句话。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-002-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-002, line: "那你说你要什么？我给你！"}
+      - {speaker: CHAR-001, line: "我要你放了我。"}
+      - {speaker: CHAR-002, line: "你说什么？"}
+      - {speaker: CHAR-001, line: "你不需要我回来。你需要一个保姆。我不干了。"}
+
+  - <<: *seg1
+    segment_id: EP09-SEG05
+    shot_ids: [EP09-S05]
+    api:
+      text: "【图1】张大强 CHAR-002-L01（整个人僵住）【图2】林慧兰 CHAR-001-L01（稳稳地看着他）【图3】林家客厅 SCENE-001。近景 固定镜头：张大强僵住。他以为只要放低姿态慧兰就会回来——但她说'我不干了'。那四个字比蛋糕糊脸还疼。"
+      content_roles: [{file: CHAR-002-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-002, line: "你…你说什么？"}
+      - {speaker: CHAR-001, line: "我不干了。张大强，四十年的保姆，我做够了。"}
+      - {speaker: CHAR-002, line: "你疯了吗？你一个女人六十岁了能干什么？"}
+
+  - <<: *seg1
+    segment_id: EP09-SEG06
+    shot_ids: [EP09-S06]
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（平静，甚至笑了）【图2】张大强 CHAR-002-L01（压着怒）【图3】林家客厅 SCENE-001。近景 固定镜头：慧兰没被激怒。她心底很平静——这不是冲动，是想了很久的决定。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-002-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-001, line: "六十岁怎么了？六十岁就不能重新活？"}
+      - {speaker: CHAR-002, line: "你拿什么活？你一分钱没有！"}
+      - {speaker: CHAR-001, line: "我有手有脚。我还会跳舞。饿不死。"}
+
+  - <<: *seg1
+    segment_id: EP09-SEG07
+    shot_ids: [EP09-S07]
+    api:
+      text: "【图1】张大强 CHAR-002-L01（爆发，指着她吼）【图2】林慧兰 CHAR-001-L01（没退缩）【图3】林家客厅 SCENE-001。近景 固定镜头：张大强最后的耐心耗尽。她的平静比争吵更让他愤怒。他不再求和了露出真面目。"
+      content_roles: [{file: CHAR-002-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-002, line: "跳舞？你跳什么舞！你以为你还是小姑娘？"}
+      - {speaker: CHAR-001, line: "我从来没觉得自己老。是你让我老了四十年。"}
+      - {speaker: CHAR-002, line: "好。好得很。你别后悔。"}
+
+  - <<: *seg1
+    segment_id: EP09-SEG08
+    shot_ids: [EP09-S08]
+    api:
+      text: "【图1】张大强 CHAR-002-L01（走到门口回头，咬牙）【图2】林慧兰 CHAR-001-L01（站在客厅中央没动）【图3】林家客厅 SCENE-001。近景 固定镜头：张大强走到门口回头眼神凶狠。他说出威胁时几乎是咬着牙的。"
+      content_roles: [{file: CHAR-002-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+    dialogue:
+      - {speaker: CHAR-002, line: "你等着。我让你一分钱拿不到。"}
+      - {speaker: CHAR-001, line: "你以为我还在乎你的钱？"}
+      - {speaker: CHAR-002, line: "哼！"}
+
+  - <<: *seg1
+    segment_id: EP09-SEG09
+    shot_ids: [EP09-S09]
+    speakers: [CHAR-001]
+    api:
+      text: "【图1】林慧兰 CHAR-001-L01（站在客厅，走向茉莉花，碰花瓣，笑了）【图2】林家客厅 SCENE-001。特写 固定镜头：门重重关上。慧兰站在原地没动。她走到茶几前伸手碰茉莉花。然后释然地笑了。她自由了。"
+      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
+    dialogue:
+      - {speaker: CHAR-001, line: "（内心）我说出来了。"}
+      - {speaker: CHAR-001, line: "（内心）四十年了…我终于说出来了。"}
+      - {speaker: CHAR-001, line: "（内心）我不干了。"}

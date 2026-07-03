@@ -1,0 +1,396 @@
+episode_id: EP01
+source_md: 剧本/EP01/EP01_剧本.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
+voice_prompts:
+  CHAR-001: "温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音"
+  CHAR-002: "低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音"
+  CHAR-003: "普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准"
+  CHAR-004: "尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准"
+  CHAR-005: "干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准"
+  CHAR-GRP-003: "热闹的中老年男女声音群，七嘴八舌，低声交头接耳，宴席亲友氛围"  # ⚠️ 从角色描述推导，不在声音卡片.md中，建议补充
+
+segments:
+  - segment_id: EP01-SEG01
+    shot_ids: [EP01-S01]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-GRP-003, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-002.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/我妈退休后不装了/PROP-002.png
+    api:
+      text: |
+        【图1】张大强 CHAR-002-L01（白衬衫+棕色马甲，灰色寸头）【图2】大寿宴会厅 SCENE-002【图3】三层寿桃蛋糕 PROP-002。
+        道具：三层奶油寿桃蛋糕，白色奶油裱花，顶部红色寿桃装饰，置于圆桌中央转盘上。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：大圆桌上摆满菜肴，中央三层寿桃蛋糕未动。红色寿字背景墙下，张大强突然推开椅子站起，右手探入内兜抽出几张折叠的纸。邻桌宾客停下筷子，空气瞬间凝固。暖黄灯光打在他紧绷的侧脸上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「都安静一下。」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「今天趁大家都在，把话说清楚。」
+        对白（宴席亲友，热闹的中老年男女声音群，七嘴八舌，低声交头接耳，宴席亲友氛围）：「大强这是要干什么…」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「他那个表情…我见过。每次要发火都这样。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG02
+    shot_ids: [EP01-S02]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-002.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我妈退休后不装了/PROP-001.png
+    api:
+      text: |
+        【图1】张大强 CHAR-002-L01（白衬衫+棕色马甲）【图2】张蕾 CHAR-005-L01（高马尾+灰色西装）【图3】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图4】大寿宴会厅 SCENE-002【图5】离婚协议书 PROP-001。
+        角色分工：仅图1（张大强）可触碰协议；图2（张蕾）和图3（林慧兰）禁止触碰。
+        道具：离婚协议书，A4纸打印，封面"离婚协议书"五字，被张大强拍在桌上。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头，焦点在张大强：张大强把离婚协议拍在桌上，纸张滑向林慧兰面前。张蕾坐在母亲旁边，眉头紧皱欲言又止。林慧兰低头看着协议封面上"离婚协议书"五个字，指尖泛白。背景里宾客们的嘈杂声渐渐消失。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「林慧兰，签字吧。」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「爸，今天妈过生日——」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你少插嘴。这事今天必须办了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「当着一桌子人…他真的一点脸面都不给我留。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+        - { file: PROP-001, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG03
+    shot_ids: [EP01-S03, EP01-S04]
+    duration_sec: 12
+    speakers: [CHAR-002, CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-002.png
+    api:
+      text: |
+        【图1】张大强 CHAR-002-L01（白衬衫+棕色马甲）【图2】王芳 CHAR-004-L01（白色丝质衬衫+深色包臀裙）【图3】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图4】大寿宴会厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定镜头，三人同框：张大强俯身逼近桌面，食指敲着协议纸面。王芳坐在斜对面，妆容精致的脸上挂着看似关切的笑。林慧兰低垂着眼，嘴唇抿成一条线。冷色调顶光开始压过暖黄灯光。
+        镜头2（6秒）特写 缓推：林慧兰的侧脸，暖黄灯光从右上方打在她花白的鬓角上。她目光低垂看着协议，睫毛微微颤动。左手腕上的玉镯轻轻磕在桌沿——一声极轻的脆响。嘴唇动了动，又抿紧。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你还想拖到什么时候？我对你还不够好？」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「妈，爸都拿出来了，你就签了呗。一家人别闹这么僵。」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「林慧兰，你倒是说句话。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「够好就是当免费保姆？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「（垂眼）忍。再忍忍就过去了…每次都这么想。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S05]
+    duration_sec: 10
+    speakers: [CHAR-003, CHAR-004, CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-002.png
+    api:
+      text: |
+        【图1】张明 CHAR-003-L01（浅蓝衬衫+细框眼镜）【图2】王芳 CHAR-004-L01（白色丝质衬衫+深色包臀裙）【图3】张大强 CHAR-002-L01（白衬衫+棕色马甲）【图4】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图5】大寿宴会厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：张明站起身，推了推眼镜，看看父亲又看看母亲，满脸为难。王芳在桌子底下踢了他一脚。张大强双臂抱胸冷冷看着林慧兰。林慧兰依然低着头，手指开始收紧桌布边缘。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「妈…要不你先签了，回头我跟我爸好好说。」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「你倒是说话啊，别跟个木头似的杵着。」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你看看你养的什么儿子，都替你不值。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「（缓缓抬眼）忍了四十年…今天真忍够了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-002, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG05
+    shot_ids: [EP01-S06]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-002.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，左手玉镯，银灰色短发）【图2】大寿宴会厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写→大特写 极缓推进：林慧兰的双眼。镜头从特写缓缓推向大特写，瞳孔里倒映着宴会厅模糊的灯光。眼眶微红，但没有泪水——四十年的眼泪早已流干。睫毛轻颤，嘴角细微的抽动。背景声音逐渐虚化，只剩她自己呼吸的微响。（镜头推进过程中的微停顿：她轻轻眨了一次眼——①顿；然后深吸一口气——②顿——作为独白之间的自然间隔）
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「四十年…我洗了四万件衣服，做了四万顿饭。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「他说'我对你够好了'…够好。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我放弃工作…放弃跳舞…放弃了所有。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「（手攥紧桌布）够了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG06
+    shot_ids: [EP01-S07, EP01-S08]
+    duration_sec: 12
+    speakers: [CHAR-002, CHAR-005, CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-002.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图2】张蕾 CHAR-005-L01（高马尾+灰色西装）【图3】张明 CHAR-003-L01（浅蓝衬衫+细框眼镜）【图4】张大强 CHAR-002-L01（白衬衫+棕色马甲，双臂抱胸）【图5】大寿宴会厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 镜头跟随：林慧兰双手撑桌，缓缓站起。椅子向后滑出，发出刺耳的摩擦声。她的身形在暖黄灯光下投出一道长长的阴影。整桌人抬头望向她。
+        镜头2（6秒）近景 固定镜头：张蕾伸手想拉母亲衣袖又缩回。张明站起来半张嘴。张大强瞪着妻子，眼神从轻视变成警惕。林慧兰站在桌边，目光扫过所有人——平静得可怕。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你干什么？」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈你别冲动…」
+        对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「妈你坐下好好说…」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「让开。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-002, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG07
+    shot_ids: [EP01-S09]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-002.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/我妈退休后不装了/PROP-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图2】张大强 CHAR-002-L01（白衬衫+棕色马甲）【图3】王芳 CHAR-004-L01（白色丝质衬衫+深色包臀裙）【图4】大寿宴会厅 SCENE-002【图5】离婚协议书 PROP-001。
+        角色分工：仅图1（林慧兰）可触碰和撕毁协议；图2（张大强）和图3（王芳）禁止触碰协议。
+        道具：离婚协议书，A4纸打印，多页装订，被林慧兰双手捏住撕成两半。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景→特写 快切推近：林慧兰伸手拿起协议，动作很慢很稳。张大强脸上闪过一丝得色。她低头看着纸张，然后——双手捏住纸边，用力一撕。撕裂声清脆刺耳。王芳尖叫半声又捂住嘴。全场倒吸凉气。碎纸从她指间飘落。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你疯了？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「说完了吗。」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「她真撕了。她疯了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「这一撕…四十年的账，清了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+        - { file: PROP-001, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG08
+    shot_ids: [EP01-S10, EP01-S11]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-GRP-003, CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-002.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/我妈退休后不装了/PROP-002.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，左手玉镯）【图2】张大强 CHAR-002-L01（白衬衫+棕色马甲）【图3】大寿宴会厅 SCENE-002【图4】三层寿桃蛋糕 PROP-002。
+        角色分工：仅图1（林慧兰）可抓取蛋糕；图2（张大强）保持被动被糊脸。
+        道具：三层奶油寿桃蛋糕，白色奶油裱花，顶部红色寿桃装饰，被整块抓起。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定镜头：林慧兰的手伸向桌上的三层寿桃蛋糕。手指扣入奶油表层，白色奶油从指缝溢出。玉镯在腕间晃动一下。
+        镜头2（7秒）中景 固定镜头：林慧兰举起蛋糕，对准张大强的脸，整块糊了上去。奶油四溅，寿桃装饰掉落。张大强整个人僵住，奶油顺着他的灰白寸头往下淌。林慧兰的手还按在蛋糕上，胸口起伏。她的话音穿破寂静。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我忍了你四十年——」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「——够了。」
+        对白（宴席亲友，热闹的中老年男女声音群，七嘴八舌，低声交头接耳，宴席亲友氛围）：「啊呀——」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你…」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG09
+    shot_ids: [EP01-S12]
+    duration_sec: 10
+    speakers: [CHAR-003, CHAR-004, CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-002.png
+    api:
+      text: |
+        【图1】张明 CHAR-003-L01（浅蓝衬衫+细框眼镜）【图2】张大强 CHAR-002-L01（白衬衫+棕色马甲，满头满脸奶油）【图3】王芳 CHAR-004-L01（白色丝质衬衫+深色包臀裙）【图4】张蕾 CHAR-005-L01（高马尾+灰色西装）【图5】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图6】大寿宴会厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：桌上众人定格。张大强满头满脸奶油，瞪大眼睛说不出话。张明嘴巴张开忘了合拢。王芳一手捂嘴，眼神惊恐。张蕾站起来，手微微颤抖。林慧兰站在原地，胸膛起伏，眼里有泪光但嘴角微微上扬——那是四十年来第一次为自己上扬的弧度。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「妈你疯了？」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「你婆婆疯了。她打人。」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「反了…反了你了…」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「（看着他们的表情）四十年…我第一次觉得这么痛快。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图4 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图5 }
+        - { file: SCENE-002, role: reference_image, label: 图6 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG10
+    shot_ids: [EP01-S13]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-002.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，眼含泪光）【图2】张明 CHAR-003-L01（浅蓝衬衫+细框眼镜）【图3】大寿宴会厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：林慧兰转过头，看向儿子张明。她眼里的泪花还没干，但目光平静得像一潭深水。张明被她看得后退了半步。背景里张大强在胡乱抹脸上的奶油，但声音被压到背景之外。林慧兰开口，声音不大，但整桌都听得清清楚楚。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我没疯。」
+        对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「那…那你——」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我只是…不想再忍了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「（转身）这一步…我走了四十年。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG11
+    shot_ids: [EP01-S14]
+    duration_sec: 12
+    speakers: [CHAR-002, CHAR-001, CHAR-GRP-003]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-002.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图2】张大强 CHAR-002-L01（白衬衫+棕色马甲，满脸奶油）【图3】张明 CHAR-003-L01（浅蓝衬衫+细框眼镜）【图4】张蕾 CHAR-005-L01（高马尾+灰色西装）【图5】王芳 CHAR-004-L01（白色丝质衬衫+深色包臀裙）【图6】大寿宴会厅 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中景→全景 镜头拉远：林慧兰转身，推开椅子，朝宴会厅大门走去。她的背影在暖黄灯光和红色寿字背景之间显得单薄却挺拔。张蕾伸手想叫住她，声音卡在喉咙里。张明愣在原地。张大强抹掉脸上的奶油，冲着她背影嘶吼。林慧兰走到门口，停顿了一秒——没有回头。门在她身后合上，留下一室死寂。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你走了就别回来。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「放心。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「不会再回来了。」
+        对白（宴席亲友，热闹的中老年男女声音群，七嘴八舌，低声交头接耳，宴席亲友氛围）：「她真走了…」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图4 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图5 }
+        - { file: SCENE-002, role: reference_image, label: 图6 }
+    transition_to_next: hard_cut
