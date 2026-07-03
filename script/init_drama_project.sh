@@ -95,6 +95,15 @@ for d in "${DIRS[@]}"; do
   mkdir -p "$PROJ_ROOT/$d"
 done
 
+# 复制格式模板到新项目
+TEMPLATE_SRC="script/模板_剧本.md"
+if [ -f "$TEMPLATE_SRC" ]; then
+  cp "$TEMPLATE_SRC" "$PROJ_ROOT/资产/_模板_剧本.md"
+  echo "  已复制格式模板 -> $PROJ_ROOT/资产/_模板_剧本.md"
+else
+  echo "  ⚠️ 未找到模板文件: $TEMPLATE_SRC" >&2
+fi
+
 # 占位文件（让存在性校验通过：--project-root 下要含 制片规范.md 才不软警告）
 cat > "$PROJ_ROOT/制片规范.md" <<EOF
 # 制片规范 — $TITLE

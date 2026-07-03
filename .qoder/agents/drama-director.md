@@ -492,8 +492,12 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 
 ## 验证门控 G4
 
+> **格式一致性是 G4 的首项检查**：运行 `python3 scripts/format_check.py --ep EP## --project-root dramas/<剧名>`
+> 若格式门控失败 → **不进入后续 G4 检查**，直接退回 scene-writer 按 format_check.py 的输出逐一修正后重跑，直至通过。
+
 | 检查项 | 通过标准 | 失败处理 |
 |--------|----------|----------|
+| **格式一致性** | `python3 scripts/format_check.py --ep EP## --project-root dramas/<剧名>` 返回 0 | **G4 首项检查，未通过不进入后续**。要求 scene-writer 逐一修正格式问题后重跑 format_check.py，直到全部 ✅ |
 | 总时长 | 落在 `制片规范.md` → `episode_profile` 合规区间（示例 standard-72: ≥75s 且 ≤120s，EP01 90-120s；长集项目以实际 episode_profile 为准） | 时长不足或超限 → 要求 scene-writer **废弃当前稿、重写整集**（先做时长预算；禁止微调秒数补足，见 scene-writer 自检 1 红线） |
 | 镜头数一致 | 元数据声明镜数 == 实际镜头行数 | 请求修正元数据或补充镜头 |
 | Segment 数 | 6-10 段（EP01: 10-12 段），参见制片规范 episode_profile | 过少→拆分；过多→合并 |
