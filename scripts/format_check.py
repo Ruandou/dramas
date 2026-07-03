@@ -76,9 +76,18 @@ def check_table_columns(content: str, verbose: bool) -> list:
 def check_continuation_rows(content: str, verbose: bool) -> list:
     """Check for empty pipe continuation rows."""
     errors = []
-    cr = re.findall(r'^\|(\s*\|){4,}\s*$', content, re.MULTILINE)
+    # Pattern 1: completely empty continuation rows (| | | | |)
+    cr1 = re.findall(r'^\|(\s*\|){4,}\s*$', content, re.MULTILINE)
+    # Pattern 2: first cell empty, has content in last cell (| | | | ... text |)
+    cr2 = re.findall(r'^\|(\s*\|){3,}\s+\S', content, re.MULTILINE)
+    # Filter out lines that look like table headers (have text in first cell)
+    cr2_filtered = [l for l in cr2 if not re.match(r'^\|-\s*\|', l)]
+    cr = cr1 + cr2_filtered
     if cr:
         errors.append(f"  [TABLE] 发现 {len(cr)} 行空管子续行（| | | | ...）。多句对白应写在同一格内换行，不得续行。")
+        if verbose:
+            for line in cr[:3]:
+                errors.append(f"    续行示例: {line[:80]}...")
     if verbose and not errors:
         print("  [TABLE] 无空管子续行 ✅")
     return errors
