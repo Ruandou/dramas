@@ -571,8 +571,12 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 
 ## 验证门控 G5
 
+> **YAML 格式/语法是 G5 的首项检查**：运行 `python3 scripts/yaml_check.py --ep EP## --project-root dramas/<剧名>`
+> 若格式门控失败 → **不进入后续 G5 检查**，直接退回 segment-builder 按 yaml_check.py 的输出逐一修正后重跑，直至通过。
+
 | 检查项 | 通过标准 | 失败处理 |
 |--------|----------|----------|
+| **YAML 格式/语法** | `python3 scripts/yaml_check.py --ep EP## --project-root dramas/<剧名>` 返回 0 | **G5 首项检查，未通过不进入后续**。要求 segment-builder 逐一修正格式问题后重跑 yaml_check.py，直到全部 ✅ |
 | SOURCE FIDELITY PROOF | shots.yaml 顶部包含忠实度证明块 | 请求 segment-builder 重新生成 |
 | 镜头数一致 | shots 数量 == 源 .md 镜头表行数 | 上游问题→回退 Stage 4；本层问题→重新生成 |
 | 对白逐字一致 | 每行对白可追溯到源 .md 逐字对应 | 请求 segment-builder 修正 |

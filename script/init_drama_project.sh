@@ -104,6 +104,17 @@ else
   echo "  ⚠️ 未找到模板文件: $TEMPLATE_SRC" >&2
 fi
 
+# 复制 YAML 格式模板到新项目
+for yaml_tmpl in "_模板_shots.yaml" "_模板_segments.yaml"; do
+  SRC="script/$yaml_tmpl"
+  if [ -f "$SRC" ]; then
+    cp "$SRC" "$PROJ_ROOT/资产/$yaml_tmpl"
+    echo "  已复制 $yaml_tmpl -> $PROJ_ROOT/资产/$yaml_tmpl"
+  else
+    echo "  ⚠️ 未找到 YAML 模板: $SRC" >&2
+  fi
+done
+
 # 占位文件（让存在性校验通过：--project-root 下要含 制片规范.md 才不软警告）
 cat > "$PROJ_ROOT/制片规范.md" <<EOF
 # 制片规范 — $TITLE
