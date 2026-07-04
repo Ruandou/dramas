@@ -1,14 +1,8 @@
 # === 格式模板 — 不得删除/增减任何字段 ===
-# 复制此文件到 资产/_模板_shots.yaml 后填充内容
-# 每个 shot 必须包含以下全部字段，顺序固定
-
-# Source: 剧本/EP##/EP##_剧本.md
-# Source shots: N
-# Output shots: N (1:1 mapping)
-# Source total duration: Xs
-# Output total duration: Xs
+# 对齐影后装新人项目实战格式
 
 episode_id: EP##
+source_md: 剧本/EP##/EP##_[标题].md
 
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
@@ -24,32 +18,28 @@ defaults:
 shots:
   - shot_id: EP##-S01
     shot_no: 1
-    mode: i2v_ref
+    mode: i2v_ref  # i2v_ref / i2v / t2v / skip
     duration_sec: 10
     refs:
       scene_id: SCENE-###
       look_ids:
         - CHAR-###-L##
-      prop_ids:
-        - PROP-###
+      prop_ids: []
     assets:
       look_urls:
         CHAR-###-L##: https://drama-reference-images.tos-cn-beijing.volces.com/looks/<剧名>/CHAR-###-L##.png
       scene_urls:
         SCENE-###: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/<剧名>/SCENE-###.png
-      prop_urls:
-        PROP-###: https://drama-reference-images.tos-cn-beijing.volces.com/props/<剧名>/PROP-###.png
+      prop_urls: {}
     api:
       text: |
         【图1】CHAR-###-L##【图2】SCENE-###。
-        [画面描述]
-        [以下对白仅供语音合成，严禁在画面中显示任何文字]
-        [对白/独白内容]
-        画面全程无任何文字、字幕、标题、水印。
-        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+        景别 运镜：[画面描述，角色用图1指代，不得用角色名]
+        [画面风格尾缀]
       content_roles:
         - { file: CHAR-###-L##, role: reference_image, label: 图1 }
         - { file: SCENE-###, role: reference_image, label: 图2 }
     dialogue:
       - speaker: CHAR-###
         line: "[台词]"
+    transition_to_next: hard_cut

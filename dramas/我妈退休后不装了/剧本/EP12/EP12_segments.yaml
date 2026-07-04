@@ -1,9 +1,10 @@
 # === SOURCE FIDELITY PROOF ===
 # Source: 剧本/EP12/EP12_剧本.md
-# Source segments: 9 (SEG01-SEG09)
-# Output segments: 9 (SEG01-SEG09)
-# Total: 90s
-# Gate: ALL PASS
+# Source shots: 9 (EP12-S01 to EP12-S09)
+# Output segments: 9 (EP12-SEG01 to EP12-SEG09)
+# Source total duration: 90s (computed: 9×10s)
+# Output total duration: 90s
+# Gate status: ALL PASS
 
 episode_id: EP12
 source_md: 剧本/EP12/EP12_剧本.md
@@ -12,185 +13,262 @@ defaults:
   model: doubao-seedance-2-0-fast
   ratio: "9:16"
   resolution: 720p
-  duration: 5
-  generate_audio: false
+  generate_audio: true
   watermark: false
   prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，明亮的自然光线，沙滩海洋，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，明亮的自然光线，沙滩海洋，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
   negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
 
 voice_prompts:
-  CHAR-001: "中年女声，温暖沉稳但带克制感，语速适中偏慢，语气柔和但句尾有力量感；爆发时有压抑后释放的颤抖感，但不过度戏剧化"
-  CHAR-005: "干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准；对母亲说话时带小心翼翼的不满和劝说感"
+  CHAR-001: "温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音"
+  CHAR-005: "干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准"
   CHAR-007: "爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音"
-  CHAR-002: "老年男声，低沉粗犷，语速偏慢，语气带命令式和不耐烦；激动时声音发紧有压迫感，但不过度咆哮"
+  CHAR-002: "低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音"
 
 segments:
-  - &seg1
-    segment_id: EP12-SEG01
+  - segment_id: EP12-SEG01
     shot_ids: [EP12-S01]
     duration_sec: 10
     speakers: [CHAR-001]
-    refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01], prop_ids: [PROP-005]}
+    refs:
+      scene_id: SCENE-001
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
-      prop_urls:
-        PROP-005: https://drama-reference-images.tos-cn-beijing.volces.com/props/我妈退休后不装了/PROP-005.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（穿浅蓝色碎花连衣裙——觉醒后第一次敢穿亮色【图2】林家客厅 SCENE-001（沙发上摊着几件衣服，老照片墙）【图3】红色行李箱 PROP-005（中号，放在客厅中央）。中景 固定镜头：慧兰往行李箱叠衣服。动作很慢——像在确认真的要走了。她看一眼墙上的老照片。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}, {file: PROP-005, role: reference_image, label: 图3}]
-    dialogue:
-      - {speaker: CHAR-001, line: "（内心）六十年了。第一次为自己收拾行李。"}
-      - {speaker: CHAR-001, line: "（内心）不是给丈夫。不是给孩子。是给我自己。"}
-      - {speaker: CHAR-001, line: "（内心）他们说我疯了。也许我真的疯了。"}
-      - {speaker: CHAR-001, line: "（内心）疯了就疯了。疯一次又怎样。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（浅蓝色碎花连衣裙——以前从不敢穿的款式，银灰色短发）【图2】林家客厅 SCENE-001。
+        道具：红色行李箱（中号旅行箱），放在客厅中央。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：图1穿一件浅蓝色碎花连衣裙——以前从不敢穿的款式。图1把红色行李箱放在客厅中央，往里面放东西。动作很慢，像在确认自己真的要走了。图1扫了一眼墙上的老照片——那个总是低着头的女人不见了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「六十年了。第一次为自己收拾行李。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「不是给丈夫。不是给孩子。是给我自己。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「他们说我疯了。也许我真的疯了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「疯了就疯了。疯一次又怎样。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP12-SEG02
+  - segment_id: EP12-SEG02
     shot_ids: [EP12-S02]
+    duration_sec: 10
     speakers: [CHAR-005, CHAR-001]
-    refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-005-L01]}
+    refs:
+      scene_id: SCENE-001
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
-        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（一边接电话一边叠衣服）【图2】张蕾 CHAR-005-L01（手机界面显示来电头像，干练短发）【图3】林家客厅 SCENE-001。近景 固定镜头：手机响，慧兰接起。张蕾声音急切。慧兰手上动作没停，语气平静但坚定。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-005-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
-    dialogue:
-      - {speaker: CHAR-005, line: "妈，你一个人去三亚？你疯了吗？爸说要跟你算账！"}
-      - {speaker: CHAR-001, line: "让他算。我等着。"}
-      - {speaker: CHAR-005, line: "妈！我是为你好！你怎么就不明白？"}
-      - {speaker: CHAR-001, line: "你为我好？那你告诉妈，妈这辈子什么时候为自己好过？"}
-      - {speaker: CHAR-005, line: "但是你一个人……"}
-      - {speaker: CHAR-001, line: "我一个人怎么了？我一个人活得很好。挂了啊。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（浅蓝色碎花连衣裙，一边叠衣服进红色行李箱，一边接电话，表情平静）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头2（10秒）近景 固定镜头：手机响了。张蕾打来的——语气又急又气。图1一边把最后一件衣服叠进行李箱一边接电话。动作没有停下。窗外的晨光照在图1脸上，表情平静得不像在听一场争吵。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈，你一个人去三亚？你疯了吗？爸说要跟你算账！」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「让他算。我等着。」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈！我是为你好！你怎么就不明白？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你为我好？那你告诉妈，妈这辈子什么时候为自己好过？」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「但是你一个人……」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我一个人怎么了？我一个人活得很好。挂了啊。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP12-SEG03
+  - segment_id: EP12-SEG03
     shot_ids: [EP12-S03]
+    duration_sec: 10
     speakers: [CHAR-007, CHAR-001]
-    refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-007-L01]}
+    refs:
+      scene_id: SCENE-001
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
-        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（拉着行李箱走到门口，接第二个电话，嘴角上扬）【图2】王翠花 CHAR-007-L01（手机界面显示联系人头像，喜庆笑容）【图3】林家客厅 SCENE-001门口。中景 固定镜头：正要开门手机又响。看到是翠花，慧兰接起，被逗笑。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-007-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
-    dialogue:
-      - {speaker: CHAR-007, line: "慧兰！听说你要去三亚？真的假的？"}
-      - {speaker: CHAR-001, line: "真的。我已经到门口了。"}
-      - {speaker: CHAR-007, line: "你太牛了！给我带椰子回来！哈哈哈！"}
-      - {speaker: CHAR-001, line: "你这人……"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（浅蓝色碎花连衣裙，拉起行李箱走到门口，接起翠花的电话，嘴角不自觉上扬）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头3（10秒）近景 固定镜头：图1拉起行李箱走到门口。正要开门，手机又响了——这回是翠花。图1接起，嘴角不自觉上扬。翠花的大嗓门从听筒里炸出来，整个客厅都能听见。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「慧兰！听说你要去三亚？真的假的？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「真的。我已经到门口了。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「你太牛了！给我带椰子回来！哈哈哈！」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你这人……」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP12-SEG04
+  - segment_id: EP12-SEG04
     shot_ids: [EP12-S04]
+    duration_sec: 10
     speakers: [CHAR-001]
-    refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
+    refs:
+      scene_id: SCENE-001
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（手放在门把手上，深吸一口气）【图2】林家客厅 SCENE-001门口（晨光照进来）。中景 固定镜头：慧兰挂掉电话深吸一口气转动门把手。门打开晨光照在她脸上。她拉着行李箱跨出门槛——这一步像跨过一整个人生。门轻轻关上。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
-    dialogue:
-      - {speaker: CHAR-001, line: "（内心）原来，门槛跨过去，就没那么难了。"}
-      - {speaker: CHAR-001, line: "（内心）他们会在背后说三道四。让他们说去。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（浅蓝色碎花连衣裙，深吸一口气转动手中的门把手，门打开晨光照进来染成金色，拉着红色行李箱跨出门槛）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头4（10秒）中景 固定镜头：图1挂掉电话，深吸一口气，转动手中的门把手。门打开，晨光照进来——整个走廊被染成金色。图1拉着行李箱跨出门槛——这一步，像跨过了一整个人生。门在图1身后轻轻关上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「原来，门槛跨过去，就没那么难了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「他们会在背后说三道四。让他们说去。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
 
-  - <<: *seg1
-    segment_id: EP12-SEG05
+  - segment_id: EP12-SEG05
     shot_ids: [EP12-S05]
+    duration_sec: 10
     speakers: [CHAR-001]
-    refs: {scene_id: SCENE-009, look_ids: [CHAR-001-L01]}
+    refs:
+      scene_id: SCENE-009
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
       scene_urls:
         SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-009.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（浅蓝碎花裙，鞋拎手上，赤脚站在沙滩上，表情由不敢相信变成笑）【图2】三亚海滩 SCENE-009（蔚蓝大海延伸到天际，海浪轻拍沙滩）。中景 固定镜头：慧兰站在沙滩边第一次见到真正的海。风把她的头发吹乱她没去理。她的表情从不相信慢慢变成释然的笑。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-009, role: reference_image, label: 图2}]
-    dialogue:
-      - {speaker: CHAR-001, line: "（内心）这就是海啊……"}
-      - {speaker: CHAR-001, line: "（内心）六十岁了。第一次见真正的海。"}
-      - {speaker: CHAR-001, line: "（内心）小时候说长大了要看海。长大了。老了。终于来了。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（浅蓝色碎花连衣裙，鞋拎在手上，赤脚踩在沙子上，表情从不敢相信慢慢变成释然的笑）【图2】三亚海滩 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头5（10秒）中景 固定镜头：三亚海滩。蔚蓝的海延伸到天际。图1站在沙滩边，鞋拎在手上，赤脚踩在沙子上。图1的表情从不敢相信慢慢变成释然的笑——六十岁了，第一次见真正的海。风把图1的头发吹乱，图1没去理。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「这就是海啊……」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「六十岁了。第一次见真正的海。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「小时候说长大了要看海。长大了。老了。终于来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        三亚海滩，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP12-SEG06
+  - segment_id: EP12-SEG06
     shot_ids: [EP12-S06]
+    duration_sec: 10
     speakers: [CHAR-001]
-    refs: {scene_id: SCENE-009, look_ids: [CHAR-001-L01]}
+    refs:
+      scene_id: SCENE-009
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
       scene_urls:
         SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-009.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（举起手机自拍，风吹起裙摆，笑得自然开心）【图2】三亚海滩 SCENE-009（旁边一对年轻情侣也在笑）。近景 固定镜头：慧兰举起手机拍照。一开始有些生涩然后越来越自然。她转半圈让裙摆飞起来。旁边情侣看她笑得开心也跟着笑。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-009, role: reference_image, label: 图2}]
-    dialogue:
-      - {speaker: CHAR-001, line: "（内心）年轻的时候总说——等孩子大了就去旅游。"}
-      - {speaker: CHAR-001, line: "（内心）等孩子大了。等退休了。等老了。"}
-      - {speaker: CHAR-001, line: "（内心）不等了。就现在。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（浅蓝色碎花连衣裙，举起手机拍照，姿势从生涩到自然——笑着转了半圈让风吹起裙摆，低头翻看照片眼角皱纹都闪着光）【图2】三亚海滩 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头6（10秒）中景 固定镜头：图1举起手机拍照。姿势从生涩到自然——图1笑着，转了半圈让风吹起裙摆。旁边一对年轻情侣看图1笑得开心也跟着笑。图1拍了几张后低头翻看照片——每一张里的人都在笑。阳光洒在图1脸上，眼角皱纹都闪着光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「年轻的时候总说——等孩子大了就去旅游。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「等孩子大了。等退休了。等老了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「不等了。就现在。」
+        画面全程无任何文字、字幕、标题、水印。
+        三亚海滩，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP12-SEG07
+  - segment_id: EP12-SEG07
     shot_ids: [EP12-S07]
+    duration_sec: 10
     speakers: [CHAR-001]
-    refs: {scene_id: SCENE-009, look_ids: [CHAR-001-L01]}
+    refs:
+      scene_id: SCENE-009
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
       scene_urls:
         SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-009.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（站在水边，张开双臂面向大海，阳光照在脸上，风吹裙摆和头发）【图2】三亚海滩 SCENE-009（海浪轻轻拍脚踝，夕阳金光照海面）。全景 固定镜头：慧兰放下手机走到水边。海浪拍脚踝。她张开双臂面向大海——五十年来第一次完全为自己做的决定。阳光洒在她脸上。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-009, role: reference_image, label: 图2}]
-    dialogue:
-      - {speaker: CHAR-001, line: "（内心）五十年来第一次。完全为自己做的决定。"}
-      - {speaker: CHAR-001, line: "（内心）风是咸的。阳光是烫的。活着真好。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（浅蓝色碎花连衣裙，走到水边，海浪轻轻拍着脚踝，放下手机张开双臂面向大海，裙摆被海风吹得飘扬）【图2】三亚海滩 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头7（10秒）远景→中景 固定镜头：图1走到水边。海浪轻轻拍着图1的脚踝。图1放下手机，张开双臂——面向大海。阳光在图1脸上。浅蓝色碎花连衣裙被海风吹得轻轻飘扬。五十年来第一次，完全为自己做的一个决定。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「五十年来第一次。完全为自己做的决定。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「风是咸的。阳光是烫的。活着真好。」
+        画面全程无任何文字、字幕、标题、水印。
+        三亚海滩，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP12-SEG08
+  - segment_id: EP12-SEG08
     shot_ids: [EP12-S08]
+    duration_sec: 10
     speakers: [CHAR-007, CHAR-002, CHAR-001]
-    refs: {scene_id: SCENE-009, look_ids: [CHAR-001-L01]}
+    refs:
+      scene_id: SCENE-009
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
       scene_urls:
         SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-009.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（坐在沙滩上看手机，表情从惊讶到笑）【图2】三亚海滩 SCENE-009（手机屏幕显示朋友圈评论区爆炸）。近景 固定镜头：慧兰坐在沙滩上挑选九张照片发朋友圈。刚发出去手机就炸了。她一条条翻看——有祝福有骂声。她嘴角挂着笑。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-009, role: reference_image, label: 图2}]
-    dialogue:
-      - {speaker: CHAR-007, line: "慧兰你这照片拍太好了！我给你点赞了！"}
-      - {speaker: CHAR-002, line: "林慧兰你是不是疯了？丢人丢到三亚去了！你等着！"}
-      - {speaker: CHAR-001, line: "（内心）骂吧。骂得越凶，我越知道我做对了。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（浅蓝色碎花连衣裙，在沙滩边坐下，选了九张照片发朋友圈，手机不停弹出点赞和评论，嘴角挂着笑像在看一场与自己无关的热闹）【图2】三亚海滩 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头8（10秒）近景 固定镜头：图1在沙滩边坐下，选了九张照片发朋友圈。刚发出去，手机就炸了——点赞和评论不停地弹出来。翠花发来语音大笑响彻海滩，紧接着张大强的语音也跳出来声音气得发抖。图1看着这些反应——嘴角挂着笑，像在看一场与自己无关的热闹。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「慧兰你这照片拍太好了！我给你点赞了！」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「林慧兰你是不是疯了？丢人丢到三亚去了！你等着！」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「骂吧。骂得越凶，我越知道我做对了。」
+        画面全程无任何文字、字幕、标题、水印。
+        三亚海滩，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP12-SEG09
+  - segment_id: EP12-SEG09
     shot_ids: [EP12-S09]
+    duration_sec: 10
     speakers: [CHAR-001]
-    refs: {scene_id: SCENE-009, look_ids: [CHAR-001-L01]}
+    refs:
+      scene_id: SCENE-009
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
       scene_urls:
         SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-009.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（站起来沿海岸线走，回头看一眼沙滩上的脚印，然后继续走，微笑）【图2】三亚海滩 SCENE-009（夕阳下的沙滩，一串脚印延伸向远方）。远景 固定镜头：慧兰站起来把手机放进口袋。她沿着海岸线往前走。走出几步回头看了一眼脚印。笑了笑继续往前走。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-009, role: reference_image, label: 图2}]
-    dialogue:
-      - {speaker: CHAR-001, line: "（内心）蕾蕾说三个字——真好看。"}
-      - {speaker: CHAR-001, line: "（内心）她看到我笑了。这就够了。"}
-      - {speaker: CHAR-001, line: "（内心）以前的路回不去了。前面的路，我自己走。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（浅蓝色碎花连衣裙，翻到女儿评论"真好看"盯了很久，按掉手机站起来沿海岸线走，身影越来越小融入金色海天之间）【图2】三亚海滩 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头9（10秒）中景→远景 固定镜头：图1翻到女儿张蕾的评论——就三个字"真好看"。图1盯了很久。不是夸照片。是夸她。图1按掉手机放进口袋，站起来沿着海岸线走。走出几步回头看了一眼——沙滩上一串脚印。图1笑了笑，继续往前走。身影越来越小，融入金色的海天之间。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「蕾蕾说三个字——真好看。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「她看到我笑了。这就够了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「以前的路回不去了。前面的路，我自己走。」
+        画面全程无任何文字、字幕、标题、水印。
+        三亚海滩，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

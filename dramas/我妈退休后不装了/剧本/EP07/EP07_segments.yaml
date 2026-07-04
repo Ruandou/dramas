@@ -3,7 +3,7 @@
 # Source segments: 9 (SEG01-SEG09)
 # Output segments: 9 (SEG01-SEG09)
 # Mapping: 1:1
-# Total actual shot duration: 90s (9×10s)
+# Source total duration: 90s
 # Output total duration: 90s
 # Gate status: ALL PASS
 
@@ -14,18 +14,17 @@ defaults:
   model: doubao-seedance-2-0-fast
   ratio: "9:16"
   resolution: 720p
-  duration: 5
-  generate_audio: false
+  generate_audio: true
   watermark: false
   prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
   negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
 
 voice_prompts:
-  CHAR-001: "中年女声，温暖沉稳但带克制感，语速适中偏慢，语气柔和但句尾有力量感；爆发时有压抑后释放的颤抖感，但不过度戏剧化"
-  CHAR-004: "女声，约35岁，音色偏尖亮，语速中等偏快，常态带假惺惺的甜腻；撕破脸后音调升高变尖锐，带攻击性和压迫感，但不咆哮"
-  CHAR-007: "中年女声，音色偏亮偏厚，嗓门大语气直爽，带市井烟火气，语速中等偏快，笑声爽朗有感染力"
-  CHAR-008: "男童声，音色清脆明亮，语气天真活泼，语速偏快带跳跃感，说话时充满孩子气的好奇和直接"
-  CHAR-003: "中年男声，音色温和偏软，语速适中，语气带犹豫和不确定感；说话常有停顿，反映其懦弱犹豫的性格"
+  CHAR-001: "温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音"
+  CHAR-004: "尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准"
+  CHAR-007: "爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音"
+  CHAR-008: "清脆童声，天真烂漫，语速偏快，偶尔咬字不清"
 
 segments:
   - segment_id: EP07-SEG01
@@ -34,7 +33,6 @@ segments:
     speakers: [CHAR-008, CHAR-001, CHAR-004]
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-004-L01, CHAR-008-L01, CHAR-001-L01]
     assets:
       look_urls:
         CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
@@ -43,21 +41,23 @@ segments:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】王芳 CHAR-004-L01（直长发，白衬衫+包臀裙，精明笑容）【图2】张昊 CHAR-008-L01（8岁，蓝白校服，红领巾）【图3】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，弯腰接孙子）【图4】林家客厅 SCENE-001。中景 固定镜头：敲门声。林慧兰开门——王芳站在门口牵着张昊脸上堆着笑。张昊看到奶奶扑上去。林慧兰弯腰抱住孙子心里一软但看到王芳的表情知道来者不善。"
+      text: |
+        【图1】王芳 CHAR-004-L01（白衬衫+包臀裙，精致妆容）【图2】张昊 CHAR-008-L01（蓝白校服，天真活泼）【图3】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图4】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：敲门声。林慧兰开门——王芳站在门口，手里牵着张昊，脸上堆着笑。张昊看到奶奶开心地扑上去。林慧兰弯腰抱住孙子，心里一软，但看到王芳那副我们有话好好说的表情，知道来者不善。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张昊，清脆童声，天真烂漫，语速偏快，偶尔咬字不清）：「奶奶！」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「昊昊来了…」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「妈，我带昊昊来看你了。这几天没见您，孩子想您。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「进来说吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
       content_roles:
         - { file: CHAR-004-L01, role: reference_image, label: 图1 }
         - { file: CHAR-008-L01, role: reference_image, label: 图2 }
         - { file: CHAR-001-L01, role: reference_image, label: 图3 }
         - { file: SCENE-001, role: reference_image, label: 图4 }
-    dialogue:
-      - speaker: CHAR-008
-        line: "奶奶！"
-      - speaker: CHAR-001
-        line: "昊昊来了…"
-      - speaker: CHAR-004
-        line: "妈，我带昊昊来看你了。这几天没见您，孩子想您。"
-      - speaker: CHAR-001
-        line: "进来说吧。"
+    transition_to_next: hard_cut
 
   - segment_id: EP07-SEG02
     shot_ids: [EP07-S02]
@@ -65,7 +65,6 @@ segments:
     speakers: [CHAR-004, CHAR-001]
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-004-L01, CHAR-001-L01, CHAR-008-L01]
     assets:
       look_urls:
         CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
@@ -74,23 +73,24 @@ segments:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】王芳 CHAR-004-L01（白衬衫+包臀裙，扫视客厅）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，给孙子拿零食）【图3】张昊 CHAR-008-L01（坐沙发上翻零食）【图4】林家客厅 SCENE-001。近景 固定镜头：王芳坐下先寒暄语气比以前客气。张昊坐到奶奶身边翻茶几上的零食。王芳眼神在客厅里扫了一圈——确定张大强真不在。"
+      text: |
+        【图1】王芳 CHAR-004-L01（白衬衫+包臀裙，精致妆容）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】张昊 CHAR-008-L01（蓝白校服，天真活泼）【图4】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：王芳坐下先寒暄几句，语气比以前客气了不少——但林慧兰太了解她了。这是先礼后兵。张昊坐到奶奶身边翻茶几上的零食。王芳眼神在客厅里扫了一圈确定张大强真不在。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「妈你一个人住还习惯吧？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「还行。一个人清净。」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「看你气色好了不少。广场舞跳得不错吧。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你听说了？」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「听说了。挺好。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
       content_roles:
         - { file: CHAR-004-L01, role: reference_image, label: 图1 }
         - { file: CHAR-001-L01, role: reference_image, label: 图2 }
         - { file: CHAR-008-L01, role: reference_image, label: 图3 }
         - { file: SCENE-001, role: reference_image, label: 图4 }
-    dialogue:
-      - speaker: CHAR-004
-        line: "妈你一个人住还习惯吧？"
-      - speaker: CHAR-001
-        line: "还行。一个人清净。"
-      - speaker: CHAR-004
-        line: "看你气色好了不少。广场舞跳得不错吧。"
-      - speaker: CHAR-001
-        line: "你听说了？"
-      - speaker: CHAR-004
-        line: "听说了。挺好。"
+    transition_to_next: hard_cut
 
   - segment_id: EP07-SEG03
     shot_ids: [EP07-S03]
@@ -98,7 +98,6 @@ segments:
     speakers: [CHAR-004, CHAR-001]
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-004-L01, CHAR-001-L01, CHAR-008-L01]
     assets:
       look_urls:
         CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
@@ -107,23 +106,24 @@ segments:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】王芳 CHAR-004-L01（白衬衫+包臀裙，诉苦表情抹眼角）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，沉默）【图3】张昊 CHAR-008-L01（在旁边自己玩）【图4】林家客厅 SCENE-001。近景 固定镜头：王芳话锋一转诉苦——工作忙张明没用孩子没人管保姆太贵。边说边叹气抹眼角。林慧兰沉默不语预感到了什么。"
+      text: |
+        【图1】王芳 CHAR-004-L01（白衬衫+包臀裙，精致妆容）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】张昊 CHAR-008-L01（蓝白校服，天真活泼）【图4】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：王芳看铺垫差不多了，话锋一转开始诉苦。说她工作忙、张明也没用、孩子没人管、保姆太贵。她边说边叹气抹眼角——演技极好但微表情骗不过林慧兰。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「妈，其实我这次来…是有事求你。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你说。」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「我和张明最近太忙了，昊昊放了暑假没人管。请保姆一个月五千多，我们实在…」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「…」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「你能帮我们带带昊昊吗？就这个暑假。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
       content_roles:
         - { file: CHAR-004-L01, role: reference_image, label: 图1 }
         - { file: CHAR-001-L01, role: reference_image, label: 图2 }
         - { file: CHAR-008-L01, role: reference_image, label: 图3 }
         - { file: SCENE-001, role: reference_image, label: 图4 }
-    dialogue:
-      - speaker: CHAR-004
-        line: "妈，其实我这次来…是有事求你。"
-      - speaker: CHAR-001
-        line: "你说。"
-      - speaker: CHAR-004
-        line: "我和张明最近太忙了，昊昊放了暑假没人管。请保姆一个月五千多，我们实在…"
-      - speaker: CHAR-001
-        line: "…"
-      - speaker: CHAR-004
-        line: "你能帮我们带带昊昊吗？就这个暑假。"
+    transition_to_next: hard_cut
 
   - segment_id: EP07-SEG04
     shot_ids: [EP07-S04]
@@ -131,7 +131,6 @@ segments:
     speakers: [CHAR-008, CHAR-001, CHAR-004]
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-008-L01, CHAR-001-L01, CHAR-004-L01]
     assets:
       look_urls:
         CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-008-L01.png
@@ -140,29 +139,30 @@ segments:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】张昊 CHAR-008-L01（举着饼干天真笑容）【图2】林慧兰 CHAR-001-L01（低头看他眼眶泛红）【图3】王芳 CHAR-004-L01（趁热打铁的表情）【图4】林家客厅 SCENE-001。特写→近景 固定镜头：林慧兰低头看身边的张昊。张昊举着饼干递到她嘴边。那一瞬间她心里建了那么多天的围墙裂了。她张口咬了饼干眼眶热了。"
+      text: |
+        【图1】张昊 CHAR-008-L01（蓝白校服，天真活泼）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】王芳 CHAR-004-L01（白衬衫+包臀裙，精致妆容）【图4】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写→近景 固定镜头：林慧兰低头看向身边的张昊。张昊正好抬头，举着一块饼干递到她嘴边：奶奶吃。那一瞬间她心里建了那么多天的围墙——裂了。她张口咬了饼干，眼眶热了。这个孩子是她一手带大的，是她在这个家里最爱的人。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张昊，清脆童声，天真烂漫，语速偏快，偶尔咬字不清）：「奶奶吃。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「昊昊乖…」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「你看，孩子多想你。你就帮帮我们吧。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我该怎么说'不'…他是我孙子啊。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
       content_roles:
         - { file: CHAR-008-L01, role: reference_image, label: 图1 }
         - { file: CHAR-001-L01, role: reference_image, label: 图2 }
         - { file: CHAR-004-L01, role: reference_image, label: 图3 }
         - { file: SCENE-001, role: reference_image, label: 图4 }
-    dialogue:
-      - speaker: CHAR-008
-        line: "奶奶吃。"
-      - speaker: CHAR-001
-        line: "昊昊乖…"
-      - speaker: CHAR-004
-        line: "你看，孩子多想你。你就帮帮我们吧。"
-      - speaker: CHAR-001
-        line: "（内心）我该怎么说'不'…他是我孙子啊。"
+    transition_to_next: hard_cut
 
   - segment_id: EP07-SEG05
     shot_ids: [EP07-S05]
     duration_sec: 10
-    speakers: [CHAR-007, CHAR-004, CHAR-008]
+    speakers: [CHAR-007, CHAR-004]
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-007-L01, CHAR-001-L01, CHAR-004-L01, CHAR-008-L01]
     assets:
       look_urls:
         CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
@@ -172,24 +172,25 @@ segments:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】王翠花 CHAR-007-L01（印花衬衫，拎着水果，推门进来）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，松一口气）【图3】王芳 CHAR-004-L01（白衬衫+包臀裙，笑容僵住）【图4】张昊 CHAR-008-L01【图5】林家客厅 SCENE-001。中景 固定镜头：门突然开了。翠花自己推门进来手里拎着水果。她看都没看王芳直接走向张昊蹲下来。"
+      text: |
+        【图1】王翠花 CHAR-007-L01（红色广场舞队服，短发小卷烫）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】王芳 CHAR-004-L01（白衬衫+包臀裙，精致妆容）【图4】张昊 CHAR-008-L01（蓝白校服，天真活泼）【图5】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：林慧兰张了张嘴准备说了——门突然开了。翠花自己推门进来，手里拿着一袋水果。她在门外听了几句大概明白了。她看都没看王芳，直接走向张昊蹲下来。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「慧兰，我买了——哟，有客人啊。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「昊昊？来给翠花奶奶看看。」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「翠花姨也在啊…」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「走，昊昊，翠花奶奶带你去找你爸。」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「等等——」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
       content_roles:
         - { file: CHAR-007-L01, role: reference_image, label: 图1 }
         - { file: CHAR-001-L01, role: reference_image, label: 图2 }
         - { file: CHAR-004-L01, role: reference_image, label: 图3 }
         - { file: CHAR-008-L01, role: reference_image, label: 图4 }
         - { file: SCENE-001, role: reference_image, label: 图5 }
-    dialogue:
-      - speaker: CHAR-007
-        line: "慧兰，我买了——哟，有客人啊。"
-      - speaker: CHAR-007
-        line: "昊昊？来给翠花奶奶看看。"
-      - speaker: CHAR-004
-        line: "翠花姨也在啊…"
-      - speaker: CHAR-007
-        line: "走，昊昊，翠花奶奶带你去找你爸。"
-      - speaker: CHAR-004
-        line: "等等——"
+    transition_to_next: hard_cut
 
   - segment_id: EP07-SEG06
     shot_ids: [EP07-S06]
@@ -197,7 +198,6 @@ segments:
     speakers: [CHAR-007, CHAR-004]
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-007-L01, CHAR-008-L01, CHAR-001-L01, CHAR-004-L01]
     assets:
       look_urls:
         CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
@@ -207,24 +207,25 @@ segments:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】王翠花 CHAR-007-L01（抱着张昊往门外走，表情镇定）【图2】张昊 CHAR-008-L01（被抱着）【图3】林慧兰 CHAR-001-L01（坐着没动眼神感激）【图4】王芳 CHAR-004-L01（站起来急了）【图5】林家客厅 SCENE-001。近景 固定镜头：翠花抱着张昊完全不理会王芳的阻拦。她回头看了一眼慧兰——眼神在说'你稳住我来处理'。然后直接抱着孩子出了门。王芳想跟出去又不妥当，咬牙切齿站住了。"
+      text: |
+        【图1】王翠花 CHAR-007-L01（红色广场舞队服，短发小卷烫）【图2】张昊 CHAR-008-L01（蓝白校服，天真活泼）【图3】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图4】王芳 CHAR-004-L01（白衬衫+包臀裙，精致妆容）【图5】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：翠花抱着张昊完全不理会王芳的阻拦。她转头看了一眼林慧兰——那眼神在说你稳住我来处理。然后她直接抱着孩子出了门。林慧兰知道翠花是去找张明。王芳想跟出去又觉得不妥，咬牙切齿地站住了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「你坐着。」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「翠花姨你干什么？」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「送你儿子回他爸那儿。」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「你——」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「不用送了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
       content_roles:
         - { file: CHAR-007-L01, role: reference_image, label: 图1 }
         - { file: CHAR-008-L01, role: reference_image, label: 图2 }
         - { file: CHAR-001-L01, role: reference_image, label: 图3 }
         - { file: CHAR-004-L01, role: reference_image, label: 图4 }
         - { file: SCENE-001, role: reference_image, label: 图5 }
-    dialogue:
-      - speaker: CHAR-007
-        line: "你坐着。"
-      - speaker: CHAR-004
-        line: "翠花姨你干什么？"
-      - speaker: CHAR-007
-        line: "送你儿子回他爸那儿。"
-      - speaker: CHAR-004
-        line: "你——"
-      - speaker: CHAR-007
-        line: "不用送了。"
+    transition_to_next: hard_cut
 
   - segment_id: EP07-SEG07
     shot_ids: [EP07-S07]
@@ -232,7 +233,6 @@ segments:
     speakers: [CHAR-004, CHAR-001]
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-004-L01, CHAR-001-L01]
     assets:
       look_urls:
         CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
@@ -240,20 +240,22 @@ segments:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】王芳 CHAR-004-L01（白衬衫+包臀裙，冷笑变脸站起来）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，坐着没动但双手紧握）【图3】林家客厅 SCENE-001。近景 固定镜头：翠花一走王芳的客套面具瞬间掉了。她站起来居高临下看着林慧兰——不再叫'妈'眼神变得刻薄。林慧兰坐着没动心跳很快但她没有退让。"
+      text: |
+        【图1】王芳 CHAR-004-L01（白衬衫+包臀裙，精致妆容）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：翠花一走，王芳的客套面具瞬间掉了。她不再叫妈，眼神变得刻薄。她站起来居高临下地看着林慧兰。林慧兰坐在沙发上没动——她的心跳很快但她没有退让。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「行。你长本事了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我没长本事，我只是不想再当保姆了。」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「那是我儿子，你孙子！你连自己孙子都不管？你还算个人吗！」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我养大了你老公，没义务再养你的孩子。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
       content_roles:
         - { file: CHAR-004-L01, role: reference_image, label: 图1 }
         - { file: CHAR-001-L01, role: reference_image, label: 图2 }
         - { file: SCENE-001, role: reference_image, label: 图3 }
-    dialogue:
-      - speaker: CHAR-004
-        line: "行。你长本事了。"
-      - speaker: CHAR-001
-        line: "我没长本事，我只是不想再当保姆了。"
-      - speaker: CHAR-004
-        line: "那是我儿子，你孙子！你连自己孙子都不管？你还算个人吗！"
-      - speaker: CHAR-001
-        line: "我养大了你老公，没义务再养你的孩子。"
+    transition_to_next: hard_cut
 
   - segment_id: EP07-SEG08
     shot_ids: [EP07-S08]
@@ -261,7 +263,6 @@ segments:
     speakers: [CHAR-004, CHAR-001]
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-004-L01, CHAR-001-L01]
     assets:
       look_urls:
         CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
@@ -269,20 +270,22 @@ segments:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】王芳 CHAR-004-L01（白衬衫+包臀裙，抓起包手指指着）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，坐着没动但手在抖）【图3】林家客厅 SCENE-001。近景 固定镜头：王芳被那句'没义务再养你的孩子'彻底激怒。她抓起包指着林慧兰的鼻子。慧兰仍然坐着没站起来但紧握的手在发抖。"
+      text: |
+        【图1】王芳 CHAR-004-L01（白衬衫+包臀裙，精致妆容）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：王芳被那句话彻底激怒。她抓起包指着林慧兰的鼻子。林慧兰仍然坐在沙发上没站起来——但她紧握的手在发抖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「行。你狠。你就一个人过到老吧。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我会过得挺好。你放心。」
+        对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「你会后悔的！」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「也许吧。但不会比这四十年更后悔。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
       content_roles:
         - { file: CHAR-004-L01, role: reference_image, label: 图1 }
         - { file: CHAR-001-L01, role: reference_image, label: 图2 }
         - { file: SCENE-001, role: reference_image, label: 图3 }
-    dialogue:
-      - speaker: CHAR-004
-        line: "行。你狠。你就一个人过到老吧。"
-      - speaker: CHAR-001
-        line: "我会过得挺好。你放心。"
-      - speaker: CHAR-004
-        line: "你会后悔的！"
-      - speaker: CHAR-001
-        line: "也许吧。但不会比这四十年更后悔。"
+    transition_to_next: hard_cut
 
   - segment_id: EP07-SEG09
     shot_ids: [EP07-S09]
@@ -290,21 +293,23 @@ segments:
     speakers: [CHAR-001]
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-001-L01]
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，独坐门边地上）【图2】林家客厅 SCENE-001（夕阳照进来光影温暖）。特写 固定镜头：门砰一声关上。林慧兰站起来走到门口手放在门把手上没开门。身体从手指到肩膀开始发抖。她靠在门上慢慢滑坐到地上。眼泪无声滑落——她刚刚做了最艰难的事但她做到了。夕阳从窗户照进来洒在她脚边。"
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写 固定镜头：门砰一声关上。林慧兰终于动了——她站起来走到门口，手放在门把手上。她没开门。她的身体开始发抖，从手指到肩膀。她靠在门上慢慢滑坐到地上。眼泪无声滑落。她刚刚做了一件最艰难的事——对心爱的孙子说了不。但她做到了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我做对了吗…」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我做的对。我是对的。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「昊昊…对不起…奶奶不是不要你…奶奶只是要先学会爱自己。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，写实风格，竖屏9比16，无品牌 Logo，无平台 UI。
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: SCENE-001, role: reference_image, label: 图2 }
-    dialogue:
-      - speaker: CHAR-001
-        line: "（内心）我做对了吗…"
-      - speaker: CHAR-001
-        line: "（内心）我做的对。我是对的。"
-      - speaker: CHAR-001
-        line: "（内心）昊昊…对不起…奶奶不是不要你…奶奶只是要先学会爱自己。"
+    transition_to_next: hard_cut

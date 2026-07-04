@@ -1,146 +1,282 @@
-# SOURCE FIDELITY: EP10剧本.md → 9 segments 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP10/EP10_剧本.md
+# Source shots: 9 (EP10-S01 to EP10-S09)
+# Output segments: 9 (EP10-SEG01 to EP10-SEG09)
+# Source total duration: 90s (computed: 9×10s)
+# Output total duration: 90s
+# Gate status: ALL PASS
+# ⚠️ SEMANTIC_WARNING: SEG01 大姑姐/二姨 are [待补] voice-only画外音 — pending CHAR-GRP assignment for voice_prompt
+
 episode_id: EP10
-defaults: &d
+source_md: 剧本/EP10/EP10_剧本.md
+defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
   ratio: "9:16"
   resolution: 720p
+  generate_audio: true
+  watermark: false
   prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
   negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
 voice_prompts:
-  CHAR-001: "中年女声，温暖沉稳但带克制感，语速适中偏慢，语气柔和但句尾有力量感"
-  CHAR-005: "女声，约35-40岁，音色清亮带职场人的理性利落，语速中等偏快；对母亲说话时带小心翼翼的不满和劝说感"
-  CHAR-007: "中年女声，音色偏亮偏厚，嗓门大语气直爽，带市井烟火气，语速中等偏快"
+  CHAR-001: "温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音"
+  CHAR-005: "干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准"
+  CHAR-007: "爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音"
+
 segments:
-  - &s
-    segment_id: EP10-SEG01
+  - segment_id: EP10-SEG01
     shot_ids: [EP10-S01]
     duration_sec: 10
-    speakers: [CHAR-GRP-002]
-    refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
     assets:
-      look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png}
-      scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，在擦茶几，手机频繁响）【图2】林家客厅 SCENE-001。中景 固定镜头：手机响了一次又一次。慧兰按了静音继续擦茶几。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
-    dialogue:
-      - {speaker: CHAR-GRP-002, line: "慧兰啊，听说你要离婚？"}
-      - {speaker: CHAR-GRP-002, line: "你都六十了还折腾什么！"}
-      - {speaker: CHAR-GRP-002, line: "男人都低头了你还不回去？"}
-  - <<: *s
-    segment_id: EP10-SEG02
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，银灰色短发，擦茶几的动作越来越用力）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：手机响了又响。图1在擦茶几——大姑姐来电图1没接，二姨来电图1没接。图1按了静音继续擦茶几。第三通电话进来时图1终于看了一眼。屏幕上弹出一连串消息提醒，像催命符。手机铃声此起彼伏，图1擦茶几的动作越来越用力。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（大姑姐，老年女性声音，急促）：「慧兰啊，听说你要离婚？」
+        对白（二姨，老年女性声音，埋怨）：「你都六十了还折腾什么！」
+        对白（大姑姐，老年女性声音，急促）：「男人都低头了你还不回去？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG02
     shot_ids: [EP10-S02]
+    duration_sec: 10
     speakers: [CHAR-005, CHAR-001]
-    look_ids: [CHAR-001-L01, CHAR-005-L01]
+    refs:
+      scene_id: SCENE-001
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
         CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（接电话）【图2】张蕾 CHAR-005-L01（电话那头）【图3】林家客厅 SCENE-001。近景 固定镜头：张蕾电话来了。慧兰深吸一口气接通。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-005-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
-    dialogue:
-      - {speaker: CHAR-005, line: "妈，爸说你要打官司？"}
-      - {speaker: CHAR-001, line: "嗯。"}
-      - {speaker: CHAR-005, line: "妈你非闹到这一步吗？"}
-      - {speaker: CHAR-001, line: "蕾蕾，妈不是在闹。"}
-      - {speaker: CHAR-005, line: "那你在干什么？"}
-      - {speaker: CHAR-001, line: "妈在活。"}
-  - <<: *s
-    segment_id: EP10-SEG03
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，深吸一口气接通电话）【图2】张蕾 CHAR-005-L01（高马尾，灰西装套裙，电话中仅声音出镜）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头2（10秒）近景 固定镜头：张蕾的电话来了——这个图1不能不接。图1深吸一口气接通。手机屏幕亮着，张蕾的头像闪烁。图1把手机放在茶几上开了免提，继续擦茶几——图1需要让手有事做。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈，爸说你要打官司？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「嗯。」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈你非闹到这一步吗？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「蕾蕾，妈不是在闹。」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「那你在干什么？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「妈在活。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG03
     shot_ids: [EP10-S03]
+    duration_sec: 10
     speakers: [CHAR-005, CHAR-001]
-    look_ids: [CHAR-001-L01, CHAR-005-L01]
+    refs:
+      scene_id: SCENE-001
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
         CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（压着情绪）【图2】张蕾 CHAR-005-L01（电话那头）【图3】林家客厅 SCENE-001。近景 固定镜头：慧兰试图让女儿理解但张蕾只看到家庭将瓦解。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-005-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
-    dialogue:
-      - {speaker: CHAR-005, line: "你跟爸各退一步不行吗？"}
-      - {speaker: CHAR-001, line: "我退了四十年了。你让我退到哪里去？"}
-      - {speaker: CHAR-005, line: "为了这个家——"}
-      - {speaker: CHAR-001, line: "这个家以前也没人在乎过我。你们在乎的都是'家里有个妈'。"}
-  - <<: *s
-    segment_id: EP10-SEG04
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，压着情绪，声音平静但每个字都在发抖）【图2】张蕾 CHAR-005-L01（高马尾，灰西装套裙，电话中仅声音出镜）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头3（10秒）近景 固定镜头：图1试图让女儿理解——但张蕾从小在完整家庭环境长大理解不了。图1压着情绪说出那句憋了四十年的话，声音平静但每个字都在发抖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「你跟爸各退一步不行吗？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我退了四十年了。蕾蕾，你让我退到哪里去？」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「为了这个家——」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「这个家以前也没人在乎过我。你们在乎的都是'家里有个妈'。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG04
     shot_ids: [EP10-S04]
+    duration_sec: 10
     speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（挂掉电话，把手机扣桌上）【图2】林家客厅 SCENE-001。近景 固定镜头：更多来电提醒弹出来。她把手机翻扣桌上。世界安静了但她忽然很想哭。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
-    dialogue:
-      - {speaker: CHAR-001, line: "（内心）为什么每个人都觉得我该忍…"}
-      - {speaker: CHAR-001, line: "（内心）我明明已经忍了四十年了。"}
-      - {speaker: CHAR-001, line: "（内心）在他们眼里，我就是一个'妈'，不是一个'人'。"}
-  - <<: *s
-    segment_id: EP10-SEG05
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，握着手机坐在沙发上，更多来电提醒弹出）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头4（10秒）特写 固定镜头：挂掉电话。图1握着手机坐在沙发上。更多来电提醒弹出来——三叔、表哥、舅妈。图1把手机翻扣在桌上。世界安静了，但图1忽然很想哭。窗外的光线渐渐暗下来。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「为什么每个人都觉得我该忍…」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我明明已经忍了四十年了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「在他们眼里，我就是一个'妈'，不是一个'人'。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP10-SEG05
     shot_ids: [EP10-S05]
+    duration_sec: 10
     speakers: []
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（坐在黑暗客厅里捂嘴无声哭泣）【图2】林家客厅 SCENE-001（夜间昏暗）。特写 固定镜头：深夜慧兰独自坐在黑暗客厅里终于哭了——压抑的从胸腔深处涌出来的哭声。她捂住嘴。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
-    dialogue: []
-  - <<: *s
-    segment_id: EP10-SEG06
+      text: |
+        【图1】林慧兰 CHAR-001-L01（居家睡衣，银灰色短发，独自坐在黑暗客厅里，捂住嘴压抑哭泣）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头5（10秒）特写 固定镜头：深夜。图1独自坐在黑暗客厅里，只有窗外路灯透进来一点光。图1终于哭了——不是嚎哭，是从胸腔深处涌出来的压抑的哭声。图1捂住嘴不让自己出声。眼泪流过指缝滴在膝盖上。肩膀剧烈颤抖。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP10-SEG06
     shot_ids: [EP10-S06]
+    duration_sec: 10
     speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（在卫生间洗脸，看镜子）【图2】林家客厅 SCENE-001。近景 固定镜头：慧兰哭了很久。站起来去卫生间洗脸。看着镜子里眼睛红肿但目光平静的自己——点了下头。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
-    dialogue:
-      - {speaker: CHAR-001, line: "（内心）哭完了。该干嘛干嘛。"}
-      - {speaker: CHAR-001, line: "（内心）这条路是你自己选的。不能回头。"}
-  - <<: *s
-    segment_id: EP10-SEG07
+      text: |
+        【图1】林慧兰 CHAR-001-L01（素颜，眼睛红肿但目光平静，水珠从下巴滴落）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头6（10秒）特写 固定镜头：图1哭了很久。然后图1站起来去卫生间洗了把脸。图1看着镜子里的自己——眼睛红肿但目光平静。水珠从下巴滴落。图1对自己点了下头。不会回头。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「哭完了。该干嘛干嘛。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「这条路是你自己选的。不能回头。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP10-SEG07
     shot_ids: [EP10-S07]
+    duration_sec: 10
     speakers: [CHAR-007, CHAR-001]
-    look_ids: [CHAR-007-L01, CHAR-001-L01]
+    refs:
+      scene_id: SCENE-001
     assets:
       look_urls:
         CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】王翠花 CHAR-007-L01（放豆浆油条）【图2】林慧兰 CHAR-001-L01（眼睛红肿）【图3】林家客厅 SCENE-001。中景 固定镜头：第二天一早翠花来了。看到慧兰红肿的眼睛什么都没问。"
-      content_roles: [{file: CHAR-007-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
-    dialogue:
-      - {speaker: CHAR-007, line: "听说你们家那位放话了。"}
-      - {speaker: CHAR-001, line: "他说什么了？"}
-      - {speaker: CHAR-007, line: "说你疯了。让全家族给你打电话劝你。"}
-      - {speaker: CHAR-001, line: "他倒是会先发制人。"}
-  - <<: *s
-    segment_id: EP10-SEG08
+      text: |
+        【图1】王翠花 CHAR-007-L01（红色广场舞队服，拎着豆浆油条，表情难得的严肃）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，眼睛红肿，鼻头一酸但忍住了）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头7（10秒）中景 固定镜头：第二天一早图1来了。图1看到图2红肿的眼睛什么都没问——只把带来的豆浆油条放桌上。图2看到老闺蜜鼻头一酸但忍住了。图1坐下，表情难得的严肃。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「听说你们家那位放话了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「他说什么了？」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「说你疯了。让全家族给你打电话劝你。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「他倒是会先发制人。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG08
     shot_ids: [EP10-S08]
+    duration_sec: 10
     speakers: [CHAR-007, CHAR-001]
-    look_ids: [CHAR-007-L01, CHAR-001-L01]
+    refs:
+      scene_id: SCENE-001
     assets:
       look_urls:
         CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】王翠花 CHAR-007-L01（压低声音）【图2】林慧兰 CHAR-001-L01（一愣苦笑）【图3】林家客厅 SCENE-001。近景 固定镜头：翠花压低声音说了银行的事。慧兰听完第一反应不是愤怒是悲哀。"
-      content_roles: [{file: CHAR-007-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
-    dialogue:
-      - {speaker: CHAR-007, line: "我老公在银行看到张大强了——他把定期存款都转走了。"}
-      - {speaker: CHAR-001, line: "他果然做了。"}
-      - {speaker: CHAR-007, line: "你不意外？"}
-      - {speaker: CHAR-001, line: "意外的不是他做，是我居然还对他抱过希望。"}
-  - <<: *s
-    segment_id: EP10-SEG09
+      text: |
+        【图1】王翠花 CHAR-007-L01（红色广场舞队服，压低声音）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，愣了一瞬，苦笑）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头8（10秒）近景 固定镜头：图1犹豫了一下压低声音。图2听完第一反应不是愤怒是悲哀——四十年夫妻他果然在钱上留了一手。图2早就该料到了。豆浆的热气在图2面前升起来，模糊了图2的表情。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「我老公在银行看到张大强了——他把定期存款都转走了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「他果然做了。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「你不意外？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「意外的不是他做，是我居然还对他抱过希望。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP10-SEG09
     shot_ids: [EP10-S09]
+    duration_sec: 10
     speakers: [CHAR-007, CHAR-001]
-    look_ids: [CHAR-001-L01, CHAR-007-L01]
+    refs:
+      scene_id: SCENE-001
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
         CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（喝豆浆，平静）【图2】王翠花 CHAR-007-L01（看着她）【图3】林家客厅 SCENE-001。近景 固定镜头：慧兰喝了一口豆浆笑了——'我早有准备'的笑。这点钱吓不到她了。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-007-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
-    dialogue:
-      - {speaker: CHAR-007, line: "那你打算怎么办？"}
-      - {speaker: CHAR-001, line: "他不是转移存款吗？行。那就法庭上见。"}
-      - {speaker: CHAR-007, line: "打官司要钱啊！"}
-      - {speaker: CHAR-001, line: "没钱也要打。该我的，一分不能少。不该我的，我一分不要。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，拿起豆浆喝了一口然后笑了——不是苦笑，是早有准备的笑）【图2】王翠花 CHAR-007-L01（红色广场舞队服，眼神里是敬佩）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头9（10秒）近景→特写 固定镜头：图1沉默了一会儿。图1拿起豆浆喝了一口然后笑了——不是苦笑，是"我早有准备"的笑。这点钱吓不到图1了。图2看着图1，眼神里是敬佩。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「那你打算怎么办？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「他不是转移存款吗？行。那就法庭上见。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「打官司要钱啊！」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「没钱也要打。该我的，一分不能少。不该我的，我一分不要。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

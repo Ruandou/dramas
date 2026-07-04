@@ -1,5 +1,15 @@
-# SOURCE FIDELITY: EP10剧本.md → 9 shots 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP10/EP10_剧本.md
+# Source shots: 9 (EP10-S01 to EP10-S09)
+# Output shots: 9 (EP10-S01 to EP10-S09)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s (computed: 9×10s)
+# Output total duration: 90s
+# Gate status: ALL PASS
+# ⚠️ SEMANTIC_WARNING: SEG01 has [待补：大姑姐] and [待补：二姨] as voice-only画外音 — pending CHAR-GRP assignment
+
 episode_id: EP10
+source_md: 剧本/EP10/EP10_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
@@ -10,128 +20,254 @@ defaults:
   watermark: false
   prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
   negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
 shots:
-  - &s01
-    shot_id: EP10-S01
+  - shot_id: EP10-S01
     shot_no: 1
     mode: i2v_ref
     duration_sec: 10
-    refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01]
     assets:
-      look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png}
-      scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，在擦茶几，手机频繁响）【图2】林家客厅 SCENE-001。中景 固定镜头：手机响了一次又一次。慧兰在擦茶几——大姑姐来电没接，二姨来电没接。她按了静音继续擦。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，银灰色短发，擦茶几的动作越来越用力）【图2】林家客厅 SCENE-001。中景 固定镜头：手机响了又响。图1在擦茶几——大姑姐来电她没接，二姨来电她没接。图1按了静音继续擦茶几。第三通电话进来时图1终于看了一眼。屏幕上弹出一连串消息提醒，像催命符。手机铃声此起彼伏，图1擦茶几的动作越来越用力。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
     dialogue:
-      - {speaker: CHAR-GRP-002, line: "慧兰啊，听说你要离婚？"}
-      - {speaker: CHAR-GRP-002, line: "你都六十了还折腾什么！"}
-      - {speaker: CHAR-GRP-002, line: "男人都低头了你还不回去？"}
-  - <<: *s01
-    shot_id: EP10-S02
+      - speaker: 大姑姐
+        line: "（画外音）慧兰啊，听说你要离婚？"
+      - speaker: 二姨
+        line: "（画外音）你都六十了还折腾什么！"
+      - speaker: 大姑姐
+        line: "（画外音）男人都低头了你还不回去？"
+
+  - shot_id: EP10-S02
     shot_no: 2
-    look_ids: [CHAR-001-L01, CHAR-005-L01]
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01, CHAR-005-L01]
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
         CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（接电话，表情克制）【图2】张蕾 CHAR-005-L01（电话那头，可放头像框示意）【图3】林家客厅 SCENE-001。近景 固定镜头：张蕾电话来了。慧兰深吸一口气接通。张蕾语气比上次克制但言辞还是'为你好'。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-005-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，深吸一口气接通电话）【图2】张蕾 CHAR-005-L01（高马尾，灰西装套裙，电话中仅声音出镜）【图3】林家客厅 SCENE-001。近景 固定镜头：张蕾的电话来了——这个图1不能不接。图1深吸一口气接通。手机屏幕亮着，张蕾的头像闪烁。图1把手机放在茶几上开了免提，继续擦茶几——图1需要让手有事做。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
     dialogue:
-      - {speaker: CHAR-005, line: "妈，爸说你要打官司？"}
-      - {speaker: CHAR-001, line: "嗯。"}
-      - {speaker: CHAR-005, line: "妈你非闹到这一步吗？"}
-      - {speaker: CHAR-001, line: "蕾蕾，妈不是在闹。"}
-      - {speaker: CHAR-005, line: "那你在干什么？"}
-      - {speaker: CHAR-001, line: "妈在活。"}
-  - <<: *s01
-    shot_id: EP10-S03
+      - speaker: CHAR-005
+        line: "（电话）妈，爸说你要打官司？"
+      - speaker: CHAR-001
+        line: "嗯。"
+      - speaker: CHAR-005
+        line: "（电话）妈你非闹到这一步吗？"
+      - speaker: CHAR-001
+        line: "蕾蕾，妈不是在闹。"
+      - speaker: CHAR-005
+        line: "（电话）那你在干什么？"
+      - speaker: CHAR-001
+        line: "妈在活。"
+
+  - shot_id: EP10-S03
     shot_no: 3
-    look_ids: [CHAR-001-L01, CHAR-005-L01]
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01, CHAR-005-L01]
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
         CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（压着情绪说话）【图2】张蕾 CHAR-005-L01（电话那头）【图3】林家客厅 SCENE-001。近景 固定镜头：慧兰试图让女儿理解，但张蕾只看到家庭即将瓦解。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-005-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，压着情绪，声音平静但每个字都在发抖）【图2】张蕾 CHAR-005-L01（高马尾，灰西装套裙，电话中仅声音出镜）【图3】林家客厅 SCENE-001。近景 固定镜头：图1试图让女儿理解——但张蕾从小在完整家庭环境长大理解不了。图1压着情绪说出那句憋了四十年的话，声音平静但每个字都在发抖。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
     dialogue:
-      - {speaker: CHAR-005, line: "你跟爸各退一步不行吗？"}
-      - {speaker: CHAR-001, line: "我退了四十年了。你让我退到哪里去？"}
-      - {speaker: CHAR-005, line: "为了这个家——"}
-      - {speaker: CHAR-001, line: "这个家以前也没人在乎过我。你们在乎的都是'家里有个妈'。"}
-  - <<: *s01
-    shot_id: EP10-S04
+      - speaker: CHAR-005
+        line: "（电话）你跟爸各退一步不行吗？"
+      - speaker: CHAR-001
+        line: "我退了四十年了。蕾蕾，你让我退到哪里去？"
+      - speaker: CHAR-005
+        line: "（电话）为了这个家——"
+      - speaker: CHAR-001
+        line: "这个家以前也没人在乎过我。你们在乎的都是'家里有个妈'。"
+
+  - shot_id: EP10-S04
     shot_no: 4
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（挂掉电话，把手机扣在桌上，神情疲惫悲哀）【图2】林家客厅 SCENE-001。近景 固定镜头：挂掉电话。慧兰握着手机坐在沙发上。更多来电提醒弹出来。她把手机翻扣在桌上。世界安静了，但她忽然很想哭。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，握着手机坐在沙发上，更多来电提醒弹出）【图2】林家客厅 SCENE-001。特写 固定镜头：挂掉电话。图1握着手机坐在沙发上。更多来电提醒弹出来——三叔、表哥、舅妈。图1把手机翻扣在桌上。世界安静了，但图1忽然很想哭。窗外的光线渐渐暗下来。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
     dialogue:
-      - {speaker: CHAR-001, line: "（内心）为什么每个人都觉得我该忍…"}
-      - {speaker: CHAR-001, line: "（内心）我明明已经忍了四十年了。"}
-      - {speaker: CHAR-001, line: "（内心）在他们眼里，我就是一个'妈'，不是一个'人'。"}
-  - <<: *s01
-    shot_id: EP10-S05
+      - speaker: CHAR-001
+        line: "（内心）为什么每个人都觉得我该忍…"
+      - speaker: CHAR-001
+        line: "（内心）我明明已经忍了四十年了。"
+      - speaker: CHAR-001
+        line: "（内心）在他们眼里，我就是一个'妈'，不是一个'人'。"
+
+  - shot_id: EP10-S05
     shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（坐在黑暗客厅里，捂嘴无声哭泣）【图2】林家客厅 SCENE-001（夜间昏暗）。特写 固定镜头：深夜。慧兰独自坐在黑暗客厅里。她终于哭了——从胸腔深处涌出来的压抑的哭声。她捂住嘴不让自己出声。眼泪流过指缝。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
+      text: |
+        【图1】林慧兰 CHAR-001-L01（居家睡衣，银灰色短发，独自坐在黑暗客厅里，捂住嘴压抑哭泣）【图2】林家客厅 SCENE-001。特写 固定镜头：深夜。图1独自坐在黑暗客厅里，只有窗外路灯透进来一点光。图1终于哭了——不是嚎哭，是从胸腔深处涌出来的压抑的哭声。图1捂住嘴不让自己出声。眼泪流过指缝滴在膝盖上。肩膀剧烈颤抖。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
     dialogue: []
-  - <<: *s01
-    shot_id: EP10-S06
+
+  - shot_id: EP10-S06
     shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01]
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（在卫生间洗脸，看镜子，眼神从红肿变平静）【图2】林家客厅 SCENE-001。近景 固定镜头：慧兰哭了很久。然后她站起来去卫生间洗了把脸。她看着镜子里的自己——眼睛红肿但目光平静。她对自己点了下头。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
+      text: |
+        【图1】林慧兰 CHAR-001-L01（素颜，眼睛红肿但目光平静，水珠从下巴滴落）【图2】林家客厅 SCENE-001。特写 固定镜头：图1哭了很久。然后图1站起来去卫生间洗了把脸。图1看着镜子里的自己——眼睛红肿但目光平静。水珠从下巴滴落。图1对自己点了下头。不会回头。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
     dialogue:
-      - {speaker: CHAR-001, line: "（内心）哭完了。该干嘛干嘛。"}
-      - {speaker: CHAR-001, line: "（内心）这条路是你自己选的。不能回头。"}
-  - <<: *s01
-    shot_id: EP10-S07
+      - speaker: CHAR-001
+        line: "（内心）哭完了。该干嘛干嘛。"
+      - speaker: CHAR-001
+        line: "（内心）这条路是你自己选的。不能回头。"
+
+  - shot_id: EP10-S07
     shot_no: 7
-    look_ids: [CHAR-007-L01, CHAR-001-L01]
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-007-L01, CHAR-001-L01]
     assets:
       look_urls:
         CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】王翠花 CHAR-007-L01（印花衬衫，坐下放豆浆油条）【图2】林慧兰 CHAR-001-L01（眼睛红肿但神情平静）【图3】林家客厅 SCENE-001。中景 固定镜头：第二天一早翠花来了。看到慧兰红肿的眼睛什么都没问，只把豆浆油条放桌上。"
-      content_roles: [{file: CHAR-007-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+      text: |
+        【图1】王翠花 CHAR-007-L01（红色广场舞队服，拎着豆浆油条，表情难得的严肃）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，眼睛红肿，鼻头一酸但忍住了）【图3】林家客厅 SCENE-001。中景 固定镜头：第二天一早图1来了。图1看到图2红肿的眼睛什么都没问——只把带来的豆浆油条放桌上。图2看到老闺蜜鼻头一酸但忍住了。图1坐下，表情难得的严肃。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
     dialogue:
-      - {speaker: CHAR-007, line: "听说你们家那位放话了。"}
-      - {speaker: CHAR-001, line: "他说什么了？"}
-      - {speaker: CHAR-007, line: "说你疯了。让全家族给你打电话劝你。"}
-      - {speaker: CHAR-001, line: "他倒是会先发制人。"}
-  - <<: *s01
-    shot_id: EP10-S08
+      - speaker: CHAR-007
+        line: "听说你们家那位放话了。"
+      - speaker: CHAR-001
+        line: "他说什么了？"
+      - speaker: CHAR-007
+        line: "说你疯了。让全家族给你打电话劝你。"
+      - speaker: CHAR-001
+        line: "他倒是会先发制人。"
+
+  - shot_id: EP10-S08
     shot_no: 8
-    look_ids: [CHAR-007-L01, CHAR-001-L01]
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-007-L01, CHAR-001-L01]
     assets:
       look_urls:
         CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】王翠花 CHAR-007-L01（压低声音）【图2】林慧兰 CHAR-001-L01（愣了一瞬苦笑）【图3】林家客厅 SCENE-001。近景 固定镜头：翠花犹豫了一下压低声音说了银行的事。慧兰听完第一反应不是愤怒是悲哀。"
-      content_roles: [{file: CHAR-007-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+      text: |
+        【图1】王翠花 CHAR-007-L01（红色广场舞队服，压低声音）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，愣了一瞬，苦笑）【图3】林家客厅 SCENE-001。近景 固定镜头：图1犹豫了一下压低声音。图2听完第一反应不是愤怒是悲哀——四十年夫妻他果然在钱上留了一手。图2早就该料到了。豆浆的热气在图2面前升起来，模糊了图2的表情。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
     dialogue:
-      - {speaker: CHAR-007, line: "我老公在银行看到张大强了——他把定期存款都转走了。"}
-      - {speaker: CHAR-001, line: "他果然做了。"}
-      - {speaker: CHAR-007, line: "你不意外？"}
-      - {speaker: CHAR-001, line: "意外的不是他做，是我居然还对他抱过希望。"}
-  - <<: *s01
-    shot_id: EP10-S09
+      - speaker: CHAR-007
+        line: "（压低声音）我老公在银行看到张大强了——他把定期存款都转走了。"
+      - speaker: CHAR-001
+        line: "他果然做了。"
+      - speaker: CHAR-007
+        line: "你不意外？"
+      - speaker: CHAR-001
+        line: "意外的不是他做，是我居然还对他抱过希望。"
+
+  - shot_id: EP10-S09
     shot_no: 9
-    look_ids: [CHAR-001-L01, CHAR-007-L01]
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids: [CHAR-001-L01, CHAR-007-L01]
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
         CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（喝豆浆，平静放下杯子，目光坚定）【图2】王翠花 CHAR-007-L01（看着她）【图3】林家客厅 SCENE-001。近景 固定镜头：慧兰沉默了一会儿。拿起豆浆喝了一口然后笑了——不是苦笑是'我早有准备'的笑。这点钱吓不到她了。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-007-L01, role: reference_image, label: 图2}, {file: SCENE-001, role: reference_image, label: 图3}]
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，拿起豆浆喝了一口然后笑了——不是苦笑，是"我早有准备"的笑）【图2】王翠花 CHAR-007-L01（红色广场舞队服，眼神里是敬佩）【图3】林家客厅 SCENE-001。近景→特写 固定镜头：图1沉默了一会儿。图1拿起豆浆喝了一口然后笑了——不是苦笑，是"我早有准备"的笑。这点钱吓不到图1了。图2看着图1，眼神里是敬佩。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
     dialogue:
-      - {speaker: CHAR-007, line: "那你打算怎么办？"}
-      - {speaker: CHAR-001, line: "他不是转移存款吗？行。那就法庭上见。"}
-      - {speaker: CHAR-007, line: "打官司要钱啊！"}
-      - {speaker: CHAR-001, line: "没钱也要打。该我的，一分不能少。不该我的，我一分不要。"}
+      - speaker: CHAR-007
+        line: "那你打算怎么办？"
+      - speaker: CHAR-001
+        line: "他不是转移存款吗？行。那就法庭上见。"
+      - speaker: CHAR-007
+        line: "打官司要钱啊！"
+      - speaker: CHAR-001
+        line: "没钱也要打。该我的，一分不能少。不该我的，我一分不要。"

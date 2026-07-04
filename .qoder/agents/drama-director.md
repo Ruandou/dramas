@@ -580,7 +580,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 | SOURCE FIDELITY PROOF | shots.yaml 顶部包含忠实度证明块 | 请求 segment-builder 重新生成 |
 | 镜头数一致 | shots 数量 == 源 .md 镜头表行数 | 上游问题→回退 Stage 4；本层问题→重新生成 |
 | 对白逐字一致 | 每行对白可追溯到源 .md 逐字对应 | 请求 segment-builder 修正 |
-| voice_prompt 全文一致 | YAML voice_prompt == 声音卡片原文 | 请求修正 |
+| voice_prompt 来源 | 每个出场角色 voice_prompt 可追溯到 `资产/声音卡片.md`（唯一来源）。YAML 中无 `# ⚠️` 推导注释 | Gate 4 失败 → 退回 production-planner 补充声音卡片后重试。禁止 segment-builder 编造 |
 | 时长合规 | 所有 segment 4-12s，总时长落在 `制片规范.md` → `episode_profile` 合规区间（示例 ≥75s 且 ≤120s） | 超出→检查是否上游时长问题 |
 | 不跨场景 | 每个 segment 内所有 shot 同一 SCENE | 请求拆分 |
 | content_roles 对应 | 【图N】 ↔ content_roles 一一对应 | 请求修正 |

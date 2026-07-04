@@ -102,6 +102,61 @@ def check_shots(data: dict) -> list:
                             errors.append(f"shots[{i}].dialogue[{j}] 缺: {ff}")
     return errors
 
+def check_content_roles(data: dict, label: str) -> list:
+    """Check content_roles format is [{file, role, label}], not flat map."""
+    errors = []
+    items = data.get("segments", []) if label == "segments" else data.get("shots", [])
+    for i, item in enumerate(items):
+        if not isinstance(item, dict):
+            continue
+        api = item.get("api", {})
+        if not isinstance(api, dict):
+            continue
+        cr = api.get("content_roles", [])
+        if isinstance(cr, dict):
+            errors.append(f"{label}[{i}].api.content_roles 是扁平 map，应为对象列表")
+        elif isinstance(cr, list):
+            for j, role_item in enumerate(cr):
+                if isinstance(role_item, dict):
+                    for ff in ["file", "role", "label"]:
+                        if ff not in role_item:
+                            errors.append(f"{label}[{i}].content_roles[{j}] 缺: {ff}")
+    return errors
+
+
+def check_warning_comments(fpath: str) -> list:
+    """Check for ⚠️ comments in YAML — indicates fabricated data."""
+    errors = []
+    with open(fpath) as f:
+        for i, line in enumerate(f, 1):
+            if '⚠️' in line and '#' in line:
+                errors.append(f"第{i}行: 含 ⚠️ 注释——voice_prompt 来源不明，应补充声音卡片而非标注警告")
+    return errors
+
+
+def check_tu_refs(data: dict, label: str) -> list:
+    """Check api.text uses 图N references instead of character names."""
+    errors = []
+    import re
+    items = data.get("segments", []) if label == "segments" else data.get("shots", [])
+    for i, item in enumerate(items):
+        if not isinstance(item, dict):
+            continue
+        api = item.get("api", {})
+        if not isinstance(api, dict):
+            continue
+        text = api.get("text", "")
+        if not isinstance(text, str):
+            continue
+        # Find lines with 镜头描述
+        lens_lines = re.findall(r'镜头\d+[^。]*', text)
+        for ll in lens_lines:
+            # If line has a Chinese name (2-3 chars) as action subject without 图 prefix
+            if re.search(r'[，,]\s*[\u4e00-\u9fff]{2,3}(?!图|不|也|就|还|的|了|在|是|有|和|与|或|被|把|从|对|向|往|到|在)', ll):
+                errors.append(f"{label}[{i}].api.text 镜头描述可能含角色名而非图N引用")
+                break
+    return errors
+
 
 def check_segments(data: dict) -> list:
     errors = []
@@ -144,10 +199,13 @@ def main():
 
         checks = [
             ("分号检测", lambda: check_semicolons(fpath)),
+            ("⚠️注释检测", lambda: check_warning_comments(fpath)),
             ("顶层字段", lambda: check_top_fields(data, top_fields, label)),
             ("defaults", lambda: check_defaults(data, label)),
             ("子项字段", lambda: item_check(data)),
+            ("content_roles", lambda: check_content_roles(data, label)),
             ("URL格式", lambda: check_urls(data, label)),
+            ("图N引用", lambda: check_tu_refs(data, label)),
         ]
         for name, fn in checks:
             errs = fn()

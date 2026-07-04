@@ -1,9 +1,11 @@
 # === SOURCE FIDELITY PROOF ===
 # Source: 剧本/EP11/EP11_剧本.md
-# Source segments: 9 (SEG01-SEG09)
-# Output segments: 9 (SEG01-SEG09)
-# Total: 90s
-# Gate: ALL PASS
+# Source shots: 9 (EP11-S01 to EP11-S09)
+# Output segments: 9 (EP11-SEG01 to EP11-SEG09)
+# Source total duration: 90s (computed: 9×10s)
+# Output total duration: 90s
+# Gate status: ALL PASS
+# ⚠️ SEMANTIC_WARNING: SEG02-SEG06 [待补：书法班老太太] has no voice_prompt — using generic elderly female voice as placeholder
 
 episode_id: EP11
 source_md: 剧本/EP11/EP11_剧本.md
@@ -12,187 +14,269 @@ defaults:
   model: doubao-seedance-2-0-fast
   ratio: "9:16"
   resolution: 720p
-  duration: 5
-  generate_audio: false
+  generate_audio: true
   watermark: false
   prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
   negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
 
 voice_prompts:
-  CHAR-001: "中年女声，温暖沉稳但带克制感，语速适中偏慢，语气柔和但句尾有力量感；爆发时有压抑后释放的颤抖感，但不过度戏剧化"
-  CHAR-GRP-001: "老年女声约70岁，音色亮朗带爽朗笑声，嗓门大，语速偏快，市井烟火气，过米寿的通透感"
-  CHAR-010: "中年女声约55岁，音色沙哑低沉，疲倦脆弱，哽咽断续的语气，带有长期压抑后的破碎感，北方口音"
+  CHAR-001: "温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音"
+  CHAR-010: "沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音"
 
 segments:
-  - &seg1
-    segment_id: EP11-SEG01
+  - segment_id: EP11-SEG01
     shot_ids: [EP11-S01]
     duration_sec: 10
     speakers: [CHAR-001]
-    refs: {scene_id: SCENE-012, look_ids: [CHAR-001-L01]}
+    refs:
+      scene_id: SCENE-012
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
       scene_urls:
         SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-012.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（背着新买的书法工具包，神情局促）【图2】社区活动中心 SCENE-012（走廊挂着老年大学牌子，几扇教室门）。中景 固定镜头：慧兰走进社区活动中心。大厅老年大学牌子醒目，走廊里老年人有说有笑。她有些局促——这辈子第一次为自己报班。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-012, role: reference_image, label: 图2}]
-    dialogue:
-      - {speaker: CHAR-001, line: "（内心）六十岁了还要跟小学生一样紧张。"}
-      - {speaker: CHAR-001, line: "（内心）没事的。学个写字而已。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，银灰色短发，有些局促地走进活动中心）【图2】社区活动中心 SCENE-012。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：图1走进社区活动中心。大厅里挂着"老年大学"牌子，走廊里老年人有说有笑，三五成群地聊着。图1有些局促——这辈子第一次为自己报班。图1看了看手里的报名表，深吸一口气，走进书法教室。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「六十岁了还要跟小学生一样紧张。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「没事的。学个写字而已。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市社区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-012, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP11-SEG02
+  - segment_id: EP11-SEG02
     shot_ids: [EP11-S02]
-    speakers: [CHAR-GRP-001, CHAR-001]
-    refs: {scene_id: SCENE-012, look_ids: [CHAR-001-L01, CHAR-GRP-001-L01]}
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-012
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
-        CHAR-GRP-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-001-L01.png
       scene_urls:
         SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-012.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（坐靠窗位置铺宣纸）【图2】老太太同学 CHAR-GRP-001-L01（大红衬衫烫卷发，磨墨，精神十足）【图3】社区活动中心 SCENE-012。近景 固定镜头：慧兰找靠窗位置坐下。旁边老太太主动搭话。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-GRP-001-L01, role: reference_image, label: 图2}, {file: SCENE-012, role: reference_image, label: 图3}]
-    dialogue:
-      - {speaker: CHAR-GRP-001, line: "新来的？以前练过吗？"}
-      - {speaker: CHAR-001, line: "没。第一次握毛笔。"}
-      - {speaker: CHAR-GRP-001, line: "第一次好啊！我退休后才开始学，今年第七年了。你看我这字——七年前跟鸡爪子似的。"}
-      - {speaker: CHAR-001, line: "您真幽默。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，找了个靠窗位置铺开宣纸，旁边坐着一个大红衬衫烫卷发的老太太）【图2】社区活动中心 SCENE-012。
+        # ⚠️ [待补：书法班老太太] has no look asset — described as画外音 only
+        竖屏9比16连贯叙事。
+        镜头2（10秒）中景 固定镜头：书法教室里坐了几个人。图1找了个靠窗位置铺开宣纸。旁边一个老太太正在磨墨——大红衬衫烫着卷发，精神头十足。看到图1她主动打招呼，声音洪亮自来熟。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（书法班老太太，洪亮爽朗的老年女声，精神头十足）：「新来的？以前练过吗？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「没。第一次握毛笔。」
+        对白（书法班老太太，洪亮爽朗的老年女声，精神头十足）：「第一次好啊！我退休后才开始学，今年第七年了。你看我这字——七年前跟鸡爪子似的。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「您真幽默。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市社区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-012, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP11-SEG03
+  - segment_id: EP11-SEG03
     shot_ids: [EP11-S03]
-    speakers: [CHAR-GRP-001, CHAR-001]
-    refs: {scene_id: SCENE-012, look_ids: [CHAR-001-L01, CHAR-GRP-001-L01]}
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-012
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
-        CHAR-GRP-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-001-L01.png
       scene_urls:
         SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-012.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（握毛笔手有些抖）【图2】老太太 CHAR-GRP-001-L01（自来熟地聊）【图3】社区活动中心 SCENE-012书法教室。近景 固定镜头：老太太一边磨墨一边聊。慧兰握笔的手有些抖——太久没拿笔了。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-GRP-001-L01, role: reference_image, label: 图2}, {file: SCENE-012, role: reference_image, label: 图3}]
-    dialogue:
-      - {speaker: CHAR-GRP-001, line: "你一个人来的？老伴不陪你来？"}
-      - {speaker: CHAR-001, line: "我没老伴了。分开了。"}
-      - {speaker: CHAR-GRP-001, line: "分了好。一个人清净。我那个走了十年了，我都不想再找。"}
-      - {speaker: CHAR-001, line: "您看着真不像一个人。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，握笔的手有些抖——太久没拿笔了）【图2】社区活动中心 SCENE-012。
+        # ⚠️ [待补：书法班老太太]画外音 only
+        竖屏9比16连贯叙事。
+        镜头3（10秒）近景 固定镜头：旁边老太太自来熟，一边磨墨一边和图1聊。图1握笔的手有些抖——太久没拿笔了。老太太瞟了一眼图1的字说"有天赋"。图1知道是鼓励但心里还是暖了。窗外阳光斜照进来，洒在宣纸上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（书法班老太太，洪亮爽朗的老年女声，精神头十足）：「你一个人来的？老伴不陪你来？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我没老伴了。分开了。」
+        对白（书法班老太太，洪亮爽朗的老年女声，精神头十足）：「分了好。一个人清净。我那个走了十年了，我都不想再找。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「您看着真不像一个人。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市社区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-012, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP11-SEG04
+  - segment_id: EP11-SEG04
     shot_ids: [EP11-S04]
-    speakers: [CHAR-GRP-001, CHAR-001]
-    refs: {scene_id: SCENE-012, look_ids: [CHAR-001-L01, CHAR-GRP-001-L01]}
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-012
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
-        CHAR-GRP-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-001-L01.png
       scene_urls:
         SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-012.png
     api:
-      text: "【图1】老太太 CHAR-GRP-001-L01（云淡风轻说自己的故事）【图2】林慧兰 CHAR-001-L01（听得入神）【图3】社区活动中心 SCENE-012书法教室。近景 固定镜头：老太太说起七十岁离婚——云淡风轻像说别人的事。慧兰听得入神。"
-      content_roles: [{file: CHAR-GRP-001-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-012, role: reference_image, label: 图3}]
-    dialogue:
-      - {speaker: CHAR-GRP-001, line: "我七十岁那年离的婚。离完婚第一件事就是报了这个书法班。"}
-      - {speaker: CHAR-001, line: "七十岁…离婚？"}
-      - {speaker: CHAR-GRP-001, line: "怎么，嫌晚？我告诉你——只要还活着，什么时候都不晚。"}
-      - {speaker: CHAR-001, line: "您不后悔？"}
-      - {speaker: CHAR-GRP-001, line: "后悔没早离。浪费了二十年。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，听得入神，手上的毛笔都忘了蘸墨）【图2】社区活动中心 SCENE-012。
+        # ⚠️ [待补：书法班老太太]画外音 only
+        竖屏9比16连贯叙事。
+        镜头4（10秒）近景 固定镜头：旁边老太太说起自己的故事——七十岁离婚。她说得云淡风轻像在说别人的事。图1听得入神，手上的毛笔都忘了蘸墨——原来人生真的可以重新开始，眼前这个人就是证明。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（书法班老太太，洪亮爽朗的老年女声，精神头十足）：「我七十岁那年离的婚。离完婚第一件事就是报了这个书法班。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「七十岁…离婚？」
+        对白（书法班老太太，洪亮爽朗的老年女声，精神头十足）：「怎么，嫌晚？我告诉你——只要还活着，什么时候都不晚。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「您不后悔？」
+        对白（书法班老太太，洪亮爽朗的老年女声，精神头十足）：「后悔没早离。浪费了二十年。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市社区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-012, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP11-SEG05
+  - segment_id: EP11-SEG05
     shot_ids: [EP11-S05]
-    speakers: [CHAR-GRP-001, CHAR-001]
-    refs: {scene_id: SCENE-012, look_ids: [CHAR-001-L01, CHAR-GRP-001-L01]}
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-012
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
-        CHAR-GRP-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-001-L01.png
       scene_urls:
         SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-012.png
     api:
-      text: "【图1】老太太 CHAR-GRP-001-L01（放下毛笔认真看慧兰）【图2】林慧兰 CHAR-001-L01（沉默一下）【图3】社区活动中心 SCENE-012。近景 固定镜头：老太太放下毛笔认真看着慧兰。那眼神是一个过来人的通透。她说的话让慧兰愣住了然后笑了。"
-      content_roles: [{file: CHAR-GRP-001-L01, role: reference_image, label: 图1}, {file: CHAR-001-L01, role: reference_image, label: 图2}, {file: SCENE-012, role: reference_image, label: 图3}]
-    dialogue:
-      - {speaker: CHAR-GRP-001, line: "你有心事。说吧。"}
-      - {speaker: CHAR-001, line: "我也想离婚。"}
-      - {speaker: CHAR-GRP-001, line: "多大岁数？"}
-      - {speaker: CHAR-001, line: "六十。"}
-      - {speaker: CHAR-GRP-001, line: "那你早着呢！我七十才离，你比我年轻十岁！你慌什么？"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，沉默片刻后说出心事，然后被老太太一拍桌子大笑震住了）【图2】社区活动中心 SCENE-012。
+        # ⚠️ [待补：书法班老太太]画外音 only
+        竖屏9比16连贯叙事。
+        镜头5（10秒）特写 固定镜头：旁边老太太放下毛笔，认真看着图1。那眼神里没有同情，是一个过来人的通透。她说了一句话让图1整个人愣住了——然后图1突然笑了出来，笑得眼泪都快出来了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（书法班老太太，洪亮爽朗的老年女声，精神头十足）：「你有心事。说吧。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我也想离婚。」
+        对白（书法班老太太，洪亮爽朗的老年女声，精神头十足）：「多大岁数？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「六十。」
+        对白（书法班老太太，洪亮爽朗的老年女声，精神头十足）：「那你早着呢！我七十才离，你比我年轻十岁！你慌什么？」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市社区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-012, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP11-SEG06
+  - segment_id: EP11-SEG06
     shot_ids: [EP11-S06]
-    speakers: [CHAR-001, CHAR-GRP-001]
-    refs: {scene_id: SCENE-012, look_ids: [CHAR-001-L01, CHAR-GRP-001-L01]}
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-012
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
-        CHAR-GRP-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-001-L01.png
       scene_urls:
         SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-012.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（愣住然后笑）【图2】老太太 CHAR-GRP-001-L01（跟着一起笑）【图3】社区活动中心 SCENE-012（夕阳照进来）。中景 固定镜头：慧兰愣住然后笑了——不是客气是被逗笑。两个加起来一百三十多岁的女人笑得前仰后合。夕阳暖洋洋照进来。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: CHAR-GRP-001-L01, role: reference_image, label: 图2}, {file: SCENE-012, role: reference_image, label: 图3}]
-    dialogue:
-      - {speaker: CHAR-001, line: "听见您这么说，我好像不怕了。"}
-      - {speaker: CHAR-GRP-001, line: "怕什么？天塌不下来。男人离了你过得更好，你离了男人也过得更好。"}
-      - {speaker: CHAR-001, line: "我今天来对了。"}
-      - {speaker: CHAR-GRP-001, line: "妹子，人生啊，六十才开始。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，先是愣住然后笑了——不是客气，是被逗笑）【图2】社区活动中心 SCENE-012。
+        # ⚠️ [待补：书法班老太太]画外音 only
+        竖屏9比16连贯叙事。
+        镜头6（10秒）中景 固定镜头：图1先是愣住然后笑了——不是客气，是被逗笑。旁边老太太跟着一起笑，两个加起来一百三十多岁的女人在书法教室里笑得前仰后合。窗外夕阳照进来暖洋洋的，宣纸上的墨迹还未干。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「听见您这么说，我好像不怕了。」
+        对白（书法班老太太，洪亮爽朗的老年女声，精神头十足）：「怕什么？天塌不下来。男人离了你过得更好，你离了男人也过得更好。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我今天来对了。」
+        对白（书法班老太太，洪亮爽朗的老年女声，精神头十足）：「妹子，人生啊，六十才开始。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市社区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-012, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
 
-  - <<: *seg1
-    segment_id: EP11-SEG07
+  - segment_id: EP11-SEG07
     shot_ids: [EP11-S07]
+    duration_sec: 10
     speakers: []
-    refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
+    refs:
+      scene_id: SCENE-001
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（背书法工具包走到家门口，掏出钥匙愣住）【图2】林家客厅 SCENE-001门口。中景 固定镜头：天快黑了。慧兰心情很好地走到家门口掏出钥匙——然后愣住。门口站着一个女人和她年轻时七八分像。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
-    dialogue: []
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，背着新买的书法工具包，掏出钥匙时愣住了）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头7（10秒）中景 固定镜头：天快黑了。图1背着新买的书法工具包走在回家的路上——好久没这样轻松过。图1走到家门口掏出钥匙，然后愣住了。门口站着一个女人——和图1年轻时长得七八分像。图1的手悬在半空，钥匙停在锁孔前。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP11-SEG08
+  - segment_id: EP11-SEG08
     shot_ids: [EP11-S08]
+    duration_sec: 10
     speakers: [CHAR-010, CHAR-001]
-    refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
+    refs:
+      scene_id: SCENE-001
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（不敢相信地看着门口的女人）【图2】林家客厅 SCENE-001门口。近景 固定镜头：门口女人听到脚步声抬起头。看起来比实际年龄沧桑。两人对视五秒——二十年前的记忆涌上来。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
-    dialogue:
-      - {speaker: CHAR-010, line: "姐。"}
-      - {speaker: CHAR-001, line: "慧芳？你怎么…"}
-      - {speaker: CHAR-010, line: "姐…我没地方去了。"}
-      - {speaker: CHAR-001, line: "出什么事了？你慢慢说。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，不敢相信地看着门口的女人）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱地扎在脑后，眼神怯懦，手里攥着旧布包）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头8（10秒）近景 固定镜头：门口的女人听到脚步声抬起头。她看起来比实际年龄沧桑，手里攥着一个旧布包。两人对视了五秒。这是图1的亲妹妹林慧芳，二十年没见了。图2的眼眶瞬间红了，声音沙哑得几乎听不清。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「慧芳？你怎么…」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐…我没地方去了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「出什么事了？你慢慢说。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
 
-  - <<: *seg1
-    segment_id: EP11-SEG09
+  - segment_id: EP11-SEG09
     shot_ids: [EP11-S09]
+    duration_sec: 10
     speakers: [CHAR-001, CHAR-010]
-    refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
+    refs:
+      scene_id: SCENE-001
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（抱住妹妹，拍着她背，眼眶红）【图2】林家客厅 SCENE-001门口。近景 固定镜头：慧兰看着妹妹苍老的脸什么都没问直接抱住。妹妹在她肩上无声哭了。"
-      content_roles: [{file: CHAR-001-L01, role: reference_image, label: 图1}, {file: SCENE-001, role: reference_image, label: 图2}]
-    dialogue:
-      - {speaker: CHAR-001, line: "不走了。姐这儿就是你家。"}
-      - {speaker: CHAR-010, line: "姐…我对不起你…这么多年都没联系你。"}
-      - {speaker: CHAR-001, line: "不说这个。回来就好。"}
-      - {speaker: CHAR-001, line: "（内心）原来不是我一个人。原来有这么多姐妹，都在忍。"}
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，上前抱住妹妹，拍着她的背，眼眶也红了）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，在姐姐肩上无声哭了）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头9（10秒）中景 固定镜头：图1看着妹妹苍老的脸——像看到自己差一点走上的路。图1什么都没问，上前抱住了图2。图2在图1肩上无声哭了。图1拍着图2的背，眼眶也红了。走廊灯光昏黄，两个女人的影子叠在一起。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「不走了。姐这儿就是你家。」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐…我对不起你…这么多年都没联系你。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「不说这个。回来就好。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「原来不是我一个人。原来有这么多姐妹，都在忍。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

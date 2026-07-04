@@ -1,8 +1,8 @@
 # === 格式模板 — 不得删除/增减任何字段 ===
-# 复制此文件到 资产/_模板_segments.yaml 后填充内容
-# 每个 segment 必须包含以下全部字段，顺序固定
+# 对齐影后装新人项目实战格式
 
 episode_id: EP##
+source_md: 剧本/EP##/EP##_[标题].md
 
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
@@ -12,11 +12,11 @@ defaults:
   generate_audio: true
   watermark: false
   prompt_suffix: "[从制片规范复制]"
-  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16..."
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。[风格描述]"
   negative_prompt: "[从制片规范复制]"
 
 voice_prompts:
-  CHAR-###: "[声音描述，从资产/声音卡片.md 提取]"
+  CHAR-###: "[声音描述，从 资产/声音卡片.md 全文复制，不含「」]"
 
 segments:
   - segment_id: EP##-SEG01
@@ -30,16 +30,16 @@ segments:
         CHAR-###-L##: https://drama-reference-images.tos-cn-beijing.volces.com/looks/<剧名>/CHAR-###-L##.png
       scene_urls:
         SCENE-###: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/<剧名>/SCENE-###.png
-      prop_urls:
-        PROP-###: https://drama-reference-images.tos-cn-beijing.volces.com/props/<剧名>/PROP-###.png
+      prop_urls: {}
     api:
       text: |
         【图1】CHAR-###-L##【图2】SCENE-###。
-        [画面描述]
+        竖屏9比16连贯叙事。
+        镜头1（Xs）[景别] [运镜]：[画面描述，用图1指代角色]
         [以下对白仅供语音合成，严禁在画面中显示任何文字]
-        [对白/独白内容]
+        对白（角色名，{voice_prompt}）：「台词内容」
         画面全程无任何文字、字幕、标题、水印。
-        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+        [风格描述]，竖屏9比16，无品牌 Logo，无平台 UI。
       content_roles:
         - { file: CHAR-###-L##, role: reference_image, label: 图1 }
         - { file: SCENE-###, role: reference_image, label: 图2 }

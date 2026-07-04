@@ -2,8 +2,8 @@
 # Source: 剧本/EP04/EP04_剧本.md
 # Source shots: 9 (EP04-S01 to EP04-S09)
 # Output shots: 9 (EP04-S01 to EP04-S09)
-# Mapping: 1:1
-# Total actual shot duration: 80s (10+10+10+10+10+10+10+5+5)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 80s (computed: 10+10+10+10+10+10+10+5+5; VALIDATION block claims 90s — discrepancy noted, actual shot sum used)
 # Output total duration: 80s
 # Gate status: ALL PASS
 
@@ -27,7 +27,9 @@ shots:
     duration_sec: 10
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-005-L01, CHAR-001-L01]
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
     assets:
       look_urls:
         CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
@@ -35,11 +37,18 @@ shots:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】张蕾 CHAR-005-L01（高马尾+灰色西装套裙，干练气质）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，左手玉镯）【图3】林家客厅 SCENE-001。中景 固定镜头：张蕾推门进来，手里拎着一袋水果。她看到母亲坐在沙发上翻着旧相册，又看到茶几旁空着的位置少了个人。她放下水果，语气尽量平和但带着小心翼翼的不满。"
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙，高马尾）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】林家客厅 SCENE-001。张蕾推门进来，手里拎着一袋水果。她看到母亲坐在沙发上翻着那本旧相册，又看到茶几旁空着的位置少了个人。她放下水果，语气尽量平和但带着小心翼翼的不满。
       content_roles:
-        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
-        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
     dialogue:
       - speaker: CHAR-005
         line: "妈，我爸呢？"
@@ -51,6 +60,7 @@ shots:
         line: "我让他搬的。他不走，我怎么住。"
       - speaker: CHAR-005
         line: "你让他搬的？怎么不跟我们商量？"
+    transition_to_next: hard_cut
 
   - shot_id: EP04-S02
     shot_no: 2
@@ -58,7 +68,9 @@ shots:
     duration_sec: 10
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-005-L01, CHAR-001-L01]
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
     assets:
       look_urls:
         CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
@@ -66,11 +78,18 @@ shots:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】张蕾 CHAR-005-L01（高马尾+灰色西装）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】林家客厅 SCENE-001。近景 固定镜头：张蕾坐到母亲身边，语气从小心变成劝说。她用最擅长的理性分析试图说服母亲。林慧兰安静地听着，手指轻轻摩挲着相册的皮革封面。"
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙，高马尾）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】林家客厅 SCENE-001。张蕾坐到母亲身边，语气从小心变成劝说。她用的是她最擅长的理性分析——试图用道理说服母亲。林慧兰安静地听着，手指轻轻摩挲着相册的皮革封面。
       content_roles:
-        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
-        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
     dialogue:
       - speaker: CHAR-005
         line: "妈，你别跟爸置气了。几十年都过来了。"
@@ -80,6 +99,7 @@ shots:
         line: "那你是在干什么？把爸赶走，家不成家。"
       - speaker: CHAR-001
         line: "这个家，以前也没像个家。"
+    transition_to_next: hard_cut
 
   - shot_id: EP04-S03
     shot_no: 3
@@ -87,7 +107,9 @@ shots:
     duration_sec: 10
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-005-L01, CHAR-001-L01]
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
     assets:
       look_urls:
         CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
@@ -95,11 +117,18 @@ shots:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】张蕾 CHAR-005-L01（高马尾+灰色西装）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】林家客厅 SCENE-001。近景 固定镜头：张蕾调整语气换成更柔和的劝说——'家和万事兴'。但林慧兰没有像往常一样点头。母女之间的空气变得紧张。"
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙，高马尾）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】林家客厅 SCENE-001。张蕾那句家不成家说出口后自己也觉得重了。她调整语气换成更柔和的劝说——家和万事兴，这句话她以前说过无数次，每次母亲都会点头说对。但今天没有。
       content_roles:
-        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
-        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
     dialogue:
       - speaker: CHAR-005
         line: "妈，家和万事兴。你跟我爸别闹了，好好过日子不行吗？"
@@ -113,6 +142,7 @@ shots:
         line: "那你让我怎么办？看着你们离婚？"
       - speaker: CHAR-001
         line: "你已经长大了，不用替妈操心。"
+    transition_to_next: hard_cut
 
   - shot_id: EP04-S04
     shot_no: 4
@@ -120,7 +150,9 @@ shots:
     duration_sec: 10
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-001-L01, CHAR-005-L01]
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
@@ -128,11 +160,18 @@ shots:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图2】张蕾 CHAR-005-L01（高马尾+灰色西装）【图3】林家客厅 SCENE-001。特写→近景 固定镜头：林慧兰站起来走到窗边。阳光照在她脸上——她比前几天更憔悴了些但眼神出奇地亮。她回过头看女儿，那目光里有四十年的重量。张蕾被那目光看得有些不安。"
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图2】张蕾 CHAR-005-L01（灰西装套裙，高马尾）【图3】林家客厅 SCENE-001。林慧兰站起来走到窗边。阳光照在她脸上——她比前几天更憔悴了些但眼神出奇地亮。她回过头看女儿，那目光里有四十年的重量。张蕾被那目光看得有些不安。
       content_roles:
-        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
     dialogue:
       - speaker: CHAR-001
         line: "蕾蕾，妈问你一个问题。"
@@ -144,6 +183,7 @@ shots:
         line: "这…这有什么区别？"
       - speaker: CHAR-001
         line: "区别大了。妈也是一个人。"
+    transition_to_next: hard_cut
 
   - shot_id: EP04-S05
     shot_no: 5
@@ -151,7 +191,9 @@ shots:
     duration_sec: 10
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-005-L01, CHAR-001-L01]
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
     assets:
       look_urls:
         CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
@@ -159,11 +201,18 @@ shots:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】张蕾 CHAR-005-L01（高马尾+灰色西装）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】林家客厅 SCENE-001。中景 固定镜头：张蕾站起来走到母亲面前。她以为母亲是缺爱缺安全感，试图用'你有我们啊'来安抚。但林慧兰的反应让她意外。"
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙，高马尾）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】林家客厅 SCENE-001。张蕾站起来走到母亲面前。她以为母亲是缺爱缺安全感，试图用你有我们啊来安抚。但林慧兰的反应让她意外——母亲不是在索要爱，是在索要自我。
       content_roles:
-        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
-        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
     dialogue:
       - speaker: CHAR-005
         line: "妈，你有我们啊。我和哥都长大了，你不用操心了。"
@@ -173,6 +222,7 @@ shots:
         line: "什么你自己？"
       - speaker: CHAR-001
         line: "我有我自己吗？我这辈子除了是你们的妈，还是谁？"
+    transition_to_next: hard_cut
 
   - shot_id: EP04-S06
     shot_no: 6
@@ -180,7 +230,9 @@ shots:
     duration_sec: 10
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-005-L01, CHAR-001-L01]
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
     assets:
       look_urls:
         CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
@@ -188,11 +240,18 @@ shots:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】张蕾 CHAR-005-L01（高马尾+灰色西装）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，银灰短发）【图3】林家客厅 SCENE-001。近景 固定镜头：张蕾退后半步重新打量自己的母亲——还是那个看了二十多年的母亲，但有什么东西不一样了。母亲眼里有一种她从没见过的光。"
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙，高马尾）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】林家客厅 SCENE-001。张蕾退后半步重新打量自己的母亲——银灰短发、暗棕上衣、米色开衫，还是那个看了二十多年的母亲。但有什么东西不一样了。她说不出来但能感觉到——母亲眼里有一种她从没见过的光。
       content_roles:
-        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
-        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
     dialogue:
       - speaker: CHAR-005
         line: "妈，你以前不是这样的。你以前什么都跟我们说，什么都听我们的。"
@@ -202,6 +261,7 @@ shots:
         line: "我不知道…我不知道这样好不好。"
       - speaker: CHAR-001
         line: "你不知道，妈理解。但你不能因为不知道，就让妈变回去。"
+    transition_to_next: hard_cut
 
   - shot_id: EP04-S07
     shot_no: 7
@@ -209,7 +269,9 @@ shots:
     duration_sec: 10
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-001-L01, CHAR-005-L01]
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-005-L01
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
@@ -217,11 +279,18 @@ shots:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图2】张蕾 CHAR-005-L01（高马尾+灰色西装）【图3】林家客厅 SCENE-001。近景→特写 固定镜头：林慧兰看着女儿茫然的脸，心里涌起一阵酸楚。她深吸一口气，终于把那句压在心底的话说了出来，泪水从眼眶滑落。"
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图2】张蕾 CHAR-005-L01（灰西装套裙，高马尾）【图3】林家客厅 SCENE-001。林慧兰看着女儿茫然的脸，心里涌起一阵酸楚。她最爱的女儿用家和万事兴来劝她继续忍。她深吸一口气，终于把那句压在心底的话说了出来。不是控诉，不是发泄——只是一句问话。但这句话让张蕾彻底哑口无言。
       content_roles:
-        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
     dialogue:
       - speaker: CHAR-001
         line: "你们都想家和万事兴，都想让我继续忍——那我呢？"
@@ -229,8 +298,11 @@ shots:
         line: "妈…"
       - speaker: CHAR-001
         line: "我的人生，就不是人生吗？"
+      - speaker: CHAR-005
+        line: "……"
       - speaker: CHAR-001
         line: "我已经忍了四十年了。够了。"
+    transition_to_next: hard_cut
 
   - shot_id: EP04-S08
     shot_no: 8
@@ -238,7 +310,9 @@ shots:
     duration_sec: 5
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-005-L01, CHAR-001-L01]
+      look_ids:
+        - CHAR-005-L01
+        - CHAR-001-L01
     assets:
       look_urls:
         CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
@@ -246,14 +320,22 @@ shots:
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】张蕾 CHAR-005-L01（高马尾+灰色西装）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，眼含泪光）【图3】林家客厅 SCENE-001。中景 固定镜头：张蕾张了张嘴想说点什么但什么都说不出来。她低下头拿起包，转身快步走了出去。门在身后轻轻合上。"
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙，高马尾）【图2】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图3】林家客厅 SCENE-001。张蕾张了张嘴想说点什么但什么都说不出来。她低下头拿起包，转身快步走了出去。门在身后轻轻合上。客厅重新安静下来。
       content_roles:
-        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
-        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
-        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - file: CHAR-005-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
     dialogue:
       - speaker: CHAR-005
         line: "妈…我先走了。你好好休息。"
+    transition_to_next: hard_cut
 
   - shot_id: EP04-S09
     shot_no: 9
@@ -261,15 +343,22 @@ shots:
     duration_sec: 5
     refs:
       scene_id: SCENE-001
-      look_ids: [CHAR-001-L01]
+      look_ids:
+        - CHAR-001-L01
     assets:
       look_urls:
         CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
       scene_urls:
         SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
     api:
-      text: "【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫，左手玉镯）【图2】林家客厅 SCENE-001。特写 固定镜头：门关上后林慧兰站在原地一动不动。客厅光线暗了下来——黄昏降临。她没有开灯，慢慢坐回沙发上。在黄昏的暗影里她终于哭了——安静的、四十年的眼泪一滴一滴落在手背上。镜头缓缓拉远，她蜷缩在黑暗的客厅里。"
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暗棕上衣+米色开衫）【图2】林家客厅 SCENE-001。门关上后，林慧兰站在原地一动不动。客厅的光线暗了下来——不知什么时候太阳已经偏西了。她没有开灯，慢慢地坐回沙发上。然后，在黄昏的暗影里，她终于哭了。不是撕心裂肺，是安静的、四十年的眼泪，一滴一滴落在手背上。
       content_roles:
-        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
-        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - file: CHAR-001-L01
+          role: reference_image
+          label: 图1
+        - file: SCENE-001
+          role: reference_image
+          label: 图2
     dialogue: []
+    transition_to_next: hard_cut
