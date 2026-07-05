@@ -1,173 +1,277 @@
-# SOURCE FIDELITY: EP41_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP41/EP41_剧本.md
+# Source shots: 9
+# Output shots: 9
+# Mapping: 1:1
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
 episode_id: EP41
+source_md: 剧本/EP41/EP41_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
-  ratio: '9:16'
+  ratio: "9:16"
   resolution: 720p
-  duration: 5
-  generate_audio: false
+  generate_audio: true
   watermark: false
-  prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
-  negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声；从轻松约定（"走！"）到感叹（"他们真好——从来没想过自己也可以"），到认真回应表白（"我也喜欢你……但我刚离婚不想急着开始"）——坦诚不躲闪，到最后的轻声自语（"我值得"）——整集从轻松到感动到坚定
-  CHAR-006: 温和儒雅的中老年男声；从从容的邀请（"来了——走？"），到含蓄的喜欢（"看你。你看起来很放松"），到郑重表白（"从我第一次跟你散步就喜欢了"），到最后温暖的承诺（"我等你。多久都行"）——全程温暖克制不压迫
+  CHAR-001: "温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音"
+  CHAR-006: "温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准"
+
 segments:
-- segment_id: EP41-SEG01
-  shot_ids: [EP41-S01]
-  duration_sec: 10
-  speakers: [CHAR-006, CHAR-001]
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-006-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 公园湖边·明媚上午。李建国穿着驼色亚麻西装拿着船票在等。慧兰远远走过来——两人相视一笑。经历了离婚、派对、亲戚大战之后，这是难得的轻松时光。
-    content_roles:
-    - {file: SCENE-006, role: reference_image}
-    - {file: CHAR-006-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-006, line: 来了。}
-  - {speaker: CHAR-001, line: 等很久了？}
-  - {speaker: CHAR-006, line: 没多久。船已经在等了——走？}
-  - {speaker: CHAR-001, line: 走。}
-- segment_id: EP41-SEG02
-  shot_ids: [EP41-S02]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-006]
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-006-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 李建国先上船伸手扶慧兰。她犹豫了一下——已经很多年没被人这样扶过了。她把手递给他。船向湖心驶去，湖面波光粼粼。慧兰说住了几十年都没来划过船。
-    content_roles:
-    - {file: SCENE-006, role: reference_image}
-    - {file: CHAR-006-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 这里真漂亮——我在这住了几十年，都没来过。}
-  - {speaker: CHAR-006, line: 以后可以常来。}
-- segment_id: EP41-SEG03
-  shot_ids: [EP41-S03]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-006]
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L02, CHAR-006-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 慧兰踩着踏板船缓缓驶向湖心。李建国一直看着她。她被看不好意思问你看什么呢。他说看你——你看起来很放松。她愣了一下——确实很放松。没有要赶着回家做饭的焦虑。
-    content_roles:
-    - {file: SCENE-006, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-006-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 你看什么呢？}
-  - {speaker: CHAR-006, line: 看你。你看起来很放松。}
-  - {speaker: CHAR-001, line: 是吗？}
-  - {speaker: CHAR-006, line: 嗯。跟以前不一样了。}
-  - {speaker: CHAR-001, line: 是——不一样了。}
-- segment_id: EP41-SEG04
-  shot_ids: [EP41-S04]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-006]
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L02, CHAR-006-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 慧兰看着湖面说——以前散步经常看到有人划船觉得他们真好，但从没想过自己也可以。李建国温和地说你现在可以了。慧兰笑了——对，我现在可以了。
-    content_roles:
-    - {file: SCENE-006, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-006-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 你知道吗——以前在公园散步的时候，经常看到有人划船。我每次都看着想——他们在船上聊天看风景，不用做饭不用等谁，真好。}
-  - {speaker: CHAR-001, line: 但我那时候想的都是——'他们真好'。从来没想过自己也可以。}
-  - {speaker: CHAR-006, line: 你现在可以了。}
-  - {speaker: CHAR-001, line: 对。我现在可以了。}
-- segment_id: EP41-SEG05
-  shot_ids: [EP41-S05]
-  duration_sec: 10
-  speakers: [CHAR-006, CHAR-001]
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-006-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 船到了湖心周围安静下来。李建国认真地看着她——慧兰，我叫你来不只是为了划船。我喜欢你。不是因为你离婚了有空了才喜欢——从第一次在公园跟你散步就喜欢了。
-    content_roles:
-    - {file: SCENE-006, role: reference_image}
-    - {file: CHAR-006-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-006, line: 慧兰——我叫你来，不只是为了划船。}
-  - {speaker: CHAR-006, line: 我喜欢你。不是因为你离婚了、有空了才喜欢——从第一次在公园跟你散步的时候，就喜欢了。}
-- segment_id: EP41-SEG06
-  shot_ids: [EP41-S06]
-  duration_sec: 10
-  speakers: [CHAR-001]
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L02, CHAR-006-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 慧兰低头想了想然后抬起头——李先生我也喜欢你。但是我刚离婚不想急着开始新感情。我不想拿你当什么过渡或疗伤工具。你不该被那样对待。我自己也不该。
-    content_roles:
-    - {file: SCENE-006, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-006-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 李先生——我也喜欢你。}
-  - {speaker: CHAR-001, line: 但是——我刚离婚。我不想急着开始新感情。}
-  - {speaker: CHAR-001, line: 我不想拿你当什么'过渡'或'疗伤工具'——你不该被那样对待。我自己也不该。}
-- segment_id: EP41-SEG07
-  shot_ids: [EP41-S07]
-  duration_sec: 10
-  speakers: [CHAR-006]
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-006-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 李建国听完没有失望反而笑了——慧兰，我为什么喜欢你？因为你终于开始把自己当回事了。你说不急着开始没关系。我等你。不是等你有空，是等你准备好。多久都行。慧兰看着他眼眶有点热。
-    content_roles:
-    - {file: SCENE-006, role: reference_image}
-    - {file: CHAR-006-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-006, line: 慧兰——你知道我为什么喜欢你吗？不只是因为你善良、温柔——更因为你终于开始把自己当回事了。}
-  - {speaker: CHAR-006, line: 你说不急着开始——没关系。我等你。不是等你有空，是等你准备好。多久都行。}
-- segment_id: EP41-SEG08
-  shot_ids: [EP41-S08]
-  duration_sec: 10
-  speakers: []
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L02, CHAR-006-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 两人没有再说话。船静静地漂在湖面上。慧兰低头看水面——映着蓝天白云和她自己的影子。六十岁了头发有些白了但眼神是亮的。那个低头走路从不敢看水面的自己已经走远了。她抬头看李建国——他也正看着她微笑。
-    content_roles:
-    - {file: SCENE-006, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-006-L01, role: reference_image}
-  dialogue: []
-- segment_id: EP41-SEG09
-  shot_ids: [EP41-S09]
-  duration_sec: 10
-  speakers: [CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 慧兰回到家走到穿衣镜前站住。她看着镜子里的自己——六十年来第一次觉得自己值得被爱。不是作为谁的妻子谁的母亲——就是林慧兰。她对着镜子笑了。那是一个女人终于跟自己和好的笑。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 我值得。}
+  - segment_id: EP41-SEG01
+    shot_ids: [EP41-S01]
+    duration_sec: 10
+    speakers: ['CHAR-006', 'CHAR-001']
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: |
+        【图1】李建国 CHAR-006-L01（驼色亚麻西装）【图2】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图3】社区公园湖边 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）公园湖边阳光明媚的上午。湖面波光粼粼——阳光在水面上碎成千万片金色的鳞片。图1在湖边等着——他穿着那件驼色亚麻西装，金丝眼镜挂在胸前，手里拿着两张船票。他站得很直——不是紧张，是期待。图2远远走过来——暖色衬衫，亮色丝巾在微风里轻轻飘着。她看到图1，脚步不自觉地轻快了一些——嘴角先于大脑做出了反应。两个人相视一笑——经过了离婚、派对、亲戚大战之后，这是难得的轻松时光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「来了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「等很久了？」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「没多久。船已经在等了——走？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「走。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+  - segment_id: EP41-SEG02
+    shot_ids: [EP41-S02]
+    duration_sec: 10
+    speakers: ['CHAR-001', 'CHAR-006']
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: |
+        【图1】李建国 CHAR-006-L01（驼色亚麻西装）【图2】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图3】社区公园湖边 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）两个人走到码头边——一条蓝白相间的脚踏船拴在木桩上，随着水波轻轻晃动。图1先上了船——他动作很稳，踩在船板上船只是微微一沉。然后他转过身，向图2伸出手——手掌朝上，手指微微张开。图2犹豫了一下——她已经很多年没有被人这样扶过了。以前上下车、上下台阶——从来没有人伸手扶她。她把手递给他——他的手温暖而有力，指腹有一层薄薄的茧——是长年写粉笔字留下的。她坐下来——船轻轻摇晃了一下，然后稳住。两个人面对面坐着——湖面上波光粼粼，风吹过来带着水的清凉，舒服极了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「这里真漂亮——我在这住了几十年，都没来过。」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「以后可以常来。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+  - segment_id: EP41-SEG03
+    shot_ids: [EP41-S03]
+    duration_sec: 10
+    speakers: ['CHAR-001', 'CHAR-006']
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图2】李建国 CHAR-006-L01（驼色亚麻西装）【图3】社区公园湖边 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）图1踩着踏板——船缓缓向湖心驶去。她的动作还有点生疏——踩两下停一下，船走得歪歪扭扭的。图2坐在对面，一直看着她——不是盯着看，是一种温和的、带着笑意的注视。图1被他看得有点不好意思——她抬手理了理被风吹乱的丝巾，笑着问了一句。图2的回答很简单——一个字，但他说的时候眼神没有躲开。图1愣了一下——她确实很放松。没有要赶着回家做饭的焦虑，没有要等谁回来的牵挂。就是——在水上，吹着风。她想了想，轻声说了一句话——像是在确认一个刚发现的事实。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你看什么呢？」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「看你。你看起来很放松。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「是吗？」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「嗯。跟以前不一样了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「是——不一样了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+  - segment_id: EP41-SEG04
+    shot_ids: [EP41-S04]
+    duration_sec: 10
+    speakers: ['CHAR-001', 'CHAR-006']
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图2】李建国 CHAR-006-L01（驼色亚麻西装）【图3】社区公园湖边 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）图1看着湖面——阳光在水面上跳跃，远处有一对年轻的情侣也在划船，笑声隐隐传过来。她说了一段话——不是在诉苦，不是在炫耀，只是在分享一个刚发现的秘密。以前她在公园散步的时候经常看到有人划船——每次她都会停下来看一会儿。她想的不是我能不能也去——她想的是他们真好。图2听得很认真——他没有打断，没有插嘴。然后他说了一句话——声音不重，但每个字都落在图1心上。图1笑了——不是客气地笑，是那种对哦我现在可以了的笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你知道吗——以前在公园散步的时候，经常看到有人划船。」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「嗯。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我每次都看着想——他们在船上聊天看风景，不用做饭不用等谁，真好。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「但我那时候想的都是——'他们真好'。从来没想过自己也可以。」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「你现在可以了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「对。我现在可以了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+  - segment_id: EP41-SEG05
+    shot_ids: [EP41-S05]
+    duration_sec: 10
+    speakers: ['CHAR-006', 'CHAR-001']
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: |
+        【图1】李建国 CHAR-006-L01（驼色亚麻西装）【图2】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图3】社区公园湖边 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）船到了湖心——周围安静下来。只有水轻轻拍打船身的声音，和远处模糊的人声。图1沉默了一会儿——他低头看了看手里的船票，然后抬起头，认真地、缓缓地开口了。他的声音和平常一样温和从容——但如果仔细听，能听出最后几个字微微发颤。图2看着他——她大概猜到了他要说什么。但真正听到的时候，她还是觉得心跳漏了一拍——不是年轻人那种小鹿乱撞，是那种原来真的有人会这样看我的震动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「慧兰——我叫你来，不只是为了划船。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「嗯。」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「我喜欢你。不是因为你离婚了、有空了才喜欢——从第一次在公园跟你散步的时候，就喜欢了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+  - segment_id: EP41-SEG06
+    shot_ids: [EP41-S06]
+    duration_sec: 10
+    speakers: ['CHAR-001']
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图2】李建国 CHAR-006-L01（驼色亚麻西装）【图3】社区公园湖边 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）图1没有说话——她看着图2的眼睛。不是那种藏着掖着、闪烁不定的眼睛——是真诚的、坦荡的、没有任何目的的眼睛。她这辈子见过太多藏着掖着的男人——嘴上说一套心里想一套，每句话背后都有算计。但图2的眼睛里什么都没有——只有她。她低下头想了想——手指轻轻摸着左手腕上的玉镯。然后她抬起头——认真地、一字一句地回答他。她的声音很稳——没有因为被表白而慌乱，也没有因为要拒绝而愧疚。她说的是真心话——不是我不喜欢你，是我不想用不正确的方式喜欢你。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「李先生——我也喜欢你。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「但是——我刚离婚。我不想急着开始新感情。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我不想拿你当什么'过渡'或'疗伤工具'——你不该被那样对待。我自己也不该。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+  - segment_id: EP41-SEG07
+    shot_ids: [EP41-S07]
+    duration_sec: 10
+    speakers: ['CHAR-006', 'CHAR-001']
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: |
+        【图1】李建国 CHAR-006-L01（驼色亚麻西装）【图2】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图3】社区公园湖边 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）图1听完她的话——没有失望的表情，没有急着说服她。他反而笑了——不是苦笑，不是勉强的笑，是那种我果然没有看错人的笑。他的声音还是那样温和从容——但他说的每一个字，都是图2这辈子听过的最好听的话。不是因为他说了我喜欢你——是因为他说了你终于开始把自己当回事了。不是因为他说了我等你——是因为他说了不是等你有空，是等你准备好。图2看着他——没有说话。但她的眼眶有点热——不是难过的热，是被看见的热。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「慧兰——你知道我为什么喜欢你吗？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「为什么？」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「不只是因为你善良、温柔——更因为你终于开始把自己当回事了。」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「你说不急着开始——没关系。我等你。不是等你有空，是等你准备好。多久都行。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+  - segment_id: EP41-SEG08
+    shot_ids: [EP41-S08]
+    duration_sec: 10
+    speakers: []
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图2】李建国 CHAR-006-L01（驼色亚麻西装）【图3】社区公园湖边 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）两个人没有再说话。船静静地漂在湖面上——不需要踩踏板了，就让风和流水带着它慢慢转。图1低头看着水面——湖面像一面淡绿色的镜子，映着蓝天白云，也映着她自己的影子。六十岁的她——头发有些白了，眼角的皱纹在阳光下清晰可见。但她的眼神是亮的——那种亮不是年轻时的天真烂漫，是走过了长夜之后才有的光。她想起以前那个低头走路、从不敢看水面的自己——那个自己总是在赶路，赶着回家做饭、赶着接孩子、赶着在丈夫发火之前把一切都做好。她突然觉得——那个自己已经走远了。她抬头看了图2一眼——他也正看着她。没有说话，只是微笑着。风吹过来，湖面上荡开一圈圈涟漪。
+        本段无对白无语音，禁止画面中出现任何文字。
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+  - segment_id: EP41-SEG09
+    shot_ids: [EP41-S09]
+    duration_sec: 10
+    speakers: ['CHAR-001']
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）林家客厅晚上。图1回到家——钥匙插进锁孔，咔哒一声，门开了。她关上门，把钥匙放在玄关的托盘里。客厅很安静——只有窗外偶尔传来的一两声虫鸣。她走到客厅的穿衣镜前——那是一面老式的落地镜，木框已经有些褪色了。她站住了——看着镜子里的自己。客厅里的落地灯在她身后，暖黄色的光勾勒出她的轮廓。她的目光落在自己的眼睛上——那双眼睛，六十年来第一次这样认真地看自己。不是检查皱纹有没有多，不是检查衣服有没有穿好——是看着自己，像看着一个久别重逢的老朋友。她轻声说了两个字——然后对着镜子里的自己，笑了。那不是一个女人赢了什么的笑——是一个女人终于跟自己和好的笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我值得。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }

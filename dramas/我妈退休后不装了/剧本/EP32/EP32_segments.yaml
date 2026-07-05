@@ -1,184 +1,461 @@
-# SOURCE FIDELITY: EP32_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
 episode_id: EP32
+source_md: 剧本/EP32/EP32_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
   ratio: '9:16'
-  resolution: 720p
-  duration: 5
-  generate_audio: false
+  resolution: 1080p
+  generate_audio: true
   watermark: false
   prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+  prompt_suffix_silent: 本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
   negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声；从看到判决书时的激动（"好！太好了！"），到安慰妹妹时的温柔坚定（"你做得对"、"一个人不是靠别人活的"），到独自担心自己官司时的轻声自语（"我的判决会怎么判呢"）——声音中带着姐妹深情和不为人知的忐忑
-  CHAR-010: 沙哑疲倦的中年女声；从推门哭着说"判了"的激动，到在姐姐怀里哭着说"我真的赢了"的如释重负，到笑着说"现在觉得才刚刚开始"的欣喜——声音从破碎到有力，见证了一个女人的重生
+  CHAR-001: 温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音
+  CHAR-010: 沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音
 segments:
 - segment_id: EP32-SEG01
-  shot_ids: [EP32-S01]
+  shot_ids:
+  - EP32-S01
   duration_sec: 10
-  speakers: [CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-010-L01, CHAR-001-L01]}
+  speakers:
+  - CHAR-001
+  - CHAR-010
+  refs:
+    scene_id: SCENE-001
   assets:
-    look_urls: {CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 林家客厅。慧芳从法院回来推门进来满脸是泪，手里拿着判决书。慧兰吓了一跳问怎么了。慧芳说不出话把判决书塞到姐姐手里。慧兰打开一看——准予离婚，孩子抚养权归女方，男方支付经济补偿。慧兰的手也抖了。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装）【图2】林慧芳 CHAR-010-L01（灰蓝色外套）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定镜头：下午。图2从法院回来，手里拿着判决书，一进门就哭了出来。图1吓了一跳赶紧问怎么了。图2说不出话，把判决书塞到图1手里。图1打开一看，手也抖了。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「……」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「慧芳？怎么了？」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐——」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「判了？」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「判了……都判给我了。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+
+      '
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-010-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-010, line: 姐——}
-  - {speaker: CHAR-001, line: 慧芳？怎么了？}
-  - {speaker: CHAR-001, line: 判了？}
-  - {speaker: CHAR-010, line: 判了……都判给我了。}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP32-SEG02
-  shot_ids: [EP32-S02]
+  shot_ids:
+  - EP32-S02
   duration_sec: 10
-  speakers: [CHAR-001, CHAR-010]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
+  speakers:
+  - CHAR-001
+  - CHAR-010
+  refs:
+    scene_id: SCENE-001
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 慧兰看完判决书眼眶红了。她放下判决书走过去一把抱住妹妹——太好了。慧芳在姐姐怀里哭得像个孩子。她说我赢了，我真的赢了。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装）【图2】林慧芳 CHAR-010-L01（灰蓝色外套）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）近景 固定镜头：图1把判决书从头到尾看了一遍。抚养权、财产分割、经济补偿全判给图2了。图1抬头看着图2，这个被丈夫打了十几年、被欺负得连门都不敢出的妹妹，今天终于赢了。图1的眼眶也红了，上前一把抱住了图2。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「好。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「太好了。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐……我赢了……我真的赢了……」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+
+      '
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-010-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-001, line: 好。太好了。}
-  - {speaker: CHAR-010, line: 姐……我赢了……我真的赢了……}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP32-SEG03
-  shot_ids: [EP32-S03]
+  shot_ids:
+  - EP32-S03
   duration_sec: 10
-  speakers: [CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-010-L01, CHAR-001-L01]}
+  speakers:
+  - CHAR-001
+  - CHAR-010
+  refs:
+    scene_id: SCENE-001
   assets:
-    look_urls: {CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 姐妹俩抱着哭了很久。慧芳哭着说把聊天记录转账记录全拿出来了法官信她了。慧兰拍着她的背说你做得对，你比他勇敢。慧芳说是你教我的——不为自己活一次这辈子就白活了。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装）【图2】林慧芳 CHAR-010-L01（灰蓝色外套）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定镜头：图1和图2抱着哭了很久。图2哭着说是他先出轨的，法官信她了，她把证据都拿出来了。图1拍着她的背说你做得对，你比他勇敢。图2抬起头看着图1。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐……是他先出轨的……法官信我了。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你做得对。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「我把证据都拿出来了——聊天记录……转账记录……他赖不掉了。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你比他勇敢。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「是你教我的。你说的——不为自己活一次，这辈子就白活了。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+
+      '
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-010-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-010, line: 姐……是他先出轨的……法官信我了。}
-  - {speaker: CHAR-010, line: 我把证据都拿出来了——聊天记录……转账记录……他赖不掉了。}
-  - {speaker: CHAR-001, line: 你做得对。你比他勇敢。}
-  - {speaker: CHAR-010, line: 是你教我的。你说的——不为自己活一次，这辈子就白活了。}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP32-SEG04
-  shot_ids: [EP32-S04]
+  shot_ids:
+  - EP32-S04
   duration_sec: 10
-  speakers: [CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-010-L01, CHAR-001-L01]}
+  speakers:
+  - CHAR-001
+  - CHAR-010
+  refs:
+    scene_id: SCENE-001
   assets:
-    look_urls: {CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 姐妹俩在沙发上坐下来。慧芳把判决书像宝贝一样叠好收起来。她说以前觉得自己这辈子完了——四十多岁没工作老公出轨谁还要她。现在觉得才刚刚开始。慧兰认真地看着她说——一个人不是靠别人活的，是自己活的。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装）【图2】林慧芳 CHAR-010-L01（灰蓝色外套）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）近景 固定镜头：图1和图2在沙发上坐下来。图2把判决书端端正正地叠好，像宝贝一样收起来。她看着图1说以前觉得自己这辈子完了。但图1告诉她一个人不是靠别人活的，是自己活的。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐……我以前觉得自己这辈子完了。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「现在呢？」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「现在觉得——才刚刚开始。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「这就对了。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「你知道我以前怎么想的吗——四十多岁了，没工作，老公出轨，谁还要我。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「慧芳。一个人不是靠别人活的——是自己活的。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+
+      '
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-010-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-010, line: 姐……我以前觉得自己这辈子完了。}
-  - {speaker: CHAR-001, line: 现在呢？}
-  - {speaker: CHAR-010, line: 现在觉得——才刚刚开始。}
-  - {speaker: CHAR-001, line: 这就对了。}
-  - {speaker: CHAR-010, line: 你知道我以前怎么想的吗——四十多岁了，没工作，老公出轨，谁还要我。}
-  - {speaker: CHAR-001, line: 慧芳。一个人不是靠别人活的——是自己活的。}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP32-SEG05
-  shot_ids: [EP32-S05]
+  shot_ids:
+  - EP32-S05
   duration_sec: 10
-  speakers: [CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-010-L01, CHAR-001-L01]}
+  speakers:
+  - CHAR-001
+  - CHAR-010
+  refs:
+    scene_id: SCENE-001
   assets:
-    look_urls: {CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 慧芳从包里拿出一张纸——是她在法院门口复印的慧兰的判决书副本。她的判了可姐姐的还没出结果。她担心地看着姐姐说张大强的律师挺厉害的。慧兰沉默着没说话。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装）【图2】林慧芳 CHAR-010-L01（灰蓝色外套）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定镜头：图2打开包。她从里面拿出一张纸。那是她在法院门口复印的图1的判决书副本。图2的案子先判了，可图1的还没出结果。图1看到那张纸，表情暗了一下。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐——我在法院门口……复印了一份你的判决书。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「还没判。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「我知道。姐……你说，你的会怎么判？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「不知道。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「张大强那个律师……挺厉害的。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+
+      '
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-010-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-010, line: 姐——我在法院门口……复印了一份你的判决书。}
-  - {speaker: CHAR-001, line: 还没判。}
-  - {speaker: CHAR-010, line: 我知道。姐……你说，你的会怎么判？}
-  - {speaker: CHAR-001, line: 不知道。}
-  - {speaker: CHAR-010, line: 张大强那个律师……挺厉害的。}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP32-SEG06
-  shot_ids: [EP32-S06]
+  shot_ids:
+  - EP32-S06
   duration_sec: 10
-  speakers: [CHAR-010]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
+  speakers:
+  - CHAR-001
+  - CHAR-010
+  refs:
+    scene_id: SCENE-001
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 慧兰沉默着把纸合上放在茶几上。慧芳认真地看着她说——姐，不管你的官司赢不赢，你都已经赢了。你教会了我怎么活。慧兰眼眶热了，拍了拍妹妹的手没说话。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装）【图2】林慧芳 CHAR-010-L01（灰蓝色外套）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）近景 固定镜头：图1沉默着。她把那张纸合上放在茶几上。图2看着图1，突然说了一句。图1抬头看图2，眼眶又热了，没说话，拍了拍图2的手。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐——不管你的官司赢不赢——你都已经赢了。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「你教会了我——怎么活。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+
+      '
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-010-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-010, line: 姐——不管你的官司赢不赢——你都已经赢了。}
-  - {speaker: CHAR-010, line: 你教会了我——怎么活。}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP32-SEG07
-  shot_ids: [EP32-S07]
+  shot_ids:
+  - EP32-S07
   duration_sec: 10
-  speakers: [CHAR-001, CHAR-010]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
+  speakers:
+  - CHAR-001
+  - CHAR-010
+  refs:
+    scene_id: SCENE-001
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 慧兰去倒水回来看到慧芳坐在沙发上把判决书翻来覆去地看。慧兰站在门口看了一会儿——想起几个月前妹妹刚来投奔时瑟缩在门口的样子。她问看了几遍了？慧芳不好意思地笑了说第五遍了。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装）【图2】林慧芳 CHAR-010-L01（灰蓝色外套）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定镜头：图1站起来去给图2倒水。她端着水杯回来的时候，看到图2坐在沙发上，正在翻看判决书，翻了一遍又一遍。图1看着图2的样子，心里又酸又甜。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「……」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「看了几遍了？」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「第五遍了。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「再看就要被你翻烂了。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+
+      '
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-010-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-001, line: 看了几遍了？}
-  - {speaker: CHAR-010, line: 第五遍了。}
-  - {speaker: CHAR-001, line: 再看就要被你翻烂了。}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP32-SEG08
-  shot_ids: [EP32-S08]
+  shot_ids:
+  - EP32-S08
   duration_sec: 10
-  speakers: [CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-010-L01, CHAR-001-L01]}
+  speakers:
+  - CHAR-001
+  - CHAR-010
+  refs:
+    scene_id: SCENE-001
   assets:
-    look_urls: {CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 慧芳喝了口水说今天法官宣判的时候脑子里全是姐说的"不为自己活一次这辈子就白活了"。她说那是她这辈子听过的最有力量的话。慧兰看着妹妹有些感动但没说什么只是笑了——傻妹妹。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装）【图2】林慧芳 CHAR-010-L01（灰蓝色外套）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）近景 固定镜头：图2接过水喝了一口。她说今天法官宣判的时候，脑子里全是图1说的话。图1在对面坐下看着图2，突然觉得自己做的这一切，值了。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐你知道吗——今天法官宣判的时候，我脑子里全是你说的话。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「哪句？」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「『不为自己活一次，这辈子就白活了』。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐——那句话……是我这辈子听过的最有力量的话。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……傻妹妹。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+
+      '
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-010-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-010, line: 姐你知道吗——今天法官宣判的时候，我脑子里全是你说的话。}
-  - {speaker: CHAR-001, line: 哪句？}
-  - {speaker: CHAR-010, line: 「不为自己活一次，这辈子就白活了」。}
-  - {speaker: CHAR-010, line: 姐——那句话……是我这辈子听过的最有力量的话。}
-  - {speaker: CHAR-001, line: 傻妹妹。}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP32-SEG09
-  shot_ids: [EP32-S09]
+  shot_ids:
+  - EP32-S09
   duration_sec: 10
-  speakers: [CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
+  speakers:
+  - CHAR-001
+  refs:
+    scene_id: SCENE-001
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 姐妹俩依偎在沙发上窗外暮色渐沉。慧兰看着窗外想着自己的官司——我的判决会怎么判呢。慧芳靠在她肩膀上已经睡着了脸上有泪痕但嘴角是笑的。慧兰低头看了看妹妹轻轻揽住她闭上了眼睛——不管怎么判，我都不会再回去了。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装）【图2】林慧芳 CHAR-010-L01（灰蓝色外套）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定镜头：图2依偎着图1坐在沙发上。窗外天色渐晚。图1看着窗外的暮色，心里想着自己的官司。她转过头，看到图2靠在她肩膀上已经睡着了，脸上还挂着泪痕但嘴角是笑的。图1轻轻揽住图2，也闭上了眼睛。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我的判决……会怎么判呢……」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「不管怎么判——我都不会再回去了。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+
+      '
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-010-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-001, line: 我的判决……会怎么判呢……}
-  - {speaker: CHAR-001, line: 不管怎么判——我都不会再回去了。}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut

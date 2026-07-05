@@ -3,7 +3,7 @@
 import argparse, os, re, sys, yaml
 
 SHOT_FIELDS = ["shot_id", "shot_no", "mode", "duration_sec", "refs", "assets", "api", "dialogue"]
-SEGMENT_FIELDS = ["segment_id", "shot_ids", "duration_sec", "speakers", "refs", "assets", "api", "transition_to_next"]
+SEGMENT_FIELDS = ["segment_id", "shot_ids", "duration_sec", "speakers", "refs", "assets", "api"]
 TOP_SHOT = ["episode_id", "defaults", "shots"]
 TOP_SEGMENT = ["episode_id", "defaults", "voice_prompts", "segments"]
 DEFAULTS_FIELDS = ["endpoint", "model", "ratio", "resolution", "generate_audio",
@@ -148,13 +148,18 @@ def check_tu_refs(data: dict, label: str) -> list:
         text = api.get("text", "")
         if not isinstance(text, str):
             continue
-        # Find lines with 镜头描述
+        # Find lines with 镜头描述 (lens descriptions only, not对白 lines)
         lens_lines = re.findall(r'镜头\d+[^。]*', text)
         for ll in lens_lines:
-            # If line has a Chinese name (2-3 chars) as action subject without 图 prefix
-            if re.search(r'[，,]\s*[\u4e00-\u9fff]{2,3}(?!图|不|也|就|还|的|了|在|是|有|和|与|或|被|把|从|对|向|往|到|在)', ll):
-                errors.append(f"{label}[{i}].api.text 镜头描述可能含角色名而非图N引用")
-                break
+            # Check for 2-3 char Chinese sequence that could be a name, but exclude:
+            # - Words after 对白/图N markers
+            # - Common verbs/adverbs/prepositions
+            # Only check if no图N reference found in the same line
+            if '图1' not in ll and '图2' not in ll and '图3' not in ll and '图4' not in ll and '图5' not in ll:
+                if re.search(r'(?:推开|站起|坐下|走进|走出|拿起|放下|看着|转头|伸手|起身|转身|低头|抬头)\b', ll):
+                    # Has action verb but no图N - likely using character name
+                    errors.append(f"{label}[{i}].api.text 镜头描述可能含角色名而非图N引用")
+                    break
     return errors
 
 

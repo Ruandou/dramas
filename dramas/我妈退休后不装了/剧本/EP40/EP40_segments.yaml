@@ -1,180 +1,292 @@
-# SOURCE FIDELITY: EP40_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP40/EP40_剧本.md
+# Source shots: 9 (EP40-S01 to EP40-S09)
+# Output shots: 9 (EP40-S01 to EP40-S09)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
 episode_id: EP40
+source_md: 剧本/EP40/EP40_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
-  ratio: '9:16'
+  ratio: "9:16"
   resolution: 720p
-  duration: 5
-  generate_audio: false
+  generate_audio: true
   watermark: false
-  prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
-  negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声；从开门时的意外（"二姨三姑你们怎么来了？"）到平静回应（"我考虑孩子考虑了三十年——现在该考虑自己了"）到字字如针的质问（"你吃过一顿为自己做的饭吗？"）到最后的金句——"你们那一套在我这不好使了"——声音从客气到坚定到温柔地讲出最狠的话
-  CHAR-010: 沙哑疲倦的中年女声；替姐姐鸣不平（"是我姐夫出轨"），到最后感动（"姐——你终于活过来了"）
-  CHAR-GRP-002: 阴阳怪气的中老年声音；二姨的尖刻（"丢人不丢人"）和三姑的固执（"吃苦受累那是应该的"）——后被问住时的沉默
+  CHAR-001: "温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音"
+  CHAR-010: "沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音"
+  CHAR-GRP-002: "阴阳怪气的中老年声音，压低嗓门说闲话的语气"
+
 segments:
-- segment_id: EP40-SEG01
-  shot_ids: [EP40-S01]
-  duration_sec: 10
-  speakers: [CHAR-GRP-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L02, CHAR-010-L01, CHAR-GRP-002-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png, CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 林家客厅。慧兰和慧芳在择菜——门铃响了。慧兰开门看到二姨和三姑站在门口。她们一进门就东张西望——嘴上说着来看看你，眼神里全是好奇和不赞同。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-    - {file: CHAR-010-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-GRP-002, line: 慧兰啊！我们来看看你！你说你这孩子——怎么也不跟家里说一声！}
-  - {speaker: CHAR-001, line: 二姨、三姑——你们怎么来了？}
-- segment_id: EP40-SEG02
-  shot_ids: [EP40-S02]
-  duration_sec: 10
-  speakers: [CHAR-GRP-002, CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-GRP-002-L01, CHAR-001-L02, CHAR-010-L01]}
-  assets:
-    look_urls: {CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 二姨和三姑坐下就开始数落——全村都知道了你离婚的事。慧兰倒茶没接话。慧芳忍不住说是我姐夫出轨。二姨摆摆手说男人嘛谁不犯点错忍忍就过去了。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-010-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-GRP-002, line: 全村都知道了！你一个六十岁的老太太——离什么婚？丢人不丢人？}
-  - {speaker: CHAR-010, line: 二姨，是我姐夫出轨——}
-  - {speaker: CHAR-GRP-002, line: 男人嘛！谁不犯点错？忍忍就过去了！}
-- segment_id: EP40-SEG03
-  shot_ids: [EP40-S03]
-  duration_sec: 10
-  speakers: [CHAR-GRP-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-GRP-002-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 三姑帮腔说离婚了一个人怎么过——你不考虑自己也要考虑孩子。慧兰放下茶壶平静地说——我考虑孩子考虑了三十年，现在该考虑自己了。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-GRP-002, line: 你这么大年纪了，离婚了一个人怎么过？以后生病了谁照顾你？}
-  - {speaker: CHAR-GRP-002, line: 你不考虑自己，也要考虑孩子啊！}
-  - {speaker: CHAR-001, line: 我考虑孩子考虑了三十年——现在，该考虑自己了。}
-- segment_id: EP40-SEG04
-  shot_ids: [EP40-S04]
-  duration_sec: 10
-  speakers: [CHAR-GRP-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-GRP-002-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 二姨急了说当妈的哪能这么自私。三姑说吃苦受累那是应该的。慧兰认真地看着三姑——三姑，你这一辈子过得好吗？三姑被问住了。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-GRP-002, line: 你这叫什么话！当妈的哪能这么自私！}
-  - {speaker: CHAR-GRP-002, line: 我们这一辈子不都是这么过来的吗？吃苦受累那是应该的——你享什么福啊！}
-  - {speaker: CHAR-001, line: 三姑——你这一辈子，过得好吗？}
-- segment_id: EP40-SEG05
-  shot_ids: [EP40-S05]
-  duration_sec: 10
-  speakers: [CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L02, CHAR-GRP-002-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 慧兰一字一句地问——三姑你十九岁嫁人生了五个孩子伺候公婆三十年。你吃过一顿为自己做的饭吗？你买过一件只为自己喜欢的衣服吗？三姑眼圈红了没有回答。二姨想说什么。慧兰说——二姨，你也一样。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 三姑，你十九岁嫁人，生了五个孩子，伺候了公婆三十年。}
-  - {speaker: CHAR-001, line: 你吃过一顿为自己做的饭吗？你买过一件只为自己喜欢的衣服吗？}
-  - {speaker: CHAR-001, line: 二姨，你也一样。}
-- segment_id: EP40-SEG06
-  shot_ids: [EP40-S06]
-  duration_sec: 10
-  speakers: [CHAR-GRP-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-GRP-002-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 沉默许久。二姨声音低下来——慧兰我们是怕你以后后悔。慧兰坚定地说——我不离婚才会后悔。我六十岁了才知道什么叫为自己活。你们觉得我疯了——但我这辈子从来没有这么清醒过。二姨和三姑对视了一眼——准备好的说辞说不出口了。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-GRP-002, line: 慧兰——我们不是来骂你的。我们是怕你以后后悔。}
-  - {speaker: CHAR-001, line: 我不离婚，才会后悔。}
-  - {speaker: CHAR-001, line: 我六十岁了——我才知道什么叫'为自己活'。你们觉得我疯了——但我这辈子，从来没有这么清醒过。}
-- segment_id: EP40-SEG07
-  shot_ids: [EP40-S07]
-  duration_sec: 10
-  speakers: [CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L02, CHAR-GRP-002-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 慧兰站起来走到窗边——转身一字一句地说——你们那一套，'女人就该忍就该吃苦就该为了孩子活一辈子'——在我这不好使了。我不是你们了。我也不想再当你们了。二姨和三姑坐在沙发上谁也没再说话。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 二姨、三姑——你们那一套。'女人就该忍、就该吃苦、就该为了孩子活一辈子'——在我这，不好使了。}
-  - {speaker: CHAR-001, line: 我不是你们了。我也不想再当你们了。}
-- segment_id: EP40-SEG08
-  shot_ids: [EP40-S08]
-  duration_sec: 10
-  speakers: [CHAR-GRP-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-GRP-002-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 二姨和三姑走到门口。三姑回头说——慧兰你变了。慧兰微笑说嗯变好了。三姑张了张嘴说那你好好的就走了。慧兰站在门口看着她们走远的背影——也是苦命人。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-GRP-002, line: 慧兰——你变了。}
-  - {speaker: CHAR-001, line: 嗯。变了。变好了。}
-  - {speaker: CHAR-GRP-002, line: 那……你好好的。}
-  - {speaker: CHAR-001, line: 嗯。我会好好的。}
-- segment_id: EP40-SEG09
-  shot_ids: [EP40-S09]
-  duration_sec: 10
-  speakers: [CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L02, CHAR-010-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 慧兰关上门回到客厅。慧芳眼眶红红地说——姐你刚才说的那些话我听得都想哭。慧兰笑着拿起菜继续择——你是不是也觉得我疯了？慧芳摇头说不是——我是觉得你终于活过来了。慧兰没说话但嘴角是笑着的。她赶走的不是亲戚，是那个困了她六十年的笼子。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-010-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-010, line: 姐——你刚才说的那些话，我听得都想哭。}
-  - {speaker: CHAR-001, line: 你是不是也觉得我疯了？}
-  - {speaker: CHAR-010, line: 不是。我是觉得——你终于活过来了。}
+  - segment_id: EP40-SEG01
+    shot_ids: [EP40-S01]
+    duration_sec: 10
+    speakers: [CHAR-GRP-002, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图2】老家亲戚 CHAR-GRP-002-L01（花衬衫）【图3】林慧芳 CHAR-010-L01（灰蓝色旧外套）【图4】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：林家客厅上午。图1和图3正在茶几边择菜准备午饭——青菜摊在报纸上，图1利落地掐掉老叶子扔进塑料袋里。阳光从窗户照进来，照在两个人身上暖洋洋的。门铃响了——急促的两声，不像客人，倒像来讨债的。图1擦了擦手去开门——门口站着图2中的两个老家的亲戚：二姨和三姑。她们是专程坐车过来的，手里拎着塑料袋装的水果——但眼神里没有做客的客气，全是审视。一进门就东张西望，嘴上说着来看看你，眼睛已经把整个客厅扫了一遍。图3看到来人表情复杂。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（老家亲戚，阴阳怪气的中老年声音，压低嗓门说闲话的语气）：「慧兰啊！我们来看看你！」
+        对白（老家亲戚，阴阳怪气的中老年声音，压低嗓门说闲话的语气）：「你说你这孩子——怎么也不跟家里说一声！」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「二姨、三姑——你们怎么来了？」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG02
+    shot_ids: [EP40-S02]
+    duration_sec: 10
+    speakers: [CHAR-GRP-002, CHAR-010]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】老家亲戚 CHAR-GRP-002-L01（花衬衫）【图2】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图3】林慧芳 CHAR-010-L01（灰蓝色旧外套）【图4】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：图1中的二姨和三姑一坐下就开始说——屁股还没坐热，话已经像连珠炮一样打过来。二姨的声音又尖又响，每个字都像带着刺。图2去厨房端了茶过来——给她们一人倒了一杯，茶冒着热气。图2没有接话——只是把茶杯轻轻放到她们面前的茶几上。图3在旁边忍不住了——她放下手里的菜，声音不大但很坚定地替姐姐说话。图1中的二姨摆摆手——动作很大，像是要把图3的话从空气里挥掉——然后扔出了一句让所有人都沉默的话。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（老家亲戚，阴阳怪气的中老年声音，压低嗓门说闲话的语气）：「全村都知道了！你一个六十岁的老太太——离什么婚？丢人不丢人？」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「二姨，是我姐夫出轨——」
+        对白（老家亲戚，阴阳怪气的中老年声音，压低嗓门说闲话的语气）：「男人嘛！谁不犯点错？忍忍就过去了！」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-GRP-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG03
+    shot_ids: [EP40-S03]
+    duration_sec: 10
+    speakers: [CHAR-GRP-002, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】老家亲戚 CHAR-GRP-002-L01（花衬衫）【图2】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定：图1中的三姑跟着帮腔——她比二姨说话慢一些，但每一句都是同一套逻辑。她们的武器都一样——用孩子来绑架，用年纪来恐吓。图2把茶壶放下——瓷壶搁在玻璃茶几上，发出沉稳的一声。图2坐下来了——不是瘫坐，是端端正正地坐在沙发上，背挺得很直。图2看着她们的眼睛，声音不高，但每个字都像钉子钉在木头上。图1中的三姑张了张嘴——准备好的下一句你不考虑孩子吗被堵了回去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（老家亲戚，阴阳怪气的中老年声音，压低嗓门说闲话的语气）：「你这么大年纪了，离婚了一个人怎么过？以后生病了谁照顾你？」
+        对白（老家亲戚，阴阳怪气的中老年声音，压低嗓门说闲话的语气）：「你不考虑自己，也要考虑孩子啊！」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我考虑孩子考虑了三十年——现在，该考虑自己了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-GRP-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG04
+    shot_ids: [EP40-S04]
+    duration_sec: 10
+    speakers: [CHAR-GRP-002, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】老家亲戚 CHAR-GRP-002-L01（花衬衫）【图2】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定：图1中的二姨急了——她没想到图2会顶嘴。在她的认知里，图2应该是那个低头说是是是的人。图1中的三姑也跟着加重了语气——她把应该两个字咬得特别重，好像在背诵一条流传了几千年的法律。图2看着她们——没有生气，没有委屈。图2看着这两个也是苦了一辈子的女人——二姨的头发也白了，三姑的手指关节因为长年干活而变形。图2认真地、一字一字地问了一个问题——不是反问，是真的想知道答案。三姑愣住了——嘴巴张了一半，但什么都没说出来。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（老家亲戚，阴阳怪气的中老年声音，压低嗓门说闲话的语气）：「你这叫什么话！当妈的哪能这么自私！」
+        对白（老家亲戚，阴阳怪气的中老年声音，压低嗓门说闲话的语气）：「我们这一辈子不都是这么过来的吗？吃苦受累那是应该的——你享什么福啊！」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「三姑——你这一辈子，过得好吗？」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-GRP-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG05
+    shot_ids: [EP40-S05]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图2】老家亲戚 CHAR-GRP-002-L01（花衬衫）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定：图2中的三姑想用一句含混的话混过去——好不好的不都这么过来了。这是她们这代人最擅长的招数——用都这样来逃避我想怎样。但图1不让她逃。图1的声音很轻——不是在骂人，是在陈述事实。图1说的每一个数字都是真的——十九岁嫁人，五个孩子，三十年。三姑的眼圈突然红了——不是愤怒的红，是被戳中的红。她低下头没有回答——因为答案就写在她那双变形的手指上。图2中的二姨想打断——但图1转头看向她，只说了四个字。二姨的嘴闭上了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「三姑，你十九岁嫁人，生了五个孩子，伺候了公婆三十年。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你吃过一顿为自己做的饭吗？你买过一件只为自己喜欢的衣服吗？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「二姨，你也一样。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG06
+    shot_ids: [EP40-S06]
+    duration_sec: 10
+    speakers: [CHAR-GRP-002, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】老家亲戚 CHAR-GRP-002-L01（花衬衫）【图2】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：沉默了好一会儿——客厅里只有墙上的钟在走。图1中的二姨的声音低下去了——不再是刚才那种尖利的质问，而是带着一种真切的担忧。她不是来骂图2的——她是真的怕图2以后后悔。图2看着二姨的眼睛——她知道二姨说的怕你后悔是真心话。但图2的回答更快——没有犹豫，没有动摇。图2说了一句话——不像在说服别人，像是在确认自己。图1中的二姨和三姑对视了一眼——她们来之前准备了一肚子说辞，现在一句都说不出口了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（老家亲戚，阴阳怪气的中老年声音，压低嗓门说闲话的语气）：「慧兰——我们不是来骂你的。我们是怕你以后后悔。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我不离婚，才会后悔。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我六十岁了——我才知道什么叫'为自己活'。你们觉得我疯了——但我这辈子，从来没有这么清醒过。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-GRP-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG07
+    shot_ids: [EP40-S07]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图2】老家亲戚 CHAR-GRP-002-L01（花衬衫）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：图1站起来——不是愤怒地跳起来，是慢慢地、从容地站起来。图1走到窗边——窗外是小区里的树，阳光透过树叶在图1脸上投下斑驳的光影。图1看着窗外说了一句——然后转过身，面对着沙发上的图2中的二姨和三姑。图1的声音不大，但每个字都像一颗石头投进平静的湖面。不好使了——三个字，清脆得像一把剪刀剪断了绳子。我不是你们了——五个字，是图1这辈子做过的最彻底的切割。图2中的二姨和三姑坐在沙发上，谁也没有再说话——她们不是不想反驳，是不知道怎么反驳。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「二姨、三姑——你们那一套。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「'女人就该忍、就该吃苦、就该为了孩子活一辈子'——在我这，不好使了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我不是你们了。我也不想再当你们了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG08
+    shot_ids: [EP40-S08]
+    duration_sec: 10
+    speakers: [CHAR-GRP-002, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】老家亲戚 CHAR-GRP-002-L01（花衬衫）【图2】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：图1中的二姨和三姑起身告辞——她们站起来的时候动作很慢，像是腿上有千斤重。走到门口时，三姑回头看了图2一眼——她的眼神不再是来时的审视和责备，而是一种复杂的、说不清的东西。她说了一句——不是指责，更像是一个迟到的发现。图2的回答很短——两个字一个句号。然后是一个微笑——不是得意的笑，是平静的笑。三姑张了张嘴想说什么——最后只说了一句。图2站在门口看着她们走远的背影——两个佝偻的背影，也是苦命人。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（老家亲戚，阴阳怪气的中老年声音，压低嗓门说闲话的语气）：「慧兰——你变了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「嗯。变了。变好了。」
+        对白（老家亲戚，阴阳怪气的中老年声音，压低嗓门说闲话的语气）：「那……你好好的。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「嗯。我会好好的。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-GRP-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP40-SEG09
+    shot_ids: [EP40-S09]
+    duration_sec: 10
+    speakers: [CHAR-010, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧芳 CHAR-010-L01（灰蓝色旧外套）【图2】林慧兰 CHAR-001-L02（暖色衬衫+亮色丝巾）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：图2关上门——门锁咔哒一声，把外面的世界关在了门外。图1在客厅里看着图2——眼眶红红的，手里还捏着刚才择了一半的青菜。图1说了一句话——声音有点抖，但不是在哭。图2笑了笑，走回沙发边坐下来——拿起没择完的菜继续择。图2的手指还是那么利落——掐掉老叶子，扔进塑料袋。阳光还是那样暖暖地照在图2身上。图1摇了摇头——不是否定，是感叹。图2没说话——但图2的嘴角是笑着的，手上的动作轻快而从容。图2赶走的不是亲戚——是那个困了图2六十年的笼子。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐——你刚才说的那些话，我听得都想哭。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你是不是也觉得我疯了？」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「不是。我是觉得——你终于活过来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-010-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }

@@ -1,4 +1,12 @@
-# SOURCE FIDELITY: EP26_剧本.md -> 9 shots 1:1 | 92s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP26/EP26_剧本.md
+# Source shots: 9 (EP26-S01 to EP26-S09)
+# Output shots: 9 (EP26-S01 to EP26-S09)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 92s
+# Output total duration: 92s
+# Gate status: ALL PASS
+
 episode_id: EP26
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
@@ -20,22 +28,24 @@ shots:
     look_ids:
     - CHAR-004-L01
     - CHAR-003-L01
+    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01
-      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01
+      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003
+      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
   api:
-    text: 【图1】儿子家门口 SCENE-003（门铃响，王芳开门看到穿制服的警察愣住）【图2】CHAR-004-L01 王芳（强装镇定，脸色发白）【图3】CHAR-003-L01 张明（从后面跑过来看到警察腿都软了）。中景：门铃响——王芳开门看到警察脸色瞬间变了。张明跑过来看到警察声音都虚了。屋里传来慧兰的声音——"警察同志，是我报的警"。
+    text: 【图1】王芳 CHAR-004-L01（开门看到警察，脸色瞬间发白）【图2】张明 CHAR-003-L01（从后面跑过来看到警察腿都软了）【图3】儿子家 SCENE-003。中景 固定：警察按门铃——图1开门看到穿制服的警察，脸色瞬间变了。图2从后面跑过来，看到警察声音都虚了。图3屋里传来慧兰的声音说"是我报的警，我被锁在里面了"。
     content_roles:
-    - file: SCENE-003
-      role: reference_image
-      label: 图1
     - file: CHAR-004-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-003
       role: reference_image
       label: 图3
   dialogue:
@@ -45,6 +55,7 @@ shots:
     line: 警……警察同志。
   - speaker: CHAR-001
     line: 警察同志，是我报的警。我被锁在里面了。
+  transition_to_next: hard_cut
 - shot_id: EP26-S02
   shot_no: 2
   mode: i2v_ref
@@ -56,20 +67,20 @@ shots:
     - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003
+      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
   api:
-    text: 【图1】儿子家客厅 SCENE-003（警察在了解情况，王芳陪着笑脸解释）【图2】CHAR-004-L01 王芳（语气软了，说是误会）【图3】CHAR-001-L01 林慧兰（从房间出来，平静地看着王芳）。中景：王芳试图解释"这是我婆婆"——慧兰从房间走出来，平静地打断她。
+    text: 【图1】王芳 CHAR-004-L01（陪着笑脸，语气软了，试图解释是家庭矛盾）【图2】林慧兰 CHAR-001-L01（从房间出来，平静地看着图1）【图3】儿子家 SCENE-003。中景 固定：图1试图解释"这是我婆婆，就是家庭矛盾"。警察反问"家庭矛盾需要锁门？"图2从房间走出来平静反驳。图1语塞。
     content_roles:
-    - file: SCENE-003
-      role: reference_image
-      label: 图1
     - file: CHAR-004-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-001-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-003
       role: reference_image
       label: 图3
   dialogue:
@@ -81,6 +92,7 @@ shots:
     line: 不是……我们就是……
   - speaker: CHAR-001
     line: 就是什么？就是非法拘禁？
+  transition_to_next: hard_cut
 - shot_id: EP26-S03
   shot_no: 3
   mode: i2v_ref
@@ -92,20 +104,20 @@ shots:
     - CHAR-004-L01
   assets:
     look_urls:
-      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01
-      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
     scene_urls:
-      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003
+      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
   api:
-    text: 【图1】儿子家客厅 SCENE-003（警察严肃批评教育，张明和王芳被说得抬不起头）【图2】CHAR-003-L01 张明（低着头面红耳赤）【图3】CHAR-004-L01 王芳（脸色发白慌了）。近景：警察严肃地说不管什么家庭矛盾都不能限制人身自由——这是底线。张明被说得面红耳赤，王芳慌了。
+    text: 【图1】张明 CHAR-003-L01（低着头面红耳赤）【图2】王芳 CHAR-004-L01（脸色发白慌了）【图3】儿子家 SCENE-003。中景 固定：警察严肃批评教育——不管什么家庭矛盾都不能限制人身自由，这是底线。如果情节严重是可以拘留的。图1被说得面红耳赤。图2慌了说"就是想让妈冷静一下"。
     content_roles:
-    - file: SCENE-003
-      role: reference_image
-      label: 图1
     - file: CHAR-003-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-004-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-003
       role: reference_image
       label: 图3
   dialogue:
@@ -113,6 +125,7 @@ shots:
     line: 明……明白了。
   - speaker: CHAR-004
     line: 我们真的没那个意思……就是想让妈冷静一下……
+  transition_to_next: hard_cut
 - shot_id: EP26-S04
   shot_no: 4
   mode: i2v_ref
@@ -125,23 +138,26 @@ shots:
     - CHAR-004-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01
-      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
     scene_urls:
-      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003
+      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
   api:
-    text: 【图1】儿子家客厅 SCENE-003（警察问慧兰的意见，全场安静紧张）【图2】CHAR-001-L01 林慧兰（沉默地看着张明——他在逃避她的目光）【图3】CHAR-003-L01 张明（低着头像做错事的孩子）。近景：警察问慧兰什么态度要不要追究。慧兰看着张明沉默了很久——整个客厅安静得能听到钟表的滴答声。王芳在旁边紧张地喊了一声"妈"。
+    text: 【图1】林慧兰 CHAR-001-L01（沉默地看着儿子——他在逃避她的目光）【图2】张明 CHAR-003-L01（低着头像做错事的孩子）【图3】王芳 CHAR-004-L01（紧张地看着图1）【图4】儿子家 SCENE-003。近景 固定：警察问图1要不要追究法律责任。图1看着图2沉默了很久——整个客厅安静得能听到钟表的滴答声。图2不敢抬头看图1。图3在旁边紧张地喊了一声"妈"。
     content_roles:
-    - file: SCENE-003
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-003-L01
       role: reference_image
+      label: 图2
+    - file: CHAR-004-L01
+      role: reference_image
       label: 图3
+    - file: SCENE-003
+      role: reference_image
+      label: 图4
   dialogue:
   - speaker: CHAR-001
     line: ……
@@ -149,6 +165,7 @@ shots:
     line: ……
   - speaker: CHAR-004
     line: 妈……
+  transition_to_next: hard_cut
 - shot_id: EP26-S05
   shot_no: 5
   mode: i2v_ref
@@ -161,15 +178,15 @@ shots:
     - CHAR-003-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01
-      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
     scene_urls:
-      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003
+      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
   api:
-    text: 【图1】儿子家客厅 SCENE-003（慧兰深吸一口气说算了不追究了）【图2】CHAR-004-L01 王芳（赶紧点头道谢）【图3】CHAR-003-L01 张明（声音发涩说知道了）。中景：慧兰平静地说这次算了不追究了。王芳赶紧点头道谢。警察再次警告说再有下次直接拘留。张明小声说知道了。
+    text: 【图1】林慧兰 CHAR-001-L01（深吸一口气，平静地说不追究了）【图2】王芳 CHAR-004-L01（赶紧点头道谢）【图3】张明 CHAR-003-L01（声音发涩说知道了以后不会了）【图4】儿子家 SCENE-003。中景 固定：图1深吸一口气平静地说这次算了不追究了。图2赶紧点头道谢。警察再次警告说再有下次直接拘留。图3小声说知道了以后不会了。图1没再看他们转身去拿包。
     content_roles:
-    - file: SCENE-003
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
     - file: CHAR-004-L01
@@ -178,6 +195,9 @@ shots:
     - file: CHAR-003-L01
       role: reference_image
       label: 图3
+    - file: SCENE-003
+      role: reference_image
+      label: 图4
   dialogue:
   - speaker: CHAR-001
     line: 这次就算了。不追究了。
@@ -187,6 +207,7 @@ shots:
     line: 知道了……以后不会了。
   - speaker: CHAR-001
     line: ……
+  transition_to_next: hard_cut
 - shot_id: EP26-S06
   shot_no: 6
   mode: i2v_ref
@@ -198,20 +219,20 @@ shots:
     - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003
+      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
   api:
-    text: 【图1】儿子家玄关 SCENE-003（慧兰拿起包走向门口，王芳追在后面解释）【图2】CHAR-004-L01 王芳（语无伦次地追着解释）【图3】CHAR-001-L01 林慧兰（背对着停住脚步——没有回头）。中景：慧兰拿起包走向门口。王芳追在后面语无伦次地解释。慧兰停了一下——王芳以为她要回头——但慧兰没有转身，只说"不用解释了"。
+    text: 【图1】王芳 CHAR-004-L01（追到门口语无伦次地解释）【图2】林慧兰 CHAR-001-L01（停下来但没有回头——背对着平静拒绝）【图3】儿子家 SCENE-003。近景 固定：图2拿起包走向门口。图1在后面追着解释——说"我不是那个意思""我就是一时糊涂"。图2停下来——图1以为图2要回头。但图2只是停了一下没有转身。
     content_roles:
-    - file: SCENE-003
-      role: reference_image
-      label: 图1
     - file: CHAR-004-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-001-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-003
       role: reference_image
       label: 图3
   dialogue:
@@ -223,6 +244,7 @@ shots:
     line: 妈你听我解释……
   - speaker: CHAR-001
     line: 不用解释了。我听得够多了。
+  transition_to_next: hard_cut
 - shot_id: EP26-S07
   shot_no: 7
   mode: i2v_ref
@@ -234,20 +256,20 @@ shots:
     - CHAR-003-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
     scene_urls:
-      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003
+      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
   api:
-    text: 【图1】儿子家门口 SCENE-003（慧兰转过身不看王芳——她看的是张明）【图2】CHAR-001-L01 林慧兰（平静地看着儿子，只说了一句话）【图3】CHAR-003-L01 张明（抬起头眼眶红了）。近景：慧兰转过身——不是看王芳，是看张明。她没骂他没打他，只说了一句平静的话。张明眼泪掉下来说了声"妈对不起"。慧兰轻声说"你上次说对不起，是五岁的时候"。
+    text: 【图1】林慧兰 CHAR-001-L01（转过身不看王芳看张明——平静地说出最锋利的话）【图2】张明 CHAR-003-L01（抬起头眼眶红了，眼泪掉下来）【图3】儿子家 SCENE-003。近景 固定：图1转过身——不看王芳看图2。图1平静地说"以后想见我，好好说话。我是你妈，不是你关起来的犯人。"图2抬起头——眼眶红了，眼泪掉下来。图1轻声说"你上次说对不起，是五岁的时候打碎了邻居家的玻璃。"
     content_roles:
-    - file: SCENE-003
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-003
       role: reference_image
       label: 图3
   dialogue:
@@ -261,6 +283,7 @@ shots:
     line: 妈……对不起……
   - speaker: CHAR-001
     line: 你上次说对不起，是五岁的时候打碎了邻居家的玻璃。
+  transition_to_next: hard_cut
 - shot_id: EP26-S08
   shot_no: 8
   mode: i2v_ref
@@ -271,16 +294,16 @@ shots:
     - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003
+      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
   api:
-    text: 【图1】儿子家楼道 SCENE-003（慧兰转身走出门，门在身后关上）【图2】CHAR-001-L01 林慧兰（站在楼道里深深吸了一口气）。中景→近景：慧兰转身走出去——门在身后关上。她站在楼道里深深吸了一口气。眼角湿了——但嘴角有笑。她朝楼下走去，脚步越来越稳。
+    text: 【图1】林慧兰 CHAR-001-L01（转身走出门——站在楼道里深深吸了一口气）【图2】儿子家 SCENE-003。中景 固定：图1转身走出了门。门在身后关上——轻响一声。图1站在楼道里深深地吸了一口气。眼角湿了但嘴角有笑。她朝楼下走去脚步越来越稳。自言自语说"外面的空气真好……林慧兰你做得对。"
     content_roles:
-    - file: SCENE-003
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
-    - file: CHAR-001-L01
+    - file: SCENE-003
       role: reference_image
       label: 图2
   dialogue:
@@ -288,6 +311,7 @@ shots:
     line: 外面的空气……真好。
   - speaker: CHAR-001
     line: 林慧兰……你做得对。
+  transition_to_next: hard_cut
 - shot_id: EP26-S09
   shot_no: 9
   mode: i2v_ref
@@ -299,20 +323,20 @@ shots:
     - CHAR-003-L01
   assets:
     look_urls:
-      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01
-      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01
+      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
     scene_urls:
-      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003
+      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
   api:
-    text: 【图1】儿子家客厅 SCENE-003（门关上后一片死寂——王芳突然抓起杯子摔在地上）【图2】CHAR-004-L01 王芳（歇斯底里地骂"你妈真行"）【图3】CHAR-003-L01 张明（低着头拳头握紧又松开——突然抬头吼出来）。中景→特写：门关上后死寂了几秒。王芳突然爆发抓起杯子摔在地上——"你妈真行！"张明一直没说话低着头——然后突然抬头眼睛通红吼了一声"够了！"王芳愣住了——张明第一次对她发火。
+    text: 【图1】王芳 CHAR-004-L01（抓起杯子狠狠摔在地上——爆发了）【图2】张明 CHAR-003-L01（站在原地没说话——突然抬头眼睛通红吼出"够了"）【图3】儿子家 SCENE-003。中景 固定：门关上后一片死寂。图1愣了一会儿突然抓起桌上的杯子狠狠摔在地上——"你妈真行！她这是要把这个家拆了！"杯子碎裂。图2站在原地看着碎了一地的杯子没说话。图1还在骂——图2突然抬头眼睛通红吼出来："够了！"图1愣住了。
     content_roles:
-    - file: SCENE-003
-      role: reference_image
-      label: 图1
     - file: CHAR-004-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-003
       role: reference_image
       label: 图3
   dialogue:

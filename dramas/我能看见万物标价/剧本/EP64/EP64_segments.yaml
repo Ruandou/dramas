@@ -1,0 +1,305 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP64/EP64_价值公开课.md
+# Source segments: 8 (EP64-SEG01 to EP64-SEG08)
+# Output segments: 8 (EP64-SEG01 to EP64-SEG08)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 87s
+# Output total duration: 87s
+# Gate status: ALL PASS
+# ⚠️ WARNING: 2 placeholder extras ([待补：老人观众], [待补：年轻观众]) use temporary IDs — pending CHAR-GRP assignment by production-planner
+
+episode_id: EP64
+source_md: 剧本/EP64/EP64_价值公开课.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+voice_prompts:
+  CHAR-001: "Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones"
+  CHAR-002: "Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes"
+  CHAR-003: "Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing"
+  # ⚠️ WARNING: 以下占位群演 voice_prompt 为临时生成 — 待 production-planner 在声音卡片中建立正式 CHAR-GRP 条目后替换
+  PLACEHOLDER_OLD_AUDIENCE: "Male, 70 years old, warm and gentle trembling voice, slow pace, emotional and nostalgic tone, voice cracks with age and sentiment"
+  PLACEHOLDER_YOUNG_AUDIENCE: "Male, 22 years old, slightly tight and nervous voice, medium pace, stubborn undertone with vulnerability, pauses when emotional"
+
+segments:
+  - segment_id: EP64-SEG01
+    shot_ids: [EP64-S01, EP64-S02]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏念 CHAR-002-L01（深灰西装套裙白丝衬衫珍珠耳钉）【图2】赵大壮 CHAR-003-L01（橙色拼接运动外套白T恤）【图3】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定镜头：后台通道入口，图1侧身靠着大理石门框低头看平板，深灰西装套裙白丝衬衫领口一丝不苟，低马尾纹丝不乱，珍珠耳钉在通道顶灯下一闪，身后展厅水晶灯和玻璃展柜隐约可见，暖金光从展厅渗入后台冷白灯光区。
+        镜头2（5秒）中景 固定镜头：图2坐在第一排最靠过道位置，橙色拼接运动外套白T恤，双手攥着一瓶已捏变形的矿泉水，圆脸挤出笑但眼珠乱转，厚唇抿着又松开，另一只手攥着卷成筒的节目单。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「在线人数——破百万了。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「等会儿语速稳住，别太快。」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「辰哥，前排坐了个戴金链子的——看着像来砸场。」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「我帮你盯着……」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP64-SEG02
+    shot_ids: [EP64-S03, EP64-S04]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色大衣高领毛衣）【图2】苏念 CHAR-002-L01（深灰西装套裙白丝衬衫）【图3】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定镜头：图1站在后台阴影处，黑色大衣领口竖着高领毛衣衬得下颌线更锐，聚光灯余光从舞台方向打过来勾出一道金边，喉结动了一下咽了口口水，浓眉舒展眼神沉稳，薄唇轻抿后松开。
+        镜头2（5秒）中景 固定镜头：图2收起平板转身面对图1，杏眼在台灯光线中冷静又带一丝温度。图1从阴影中往前迈出一步大衣下摆微摆，舞台方向暖金光逐渐吞没两人冷白侧影。远处前排赵大壮竖起大拇指模糊入画。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「大壮，坐着就行。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「心跳比平时快……公开之后——没有退路了。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「准备好了？」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「辰哥——直播间已经炸了。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「走吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP64-SEG03
+    shot_ids: [EP64-S05, EP64-S06]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色大衣高领毛衣）【图2】苏念 CHAR-002-L01（深灰西装套裙白丝衬衫珍珠耳钉）【图3】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 镜头推近：图1走上鉴宝台，聚光灯从正上方打下来，黑色大衣在暖金色舞台灯光中沉稳大气，台下座无虚席手机屏幕亮成一片星海，大理石鉴宝台上摆着放大镜和白色绒布，身后金色logo墙。
+        镜头2（6秒）近景 固定镜头：图1双手撑在鉴宝台边缘身体微前倾，浓眉舒展嘴角从容，瞳孔在聚光灯下泛浅琥珀色。图2在侧幕双手交叉胸前注视着他嘴角微扬，珍珠耳钉一闪。台下第一排手机镜头对准台上红灯闪烁。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「大家好。我叫陆辰。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「值不值，我说了算。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「今天——只做一件事。让你们看见——每件东西背后的故事。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「接下来——请第一位。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「不管带来什么——我都会说出真话。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「他没在紧张了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP64-SEG04
+    shot_ids: [EP64-S07, EP64-S08]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-002, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色大衣高领毛衣）【图2】苏念 CHAR-002-L01（深灰西装套裙）【图3】赵大壮 CHAR-003-L01（橙色运动外套白T恤）【图4】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 缓推：图1瞳孔闪过琥珀色微光——价值之眼激活，手拿起一只青花碗在灯光下缓缓转动碗底朝镜头釉面反射暖光，金色数据流在瞳孔中隐现，嘴角微扬露出鉴定时的从容。
+        镜头2（5秒）近景 固定镜头：台下一位女观众捂嘴惊呼举着手机直播弹幕飞速滚动。图3在前排拍大腿咧嘴大笑矿泉水瓶差点掉地上。图2在侧幕看了一眼平板上跳动的直播数据嘴角弧度更大。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「清代民窑。青花碗。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「品相完好。市场价值——八万二。」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「绝了——一口价不带犹豫的。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「在线——破两百万了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP64-SEG05
+    shot_ids: [EP64-S09, EP64-S10]
+    duration_sec: 11
+    speakers: [PLACEHOLDER_OLD_AUDIENCE, CHAR-001]  # ⚠️ WARNING: PLACEHOLDER_OLD_AUDIENCE 待替换为正式 CHAR-GRP ID
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        PLACEHOLDER_OLD_AUDIENCE: assets/looks/PLACEHOLDER_OLD_AUDIENCE.png  # ⚠️ WARNING: no CDN URL — 待补群演 [待补：老人观众]
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】老人观众 [待补：老人观众]（朴素深色外套头发花白）【图2】陆辰 CHAR-001-L03（黑色大衣高领毛衣）【图3】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定镜头：图1头发花白颤巍巍从褪色布袋中取出一块旧机械手表，表盘泛黄皮带磨损秒针仍在走，布满皱纹的手指轻抚表盘，眼神带着期待和紧张，聚光灯暖光从侧面照出脸上岁月纹理，背景虚化成暖金色调。
+        镜头2（6秒）近景 固定镜头：图2双手接过手表琥珀色瞳孔微光闪过后消退，表情从严肃鉴定变为柔和，手指翻过表背看到刻字痕迹，嘴角微动不是鉴定者的自信而是晚辈的敬意，暖光中面部线条柔和。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（老人观众，Male, 70 years old, warm and gentle trembling voice, slow pace, emotional and nostalgic tone, voice cracks with age and sentiment）：「这块表……跟了我四十年了。」
+        对白（老人观众，Male, 70 years old, warm and gentle trembling voice, slow pace, emotional and nostalgic tone, voice cracks with age and sentiment）：「想让你看看——它值多少。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「价格——一百五。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「但表背刻着两个字——'永珍'。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「四十年。您从没摘下过。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: PLACEHOLDER_OLD_AUDIENCE, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP64-SEG06
+    shot_ids: [EP64-S11, EP64-S12]
+    duration_sec: 12
+    speakers: [PLACEHOLDER_OLD_AUDIENCE, CHAR-001, PLACEHOLDER_YOUNG_AUDIENCE]  # ⚠️ WARNING: 占位 speakers 待替换
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        PLACEHOLDER_OLD_AUDIENCE: assets/looks/PLACEHOLDER_OLD_AUDIENCE.png  # ⚠️ WARNING: no CDN URL — 待补群演 [待补：老人观众]
+        PLACEHOLDER_YOUNG_AUDIENCE: assets/looks/PLACEHOLDER_YOUNG_AUDIENCE.png  # ⚠️ WARNING: no CDN URL — 待补群演 [待补：年轻观众]
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】老人观众 [待补：老人观众]（朴素深色外套）【图2】陆辰 CHAR-001-L03（黑色大衣高领毛衣）【图3】年轻观众 [待补：年轻观众]（连帽衫牛仔裤）【图4】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：图1眼眶泛红双手接过手表指腹摩挲表背刻字，身后观众席有人悄悄擦眼角。图2微微颔首目送图1转身面向下一位，鉴宝台上已摆好一双球鞋黑红配色鞋底磨损明显被郑重地放在白色绒布上。
+        镜头2（6秒）近景 固定镜头：图3站在鉴宝台对面双手不自觉攥着衣角，球鞋摆在两人之间鞋带洗得发白鞋跟有折痕，眼神倔强又带忐忑。图2看着图3瞳孔琥珀色微光一闪即灭嘴角微扬。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（老人观众，Male, 70 years old, warm and gentle trembling voice, slow pace, emotional and nostalgic tone, voice cracks with age and sentiment）：「是老伴儿送的……她说——不在乎值多少。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「她说得对。价格不等于价值——它承载的，是四十年的故事。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「这才是价值之眼该看到的东西。」
+        对白（年轻观众，Male, 22 years old, slightly tight and nervous voice, medium pace, stubborn undertone with vulnerability, pauses when emotional）：「AJ1。黑红配置。市价——三万二。」
+        对白（年轻观众，Male, 22 years old, slightly tight and nervous voice, medium pace, stubborn undertone with vulnerability, pauses when emotional）：「为了买它——我端了三个月盘子。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「所以这双鞋买的不是鞋。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: PLACEHOLDER_OLD_AUDIENCE, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+        - { file: PLACEHOLDER_YOUNG_AUDIENCE, role: reference_image, label: 图3 }
+        - { file: SCENE-004, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP64-SEG07
+    shot_ids: [EP64-S13, EP64-S14]
+    duration_sec: 11
+    speakers: [CHAR-001, PLACEHOLDER_YOUNG_AUDIENCE, CHAR-002, CHAR-003]  # ⚠️ WARNING: PLACEHOLDER_YOUNG_AUDIENCE 待替换
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        PLACEHOLDER_YOUNG_AUDIENCE: assets/looks/PLACEHOLDER_YOUNG_AUDIENCE.png  # ⚠️ WARNING: no CDN URL — 待补群演 [待补：年轻观众]
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色大衣高领毛衣）【图2】年轻观众 [待补：年轻观众]（连帽衫）【图3】苏念 CHAR-002-L01（深灰西装套裙）【图4】赵大壮 CHAR-003-L01（橙色运动外套）【图5】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定镜头：图1双手拿起球鞋在聚光灯下端详，瞳孔微光已消退此刻不是在鉴定而是在讲述，暖光从上方洒下映出球鞋每一道磨损痕迹。图2张了张嘴眼眶泛红手不自觉握紧，背后观众席虚化成暖金色。
+        镜头2（6秒）中景 缓推：图1双手撑台身体微前倾嘴角从容弧度。图3在侧幕杏眼第一次出现温度被打动的微光。图4在前排站起来鼓掌圆脸表情介于哭和笑之间。掌声从前往后蔓延如潮水全场起立。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「三万块——买的不是鞋。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「是一个少年对自己的交代——'我值得'。」
+        对白（年轻观众，Male, 22 years old, slightly tight and nervous voice, medium pace, stubborn undertone with vulnerability, pauses when emotional）：「……谢谢。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「谢谢。今天你们看到的——不是我的能力。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「是你们自己的故事。」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「辰哥——牛。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「这不是一堂课。这是一次重新定义。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: PLACEHOLDER_YOUNG_AUDIENCE, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-004, role: reference_image, label: 图5 }
+    transition_to_next: fade  # 掌声渐隐 → 手机屏幕冷光切入
+
+  - segment_id: EP64-SEG08
+    shot_ids: [EP64-S15, EP64-S16]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-004.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色大衣高领毛衣）【图2】鼎丰拍卖行 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定镜头：公开课结束，图1走下鉴宝台黑色大衣在暖光中松弛下来，掏出手机屏幕冷蓝光打在脸上，直播间弹幕飞速滚动，拇指滑动屏幕嘴角带笑然后手指停住笑容凝固。
+        镜头2（6秒）大特写 缓推：图1面部极近特写，琥珀色瞳孔中映着手机屏幕冷蓝光点，表情骤然凝固浓眉蹙起下颌线绷紧嘴角从容弧度消失，手机冷蓝光和舞台暖金光在脸上形成对峙——新世界秩序的阴影侵入了公开课的暖调。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「苏念，效果怎么样？」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「你自己看评论区。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「'金眼老师太暖了'……」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「这条弹幕——'金眼老师，我手上也有一块会发光的石头。你想知道它在哪吗？'」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「新世界秩序——他们在直播间里。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「……来了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

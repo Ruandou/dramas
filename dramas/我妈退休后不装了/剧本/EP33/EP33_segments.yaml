@@ -1,177 +1,303 @@
-# SOURCE FIDELITY: EP33_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP33/EP33_剧本.md
+# Source shots: 9 (EP33-S01 to EP33-S09)
+# Output segments: 9 (EP33-SEG01 to EP33-SEG09)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
 episode_id: EP33
+source_md: 剧本/EP33/EP33_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
-  ratio: '9:16'
-  resolution: 720p
-  duration: 5
-  generate_audio: false
+  ratio: "9:16"
+  resolution: 1080p
+  generate_audio: true
   watermark: false
-  prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
-  negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声；从洗米时察觉女儿情绪的敏锐（"你今天怎么了"），到鼓励女儿时的温柔坚定（"你比你想象的要强得多"），到说出"我以前最怕女儿跟我一样"时的释然和放心——声音中带着为母的骄傲和欣慰
-  CHAR-005: 干净利落的职业女性声音；从切菜时闷闷不乐，到倾诉职场委屈，到眼眶红了叫"妈"的哽咽，到抱住妈妈说"不管官司打成什么样我都支持你"的坚定——声音从憋屈到释放再到温暖
+  CHAR-001: "温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音"
+  CHAR-005: "干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准"
+  CHAR-003: "普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准"
+
 segments:
-- segment_id: EP33-SEG01
-  shot_ids: [EP33-S01]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-005]
-  refs: {scene_id: SCENE-004, look_ids: [CHAR-005-L01, CHAR-001-L01]}
-  assets:
-    look_urls: {CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004}
-  api:
-    text: 张蕾家厨房。张蕾在切菜心不在焉——今天在公司又被那个男同事抢了功劳，刀落得特别重。慧兰在旁边洗米，看了女儿一眼——当妈的看得出孩子有心事。她问怎么了，张蕾说没事。慧兰说没事你把我青椒都剁成泥了。
-    content_roles:
-    - {file: SCENE-004, role: reference_image, label: 图1}
-    - {file: CHAR-005-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-001, line: 蕾蕾，你今天怎么了？}
-  - {speaker: CHAR-005, line: 没事。}
-  - {speaker: CHAR-001, line: 没事你把我那青椒都剁成泥了。}
-- segment_id: EP33-SEG02
-  shot_ids: [EP33-S02]
-  duration_sec: 10
-  speakers: [CHAR-005, CHAR-001]
-  refs: {scene_id: SCENE-004, look_ids: [CHAR-005-L01, CHAR-001-L01]}
-  assets:
-    look_urls: {CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004}
-  api:
-    text: 张蕾放下刀靠在料理台上终于说出来了——还是那个男同事，这次在领导面前说她数据有问题。查清楚了没问题但领导心里已经有了疙瘩。慧兰没说话继续洗米。
-    content_roles:
-    - {file: SCENE-004, role: reference_image, label: 图1}
-    - {file: CHAR-005-L01, role: reference_image, label: 图2}
-  dialogue:
-  - {speaker: CHAR-005, line: 还是那个人。}
-  - {speaker: CHAR-001, line: 上次抢你功劳那个？}
-  - {speaker: CHAR-005, line: 这次换了个方式——在领导面前说我数据有问题。}
-  - {speaker: CHAR-001, line: 有问题吗？}
-  - {speaker: CHAR-005, line: 当然没有。但领导已经觉得我有问题了——你想，被人说一次，就算查清楚了，别人心里也会有个疙瘩。}
-- segment_id: EP33-SEG03
-  shot_ids: [EP33-S03]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-005]
-  refs: {scene_id: SCENE-004, look_ids: [CHAR-001-L01, CHAR-005-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01, CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01}
-    scene_urls: {SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004}
-  api:
-    text: 慧兰擦了擦手走到女儿身边认真地说——蕾蕾，你从小到大做什么都做得很好，妈相信你。张蕾的眼眶突然红了别过头去。
-    content_roles:
-    - {file: SCENE-004, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-005-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-001, line: 蕾蕾。}
-  - {speaker: CHAR-001, line: 你从小到大——做什么都做得很好。妈相信你。}
-  - {speaker: CHAR-005, line: 妈——}
-  - {speaker: CHAR-001, line: 你比你想象的要强得多。}
-- segment_id: EP33-SEG04
-  shot_ids: [EP33-S04]
-  duration_sec: 10
-  speakers: [CHAR-005, CHAR-001]
-  refs: {scene_id: SCENE-004, look_ids: [CHAR-005-L01, CHAR-001-L01]}
-  assets:
-    look_urls: {CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004}
-  api:
-    text: 张蕾转身打开水龙头假装洗手但鼻子已经塞了。慧兰看到了没戳穿她，走回灶台掀开锅盖看咕嘟咕嘟的水。厨房里很安静但不尴尬。张蕾关掉水龙头哑着嗓子叫了一声妈。
-    content_roles:
-    - {file: SCENE-004, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-  dialogue:
-  - {speaker: CHAR-005, line: 妈——}
-  - {speaker: CHAR-001, line: 嗯？}
-- segment_id: EP33-SEG05
-  shot_ids: [EP33-S05]
-  duration_sec: 10
-  speakers: [CHAR-005, CHAR-001]
-  refs: {scene_id: SCENE-004, look_ids: [CHAR-005-L01, CHAR-001-L01]}
-  assets:
-    look_urls: {CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004}
-  api:
-    text: 张蕾深吸一口气转过身说出藏在心里的话——以前觉得妈妈让她忍是不懂她，现在才知道妈妈不是让她忍，是除了忍没有别的办法。慧兰背对着女儿手顿了一下——蕾蕾，你比你妈强。
-    content_roles:
-    - {file: SCENE-004, role: reference_image, label: 图1}
-    - {file: CHAR-005-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-005, line: 妈——我以前一直觉得你不懂我。}
-  - {speaker: CHAR-005, line: 你每次说「家和万事兴」让我忍——我心里想，你不懂我的处境。}
-  - {speaker: CHAR-005, line: 现在我才知道——你不是让我忍。你是……除了忍没有别的办法。}
-  - {speaker: CHAR-001, line: 蕾蕾……你比你妈强。你至少——敢说出来。}
-- segment_id: EP33-SEG06
-  shot_ids: [EP33-S06]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-005]
-  refs: {scene_id: SCENE-004, look_ids: [CHAR-001-L01, CHAR-005-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01, CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01}
-    scene_urls: {SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004}
-  api:
-    text: 慧兰转过身靠在灶台上笑了——她以前最怕女儿将来过得跟自己一样。现在不怕了，因为女儿跟自己不一样，比她勇敢也比她会保护自己。张蕾流着泪但笑了。
-    content_roles:
-    - {file: SCENE-004, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-005-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-001, line: 我以前最怕的就是——我的女儿将来过得跟我一样。}
-  - {speaker: CHAR-005, line: 妈……}
-  - {speaker: CHAR-001, line: 但现在我不怕了——你跟我，不一样。}
-  - {speaker: CHAR-001, line: 你比我勇敢。也比我会保护自己。妈放心了。}
-- segment_id: EP33-SEG07
-  shot_ids: [EP33-S07]
-  duration_sec: 10
-  speakers: [CHAR-005, CHAR-001]
-  refs: {scene_id: SCENE-004, look_ids: [CHAR-005-L01, CHAR-001-L01]}
-  assets:
-    look_urls: {CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004}
-  api:
-    text: 张蕾走过去抱住了妈妈。锅里的水还在咕嘟咕嘟开着但这一刻什么都不重要了。张蕾在妈妈耳边说——不管官司打成什么样我都支持你。这是我欠你的。慧兰抱着女儿手紧了紧。
-    content_roles:
-    - {file: SCENE-004, role: reference_image, label: 图1}
-    - {file: CHAR-005-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-005, line: 妈——不管你跟爸的官司打成什么样——不管你以后想做什么——我都支持你。}
-  - {speaker: CHAR-005, line: 这是……我欠你的。}
-- segment_id: EP33-SEG08
-  shot_ids: [EP33-S08]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-005]
-  refs: {scene_id: SCENE-004, look_ids: [CHAR-001-L01, CHAR-005-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01, CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01}
-    scene_urls: {SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004}
-  api:
-    text: 母女俩松开。慧兰擦了擦眼角转身开锅盖发现水快烧干了。张蕾破涕为笑说还不是你害的。母女俩手忙脚乱地加水切菜炒菜——厨房里恢复了烟火气。
-    content_roles:
-    - {file: SCENE-004, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-005-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-001, line: 哎呀水都烧干了！}
-  - {speaker: CHAR-005, line: 还不是你害的。}
-  - {speaker: CHAR-001, line: 怎么是我害的——是你抱着我不撒手。}
-  - {speaker: CHAR-005, line: 行了行了，我的错——我来炒。}
-- segment_id: EP33-SEG09
-  shot_ids: [EP33-S09]
-  duration_sec: 10
-  speakers: [CHAR-005]
-  refs: {scene_id: SCENE-004, look_ids: [CHAR-005-L01]}
-  assets:
-    look_urls: {CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01}
-    scene_urls: {SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004}
-  api:
-    text: 晚上张蕾一个人坐在阳台上拿着手机。她翻到哥哥张明的号码犹豫了一下然后按下了拨号键。电话接通了——哥，妈这辈子为咱们付出了多少，你想清楚了吗？电话那头是长久的沉默。
-    content_roles:
-    - {file: SCENE-004, role: reference_image, label: 图1}
-    - {file: CHAR-005-L01, role: reference_image, label: 图2}
-  dialogue:
-  - {speaker: CHAR-005, line: 哥——妈这辈子为咱们付出了多少——你想清楚了吗？}
+  - segment_id: EP33-SEG01
+    shot_ids: [EP33-S01]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
+    api:
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙）【图2】林慧兰 CHAR-001-L01（朴素暗色系日常）【图3】女儿家厨房 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：傍晚。图1在切菜，心不在焉，用力切着菜板上的青椒，刀落得有点重。图2在旁边洗米准备做饭，看了图1一眼。当妈的，孩子的情绪瞒不住她。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「……」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「蕾蕾，你今天怎么了？」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「没事。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「没事你把我那青椒都剁成泥了。」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「……」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP33-SEG02
+    shot_ids: [EP33-S02]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
+    api:
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙）【图2】林慧兰 CHAR-001-L01（朴素暗色系日常）【图3】女儿家厨房 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：图1放下刀。她靠在料理台上。她终于说了——还是那个男同事。上次抢她功劳被怼回去后，这次换了个方式，在领导面前说她数据有问题。查下来没问题，但领导已经对她有了看法。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「还是那个人。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「上次抢你功劳那个？」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「这次换了个方式——在领导面前说我数据有问题。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「有问题吗？」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「当然没有。但领导已经觉得我有问题了——你想，被人说一次，就算查清楚了，别人心里也会有个疙瘩。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP33-SEG03
+    shot_ids: [EP33-S03]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
+    api:
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙）【图2】林慧兰 CHAR-001-L01（朴素暗色系日常）【图3】女儿家厨房 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：图2把米放进电饭煲。她擦了擦手，走到图1身边。她没有给图1出主意，只是说了一句。这句话说出来，图1的眼眶突然就红了。不是因为委屈，是因为图2已经很久没有这样跟她说过话了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「蕾蕾。」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「嗯？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你从小到大——做什么都做得很好。妈相信你。」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈——」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你比你想象的要强得多。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP33-SEG04
+    shot_ids: [EP33-S04]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
+    api:
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙）【图2】林慧兰 CHAR-001-L01（朴素暗色系日常）【图3】女儿家厨房 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：图1转过身去。她不想让图2看到自己哭。她打开水龙头假装洗手，但鼻子已经塞了。图2看到了，没有戳穿她。图2走回灶台前，打开锅盖看了一眼，锅里的水开了，咕嘟咕嘟地冒着泡。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「……」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈——」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「嗯？」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP33-SEG05
+    shot_ids: [EP33-S05]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
+    api:
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙）【图2】林慧兰 CHAR-001-L01（朴素暗色系日常）【图3】女儿家厨房 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：图1深吸了一口气。她转过身来，说图2你知道吗，以前图2每次说家和万事兴让她忍的时候，她虽听了但心里觉得图2不懂。现在才知道图2不是让她忍，是除了忍没有别的办法。图2听了这话，手顿了一下，没回头但声音有点抖。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈——我以前一直觉得你不懂我。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「你每次说『家和万事兴』让我忍——我心里想，你不懂我的处境。」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「现在我才知道——你不是让我忍。你是……除了忍没有别的办法。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「蕾蕾……」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你比你妈强。你至少——敢说出来。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP33-SEG06
+    shot_ids: [EP33-S06]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
+    api:
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙）【图2】林慧兰 CHAR-001-L01（朴素暗色系日常）【图3】女儿家厨房 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：图2终于转过身。她靠在灶台上，两只湿手在围裙上擦了擦，突然笑了——是那种释然的笑。她说你知道吗，她以前最怕的就是女儿将来过得跟她一样。但现在不怕了——图1跟图2，不一样。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「蕾蕾。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我以前最怕的就是——我的女儿将来过得跟我一样。」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈……」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「但现在我不怕了——你跟我，不一样。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你比我勇敢。也比我会保护自己。妈放心了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP33-SEG07
+    shot_ids: [EP33-S07]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
+    api:
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙）【图2】林慧兰 CHAR-001-L01（朴素暗色系日常）【图3】女儿家厨房 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：图1走过去，抱住了图2。母女俩在厨房里抱着，锅里的水还在咕嘟咕嘟地开着，灶台上的菜还没切完，但这一刻什么都不重要了。图1在图2耳边说了话。图2抱着图1的手紧了紧。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「好了好了，多大的人了还哭。」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈——不管你跟爸的官司打成什么样——不管你以后想做什么——我都支持你。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「蕾蕾……」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「这是……我欠你的。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP33-SEG08
+    shot_ids: [EP33-S08]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
+    api:
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙）【图2】林慧兰 CHAR-001-L01（朴素暗色系日常）【图3】女儿家厨房 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：图1和图2抱了一会儿才松开。图2擦了擦眼角，转身去开锅盖——水都快烧干了。图1破涕为笑。图1和图2手忙脚乱地加水、切菜、炒菜。厨房里恢复了烟火气，但跟之前不一样了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「哎呀水都烧干了！」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「还不是你害的。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「怎么是我害的——是你抱着我不撒手。」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「行了行了，我的错——我来炒。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-004, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP33-SEG09
+    shot_ids: [EP33-S09]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-003]
+    refs:
+      scene_id: SCENE-004
+    assets:
+      look_urls:
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
+      scene_urls:
+        SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
+    api:
+      text: |
+        【图1】张蕾 CHAR-005-L01（灰西装套裙）【图2】女儿家阳台 SCENE-004。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：晚上。图1一个人坐在阳台上，拿着手机。通讯录里翻着哥哥的号码。她犹豫了一下，然后按下了拨号键。电话接通了。她深吸一口气。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「蕾蕾？这么晚了什么事？」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「哥——」
+        对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈这辈子为咱们付出了多少——你想清楚了吗？」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-004, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

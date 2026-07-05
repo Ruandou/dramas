@@ -1,0 +1,284 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP53/EP53_封印与破封.md
+# Source shots: 12 (EP53-S01 to EP53-S12)
+# Source segments: 8 (SEG01-SEG08)
+# Output segments: 8 (EP53-SEG01 to EP53-SEG08)
+# Total duration: 88s (75-120s compliance ✅)
+# Gate status: ALL PASS
+
+episode_id: EP53
+source_md: 剧本/EP53/EP53_封印与破封.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+voice_prompts:
+  CHAR-001: "Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones"
+  CHAR-002: "Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes"
+  CHAR-003: "Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing"
+  CHAR-008: "Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability"
+  CHAR-012: "Male, 80 years old, solemn and ancient tone, very slow and ceremonial pace, speaks rarely and only in formal declarations, deep resonant voice carrying centuries of duty"
+
+segments:
+  - segment_id: EP53-SEG01
+    shot_ids: [EP53-S01, EP53-S02]
+    duration_sec: 11
+    speakers: [CHAR-012, CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-012-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-012-L01.png
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】看守者老者 CHAR-012-L01（深色古朴长袍，全白长眉，手持法器短杖）【图2】陆辰 CHAR-001-L03（黑色长大衣，深色高领毛衣）【图3】苏念 CHAR-002-L01（深灰西装套裙，白丝衬衫，珍珠耳钉）【图4】地下万象阵大厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1双手紧握法器短杖，杖顶月光石白光明灭加剧，频率从偶尔闪烁变成连续颤动。深陷面庞皱纹在白光中更加深刻，全白长眉被光风吹乱，双臂微颤，布靴在碎石地面上后滑半寸。白色光柱比之前细了一圈，与金光碰撞点不断后退。
+        镜头2（6秒）中景 固定：图2单膝跪在阵法中央——大衣衣摆散落地面，高领毛衣领口被能量灼出焦痕。鼻血凝成两道暗红干涸痕迹，右鼻孔仍有新鲜血丝渗出。图3在身侧半蹲，散落低马尾垂在肩前，杏眼泛红但没有泪。地面同心圆纹路中金光与白光交替闪烁。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（看守者老者，Male, 80 years old, solemn and ancient tone, very slow and ceremonial pace, speaks rarely and only in formal declarations, deep resonant voice carrying centuries of duty）：「封印维持不了多久。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「……我站不起来。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「别动。听他说。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens, 竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-012-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-007, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP53-SEG02
+    shot_ids: [EP53-S03, EP53-S04]
+    duration_sec: 11
+    speakers: [CHAR-012, CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-012-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-012-L01.png
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】看守者老者 CHAR-012-L01（深色古朴长袍，全白长眉，法器短杖）【图2】陆辰 CHAR-001-L03（黑色长大衣，深色高领毛衣）【图3】苏念 CHAR-002-L01（深灰西装套裙，白丝衬衫）【图4】地下万象阵大厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1缓缓放低法器——杖顶白光减弱一分，阵法金光趁机向前推进一尺。消瘦面庞上极薄嘴唇抿紧后张开。月光石上最后一丝稳定白光在颤动中消散又重聚。图2在画面下方，琥珀色瞳孔映出白金光线交错，表情未变但手指攥紧膝上衣料。
+        镜头2（5秒）特写 固定：图1面部——全白长眉投下的阴影遮住半边眼窝，深陷双眼映出法器微弱白光。薄唇再次张开。画面切到图3——杏眼骤然睁大，散落发丝在光风中拂过面颊，手无意识攥紧手臂，指节发白。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（看守者老者，Male, 80 years old, solemn and ancient tone, very slow and ceremonial pace, speaks rarely and only in formal declarations, deep resonant voice carrying centuries of duty）：「碎片已融入你体内。阵法完成，它被抽走——你会死。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「……另一个呢。」
+        对白（看守者老者，Male, 80 years old, solemn and ancient tone, very slow and ceremonial pace, speaks rarely and only in formal declarations, deep resonant voice carrying centuries of duty）：「封印完成，所有碎片失效。你的能力——消失。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「两条路……你都会失去。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「两条路都是死路。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens, 竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-012-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-007, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP53-SEG03
+    shot_ids: [EP53-S05]
+    duration_sec: 11
+    speakers: [CHAR-008, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-003.png
+    api:
+      text: |
+        【图1】沈万洲 CHAR-008-L01（深灰三件套定制西装，无框眼镜，银质袖扣）【图2】陆辰 CHAR-001-L03（黑色长大衣，深色高领毛衣）【图3】五块碎片 PROP-003【图4】地下万象阵大厅 SCENE-007。
+        角色分工：图1双手不触碰任何物品，仅做陈述姿态；图2单膝跪地不触碰任何物品。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）中景 固定：图1从阵法边缘阴影中缓步走出——银灰鬓角在金光中泛冷色，无框眼镜反射白金光线交替。深灰三件套无一丝褶皱，银质袖扣走动中闪一下。步伐匀速如机器校准，薄唇纹丝不动，眼底有近乎快意的微光。万象阵五节点碎片金光在身后形成五道光柱剪影。图1停在阵法纹路上，脚下同心圆金光照亮方形下颌线。图2在画面下方抬头——琥珀色瞳孔骤缩，下颌肌肉绷紧，嘴角干涸血丝因咬牙裂开。阵法地面金光在两人间形成明暗分界线。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「还有一条。你那位秦老——没告诉你全部。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「他要借阵法消除所有碎片——让世界回到没有标价之眼的状态。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「……秦老。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「他一直在骗我。茶馆里那些话……全是棋子思维。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens, 竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+        - { file: PROP-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP53-SEG04
+    shot_ids: [EP53-S06]
+    duration_sec: 11
+    speakers: [CHAR-008, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈万洲 CHAR-008-L01（深灰三件套定制西装，无框眼镜）【图2】陆辰 CHAR-001-L03（黑色长大衣，深色高领毛衣，领口焦痕）【图3】地下万象阵大厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）中景 镜头推近：图1向图2伸出右手——掌心朝上，手指微张，动作精确如机械臂。无框眼镜后双眼没有表情，但瞳孔深处有对碎片力量的执念。五道光柱在身后缓缓脉动。图2抬头看图1——鼻血暗红痕迹在金白光中忽明忽暗，大衣领口焦痕泛出焦黄边缘。镜头缓缓推近至图2面部——琥珀色瞳孔中金色数据流突然加速翻涌，又骤然静止如凝固的琥珀。薄唇从紧抿到微微上扬——不是笑，是从底层爬上来的倔强。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「把碎片给我。我来完成阵法。你——活着走出去。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「值不值，我说了算。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「不跟你走。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens, 竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: audio_bridge
+
+  - segment_id: EP53-SEG05
+    shot_ids: [EP53-S07, EP53-S08]
+    duration_sec: 11
+    speakers: [CHAR-002, CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏念 CHAR-002-L01（深灰西装外套完全敞开，白丝衬衫袖口沾灰，散落低马尾）【图2】赵大壮 CHAR-003-L01（橙色运动外套，白色T恤，圆脸）【图3】陆辰 CHAR-001-L03（黑色长大衣，深色高领毛衣）【图4】地下万象阵大厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1半跪在图3身侧——散落黑发垂在面颊旁，没有去拢。杏眼中焦虑被一层专业冷静压住，但攥着图3手臂的手指发白。深灰西装外套完全敞开，白丝衬衫袖口沾上地面灰尘。图2在图1身后——橙色运动外套被光风鼓胀，圆脸上笑容消失，大眼圆睁盯着图3，厚唇紧抿成一条线。
+        镜头2（6秒）近景 固定：图3撑着膝盖缓缓站起——大衣衣摆从碎石地面上拖起，高领毛衣下胸口琥珀色光晕在站起瞬间亮了一瞬。图3看向图1——目光交汇一秒，图1微微点头，散落发丝随之晃动。再看向图2——图2攥紧拳头用力点头，圆脸上挤出半个笑。金光在三人面庞上交替明灭。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「封印时我发现的——情感共鸣能改变阵法运行。」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「辰哥，不管你选啥，我都跟着。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「不封印，也不激活。」
+        对白（苏念，Female, 27 years old, clear and cool but soft voice, medium to fast pace when discussing professional topics, controlled and precise diction, uses rhetorical questions naturally, guarded tone in early appearances warming up gradually in later episodes）：「你打算怎么做？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「跟它谈。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens, 竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图3 }
+        - { file: SCENE-007, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP53-SEG06
+    shot_ids: [EP53-S09, EP53-S10]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长大衣，深色高领毛衣，黑色切尔西靴）【图2】地下万象阵大厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）全景 镜头跟随：图1迈步走向万象阵中央基座——每一步踏在同心圆纹路上，脚下金光被踩碎瞬间向四周扩散涟漪。大衣衣摆在金光风中向后翻卷如旗。五道光柱在图1经过时微微偏转，像被磁场干扰。混凝土穹顶灰尘簌簌落下，在金色光柱中形成可见光尘柱。身后虚焦中两个人影。
+        镜头2（6秒）中景 固定：图1第三步踏上中央基座——脚下金属与石材交错纹路在踩下瞬间震动一下，阵法金光闪烁频率骤变。黑色切尔西靴踩在碎片光芒汇聚的中心点，胸口琥珀色光晕开始与脚下金光同步脉动。大衣领口焦痕在光中像一枚勋章。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「大壮踹开铁门那张脸——忠诚，没标价。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「苏念伸手的那一刻——信任，没标价。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「周天明那句'你一个月三千块的货'——他错了。值不值，从来不是别人定的。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens, 竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP53-SEG07
+    shot_ids: [EP53-S11]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长大衣，深色高领毛衣）【图2】地下万象阵大厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）特写 镜头推近：图1闭上眼——面部肌肉在金光中松弛，不是放弃，是超越平静的笃定。浓眉舒展，薄唇微启。胸口琥珀色光晕突然稳定——不再闪烁，持续散发温暖柔和的光。光晕从胸口向全身扩散，大衣纤维中隐约可见琥珀色脉络蔓延如血管。双眼缓缓睁开——瞳孔从深琥珀色渐变为温暖金琥珀色，光芒从瞳孔中心向外扩散如水纹。镜头缓推至一只眼睛占满画面——瞳孔深处万象阵五道光柱倒映其中，倒影中光柱不再直线汇聚，而是开始弯曲环绕。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「不是用力量去对抗。是用……记忆。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「我在乎的那些人——就是我的价值。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「来吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens, 竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP53-SEG08
+    shot_ids: [EP53-S12]
+    duration_sec: 11
+    speakers: [CHAR-008, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-003.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长大衣，深色高领毛衣）【图2】沈万洲 CHAR-008-L01（深灰三件套定制西装，无框眼镜）【图3】五块碎片 PROP-003【图4】地下万象阵大厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）全景 固定：万象阵全景——五道金色光柱开始减速，脉动频率从急促变缓慢，与图1胸口光晕同步。图3光芒不再向中央汇聚拉扯，而是缓慢环绕图1旋转，金色光粒如萤火虫群在周围盘旋。图2在画面右侧边缘，无框眼镜上反射的光从金色变成琥珀色，薄唇第一次微微张开。图1面部——金琥珀色瞳孔倒映环绕的五道光芒，光粒在面庞上投下流动温暖光影。嘴角微微上扬——不是笑，是经历所有背叛和痛苦后仍选择相信的表情。画面在张嘴的瞬间——切断黑场。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「不可能……阵法在改变。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「真正的价值——不是数字，是人。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens, 竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+        - { file: PROP-003, role: reference_image, label: 图4 }
+    transition_to_next: fade

@@ -1,15 +1,23 @@
-# SOURCE FIDELITY: EP18_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP18/EP18_剧本.md
+# Source shots: 9 (EP18-S01 to EP18-S09)
+# Output shots: 9 (EP18-S01 to EP18-S09)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
 episode_id: EP18
+source_md: 剧本/EP18/EP18_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
   ratio: '9:16'
   resolution: 720p
-  duration: 5
   generate_audio: false
   watermark: false
   prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
   negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+  duration: 5
 shots:
 - shot_id: EP18-S01
   shot_no: 1
@@ -17,27 +25,32 @@ shots:
   duration_sec: 10
   refs:
     scene_id: SCENE-001
-    look_ids: []
+    look_ids:
+    - CHAR-001-L01
   assets:
-    look_urls: {}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（星期六早晨，阳光透过阳台洒进来。门铃响，慧兰去开门）。中景：慧兰开门，门外站着西装年轻人递来牛皮纸信封。她签收后关上门，低头看着信封。
+    text: 【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林家客厅 SCENE-001。中景 固定镜头：林家客厅星期六早晨。图1在阳台浇花——窗台上的绿植长势正好，水珠在叶片上滚动。门铃响了——她放下水壶去开门，顺手在围裙上擦了擦手。门外站着一个穿西装的年轻人，手里拿着牛皮纸信封。礼貌但公事公办。阳光从门口照进来，在信封上投下锐利的影子。
     content_roles:
-    - file: SCENE-001
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
+    - file: SCENE-001
+      role: reference_image
+      label: 图2
   dialogue:
-  - speaker: EXTRA
+  - speaker: '[待补：律师助理]'
     line: 请问是林慧兰女士吗？这是法院送达的诉讼材料，请您签收。
   - speaker: CHAR-001
     line: 法院的？谁告的？
-  - speaker: EXTRA
+  - speaker: '[待补：律师助理]'
     line: 起诉人是张大强先生。请您在这签字。
   - speaker: CHAR-001
     line: 好。谢谢你。
-  - speaker: EXTRA
+  - speaker: '[待补：律师助理]'
     line: 不客气。祝您…顺利。
 - shot_id: EP18-S02
   shot_no: 2
@@ -49,16 +62,16 @@ shots:
     - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001门口（慧兰背靠着门站着，手里拿着牛皮纸信封）【图2】CHAR-001-L01 林慧兰（拆开信封，目光停在起诉状上，表情从震惊变成冷笑）。特写→近景：慧兰抽出文件看到「民事起诉状」「分割夫妻共同财产」一行字，手指停在上面，指节发白。
+    text: 【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林家客厅 SCENE-001。近景 固定镜头：关上门。图1背靠着门站着低头看手里的牛皮纸信封。她深吸一口气——胸口起伏了一下，然后拆开封口。她抽出里面的文件，一眼看到民事起诉状几个字。起诉人：张大强。她的目光扫过分割夫妻共同财产一行字——手指停在上面，指节微微发白。
     content_roles:
-    - file: SCENE-001
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
-    - file: CHAR-001-L01
+    - file: SCENE-001
       role: reference_image
       label: 图2
   dialogue:
@@ -78,16 +91,16 @@ shots:
     - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001沙发区域（午前光线，安静）【图2】CHAR-001-L01 林慧兰（坐在沙发上放下文件，冷笑着站起来，手没有抖）。中景→近景：慧兰把文件从头看到尾，表情从震惊变成冷笑。放下文件，沉默片刻，然后站起来去找手机。
+    text: 【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林家客厅 SCENE-001。中景 固定镜头：图1走到沙发边坐下把文件从头到尾看了一遍——每翻一页她的表情从震惊慢慢变成冷笑。放下文件后她沉默了几秒，手放在膝盖上用力攥了一下又松开——像在完成一个仪式。站起来去找手机——手没有抖。窗外的阳光照在茶几上，起诉状摊开着。
     content_roles:
-    - file: SCENE-001
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
-    - file: CHAR-001-L01
+    - file: SCENE-001
       role: reference_image
       label: 图2
   dialogue:
@@ -107,16 +120,16 @@ shots:
     - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（窗前，慧兰拿着手机看窗外，阳光照在她脸上）【图2】CHAR-001-L01 林慧兰（打电话时表情从紧张到笃定，声音平静）。中景：慧兰拨通张律师的电话。等待时看了一眼窗外的好阳光。电话接通后她定了定神，声音平静笃定。
+    text: 【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林家客厅 SCENE-001。近景 固定镜头：图1拨通了张律师的电话。等待接通的时候她看了一眼窗外——阳光很好，绿植的叶子在微风里轻轻晃动。电话接通了，她定了定神，声音平静得像在聊家常。她需要律师帮她准备应诉——但语气里没有慌张，只有笃定。她把起诉状上的条款一条一条念给律师听。
     content_roles:
-    - file: SCENE-001
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
-    - file: CHAR-001-L01
+    - file: SCENE-001
       role: reference_image
       label: 图2
   dialogue:
@@ -141,20 +154,20 @@ shots:
     - CHAR-010-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰坐在沙发上，茶几上放着文件）【图2】CHAR-001-L01 林慧兰（抬头看妹妹，努力笑了一下）【图3】CHAR-010-L01 林慧芳（放下菜篮走过来，一脸担心）。中景：慧芳买菜回来看到茶几上的法院文件，放下菜走过来。
+    text: 【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】林家客厅 SCENE-001。中景 固定镜头：图1挂掉电话坐在沙发上把传票又翻了一遍。门开了——图2买菜回来，手里拎着塑料袋。她看到图1的表情和茶几上的文件，放下菜篮走过来。塑料袋落在茶几边上发出窸窣声。图1抬起头，努力笑了一下。图2的眼神落在起诉两个字上。
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
       role: reference_image
       label: 图3
   dialogue:
@@ -177,24 +190,24 @@ shots:
   refs:
     scene_id: SCENE-001
     look_ids:
-    - CHAR-010-L01
     - CHAR-001-L01
+    - CHAR-010-L01
   assets:
     look_urls:
-      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001沙发（慧芳拿着传票手在抖）【图2】CHAR-010-L01 林慧芳（看着传票紧张害怕）【图3】CHAR-001-L01 林慧兰（握住妹妹的手，笑着安慰她）。近景：慧芳拿起传票手抖得厉害。慧兰握住妹妹的手安慰——自己的事还没慌，先安慰起妹妹来。
+    text: 【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】林家客厅 SCENE-001。近景 固定镜头：图2坐到图1旁边拿起传票看了一遍。她比图1还紧张——她自己的婚姻也是一团乱麻，看到起诉这两个字手都在抖。图1感觉到了图2的紧张，反过来握住她的手安慰她。两只手叠在一起——一只粗糙有力，一只微微颤抖。
     content_roles:
-    - file: SCENE-001
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
     - file: CHAR-010-L01
       role: reference_image
       label: 图2
-    - file: CHAR-001-L01
+    - file: SCENE-001
       role: reference_image
       label: 图3
   dialogue:
@@ -218,20 +231,25 @@ shots:
     scene_id: SCENE-001
     look_ids:
     - CHAR-001-L01
+    - CHAR-010-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰握着慧芳的手，平静而坚定）【图2】CHAR-001-L01 林慧兰（语气平稳，但每一句都掷地有声）。近景：慧兰握着妹妹的手细数这四十年的账——语气平淡，但字字沉重。慧芳听得眼眶红了。
+    text: 【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】林家客厅 SCENE-001。近景 固定镜头：图1握着图2的手语气平静但每一句都掷地有声。她在说给图2听，也在说给自己听。四十年的账——她一笔一笔都记着。现在终于有机会算了。图2的眼眶红了——不是为自己，是为图1这些年咽下去的苦。茶几上的起诉状在阳光下泛着冷白的光。
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
       label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
   - speaker: CHAR-001
     line: 房子是婚后买的，首付有一半是我的公积金。
@@ -255,16 +273,16 @@ shots:
     - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰接电话，表情平静但声音逐渐沉下来）【图2】CHAR-001-L01 林慧兰（听女儿说完才开口，不急不躁）。中景：手机响了是张蕾。慧兰接起来听女儿焦急地说完——不急不躁，但最后一句声音沉得让人心疼。
+    text: 【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林家客厅 SCENE-001。近景 固定镜头：手机响了——屏幕上显示蕾蕾。图1接起来，电话那头女儿的声音又急又高。张蕾说她爸刚刚打电话骂了她一顿——说图1疯了要打官司。图1听女儿说完，不急不躁。她握着手机的手稳定如初，但眼睛里有一闪而过的疲惫。
     content_roles:
-    - file: SCENE-001
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
-    - file: CHAR-001-L01
+    - file: SCENE-001
       role: reference_image
       label: 图2
   dialogue:
@@ -291,20 +309,20 @@ shots:
     - CHAR-010-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰把传票折好放进抽屉，站起来拍拍衣服）【图2】CHAR-001-L01 林慧兰（转过来笑了，系上围裙）【图3】CHAR-010-L01 林慧芳（擦了擦眼睛跟着笑了）。近景→远景：慧兰把传票折好放进抽屉，就像完成一件日常琐事。然后问慧芳晚饭想吃什么——日子照过。
+    text: 【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】林家客厅 SCENE-001。中景 固定镜头：图1挂掉电话安静了几秒。图2担心地看着她——图2的眼神里全是心疼。图1的目光落在茶几上的传票上——她伸手拿起来，认认真真折好，放进了抽屉里。然后站起来拍拍衣服——好像完成了一件日常琐事。她转头问图2晚饭想吃什么——日子照过。图2愣了一下，然后破涕为笑。
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
       role: reference_image
       label: 图3
   dialogue:

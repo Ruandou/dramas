@@ -1,128 +1,440 @@
-# SOURCE FIDELITY: EP55_剧本.md -> 9 segments | 90s | G5-SELF-CHECK ✅
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP55/EP55_剧本.md
+# Source shots: 9 (EP55-S01 to EP55-S09)
+# Output segments: 9 (EP55-SEG01 to EP55-SEG09)
+# Mapping: 1:1 (each segment = 1 shot)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
 episode_id: EP55
+source_md: 剧本/EP55/EP55_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
   ratio: '9:16'
   resolution: 720p
-  generate_audio: false
+  generate_audio: true
   watermark: false
   prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，面馆暖色灯光，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+  prompt_suffix_silent: 本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，面馆暖色灯光，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
   negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+voice_prompts:
+  CHAR-001: 温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音
+  CHAR-006: 温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准
+  CHAR-GRP-001: 热闹的中年女性声音群，七嘴八舌，笑声爽朗
 segments:
 - segment_id: EP55-SEG01
-  shot_ids: [EP55-S01]
+  shot_ids:
+  - EP55-S01
   duration_sec: 10
-  scene_id: SCENE-010
-  scene_url: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
-  look_urls:
-    CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
-    CHAR-GRP-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-001-L01.png
-  voice_prompt: 慧兰面馆午市高峰，慧兰45-55岁女性声音急促忙碌；熟客大姐50多岁声音热心帮忙。
-  dialogue:
-  - {speaker: CHAR-GRP-001, line: 慧兰姐——外面又来了四个人！}
-  - {speaker: CHAR-001, line: 让他们坐六号桌！等一下我马上来点单！}
-  - {speaker: CHAR-GRP-001, line: 你一个人忙不过来吧？}
-  - {speaker: CHAR-001, line: 没事！我还能撑！}
+  speakers:
+  - CHAR-001
+  - CHAR-GRP-001
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-GRP-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-001-L01.png
+    scene_urls:
+      SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
+  api:
+    text: '【图1】CHAR-001-L02（白围裙，亮色丝巾）【图2】CHAR-GRP-001-L01（围裙）【图3】SCENE-010。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定：慧兰面馆午后。面馆里飘着牛肉汤的香气。图1坐在吧台边——面前摊着账本，手里拿着笔。眉头皱着——手指在数字上一个个点过去。图2从旁边走过，看了一眼账本。图1叹了口气。图2停下手里的活。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，）：「刘姐……面馆最近生意是好，但成本也高了。」
+
+      对白（林慧兰，）：「菜价涨了，煤气也涨了——赚的钱都搭进去了。」
+
+      对白（刘姐，）：「那怎么办？」
+
+      对白（林慧兰，）：「再看看吧……实在不行，只能缩减开支了。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，面馆暖色灯光，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，无品牌 Logo，无平台 UI。'
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-GRP-001-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-010
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP55-SEG02
-  shot_ids: [EP55-S02]
+  shot_ids:
+  - EP55-S02
   duration_sec: 10
-  scene_id: SCENE-010
-  scene_url: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
-  look_urls:
-    CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
-    CHAR-GRP-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-001-L01.png
-  voice_prompt: 面馆厨房，慧兰45-55岁女性声音紧张；熟客大姐50多岁声音关切。
-  dialogue:
-  - {speaker: CHAR-GRP-001, line: 慧兰姐你小心！}
-  - {speaker: CHAR-001, line: 好险好险……}
-  - {speaker: CHAR-GRP-001, line: 你怎么不请个人帮忙？}
-  - {speaker: CHAR-001, line: 我也想请——可是还没赚到钱呢，哪敢请人。}
+  speakers:
+  - CHAR-001
+  - CHAR-006
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+    scene_urls:
+      SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
+  api:
+    text: '【图1】CHAR-001-L02（白围裙，亮色丝巾）【图2】CHAR-006-L01（浅灰衬衫，金丝眼镜）【图3】SCENE-010。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定：门口风铃响了。图2推门进来——手里提着保温壶。图1抬头——看到他，脸上的焦虑收了收。图2走过来把保温壶放在吧台上。图1接过保温壶——捧在手里。图2在她对面坐下——看着她，她的眉头还没完全松开。他轻声问。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（李建国，）：「慧兰。今天炖了鸡汤——给你补补。」
+
+      对白（林慧兰，）：「李先生……你每次都送汤，我都不好意思了。」
+
+      对白（李建国，）：「怎么了？看你愁眉苦脸的。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，面馆暖色灯光，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，无品牌 Logo，无平台 UI。'
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-010
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP55-SEG03
-  shot_ids: [EP55-S03]
+  shot_ids:
+  - EP55-S03
   duration_sec: 10
-  scene_id: SCENE-010
-  scene_url: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
-  look_urls:
-    CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
-  voice_prompt: 午后面馆，慧兰45-55岁女性声音疲惫但带着满足的笑意自言自语。
-  dialogue:
-  - {speaker: CHAR-001, line: 比当年带孩子还累……}
-  - {speaker: CHAR-001, line: 面卖了六十三碗，小菜三十八份……扣掉成本赚了四百多？}
-  - {speaker: CHAR-001, line: 虽然累——但是自己的钱，每一分都是香的。}
+  speakers:
+  - CHAR-001
+  - CHAR-006
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+    scene_urls:
+      SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
+  api:
+    text: '【图1】CHAR-001-L02（白围裙，亮色丝巾）【图2】CHAR-006-L01（浅灰衬衫，金丝眼镜）【图3】SCENE-010。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定：图1指了指账本——手指在本子上轻轻敲了两下。图2拿起账本翻了翻。他看账本的样子很专业——一页一页翻过去。他合上账本——轻轻放在桌上。图1苦笑了一下。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，）：「菜价涨了，煤气也涨了——面馆看着客人多，但利润没涨。」
+
+      对白（李建国，）：「我看看账本。」
+
+      对白（李建国，）：「慧兰——你这面馆生意不差，但成本控制确实有问题。」
+
+      对白（林慧兰，）：「我不太会算这些……以前都是他管钱。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，面馆暖色灯光，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，无品牌 Logo，无平台 UI。'
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-010
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP55-SEG04
-  shot_ids: [EP55-S04]
+  shot_ids:
+  - EP55-S04
   duration_sec: 10
-  scene_id: SCENE-010
-  scene_url: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
-  look_urls:
-    CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
-    CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
-  voice_prompt: 面馆午后，慧兰45-55岁女性声音感动；李建国62岁男声温和关切。
-  dialogue:
-  - {speaker: CHAR-006, line: 我看你中午肯定忙得没吃饭。}
-  - {speaker: CHAR-001, line: 你……你专门给我送来的？}
-  - {speaker: CHAR-006, line: 炖了一上午。快趁热喝。}
-  - {speaker: CHAR-001, line: 谢谢。}
-  - {speaker: CHAR-006, line: 生意这么好——你是不是该请个人了？}
+  speakers:
+  - CHAR-001
+  - CHAR-006
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+    scene_urls:
+      SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
+  api:
+    text: '【图1】CHAR-001-L02（白围裙，亮色丝巾）【图2】CHAR-006-L01（浅灰衬衫，金丝眼镜）【图3】SCENE-010。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定：图2拿出手机——打开计算器，手指在屏幕上快速按动。他开始教图1怎么算成本——语气不急不缓。图1听得很认真——拿起笔在本子上记。她写了几个字又划掉。她抬头问。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（李建国，）：「这样——你把每碗面的成本拆开。面条多少钱、牛肉多少钱、青菜多少钱——再加上煤气、房租，一样一样算。」
+
+      对白（林慧兰，）：「原来这么算啊……我以前都是看月底剩多少钱。」
+
+      对白（李建国，）：「月底剩多少不能说明问题。你得知道每碗面赚多少——才能知道该不该涨价。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，面馆暖色灯光，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，无品牌 Logo，无平台 UI。'
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-010
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP55-SEG05
-  shot_ids: [EP55-S05]
+  shot_ids:
+  - EP55-S05
   duration_sec: 10
-  scene_id: SCENE-010
-  scene_url: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
-  look_urls:
-    CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
-    CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
-  voice_prompt: 面馆，慧兰45-55岁女性声音坚定拒绝；李建国62岁男声带着关切和好意。
-  dialogue:
-  - {speaker: CHAR-001, line: 请个人一个月三千多，加上社保快四千了。}
-  - {speaker: CHAR-001, line: 面馆才开了一个月，本钱还没回来呢。我哪敢请。}
-  - {speaker: CHAR-006, line: 你要不要先借点钱周转？我手头有点。}
-  - {speaker: CHAR-001, line: 不行。你已经帮我够多了——转让费和装修都是你借的，我不能再欠你了。}
+  speakers:
+  - CHAR-001
+  - CHAR-006
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+    scene_urls:
+      SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
+  api:
+    text: '【图1】CHAR-001-L02（白围裙，亮色丝巾）【图2】CHAR-006-L01（浅灰衬衫，金丝眼镜）【图3】SCENE-010。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定：图2继续说。图1犹豫了——她的手指在账本边缘来回摩挲。图2做了一个手势示意她往窗外看。面馆玻璃门外——几个熟客正在走过来。图1看了一眼窗外——又低头看看账本。眉头展开了。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（李建国，）：「如果你涨一块钱——客人不会走。但如果你不涨——菜价继续涨，你可能撑不住。」
+
+      对白（林慧兰，）：「我怕涨价了客人就不来了……都是老顾客。」
+
+      对白（李建国，）：「你看——你的客人不是因为便宜来的——是因为好吃。」
+
+      对白（林慧兰，）：「那……一块钱。就涨一块。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，面馆暖色灯光，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，无品牌 Logo，无平台 UI。'
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-010
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP55-SEG06
-  shot_ids: [EP55-S06]
+  shot_ids:
+  - EP55-S06
   duration_sec: 10
-  scene_id: SCENE-010
-  scene_url: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
-  look_urls:
-    CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
-    CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
-  voice_prompt: 面馆，李建国62岁男声认真温柔；慧兰45-55岁女性声音感动但克制。
-  dialogue:
-  - {speaker: CHAR-006, line: 那不是借的，是投资。我相信你能赚回来。}
-  - {speaker: CHAR-001, line: 你这么说——我真要不好意思了。}
-  - {speaker: CHAR-006, line: 我是认真的。你这面馆——值得投。}
+  speakers:
+  - CHAR-001
+  - CHAR-006
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+    scene_urls:
+      SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
+  api:
+    text: '【图1】CHAR-001-L02（白围裙，亮色丝巾）【图2】CHAR-006-L01（浅灰衬衫，金丝眼镜）【图3】SCENE-010。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）近景 固定：图1翻看账本——重新用图2教的方法算了一遍。笔尖在纸上刷刷地移动。算完她抬起头——脸上有了光。她看着图2——合上账本。图2看着她——推了推金丝眼镜。他的目光很沉稳。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，）：「算清楚了……这样的话，一个月能多赚不少。」
+
+      对白（林慧兰，）：「李先生——谢谢你。我以前真的什么都不懂。」
+
+      对白（李建国，）：「你不是不懂——你是没人教。你学得很快。」
+
+      对白（李建国，）：「还有一件事——我想正式入股你的面馆。不是送钱——是投资。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，面馆暖色灯光，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，无品牌 Logo，无平台 UI。'
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-010
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP55-SEG07
-  shot_ids: [EP55-S07]
+  shot_ids:
+  - EP55-S07
   duration_sec: 10
-  scene_id: SCENE-010
-  scene_url: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
-  look_urls:
-    CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
-  voice_prompt: 面馆厨房下午空闲，慧兰45-55岁女性声音自言自语盘算。
-  dialogue:
-  - {speaker: CHAR-001, line: 其实请个钟点工中午来帮忙就行……一个月一千五够了。}
-  - {speaker: CHAR-001, line: 招钟点工——中午十一点到下午两点，工资面议。}
+  speakers:
+  - CHAR-001
+  - CHAR-006
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+    scene_urls:
+      SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
+  api:
+    text: '【图1】CHAR-001-L02（白围裙，亮色丝巾）【图2】CHAR-006-L01（浅灰衬衫，金丝眼镜）【图3】SCENE-010。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）近景 固定：图1愣住了——嘴巴微微张开，手里握着的笔停在半空。图2没有催她——就坐在那里等着。图1低下头——手指无意识地转着笔。然后她抬起头——声音有点轻。图2打断她。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，）：「入股？李先生……我不能再用你的钱了。」
+
+      对白（李建国，）：「不是借的——是投资。我相信你这面馆能做成——比你想象的还要好。」
+
+      对白（林慧兰，）：「你认真的？」
+
+      对白（李建国，）：「认真的。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，面馆暖色灯光，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，无品牌 Logo，无平台 UI。'
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-010
+      role: reference_image
+      label: 图3
+  transition_to_next: dissolve
 - segment_id: EP55-SEG08
-  shot_ids: [EP55-S08]
+  shot_ids:
+  - EP55-S08
   duration_sec: 10
-  scene_id: SCENE-010
-  scene_url: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
-  look_urls:
-    CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
-  voice_prompt: 面馆，慧兰45-55岁女性声音高兴接电话，挂了后哼着歌语气轻快。
-  dialogue:
-  - {speaker: CHAR-001, line: 喂，你好——对，慧兰面馆。}
-  - {speaker: CHAR-001, line: 太好了！你住旁边小区？那太方便了！你明天来试试行吗？}
-  - {speaker: CHAR-001, line: 终于有人帮忙了——虽然只是钟点工，但至少中午不用一个人扛了。}
+  speakers:
+  - CHAR-001
+  - CHAR-006
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+    scene_urls:
+      SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
+  api:
+    text: '【图1】CHAR-001-L02（白围裙，亮色丝巾）【图2】CHAR-006-L01（浅灰衬衫，金丝眼镜）【图3】SCENE-010。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）近景 固定：图2立刻纠正——不是借的，是投资。他相信她能赚回来。说这几个字的时候表情很认真。图2笑了——那个笑里有感动也有不好意思。图1看着她——目光不像在看一个需要帮助的人，像在看一个有价值的项目。图2低头没说话——用勺子搅着碗里的鸡汤。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（李建国，）：「不是借的——是投资。我相信你能赚回来。」
+
+      对白（林慧兰，）：「李先生……你为什么对我这么好？」
+
+      对白（李建国，）：「因为你是值得投资的人。」
+
+      对白（林慧兰，）：「我考虑一下……给我点时间。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，面馆暖色灯光，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，无品牌 Logo，无平台 UI。'
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-010
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP55-SEG09
-  shot_ids: [EP55-S09]
+  shot_ids:
+  - EP55-S09
   duration_sec: 10
-  scene_id: SCENE-010
-  scene_url: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
-  look_urls:
-    CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
-  voice_prompt: 面馆门口夜晚，慧兰45-55岁女性声音满足轻声自语带着笑意。
-  dialogue:
-  - {speaker: CHAR-001, line: 营业额比昨天多了几十块。再干两个月——稳定了就把李建国的钱还了。}
-  - {speaker: CHAR-001, line: 六十岁，刚起步——不晚。}
+  speakers:
+  - CHAR-001
+  - CHAR-GRP-001
+  refs:
+    scene_id: SCENE-010
+  assets:
+    look_urls:
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-GRP-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-001-L01.png
+    scene_urls:
+      SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
+  api:
+    text: '【图1】CHAR-001-L02（白围裙，亮色丝巾）【图2】CHAR-GRP-001-L01（围裙）【图3】SCENE-010。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定：图1站在面馆门口——看着外面的街道。夕阳把她的丝巾染成了金色。面馆里的客人渐渐散了——图2在收拾碗筷。图1回头看着自己的面馆——四张桌子、墙上的菜单、灶台上冒热气的锅。她嘴角翘了一下。图2倒完垃圾走回来。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（刘姐，）：「慧兰姐——都收拾好了。」
+
+      对白（林慧兰，）：「谢谢你刘姐。」
+
+      对白（林慧兰，）：「刘姐——你说我这面馆，能做大吗？」
+
+      对白（刘姐，）：「能啊——你做的面是全城最好吃的！」
+
+      对白（林慧兰，）：「以前没人问过我能不能做大——他们都觉得我做不大。」
+
+      对白（林慧兰，）：「现在有人问我了——我自己也得好好想想。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      竖向构图 9:16，温暖真实的生活质感，面馆暖色灯光，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，无品牌 Logo，无平台 UI。'
+    content_roles:
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-GRP-001-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-010
+      role: reference_image
+      label: 图3
+  transition_to_next: null

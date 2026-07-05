@@ -5,15 +5,17 @@ defaults:
   model: doubao-seedance-2-0-fast
   ratio: '9:16'
   resolution: 720p
-  duration: 5
-  generate_audio: false
+  generate_audio: true
   watermark: false
   prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+  prompt_suffix_silent: 本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
   negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声；从轻松（"从来没这么好过"）到倾诉（"最难受的是儿子也知道"）到惊讶（"你叫我什么？"）到眼眶发热（"四十年没听过这句话"）到回家后的羞涩喜悦（"这是我吗……"），全剧第一次展现少女般的语气
-  CHAR-006: 温和儒雅的中老年男声，语速从容；前半段关心（"你还好吗"），中段安慰（"他会重新认识你"），后半段温柔回忆（"她回家总说林老师跳舞最好看"），告白时认真克制（"你值得被好好对待"），始终带着温和的微笑感
-  CHAR-010: 沙哑疲倦的中年女声，此时带着好奇和欣喜追问姐姐（"姐你到底怎么了"）
+  CHAR-001: 温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音
+  CHAR-006: 温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准
+  CHAR-010: 沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音
+
 segments:
 - segment_id: EP27-SEG01
   shot_ids:
@@ -25,24 +27,35 @@ segments:
   refs:
     scene_id: SCENE-006
     look_ids:
-    - CHAR-006-L01
     - CHAR-001-L01
+    - CHAR-006-L01
   assets:
     look_urls:
-      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
     scene_urls:
-      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006
+      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
   api:
-    text: 【图1】社区公园 SCENE-006（秋高气爽，阳光从树叶间洒下，两人并肩走在公园小路上）【图2】CHAR-006-L01 李建国（轻声问她还好吗）【图3】CHAR-001-L01 林慧兰（笑了笑说从来没这么好过）。中景：李建国和慧兰并肩走在公园小路上，保持着友好的距离。他问她昨天的事，她笑着说好。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（边走边笑着说从来没这么好过）【图2】李建国 CHAR-006-L01（并肩走着，轻声问她还好吗）【图3】社区公园 SCENE-006。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）中景 固定：秋高气爽阳光从树叶间洒下来。图3中图2和图1并肩走在公园小路上。图2说听说昨天的事了问她还好吗。图1笑了笑说好——从来没这么好过。两人走得很慢保持着友好的距离。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「听说昨天的事了。你还好吗？」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「好。从来没这么好过。」
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「那就好。我还担心你……」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「担心我什么？担心我被关出心理阴影了？」
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「不是……我是担心你心里难受。」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - file: SCENE-006
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
     - file: CHAR-006-L01
       role: reference_image
       label: 图2
-    - file: CHAR-001-L01
+    - file: SCENE-006
       role: reference_image
       label: 图3
   dialogue:
@@ -56,6 +69,7 @@ segments:
     line: 担心我什么？担心我被关出心理阴影了？
   - speaker: CHAR-006
     line: 不是……我是担心你心里难受。
+  transition_to_next: hard_cut
 - segment_id: EP27-SEG02
   shot_ids:
   - EP27-S02
@@ -70,29 +84,42 @@ segments:
     - CHAR-006-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
     scene_urls:
-      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006
+      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
   api:
-    text: 【图1】公园长椅 SCENE-006（两人坐下，慧兰看着远处说出心里话）【图2】CHAR-001-L01 林慧兰（苦笑——最难受的是儿子也参与其中）【图3】CHAR-006-L01 李建国（安静地听，不打断）。近景：慧兰坐在长椅上说出心里最难受的部分——不是被锁起来，是发现儿子也站在那边。李建国安静地听完说"但他会重新认识你的"。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（坐在长椅上看着远处诉说自己养了三十三年的儿子她不认识了）【图2】李建国 CHAR-006-L01（安静地听着没有打断，沉默片刻后温和回应）【图3】社区公园 SCENE-006。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）近景 固定：两人在图3的长椅上坐下。图1说其实最难受的不是被锁起来——是发现儿子跟妻子一起算计她。图1说养了他三十三年那天才发现不认识他了。图2安静地听完说了一句话——但他会重新认识你的。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「其实……最难受的不是被锁起来。是发现张明也知道。他站在旁边一句话不说。」
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「……」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我养了他三十三年。那天才发现——我不认识他了。」
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「但他会重新认识你的。」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - file: SCENE-006
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-006-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-006
       role: reference_image
       label: 图3
   dialogue:
   - speaker: CHAR-001
     line: 其实……最难受的不是被锁起来。是发现张明也知道。他站在旁边一句话不说。
+  - speaker: CHAR-006
+    line: ……
   - speaker: CHAR-001
     line: 我养了他三十三年。那天才发现——我不认识他了。
   - speaker: CHAR-006
     line: 但他会重新认识你的。
+  transition_to_next: hard_cut
 - segment_id: EP27-SEG03
   shot_ids:
   - EP27-S03
@@ -107,20 +134,30 @@ segments:
     - CHAR-006-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
     scene_urls:
-      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006
+      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
   api:
-    text: 【图1】公园长椅 SCENE-006（慧兰转头看李建国有些意外——他总能说出让她意外的话）【图2】CHAR-006-L01 李建国（温和地笑着说她变强了）【图3】CHAR-001-L01 林慧兰（愣了一下）。近景：慧兰转头看他——这个退休教师总是说让她意外的话。"你变了，不是变老了，是变强了。"
+    text: |
+      【图1】林慧兰 CHAR-001-L01（转头看图2有些意外——心里一暖）【图2】李建国 CHAR-006-L01（温和地笑着说图1不是变老了是变强了）【图3】社区公园 SCENE-006。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）近景 固定：图1转头看图2——图2总是说一些让图1意外的话。图2说图1不是变老了是变强了——图1儿子会看到的。图1愣了一下。图2说一个人变强了身边的人就再也无法用原来的眼光看她了。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你怎么知道他会重新认识我？」
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「因为你变了。不是变老了——是变强了。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「一个人变强了，身边的人就再也无法用原来的眼光看她了。」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - file: SCENE-006
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
     - file: CHAR-006-L01
       role: reference_image
       label: 图2
-    - file: CHAR-001-L01
+    - file: SCENE-006
       role: reference_image
       label: 图3
   dialogue:
@@ -128,8 +165,11 @@ segments:
     line: 你怎么知道他会重新认识我？
   - speaker: CHAR-006
     line: 因为你变了。不是变老了——是变强了。
+  - speaker: CHAR-001
+    line: ……
   - speaker: CHAR-006
     line: 一个人变强了，身边的人就再也无法用原来的眼光看她了。
+  transition_to_next: hard_cut
 - segment_id: EP27-SEG04
   shot_ids:
   - EP27-S04
@@ -144,20 +184,30 @@ segments:
     - CHAR-006-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
     scene_urls:
-      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006
+      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
   api:
-    text: 【图1】公园长椅 SCENE-006（一阵风吹过，慧兰拢了拢被吹乱的头发）【图2】CHAR-006-L01 李建国（看着她，犹豫了一下叫了一声"林老师"）【图3】CHAR-001-L01 林慧兰（一愣——"你叫我什么？"）。近景：风吹过慧兰的头发。李建国看着她叫了一声"林老师"——这个称呼让慧兰愣住了。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（一阵风吹乱头发——伸手拢头发，阳光照在脸上银发在发光）【图2】李建国 CHAR-006-L01（看着图1的侧脸犹豫了一下然后开口——声音有些紧张但很认真）【图3】社区公园 SCENE-006。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）中景 固定：一阵风吹过来图1的头发被吹乱了。图1伸手拢了一下头发。图2看着图1的侧脸——阳光照在图1脸上银发在发光。图2犹豫了一下然后开口叫了一声林老师。图1一愣。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「这风……」
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「林老师。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你叫我什么？」
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「我想……我认识你很久了。但以前从来没有机会跟你说说话。」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - file: SCENE-006
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
     - file: CHAR-006-L01
       role: reference_image
       label: 图2
-    - file: CHAR-001-L01
+    - file: SCENE-006
       role: reference_image
       label: 图3
   dialogue:
@@ -169,6 +219,7 @@ segments:
     line: 你叫我什么？
   - speaker: CHAR-006
     line: 我想……我认识你很久了。但以前从来没有机会跟你说说话。
+  transition_to_next: hard_cut
 - segment_id: EP27-SEG05
   shot_ids:
   - EP27-S05
@@ -179,24 +230,36 @@ segments:
   refs:
     scene_id: SCENE-006
     look_ids:
-    - CHAR-006-L01
     - CHAR-001-L01
+    - CHAR-006-L01
   assets:
     look_urls:
-      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
     scene_urls:
-      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006
+      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
   api:
-    text: 【图1】公园长椅 SCENE-006（李建国说其实早就认识她——她教过他女儿舞蹈）【图2】CHAR-006-L01 李建国（回忆女儿说"林老师跳舞最好看"时的温柔笑容）【图3】CHAR-001-L01 林慧兰（惊讶然后笑了——回忆起那个小女孩）。近景：李建国说出这段缘分——他女儿小时候是她的舞蹈学生。"她回家总说——林老师跳舞最好看。"
+    text: |
+      【图1】林慧兰 CHAR-001-L01（惊讶——然后笑了——突然想起当年的学生李小月）【图2】李建国 CHAR-006-L01（声音轻柔地讲述女儿小时候在少年宫学舞蹈的事）【图3】社区公园 SCENE-006。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）近景 固定：图2说他其实早就认识图1——图1年轻时在少年宫教舞蹈，图2的女儿是图1的学生。图2女儿回家总说林老师跳舞最好看。图1惊讶地笑了——突然想起那个扎两个小辫子跳舞慢半拍的女孩。图1脱口而出说李小月她后来去学了美术。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「我女儿小时候在少年宫学舞蹈。你教过她。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「真的？」
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「真的。她回家总说——林老师跳舞最好看。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你女儿叫什么名字？」
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「李小月。扎两个小辫子，跳舞总是慢半拍的那个。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「李小月！她后来去学了美术！」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - file: SCENE-006
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
     - file: CHAR-006-L01
       role: reference_image
       label: 图2
-    - file: CHAR-001-L01
+    - file: SCENE-006
       role: reference_image
       label: 图3
   dialogue:
@@ -212,6 +275,7 @@ segments:
     line: 李小月。扎两个小辫子，跳舞总是慢半拍的那个。
   - speaker: CHAR-001
     line: 李小月！她后来去学了美术！
+  transition_to_next: hard_cut
 - segment_id: EP27-SEG06
   shot_ids:
   - EP27-S06
@@ -222,24 +286,35 @@ segments:
   refs:
     scene_id: SCENE-006
     look_ids:
-    - CHAR-006-L01
     - CHAR-001-L01
+    - CHAR-006-L01
   assets:
     look_urls:
-      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
     scene_urls:
-      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006
+      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
   api:
-    text: 【图1】公园长椅 SCENE-006（李建国认真地看着她——说出那句最重要的话）【图2】CHAR-006-L01 李建国（看着她的眼睛说"你值得被好好对待"）【图3】CHAR-001-L01 林慧兰（愣住了——四十年没听过这句话，眼眶有些热）。特写：李建国认真地说——"林老师，你值得被好好对待。"慧兰愣住了，眼眶有些热。"老李……我四十年来，没听过这句话。"
+    text: |
+      【图1】林慧兰 CHAR-001-L01（笑完之后愣住了——被图2的一句话触动了心）【图2】李建国 CHAR-006-L01（笑完之后认真地看着图1——说出了藏了很久的话）【图3】社区公园 SCENE-006。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）近景 固定：图1笑了——没想到他们会以这种方式重新认识。图2也笑了。但图2笑完之后认真地看着图1——说林老师你值得被好好对待。图1愣住——眼眶有些热。图1低下头用有些哑的声音说四十年没听过这句话。阳光从树叶间洒下来。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「林老师。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「嗯？」
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「你值得被好好对待。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「老李……我四十年来，没听过这句话。」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - file: SCENE-006
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
     - file: CHAR-006-L01
       role: reference_image
       label: 图2
-    - file: CHAR-001-L01
+    - file: SCENE-006
       role: reference_image
       label: 图3
   dialogue:
@@ -250,7 +325,10 @@ segments:
   - speaker: CHAR-006
     line: 你值得被好好对待。
   - speaker: CHAR-001
+    line: ……
+  - speaker: CHAR-001
     line: 老李……我四十年来，没听过这句话。
+  transition_to_next: hard_cut
 - segment_id: EP27-SEG07
   shot_ids:
   - EP27-S07
@@ -265,20 +343,29 @@ segments:
     - CHAR-006-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
     scene_urls:
-      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006
+      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
   api:
-    text: 【图1】公园长椅 SCENE-006（慧兰抬起头眼睛亮亮的道谢，李建国不好意思地摆手）【图2】CHAR-001-L01 林慧兰（这次是真正开心的笑）【图3】CHAR-006-L01 李建国（不好意思地摆手）。中景：慧兰真心道谢，李建国不好意思地说"谢什么"。两个人安静地坐着——那种沉默一点也不尴尬。慧兰轻声说"上次有人跟我说这种话，我自己都不记得是什么时候了"。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（抬起头眼睛亮亮的笑着说谢谢——这次不是苦笑是真正开心的笑）【图2】李建国 CHAR-006-L01（摆摆手有些不好意思说谢什么我说的是实话）【图3】社区公园 SCENE-006。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）中景 固定：图1的眼眶有些红但她忍住了。图1又笑了一下——这次不是苦笑是真正开心的笑。图1说谢谢你老李。图2摆摆手有些不好意思。两个人坐在长椅上谁也没再说话——但那种沉默一点也不尴尬。风轻轻吹过。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「谢谢你，老李。」
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「谢什么，我说的是实话。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你知道吗，上次有人跟我说这种话……我自己都不记得是什么时候了。」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - file: SCENE-006
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-006-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-006
       role: reference_image
       label: 图3
   dialogue:
@@ -288,6 +375,7 @@ segments:
     line: 谢什么，我说的是实话。
   - speaker: CHAR-001
     line: 你知道吗，上次有人跟我说这种话……我自己都不记得是什么时候了。
+  transition_to_next: dissolve
 - segment_id: EP27-SEG08
   shot_ids:
   - EP27-S08
@@ -299,20 +387,34 @@ segments:
     scene_id: SCENE-001
     look_ids:
     - CHAR-001-L01
+    - CHAR-010-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰关上门站在玄关没动，慧芳在择菜抬头看她）【图2】CHAR-001-L01 林慧兰（摇头笑着走去卫生间）。中景→近景：慧兰回到家站在玄关没动。慧芳问她怎么了，她笑着摇头走进卫生间。站在镜子前——镜子里的人脸上有没褪的红晕，嘴角不自觉地扬着。"这是我吗……"她轻声问自己。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（回到家关上门站在玄关没动——脸上有没褪的红晕。走到镜子前摸了摸自己的脸）【图2】林慧芳 CHAR-010-L01（择菜抬头问怎么了）【图3】林家客厅 SCENE-001。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）中景 固定：图3中图1回到家关上门站在玄关没动。图2在择菜抬头问图1怎么了。图1摇摇头笑着走去卫生间。图1站在镜子前看着镜子里的自己——脸上还有没褪的红晕。图1摸了摸自己的脸轻声说这是我吗。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐？怎么了？」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「没事。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「这是我吗……」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
       label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
   - speaker: CHAR-010
     line: 姐？怎么了？
@@ -320,6 +422,7 @@ segments:
     line: 没事。
   - speaker: CHAR-001
     line: 这是我吗……
+  transition_to_next: hard_cut
 - segment_id: EP27-SEG09
   shot_ids:
   - EP27-S09
@@ -331,20 +434,35 @@ segments:
     scene_id: SCENE-001
     look_ids:
     - CHAR-001-L01
+    - CHAR-010-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰出来坐在慧芳旁边帮忙择菜——嘴角的笑收不住）【图2】CHAR-001-L01 林慧兰（笑着择菜——"被人记得的感觉真好"）。近景：慧兰走出来坐在慧芳旁边帮忙择菜。慧芳追问她笑什么。慧兰顿了一下轻声说"慧芳……被人记得的感觉……真好。"
+    text: |
+      【图1】林慧兰 CHAR-001-L01（对着镜子认真拢了拢头发——嘴角的笑收不住。坐下来择菜笑着说被人记得的感觉真好）【图2】林慧芳 CHAR-010-L01（笑着追问然后愣住跟着笑了）【图3】林家客厅 SCENE-001。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）中景 固定：图1对着镜子看了很久。图1把头发重新拢了一下——以前都是随手一扎今天认真地拢了拢。嘴角的笑怎么也收不住。图1走出去坐下来开始帮忙择菜。图2追问图1到底怎么了。图1笑着说被人记得的感觉真好。图2愣了一下也跟着笑了。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐你到底怎么了？笑成这个样子。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「没事。」
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「没事你笑成这样？」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「慧芳……被人记得的感觉……真好。」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
       label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
   - speaker: CHAR-010
     line: 姐你到底怎么了？笑成这个样子。
@@ -354,3 +472,4 @@ segments:
     line: 没事你笑成这样？
   - speaker: CHAR-001
     line: 慧芳……被人记得的感觉……真好。
+  transition_to_next: hard_cut

@@ -1,161 +1,381 @@
-# SOURCE FIDELITY: EP42_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP42/EP42_剧本.md
+# Source shots: 9 (EP42-S01 to EP42-S09)
+# Output shots: 9
+# Mapping: 1:1
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
 episode_id: EP42
+source_md: 剧本/EP42/EP42_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
-  ratio: '9:16'
+  ratio: "9:16"
   resolution: 720p
-  duration: 5
+  duration: 10
   generate_audio: false
   watermark: false
-  prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
-  negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
 shots:
-- shot_id: EP42-S01
-  shot_no: 1; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L02, CHAR-003-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 【图1】林家客厅·下午 SCENE-001（慧兰在家包饺子·馅是韭菜鸡蛋的·门铃响了·她去开门）【图2】CHAR-001-L02 林慧兰（开门看到张明牵着张昊·愣了一下）【图3】CHAR-003-L01 张明（提着一袋水果·有点不自在）。中景：慧兰在家包饺子。门铃响了一开门看到张明牵着张昊。张明有点不自在说路过来看看你。张昊冲进去说奶奶你在包饺子！
-    content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L02, role: reference_image, label: 图2}
-    - {file: CHAR-003-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-001, line: 怎么来了？}
-  - {speaker: CHAR-003, line: 路过……来看看你。}
-  - {speaker: CHAR-008, line: 奶奶！奶奶你在包饺子！}
-  - {speaker: CHAR-001, line: 你怎么知道是饺子？}
-  - {speaker: CHAR-008, line: 闻到味儿了！}
-- shot_id: EP42-S02
-  shot_no: 2; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-003-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 【图1】林家客厅 SCENE-001（张昊跑去洗手系上小围裙·慧兰教他包饺子）【图2】CHAR-003-L01 张明（坐在沙发上看着母亲和儿子一起包饺子的背影·恍惚——想起小时候）。中景：张昊跑去洗手系上小围裙帮慧兰包饺子。张明坐在沙发上看着母亲和儿子的背影——那双擀皮填馅捏褶的手一气呵成。他说小时候我也这样看你包过饺子。慧兰轻声说嗯你最爱吃韭菜鸡蛋的。
-    content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-003-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L02, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-003, line: 小时候——我也这样看你包过饺子。}
-  - {speaker: CHAR-001, line: 嗯。你最爱吃韭菜鸡蛋的。}
-- shot_id: EP42-S03
-  shot_no: 3; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-003-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 【图1】林家客厅 SCENE-001（张明看着母亲——她气色比预想的好·没有憔悴没有怨气反而精神了）【图2】CHAR-003-L01 张明（问妈你最近还好吗）【图3】CHAR-001-L02 林慧兰（笑着放下饺子皮——妈活了大半辈子第一次觉得日子是自己的）。近景：张明看着母亲——气色比预想的好。他问妈你最近还好吗。慧兰笑着放下饺子皮说好啊特别好。妈活了大半辈子第一次觉得日子是自己的。
-    content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-003-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L02, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-003, line: 妈——你最近……还好吗？}
-  - {speaker: CHAR-001, line: 好啊。特别好。}
-  - {speaker: CHAR-003, line: 真的？}
-  - {speaker: CHAR-001, line: 真的。妈活了大半辈子——第一次觉得日子是自己的。}
-- shot_id: EP42-S04
-  shot_no: 4; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-003-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 【图1】林家客厅 SCENE-001（张明低下头沉默了好久·突然开口·声音又轻又涩）【图2】CHAR-003-L01 张明（说——妈对不起·三个字憋了好几天才说出来）【图3】CHAR-001-L02 林慧兰（手停住了·空气安静了几秒）。近景：张明低下头沉默了好久。张昊在旁边认真地包着歪歪扭扭的饺子。张明突然开口说——妈对不起。三个字又轻又涩憋了好几天才说出来。慧兰的手停住了。空气安静了几秒。
-    content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-003-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L02, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-003, line: 妈——对不起。}
-  - {speaker: CHAR-008, line: 爸爸你为什么说对不起？}
-  - {speaker: CHAR-003, line: 我——以前从来不知道你有多累。}
-- shot_id: EP42-S05
-  shot_no: 5; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-003-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 【图1】林家客厅 SCENE-001（张明继续说——声音哽咽了）【图2】CHAR-003-L01 张明（说以前觉得妈做什么都是应该的——自己带了孩子才知道一天二十四小时没一分钟轻松·你做了四十年·从来没说过谢谢）。近景：张明声音哽咽——以前觉得你做什么都是应该的。做饭应该的带孩子应该的。我自己带了张昊这几天才知道一天二十四小时没有一分钟是轻松的。你做了四十年。我从来没说过一句谢谢。
-    content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-003-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L02, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-003, line: 我以前觉得……你做什么都是应该的。做饭应该的，带孩子应该的，做家务应该的。}
-  - {speaker: CHAR-003, line: 我自己带了张昊这几天才知道——一天二十四小时，没有一分钟是轻松的。}
-  - {speaker: CHAR-003, line: 你做了四十年。我——从来没说过一句谢谢。}
-- shot_id: EP42-S06
-  shot_no: 6; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L02, CHAR-003-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 【图1】林家客厅 SCENE-001（慧兰看着儿子低着头肩膀微微发抖·伸手握住儿子的手）【图2】CHAR-001-L02 林慧兰（说妈听到了——等这句话等了好久·但等到了就够了·妈永远不会怪你）。近景：慧兰看着儿子低着头肩膀微微发抖。她伸手握住儿子的手——张明妈听到了。我等你这句话等了好久。但等到了就够了。张明带着鼻音喊妈。慧兰说傻瓜你是我的儿子我永远不会怪你。
-    content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L02, role: reference_image, label: 图2}
-    - {file: CHAR-003-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-001, line: 张明——妈听到了。}
-  - {speaker: CHAR-001, line: 我等你这句话……等了很久。但等到了。就够了。}
-  - {speaker: CHAR-003, line: 妈——}
-  - {speaker: CHAR-001, line: 傻瓜。你是我的儿子。我永远不会怪你。}
-- shot_id: EP42-S07
-  shot_no: 7; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L02, CHAR-003-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 【图1】餐桌旁 SCENE-001（张昊举起歪歪扭扭的饺子展示）【图2】CHAR-001-L02 林慧兰（笑了说包得真好奶奶第一个煮你的）【图3】CHAR-003-L01 张明（在旁边看着低头抹了一下眼睛）。中景：张昊举起歪歪扭扭的饺子说奶奶你看这个是我包的！慧兰笑了说包得真好奶奶第一个就煮你的。张昊开心地喊耶。张明在旁边看着这一幕——终于忍不住低头抹了一下眼睛。
-    content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L02, role: reference_image, label: 图2}
-    - {file: CHAR-003-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-008, line: 奶奶你看！这个是我包的！}
-  - {speaker: CHAR-001, line: 包得真好——奶奶第一个就煮你的。}
-  - {speaker: CHAR-008, line: 耶！}
-- shot_id: EP42-S08
-  shot_no: 8; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-003-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 【图1】餐桌 SCENE-001（三人围坐吃饺子·张明咬了一口说还是你做的好吃）【图2】CHAR-003-L01 张明（问你还愿意给我做吗·慧兰说想吃就过来）【图3】CHAR-001-L02 林慧兰（说我不是不疼你们了——只是不再把自己当保姆了·当妈我永远是）。中景：三个人围坐吃饺子。张明咬了一口——还是你做的好吃。慧兰说想吃就过来妈给你做。张明愣住了。慧兰说——我不是不疼你们了，我只是不再把自己当保姆了。当妈——我永远是。
-    content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-003-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L02, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-003, line: 还是你做的好吃。}
-  - {speaker: CHAR-001, line: 想吃就过来——妈给你做。}
-  - {speaker: CHAR-003, line: 你——还愿意给我做？}
-  - {speaker: CHAR-001, line: 我不是不疼你们了——我只是不再把自己当保姆了。当妈——我永远是。}
-- shot_id: EP42-S09
-  shot_no: 9; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L02, CHAR-003-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 【图1】家门口 SCENE-001（张昊在门口回头喊奶奶再见·张明走了几步又回头）【图2】CHAR-003-L01 张明（说妈以后我常来看你·慧兰点头）【图3】CHAR-001-L02 林慧兰（关上门靠在门上·看着桌上吃剩的饺子·轻轻笑了）。中景：张昊在门口回头喊奶奶再见下次还要包饺子。慧兰笑着挥手说好奶奶等你。张明走了几步又回头——妈以后我常来看你。慧兰点点头。她关上门靠在门上看着桌上吃剩的饺子轻轻笑了——不是每个等了四十年的道歉都能等到。她等到了。
-    content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L02, role: reference_image, label: 图2}
-    - {file: CHAR-003-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-008, line: 奶奶再见！下次我还要来包饺子！}
-  - {speaker: CHAR-001, line: 好——奶奶等你。}
-  - {speaker: CHAR-003, line: 妈——以后我常来看你。}
+  - shot_id: EP42-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-003-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】CHAR-001-L02【图2】CHAR-003-L01【图3】CHAR-008-L01【图4】SCENE-001。中景 固定：林家客厅下午。慧兰在家包饺子——她一个人安安静静地坐在茶几前，面粉撒在案板上，擀面杖来回滚动发出均匀的沙沙声。馅是韭菜鸡蛋的——翠绿的韭菜碎和金黄的炒蛋混在一起，香气飘满了整个客厅。门铃响了——不是急促的，是犹豫的两声。她去开门——门口站着张明，牵着张昊。张明手里还提着一袋水果——苹果和橙子，塑料袋勒得他手指发白。慧兰愣了一下——儿子很少主动来，更不用说带着水果。张明有点不自在地举了举手里的袋子——声音里带着一种慧兰很久没见过的紧张。张昊可不管那么多——他已经闻到味儿了。慧兰笑了，摸摸孙子的头。
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-001
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-001
+        line: "怎么来了？"
+      - speaker: CHAR-003
+        line: "路过……来看看你。"
+      - speaker: CHAR-008
+        line: "奶奶！奶奶你在包饺子！"
+      - speaker: CHAR-001
+        line: "你怎么知道是饺子？"
+      - speaker: CHAR-008
+        line: "闻到味儿了！"
+    transition_to_next: hard_cut
+  - shot_id: EP42-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-003-L01
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】CHAR-001-L02【图2】CHAR-003-L01【图3】CHAR-008-L01【图4】SCENE-001。中景 固定：慧兰让他们进来。张昊已经跑去洗手了——踮着脚尖够水龙头，袖子湿了一半。慧兰说好，给他系上一条小围裙——围裙太大了，在她手里折了两折才合身。张明在沙发上坐下——沙发还是那张旧沙发，弹簧咯吱响了一声。他没有说话，只是看着母亲和儿子一起包饺子的背影。他母亲的手——擀皮的时候手腕轻轻一转，面皮就圆了；填馅的时候勺子一挖一扣，不多不少；捏褶的时候拇指和食指一掐一捏，饺子就站住了。一气呵成。他恍惚想起自己小时候——也是这样趴在桌边看她包饺子的。那时候他还没有桌子高，要踮着脚才能看到案板。他的手不自觉地摸了摸自己膝盖上方的位置——那里有一个小时候摔跤留下的疤。张明沉默了。
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-001
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-003
+        line: "小时候——我也这样看你包过饺子。"
+      - speaker: CHAR-001
+        line: "嗯。你最爱吃韭菜鸡蛋的。"
+    transition_to_next: hard_cut
+  - shot_id: EP42-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】CHAR-003-L01【图2】CHAR-001-L02【图3】SCENE-001。近景 固定：张明看着母亲——她头发白了一些，但气色比他预想的好很多。没有憔悴，没有怨气，反而精神了——脸上有一种他从没见过的从容。他想起以前在家的时候——妈妈总是低着头、话很少、干活很快，像是在赶时间——不，像是在躲什么。现在她坐在这里包饺子——慢悠悠的，嘴角还带着笑。张明张了张嘴想说什么——但话到嘴边又咽下去了。他换了一个安全的问题——像是投石问路。慧兰的回答让他意外——不是还行，不是凑合——是斩钉截铁的好。她说最后一句话的时候放下了手里的饺子皮，看着儿子——像是在确认，也像是在告诉。
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-003
+        line: "妈——你最近……还好吗？"
+      - speaker: CHAR-001
+        line: "好啊。特别好。"
+      - speaker: CHAR-003
+        line: "真的？"
+      - speaker: CHAR-001
+        line: "真的。妈活了大半辈子——第一次觉得日子是自己的。"
+    transition_to_next: hard_cut
+  - shot_id: EP42-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L02
+        - CHAR-008-L01
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-008-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】CHAR-003-L01【图2】CHAR-001-L02【图3】CHAR-008-L01【图4】SCENE-001。中景 固定：张明低下头——沉默了好一会儿。他的手指在膝盖上蜷着——和他爸一样的动作，但他不知道。张昊在旁边认真地包着一个歪歪扭扭的饺子——馅从皮里挤出来了，他用手把馅塞回去，弄得满手都是。慧兰低头教他——声音很温柔。然后张明突然开口了——三个字，说得又轻又涩，像是从嗓子眼里一个一个抠出来的。慧兰的手停住了——擀面杖悬在面皮上方，没有落下去。空气安静了几秒。张昊抬起头，天真地问了一句——他不明白对不起这三个字在大人的世界里有多重。张明没有回答孩子——他只是看着母亲。然后又说了一句——这一句比对不起更难说出口。
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图2
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-001
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-003
+        line: "妈——对不起。"
+      - speaker: CHAR-008
+        line: "爸爸你为什么说对不起？"
+      - speaker: CHAR-003
+        line: "我——以前从来不知道你有多累。"
+    transition_to_next: hard_cut
+  - shot_id: EP42-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】CHAR-003-L01【图2】CHAR-001-L02【图3】SCENE-001。近景 固定：慧兰没有说话——她只是看着儿子。张明低着头继续说——他不是在背台词，他是在把三十五年没说的话一句一句往外倒。他说得断断续续的——有些地方气不够了，有些地方声音突然哑了。他自己带了张昊这几天——真正地带，不是帮个手——才知道一天二十四小时没有一分钟是轻松的。他以前觉得他妈做的那些事都是自动发生的——饭自己会做好、衣服自己会洗干净、家里自己会变整洁。现在他知道了——不是自动的，是有人在做的。做了四十年。他的声音在最后几个字上彻底碎掉了——不是哭，是一种比哭更难控制的哽咽。
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-003
+        line: "我以前觉得……你做什么都是应该的。做饭应该的，带孩子应该的，做家务应该的。"
+      - speaker: CHAR-003
+        line: "我自己带了张昊这几天才知道——一天二十四小时，没有一分钟是轻松的。"
+      - speaker: CHAR-003
+        line: "你做了四十年。我——从来没说过一句谢谢。"
+    transition_to_next: hard_cut
+  - shot_id: EP42-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】CHAR-001-L02【图2】CHAR-003-L01【图3】SCENE-001。近景 固定：慧兰看着儿子——他低着头，肩膀微微发抖。她的儿子，三十五岁了，第一次跟她说对不起。她以为自己会哭——等了四十年的道歉，终于等到了，应该大哭一场才对。但没有——她的眼眶是干的。她只是觉得——胸腔里那块压了几十年的石头，忽然轻了。不是消失了——是轻了。她伸手握住儿子的手——那双手比她的手大，但此刻是冰凉的，微微发颤。她的声音很稳——不是那种压着情绪的稳，是真正平静的稳。她等这句话等了很久——但等到了。就够了。张明抬起头——眼眶红了，但没有躲开她的眼睛。慧兰看着他——然后说了一句让她儿子彻底破防的话。
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-001
+        line: "张明——妈听到了。"
+      - speaker: CHAR-001
+        line: "我等你这句话……等了很久。但等到了。就够了。"
+      - speaker: CHAR-003
+        line: "妈——"
+      - speaker: CHAR-001
+        line: "傻瓜。你是我的儿子。我永远不会怪你。"
+    transition_to_next: hard_cut
+  - shot_id: EP42-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-001-L02
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-008-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】CHAR-008-L01【图2】CHAR-001-L02【图3】CHAR-003-L01【图4】SCENE-001。中景 固定：张昊包的饺子歪歪扭扭地放在盖帘上——馅从褶子里挤出来了，面皮上印着他小小的手指印。他完全不知道刚才发生了什么——大人们的眼泪和沉默，对他来说只是一个走神的间隙。他举起自己的作品——手臂伸得直直的，脸上全是骄傲。慧兰看了看那个胖乎乎的饺子——有的地方皮太薄快破了，有的地方褶子像蜈蚣的脚。她笑了——不是客气地笑，是被逗到的笑。张昊开心地笑了——露出一颗刚掉的牙留下的豁口。张明在旁边看着这一幕——母亲的白发、儿子的豁牙、盖帘上歪歪扭扭的饺子——终于忍不住，低下头，用袖子抹了一下眼睛。
+      content_roles:
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图2
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-001
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-008
+        line: "奶奶你看！这个是我包的！"
+      - speaker: CHAR-001
+        line: "包得真好——奶奶第一个就煮你的。"
+      - speaker: CHAR-008
+        line: "耶！"
+    transition_to_next: hard_cut
+  - shot_id: EP42-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】CHAR-003-L01【图2】CHAR-001-L02【图3】SCENE-001。中景 固定：饺子煮好了——慧兰端着热气腾腾的盘子从厨房出来，韭菜鸡蛋的香气弥漫整个客厅。三个人围坐在餐桌边——慧兰给张昊夹了一个，在小碟子里倒了醋，用筷子蘸了一点抹在饺子上——小心烫，吹一下。张明咬了一口——韭菜的鲜、鸡蛋的香、面皮的韧，一起在嘴里化开。就是记忆里的味道——三十五年了，一点没变。他愣了一下——他以为妈会拒绝。慧兰的回答让他又是一愣——不是因为答案本身，是因为她说这话时的表情——是笑着的，不是委屈的。张明终于听懂了——保姆和妈的区别。保姆是一份工作——可以辞职。妈是——永远。
+      content_roles:
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图1
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图2
+        - file: SCENE-001
+          role: reference_image
+          label: 图3
+    dialogue:
+      - speaker: CHAR-003
+        line: "还是你做的好吃。"
+      - speaker: CHAR-001
+        line: "想吃就过来——妈给你做。"
+      - speaker: CHAR-003
+        line: "你——还愿意给我做？"
+      - speaker: CHAR-001
+        line: "说什么呢。我是你妈。我永远是你妈。"
+      - speaker: CHAR-001
+        line: "我不是不疼你们了——我只是不再把自己当保姆了。当妈——我永远是。"
+    transition_to_next: hard_cut
+  - shot_id: EP42-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-008-L01
+        - CHAR-003-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-008-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】CHAR-001-L02【图2】CHAR-008-L01【图3】CHAR-003-L01【图4】SCENE-001。中景 固定：吃完饭，张明带着张昊走了。在门口——张昊回头喊了一声，声音亮得像一个小喇叭。慧兰挥挥手——围裙还没解，上面沾着面粉。张明走了几步又回头——他站在楼道里，逆着光，看不清表情，但他的声音很清楚。慧兰点点头——没有说不用来，也没有说你必须来——就是轻轻点了一下头。她关上门——门锁咔哒一声。然后她靠在门上——后背贴着冰凉的门板，眼睛看着桌子上吃剩的饺子。盖帘上还放着张昊包的那个歪歪扭扭的饺子——她没舍得煮。她轻轻笑了一下——不是哈哈大笑，是那种从心底慢慢浮上来的、安静的、圆满的笑。不是每个等了四十年的道歉都能等到。她等到了。
+      content_roles:
+        - file: CHAR-001-L02
+          role: reference_image
+          label: 图1
+        - file: CHAR-008-L01
+          role: reference_image
+          label: 图2
+        - file: CHAR-003-L01
+          role: reference_image
+          label: 图3
+        - file: SCENE-001
+          role: reference_image
+          label: 图4
+    dialogue:
+      - speaker: CHAR-008
+        line: "奶奶再见！下次我还要来包饺子！"
+      - speaker: CHAR-001
+        line: "好——奶奶等你。"
+      - speaker: CHAR-003
+        line: "妈——以后我常来看你。"

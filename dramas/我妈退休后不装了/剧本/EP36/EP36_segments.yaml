@@ -1,169 +1,293 @@
-# SOURCE FIDELITY: EP36_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP36/EP36_剧本.md
+# Source shots: 9 (EP36-S01 to EP36-S09)
+# Output segments: 9 (EP36-SEG01 to EP36-SEG09)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS (SEG03 [待补：民政局工作人员] 台词嵌入叙事，待 production-planner 分配 CHAR-GRP-## 回补; SCENE-013 pending generation)
+
 episode_id: EP36
+source_md: 剧本/EP36/EP36_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
-  ratio: '9:16'
-  resolution: 720p
-  duration: 5
-  generate_audio: false
+  ratio: "9:16"
+  resolution: 1080p
+  generate_audio: true
   watermark: false
-  prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
-  negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声；从出门前的轻松（"今天是个好日子——得穿好看点"），到民政局里的平静坚定（"确定"），到台阶上的释然自语（"四十年了——自由了"），到见到李建国时的柔软（"你等了多久了"），到最后眼泪与笑容一起出现的幸福（"嗯。我自由了。"）
-  CHAR-002: 低沉粗哑的中老年男声；此时已没有气焰，只剩低落（"慧兰——你……保重"）——声音低沉、涩
-  CHAR-006: 温和儒雅的中老年男声；从微笑等待的安静到温柔告白（"值得等的人——等多久都值得"），到最后郑重地说出那句话（"林慧兰——从今天开始，你自由了"）——温暖、郑重、克制
-  CHAR-010: 沙哑疲倦的中年女声；清晨对姐姐的欣赏和鼓励（"姐，你今天真好看"）
+  CHAR-001: "温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音"
+  CHAR-002: "低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音"
+  CHAR-006: "温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准"
+  CHAR-010: "沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音"
+
 segments:
-- segment_id: EP36-SEG01
-  shot_ids: [EP36-S01]
-  duration_sec: 10
-  speakers: [CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 林家客厅·清晨。慧兰对着镜子整理衣服——暖色衬衫，亮色丝巾。慧芳靠在门框上看她说姐你今天真好看。慧兰看着镜子里的自己——六十岁，但眼神里有光了。她说今天是个好日子——得穿好看点。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-001-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-010, line: 姐，你今天真好看。}
-  - {speaker: CHAR-001, line: 今天是个好日子——得穿好看点。}
-  - {speaker: CHAR-010, line: 对。值得庆祝。}
-- segment_id: EP36-SEG02
-  shot_ids: [EP36-S02]
-  duration_sec: 10
-  speakers: [CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 慧兰深吸一口气，拿起包。慧芳说我陪你去吧。慧兰想了想摇头说不用——这段路该我自己走完。她走到门口回头看了一眼这个住了几十年的家——然后拉开门走了出去。阳光迎面而来。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-001-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-010, line: 我陪你去吧。}
-  - {speaker: CHAR-001, line: 不用。这段路——该我自己走完。}
-  - {speaker: CHAR-001, line: 走了。}
-- segment_id: EP36-SEG03
-  shot_ids: [EP36-S03]
-  duration_sec: 10
-  speakers: [CHAR-001]
-  refs: {scene_id: SCENE-013, look_ids: [CHAR-001-L01, CHAR-002-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png}
-  api:
-    text: 民政局离婚登记窗口。工作人员例行公事地确认——你们确定要离婚？张大强没说话。慧兰说——确定。钢印落下的声音沉闷而短促——"咔"一声，四十年的婚姻，结束了。
-    content_roles:
-    - {file: SCENE-013, role: reference_image}
-    - {file: CHAR-001-L01, role: reference_image}
-    - {file: CHAR-002-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 确定。}
-- segment_id: EP36-SEG04
-  shot_ids: [EP36-S04]
-  duration_sec: 10
-  speakers: [CHAR-002, CHAR-001]
-  refs: {scene_id: SCENE-013, look_ids: [CHAR-001-L01, CHAR-002-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png}
-  api:
-    text: 两人拿着离婚证走出民政局大门。张大强停住脚步转头看着慧兰——憋了半天说了一句"你……保重"。慧兰看着他——没有恨没有怨，只是点了点头说"你也保重"。两人站在门口片刻，然后朝不同的方向走去。
-    content_roles:
-    - {file: SCENE-013, role: reference_image}
-    - {file: CHAR-001-L01, role: reference_image}
-    - {file: CHAR-002-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-002, line: 慧兰——你……保重。}
-  - {speaker: CHAR-001, line: 你也保重。}
-- segment_id: EP36-SEG05
-  shot_ids: [EP36-S05]
-  duration_sec: 10
-  speakers: [CHAR-001]
-  refs: {scene_id: SCENE-013, look_ids: [CHAR-001-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png}
-  api:
-    text: 慧兰一个人站在民政局门口的台阶上。她深深吸了一口气——秋天的风有点凉但很舒服。她抬起头看着湛蓝的天空——笑了。是那种从心底里溢出来的笑。四十年了——自由了。
-    content_roles:
-    - {file: SCENE-013, role: reference_image}
-    - {file: CHAR-001-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 四十年了……自由了。}
-- segment_id: EP36-SEG06
-  shot_ids: [EP36-S06]
-  duration_sec: 10
-  speakers: []
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L01, CHAR-006-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 慧兰走下台阶——看到马路对面有一个人。李建国穿着驼色亚麻西装，手里捧着一束淡黄色雏菊。他没有走过来，只是站在那里看着她笑着。隔着一条马路的距离——他等她走过去。
-    content_roles:
-    - {file: SCENE-006, role: reference_image}
-    - {file: CHAR-001-L01, role: reference_image}
-    - {file: CHAR-006-L01, role: reference_image}
-  dialogue: []
-- segment_id: EP36-SEG07
-  shot_ids: [EP36-S07]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-006]
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L01, CHAR-006-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 慧兰穿过马路走到他面前。李建国把花递给她，没有说话。慧兰接过花低头闻了闻——淡淡的清香。她抬头看着他——眼眶有点热。她问他等了多久了。他说没多久——值得等的人，等多久都值得。
-    content_roles:
-    - {file: SCENE-006, role: reference_image}
-    - {file: CHAR-001-L01, role: reference_image}
-    - {file: CHAR-006-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 你怎么来了？}
-  - {speaker: CHAR-006, line: 今天是个重要的日子——我想来看看。}
-  - {speaker: CHAR-001, line: 你等了多久了？}
-  - {speaker: CHAR-006, line: 没多久。值得等的人——等多久都值得。}
-- segment_id: EP36-SEG08
-  shot_ids: [EP36-S08]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-006]
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L01, CHAR-006-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 两人并肩走在秋天的街道上——落叶金黄。慧兰抱着那束雏菊边走边说——你知道吗，刚才盖章的时候我以为我会哭，结果我没有。走出大门的时候我以为我会回头看一眼，结果我也没有。就是觉得——终于结束了。李建国轻声说——那是你真的放下了。
-    content_roles:
-    - {file: SCENE-006, role: reference_image}
-    - {file: CHAR-001-L01, role: reference_image}
-    - {file: CHAR-006-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 你知道吗——刚才盖章的时候，我以为我会哭。}
-  - {speaker: CHAR-001, line: 结果我没有。走出大门的时候——我以为我会回头看一眼。}
-  - {speaker: CHAR-001, line: 结果我也没有。就是觉得——终于结束了。}
-  - {speaker: CHAR-006, line: 那是你真的放下了。}
-- segment_id: EP36-SEG09
-  shot_ids: [EP36-S09]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-006]
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L01, CHAR-006-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 慧兰停下脚步转头看着李建国——认真地说李先生谢谢你今天来。李建国摇头说不用谢。然后他认真地看着她温和地说——林慧兰，从今天开始，你自由了。你可以做任何你想做的事了。慧兰眼泪终于掉下来了——但她在笑。她抱着花站在秋天的阳光里——那是她六十年来第一次为自己流的、高兴的泪。
-    content_roles:
-    - {file: SCENE-006, role: reference_image}
-    - {file: CHAR-001-L01, role: reference_image}
-    - {file: CHAR-006-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 李先生——谢谢你今天来。}
-  - {speaker: CHAR-006, line: 林慧兰——从今天开始，你自由了。}
-  - {speaker: CHAR-006, line: 你可以做任何你想做的事了。}
-  - {speaker: CHAR-001, line: 嗯。我自由了。}
+  - segment_id: EP36-SEG01
+    shot_ids: [EP36-S01]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-010]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暖色衬衫配亮色丝巾）【图2】林慧芳 CHAR-010-L01（灰蓝色旧外套）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：清晨林家客厅。图1对着镜子整理衣服，系上那条亮色丝巾，手指仔细地调整角度。晨光从窗户照进来照在丝巾上。图2靠在门框上看她，眼里带着笑意。图1看着镜子里的自己笑了一下。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐，你今天真好看。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「今天是个好日子——得穿好看点。」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「对。值得庆祝。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG02
+    shot_ids: [EP36-S02]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-010]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暖色衬衫配亮色丝巾）【图2】林慧芳 CHAR-010-L01（灰蓝色旧外套）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：林家客厅。图1深吸一口气拿起沙发上的包。图2问要不要陪她去。图1想了想摇了摇头，走到门口手放在门把手上，回头看了一眼这个家。然后她拉开门阳光迎面而来照得她整个人都在光里。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我走了。」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「我陪你去吧。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「不用。这段路——该我自己走完。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「走了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG03
+    shot_ids: [EP36-S03]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png  # WARNING: no CDN URL — SCENE-013 image pending generation
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暖色衬衫配亮色丝巾）【图2】张大强 CHAR-002-L01（白衬衫棕色马甲）【图3】民政局 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：民政局离婚登记窗口。图1和图2并排坐在工作人员面前，两人之间隔了一个空位的距离。工作人员例行公事地问了一句——你们确定要离婚。空气安静了几秒。图1看着前方，图2低着头。钢印落下的声音沉闷而短促。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「确定。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG04
+    shot_ids: [EP36-S04]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png  # WARNING: no CDN URL — SCENE-013 image pending generation
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暖色衬衫配亮色丝巾）【图2】张大强 CHAR-002-L01（白衬衫棕色马甲）【图3】民政局 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：民政局门口。图1和图2拿着离婚证走出大门。秋风吹来有点凉但很清爽。图2在门口台阶上停住脚步转头看着图1。图1也看着他心里什么波澜都没有——像看一个认识很久的熟人。图2憋了半天终于开口。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「慧兰——」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「嗯？」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你……保重。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你也保重。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG05
+    shot_ids: [EP36-S05]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-013
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png  # WARNING: no CDN URL — SCENE-013 image pending generation
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暖色衬衫配亮色丝巾）【图2】民政局 SCENE-013。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：民政局门口台阶。图1独自站在台阶上，图2已经走远了。图1深深吸了一口气——秋风灌进肺里有种清冽的感觉。她抬起头看着湛蓝的天空笑了——从心底溢出来的压都压不住的笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「四十年了——自由了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG06
+    shot_ids: [EP36-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暖色衬衫配亮色丝巾）【图2】李建国 CHAR-006-L01（驼色亚麻西装，金丝眼镜挂颈）【图3】社区公园 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：社区公园。图1走下台阶看到了马路对面有一个人。图2穿着驼色亚麻西装，手里捧着一束淡黄色雏菊。他没有走过来只是站在那里看着图1笑着。隔着一条马路几辆车从中间驶过——但图2一直看着图1等她走过去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG07
+    shot_ids: [EP36-S07]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暖色衬衫配亮色丝巾）【图2】李建国 CHAR-006-L01（驼色亚麻西装，金丝眼镜挂颈）【图3】社区公园 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：社区公园。图1穿过马路走到图2面前。图2把花递给她动作很轻像递一杯茶。图1接过花低头闻了闻——淡淡的清香。她抬头看着图2眼眶有点热。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你怎么来了？」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「今天是个重要的日子——我想来看看。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你等了多久了？」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「没多久。」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「值得等的人——等多久都值得。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG08
+    shot_ids: [EP36-S08]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暖色衬衫配亮色丝巾）【图2】李建国 CHAR-006-L01（驼色亚麻西装，金丝眼镜挂颈）【图3】社区公园 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：秋日街道。图1和图2并肩走在梧桐树下。路边的梧桐叶黄了大半风一吹簌簌落下来。图1抱着雏菊边走边说。图2走在她旁边步调刚好一致微微侧着身子看她的表情。他没有插话只是认真听着偶尔点一下头。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你知道吗——刚才盖章的时候，我以为我会哭。」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「嗯。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「结果我没有。走出大门的时候——我以为我会回头看一眼。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「结果我也没有。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「就是觉得——终于结束了。」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「那是你真的放下了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP36-SEG09
+    shot_ids: [EP36-S09]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-006
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（暖色衬衫配亮色丝巾）【图2】李建国 CHAR-006-L01（驼色亚麻西装，金丝眼镜挂颈）【图3】社区公园 SCENE-006。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：秋日街道。图1停下脚步转头看着图2。阳光从梧桐叶缝隙洒下来落在她的丝巾上。图2认真地看着图1。图1的眼泪终于掉下来但她在笑。她抱着花站在秋天的阳光里眼泪和笑容一起出现在同一张脸上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「李先生——谢谢你今天来。」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「不用谢。」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「林慧兰——从今天开始，你自由了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+        对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「你可以做任何你想做的事了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「嗯。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我自由了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

@@ -1,180 +1,489 @@
-# SOURCE FIDELITY: EP28_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
 episode_id: EP28
+source_md: 剧本/EP28/EP28_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
   ratio: '9:16'
   resolution: 720p
-  duration: 5
-  generate_audio: false
+  generate_audio: true
   watermark: false
   prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+  prompt_suffix_silent: 本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
   negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声；从姐妹聊天的轻松羞涩（"别瞎说"），到面对张大强时的平静克制（"张大强你好好说话"），到说出那句最重的话（"即使没有李建国"），到最后手抖但坚定的释然（"总得有这么一天"）
-  CHAR-002: 低沉粗哑的中老年男声；从气急败坏（"开门！"）到质问（"你是我老婆"）到咬牙威胁（"净身出户"）到愣住（"四十年了……"）最后哑口无言——声音从高到低，气势一步步被打掉
-  CHAR-010: 沙哑疲倦的中年女声；此时带着对姐姐的崇拜和担心（"姐你手在抖"）
+  CHAR-001: 温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音
+  CHAR-002: 低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音
+  CHAR-010: 沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音
+
 segments:
 - segment_id: EP28-SEG01
-  shot_ids: [EP28-S01]
+  shot_ids:
+  - EP28-S01
   duration_sec: 10
-  speakers: [CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
+  speakers:
+  - CHAR-010
+  - CHAR-001
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-010-L01
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 林家客厅。慧兰和慧芳在择菜聊天。慧芳笑着问昨天散步的事，慧兰假装随意说就散散步。慧芳凑近说你脸红了。慧兰摸了一下脸——真的有点烫。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（低头择菜脸红）【图2】林慧芳 CHAR-010-L01（择菜笑着追问）【图3】林家客厅 SCENE-001。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）中景 固定：图3中图1和图2在择菜聊天。图2笑着问图1昨天跟李老师散步怎么样。图1低头择菜假装随意。图2凑近看图1说她脸红了。图1摸了一下脸说别瞎说。图2笑着说图1耳朵都红了。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐，昨天跟李老师散步怎么样？」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「就……散散步呗。」
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「你脸红了。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「别瞎说。」
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「我没瞎说——你耳朵都红了。」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-010, line: 姐，昨天跟李老师散步怎么样？}
-  - {speaker: CHAR-001, line: 就……散散步呗。}
-  - {speaker: CHAR-010, line: 你脸红了。}
-  - {speaker: CHAR-001, line: 别瞎说。}
-  - {speaker: CHAR-010, line: 我没瞎说——你耳朵都红了。}
+  - speaker: CHAR-010
+    line: 姐，昨天跟李老师散步怎么样？
+  - speaker: CHAR-001
+    line: 就……散散步呗。
+  - speaker: CHAR-010
+    line: 你脸红了。
+  - speaker: CHAR-001
+    line: 别瞎说。
+  - speaker: CHAR-010
+    line: 我没瞎说——你耳朵都红了。
+  transition_to_next: hard_cut
 - segment_id: EP28-SEG02
-  shot_ids: [EP28-S02]
+  shot_ids:
+  - EP28-S02
   duration_sec: 10
-  speakers: [CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
+  speakers:
+  - CHAR-002
+  - CHAR-010
+  - CHAR-001
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-002-L01
+    - CHAR-010-L01
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 门突然被拍得砰砰响，张大强在外面大喊开门。慧兰和慧芳对视一眼。慧兰放下菜站起来去开门，慧芳说报警吧慧兰说不用——躲不过的。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（放下菜站起来去开门）【图2】张大强 CHAR-002-L01（门外大喊）【图3】林慧芳 CHAR-010-L01（吓了一跳要报警）【图4】林家客厅 SCENE-001。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）中景 固定：图4中图1和图3正笑着。突然门被拍得砰砰响。图2在门外大喊让图1开门。图3吓了一跳压低声音问是不是图2。图1放下菜站起来。图3拉住图1说要报警。图1摇头说不用——躲不过的。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「林慧兰！开门！你给我开门！」
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐夫……不，张大强？」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐我报警吧。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「不用。躲不过的。」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-002-L01
+      role: reference_image
+      label: 图2
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图3
+    - file: SCENE-001
+      role: reference_image
+      label: 图4
   dialogue:
-  - {speaker: CHAR-010, line: 姐我报警吧。}
-  - {speaker: CHAR-001, line: 不用。躲不过的。}
+  - speaker: CHAR-002
+    line: 林慧兰！开门！你给我开门！
+  - speaker: CHAR-010
+    line: 姐夫……不，张大强？
+  - speaker: CHAR-001
+    line: ……
+  - speaker: CHAR-010
+    line: 姐我报警吧。
+  - speaker: CHAR-001
+    line: 不用。躲不过的。
+  transition_to_next: hard_cut
 - segment_id: EP28-SEG03
-  shot_ids: [EP28-S03]
+  shot_ids:
+  - EP28-S03
   duration_sec: 10
-  speakers: [CHAR-001, CHAR-002]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-002-L01, CHAR-001-L01]}
+  speakers:
+  - CHAR-001
+  - CHAR-002
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-002-L01
   assets:
-    look_urls: {CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 慧兰打开门。张大强冲进来劈头盖脸地质问她和李建国的事。慧兰没接他的话，走回客厅坐下平静地说"张大强，你好好说话"。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（打开门平静地问）【图2】张大强 CHAR-002-L01（冲进来脸涨得通红气急败坏）【图3】林家客厅 SCENE-001。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）中景 固定：图3中图1打开门。图2站在门口脸涨得通红。图2冲进来质问图1是不是跟姓李的在公园。图1转身走回客厅坐下背对着图2。图2跟进来气急败坏地追问。图1坐下看着图2让他好好说话。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你又来干什么？」
+      对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「我听说你跟姓李的在公园——」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你听谁说的？」
+      对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你别管我听谁说的！是不是真的？你跟那姓李的——」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「张大强，你好好说话。」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-002-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-002-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-001, line: 你又来干什么？}
-  - {speaker: CHAR-002, line: 我听说你跟姓李的在公园——}
-  - {speaker: CHAR-001, line: 张大强，你好好说话。}
+  - speaker: CHAR-001
+    line: 你又来干什么？
+  - speaker: CHAR-002
+    line: 我听说你跟姓李的在公园——
+  - speaker: CHAR-001
+    line: 你听谁说的？
+  - speaker: CHAR-002
+    line: 你别管我听谁说的！是不是真的？你跟那姓李的——
+  - speaker: CHAR-001
+    line: 张大强，你好好说话。
+  transition_to_next: hard_cut
 - segment_id: EP28-SEG04
-  shot_ids: [EP28-S04]
+  shot_ids:
+  - EP28-S04
   duration_sec: 10
-  speakers: [CHAR-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-002-L01, CHAR-001-L01]}
+  speakers:
+  - CHAR-002
+  - CHAR-001
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-002-L01
   assets:
-    look_urls: {CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 张大强在客厅来回走，指着慧兰说"你是我老婆！离婚还没办完你就在外面找男人！"慧兰平静地反问——离婚是你先提的，协议是你拿出来的，现在你说没办完？
+    text: |
+      【图1】林慧兰 CHAR-001-L01（坐在沙发上平静地看着图2）【图2】张大强 CHAR-002-L01（在客厅来回走指着图1）【图3】林家客厅 SCENE-001。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）近景 固定：图3中图2气得在客厅来回走。图2指着图1说图1是他老婆离婚手续还没办完就在外面找男人。图1平静地说离婚是图2先提出来的——协议是图2拿出来的。图2语塞。图1轻声问图2讲不讲理。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你是我老婆！离婚手续还没办完呢！你就在外面找男人了？」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「离婚是你先提出来的。协议是你拿出来的。现在你跟我说我没办完手续？」
+      对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「那也不行！你——」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「张大强，你讲不讲理？」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-002-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-002-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-002, line: 你是我老婆！离婚手续还没办完呢！你就在外面找男人了？}
-  - {speaker: CHAR-001, line: 离婚是你先提出来的。协议是你拿出来的。现在你跟我说我没办完手续？}
-  - {speaker: CHAR-002, line: 那也不行！你——}
-  - {speaker: CHAR-001, line: 张大强，你讲不讲理？}
+  - speaker: CHAR-002
+    line: 你是我老婆！离婚手续还没办完呢！你就在外面找男人了？
+  - speaker: CHAR-001
+    line: 离婚是你先提出来的。协议是你拿出来的。现在你跟我说我没办完手续？
+  - speaker: CHAR-002
+    line: 那也不行！你——
+  - speaker: CHAR-001
+    line: 张大强，你讲不讲理？
+  transition_to_next: hard_cut
 - segment_id: EP28-SEG05
-  shot_ids: [EP28-S05]
+  shot_ids:
+  - EP28-S05
   duration_sec: 10
-  speakers: [CHAR-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-002-L01, CHAR-001-L01]}
+  speakers:
+  - CHAR-002
+  - CHAR-001
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-002-L01
   assets:
-    look_urls: {CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 张大强咬牙切齿说"你等着我让你净身出户"。慧兰站起来走到他面前看着他的眼睛——一字一句地说出了那句话。张大强愣在原地。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（站起来走到图2面前看着图2的眼睛一字一句）【图2】张大强 CHAR-002-L01（咬牙切齿被看得心虚）【图3】林家客厅 SCENE-001。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）近景 固定：图3中图2咬牙切齿威胁图1说要让图1净身出户。图1站起来走到图2面前。图2被图1看得有些心虚问图1看什么看。图1看着图2的眼睛一字一句地说——即使没有李建国图1也不会再跟图2过日子了——让图2听明白。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你等着，我让你净身出户！」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+      对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你看什么看——」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「张大强。即使没有李建国，我也不会再跟你过日子了。你听明白了吗？」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-002-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-002-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-002, line: 你等着，我让你净身出户！}
-  - {speaker: CHAR-001, line: 张大强。即使没有李建国，我也不会再跟你过日子了。你听明白了吗？}
+  - speaker: CHAR-002
+    line: 你等着，我让你净身出户！
+  - speaker: CHAR-001
+    line: ……
+  - speaker: CHAR-002
+    line: 你看什么看——
+  - speaker: CHAR-001
+    line: 张大强。即使没有李建国，我也不会再跟你过日子了。你听明白了吗？
+  transition_to_next: hard_cut
 - segment_id: EP28-SEG06
-  shot_ids: [EP28-S06]
+  shot_ids:
+  - EP28-S06
   duration_sec: 10
-  speakers: [CHAR-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-002-L01, CHAR-001-L01]}
+  speakers:
+  - CHAR-002
+  - CHAR-001
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-002-L01
   assets:
-    look_urls: {CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 张大强愣在原地——他以为慧兰闹是因为他有外遇是指望他回头。慧兰说不是因为别人是因为你——是因为跟你过的这四十年让我再也不想跟你过了。张大强声音低下去却还在嘴硬。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（退后一步看着图2——说不是因为别人是因为图2）【图2】张大强 CHAR-002-L01（愣在原地声音低下去完全没想到）【图3】林家客厅 SCENE-001。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）近景 固定：图3中图2愣在原地问图1说什么。图1退后一步看着图2——说不是因为别人是因为图2。因为跟图2过的这四十年让图1再也不想跟图2过了。图2声音低下去说图1胡说。图1说没有胡说——是图2一直不明白。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你……你说什么？」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我说——不是因为别人。是因为你。是因为跟你过的这四十年，让我再也不想跟你过了。」
+      对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「你……你胡说什么……」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我没有胡说。是你一直不明白。」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-002-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-002-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-002, line: 你……你说什么？}
-  - {speaker: CHAR-001, line: 我说——不是因为别人。是因为你。是因为跟你过的这四十年，让我再也不想跟你过了。}
-  - {speaker: CHAR-002, line: 你……你胡说什么……}
-  - {speaker: CHAR-001, line: 我没有胡说。是你一直不明白。}
+  - speaker: CHAR-002
+    line: 你……你说什么？
+  - speaker: CHAR-001
+    line: 我说——不是因为别人。是因为你。是因为跟你过的这四十年，让我再也不想跟你过了。
+  - speaker: CHAR-002
+    line: 你……你胡说什么……
+  - speaker: CHAR-001
+    line: 我没有胡说。是你一直不明白。
+  transition_to_next: hard_cut
 - segment_id: EP28-SEG07
-  shot_ids: [EP28-S07]
+  shot_ids:
+  - EP28-S07
   duration_sec: 10
-  speakers: [CHAR-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-002-L01, CHAR-001-L01]}
+  speakers:
+  - CHAR-002
+  - CHAR-001
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-002-L01
   assets:
-    look_urls: {CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 张大强张了几次嘴一个字都说不出来。最后憋出一句"慧兰我们四十年了"。慧兰说正因为四十年了——这四十年你是把我当过老婆还是当保姆？
+    text: |
+      【图1】林慧兰 CHAR-001-L01（看着图2语气里没有恨——致命一问）【图2】张大强 CHAR-002-L01（张了几次嘴一个字都说不出来声音哑了）【图3】林家客厅 SCENE-001。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）中景 固定：图3中图2张了几次嘴一个字都说不出来。图2最后憋出一句话声音都哑了——说图1和图2四十年了。图1看着图2语气里没有恨——说正因为四十年了图1才想明白。图1问图2这四十年是把图1当过老婆还是就当个保姆。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「慧兰……我们四十年了……」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「正因为四十年了——我才想明白了。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「这四十年，你是把我当过老婆，还是把我就当个保姆？」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-002-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-002-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-002, line: 慧兰……我们四十年了……}
-  - {speaker: CHAR-001, line: 正因为四十年了——我才想明白了。}
-  - {speaker: CHAR-001, line: 这四十年，你是把我当过老婆，还是把我就当个保姆？}
+  - speaker: CHAR-002
+    line: 慧兰……我们四十年了……
+  - speaker: CHAR-001
+    line: 正因为四十年了——我才想明白了。
+  - speaker: CHAR-001
+    line: 这四十年，你是把我当过老婆，还是把我就当个保姆？
+  transition_to_next: hard_cut
 - segment_id: EP28-SEG08
-  shot_ids: [EP28-S08]
+  shot_ids:
+  - EP28-S08
   duration_sec: 10
-  speakers: [CHAR-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-002-L01, CHAR-001-L01]}
+  speakers:
+  - CHAR-002
+  - CHAR-001
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-002-L01
+    - CHAR-010-L01
   assets:
-    look_urls: {CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01, CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 张大强彻底哑了——他想反驳但找不到答案。慧兰说"你回去吧以后再闹下去难看的是你自己"。张大强站着没动。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（轻声但坚定让图2回去以后别来了）【图2】张大强 CHAR-002-L01（张着嘴说不出话像被抽掉了所有力气）【图3】林慧芳 CHAR-010-L01（旁边看着眼里有了光）【图4】林家客厅 SCENE-001。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）中景 固定：图4中图2彻底哑了——像被抽掉了所有力气。图3在旁边一直没说话但看着图1的样子眼里有了光。图1轻声但坚定地让图2回去以后别来了。图2站着没动声音涩涩地叫图1的名字。图1说图2现在走还能好好离婚——再闹下去难看的是图2自己。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「我……」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你回去吧。以后别来了。」
+      对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「慧兰……」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你现在走，我们还能好好离婚。你再闹下去——难看的是你自己。」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-002-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-002-L01
+      role: reference_image
+      label: 图2
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图3
+    - file: SCENE-001
+      role: reference_image
+      label: 图4
   dialogue:
-  - {speaker: CHAR-002, line: 我……}
-  - {speaker: CHAR-001, line: 你回去吧。以后别来了。}
-  - {speaker: CHAR-002, line: 慧兰……}
-  - {speaker: CHAR-001, line: 你现在走，我们还能好好离婚。你再闹下去——难看的是你自己。}
+  - speaker: CHAR-002
+    line: 我……
+  - speaker: CHAR-001
+    line: 你回去吧。以后别来了。
+  - speaker: CHAR-002
+    line: 慧兰……
+  - speaker: CHAR-001
+    line: 你现在走，我们还能好好离婚。你再闹下去——难看的是你自己。
+  transition_to_next: hard_cut
 - segment_id: EP28-SEG09
-  shot_ids: [EP28-S09]
+  shot_ids:
+  - EP28-S09
   duration_sec: 10
-  speakers: [CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
+  speakers:
+  - CHAR-010
+  - CHAR-001
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-010-L01
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 张大强转身走了——没有摔门没有骂人安安静静地走了。慧兰坐回沙发上拿起菜手在微微发抖。慧芳说"姐你手在抖"。慧兰说没事，总得有这么一天。四十年了——我总该为自己说句真话了。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（坐回沙发拿起没择完的菜——手在抖但脸上是平静的）【图2】林慧芳 CHAR-010-L01（轻声说图1刚才真厉害）【图3】林家客厅 SCENE-001。
+      竖屏9比16连贯叙事。
+      镜头1（10秒）中景 固定：图3中张大强转身走了没有摔门安安静静地。门关上后客厅里很安静。图2轻声说图1刚才真厉害。图1坐回沙发上拿起刚才没择完的菜——手在微微发抖但脸上是平静的。图2说图1手在抖。图1低头看自己的手说没事总得有这么一天。图1抬起头眼神坚定——说四十年了总该为自己说句真话了。
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐……你刚才真厉害。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「你手在抖。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「没事。总得有这么一天。」
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「四十年了——我总该为自己说句真话了。」
+      画面全程无任何文字、字幕、标题、水印。
+      竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格，竖屏9比16，无品牌 Logo，无平台 UI。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-010, line: 姐……你刚才真厉害。}
-  - {speaker: CHAR-010, line: 你手在抖。}
-  - {speaker: CHAR-001, line: 没事。总得有这么一天。}
-  - {speaker: CHAR-001, line: 四十年了——我总该为自己说句真话了。}
+  - speaker: CHAR-010
+    line: 姐……你刚才真厉害。
+  - speaker: CHAR-001
+    line: ……
+  - speaker: CHAR-010
+    line: 你手在抖。
+  - speaker: CHAR-001
+    line: 没事。总得有这么一天。
+  - speaker: CHAR-001
+    line: 四十年了——我总该为自己说句真话了。
+  transition_to_next: hard_cut

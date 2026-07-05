@@ -1,5 +1,14 @@
-# SOURCE FIDELITY: EP29_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP29/EP29_剧本.md
+# Source shots: 9 (EP29-S01 to EP29-S09)
+# Output shots: 9 (EP29-S01 to EP29-S09)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
 episode_id: EP29
+source_md: 剧本/EP29/EP29_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
@@ -10,161 +19,380 @@ defaults:
   watermark: false
   prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
   negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+
 shots:
 - shot_id: EP29-S01
-  shot_no: 1; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
+  shot_no: 1
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-010-L01
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅·深夜 SCENE-001（只亮了一盏台灯，光线昏黄柔和）【图2】CHAR-001-L01 林慧兰（抱着旧日记本坐在沙发上发呆）。中景：深夜客厅，慧兰抱着日记本发呆。慧芳从卧室出来倒水，看到姐姐还没睡，端了两杯水走过来轻声问候。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（抱着日记本坐在沙发上出神）【图2】林慧芳 CHAR-010-L01（端水走过来轻声问）【图3】林家客厅 SCENE-001。
+      镜头1（10秒）中景 固定：图3中只亮了一盏台灯光线昏黄柔和。图1抱着一个旧日记本坐在沙发上发呆——明天就要开庭了。图2从卧室出来倒水看到图1还没睡就端了两杯水走过来。图2轻声问图1怎么还不睡。图1说睡不着翻翻旧东西。图2坐下问那是什么。图1低头看着封面手指摩挲——说是年轻时候的日记本一直带在身边搬了几次家都没舍得丢。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-010, line: 姐，还不睡？明天要开庭了。}
-  - {speaker: CHAR-001, line: 睡不着。翻翻旧东西。}
-  - {speaker: CHAR-010, line: 那是什么？}
-  - {speaker: CHAR-001, line: 我年轻时候的日记本。}
-  - {speaker: CHAR-010, line: 你结婚这么多年……还留着呢？}
-  - {speaker: CHAR-001, line: 一直带在身边。搬了几次家都没舍得丢。}
+  - speaker: CHAR-010
+    line: 姐，还不睡？明天要开庭了。
+  - speaker: CHAR-001
+    line: 睡不着。翻翻旧东西。
+  - speaker: CHAR-010
+    line: 那是什么？
+  - speaker: CHAR-001
+    line: 我年轻时候的日记本。
+  - speaker: CHAR-010
+    line: 你结婚这么多年……还留着呢？
+  - speaker: CHAR-001
+    line: 一直带在身边。搬了几次家都没舍得丢。
+  transition_to_next: hard_cut
 - shot_id: EP29-S02
-  shot_no: 2; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
+  shot_no: 2
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-010-L01
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰翻开泛黄的日记本第一页）【图2】CHAR-001-L01 林慧兰（轻声读出年轻时写给自己的话——声音有些抖）【图3】CHAR-010-L01 林慧芳（凑过去看——惊讶姐姐年轻时字这么好看）。近景：慧兰翻开日记第一页，泛黄纸页上是她二十出头时工整有力的字迹——写给十年后的自己。慧芳凑过去看说字真好看，慧兰苦笑说现在老了连笔都拿不动了。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（翻开日记第一页轻声读目光温柔）【图2】林慧芳 CHAR-010-L01（凑近看指着照片问）【图3】林家客厅 SCENE-001。
+      镜头1（10秒）近景 固定：图1翻开日记的第一页——泛黄的纸页上是二十出头时的字迹工整有力。图1轻声读出来写给十年后图1自己的话。图2凑过去看图1年轻时字真好看。图1苦笑说年轻时候字多有力现在老了连笔都拿不动了。图2指着夹在日记里的照片问这是不是图1。图1目光温柔地说是二十二岁的时候。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-010-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-001, line: 「十年后的慧兰，你还好吗？你还在跳舞吗？你嫁给那个他了吗？」}
-  - {speaker: CHAR-010, line: 姐，你年轻时字真好看。}
-  - {speaker: CHAR-001, line: 年轻时候……字多有力。你看现在，老了连笔都拿不动了。}
-  - {speaker: CHAR-010, line: 这照片是你？}
-  - {speaker: CHAR-001, line: 嗯。二十二岁的时候。}
+  - speaker: CHAR-001
+    line: 「十年后的慧兰，你还好吗？你还在跳舞吗？你嫁给那个他了吗？」
+  - speaker: CHAR-010
+    line: 姐，你年轻时字真好看。
+  - speaker: CHAR-001
+    line: 年轻时候……字多有力。你看现在，老了连笔都拿不动了。
+  - speaker: CHAR-010
+    line: 这照片是你？
+  - speaker: CHAR-001
+    line: 嗯。二十二岁的时候。
+  transition_to_next: hard_cut
 - shot_id: EP29-S03
-  shot_no: 3; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
+  shot_no: 3
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-010-L01
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰从日记夹层抽出一张泛黄照片）【图2】CHAR-001-L01 林慧兰（看着照片里的自己——表情复杂）【图3】CHAR-010-L01 林慧芳（接过照片——惊讶姐姐年轻时这么好看）。近景：慧兰从日记夹层抽出一张泛黄照片——二十二岁的她穿着舞蹈练功服，笑容灿烂得发光。慧芳惊讶说姐你以前这么好看，笑容跟现在不一样。慧兰苦笑说那时候多傻，以为结婚就是一辈子幸福。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（抽出一张泛黄照片表情复杂）【图2】林慧芳 CHAR-010-L01（接过照片惊讶地看着图1）【图3】林家客厅 SCENE-001。
+      镜头1（10秒）中景 固定：图1从日记的夹层里抽出一张泛黄的照片——照片上是一个二十二岁的姑娘穿着舞蹈练功服身姿挺拔笑容灿烂。图1看着照片里的自己表情复杂。图2接过照片惊讶地说图1以前这么好看这笑容跟现在完全不一样。图1轻声说那时候多傻以为结婚就是一辈子幸福。图2看看照片又看看图1——叫了一声姐。图1把照片放回去说后来就不傻了。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-010-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-001, line: 你看——这是我二十二岁，在舞蹈学校当老师的时候。}
-  - {speaker: CHAR-010, line: 姐……你以前这么好看。这笑容，跟现在完全不一样。}
-  - {speaker: CHAR-001, line: 那时候多傻。以为结婚就是一辈子幸福。}
-  - {speaker: CHAR-010, line: 姐……}
-  - {speaker: CHAR-001, line: 后来——就不傻了。}
+  - speaker: CHAR-001
+    line: 你看——这是我二十二岁，在舞蹈学校当老师的时候。
+  - speaker: CHAR-010
+    line: 姐……你以前这么好看。这笑容，跟现在完全不一样。
+  - speaker: CHAR-001
+    line: 那时候多傻。以为结婚就是一辈子幸福。
+  - speaker: CHAR-010
+    line: 姐……
+  - speaker: CHAR-001
+    line: 后来——就不傻了。
+  transition_to_next: hard_cut
 - shot_id: EP29-S04
-  shot_no: 4; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
+  shot_no: 4
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-010-L01
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰翻到日记中间部分——说起当年省里舞蹈进修的事）【图2】CHAR-001-L01 林慧兰（摇头说没去成——张大清说女人要以家庭为重）【图3】CHAR-010-L01 林慧芳（沉默着听——眼神复杂）。近景：慧兰翻到日记中间说起省里进修的机会——舞蹈学校都联系好了，张大强说女人结了婚要以家庭为重。她放弃了。慧芳沉默。慧兰说一次机会一辈子就没了——声音轻得像在说别人。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（翻到日记中间部分顿了顿说起省里舞蹈进修的事）【图2】林慧芳 CHAR-010-L01（沉默着听）【图3】林家客厅 SCENE-001。
+      镜头1（10秒）近景 固定：图1翻到日记的中间部分顿了顿。图1说起当年有一个去省城进修跳舞的机会——舞蹈学校都联系好了但张大强说女人结了婚要以家庭为重。图2问图1去成了吗。图1摇头说没去。图2沉默片刻问图1就没坚持。图1看着纸页声音轻得像在说别人——说坚持了但图2说图1一个有老公的人跑出去跳什么舞然后图1就把名额让了。图1合了一下眼睛说一次机会一辈子就没了。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-010-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-001, line: 这里记的是……当年省里舞蹈进修的事。}
-  - {speaker: CHAR-010, line: 你去成了吗？}
-  - {speaker: CHAR-001, line: 没去。张大强说——女人结了婚，要以家庭为重。}
-  - {speaker: CHAR-010, line: 你就没坚持？}
-  - {speaker: CHAR-001, line: 坚持了。但他说——你一个有老公的人，跑出去跳什么舞。然后我就……把名额让了。}
-  - {speaker: CHAR-001, line: 一次机会，一辈子就没了。}
+  - speaker: CHAR-001
+    line: 这里记的是……当年省里舞蹈进修的事。
+  - speaker: CHAR-010
+    line: 你去成了吗？
+  - speaker: CHAR-001
+    line: 没去。张大强说——女人结了婚，要以家庭为重。
+  - speaker: CHAR-010
+    line: 你就没坚持？
+  - speaker: CHAR-001
+    line: 坚持了。但他说——你一个有老公的人，跑出去跳什么舞。然后我就……把名额让了。
+  - speaker: CHAR-001
+    line: 一次机会，一辈子就没了。
+  transition_to_next: hard_cut
 - shot_id: EP29-S05
-  shot_no: 5; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
+  shot_no: 5
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-010-L01
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰一页一页翻日记——记录的全是别人）【图2】CHAR-001-L01 林慧兰（边翻边回忆——手停住了）【图3】CHAR-010-L01 林慧芳（忍不住问——你的日记里怎么全是别人你自己呢）。近景：慧兰一页页翻过去——日记里全是别人：怀张明时买酸菜鱼、五点半起来做饭、张蕾出生时张大强说"又是女儿"。慧芳突然问——你的日记里怎么全是别人，你自己呢？慧兰翻页的手停住了。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（一页一页翻过去越翻越快——说的全是别人）【图2】林慧芳 CHAR-010-L01（看着图1突然问了一句让图1愣住的话）【图3】林家客厅 SCENE-001。
+      镜头1（10秒）中景 固定：图1一页一页翻过去——日记里记录的全是别人。图1说这一页怀张明的时候张大强想吃酸菜鱼图1去菜市场走了一小时。图1翻下一页说张明上小学图1每天五点半起来做饭。图1再翻说这一页张蕾出生那天张大强在医院说又是女儿。图2忍不住叫了一声姐。图2看着图1认真地问图1的日记里怎么全是别人——图1自己呢。图1翻页的手停住了——愣住了张了张嘴。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-010-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-001, line: 这一页——怀张明的时候。张大强说想吃酸菜鱼，我去菜市场走了一个小时。}
-  - {speaker: CHAR-001, line: 这一页——张明上小学。我每天五点半起来做饭。}
-  - {speaker: CHAR-001, line: 这一页……张蕾出生那天。张大强在医院说——「又是女儿」。}
-  - {speaker: CHAR-010, line: 姐——}
-  - {speaker: CHAR-010, line: 你的日记里，怎么全是别人？你自己呢？}
-  - [慧兰翻页的手停住了——张了张嘴，说不出话]
+  - speaker: CHAR-001
+    line: 这一页——怀张明的时候。张大强说想吃酸菜鱼，我去菜市场走了一个小时。
+  - speaker: CHAR-001
+    line: 这一页——张明上小学。我每天五点半起来做饭。
+  - speaker: CHAR-001
+    line: 这一页……张蕾出生那天。张大强在医院说——「又是女儿」。
+  - speaker: CHAR-010
+    line: 姐——
+  - speaker: CHAR-010
+    line: 你的日记里，怎么全是别人？你自己呢？
+  - speaker: CHAR-001
+    line: ……
+  transition_to_next: hard_cut
 - shot_id: EP29-S06
-  shot_no: 6; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
+  shot_no: 6
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-010-L01
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰沉默地翻到日记最后一页——结婚前一天写的两行字）【图2】CHAR-001-L01 林慧兰（眼泪掉下来——不是委屈是替二十岁的自己不值）。特写：慧兰沉默了很久。她翻到日记最后一页——结婚前一天写的"希望我的选择是对的。希望他值得"。她看着这行字眼泪终于掉下来——那个二十岁的姑娘，哪里知道这条路一走就是四十年。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（翻到最后一页手指抚过那行字眼泪掉下来）【图2】林慧芳 CHAR-010-L02（凑近看轻声念握着图1的手）【图3】林家客厅 SCENE-001。
+      镜头1（10秒）近景 固定：图1沉默了很久慢慢翻到日记的最后一页——那是图1结婚前一天晚上写的短短两行字。图2凑近看轻声念出来。图1眼泪掉下来没有声音——说图1写这行字的时候才二十岁。图2握着图1的手叫了一声姐。图1流着泪说图1怎么知道选的路要走四十年。图1擦了擦眼泪努力笑了一下说明天就该有个答案了。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-010, line: 「希望我的选择是对的。希望他值得。」}
-  - {speaker: CHAR-001, line: 她写这行字的时候……才二十岁。}
-  - {speaker: CHAR-001, line: 她怎么知道——她选的路……要走四十年。}
-  - {speaker: CHAR-001, line: 明天——就该有个答案了。}
+  - speaker: CHAR-001
+    line: ……
+  - speaker: CHAR-010
+    line: 「希望我的选择是对的。希望他值得。」
+  - speaker: CHAR-001
+    line: 她写这行字的时候……才二十岁。
+  - speaker: CHAR-010
+    line: 姐……
+  - speaker: CHAR-001
+    line: 她怎么知道——她选的路……要走四十年。
+  - speaker: CHAR-001
+    line: 明天——就该有个答案了。
+  transition_to_next: hard_cut
 - shot_id: EP29-S07
-  shot_no: 7; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
+  shot_no: 7
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-010-L01
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧芳也哭了——问姐明天上法庭怕不怕）【图2】CHAR-001-L01 林慧兰（擦干眼泪看着慧芳——一点都不怕）【图3】CHAR-010-L01 林慧芳（不放心地追问）。近景：慧芳也哭了，问姐明天上法庭怕不怕。慧兰擦干眼泪说一点都不怕——不是去求什么的，是替二十岁的自己去要一个答案，去问问她花了四十年值不值得。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（擦干眼泪看着图2坚定地说不怕）【图2】林慧芳 CHAR-010-L01（擦眼睛问图1怕不怕）【图3】林家客厅 SCENE-001。
+      镜头1（10秒）近景 固定：图2也哭了擦了擦眼睛。图2问图1明天上法庭怕不怕。图1擦干眼泪看着图2说不怕。图2不信问真的。图1点头坚定地说真的——图1不是去求什么的。图1说是去替二十岁的那个自己——去要一个答案。图1说是替她问问她花了四十年值不值得。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-010-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-010, line: 姐，明天上法庭……你怕不怕？}
-  - {speaker: CHAR-001, line: 不怕。}
-  - {speaker: CHAR-010, line: 真的？}
-  - {speaker: CHAR-001, line: 真的。我不是去求什么的。}
-  - {speaker: CHAR-001, line: 我是去替二十岁的那个我——去要一个答案。}
-  - {speaker: CHAR-001, line: 是替她问问——她花了四十年，值不值得。}
+  - speaker: CHAR-010
+    line: 姐，明天上法庭……你怕不怕？
+  - speaker: CHAR-001
+    line: 不怕。
+  - speaker: CHAR-010
+    line: 真的？
+  - speaker: CHAR-001
+    line: 真的。我不是去求什么的。
+  - speaker: CHAR-001
+    line: 我是去替二十岁的那个我——去要一个答案。
+  - speaker: CHAR-001
+    line: 是替她问问——她花了四十年，值不值得。
+  transition_to_next: hard_cut
 - shot_id: EP29-S08
-  shot_no: 8; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
+  shot_no: 8
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-010-L01
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰站起来走到书桌前翻开日记最后一页拿起笔）【图2】CHAR-001-L01 林慧兰（背影——一笔一划地写，每一个字都用尽全力）。中景：慧兰站起来拿着日记本走到书桌前，翻开最后一面空白纸，拿起笔。慧芳在后面看着她的背影问姐你写什么。慧兰没回头——笔尖划过纸面，她在写。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（站起来走到书桌前拿起笔——没回头）【图2】林慧芳 CHAR-010-L01（在后面看着图1的背影）【图3】林家客厅 SCENE-001。
+      镜头1（10秒）中景 固定：图1站起来拿着日记本走到书桌前翻开最后一面空白纸页拿起笔。图2在后面看着图1的背影。图2问图1写什么。图1没回头握着笔说写给图1的第二次人生。笔尖划过纸面的沙沙声在安静的客厅里响着。图2轻声沉默。图1写完看着纸上的字自言自语说这一次不为别人写了。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-010, line: 姐，你写什么？}
-  - {speaker: CHAR-001, line: 写给我的第二次人生。}
-  - {speaker: CHAR-001, line: 这一次——不为别人写了。}
+  - speaker: CHAR-010
+    line: 姐，你写什么？
+  - speaker: CHAR-001
+    line: 写给我的第二次人生。
+  - speaker: CHAR-010
+    line: ……
+  - speaker: CHAR-001
+    line: 这一次——不为别人写了。
+  transition_to_next: hard_cut
 - shot_id: EP29-S09
-  shot_no: 9; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
+  shot_no: 9
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-001
+    look_ids:
+    - CHAR-001-L01
+    - CHAR-010-L01
   assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰放下笔站起来走到窗边看着窗外夜色）【图2】CHAR-001-L01 林慧兰（背影——腰背挺直，嘴角有一丝笑意）。近景：日记本上"这是我的第二次人生"——字迹有力。慧兰放下笔站起来走到窗边，看着城市灯火。慧芳说姐你背影从来没这么直过。慧兰没回头但嘴角有了笑意——因为我终于，在为自己活了。
+    text: |
+      【图1】林慧兰 CHAR-001-L01（放下笔站起来走到窗边——背影从来没有这么直过）【图2】林慧芳 CHAR-010-L01（在后面看着图1的背影轻声说）【图3】林家客厅 SCENE-001。
+      镜头1（10秒）中景 固定：特写日记本最后一页的空白处一行字赫然在目——"这是我的第二次人生"。字迹有力完全不像一个六十岁老人写的。图1放下笔站起来走到窗边。窗外夜色中城市灯火星星点点。图2在后面看着图1的背影轻声说图1的背影从来没这么直过。图1没回头但嘴角有了一点点笑意——说因为图1终于——在为自己活了。
     content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
+    - file: CHAR-001-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-001, line: 明天——就是新的一天了。}
-  - {speaker: CHAR-010, line: 你的背影……从来没这么直过。}
-  - {speaker: CHAR-001, line: 因为我终于——在为自己活了。}
+  - speaker: CHAR-001
+    line: ……
+  - speaker: CHAR-001
+    line: 明天——就是新的一天了。
+  - speaker: CHAR-010
+    line: 你的背影……从来没这么直过。
+  - speaker: CHAR-001
+    line: 因为我终于——在为自己活了。
+  transition_to_next: hard_cut

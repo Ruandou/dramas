@@ -5,15 +5,22 @@ defaults:
   model: doubao-seedance-2-0-fast
   ratio: '9:16'
   resolution: 720p
-  duration: 5
-  generate_audio: false
+  generate_audio: true
   watermark: false
   prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+  prompt_suffix_silent: 本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
   negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声，略带沧桑感，收到传票时声音从颤抖到平静再到冷笑；打电话给律师时笃定从容；安慰妹妹时温柔有力
-  CHAR-010: 沙哑疲倦的中年女声，音色偏暗，紧张时语速加快、音调升高；被姐姐安慰后渐渐平静
-  CHAR-005: 年轻的职场女声，语速快，电话里焦急暴躁；但带着对母亲的关心，音色明亮
+  CHAR-001: 温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音
+  CHAR-002: 低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音
+  CHAR-003: 普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准
+  CHAR-004: 尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准
+  CHAR-005: 干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准
+  CHAR-006: 温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准
+  CHAR-007: 爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音
+  CHAR-008: 清脆童声，天真烂漫，语速偏快，偶尔咬字不清
+  CHAR-010: 沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音
+  CHAR-GRP-002: 阴阳怪气的中老年声音，压低嗓门说闲话的语气
 segments:
 - segment_id: EP18-SEG01
   shot_ids:
@@ -23,28 +30,41 @@ segments:
   - CHAR-001
   refs:
     scene_id: SCENE-001
-    look_ids: []
   assets:
-    look_urls: {}
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（星期六早晨，阳光透过阳台洒进来。门铃响，慧兰去开门）。中景：慧兰开门，门外站着西装年轻人递来牛皮纸信封。她签收后关上门，低头看着信封。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定镜头：林家客厅星期六早晨。图1在阳台浇花——窗台上的绿植长势正好，水珠在叶片上滚动。门铃响了——她放下水壶去开门，顺手在围裙上擦了擦手。门外站着一个穿西装的年轻人，手里拿着牛皮纸信封。礼貌但公事公办。阳光从门口照进来，在信封上投下锐利的影子。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（[待补：律师助理]）：「请问是林慧兰女士吗？这是法院送达的诉讼材料，请您签收。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「法院的？谁告的？」
+
+      对白（[待补：律师助理]）：「起诉人是张大强先生。请您在这签字。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「好。谢谢你。」
+
+      对白（[待补：律师助理]）：「不客气。祝您…顺利。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
-  dialogue:
-  - speaker: EXTRA
-    line: 请问是林慧兰女士吗？这是法院送达的诉讼材料，请您签收。
-  - speaker: CHAR-001
-    line: 法院的？谁告的？
-  - speaker: EXTRA
-    line: 起诉人是张大强先生。请您在这签字。
-  - speaker: CHAR-001
-    line: 好。谢谢你。
-  - speaker: EXTRA
-    line: 不客气。祝您…顺利。
+    - file: SCENE-001
+      role: reference_image
+      label: 图2
+  transition_to_next: hard_cut
 - segment_id: EP18-SEG02
   shot_ids:
   - EP18-S02
@@ -53,29 +73,37 @@ segments:
   - CHAR-001
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001门口（慧兰背靠着门站着，手里拿着牛皮纸信封）【图2】CHAR-001-L01 林慧兰（拆开信封，目光停在起诉状上，表情从震惊变成冷笑）。特写→近景：慧兰抽出文件看到「民事起诉状」「分割夫妻共同财产」一行字，手指停在上面，指节发白。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头2（10秒）近景 固定镜头：关上门。图1背靠着门站着低头看手里的牛皮纸信封。她深吸一口气——胸口起伏了一下，然后拆开封口。她抽出里面的文件，一眼看到民事起诉状几个字。起诉人：张大强。她的目光扫过分割夫妻共同财产一行字——手指停在上面，指节微微发白。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「张大强……你还真干得出来。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「分割夫妻共同财产。呵，你想分割什么？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「房子？存款？还是我这四十年的青春？」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: SCENE-001
+      role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-001
-    line: 张大强……你还真干得出来。
-  - speaker: CHAR-001
-    line: 分割夫妻共同财产。呵，你想分割什么？
-  - speaker: CHAR-001
-    line: 房子？存款？还是我这四十年的青春？
+  transition_to_next: hard_cut
 - segment_id: EP18-SEG03
   shot_ids:
   - EP18-S03
@@ -84,29 +112,37 @@ segments:
   - CHAR-001
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001沙发区域（午前光线，安静）【图2】CHAR-001-L01 林慧兰（坐在沙发上放下文件，冷笑着站起来，手没有抖）。中景→近景：慧兰把文件从头看到尾，表情从震惊变成冷笑。放下文件，沉默片刻，然后站起来去找手机。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头3（10秒）中景 固定镜头：图1走到沙发边坐下把文件从头到尾看了一遍——每翻一页她的表情从震惊慢慢变成冷笑。放下文件后她沉默了几秒，手放在膝盖上用力攥了一下又松开——像在完成一个仪式。站起来去找手机——手没有抖。窗外的阳光照在茶几上，起诉状摊开着。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「张大强啊张大强，你还真是一点亏都不肯吃。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我在那个家当牛做马四十年。你现在想起来要分财产了？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「行。你要打官司。我奉陪到底。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: SCENE-001
+      role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-001
-    line: 张大强啊张大强，你还真是一点亏都不肯吃。
-  - speaker: CHAR-001
-    line: 我在那个家当牛做马四十年。你现在想起来要分财产了？
-  - speaker: CHAR-001
-    line: 行。你要打官司。我奉陪到底。
+  transition_to_next: hard_cut
 - segment_id: EP18-SEG04
   shot_ids:
   - EP18-S04
@@ -115,119 +151,141 @@ segments:
   - CHAR-001
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（窗前，慧兰拿着手机看窗外，阳光照在她脸上）【图2】CHAR-001-L01 林慧兰（打电话时表情从紧张到笃定，声音平静）。中景：慧兰拨通张律师的电话。等待时看了一眼窗外的好阳光。电话接通后她定了定神，声音平静笃定。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头4（10秒）近景 固定镜头：图1拨通了张律师的电话。等待接通的时候她看了一眼窗外——阳光很好，绿植的叶子在微风里轻轻晃动。电话接通了，她定了定神，声音平静得像在聊家常。她需要律师帮她准备应诉——但语气里没有慌张，只有笃定。她把起诉状上的条款一条一条念给律师听。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「张律师您好。我是林慧兰。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「对，我收到传票了。他起诉了——要求分割财产。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「房子，存款，他列了一堆。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「他说房子首付是他出的。但婚后我们一起还的贷。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「嗯，我这边也准备好了。您方便的话我们见一面，把证据整理一下。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: SCENE-001
+      role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-001
-    line: 张律师您好。我是林慧兰。
-  - speaker: CHAR-001
-    line: 对，我收到传票了。他起诉了——要求分割财产。
-  - speaker: CHAR-001
-    line: 房子，存款，他列了一堆。
-  - speaker: CHAR-001
-    line: 他说房子首付是他出的。但婚后我们一起还的贷。
-  - speaker: CHAR-001
-    line: 嗯，我这边也准备好了。您方便的话我们见一面，把证据整理一下。
+  transition_to_next: hard_cut
 - segment_id: EP18-SEG05
   shot_ids:
   - EP18-S05
   duration_sec: 10
   speakers:
-  - CHAR-010
   - CHAR-001
+  - CHAR-010
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
-    - CHAR-010-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰坐在沙发上，茶几上放着文件）【图2】CHAR-001-L01 林慧兰（抬头看妹妹，努力笑了一下）【图3】CHAR-010-L01 林慧芳（放下菜篮走过来，一脸担心）。中景：慧芳买菜回来看到茶几上的法院文件，放下菜走过来。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头5（10秒）中景 固定镜头：图1挂掉电话坐在沙发上把传票又翻了一遍。门开了——图2买菜回来，手里拎着塑料袋。她看到图1的表情和茶几上的文件，放下菜篮走过来。塑料袋落在茶几边上发出窸窣声。图1抬起头，努力笑了一下。图2的眼神落在起诉两个字上。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐？这是什么？法院的？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「张大强起诉了。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「他……他真告了？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「嗯，要分房子。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「那房子有你一半啊！凭什么他告！」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你放心，姐心里有数。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-010-L01
       role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-010
-    line: 姐？这是什么？法院的？
-  - speaker: CHAR-001
-    line: 张大强起诉了。
-  - speaker: CHAR-010
-    line: 他……他真告了？
-  - speaker: CHAR-001
-    line: 嗯，要分房子。
-  - speaker: CHAR-010
-    line: 那房子有你一半啊！凭什么他告！
-  - speaker: CHAR-001
-    line: 你放心，姐心里有数。
+  transition_to_next: hard_cut
 - segment_id: EP18-SEG06
   shot_ids:
   - EP18-S06
   duration_sec: 10
   speakers:
-  - CHAR-010
   - CHAR-001
+  - CHAR-010
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-010-L01
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001沙发（慧芳拿着传票手在抖）【图2】CHAR-010-L01 林慧芳（看着传票紧张害怕）【图3】CHAR-001-L01 林慧兰（握住妹妹的手，笑着安慰她）。近景：慧芳拿起传票手抖得厉害。慧兰握住妹妹的手安慰——自己的事还没慌，先安慰起妹妹来。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头6（10秒）近景 固定镜头：图2坐到图1旁边拿起传票看了一遍。她比图1还紧张。图1感觉到了图2的紧张，反过来握住她的手安慰她。两只手叠在一起——一只粗糙有力，一只微微颤抖。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐，打官司……我听着就怕。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你怕什么？又不是你打官司。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「可是万一他找人、找关系……」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「现在是法治社会。他找谁都没用。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐你真的不怕？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「怕什么？我在那个家做了四十年家务。法律规定——家庭劳动也是贡献。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
     - file: CHAR-010-L01
       role: reference_image
       label: 图2
-    - file: CHAR-001-L01
+    - file: SCENE-001
       role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-010
-    line: 姐，打官司……我听着就怕。
-  - speaker: CHAR-001
-    line: 你怕什么？又不是你打官司。
-  - speaker: CHAR-010
-    line: 可是万一他找人、找关系……
-  - speaker: CHAR-001
-    line: 现在是法治社会。他找谁都没用。
-  - speaker: CHAR-010
-    line: 姐你真的不怕？
-  - speaker: CHAR-001
-    line: 怕什么？我在那个家做了四十年家务。法律规定——家庭劳动也是贡献。
+  transition_to_next: hard_cut
 - segment_id: EP18-SEG07
   shot_ids:
   - EP18-S07
@@ -237,35 +295,47 @@ segments:
   - CHAR-010
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰握着慧芳的手，平静而坚定）【图2】CHAR-001-L01 林慧兰（语气平稳，但每一句都掷地有声）。近景：慧兰握着妹妹的手细数这四十年的账——语气平淡，但字字沉重。慧芳听得眼眶红了。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头7（10秒）近景 固定镜头：图1握着图2的手语气平静但每一句都掷地有声。四十年的账——她一笔一笔都记着。图2的眼眶红了。茶几上的起诉状在阳光下泛着冷白的光。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「房子是婚后买的，首付有一半是我的公积金。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「月供是我在还。他的工资还他自己的房贷——他的房写的是他一个人的名。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我的工资呢？养孩子、买菜、交学费、给你孙子买衣服。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你知道这四十年我攒下了什么吗？一屋子用不上的破烂，和一身的病。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐……」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「但现在不一样了。法律认这笔账。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-001
-    line: 房子是婚后买的，首付有一半是我的公积金。
-  - speaker: CHAR-001
-    line: 月供是我在还。他的工资还他自己的房贷——他的房写的是他一个人的名。
-  - speaker: CHAR-001
-    line: 我的工资呢？养孩子、买菜、交学费、给你孙子买衣服。
-  - speaker: CHAR-001
-    line: 你知道这四十年我攒下了什么吗？一屋子用不上的破烂，和一身的病。
-  - speaker: CHAR-010
-    line: 姐……
-  - speaker: CHAR-001
-    line: 但现在不一样了。法律认这笔账。
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP18-SEG08
   shot_ids:
   - EP18-S08
@@ -275,35 +345,43 @@ segments:
   - CHAR-005
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰接电话，表情平静但声音逐渐沉下来）【图2】CHAR-001-L01 林慧兰（听女儿说完才开口，不急不躁）。中景：手机响了是张蕾。慧兰接起来听女儿焦急地说完——不急不躁，但最后一句声音沉得让人心疼。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头8（10秒）近景 固定镜头：手机响了——屏幕上显示蕾蕾。图1接起来，电话那头女儿的声音又急又高。图1听女儿说完，不急不躁。她握着手机的手稳定如初，但眼睛里有一闪而过的疲惫。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈！我爸说你起诉他了？！」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「是他起诉我。」
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「不管谁起诉！你们真要上法庭？！一家人打官司——你不嫌丢人吗！」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「丢人的不是我。是他。」
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈！你就不能忍忍吗？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「蕾蕾，妈妈忍了四十年了。不忍了。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: SCENE-001
+      role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-005
-    line: 妈！我爸说你起诉他了？！
-  - speaker: CHAR-001
-    line: 是他起诉我。
-  - speaker: CHAR-005
-    line: 不管谁起诉！你们真要上法庭？！一家人打官司——你不嫌丢人吗！
-  - speaker: CHAR-001
-    line: 丢人的不是我。是他。
-  - speaker: CHAR-005
-    line: 妈！你就不能忍忍吗？
-  - speaker: CHAR-001
-    line: 蕾蕾，妈妈忍了四十年了。不忍了。
+  transition_to_next: hard_cut
 - segment_id: EP18-SEG09
   shot_ids:
   - EP18-S09
@@ -313,37 +391,44 @@ segments:
   - CHAR-010
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
-    - CHAR-010-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰把传票折好放进抽屉，站起来拍拍衣服）【图2】CHAR-001-L01 林慧兰（转过来笑了，系上围裙）【图3】CHAR-010-L01 林慧芳（擦了擦眼睛跟着笑了）。近景→远景：慧兰把传票折好放进抽屉，就像完成一件日常琐事。然后问慧芳晚饭想吃什么——日子照过。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头9（10秒）中景 固定镜头：图1挂掉电话安静了几秒。图2担心地看着她。图1的目光落在茶几上的传票上——她伸手拿起来，认认真真折好，放进了抽屉里。然后站起来拍拍衣服——好像完成了一件日常琐事。她转头问图2晚饭想吃什么——日子照过。图2愣了一下，然后破涕为笑。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「四十年。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐，你真撑得住吗？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「撑得住。四十年都过来了，还怕打一场官司？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「好了，不说这些了。今晚想吃什么？姐给你做。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「糖醋排骨。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「行，就做糖醋排骨。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-010-L01
       role: reference_image
+      label: 图2
+    - file: SCENE-001
+      role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-001
-    line: 四十年。
-  - speaker: CHAR-010
-    line: 姐，你真撑得住吗？
-  - speaker: CHAR-001
-    line: 撑得住。四十年都过来了，还怕打一场官司？
-  - speaker: CHAR-001
-    line: 好了，不说这些了。今晚想吃什么？姐给你做。
-  - speaker: CHAR-010
-    line: 糖醋排骨。
-  - speaker: CHAR-001
-    line: 行，就做糖醋排骨。
+  transition_to_next: hard_cut

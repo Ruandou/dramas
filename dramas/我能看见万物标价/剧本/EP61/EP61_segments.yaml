@@ -1,0 +1,279 @@
+# ⚠️ SEMANTIC_WARNING: SCENE-010 defined as "监狱探视室" in 场景卡片.md but EP61 uses it as "医院病房"
+# (user explicitly confirmed SCENE-010 reuse; visual prompt describes hospital environment)
+
+episode_id: EP61
+source_md: 剧本/EP61/EP61_秦老的最后一课.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+voice_prompts:
+  CHAR-001: "Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones"
+  CHAR-004: "Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal"
+
+segments:
+  - segment_id: EP61-SEG01
+    shot_ids: [EP61-S01]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-004-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L02.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长大衣+深色高领毛衣）【图2】秦老 CHAR-004-L02（深色中式立领外套）【图3】医院病房 SCENE-010。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）中景 固定：病房门被推开，走廊日光灯白光切入昏暗病房，图1站在门口，黑色长大衣下摆因急促步伐还在微微摆动，窗帘半掩，午后自然光透过缝隙在地板上投下一道长条，图2半靠病床，银白头发稀疏，床头柜放着凉茶和药片，看见图1眼中没有意外浮起淡淡笑意。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「陈雅琳分手——是你安排的。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市医院病房环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP61-SEG02
+    shot_ids: [EP61-S02]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-004-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L02.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长大衣+深色高领毛衣）【图2】秦老 CHAR-004-L02（深色中式立领外套）【图3】医院病房 SCENE-010。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）近景 固定：图2把折扇放在被子上，手指关节突出青筋盘成淡蓝色的网，没有回避图1目光，薄唇微动，窗帘缝隙光落在半边脸上皱纹阴影把面容分成明暗两半，床头监护仪发出缓慢规律的嘀声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「你来了。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「你承认了？」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「承认了。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「什么时候？」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「从第一天。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市医院病房环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP61-SEG03
+    shot_ids: [EP61-S03]
+    duration_sec: 12
+    speakers: [CHAR-004]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-004-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L02.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长大衣+深色高领毛衣）【图2】秦老 CHAR-004-L02（深色中式立领外套）【图3】医院病房 SCENE-010。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）近景 固定：图2目光移向窗帘缝隙透进来的光，细长眼里冰冷精确开始松动像冰面下有水在流，声音没有变快但每个字落得更重，图1站在床尾没有坐下，黑色大衣在日光灯和自然光交汇处形成不动的暗影，床头柜凉茶水面上映着天花板的白。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「你需要跌到最低。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「才能与碎片共鸣。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「一个幸福的人——不会在意一块碎玉。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市医院病房环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP61-SEG04
+    shot_ids: [EP61-S04]
+    duration_sec: 9
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-004-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L02.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长大衣+深色高领毛衣）【图2】秦老 CHAR-004-L02（深色中式立领外套）【图3】医院病房 SCENE-010。
+        竖屏9比16连贯叙事。
+        镜头1（9秒）中景 固定：图1向前迈了一步皮鞋踩在灰色地砖上发出闷响，拳头在大衣口袋里收紧又松开指节隔着布料顶出弧度，图2半靠枕头不退，目光中冰冷正在一层层剥落，窗帘缝隙光移了一寸落在两人中间空地上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「所以我该谢你？」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「不。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「但你现在拥有的一切——都从那块碎玉开始。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市医院病房环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP61-SEG05
+    shot_ids: [EP61-S05, EP61-S06]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-004-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L02.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长大衣+深色高领毛衣）【图2】秦老 CHAR-004-L02（深色中式立领外套）【图3】医院病房 SCENE-010。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1的脸占满竖屏，浓眉下深色瞳孔翻涌着复杂情绪，下颌线收紧又松开，窗帘光打在半边脸颊暖黄和冷白在鼻梁处划出分界线，缓缓呼出一口气肩膀微塌。
+        镜头2（6秒）近景 固定：图2的手在被子上缓缓收拢关节发出细微咔嗒声，看着图1眼中冰冷完全褪去露出沉淀多年的柔软，监护仪嘀声在沉默中清晰可闻。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「你把我当实验品。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「当你的棋子。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「结果证明——我选对了。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「你有爱人，有事业，有看透万物的眼睛。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市医院病房环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP61-SEG06
+    shot_ids: [EP61-S07]
+    duration_sec: 11
+    speakers: [CHAR-004]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-004-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L02.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-010.png
+      prop_urls:
+        PROP-008: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-008.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长大衣+深色高领毛衣）【图2】秦老 CHAR-004-L02（深色中式立领外套）【图3】医院病房 SCENE-010【图4】笔记本 PROP-008。
+        道具：泛黄牛皮纸封面笔记本（A5大小，封面磨损起毛边角卷曲，手写字迹褪成淡灰色），记录四十年研究。
+        角色分工：仅图2可触碰并递出笔记本；图1双手不触碰任何物品。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）中景 缓推：图2从枕边摸出泛黄牛皮纸笔记本，封面磨损起毛边角卷曲，用双手捧着像捧易碎瓷器缓缓向图1方向递出，图1站在原地没动目光落在笔记本上，封面手写毛笔字迹褪成淡灰色，病房里只有监护仪嘀声和窗外远处城市车流声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「我做了很多错事。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「但有一件事——我做对了。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「我选中了你。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市医院病房环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+        - { file: PROP-008, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP61-SEG07
+    shot_ids: [EP61-S08, EP61-S09]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-004-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L02.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-010.png
+      prop_urls:
+        PROP-008: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-008.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长大衣+深色高领毛衣）【图2】秦老 CHAR-004-L02（深色中式立领外套）【图3】医院病房 SCENE-010【图4】笔记本 PROP-008。
+        道具：泛黄牛皮纸封面笔记本（A5大小，内页夹干枯银杏叶书签，手绘符号和批注），记录四十年研究。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 固定：笔记本在图2手中微微颤动是老人手臂力量不济，牛皮纸封面字迹在自然光下隐约可辨，页边泛黄卷曲内页夹着干枯银杏叶，图1终于伸出手指节分明的大手覆上笔记本另一端，两双手隔着一本牛皮纸本子连接在一起。
+        镜头2（5秒）近景 固定：图1接过笔记本手掌覆在牛皮纸封面上感受纸页间残留体温，低头翻开第一页泛黄纸上手绘密麻符号和批注墨迹深浅不一，有年轻时力透纸背的笔锋也有年老后微颤线条，窗帘缝隙光恰好落在纸面上照亮一个圆形阵法草图。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「我的遗产。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「不是因为我要死了。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「是你比我更配拥有这些知识。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「……四十年。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「我收下了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市医院病房环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+        - { file: PROP-008, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP61-SEG08
+    shot_ids: [EP61-S10, EP61-S11]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-004-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-004-L02.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-010.png
+      prop_urls:
+        PROP-008: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-008.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长大衣+深色高领毛衣）【图2】秦老 CHAR-004-L02（深色中式立领外套）【图3】医院病房 SCENE-010【图4】笔记本 PROP-008。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图2靠回枕头银白头发散在白色枕套上像霜落在雪上，呼吸比之前重了但眼中有完成任务后的松弛，窗帘光已移到脸另一侧，图1站在床边怀里抱着笔记本黑色大衣在暖光中轮廓柔和。
+        镜头2（6秒）中景 固定：图2微微抬起一只手手指在空中停了一下像在描画看不见的轮廓，自然光和日光灯在手指间交汇达到奇异平衡，图1低头看手中笔记本又抬头看向图2目光中愤怒已消退取而代之是沉甸甸的重量，窗外远处传来汽车喇叭声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「还有一件事。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「碎片地图——已经被公开出售了。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「……什么？」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「全世界都会知道碎片的存在。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「你要准备——不是去收集碎片。」
+        对白（秦老，Male, 65 years old, warm and gentle tone with scholarly depth, slow deliberate pace, occasionally quotes classical poetry, uses rhetorical questions to guide conversation, calm and measured in early episodes shifting to cold and precise after identity reveal）：「而是去教别人——如何正确使用它们。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市医院病房环境，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+        - { file: PROP-008, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut

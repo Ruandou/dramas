@@ -1,3 +1,10 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP15/EP15_剧本.md
+# Source shots: 9 (EP15-S01 to EP15-S09)
+# Output segments: 9 (EP15-SEG01 to EP15-SEG09)
+# Source total duration: 90s (computed: 9x10s)
+# Output total duration: 90s
+# Gate status: G1 OK G2 OK G3 WARN placeholder G4 WARN same
 episode_id: EP15
 source_md: 剧本/EP15/EP15_剧本.md
 defaults:
@@ -5,16 +12,15 @@ defaults:
   model: doubao-seedance-2-0-fast
   ratio: '9:16'
   resolution: 720p
-  duration: 5
-  generate_audio: false
+  generate_audio: true
   watermark: false
   prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，明亮的办公环境，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
-  negative_prompt: 文字内容，模糊，低质量，扭曲的面具，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+  prompt_suffix_silent: 本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，明亮的办公环境，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+  negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声，略带沧桑感，语速中等偏慢，普通话标准带轻微北方口音；与律师对话时条理清晰
-  CHAR-010: 沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音；本集中逐渐有了希望感
-  CHAR-006: 温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准；说话时略带紧张和局促
-  CHAR-002: 低沉粗哑的中老年男声，习惯性命令式语气，语速较快，普通话带北方口音
+  CHAR-001: 温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音
+  CHAR-010: 沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音
+  CHAR-006: 温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准
 segments:
 - segment_id: EP15-SEG01
   shot_ids:
@@ -23,126 +29,218 @@ segments:
   speakers:
   - CHAR-001
   - CHAR-010
-  refs: &id001
+  refs:
     scene_id: SCENE-007
-    look_ids:
-    - CHAR-001-L01
-    - CHAR-010-L01
-  assets: &id002
+  assets:
     look_urls:
       CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
       CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
     scene_urls:
       SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-007.png
   api:
-    text: 【图1】律师事务所 SCENE-007（简洁明亮办公室，落地窗）【图2】林慧兰 CHAR-001-L01（在前台登记，从容）【图3】林慧芳 CHAR-010-L01（紧张地站在姐姐身边，打量四周）。中景：慧兰带慧芳走进律所。慧芳有些紧张——这辈子没进过这种地方。慧兰轻车熟路登记。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】律师事务所 SCENE-007。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定镜头：律师事务所。简洁明快的办公室。落地窗透进明亮的自然光，书架上整齐排列着法律书籍。图1带着图2走进来。图2有些紧张——她这辈子没进过这种地方。图1轻车熟路地在前台登记。图2看着图1侧脸。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你好，我约了周律师。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐…你常来这儿啊？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「来过几回。打官司嘛，律师楼门槛都要踩平了。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「你比我能干太多了……」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-007
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-010-L01
       role: reference_image
+      label: 图2
+    - file: SCENE-007
+      role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-001
-    line: 你好，我约了周律师。
-  - speaker: CHAR-010
-    line: 姐…你常来这儿啊？
-  - speaker: CHAR-001
-    line: 来过几回。打官司嘛，律师楼门槛都要踩平了。
-  - speaker: CHAR-010
-    line: 你比我能干太多了……
+  transition_to_next: hard_cut
 - segment_id: EP15-SEG02
   shot_ids:
   - EP15-S02
   duration_sec: 10
   speakers:
-  - EXTRA
+  - '[待补：周律师]'
   - CHAR-010
-  refs: *id001
-  assets: *id002
+  refs:
+    scene_id: SCENE-007
+  assets:
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-007.png
   api:
-    text: 【图1】律师事务所 SCENE-007办公室内（办公桌、书架、绿植）【图2】林慧芳 CHAR-010-L01（坐在椅子上紧张地揪包带）。中景 固定镜头：周律师走进办公室坐下打开笔记本。她语气专业但不冰冷。慧芳紧张地讲述情况。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】律师事务所 SCENE-007。
+
+      竖屏9比16连贯叙事。
+
+      镜头2（10秒）中景 固定镜头：办公室门打开后一个三十多岁的女律师走进来——短发干练灰色西装笑容真诚。她跟图1握手，看到图2也微笑着点头。坐下来打开笔记本先问图2的情况。语气专业但不冰冷。办公桌上的绿植在阳光里投下柔和的影子。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（周律师）：「林姐跟我提过一些。你来说说你的情况吧。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「我…他出轨了三年…前几天把那个女人带回家了。」
+
+      对白（周律师）：「有证据吗？聊天记录、照片之类的？」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「我…我不敢存那些。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-007
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
     - file: CHAR-010-L01
       role: reference_image
       label: 图2
-  dialogue:
-  - speaker: EXTRA
-    line: 林姐跟我提过一些。你来说说你的情况吧。
-  - speaker: CHAR-010
-    line: 我…他出轨了三年…前几天把那个女人带回家了。
-  - speaker: EXTRA
-    line: 有证据吗？聊天记录、照片之类的？
-  - speaker: CHAR-010
-    line: 我…我不敢存那些。
+    - file: SCENE-007
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP15-SEG03
   shot_ids:
   - EP15-S03
   duration_sec: 10
   speakers:
-  - EXTRA
   - CHAR-001
+  - '[待补：周律师]'
   - CHAR-010
-  refs: *id001
-  assets: *id002
+  refs:
+    scene_id: SCENE-007
+  assets:
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-007.png
   api:
-    text: 【图1】林慧兰 CHAR-001-L01（条理清晰地替妹妹补充情况）【图2】律师事务所 SCENE-007办公室。近景 正反打：慧兰替妹妹补充情况——分居时间、收入、暴力倾向。她说话有条有理。周律师边听边记。慧芳在旁边听着——第一次听人用法律语言替她说话。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】律师事务所 SCENE-007。
+
+      竖屏9比16连贯叙事。
+
+      镜头3（10秒）中景 固定镜头：图1替图2补充了一些情况。她说话条理清晰，周律师边听边记偶尔提问。图2在旁边听着——第一次听到有人用法律语言替她说话。她忽然觉得自己的事好像没那么可怕了。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「他换了门锁，我妹现在住我那儿。收入方面他在工地当工头，不稳定。」
+
+      对白（周律师）：「夫妻共同财产呢？存款、房子？」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「房子是他婚前买的…我不知道他有多少存款。」
+
+      对白（周律师）：「没关系。这些我们都可以查。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
     - file: CHAR-001-L01
       role: reference_image
       label: 图1
-    - file: SCENE-007
+    - file: CHAR-010-L01
       role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-001
-    line: 他换了门锁，我妹现在住我那儿。收入方面他在工地当工头，不稳定。
-  - speaker: EXTRA
-    line: 夫妻共同财产呢？存款、房子？
-  - speaker: CHAR-010
-    line: 房子是他婚前买的…我不知道他有多少存款。
-  - speaker: EXTRA
-    line: 没关系。这些我们都可以查。
+    - file: SCENE-007
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP15-SEG04
   shot_ids:
   - EP15-S04
   duration_sec: 10
   speakers:
-  - EXTRA
+  - '[待补：周律师]'
   - CHAR-010
-  refs: *id001
-  assets: *id002
+  refs:
+    scene_id: SCENE-007
+  assets:
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-007.png
   api:
-    text: 【图1】律师事务所 SCENE-007办公室。近景 固定镜头：周律师合上本子，一条条分析慧芳的情况。慧芳的眼神从迷茫慢慢变得有光——原来她有权利。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】律师事务所 SCENE-007。
+
+      竖屏9比16连贯叙事。
+
+      镜头4（10秒）近景 固定镜头：周律师分析了图2的情况。她一条条讲得清楚有力。图2听着听着眼睛亮了。窗外阳光照在图2脸上。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（周律师）：「虽然没抓到现行的出轨证据，但分居+门锁更换+他带人回家的事实，足够作为感情破裂的证明。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「那…我能拿到什么？」
+
+      对白（周律师）：「婚后共同财产的一半。如果能证明他的过错，你可以多分。另外——」
+
+      对白（周律师）：「家暴记录如果能找到，对你的抚养权主张也有利。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-007
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
-  dialogue:
-  - speaker: EXTRA
-    line: 虽然没抓到现行的出轨证据，但分居+门锁更换+他带人回家的事实，足够作为感情破裂的证明。
-  - speaker: CHAR-010
-    line: 那…我能拿到什么？
-  - speaker: EXTRA
-    line: 婚后共同财产的一半。如果证明他的过错，你可以多分。另外——家暴记录如果能找到，对你的抚养权主张也有利。
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-007
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP15-SEG05
   shot_ids:
   - EP15-S05
   duration_sec: 10
   speakers:
-  - EXTRA
   - CHAR-010
-  refs: *id001
-  assets: *id002
+  - '[待补：周律师]'
+  refs:
+    scene_id: SCENE-007
+  assets:
+    look_urls:
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-007.png
   api:
-    text: 【图1】林慧芳 CHAR-010-L01（听到家暴二字肩膀缩了一下，接过名片时手在抖）【图2】律师事务所 SCENE-007办公室。近景 特写：慧芳听到家暴记录时肩膀缩了一下。周律师注意到放轻语气递过心理咨询名片。
+    text: '【图1】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图2】律师事务所 SCENE-007。
+
+      竖屏9比16连贯叙事。
+
+      镜头5（10秒）近景 固定镜头：图1听到家暴记录时肩膀缩了一下。周律师注意到了，语气变得更轻。她从一个抽屉里拿出一张名片递给图1。图1接过名片时手在抖。名片的白色在图1粗糙的手指间格外显眼。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「家暴…我没有去医院验过伤。他每次打得不重…就是扇耳光、推搡。」
+
+      对白（周律师）：「我明白。很多当事人都不去验伤——不是伤不重，是不敢。」
+
+      对白（周律师）：「这是我认识的一位心理咨询师。你如果愿意可以去找她聊聊。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「谢谢…真的谢谢你。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
     - file: CHAR-010-L01
       role: reference_image
@@ -150,49 +248,86 @@ segments:
     - file: SCENE-007
       role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-010
-    line: 家暴…我没有去医院验过伤。他每次打得不重…就是扇耳光、推搡。
-  - speaker: EXTRA
-    line: 我明白。很多当事人都不去验伤——不是伤不重，是不敢。
-  - speaker: EXTRA
-    line: 这是我认识的一位心理咨询师。你如果愿意可以去找她聊聊。
-  - speaker: CHAR-010
-    line: 谢谢…真的谢谢你。
+  transition_to_next: hard_cut
 - segment_id: EP15-SEG06
   shot_ids:
   - EP15-S06
   duration_sec: 10
   speakers:
-  - EXTRA
+  - '[待补：周律师]'
   - CHAR-001
-  refs: *id001
-  assets: *id002
+  refs:
+    scene_id: SCENE-007
+  assets:
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-007.png
   api:
-    text: 【图1】律师事务所 SCENE-007办公室。中景：周律师翻出慧兰自己的卷宗聊她的案子。慧兰认真听着。慧芳在旁边瞪大眼睛——姐姐的官司比想象的复杂。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】律师事务所 SCENE-007。
+
+      竖屏9比16连贯叙事。
+
+      镜头6（10秒）中景 固定镜头：聊完图2的事后周律师转向图1问她的离婚案进度。图1说已经提交了起诉状。周律师翻出图1的卷宗说了一句让旁边的图2瞪大眼睛的话。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（周律师）：「林姐，你的案子我看了。张大强转移存款的证据——翠花姐的证词只是其一，我建议你调取近三年的银行流水。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「好。我去银行申请。」
+
+      对白（周律师）：「林姐，说实话——我办过这么多离婚案子，你是第一个自己把证据整理得这么清楚的当事人。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-007
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
-  dialogue:
-  - speaker: EXTRA
-    line: 林姐，你的案子我看了。张大强转移存款的证据——我建议你调取近三年的银行流水。
-  - speaker: CHAR-001
-    line: 好。我去银行申请。
-  - speaker: EXTRA
-    line: 林姐，说实话——我办过这么多离婚案子，你是第一个自己把证据整理得这么清楚的当事人。
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-007
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP15-SEG07
   shot_ids:
   - EP15-S07
   duration_sec: 10
   speakers:
-  - EXTRA
+  - '[待补：周律师]'
   - CHAR-001
-  refs: *id001
-  assets: *id002
+  refs:
+    scene_id: SCENE-007
+  assets:
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-007.png
   api:
-    text: 【图1】林慧兰 CHAR-001-L01（听到律师说酷，愣了一下然后笑了）【图2】林慧芳 CHAR-010-L01（也跟着笑了，几天来第一次笑）【图3】律师事务所
-      SCENE-007办公室。近景：周律师看着这对姐妹忍不住说出心里话。慧兰被酷这个字逗笑了。慧芳也跟着笑了。温暖时刻。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】律师事务所 SCENE-007。
+
+      竖屏9比16连贯叙事。
+
+      镜头7（10秒）中景 固定镜头：周律师看着面前这对姐妹。她忍不住说出了那句话。图1被酷这个字逗笑了。图2也跟着笑了。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（周律师）：「林姐，我冒昧说一句——」
+
+      对白（周律师）：「我做了十年离婚律师，见过各种当事人。你是我见过最酷的客户。六十岁打离婚官司、自己整理证据、还带着妹妹来维权——」
+
+      对白（周律师）：「真的，太酷了。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「六十年了…第一次有人用''酷''说我。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
     - file: CHAR-001-L01
       role: reference_image
@@ -203,55 +338,62 @@ segments:
     - file: SCENE-007
       role: reference_image
       label: 图3
-  dialogue:
-  - speaker: EXTRA
-    line: 林姐，我冒昧说一句——我做了十年离婚律师，你是我见过最酷的客户。六十岁打离婚官司、自己整理证据、还带着妹妹来维权——真的，太酷了。
-  - speaker: CHAR-001
-    line: 六十年了…第一次有人用酷说我。
+  transition_to_next: hard_cut
 - segment_id: EP15-SEG08
   shot_ids:
   - EP15-S08
   duration_sec: 10
   speakers:
-  - CHAR-001
   - CHAR-010
-  refs: *id001
-  assets: *id002
+  - CHAR-001
+  refs:
+    scene_id: SCENE-007
+  assets:
+    look_urls:
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+    scene_urls:
+      SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-007.png
   api:
-    text: 【图1】律师事务所门口 SCENE-007外景（秋天阳光，桂花树）【图2】林慧芳 CHAR-010-L01（站在门口深呼吸，手里攥着名片和材料清单）【图3】林慧兰
-      CHAR-001-L01（看着妹妹微笑）。中景：走出律所。秋天阳光。慧芳站在门口深吸一口气——天好像比来的时候亮了一些。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】律师事务所 SCENE-007。
+
+      竖屏9比16连贯叙事。
+
+      镜头8（10秒）中景 固定镜头：走出律所。秋天的阳光照在两人身上。图2手里攥着那张心理咨询师名片和一份诉讼材料清单。她站在律所门口深吸了一口气。图1看着她没说话，只是笑了笑。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「嗯？」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「原来我不是只能忍。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你本来就不用忍。只是没人告诉过你。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-007
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
     - file: CHAR-010-L01
       role: reference_image
       label: 图2
-    - file: CHAR-001-L01
+    - file: SCENE-007
       role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-010
-    line: 姐。
-  - speaker: CHAR-001
-    line: 嗯？
-  - speaker: CHAR-010
-    line: 原来我不是只能忍。
-  - speaker: CHAR-001
-    line: 你本来就不用忍。只是没人告诉过你。
+  transition_to_next: hard_cut
 - segment_id: EP15-SEG09
   shot_ids:
   - EP15-S09
   duration_sec: 10
   speakers:
-  - CHAR-001
   - CHAR-006
+  - CHAR-001
   refs:
     scene_id: SCENE-006
-    look_ids:
-    - CHAR-001-L01
-    - CHAR-010-L01
-    - CHAR-006-L01
   assets:
     look_urls:
       CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
@@ -260,24 +402,36 @@ segments:
     scene_urls:
       SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
   api:
-    text: 【图1】社区公园 SCENE-006（秋天小径，桂花树，长椅）【图2】李建国 CHAR-006-L01（白衬衫银灰头发，从长椅上站起来递水果）【图3】林慧兰
-      CHAR-001-L01（接过水果，意外又温暖的笑容）。中景：姐妹俩回家路上慧兰看到熟悉身影——李建国从长椅上站起来递过水果袋。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】李建国 CHAR-006-L01（驼色亚麻西装，银发后梳，金丝眼镜）【图4】社区公园 SCENE-006。
+
+      竖屏9比16连贯叙事。
+
+      镜头9（10秒）中景 固定镜头：两人沿着社区小路往回走。图2走得比昨天轻快了些。走到社区公园附近，图1看到长椅上坐着一个人。图3也看到了图1站起来有些紧张。秋天的梧桐叶在两人之间飘落。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「林…林姐。听说你去三亚了？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「李老师？你怎么在这？」
+
+      对白（李建国，温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准）：「我路过…看到你回来脸色好多了。这是刚买的水果，你拿着。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「谢谢李老师。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-006
-      role: reference_image
-      label: 图1
-    - file: CHAR-006-L01
-      role: reference_image
-      label: 图2
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
+      label: 图2
+    - file: CHAR-006-L01
+      role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-006
-    line: 林…林姐。听说你去三亚了？
-  - speaker: CHAR-001
-    line: 李老师？你怎么在这？
-  - speaker: CHAR-006
-    line: 我路过…看到你回来脸色好多了。这是刚买的水果，你拿着。
-  - speaker: CHAR-001
-    line: 谢谢李老师。
+    - file: SCENE-006
+      role: reference_image
+      label: 图4
+  transition_to_next: hard_cut

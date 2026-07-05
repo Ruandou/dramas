@@ -1,5 +1,13 @@
-# SOURCE FIDELITY: EP53_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP53/EP53_剧本.md
+# Source shots: 9 (EP53-S01 to EP53-S09)
+# Output shots: 9
+# Mapping: 1:1
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
 episode_id: EP53
+source_md: 剧本/EP53/EP53_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
@@ -12,161 +20,375 @@ defaults:
   negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
 shots:
 - shot_id: EP53-S01
-  shot_no: 1; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-010, look_ids: [CHAR-002-L01, CHAR-001-L02, CHAR-006-L01]}
+  shot_no: 1
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-010
+    look_ids:
+    - CHAR-002-L01
+    - CHAR-001-L02
+    - CHAR-006-L01
   assets:
-    look_urls: {CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png}
+    look_urls:
+      CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+    scene_urls:
+      SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
   api:
-    text: 【图1】面馆门口·傍晚 SCENE-010（张大强喝了酒脸红红的·拉住慧兰胳膊·李建国快步走过来）【图2】CHAR-002-L01 张大强（拉住慧兰说要说几句话）【图3】CHAR-006-L01 李建国（快步走过来说把手放开）。中景：面馆门口傍晚张大强又来了他喝了些酒脸红红的堵住正要下班的慧兰说慧兰我跟你说几句话。慧兰甩开说我们没什么好说的。李建国正好来接慧兰排练看到这一幕快步走过来——把手放开。
+    text: 【图1】张大强 CHAR-002-L01（旧夹克）。【图2】林慧兰 CHAR-001-L02（白色练功服）。【图3】李建国 CHAR-006-L01（白衬衫金丝眼镜）。【图4】SCENE-010。中景
+      固定镜头：面馆门口·傍晚。夕阳已经沉到了楼房后面——天空是灰蓝色的，路灯刚刚亮起来。慧兰锁好面馆的门——钥匙在锁孔里转了两圈，发出咔嗒一声。她转身要走——一个人影从旁边的电线杆后面闪出来。是张大强——他喝了酒，脸红红的，眼睛里有血丝。他站在慧兰面前——身体微微晃了一下，嘴里喷出酒气。他拉住慧兰的胳膊——那只手抓得很紧，慧兰的袖子被捏出了褶皱。慧兰甩开——力气比他预想的大。就在这时李建国从街角拐过来——他穿着干净的白衬衫，手里拿着一瓶水，是来接慧兰去排练的。他看到张大强拉着慧兰的手——脚步立刻加快，皮鞋在柏油路上发出急促的声响。他快步走过来——声音不大但很冷。
     content_roles:
-    - {file: SCENE-010, role: reference_image, label: 图1}
-    - {file: CHAR-002-L01, role: reference_image, label: 图2}
-    - {file: CHAR-006-L01, role: reference_image, label: 图3}
+    - file: CHAR-002-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图2
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图3
+    - file: SCENE-010
+      role: reference_image
+      label: 图4
   dialogue:
-  - {speaker: CHAR-002, line: 慧兰——我跟你说几句话。}
-  - {speaker: CHAR-001, line: 我们没什么好说的。}
-  - {speaker: CHAR-006, line: 把手放开。}
+  - speaker: CHAR-002
+    line: 慧兰——我跟你说几句话。
+  - speaker: CHAR-001
+    line: 我们没什么好说的。
+  - speaker: CHAR-006
+    line: 把手放开。
 - shot_id: EP53-S02
-  shot_no: 2; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-010, look_ids: [CHAR-002-L01, CHAR-006-L01]}
+  shot_no: 2
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-010
+    look_ids:
+    - CHAR-002-L01
+    - CHAR-006-L01
   assets:
-    look_urls: {CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png}
+    look_urls:
+      CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+    scene_urls:
+      SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
   api:
-    text: 【图1】面馆门口 SCENE-010（张大强放开慧兰转向李建国·推了他一把·李建国后退但没有还手）【图2】CHAR-002-L01 张大强（火气上来了说又是你天天往这跑什么意思·推李建国）【图3】CHAR-006-L01 李建国（平静地说我是她朋友·不想跟你动手）。中景：张大强放开慧兰转向李建国的火气上来了说又是你你天天往这跑什么意思？李建国平静地说我是她朋友。张大强说朋友我看你是没安好心！他推了李建国一把。李建国后退一步但没有还手说我不想跟你动手。张大强又推了他一下说不想动手就离她远点！
+    text: 【图1】张大强 CHAR-002-L01（旧夹克）。【图2】李建国 CHAR-006-L01（白衬衫金丝眼镜）。【图3】SCENE-010。中景
+      固定镜头：张大强看到李建国——火气噌地一下上来了。他放开慧兰转向李建国——身体转得太猛差点踉跄了一下。他盯着李建国——那双充血的眼睛里全是敌意。"又是你？你天天往这跑什么意思？"李建国站得很直——金丝眼镜在路灯下反着光。他平静地说——"我是她朋友。"语气像在课堂上纠正一个学生。张大强被这个平静激怒了——"朋友？我看你是没安好心！"他伸手推了李建国一把——手掌拍在李建国的胸口，白衬衫上立刻起了一道皱褶。李建国后退一步——但没有还手。他的声音依然平稳——说不想跟他动手。张大强又推了他一下——这次力气更大，李建国的背撞到了身后的墙壁。张大强吼了一句话——声音在空荡荡的街道上回荡。
     content_roles:
-    - {file: SCENE-010, role: reference_image, label: 图1}
-    - {file: CHAR-002-L01, role: reference_image, label: 图2}
-    - {file: CHAR-006-L01, role: reference_image, label: 图3}
+    - file: CHAR-002-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-010
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-002, line: 又是你？你天天往这跑什么意思？}
-  - {speaker: CHAR-006, line: 我是她朋友。}
-  - {speaker: CHAR-002, line: 朋友？我看你是没安好心！}
-  - {speaker: CHAR-006, line: 我不想跟你动手。}
-  - {speaker: CHAR-002, line: 不想动手就离她远点！}
+  - speaker: CHAR-002
+    line: 又是你？你天天往这跑什么意思？
+  - speaker: CHAR-006
+    line: 我是她朋友。
+  - speaker: CHAR-002
+    line: 朋友？我看你是没安好心！
+  - speaker: CHAR-006
+    line: 我不想跟你动手。
+  - speaker: CHAR-002
+    line: 不想动手就离她远点！
 - shot_id: EP53-S03
-  shot_no: 3; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-010, look_ids: [CHAR-001-L02, CHAR-002-L01, CHAR-006-L01]}
+  shot_no: 3
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-010
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-002-L01
+    - CHAR-006-L01
   assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png}
+    look_urls:
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+    scene_urls:
+      SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
   api:
-    text: 【图1】面馆门口 SCENE-010（慧兰冲上来挡在李建国前面·张大强挥拳打过去·两个人扭打在一起）【图2】CHAR-001-L02 林慧兰（挡在前面说你再动他一下我报警·说你俩已经离婚了）。近景：慧兰冲上来挡在李建国前面说张大强你够了！你凭什么打人？你再动他一下我报警！张大强指着慧兰说你护着他你俩到底什么关系？慧兰说跟你没关系我们已经离婚了。张大强说离婚了你也还是我老婆！李建国把慧兰拉到身后说你再碰她一下试试。张大强挥拳打了过去。
+    text: 【图1】林慧兰 CHAR-001-L02（白色练功服）。【图2】张大强 CHAR-002-L01（旧夹克）。【图3】李建国 CHAR-006-L01（白衬衫金丝眼镜）。【图4】SCENE-010。近景
+      固定镜头：慧兰冲上来了——她一下子插到两个男人中间，张开双臂挡在李建国前面。她的白围裙在傍晚的风里微微飘动。她瞪着张大强——那个眼神张大强从来没见过。不是害怕、不是委屈——是愤怒、是保护、是"你敢动他一下试试"。她说"张大强你够了！你凭什么打人？你再动他一下我报警！"每个字都像从牙缝里挤出来的。张大强指着慧兰——手指在发抖，酒精让他的声音又高又破。他问慧兰护着他——他俩到底什么关系？慧兰吼回去——声音比他更大。"跟你没关系！我们已经离婚了！"张大强被这句话刺到了——"离婚了你也还是我老婆！"这句话是他最后的挣扎——用"老婆"这个词来抓住已经不存在的所有权。李建国一把把慧兰拉到身后——他的手很稳，但声音冷
     content_roles:
-    - {file: SCENE-010, role: reference_image, label: 图1}
-    - {file: CHAR-001-L02, role: reference_image, label: 图2}
-    - {file: CHAR-002-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-002-L01
+      role: reference_image
+      label: 图2
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图3
+    - file: SCENE-010
+      role: reference_image
+      label: 图4
   dialogue:
-  - {speaker: CHAR-001, line: 张大强你够了！你凭什么打人？你再动他一下我报警！}
-  - {speaker: CHAR-002, line: 你护着他？你俩到底什么关系？}
-  - {speaker: CHAR-001, line: 跟你没关系！我们已经离婚了！}
-  - {speaker: CHAR-002, line: 离婚了你也还是我老婆！}
-  - {speaker: CHAR-006, line: 你再碰她一下试试。}
+  - speaker: CHAR-001
+    line: 张大强你够了！你凭什么打人？你再动他一下我报警！
+  - speaker: CHAR-002
+    line: 你护着他？你俩到底什么关系？
+  - speaker: CHAR-001
+    line: 跟你没关系！我们已经离婚了！
+  - speaker: CHAR-002
+    line: 离婚了你也还是我老婆！
+  - speaker: CHAR-006
+    line: 你再碰她一下试试。
 - shot_id: EP53-S04
-  shot_no: 4; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-010, look_ids: [CHAR-001-L02]}
+  shot_no: 4
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-010
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-002-L01
+    - CHAR-006-L01
   assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png}
+    look_urls:
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+    scene_urls:
+      SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-010.png
   api:
-    text: 【图1】面馆门口 SCENE-010（两个男人扭打在一起·慧兰尖叫拉架·警察来了把他们分开·张大强嘴角流血·李建国衬衫撕破）【图2】CHAR-001-L02 林慧兰（又气又急说别打了·警察说都跟我回派出所）。中景：两个男人扭打在一起慧兰尖叫别打了一会儿有人报了警警察来了把两个人都分开了。张大强嘴角流着血李建国衬衫被撕破了。慧兰站在中间又气又急说你们别打了多大的人了还打架。警察说都跟我回派出所一趟。
+    text: 【图1】林慧兰 CHAR-001-L02（白色练功服）。【图2】张大强 CHAR-002-L01（旧夹克）。【图3】李建国 CHAR-006-L01（白衬衫金丝眼镜）。【图4】SCENE-010。中景
+      固定镜头：两个男人扭打在一起——张大强的老拳乱挥，李建国用手臂格挡但又被推到了墙上。慧兰尖叫——"别打了！"她的声音劈裂了，手伸出去想拉开他们但根本拉不开。张大强一拳打在李建国嘴角——血立刻渗了出来。李建国的白衬衫袖子被撕破了——布料的撕裂声在暮色里格外刺耳。路边有人停下来——一个骑电动车的大叔掏出手机拨了110。几分钟后——警车的红蓝灯在面馆门口闪烁。警察来了——两个穿制服的警察把两人分开。张大强嘴角流着血——他用袖子擦了一下，白色袖口染红了一片。李建国衬衫领口歪了——扣子掉了一颗，金丝眼镜歪在鼻梁上。慧兰站在中间——围裙上蹭了一道灰，头发从丝巾里散出来几缕。她又气又急——声音里带着哭腔但不是软弱，是
     content_roles:
-    - {file: SCENE-010, role: reference_image, label: 图1}
-    - {file: CHAR-001-L02, role: reference_image, label: 图2}
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-002-L01
+      role: reference_image
+      label: 图2
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图3
+    - file: SCENE-010
+      role: reference_image
+      label: 图4
   dialogue:
-  - {speaker: CHAR-001, line: 你们别打了！多大的人了还打架！}
+  - speaker: CHAR-001
+    line: 你们别打了！多大的人了还打架！
+  - speaker: POLICE
+    line: 都跟我回派出所一趟。
 - shot_id: EP53-S05
-  shot_no: 5; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-003-L01, CHAR-001-L02]}
+  shot_no: 5
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-006
+    look_ids:
+    - CHAR-003-L01
+    - CHAR-001-L02
   assets:
-    look_urls: {CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
+    look_urls:
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+    scene_urls:
+      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
   api:
-    text: 【图1】派出所门口·晚上 SCENE-006（张明赶来·慧兰站在门口·两个人说话）【图2】CHAR-003-L01 张明（问妈你没事吧·说对不起毕竟那是我爸）【图3】CHAR-001-L02 林慧兰（说我没事·拍拍他肩膀说跟你没关系）。近景：派出所门口晚上张明接到电话赶来了问我妈呢她没事吧。慧兰说我没事。张明问李叔呢。慧兰说在里面做笔录你爸也在。张明沉默了一会儿说妈对不起。慧兰说你道什么歉。张明说他毕竟是我爸。慧兰拍了拍他肩膀说跟你没关系。
+    text: 【图1】张明 CHAR-003-L01（浅蓝衬衫）。【图2】林慧兰 CHAR-001-L02（白色练功服）。【图3】SCENE-006。中景 固定镜头：派出所门口·晚上。路灯把派出所的蓝色门牌照得发白。慧兰和张明一起从里面走出来。张明接到电话就赶来了——衬衫的扣子都扣错了，头发乱糟糟的。他一看到慧兰就快步跑过来——气息还没喘匀就问。慧兰说没事——她的声音已经平静下来了，但围裙上那道灰还蹭在上面。张明又问李叔怎么样——慧兰说在里面做笔录。然后她补了一句——你爸也被带进去了。张明沉默了一会儿——那种沉默里有太多东西：尴尬、愧疚、无力感。他终于开口——说了三个字："妈，对不起。"慧兰看着他——"你道什么歉？"张明的声音很低——"他毕竟是我爸。"慧兰拍了拍他的肩膀——手掌在儿子肩头停了一下。她说——跟你没关系。这句话她说得很轻，但很肯定。
     content_roles:
-    - {file: SCENE-006, role: reference_image, label: 图1}
-    - {file: CHAR-003-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L02, role: reference_image, label: 图3}
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图2
+    - file: SCENE-006
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-003, line: 妈！你没事吧？}
-  - {speaker: CHAR-001, line: 我没事。}
-  - {speaker: CHAR-003, line: 李叔呢？}
-  - {speaker: CHAR-001, line: 在里面做笔录。你爸也在。}
-  - {speaker: CHAR-003, line: 妈——对不起。}
-  - {speaker: CHAR-001, line: 你道什么歉？}
-  - {speaker: CHAR-003, line: 他毕竟是我爸。}
-  - {speaker: CHAR-001, line: 跟你没关系。}
+  - speaker: CHAR-003
+    line: 妈！你没事吧？
+  - speaker: CHAR-001
+    line: 我没事。
+  - speaker: CHAR-003
+    line: 李叔呢？
+  - speaker: CHAR-001
+    line: 在里面做笔录。你爸也在。
+  - speaker: CHAR-003
+    line: 妈——对不起。
+  - speaker: CHAR-001
+    line: 你道什么歉？
+  - speaker: CHAR-003
+    line: 他毕竟是我爸。
+  - speaker: CHAR-001
+    line: 跟你没关系。
 - shot_id: EP53-S06
-  shot_no: 6; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-006-L01, CHAR-001-L02]}
+  shot_no: 6
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-006
+    look_ids:
+    - CHAR-006-L01
+    - CHAR-001-L02
   assets:
-    look_urls: {CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
+    look_urls:
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+    scene_urls:
+      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
   api:
-    text: 【图1】派出所门口 SCENE-006（李建国出来·衬衫领口歪了嘴角有伤·慧兰迎上去帮他贴创可贴）【图2】CHAR-006-L01 李建国（说没事·没动·看着她帮他贴创可贴）。近景：李建国从派出所出来衬衫领口歪了但表情还是平静的。慧兰迎上去问你没事吧伤着了没有。李建国说没事他那一拳没打着要害。慧兰看着他嘴角的伤还说没事都破皮了。她从包里掏出一个创可贴说别动。她小心地帮他贴上李建国没动看着她认真的样子。
+    text: 【图1】李建国 CHAR-006-L01（白衬衫金丝眼镜）。【图2】林慧兰 CHAR-001-L02（白色练功服）。【图3】SCENE-006。近景
+      固定镜头：李建国从派出所出来了——推门的时候门有点涩，他用肩膀顶了一下。衬衫领口歪了，袖子破了一道口子，嘴角有一道干涸的血痕。但表情还是平静的——那个儒雅的退休教师即使在派出所待了一个小时也还是从容的。慧兰迎上去——脚步很急，围裙在身后飘起来。她一连问了两个问题——语气里有心疼、有担心、还有一点点愧疚。李建国轻描淡写地说没事——"他那一拳没打着要害。"慧兰看着他嘴角的伤——那道血痕在路灯下显得格外刺眼。她说"还说没事，都破皮了"——声音软下来，带着母亲训小孩的语气。然后她从包里掏出一个创可贴——那种棕色的老式创可贴，一看就是随身带了很多年的。她撕开包装——"别动。"她踮起脚尖——小心地帮他把创可贴贴在嘴
     content_roles:
-    - {file: SCENE-006, role: reference_image, label: 图1}
-    - {file: CHAR-006-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L02, role: reference_image, label: 图3}
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图2
+    - file: SCENE-006
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-001, line: 你没事吧？伤着了没有？}
-  - {speaker: CHAR-006, line: 没事——他那一拳没打着要害。}
-  - {speaker: CHAR-001, line: 还说没事，都破皮了。}
+  - speaker: CHAR-001
+    line: 你没事吧？伤着了没有？
+  - speaker: CHAR-006
+    line: 没事——他那一拳没打着要害。
+  - speaker: CHAR-001
+    line: 还说没事，都破皮了。
 - shot_id: EP53-S07
-  shot_no: 7; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L02, CHAR-006-L01]}
+  shot_no: 7
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-006
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-006-L01
   assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
+    look_urls:
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+    scene_urls:
+      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
   api:
-    text: 【图1】派出所门口 SCENE-006（慧兰退后半步说对不起连累你了·李建国笑了说打一下换一碗面值了）【图2】CHAR-001-L02 林慧兰（被他逗笑了·说都这样了还开玩笑）【图3】CHAR-006-L01 李建国（说不是开玩笑·能保护你我觉得挺好）。近景：慧兰退后半步说对不起连累你了。李建国说你跟我说什么对不起。慧兰说要不是因为我你也不会被打。李建国笑了说打一下换一碗面值了。慧兰被他逗笑了说你都这样了还开玩笑。李建国说我不是开玩笑。能保护你——我觉得挺好。
+    text: 【图1】林慧兰 CHAR-001-L02（白色练功服）。【图2】李建国 CHAR-006-L01（白衬衫金丝眼镜）。【图3】SCENE-006。近景
+      固定镜头：贴好创可贴——棕色的创可贴在李建国嘴角像一枚小小的勋章。慧兰退后半步——看着自己的"作品"，表情有点不好意思。她说——"对不起，连累你了。"声音里带着自责。李建国看着她——"你跟我说什么对不起？"他的语气很轻，但眉毛微微皱起来——不是因为疼，是因为她不该道歉。慧兰说她觉得要不是因为自己——他也不会被打。李建国笑了——嘴角一动扯到了伤口，嘶了一声但还是笑着。他说了一句让慧兰哭笑不得的话。慧兰被逗笑了——她本来还绷着脸，听到这句话绷不住了。"你都这样了还开玩笑。"李建国收起笑容——认真地看着她。他说——不是开玩笑。能保护她——他觉得挺好。这句话他说得很轻，但慧兰听得很清楚。她没有回答——只是看着他
     content_roles:
-    - {file: SCENE-006, role: reference_image, label: 图1}
-    - {file: CHAR-001-L02, role: reference_image, label: 图2}
-    - {file: CHAR-006-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图2
+    - file: SCENE-006
+      role: reference_image
+      label: 图3
   dialogue:
-  - {speaker: CHAR-001, line: 对不起——连累你了。}
-  - {speaker: CHAR-006, line: 你跟我说什么对不起？}
-  - {speaker: CHAR-001, line: 要不是因为我，你也不会被打。}
-  - {speaker: CHAR-006, line: 打一下换一碗面——值了。}
-  - {speaker: CHAR-001, line: 你都这样了还开玩笑。}
-  - {speaker: CHAR-006, line: 我不是开玩笑。能保护你——我觉得挺好。}
+  - speaker: CHAR-001
+    line: 对不起——连累你了。
+  - speaker: CHAR-006
+    line: 你跟我说什么对不起？
+  - speaker: CHAR-001
+    line: 要不是因为我，你也不会被打。
+  - speaker: CHAR-006
+    line: 打一下换一碗面——值了。
+  - speaker: CHAR-001
+    line: 你都这样了还开玩笑。
+  - speaker: CHAR-006
+    line: 我不是开玩笑。能保护你——我觉得挺好。
 - shot_id: EP53-S08
-  shot_no: 8; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-003-L01, CHAR-006-L01, CHAR-001-L02]}
+  shot_no: 8
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-006
+    look_ids:
+    - CHAR-003-L01
+    - CHAR-006-L01
+    - CHAR-001-L02
   assets:
-    look_urls: {CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
+    look_urls:
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+    scene_urls:
+      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
   api:
-    text: 【图1】派出所门口 SCENE-006（张明走过来说李叔谢谢你·说会跟他爸谈的·慧兰看着儿子说你长大了）【图2】CHAR-003-L01 张明（说不吵就跟他好好说·说妈你教得好）。近景：张明走过来对李建国说李叔谢谢你。李建国说没事喝了点酒明天清醒了就好了。张明说我会跟他谈的。慧兰说你别去跟他吵。张明说不吵我就跟他好好说。慧兰看着儿子说你长大了。张明说是妈你教得好。李建国在旁边看着母子俩眼里有笑意。
+    text: 【图1】张明 CHAR-003-L01（浅蓝衬衫）。【图2】李建国 CHAR-006-L01（白衬衫金丝眼镜）。【图3】林慧兰 CHAR-001-L02（白色练功服）。【图4】SCENE-006。中景
+      固定镜头：张明走过来——他刚才一直站在稍远的地方，给慧兰和李建国留了空间。现在他走到李建国面前——脚步比平时稳。他说——"李叔，谢谢你。"这四个字说得很正式，像一个成年人该有的样子。李建国摆摆手——说没事。喝了点酒，明天清醒了就好了。张明沉默了一下——然后说了一句他以前从不敢说的话。不是"我会劝他"，而是"我会跟他谈的"。这两者的区别很大——"劝"是哀求，"谈"是平等。慧兰听到这句话——目光从李建国转向了儿子。她插了一句——"你别去跟他吵。"张明马上说——"我不吵，我就跟他好好说。"慧兰看着儿子——路灯的光照在他脸上，她看到他细框眼镜后面的眼睛里有了一种以前没有的东西。她说——"你长大了。"张明笑了——
     content_roles:
-    - {file: SCENE-006, role: reference_image, label: 图1}
-    - {file: CHAR-003-L01, role: reference_image, label: 图2}
-    - {file: CHAR-006-L01, role: reference_image, label: 图3}
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图1
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图2
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图3
+    - file: SCENE-006
+      role: reference_image
+      label: 图4
   dialogue:
-  - {speaker: CHAR-003, line: 李叔——谢谢你。}
-  - {speaker: CHAR-006, line: 没事。喝了点酒，明天清醒了就好了。}
-  - {speaker: CHAR-003, line: 我会跟他谈的。}
-  - {speaker: CHAR-001, line: 你别去跟他吵。}
-  - {speaker: CHAR-003, line: 我不吵——我就跟他好好说。}
-  - {speaker: CHAR-001, line: 你长大了。}
-  - {speaker: CHAR-003, line: 是妈你教得好。}
+  - speaker: CHAR-003
+    line: 李叔——谢谢你。
+  - speaker: CHAR-006
+    line: 没事。喝了点酒，明天清醒了就好了。
+  - speaker: CHAR-003
+    line: 我会跟他谈的。
+  - speaker: CHAR-001
+    line: 你别去跟他吵。
+  - speaker: CHAR-003
+    line: 我不吵——我就跟他好好说。
+  - speaker: CHAR-001
+    line: 你长大了。
+  - speaker: CHAR-003
+    line: 是妈你教得好。
 - shot_id: EP53-S09
-  shot_no: 9; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L02, CHAR-003-L01, CHAR-006-L01]}
+  shot_no: 9
+  mode: i2v_ref
+  duration_sec: 10
+  refs:
+    scene_id: SCENE-006
+    look_ids:
+    - CHAR-001-L02
+    - CHAR-003-L01
+    - CHAR-006-L01
   assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
+    look_urls:
+      CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+      CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+    scene_urls:
+      SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
   api:
-    text: 【图1】派出所门口·路灯下 SCENE-006（三个人站在一起·慧兰说别跟蕾蕾说省得她担心·李建国说送她回去·三个人一起沿着路灯走下去）【图2】CHAR-001-L02 林慧兰（回头看了一眼面馆笑了·明天还得开店·生活还得继续）。远景：三个人站在派出所门口的路灯下。慧兰说今晚的事谁也别跟蕾蕾说省得她担心。张明说知道了。李建国说我送你回去。慧兰说不用小明送我就行。李建国说那我也送送顺路。三个人一起沿着路灯走下去。慧兰回头看了一眼面馆笑了——明天还得开店。生活还得继续。
+    text: 【图1】林慧兰 CHAR-001-L02（白色练功服）。【图2】张明 CHAR-003-L01（浅蓝衬衫）。【图3】李建国 CHAR-006-L01（白衬衫金丝眼镜）。【图4】SCENE-006。中景
+      固定镜头：三个人站在派出所门口的路灯下——灯光把他们的影子投在地上交叠在一起。慧兰想起什么——转头对张明说今晚的事别跟蕾蕾说，省得她担心。张明点头——知道了。李建国说——"那我送你们回去。"慧兰说不用——小明送她就行。李建国笑了——"那我也送送，顺路。"三个人一起沿着路灯走下去——脚步不快不慢。路边的梧桐树投下斑驳的树影，夜风吹过来带着夏天末尾的暖意。经过面馆门口时慧兰回头看了一眼——面馆的招牌在路灯下安静地亮着，"慧兰面馆"四个字反射着暖黄色的光。门口的台阶上还留着刚才扭打的痕迹——几片碎叶子散落在地上。她看着招牌——说了一句话。不是抱怨、不是感慨——是一个简单的事实陈述。然后她笑了——那个笑里有疲惫
     content_roles:
-    - {file: SCENE-006, role: reference_image, label: 图1}
-    - {file: CHAR-001-L02, role: reference_image, label: 图2}
-    - {file: CHAR-003-L01, role: reference_image, label: 图3}
+    - file: CHAR-001-L02
+      role: reference_image
+      label: 图1
+    - file: CHAR-003-L01
+      role: reference_image
+      label: 图2
+    - file: CHAR-006-L01
+      role: reference_image
+      label: 图3
+    - file: SCENE-006
+      role: reference_image
+      label: 图4
   dialogue:
-  - {speaker: CHAR-001, line: 今晚的事——谁也别跟蕾蕾说，省得她担心。}
-  - {speaker: CHAR-003, line: 知道了。}
-  - {speaker: CHAR-006, line: 那我送你回去。}
-  - {speaker: CHAR-001, line: 不用——小明送我就行。}
-  - {speaker: CHAR-006, line: 那我也送送，顺路。}
+  - speaker: CHAR-001
+    line: 今晚的事——谁也别跟蕾蕾说，省得她担心。
+  - speaker: CHAR-003
+    line: 知道了。
+  - speaker: CHAR-006
+    line: 那我送你们回去。
+  - speaker: CHAR-001
+    line: 不用——小明送我就行。
+  - speaker: CHAR-006
+    line: 那我也送送，顺路。

@@ -1,0 +1,299 @@
+episode_id: EP40
+source_md: 剧本/EP40/EP40_鉴赏会.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+voice_prompts:
+  CHAR-001: "Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones"
+  CHAR-008: "Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability"
+  CHAR-009: "Female, 40 years old, strong and authoritative tone, fast and efficient pace, direct business communication style, no unnecessary words, firm and decisive, brief moment of vulnerability when discussing family"
+  # ⚠️ WARNING: [待补：鉴赏富豪] voice_prompt 缺失 — 待 production-planner 分配 CHAR-GRP-08+ 并建声音卡片条目后补齐
+
+segments:
+  # ──────────────────────────────────────────────
+  # SEG01 — 潜入深渊 (S01+S02, 11s)
+  # ⚠️ [待补：鉴赏富豪] 未出场，本段仅 CHAR-009(旁白) + CHAR-001
+  # ──────────────────────────────────────────────
+  - segment_id: EP40-SEG01
+    shot_ids: [EP40-S01, EP40-S02]
+    duration_sec: 11
+    speakers: [CHAR-009, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】万象资本地下鉴赏厅 SCENE-007【图2】陆辰 CHAR-001-L02（深蓝修身西装，白衬衫不系领带，银色手表）。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）全景 缓推：电梯门缓缓滑开，露出一条幽长的地下走廊，清水混凝土墙面被两侧嵌入式冷白灯带切割出几何线条，走廊尽头深色胡桃木双开门门缝透出暖金色光线。
+        镜头2（6秒）中景 固定镜头：图2身着深蓝修身西装步出电梯，右手不自觉按了一下左胸内侧口袋确认邀请函，走廊冷白灯光打在银色手表上折射出一道冷光，图2深吸一口气下颌线条绷紧目光沉稳但瞳孔微缩。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（方远，Female, 40 years old, strong and authoritative tone, fast and efficient pace, direct business communication style, no unnecessary words, firm and decisive, brief moment of vulnerability when discussing family）：「邀请函在你内侧口袋。记住，你是方氏的投资顾问。别多说，别多看。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「方远给的这张邀请函……是进虎穴的门票。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「能看清别人价格的人，最怕自己被人标价。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「……沉住气。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市高档写字楼地下空间，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: SCENE-007, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ──────────────────────────────────────────────
+  # SEG02 — 碎片展场 (S03, 10s)
+  # ⚠️ [待补：鉴赏富豪] 有对白但无正式 ID / voice_prompt / L01
+  # ──────────────────────────────────────────────
+  - segment_id: EP40-SEG02
+    shot_ids: [EP40-S03]
+    duration_sec: 10
+    speakers: [CHAR-001]  # ⚠️ [待补：鉴赏富豪] 亦有对白，待回补 CHAR-GRP-08+
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-003.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】沈万洲 CHAR-008-L01（深灰三件套，无框眼镜）【图3】万象资本地下鉴赏厅 SCENE-007【图4】能力碎片 PROP-003。
+        角色分工：图2可触碰碎片展示座；图1双手不触碰任何展品。
+        道具：十几块大小不一的玉质碎片，嵌在玻璃展示座上，散发微弱金色光芒，陈列于黑檀木圆桌上。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 镜头跟随：胡桃木门推开图1步入，圆形大厅中央黑檀木圆桌上十几块玉质碎片嵌在玻璃展示座上散发微弱金色光芒，十数位衣着考究的人围坐桌旁，图2银灰鬓角在暖色灯光下泛出冷光端坐主位，无框眼镜后的目光扫过全场，圆桌上方的环形吊灯投下均匀光束将每块碎片的金色光晕映照得清晰可见。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（鉴赏富豪，⚠️待补voice_prompt）：「新面孔。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「方氏投资，第一次参加。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「十几块碎片……这不只是鉴赏会，是黑市拍卖会。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市高档写字楼地下空间，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+        - { file: PROP-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ──────────────────────────────────────────────
+  # SEG03 — 沈万洲的展品 (S04+S05, 11s)
+  # ──────────────────────────────────────────────
+  - segment_id: EP40-SEG03
+    shot_ids: [EP40-S04, EP40-S05]
+    duration_sec: 11
+    speakers: [CHAR-008, CHAR-001]  # ⚠️ [待补：鉴赏富豪] 亦有对白，待回补
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈万洲 CHAR-008-L01（深灰三件套，无框眼镜）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】万象资本地下鉴赏厅 SCENE-007。
+        角色分工：图1可拿起并展示碎片；图2双手平放膝上不触碰任何物品。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 缓推：图1从主位站起，三件套西装剪裁精确贴合身形，手指修长地指向桌上第一块碎片，方形翠绿玉片在玻璃座上微微发光，图1无框眼镜片映出碎片的金色倒影，嘴角维持中性线条。
+        镜头2（5秒）中景 固定镜头：一位衣着考究的人身体前倾双手交叉搁在桌面上目光灼灼盯住碎片，旁边几位交换了意味深长的眼神，图2坐在中段位置双手平放膝上维持镇定但眼底掠过一丝震惊瞳孔微缩。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「第一件。感知谈判对手底线的碎片。起拍价，三千万。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「第二件。洞察合同隐藏条款。」
+        对白（鉴赏富豪，⚠️待补voice_prompt）：「底线感知……这东西我要了。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「全是标价之眼的弱化版……他在量产我的能力。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市高档写字楼地下空间，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ──────────────────────────────────────────────
+  # SEG04 — 弱化版扩散 (S06, 9s) · 独白段
+  # ──────────────────────────────────────────────
+  - segment_id: EP40-SEG04
+    shot_ids: [EP40-S06]
+    duration_sec: 9
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L02（深蓝修身西装）【图2】沈万洲 CHAR-008-L01（深灰三件套，无框眼镜，焦外）【图3】万象资本地下鉴赏厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（9秒）特写 镜头推近：图1瞳孔骤然收缩金色琥珀光芒从眼底涌起（AR叠加），视野中碎片上方浮现跳动的金色数字与能力描述标签，镜头缓推至大特写金色光芒在虹膜中流转，每块碎片的标价与能力名称如数据流般掠过，身后图2身影在焦外若隐若现银灰鬓角被金色光芒勾出轮廓。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「底线感知、风险预判、情绪读取……」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「全是从标价之眼拆出来的碎片能力。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「每一块卖掉，就多一个人拥有弱化版的我。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市高档写字楼地下空间，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ──────────────────────────────────────────────
+  # SEG05 — 贪婪升温 (S07, 10s)
+  # ──────────────────────────────────────────────
+  - segment_id: EP40-SEG05
+    shot_ids: [EP40-S07]
+    duration_sec: 10
+    speakers: [CHAR-008, CHAR-001]  # ⚠️ [待补：鉴赏富豪] 亦有对白，待回补
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-003.png
+    api:
+      text: |
+        【图1】沈万洲 CHAR-008-L01（深灰三件套，无框眼镜）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】万象资本地下鉴赏厅 SCENE-007【图4】能力碎片 PROP-003。
+        角色分工：仅图1可拿起碎片并展示；图2双手不触碰任何物品。
+        道具：三角形翠绿玉片，在指间微微发光，举至灯光下时金色光芒穿过玉质纹理。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：图1拿起第三块碎片，三角形翠绿玉片在指间微微发光，图1无表情地将碎片举至灯光下金色光芒穿过玉质纹理投在深色桌面上，对面人伸手欲触又缩回喉结微动，图2坐在位子上手指无意识地攥紧西装裤腿布料在指节下皱起。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「第三件。读取对手恐惧的碎片。」
+        对白（鉴赏富豪，⚠️待补voice_prompt）：「五千万。现在就要。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「在座每个人……都拥有了某种异能。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市高档写字楼地下空间，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+        - { file: PROP-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ──────────────────────────────────────────────
+  # SEG06 — 遥控器 (S08, 10s)
+  # ──────────────────────────────────────────────
+  - segment_id: EP40-SEG06
+    shot_ids: [EP40-S08]
+    duration_sec: 10
+    speakers: [CHAR-008, CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈万洲 CHAR-008-L01（深灰三件套，无框眼镜）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】万象资本地下鉴赏厅 SCENE-007。
+        角色分工：仅图1可触碰遥控器；图2双手不触碰任何物品。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：图1缓缓坐回主位皮椅，右手从西装内袋取出一个银色遥控器搁在桌面金属触碰木面发出清脆一声，图1抬眼目光越过圆桌正中精确地锁在图2脸上，无框眼镜后面的瞳孔像两台对焦完毕的机器，图2浑身一僵后背抵住椅背。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「今天的重头戏，不是这些碎片。」
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「而是一件……特殊的展品。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「那个眼神……他在看我。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市高档写字楼地下空间，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ──────────────────────────────────────────────
+  # SEG07 — 金色陷阱 (S09, 11s)
+  # ──────────────────────────────────────────────
+  - segment_id: EP40-SEG07
+    shot_ids: [EP40-S09]
+    duration_sec: 11
+    speakers: [CHAR-008, CHAR-001]  # ⚠️ [待补：鉴赏富豪] 亦有对白，待回补
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈万洲 CHAR-008-L01（深灰三件套，无框眼镜）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】万象资本地下鉴赏厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（11秒）近景 固定镜头：图1拇指按下遥控器"咔"一声大厅所有灯光骤然变为金色，墙壁和天花板被浓郁的琥珀色光芒浸透碎片金光与环境金辉融为一体整个空间像被液态黄金灌满，多人惊愕抬头有人椅子后仰差点失衡，图2在金色光线中面部半明半暗双手死死攥住椅子扶手指节发白。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「在座各位手中的碎片……都来自同一双眼睛。」
+        对白（鉴赏富豪，⚠️待补voice_prompt）：「同一双……？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「灯变金色……他在逼我暴露。不能动，一动就完了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市高档写字楼地下空间，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ──────────────────────────────────────────────
+  # SEG08 — 身份暴露 (S10, 12s) · Cliffhanger
+  # ──────────────────────────────────────────────
+  - segment_id: EP40-SEG08
+    shot_ids: [EP40-S10]
+    duration_sec: 12
+    speakers: [CHAR-008, CHAR-001]  # ⚠️ [待补：鉴赏富豪] 亦有对白，待回补
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈万洲 CHAR-008-L01（深灰三件套，无框眼镜）【图2】陆辰 CHAR-001-L02（深蓝修身西装）【图3】万象资本地下鉴赏厅 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中景 镜头推近：金色灯光笼罩全场，图1端坐主位如蛛网中心的猎手嘴角的弧度是整集唯一一次接近微笑的表情，十几道目光从四面八方刺向图2有贪婪有惊疑有计算，图2缓缓靠回椅背面部在金色光线中明暗交错下颌线条绷到极致双手平放桌面指尖微微发白。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈万洲，Male, 55 years old, extremely calm and precise low tone, slow deliberate pace, minimal words each carrying heavy weight, almost no emotional fluctuation, speaks like a machine executing commands, rare moments of vulnerability related to the eye ability）：「而最后一块碎片——就在这间房里。」
+        对白（鉴赏富豪，⚠️待补voice_prompt）：「谁？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「鉴赏会是假的……从邀请函开始，就是给我设的局。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「走不了了。」
+        画面全程无任何文字、字幕、标题、水印。
+        现代中国都市高档写字楼地下空间，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

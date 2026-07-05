@@ -1,173 +1,301 @@
-# SOURCE FIDELITY: EP44_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP44/EP44_剧本.md
+# Source shots: 9 (EP44-S01 to EP44-S09)
+# Output segments: 9 (EP44-SEG01 to EP44-SEG09)
+# Mapping: 1:1 per shot
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
 episode_id: EP44
+source_md: 剧本/EP44/EP44_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
-  ratio: '9:16'
+  ratio: "9:16"
   resolution: 720p
-  duration: 5
-  generate_audio: false
+  generate_audio: true
   watermark: false
-  prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
-  negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声；从最初的平静（"别怕。在我家他不敢怎么样"），到不急不躁地讲道理（"她日子过得好好的会想离吗"），到拿起手机录视频时的冷静（"你再走一步我直接发网上"），到最后拥抱翠花时的温暖（"你做得很好"）——全程冷静、有力、不慌
-  CHAR-007: 爽朗大嗓门的中年女声；从恐惧（"是他……他跟踪我"）到缩在沙发上的不敢出声，到站起来说出那句话时的颤抖但坚定（"我明天就去法院起诉"）——从恐惧到爆发
-  CHAR-GRP-002: 阴阳怪气的中老年声音转为愤怒粗哑的男性声音（翠花的丈夫）——从砸门怒吼（"王翠花你给我出来！"）到气急败坏的辱骂，到被手机录像后气焰矮下去的嚅嗫——声音从高到低
+  CHAR-001: "温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音"
+  CHAR-007: "爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音"
+  CHAR-GRP-005: "粗鲁急躁的中老年男声，大嗓门，说话带火气，普通话带地方口音"
+
 segments:
-- segment_id: EP44-SEG01
-  shot_ids: [EP44-S01]
-  duration_sec: 10
-  speakers: [CHAR-GRP-002, CHAR-007, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L02, CHAR-007-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 林家客厅·下午。慧兰和翠花在包饺子。翠花说离婚的事已经跟老公摊牌了他气得摔了杯子。话音未落门被拍得山响——外面传来吼声"王翠花你给我出来！"翠花脸白了。慧兰站起来平静地说别怕。在我家他不敢怎么样。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-007-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-GRP-002, line: 王翠花！你给我出来！你以为你躲得了？}
-  - {speaker: CHAR-007, line: 是他……他跟踪我。}
-  - {speaker: CHAR-001, line: 别怕。在我家，他不敢怎么样。}
-- segment_id: EP44-SEG02
-  shot_ids: [EP44-S02]
-  duration_sec: 10
-  speakers: [CHAR-GRP-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-GRP-002-L01, CHAR-001-L02, CHAR-007-L01]}
-  assets:
-    look_urls: {CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 慧兰打开门。门口站着一个满脸通红的男人——翠花的丈夫。他劈头盖脸地骂——就是你离了婚不够还要带坏我老婆。慧兰站在门口没有让开平静地说——进来说。别在门口吵邻居都听着。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-GRP-002, line: 林慧兰！就是你！你离了婚不够还要带坏我老婆！你在外面勾引男人就算了——还拉我老婆下水！}
-  - {speaker: CHAR-001, line: 进来说。别在门口吵——邻居都听着。}
-- segment_id: EP44-SEG03
-  shot_ids: [EP44-S03]
-  duration_sec: 10
-  speakers: [CHAR-GRP-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-GRP-002-L01, CHAR-001-L02, CHAR-007-L01]}
-  assets:
-    look_urls: {CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 翠花的丈夫冲进客厅指着翠花骂她长本事了。翠花缩在沙发上不敢抬头。慧兰走过去挡住他指着翠花的手指——你说话就说话，手指头收回去。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-007-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-GRP-002, line: 你长本事了是吧！还想离婚？我看你是被这个疯女人洗脑了！}
-  - {speaker: CHAR-001, line: 你说话就说话——手指头收回去。}
-- segment_id: EP44-SEG04
-  shot_ids: [EP44-S04]
-  duration_sec: 10
-  speakers: [CHAR-GRP-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-GRP-002-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 翠花的丈夫气笑了说你算什么东西管我家的事。慧兰不急不躁——我是她朋友她的事就是我的事。你说我带坏她——那她为什么要离婚？日子过得好好的会想离吗？
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-GRP-002, line: 林慧兰你算什么东西？你有什么资格管我家的事？}
-  - {speaker: CHAR-001, line: 我是她朋友。她的事就是我的事。你说我带坏你老婆——那她为什么要离婚？她日子过得好好的会想离吗？}
-- segment_id: EP44-SEG05
-  shot_ids: [EP44-S05]
-  duration_sec: 10
-  speakers: [CHAR-GRP-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-GRP-002-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 翠花的丈夫憋了几秒说我对她不好吗我让她吃让她穿。慧兰说你对她好在哪里说出来听听。他张嘴想说但发现能说出口的都是"我没打她"——这叫什么好？他愣住了。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-GRP-002, line: 我对她不好吗？我让她吃让她穿！她还有什么不满意的？}
-  - {speaker: CHAR-001, line: 那你对她好在哪里？你说出来让我听听。}
-  - {speaker: CHAR-001, line: 说不出来了？因为你自己也知道——那些不叫好。}
-- segment_id: EP44-SEG06
-  shot_ids: [EP44-S06]
-  duration_sec: 10
-  speakers: [CHAR-GRP-002, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-GRP-002-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 翠花的丈夫恼羞成怒往前冲了一步。慧兰不躲不闪不紧不慢拿起手机打开录像对准他——你继续说。我录着。你想让多少人看到你现在的样子？
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-GRP-002, line: 你少跟我讲这些大道理！我老婆的事轮不到你管！}
-  - {speaker: CHAR-001, line: 你继续说。我录着。你想让多少人看到你现在的样子？}
-- segment_id: EP44-SEG07
-  shot_ids: [EP44-S07]
-  duration_sec: 10
-  speakers: [CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-GRP-002-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 翠花的丈夫僵住了想去抢手机。慧兰退后一步——你再走一步我直接发网上。发到你们公司群发到小区业主群。你不是要脸吗我今天就让你要个够。他的气焰肉眼可见地矮了下去不敢动了。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 你再走一步，我直接发网上。发到你们公司群，发到小区业主群。}
-  - {speaker: CHAR-001, line: 你不是要脸吗？我今天就让你要个够。}
-- segment_id: EP44-SEG08
-  shot_ids: [EP44-S08]
-  duration_sec: 10
-  speakers: [CHAR-007]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-007-L01, CHAR-GRP-002-L01]}
-  assets:
-    look_urls: {CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png, CHAR-GRP-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-GRP-002-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 翠花从沙发上站起来走到老公面前声音有点抖但坚定——我们的事我们自己解决。你要是继续闹那我明天就去法院起诉。她丈夫不敢相信地看着她——这个被骂了二十年从来没还过嘴的女人在说"起诉"两个字。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-007-L01, role: reference_image}
-    - {file: CHAR-GRP-002-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-007, line: 我们的事——我们自己解决。不要到别人家闹。}
-  - {speaker: CHAR-007, line: 你要是还想谈，我们回去好好说。你要是继续闹——那我明天就去法院起诉。}
-- segment_id: EP44-SEG09
-  shot_ids: [EP44-S09]
-  duration_sec: 10
-  speakers: [CHAR-007, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L02, CHAR-007-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 翠花的丈夫看了看手机又看了看翠花——嚅嗫了几句转身走了。翠花关上门靠在门上手在抖。慧兰走过去抱住她——你做得很好。你刚才那句话特别有力量。翠花在她肩膀上哭了——但这一次是释放不是恐惧。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-007-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-007, line: 慧兰——}
-  - {speaker: CHAR-001, line: 你做得很好。你刚才那句话——特别有力量。}
+  - segment_id: EP44-SEG01
+    shot_ids: [EP44-S01]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫，袖子挽到手肘）【图2】王翠花 CHAR-007-L01（红色广场舞队服）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：下午，阳光透过窗帘洒进林家客厅，茶几上摆着砧板和饺子馅——韭菜鸡蛋的香气飘满屋子。图1手法麻利地擀着饺子皮。图2坐在旁边包饺子——今天的动作有点心不在焉，一个饺子捏来捏去就是捏不拢口。图2低声说话，图1应答。话音未落——砰！砰！砰！门被拍得山响，整个门框都在震动，外面传来粗哑的吼声。图2的脸一下子白了——手里的饺子啪嗒掉在砧板上，馅都散了。图1站起来示意图2别动——表情从松弛切换成警觉。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「慧兰……我跟他说了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「他什么反应？」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「摔了一个杯子。说我想都别想。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「预料到了。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「是他……他跟踪我。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「别怕。在我家，他不敢怎么样。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP44-SEG02
+    shot_ids: [EP44-S02]
+    duration_sec: 10
+    speakers: [CHAR-GRP-005, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫，袖子挽到手肘）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：图1打开门——门口站着一个满脸通红的男人，酒气还没有散干净，穿着皱巴巴的旧Polo衫，领口歪到一边。一看到图1就劈头盖脸地骂——嗓门大得楼道里都有回音。图1站在门口没有让开——她的身体挡住了客厅里的人。她的声音不大，但每个字都稳稳地落在地上。她侧身让出一条路——不是请他进来，是给他一个选择。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠花丈夫，粗鲁急躁的中老年男声，大嗓门，说话带火气，普通话带地方口音）：「林慧兰！就是你！你离了婚不够还要带坏我老婆！」
+        对白（翠花丈夫，粗鲁急躁的中老年男声，大嗓门，说话带火气，普通话带地方口音）：「你在外面勾引男人就算了——还拉我老婆下水！」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「进来说。别在门口吵——邻居都听着。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP44-SEG03
+    shot_ids: [EP44-S03]
+    duration_sec: 10
+    speakers: [CHAR-GRP-005, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫）【图2】王翠花 CHAR-007-L01（红色广场舞队服）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：男人气冲冲地进了客厅——一眼看到图2缩在沙发上，像一只被暴风雨吓到的鸟。他立刻指着她骂——嗓门比刚才更大了，唾沫星子飞溅。图2不敢抬头——肩膀缩得紧紧的，两只手绞在一起放在膝盖上。图1走过去——不是冲过去，是一步一步走过去，穿过客厅的地板。她站在图2和这个男人之间——用自己的身体挡住了那根指着图2的手指。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠花丈夫，粗鲁急躁的中老年男声，大嗓门，说话带火气，普通话带地方口音）：「你长本事了是吧！还想离婚？我看你是被这个疯女人洗脑了！」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你说话就说话——手指头收回去。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP44-SEG04
+    shot_ids: [EP44-S04]
+    duration_sec: 10
+    speakers: [CHAR-GRP-005, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定：图3的图2气笑了——脸上写满了蔑视。图1不急不躁——她的声音依然是那种平静的语调，但每一个问题都像一把手术刀。她没有跟他吵架——她只是在提问。她问了一连串的问题——每个问题都剥掉一层他给自己编的借口。最后一个问题——"她日子过得好好的会想离吗？"——像一根针扎进了气球里。他没有答案——因为他从来不需要答案。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠花丈夫，粗鲁急躁的中老年男声，大嗓门，说话带火气，普通话带地方口音）：「林慧兰你算什么东西？你有什么资格管我家的事？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我是她朋友。她的事就是我的事。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你说我带坏你老婆——那你说说，她跟我学了什么？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「学我离婚？那她为什么要离婚？她日子过得好好的——会想离吗？」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP44-SEG05
+    shot_ids: [EP44-S05]
+    duration_sec: 10
+    speakers: [CHAR-GRP-005, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定：图1的丈夫被问住了——他憋了几秒，嘴唇动了好几次但每次话到嘴边又咽回去了。好不容易憋出一句——"我对她不好吗？我让她吃让她穿！"这就是他全部的论据。图1没有反驳——她只是平静地追问。她说——那你对她好在哪里？你说出来让我听听。他张嘴想说——但发现能说出口的全是"我没打她""我没饿着她"。他愣住了——这个问题他从来没想过。图1说出了真相。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠花丈夫，粗鲁急躁的中老年男声，大嗓门，说话带火气，普通话带地方口音）：「我对她不好吗？我让她吃让她穿！她还有什么不满意的？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「那你对她好在哪里？你说出来让我听听。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「说不出来了？因为你自己也知道——那些不叫好。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP44-SEG06
+    shot_ids: [EP44-S06]
+    duration_sec: 10
+    speakers: [CHAR-GRP-005, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：图2的丈夫恼羞成怒——他的脸涨得比刚才更红了，额头上青筋暴起。讲道理讲不过——那就用拳头。他往前冲了一步——"我老婆的事轮不到你管！"图1不躲不闪——她不紧不慢地拿起茶几上的手机，指纹解锁，打开录像模式。她把手机举起来——镜头对准他的脸——那个红色的录像指示灯一闪一闪的。她的声音依然平静——但每个字都像一枚钉子。她不是威胁——是在给他最后一个选择。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠花丈夫，粗鲁急躁的中老年男声，大嗓门，说话带火气，普通话带地方口音）：「你少跟我讲这些大道理！我老婆的事轮不到你管！」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你继续说。我录着。你想让多少人看到你现在的样子？」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP44-SEG07
+    shot_ids: [EP44-S07]
+    duration_sec: 10
+    speakers: [CHAR-GRP-005, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫）【图2】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：图2的丈夫一下子僵住了——他的手悬在半空中，想去抢手机但又不敢。他没想到这个女人会用手机录他——他习惯了女人要么哭要么躲，从来没有人反过来对着他录像。他骂了一句粗话——但声音已经比刚才低了八度。图1退后一步——但手机镜头没有放下。她的声音依然不紧不慢——她说要发到公司群、发到小区业主群。她不是在吓唬他——她真的有这个能力。他的气焰肉眼可见地矮了下去——像一只被戳破的气球。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠花丈夫，粗鲁急躁的中老年男声，大嗓门，说话带火气，普通话带地方口音）：「你……你他妈……」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你再走一步，我直接发网上。发到你们公司群，发到小区业主群。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你不是要脸吗？我今天就让你要个够。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP44-SEG08
+    shot_ids: [EP44-S08]
+    duration_sec: 10
+    speakers: [CHAR-007]
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-007-L01
+        - CHAR-001-L02
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】王翠花 CHAR-007-L01（红色广场舞队服）【图2】林慧兰 CHAR-001-L02（暖色衬衫）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：图1从沙发上站了起来——膝盖还在微微发抖，用手按了一下沙发扶手才站稳。但她还是站了起来。她走到她老公面前——这是二十年来第一次，她不是低着头听他骂，而是抬起头看着他说话。她的声音还有一点抖——但每一个字都是她自己的。她说——我们的事，我们自己解决。然后她说出了一个她从来没说过的词——"起诉"。她丈夫不敢相信地看着她——嘴巴张着合不上，眼神里混合着震惊和不知所措。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「我们的事——我们自己解决。不要到别人家闹。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「你要是还想谈，我们回去好好说。你要是继续闹——那我明天就去法院起诉。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP44-SEG09
+    shot_ids: [EP44-S09]
+    duration_sec: 10
+    speakers: [CHAR-GRP-005, CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-007-L01
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫）【图2】王翠花 CHAR-007-L01（红色广场舞队服）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：翠花的丈夫看了看还亮着录像灯的手机——又看了看站在面前的图2。他从来没见她这样过——脊背挺着，眼眶红着，但目光没有躲闪。他嚅嗫了几句——声音含混不清，然后转身就往外走。走到门口时回头甩了一句"你等着"——但这已经没有任何威慑力了。他出了门——脚步声在楼道里越来越远。图2关上门——靠在门上，手还在抖。图1放下手机，走过去抱住她——手轻轻拍着图2的后背。图2在图1肩膀上哭了——但这一次不是恐惧的眼泪，是释放的眼泪。茶几上的饺子馅还散发着韭菜鸡蛋的香气——生活还在继续。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（翠花丈夫，粗鲁急躁的中老年男声，大嗓门，说话带火气，普通话带地方口音）：「你……你等着……」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「慧兰——」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你做得很好。你刚才那句话——特别有力量。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: null

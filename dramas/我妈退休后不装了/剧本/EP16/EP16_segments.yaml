@@ -5,17 +5,22 @@ defaults:
   model: doubao-seedance-2-0-fast
   ratio: '9:16'
   resolution: 720p
-  duration: 5
-  generate_audio: false
+  generate_audio: true
   watermark: false
   prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+  prompt_suffix_silent: 本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
   negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声，略带沧桑感，语速中等偏慢，普通话标准带轻微北方口音；面对儿子时心疼但克制
-  CHAR-003: 普通的年轻男声，初期唯唯诺诺语气不确定，普通话标准；面对妻子时退缩，面对母亲时愧疚
-  CHAR-004: 尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气突然低下去，普通话标准
-  CHAR-008: 清脆童声，天真烂漫，语速偏快，偶尔咬字不清；哭的时候语无伦次
-  CHAR-010: 沙哑疲倦的中年女声，音色偏暗，语速慢，普通话带地方口音
+  CHAR-001: 温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音
+  CHAR-002: 低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音
+  CHAR-003: 普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准
+  CHAR-004: 尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准
+  CHAR-005: 干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准
+  CHAR-006: 温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准
+  CHAR-007: 爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音
+  CHAR-008: 清脆童声，天真烂漫，语速偏快，偶尔咬字不清
+  CHAR-010: 沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音
+  CHAR-GRP-002: 阴阳怪气的中老年声音，压低嗓门说闲话的语气
 segments:
 - segment_id: EP16-SEG01
   shot_ids:
@@ -26,65 +31,87 @@ segments:
   - CHAR-003
   refs:
     scene_id: SCENE-003
-    look_ids:
-    - CHAR-004-L01
-    - CHAR-003-L01
   assets:
     look_urls:
-      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01
-      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01
+      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
     scene_urls:
-      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003
+      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
   api:
-    text: 【图1】儿子家客厅 SCENE-003（现代简约风格客厅）【图2】王芳 CHAR-004-L01（坐在沙发上刷手机，表情变冷）【图3】张明 CHAR-003-L01（从厨房出来，一脸不安）。中景：王芳挂掉电话脸色变了，做了个决定。
+    text: '【图1】王芳 CHAR-004-L01（白衬衫+包臀裙，直长发，精明神态）【图2】张明 CHAR-003-L01（浅蓝衬衫皱巴巴，细框眼镜，含胸驼背）【图3】儿子家客厅 SCENE-003。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定镜头：儿子家客厅。图1坐在沙发上刷手机，图2在旁边整理茶几上的杂物。图1接了个电话脸色变了。她看了图2一眼做了个决定。沙发上的靠垫被图1不自觉地揪紧。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「张明，你过来。」
+
+      对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「怎么了？」
+
+      对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「你妈最近风头很旺啊。跳舞、打官司、还帮人维权——她这么有能耐，那孙子也不用她带了。」
+
+      对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「你什么意思？」
+
+      对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「以后昊昊不用去奶奶那儿了。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-003
-      role: reference_image
-      label: 图1
     - file: CHAR-004-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-003-L01
       role: reference_image
+      label: 图2
+    - file: SCENE-003
+      role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-004
-    line: 张明，你过来。
-  - speaker: CHAR-003
-    line: 怎么了？
-  - speaker: CHAR-004
-    line: 你妈最近风头很旺啊。跳舞、打官司、还帮人维权——她这么有能耐，那孙子也不用她带了。
-  - speaker: CHAR-003
-    line: 你什么意思？
-  - speaker: CHAR-004
-    line: 以后昊昊不用去奶奶那儿了。
+  transition_to_next: hard_cut
 - segment_id: EP16-SEG02
   shot_ids:
   - EP16-S02
   duration_sec: 10
   speakers:
-  - CHAR-008
   - CHAR-004
+  - CHAR-008
+  - CHAR-003
   refs:
     scene_id: SCENE-003
-    look_ids:
-    - CHAR-008-L01
-    - CHAR-004-L01
-    - CHAR-003-L01
   assets:
     look_urls:
-      CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-008-L01
-      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01
-      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01
+      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
+      CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-008-L01.png
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
     scene_urls:
-      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003
+      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
   api:
-    text: 【图1】张昊 CHAR-008-L01（听到奶奶两个字抬头，眼睛亮了）【图2】王芳 CHAR-004-L01（表情冷硬）【图3】张明 CHAR-003-L01（张了张嘴又闭上）【图4】儿子家客厅 SCENE-003（现代简约风格）。近景：张昊听到奶奶兴奋地抬头。王芳语气硬邦邦地拒绝。张明想说什么被瞪了回去。
+    text: '【图1】王芳 CHAR-004-L01（白衬衫+包臀裙，直长发，精明神态）【图2】张昊 CHAR-008-L01（蓝白校服，短发，圆脸，天真活泼）【图3】张明 CHAR-003-L01（浅蓝衬衫皱巴巴，细框眼镜，含胸驼背）【图4】儿子家客厅 SCENE-003。
+
+      竖屏9比16连贯叙事。
+
+      镜头2（10秒）中景 固定镜头：图2愣住了。他张了张嘴想说什么但没说出口。图3正在茶几旁的地板上玩积木，听到奶奶两个字抬起头眼睛亮了。积木从图3手里滑落。图2站在图1和图3之间表情像被夹在两扇门中间。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（张昊，清脆童声，天真烂漫，语速偏快，偶尔咬字不清）：「我要去奶奶家！奶奶说这周末带我去公园！」
+
+      对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「周末妈妈带你去外婆家。你奶奶很忙。」
+
+      对白（张昊，清脆童声，天真烂漫，语速偏快，偶尔咬字不清）：「奶奶不忙！奶奶说她想我！」
+
+      对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「我说了去外婆家！」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: CHAR-008-L01
+    - file: CHAR-004-L01
       role: reference_image
       label: 图1
-    - file: CHAR-004-L01
+    - file: CHAR-008-L01
       role: reference_image
       label: 图2
     - file: CHAR-003-L01
@@ -93,62 +120,60 @@ segments:
     - file: SCENE-003
       role: reference_image
       label: 图4
-  dialogue:
-  - speaker: CHAR-008
-    line: 我要去奶奶家！奶奶说这周末带我去公园！
-  - speaker: CHAR-004
-    line: 周末妈妈带你去外婆家。你奶奶很忙。
-  - speaker: CHAR-008
-    line: 奶奶不忙！奶奶说她想我！
-  - speaker: CHAR-004
-    line: 我说了去外婆家！
+  transition_to_next: hard_cut
 - segment_id: EP16-SEG03
   shot_ids:
   - EP16-S03
   duration_sec: 10
   speakers:
-  - CHAR-008
   - CHAR-004
+  - CHAR-008
   - CHAR-003
   refs:
     scene_id: SCENE-003
-    look_ids:
-    - CHAR-008-L01
-    - CHAR-003-L01
-    - CHAR-004-L01
   assets:
     look_urls:
-      CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-008-L01
-      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01
-      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01
+      CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-004-L01.png
+      CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-008-L01.png
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
     scene_urls:
-      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003
+      SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
   api:
-    text: 【图1】张昊 CHAR-008-L01（大哭起来）【图2】张明 CHAR-003-L01（蹲下安慰被王芳眼神制止，只好低头）【图3】王芳 CHAR-004-L01（抱起孩子，语气敷衍）【图4】儿子家客厅 SCENE-003（现代简约风格客厅）。近景：张昊大哭。张明想安慰被妻子眼神逼退。王芳抱起孩子哄得敷衍。
+    text: '【图1】王芳 CHAR-004-L01（白衬衫+包臀裙，直长发，精明神态）【图2】张昊 CHAR-008-L01（蓝白校服，短发，圆脸，天真活泼）【图3】张明 CHAR-003-L01（浅蓝衬衫皱巴巴，细框眼镜，含胸驼背）【图4】儿子家客厅 SCENE-003。
+
+      竖屏9比16连贯叙事。
+
+      镜头3（10秒）近景 固定镜头：图3嘴一瘪开始哭。图2想安慰孩子但是被图1一个眼神瞪回去了。他看着儿子哭心里难受但不敢反抗妻子。他低着头往卧室方向挪了两步又停住。图1抱起图3哄了两句但语气里没有温度。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（张昊，清脆童声，天真烂漫，语速偏快，偶尔咬字不清）：「我要奶奶…我要奶奶…」
+
+      对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「昊昊不哭，爸爸周末带你去——」
+
+      对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「张明。」
+
+      对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「…听妈妈的。」
+
+      对白（王芳，尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准）：「好了好了不哭了，周末妈妈带你去吃好吃的。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: CHAR-008-L01
+    - file: CHAR-004-L01
       role: reference_image
       label: 图1
-    - file: CHAR-003-L01
+    - file: CHAR-008-L01
       role: reference_image
       label: 图2
-    - file: CHAR-004-L01
+    - file: CHAR-003-L01
       role: reference_image
       label: 图3
     - file: SCENE-003
       role: reference_image
       label: 图4
-  dialogue:
-  - speaker: CHAR-008
-    line: 我要奶奶…我要奶奶…
-  - speaker: CHAR-003
-    line: 昊昊不哭，爸爸周末带你去——
-  - speaker: CHAR-004
-    line: 张明。
-  - speaker: CHAR-003
-    line: …听妈妈的。
-  - speaker: CHAR-004
-    line: 好了好了不哭了，周末妈妈带你去吃好吃的。
+  transition_to_next: dissolve
 - segment_id: EP16-SEG04
   shot_ids:
   - EP16-S04
@@ -159,31 +184,39 @@ segments:
   - CHAR-003
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林慧兰 CHAR-001-L01（正在浇花，接起电话表情变了）【图2】林家客厅 SCENE-001（）。近景：慧兰接电话听到孙子的哭声心揪了一下。张明接过电话支支吾吾。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头4（10秒）近景 固定镜头：林家客厅。图1在浇花。手机响了是孙子用儿子手机打来的。她接起来听到孙子的哭声心揪了一下。手里的喷壶停在半空。儿子接过电话支支吾吾说了王芳的决定。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「昊昊？怎么哭了？」
+
+      对白（张昊，清脆童声，天真烂漫，语速偏快，偶尔咬字不清）：「奶奶…妈妈不让我去你家了…」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「奶奶知道了。昊昊乖，奶奶会想办法的。」
+
+      对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「妈…王芳说以后不让昊昊去你那儿了。我…我也没办法。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: SCENE-001
+      role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-001
-    line: 昊昊？怎么哭了？
-  - speaker: CHAR-008
-    line: 奶奶…妈妈不让我去你家了…
-  - speaker: CHAR-001
-    line: 奶奶知道了。昊昊乖，奶奶会想办法的。
-  - speaker: CHAR-003
-    line: 妈…王芳说以后不让昊昊去你那儿了。我…我也没办法。
+  transition_to_next: hard_cut
 - segment_id: EP16-SEG05
   shot_ids:
   - EP16-S05
@@ -193,91 +226,126 @@ segments:
   - CHAR-010
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林慧兰 CHAR-001-L01（挂掉电话沉默很久，眼睛红了但忍着）【图2】林家客厅 SCENE-001（暖色调室内）。近景：慧兰挂掉电话沉默。慧芳出来看到姐姐的表情什么都明白了。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头5（10秒）中景 固定镜头：图1挂掉电话沉默了很久。图2从屋里走出来看到图1的表情什么都明白了。她想安慰却不知说什么。图1过了很久才开口。窗台上的绿植在午后的光里投下长长的影子。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐…你没事吧？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「没事。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「是昊昊的事？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「慧芳。你说得对——婆婆就该免费带孩子。不带了，就连孙子都见不着。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-010
-    line: 姐…你没事吧？
-  - speaker: CHAR-001
-    line: 没事。
-  - speaker: CHAR-010
-    line: 是昊昊的事？
-  - speaker: CHAR-001
-    line: 慧芳。你说得对——婆婆就该免费带孩子。不带了，就连孙子都见不着。
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: dissolve
 - segment_id: EP16-SEG06
   shot_ids:
   - EP16-S06
   duration_sec: 10
-  speakers: []
+  speakers:
+  - CHAR-001
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林慧兰 CHAR-001-L01（站在幼儿园门外的树荫下，远远望着，手攥紧包带）【图2】林家客厅 SCENE-001（树荫下午后光线，幼儿园场景元素）。中景→特写：第二天下午幼儿园放学。慧兰站在远处树荫下。孩子们涌出来。她看到张昊出来张望了一下又低下头——没有看到奶奶。慧兰远远看着没有上前。心痛但克制。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头6（10秒）中景 固定镜头：第二天下午。图1站在一家幼儿园不远处的树荫下。放学铃响孩子们涌出来。她看到张昊背着书包跑出来——在校门口张望了一下没看到奶奶，低下头跟着王芳走了。图1远远看着手攥紧了包带眼眶发热但没有走过去。夕阳把她的影子拉得很长。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「昊昊在找我。他以为我会来。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: SCENE-001
+      role: reference_image
       label: 图2
-  dialogue: []
+  transition_to_next: dissolve
 - segment_id: EP16-SEG07
   shot_ids:
   - EP16-S07
   duration_sec: 10
   speakers:
-  - CHAR-010
   - CHAR-001
+  - CHAR-010
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林慧兰 CHAR-001-L01（坐在沙发上发呆，接过水杯，声音平静但眼眶发热）【图2】林家客厅 SCENE-001（暖色调客厅，安静氛围）。近景：慧兰回到家坐在沙发上发呆。慧芳端水过来陪着她。她说话很平静但慧芳知道姐姐心里在翻江倒海。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林慧芳 CHAR-010-L01（旧灰蓝外套，面色暗黄，头发有些乱）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头7（10秒）中景 固定镜头：图1回到家坐在沙发上发呆。窗外天色渐暗客厅还没开灯。图2端了杯水过来。图1慢慢接过水杯手没有发抖声音也很平静。但图2知道姐姐心里在翻江倒海。她什么都没说就坐在旁边陪着。两个人影在昏暗中安静地坐着。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我站在那儿四十分钟。就想看他一眼。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「为什么不上去？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「上去了又能怎样？他终究要回他妈妈那儿。」
+
+      对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「…」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「这是我自己选的。选了不带了，就得承受。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: CHAR-010-L01
+      role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-001
-    line: 我站在那儿四十分钟。就想看他一眼。
-  - speaker: CHAR-010
-    line: 为什么不上去？
-  - speaker: CHAR-001
-    line: 上去了又能怎样？他终究要回他妈妈那儿。
-  - speaker: CHAR-010
-    line: …
-  - speaker: CHAR-001
-    line: 这是我自己选的。选了不带了，就得承受。
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP16-SEG08
   shot_ids:
   - EP16-S08
@@ -287,36 +355,43 @@ segments:
   - CHAR-003
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-003-L01
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】张明 CHAR-003-L01（坐在沙发上低着头，一脸憔悴，第一次在母亲面前承认自己没用）【图2】林慧兰 CHAR-001-L01（看着他，心疼但克制）【图3】林家客厅 SCENE-001（傍晚光线，暖色调）。近景：傍晚敲门声。张明来了坐下沉默很久然后开口——不是求妈妈回去，是来倾诉。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】张明 CHAR-003-L01（浅蓝衬衫皱巴巴，细框眼镜，含胸驼背）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头8（10秒）中景 固定镜头：傍晚敲门声。图2站在门口一脸疲惫憔悴。图1让他进来。图2坐下后先是沉默很久然后开口。这是他第一次在图1面前承认自己没本事。图1坐在他对面隔着茶几的距离。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「妈…」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「说吧。」
+
+      对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「我是不是很没用？老婆管不住，孩子也保护不了。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你是一个父亲了。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: CHAR-003-L01
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
-    - file: CHAR-001-L01
+    - file: CHAR-003-L01
       role: reference_image
       label: 图2
     - file: SCENE-001
       role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-003
-    line: 妈…
-  - speaker: CHAR-001
-    line: 说吧。
-  - speaker: CHAR-003
-    line: 我是不是很没用？老婆管不住，孩子也保护不了。
-  - speaker: CHAR-001
-    line: 你是一个父亲了。
+  transition_to_next: hard_cut
 - segment_id: EP16-SEG09
   shot_ids:
   - EP16-S09
@@ -326,17 +401,32 @@ segments:
   - CHAR-003
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
-    - CHAR-003-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林慧兰 CHAR-001-L01（看着儿子，声音很轻但每个字都很重）【图2】张明 CHAR-003-L01（抬头急了）【图3】林家客厅 SCENE-001（暖色调安静氛围）。近景：张明求妈妈回去。慧兰摇头——她以前总替儿子解决问题但这次不能。不是为了惩罚是为了让他长大。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】张明 CHAR-003-L01（浅蓝衬衫皱巴巴，细框眼镜，含胸驼背）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头9（10秒）近景 固定镜头：图1看着这个从小被她保护得太好的儿子。她以前总是替他解决问题。但这次她不能。她说那句话时声音很轻但每个字都是四十年的感悟。窗外天色已全暗客厅灯光在图1脸上打出柔和的光。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「妈，你回来吧。你回来帮帮我们。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「张明，你是一个父亲了，该自己承担。」
+
+      对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「可是昊昊他——」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你小时候我也一个人带大的。你没问题的。只是你从没试过。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
     - file: CHAR-001-L01
       role: reference_image
@@ -347,12 +437,4 @@ segments:
     - file: SCENE-001
       role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-003
-    line: 妈，你回来吧。你回来帮帮我们。
-  - speaker: CHAR-001
-    line: 张明，你是一个父亲了，该自己承担。
-  - speaker: CHAR-003
-    line: 可是昊昊他——
-  - speaker: CHAR-001
-    line: 你小时候我也一个人带大的。你没问题的。只是你从没试过。
+  transition_to_next: hard_cut

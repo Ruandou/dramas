@@ -1,0 +1,360 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP40/EP40_鉴赏会.md
+# Source shots: 10 (EP40-S01 to EP40-S10)
+# Output shots: 10 (EP40-S01 to EP40-S10)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 84s (self-calculated: 5+6+10+6+5+9+10+10+11+12)
+# Output total duration: 84s
+# Gate status: ALL PASS (⚠️ [待补：鉴赏富豪] placeholder — pending CHAR-GRP assignment)
+# ⚠️ SEMANTIC_WARNING: [待补：鉴赏富豪] appears in S03/S05/S07/S09/S10 without formal CHAR-ID or L01 look.
+#    Downstream pipeline must assign CHAR-GRP-08+ and generate look before API submission.
+
+episode_id: EP40
+source_md: 剧本/EP40/EP40_鉴赏会.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+shots:
+  - shot_id: EP40-S01
+    shot_no: 1
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-007
+      look_ids: []
+      prop_ids: []
+    assets:
+      look_urls: {}
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】SCENE-007。
+        全景 缓推：电梯门缓缓滑开，露出一条幽长的地下走廊，清水混凝土墙面被两侧嵌入式冷白灯带切割出几何线条，走廊尽头深色胡桃木双开门门缝透出暖金色光线。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens
+      content_roles:
+        - { file: SCENE-007, role: reference_image, label: 图1 }
+    dialogue:
+      - speaker: CHAR-009  # 旁白[方远的声音·电话录音质感]
+        line: "邀请函在你内侧口袋。记住，你是方氏的投资顾问。别多说，别多看。"
+      - speaker: CHAR-001
+        line: "方远给的这张邀请函……是进虎穴的门票。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L02【图2】SCENE-007。
+        中景 固定镜头：图1身着深蓝修身西装步出电梯，右手不自觉按了一下左胸内侧口袋，走廊冷白灯光打在银色手表上折射出一道冷光，图1深吸一口气下颌线条绷紧。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "能看清别人价格的人，最怕自己被人标价。"
+      - speaker: CHAR-001
+        line: "……沉住气。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-008-L01
+      prop_ids:
+        - PROP-003
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-003.png
+    api:
+      text: |
+        【图1】CHAR-001-L02【图2】CHAR-008-L01【图3】SCENE-007【图4】PROP-003。
+        中景 镜头跟随：胡桃木门推开图1步入，圆形大厅中央黑檀木圆桌上十几块玉质碎片嵌在玻璃展示座上散发微弱金色光芒，十数位衣着考究的人围坐桌旁，图2银灰鬓角在暖色灯光下泛出冷光端坐主位，环形吊灯投下均匀光束。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+        - { file: PROP-003, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: "[待补：鉴赏富豪]"  # ⚠️ WARNING: 待补群演，尚无正式 CHAR-ID / voice_prompt
+        line: "新面孔。"
+      - speaker: CHAR-001
+        line: "方氏投资，第一次参加。"
+      - speaker: CHAR-001
+        line: "十几块碎片……这不只是鉴赏会，是黑市拍卖会。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-008-L01【图2】SCENE-007。
+        近景 缓推：图1从主位站起，手指修长地指向桌上第一块碎片，方形翠绿玉片在玻璃座上微微发光，图1无框眼镜片映出碎片的金色倒影，嘴角维持中性线条。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "第一件。感知谈判对手底线的碎片。起拍价，三千万。"
+      - speaker: CHAR-008
+        line: "第二件。洞察合同隐藏条款。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L02【图2】SCENE-007。
+        中景 固定镜头：一位衣着考究的人身体前倾双手交叉搁在桌面上目光灼灼盯住碎片，旁边几位交换了意味深长的眼神，图1坐在中段位置双手平放膝上维持镇定。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: "[待补：鉴赏富豪]"  # ⚠️ WARNING: 待补群演
+        line: "底线感知……这东西我要了。"
+      - speaker: CHAR-001
+        line: "全是标价之眼的弱化版……他在量产我的能力。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 9
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-001-L02
+        - CHAR-008-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L02【图2】CHAR-008-L01【图3】SCENE-007。
+        特写 镜头推近：图1瞳孔骤然收缩金色琥珀光芒从眼底涌起，视野中碎片上方浮现跳动的金色数字与能力描述标签，金色光芒在虹膜中流转，身后图2身影在焦外若隐若现银灰鬓角被金色光芒勾出轮廓。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-008-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "底线感知、风险预判、情绪读取……"
+      - speaker: CHAR-001
+        line: "全是从标价之眼拆出来的碎片能力。"
+      - speaker: CHAR-001
+        line: "每一块卖掉，就多一个人拥有弱化版的我。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-001-L02
+      prop_ids:
+        - PROP-003
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-003.png
+    api:
+      text: |
+        【图1】CHAR-008-L01【图2】CHAR-001-L02【图3】SCENE-007【图4】PROP-003。
+        近景 固定镜头：图1拿起三角形翠绿玉片在指间微微发光，将碎片举至灯光下金色光芒穿过玉质纹理投在深色桌面上，对面人伸手欲触又缩回，图2手指攥紧西装裤腿布料皱起。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+        - { file: PROP-003, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "第三件。读取对手恐惧的碎片。"
+      - speaker: "[待补：鉴赏富豪]"  # ⚠️ WARNING: 待补群演
+        line: "五千万。现在就要。"
+      - speaker: CHAR-001
+        line: "在座每个人……都拥有了某种异能。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-001-L02
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-008-L01【图2】CHAR-001-L02【图3】SCENE-007。
+        中景 固定镜头：图1缓缓坐回主位皮椅，右手从西装内袋取出银色遥控器搁在桌面金属触碰木面，图1抬眼目光越过圆桌正中精确锁在图2脸上，图2浑身一僵后背抵住椅背。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "今天的重头戏，不是这些碎片。"
+      - speaker: CHAR-008
+        line: "而是一件……特殊的展品。"
+      - speaker: CHAR-001
+        line: "那个眼神……他在看我。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 11
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-001-L02
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-008-L01【图2】CHAR-001-L02【图3】SCENE-007。
+        近景 固定镜头：图1拇指按下遥控器大厅所有灯光骤然变为金色，墙壁和天花板被浓郁琥珀色光芒浸透碎片金光与环境金辉融为一体，多人惊愕抬头有人椅子后仰，图2在金色光线中面部半明半暗双手死死攥住椅子扶手指节发白。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "在座各位手中的碎片……都来自同一双眼睛。"
+      - speaker: "[待补：鉴赏富豪]"  # ⚠️ WARNING: 待补群演
+        line: "同一双……？"
+      - speaker: CHAR-001
+        line: "灯变金色……他在逼我暴露。不能动，一动就完了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP40-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 12
+    refs:
+      scene_id: SCENE-007
+      look_ids:
+        - CHAR-008-L01
+        - CHAR-001-L02
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-008-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-008-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L02.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-008-L01【图2】CHAR-001-L02【图3】SCENE-007。
+        中景 镜头推近：金色灯光笼罩全场，图1端坐主位如蛛网中心的猎手嘴角弧度接近微笑，十几道目光刺向图2，图2缓缓靠回椅背面部明暗交错下颌线条绷到极致双手平放桌指尖微微发白。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens
+      content_roles:
+        - { file: CHAR-008-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-008
+        line: "而最后一块碎片——就在这间房里。"
+      - speaker: "[待补：鉴赏富豪]"  # ⚠️ WARNING: 待补群演
+        line: "谁？"
+      - speaker: CHAR-001
+        line: "鉴赏会是假的……从邀请函开始，就是给我设的局。"
+      - speaker: CHAR-001
+        line: "走不了了。"
+    transition_to_next: hard_cut

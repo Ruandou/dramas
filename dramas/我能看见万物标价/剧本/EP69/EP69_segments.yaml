@@ -1,0 +1,272 @@
+# === SEGMENT BUILD CONFIGURATION ===
+# Episode: EP69 — 万物皆可见
+# Segments: 8 (SEG01–SEG08)
+# Total duration: 88s
+# ⚠️ PLACEHOLDER EXTRAS: temp voice_prompts for [待补：惊恐路人], [待补：年轻女孩], [待补：年轻男孩], [待补：挣扎员工]
+#   production-planner must assign CHAR-GRP-## + build voice card entries before Seedance submission.
+
+episode_id: EP69
+source_md: 剧本/EP69/EP69_万物皆可见.md
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens"
+  negative_prompt: "anime, cartoon, illustration, painting, watercolor, sketch, deformed hands, extra fingers, blurry face, distorted face, low quality, oversaturated, plastic skin, modern Western architecture mismatch, historical costume in modern setting, fantasy armor, medieval elements"
+
+voice_prompts:
+  CHAR-001: "Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones"
+  CHAR-003: "Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing"
+  CHAR-010: "Male, 35 years old, fast and intense speaking pace, slightly raspy from lack of sleep, mixes technical jargon with idealistic rhetoric, fanatical undertone, believes wholeheartedly in his cause"
+  TEMP-PANICKED: "Male, 30 years old, panicked and breathless tone, trembling voice, fast erratic pace, speaks with genuine fear and shock"  # ⚠️ PLACEHOLDER: [待补：惊恐路人]
+  TEMP-YOUNG-GIRL: "Female, 23 years old, high-pitched fragile voice, emotional and cracking, medium pace, voice breaks when crying"  # ⚠️ PLACEHOLDER: [待补：年轻女孩]
+  TEMP-YOUNG-BOY: "Male, 24 years old, youthful slightly panicked voice, medium to fast pace, earnest and pleading tone"  # ⚠️ PLACEHOLDER: [待补：年轻男孩]
+  TEMP-EMPLOYEE: "Male, 28 years old, frustrated and bitter tone, medium pace, voice trembles between anger and despair"  # ⚠️ PLACEHOLDER: [待补：挣扎员工]
+
+segments:
+  - segment_id: EP69-SEG01
+    shot_ids: [EP69-S01]
+    duration_sec: 10
+    speakers: [TEMP-PANICKED, CHAR-001]  # ⚠️ TEMP-PANICKED is placeholder
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-009.png
+      prop_urls:
+        PROP-009: https://drama-reference-images.tos-cn-beijing.volces.com/props/我能看见万物标价/PROP-009.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长款大衣高领毛衣）【图2】城市街头 SCENE-009【图3】碎片放大器 PROP-009。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：城市商业步行街被金色粒子彻底侵染，霓虹灯牌被金色光芒覆盖变得浑浊，行人四处奔走——有人蹲在地上捂脸有人盯着身边人头顶数字发呆，头顶金色数字浮动闪烁如活物，空气中弥漫恐慌低语和远处警报声，画面右侧路人抓住身边人肩膀摇晃，画面左侧远处图1黑色大衣下摆在疾行气流中翻摆瞳孔深处金色脉动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（惊恐路人，Male, 30 years old, panicked and breathless tone, trembling voice, fast erratic pace, speaks with genuine fear and shock）：「你头顶……八百块……你对我就值八百块。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「放大器还在运转……每过一分钟影响就深一层。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「先稳住眼前的人。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+        - { file: PROP-009, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP69-SEG02
+    shot_ids: [EP69-S02, EP69-S03]
+    duration_sec: 12
+    speakers: [TEMP-YOUNG-GIRL, TEMP-YOUNG-BOY, CHAR-001]  # ⚠️ TEMP-YOUNG-GIRL, TEMP-YOUNG-BOY are placeholders
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-009.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长款大衣高领毛衣）【图2】城市街头 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）中景 固定：路灯下一对年轻情侣面对面站着，女孩长发被风吹乱眼眶通红死死盯着男孩头顶浮动的金色数字，男孩伸出手想拉她被一把甩开，两人头顶各自浮动一串金色数字在路灯暖光与金色粒子交织下忽明忽暗，经过的行人无意识看向他们头顶——每个人都成了别人的审判官。
+        镜头2（5秒）近景 固定：图1停下脚步，目光从女孩头顶数字移到她通红的眼眶——他看到的不是价格而是两个人三年来一起吃过的苦，黑色大衣在路灯余光中泛着深色光泽，面部表情从紧迫转为沉稳，他开口时声音不大但在混乱中异常清晰，女孩抬起头看他泪痕未干。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（年轻女孩，Female, 23 years old, high-pitched fragile voice, emotional and cracking, medium pace, voice breaks when crying）：「五百二十块……三年感情，就值五百二十块。」
+        对白（年轻男孩，Male, 24 years old, youthful slightly panicked voice, medium to fast pace, earnest and pleading tone）：「那不能代表什么——」
+        对白（年轻女孩，Female, 23 years old, high-pitched fragile voice, emotional and cracking, medium pace, voice breaks when crying）：「数字在那摆着。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「价格不是终点，而是起点。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「每段感情的价值，取决于你们怎么经营它。」
+        对白（年轻女孩，Female, 23 years old, high-pitched fragile voice, emotional and cracking, medium pace, voice breaks when crying）：「……经营？」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP69-SEG03
+    shot_ids: [EP69-S04, EP69-S05]
+    duration_sec: 12
+    speakers: [TEMP-EMPLOYEE, CHAR-001]  # ⚠️ TEMP-EMPLOYEE is placeholder
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-009.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长款大衣高领毛衣）【图2】城市街头 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（7秒）近景 固定：一个穿衬衫的年轻男人蹲在便利店门口台阶上，手机屏幕亮着显示公司内部财务截图，脸上交替闪过愤怒和不可置信，头顶路灯把影子拉得很长，金色粒子在他周围浮动，衬衫袖口卷到手肘领带扯松，像刚从一场窒息的会议里逃出来。
+        镜头2（5秒）中景 固定：图1在台阶前站定，没有蹲下来——站着说话像一个过来人给后来者指路，黑大衣在霓虹余光中轮廓分明，员工抬头看他手机攥在手里指节发白，远处金色粒子仍在飘散但这一小块区域因为图1的存在似乎安静了几分。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（挣扎员工，Male, 28 years old, frustrated and bitter tone, medium pace, voice trembles between anger and despair）：「老板的黑幕……全看到了。」
+        对白（挣扎员工，Male, 28 years old, frustrated and bitter tone, medium pace, voice trembles between anger and despair）：「五年忠心，就值这点钱。」
+        对白（挣扎员工，Male, 28 years old, frustrated and bitter tone, medium pace, voice trembles between anger and despair）：「呵……我还替他加过班。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「看到不公平的价格，不是让你愤怒的理由。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「是让你做出选择的依据。」
+        对白（挣扎员工，Male, 28 years old, frustrated and bitter tone, medium pace, voice trembles between anger and despair）：「……选择。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: SCENE-009, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP69-SEG04
+    shot_ids: [EP69-S06, EP69-S07]
+    duration_sec: 12
+    speakers: [CHAR-003, CHAR-001, TEMP-EMPLOYEE]  # ⚠️ TEMP-EMPLOYEE is placeholder
+    refs:
+      scene_id: SCENE-009
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-003-L01.png
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+      scene_urls:
+        SCENE-009: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-009.png
+    api:
+      text: |
+        【图1】赵大壮 CHAR-003-L01（花哨运动外套橙蓝拼色白T恤）【图2】陆辰 CHAR-001-L03（黑色长款大衣高领毛衣）【图3】城市街头 SCENE-009。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：手机直播画面中图1圆脸涨红寸头上汗珠闪亮花哨运动外套在混乱街景中格外扎眼，一手举手机自拍直播一手拉住身边刚被图2开导过的员工，屏幕弹幕飞速滚动金色点赞图标不断弹出，身后远处图2黑色大衣背影正继续向前走。
+        镜头2（6秒）特写 固定：图2面部特写，霓虹灯和金色粒子在面庞上交替明灭，浓眉下眼神从温暖转为冰冷笃定——街头的人暂时稳住了但源头还没解决，瞳孔深处价值之眼金光脉动一下像在催促，薄唇紧抿成一条线，远处仓库方向的天空泛着不正常的金色光晕。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「辰哥说了——数字是价格，不是价值。」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「老铁们转发起来，让更多人听到。」
+        对白（挣扎员工，Male, 28 years old, frustrated and bitter tone, medium pace, voice trembles between anger and despair）：「他说得对……我该做选择了。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「该去找韩渊了。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「大壮，帮我稳住直播间。我去关源头。」
+        对白（赵大壮，Male, 25 years old, energetic and slightly high-pitched cheerful voice, fast pace, expressive and exaggerated intonation, laughs frequently, uses internet slang naturally, talks more when nervous, comedic timing）：「你小心……那家伙不正常。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+        - { file: SCENE-009, role: reference_image, label: 图3 }
+    transition_to_next: audio_bridge
+
+  - segment_id: EP69-SEG05
+    shot_ids: [EP69-S08]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-010]
+    refs:
+      scene_id: SCENE-011
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-010-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-011.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长款大衣高领毛衣）【图2】韩渊 CHAR-010-L01（深灰连帽衫黑框眼镜）【图3】废弃仓库楼顶 SCENE-011。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）全景 固定：图1翻上楼顶平台，城市夜景在身后铺开——万家灯火被金色粒子侵染像一座浸泡在液态黄金中的城市，楼顶中央图2背对着他站立深灰连帽衫在风中鼓荡黑框眼镜侧镜反射金色余光，脚下楼板缝隙透出碎片放大器的金色脉冲光，图2缓缓转身——脸上带着一种近乎幸福的疯狂笑容张开双臂像在拥抱整座被标价的城市。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「放大器信号源就在脚下……关掉它，一切就能停。」
+        对白（韩渊，Male, 35 years old, fast and intense speaking pace, slightly raspy from lack of sleep, mixes technical jargon with idealistic rhetoric, fanatical undertone, believes wholeheartedly in his cause）：「你来了。看看这座城市。」
+        对白（韩渊，Male, 35 years old, fast and intense speaking pace, slightly raspy from lack of sleep, mixes technical jargon with idealistic rhetoric, fanatical undertone, believes wholeheartedly in his cause）：「万物皆可见。这就是我一直在创造的世界。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP69-SEG06
+    shot_ids: [EP69-S09]
+    duration_sec: 10
+    speakers: [CHAR-010]
+    refs:
+      scene_id: SCENE-011
+    assets:
+      look_urls:
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-010-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-011.png
+    api:
+      text: |
+        【图1】韩渊 CHAR-010-L01（深灰连帽衫黑框眼镜）【图2】废弃仓库楼顶 SCENE-011。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 镜头推近：图1向前一步，黑框眼镜后面深陷的眼窝闪着狂热的光——天才与疯子之间那条线已经消失了，薄唇大张语速快得像在做演讲双手不断比划，身后城市金色光晕勾勒出他瘦削的轮廓像一个站在世界尽头布道的先知，镜片上金色数字倒影不断闪烁，风把凌乱黑发吹到额前，镜头缓缓推近他的面部——瞳孔中映出整座被标价的城市。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（韩渊，Male, 35 years old, fast and intense speaking pace, slightly raspy from lack of sleep, mixes technical jargon with idealistic rhetoric, fanatical undertone, believes wholeheartedly in his cause）：「没有谎言，没有欺骗，一切透明。」
+        对白（韩渊，Male, 35 years old, fast and intense speaking pace, slightly raspy from lack of sleep, mixes technical jargon with idealistic rhetoric, fanatical undertone, believes wholeheartedly in his cause）：「每个人都能看到所有价格。」
+        对白（韩渊，Male, 35 years old, fast and intense speaking pace, slightly raspy from lack of sleep, mixes technical jargon with idealistic rhetoric, fanatical undertone, believes wholeheartedly in his cause）：「这不是你想要的吗。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-010-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP69-SEG07
+    shot_ids: [EP69-S10, EP69-S11]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-010]
+    refs:
+      scene_id: SCENE-011
+    assets:
+      look_urls:
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-010-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-011.png
+    api:
+      text: |
+        【图1】陆辰 CHAR-001-L03（黑色长款大衣高领毛衣）【图2】韩渊 CHAR-010-L01（深灰连帽衫黑框眼镜）【图3】废弃仓库楼顶 SCENE-011。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）特写 镜头推近：图1面部特写，金色光粒子从下方映上来在颧骨和眉骨上投下暖金色阴影，没有愤怒没有恐惧——只有一种经历了一切之后的笃定，浓眉下的眼神平静得像深潭，薄唇微微张开，瞳孔中映出图2疯狂的倒影和身后那座被标价的城市。
+        镜头2（6秒）近景 固定：图2嘴角的疯狂笑容僵住了——像一台运转完美的程序第一次遇到无法解析的输入，黑框眼镜后面的瞳孔微微震颤嘴唇张开又合上，风把连帽衫帽子吹落露出凌乱黑发，他后退半步身后城市金色光芒仍在蔓延但他站在光芒中心第一次显得不确定了，图1黑色大衣纹丝不动目光平静注视裂缝出现。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「不。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「透明不等于真实。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「你让人看到的只是价格——不是价值。」
+        对白（韩渊，Male, 35 years old, fast and intense speaking pace, slightly raspy from lack of sleep, mixes technical jargon with idealistic rhetoric, fanatical undertone, believes wholeheartedly in his cause）：「六年……我花了六年……」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「值不值，不是看了就知道。」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「是做了才知道。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-001-L03, role: reference_image, label: 图1 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP69-SEG08
+    shot_ids: [EP69-S12]
+    duration_sec: 10
+    speakers: [CHAR-010, CHAR-001]
+    refs:
+      scene_id: SCENE-011
+    assets:
+      look_urls:
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-010-L01.png
+        CHAR-001-L03: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我能看见万物标价/CHAR-001-L03.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我能看见万物标价/SCENE-011.png
+    api:
+      text: |
+        【图1】韩渊 CHAR-010-L01（深灰连帽衫黑框眼镜）【图2】陆辰 CHAR-001-L03（黑色长款大衣高领毛衣）【图3】废弃仓库楼顶 SCENE-011。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：图1退到楼顶铁栏杆边，黑框眼镜歪斜镜片上的金色数字倒影开始闪烁不稳——像信仰本身在动摇，双手垂在身侧连帽衫被夜风吹得猎猎作响，他抬头看图2——眼中第一次出现不确定，图2纹丝不动站在楼顶中央大衣下摆微摆背后城市金色光海铺展到天际线，脚下放大器嗡鸣声忽高忽低像在挣扎。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（韩渊，Male, 35 years old, fast and intense speaking pace, slightly raspy from lack of sleep, mixes technical jargon with idealistic rhetoric, fanatical undertone, believes wholeheartedly in his cause）：「你凭什么说我是错的。」
+        对白（韩渊，Male, 35 years old, fast and intense speaking pace, slightly raspy from lack of sleep, mixes technical jargon with idealistic rhetoric, fanatical undertone, believes wholeheartedly in his cause）：「六年……全白费了？」
+        对白（陆辰，Male, 26 years old, calm and slightly deep tone with a hint of restraint, slow to medium pace, speaks in short decisive sentences, pauses before key judgments, rarely raises voice even when angry, warm and slightly awkward when speaking to loved ones）：「放大器还在运转……但他已经动摇了。下一步……」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, 9:16 vertical frame, modern Chinese urban setting, shallow depth of field, film grain, natural skin texture, 85mm portrait lens。
+      content_roles:
+        - { file: CHAR-010-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L03, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

@@ -1,180 +1,304 @@
-# SOURCE FIDELITY: EP35_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP35/EP35_剧本.md
+# Source shots: 9 (EP35-S01 to EP35-S09)
+# Output segments: 9 (EP35-SEG01 to EP35-SEG09)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
 episode_id: EP35
+source_md: 剧本/EP35/EP35_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
-  ratio: '9:16'
-  resolution: 720p
-  duration: 5
-  generate_audio: false
+  ratio: "9:16"
+  resolution: 1080p
+  generate_audio: true
   watermark: false
-  prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
-  negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声；从平静接受现状（"意料之中"），到电话里简短坚定（"好"），到面对妹妹关心时的疲惫（"四十年换来的赢——没什么好高兴的"），到最后释然一笑（"今天开始我只为自己花钱了"）
-  CHAR-002: 低沉粗哑的中老年男声；从得意嚣张（"我就不给她"）到惊慌失措（"法院把我账户冻了"）到焦躁转圈（"所有账户都冻了"）被儿子一句话刺中后的哑口无言（"我四十年都没问过她一句"）——声音从高到低
-  CHAR-003: 普通的年轻男声；从旁观者的沉默到平静地一针见血（"可妈那四十年——她要得回来吗？"）——语气不急不躁但句句有力
-  CHAR-010: 沙哑疲倦的中年女声；对姐姐的关心（"姐你怎么不高兴"）
+  CHAR-001: "温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音"
+  CHAR-002: "低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音"
+  CHAR-003: "普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准"
+  CHAR-010: "沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音"
+
 segments:
-- segment_id: EP35-SEG01
-  shot_ids: [EP35-S01]
-  duration_sec: 10
-  speakers: [CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 林家客厅。慧兰看手机银行——判决生效好几天了，张大强一分钱没打过来。她叹了口气，但并不意外。慧芳说姐他是不是想赖账。慧兰说意料之中，拿起电话打给律师申请强制执行。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-001-L01, role: reference_image}
-    - {file: CHAR-010-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-010, line: 姐，钱到了吗？}
-  - {speaker: CHAR-001, line: 没有。}
-  - {speaker: CHAR-010, line: 他是不是想赖账？}
-  - {speaker: CHAR-001, line: 意料之中。张律师，麻烦你帮我申请强制执行。}
-- segment_id: EP35-SEG02
-  shot_ids: [EP35-S02]
-  duration_sec: 10
-  speakers: [CHAR-002, CHAR-003]
-  refs: {scene_id: SCENE-003, look_ids: [CHAR-002-L01, CHAR-003-L01]}
-  assets:
-    look_urls: {CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png, CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png}
-    scene_urls: {SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png}
-  api:
-    text: 儿子家客厅。张大强正得意地说"我就不给她，她能把我怎么样？"话音刚落，手机响了——银行通知账户被法院冻结了。他脸一下子白了。张明看着他爸的表情变化——从得意到惊慌。
-    content_roles:
-    - {file: SCENE-003, role: reference_image}
-    - {file: CHAR-002-L01, role: reference_image}
-    - {file: CHAR-003-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-002, line: 我就不给她，她能把我怎么样？}
-  - {speaker: CHAR-003, line: 爸？怎么了？}
-  - {speaker: CHAR-002, line: 法院……把我账户冻了。}
-- segment_id: EP35-SEG03
-  shot_ids: [EP35-S03]
-  duration_sec: 10
-  speakers: [CHAR-002, CHAR-003]
-  refs: {scene_id: SCENE-003, look_ids: [CHAR-002-L01, CHAR-003-L01]}
-  assets:
-    look_urls: {CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png, CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png}
-    scene_urls: {SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png}
-  api:
-    text: 张大强急得在客厅转圈——所有账户都冻了。他拿起电话想打给法院骂人，号码拨了一半又挂断了——理亏。张明看着他爸说爸法院冻的你找谁。张大强愣住了手停在半空。
-    content_roles:
-    - {file: SCENE-003, role: reference_image}
-    - {file: CHAR-002-L01, role: reference_image}
-    - {file: CHAR-003-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-002, line: 所有账户都冻了！工资卡、储蓄卡、就连给张昊存的那笔——}
-  - {speaker: CHAR-003, line: 教育基金？}
-  - {speaker: CHAR-002, line: 对！都冻了！我——我找他们去！}
-  - {speaker: CHAR-003, line: 爸。法院冻的，你找谁？}
-- segment_id: EP35-SEG04
-  shot_ids: [EP35-S04]
-  duration_sec: 10
-  speakers: [CHAR-003, CHAR-002]
-  refs: {scene_id: SCENE-003, look_ids: [CHAR-003-L01, CHAR-002-L01]}
-  assets:
-    look_urls: {CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png, CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png}
-    scene_urls: {SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png}
-  api:
-    text: 张明看着他爸——说爸你就把钱给妈吧。张大强嘴硬说凭什么。张明不急不躁——你自己也说是你挣的，那你就再挣呗。可妈那四十年——她要得回来吗？张大强张了张嘴一个字都说不出来。
-    content_roles:
-    - {file: SCENE-003, role: reference_image}
-    - {file: CHAR-003-L01, role: reference_image}
-    - {file: CHAR-002-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-003, line: 爸。你就把钱给妈吧。}
-  - {speaker: CHAR-002, line: 凭什么——}
-  - {speaker: CHAR-003, line: 你自己也说了，是你挣的。那你就再挣呗。}
-  - {speaker: CHAR-003, line: 可妈那四十年——她要得回来吗？}
-- segment_id: EP35-SEG05
-  shot_ids: [EP35-S05]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-010]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 林家客厅。慧兰手机响了——来电显示张大强。她犹豫了一下接起来。张大强在电话那头语气软了——说给钱，你让法院解冻。慧兰沉默了两秒说好然后挂掉。慧芳问他说了什么。慧兰平静地说——他服了。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-001-L01, role: reference_image}
-    - {file: CHAR-010-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 喂。}
-  - {speaker: CHAR-001, line: 好。}
-  - {speaker: CHAR-010, line: 他说什么了？}
-  - {speaker: CHAR-001, line: 他服了。}
-- segment_id: EP35-SEG06
-  shot_ids: [EP35-S06]
-  duration_sec: 10
-  speakers: [CHAR-010, CHAR-001]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 慧兰坐在沙发上拿着手机——强制执行申请已经撤回了。她做到了，但没有高兴的感觉。慧芳问姐你怎么不高兴。慧兰说以为会高兴的——但他终于低头了，四十年的委屈终于有结果了——但她只觉得很累。四十年换来的赢没什么好高兴的。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-001-L01, role: reference_image}
-    - {file: CHAR-010-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-010, line: 姐……你怎么不高兴？}
-  - {speaker: CHAR-001, line: 我以为我会高兴。他终于低头了。四十年的委屈——终于有结果了。}
-  - {speaker: CHAR-001, line: 但我只觉得很累。四十年换来的赢——没什么好高兴的。只是——终于可以翻篇了。}
-- segment_id: EP35-SEG07
-  shot_ids: [EP35-S07]
-  duration_sec: 10
-  speakers: [CHAR-002]
-  refs: {scene_id: SCENE-003, look_ids: [CHAR-002-L01]}
-  assets:
-    look_urls: {CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png}
-    scene_urls: {SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png}
-  api:
-    text: 张大强一个人坐在空荡荡的客厅里。钱已经转过去了，账户解冻了，但他没有如释重负的感觉。他第一次认认真真地想——这四十年来林慧兰每天到底在做什么。想到每天早上五点半晚上十一点、她从来没买过一件贵衣服、从来没说过一句"我想要什么"——他捂住了脸。
-    content_roles:
-    - {file: SCENE-003, role: reference_image}
-    - {file: CHAR-002-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-002, line: 每天早上五点半……晚上十一点……}
-  - {speaker: CHAR-002, line: 她从来没买过一件贵衣服……}
-  - {speaker: CHAR-002, line: 从来没说过……她想要什么。}
-  - {speaker: CHAR-002, line: 我四十年……都没问过她一句。}
-- segment_id: EP35-SEG08
-  shot_ids: [EP35-S08]
-  duration_sec: 10
-  speakers: []
-  refs: {scene_id: SCENE-003, look_ids: [CHAR-003-L01, CHAR-002-L01]}
-  assets:
-    look_urls: {CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png, CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png}
-    scene_urls: {SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png}
-  api:
-    text: 张明从房间出来看到他爸捂着脸坐在客厅里。他站在门口看了一会儿——看到的是一个大半辈子都在对母亲呼来喝去的男人，现在终于安静下来了。不是被打败的安静，是终于开始想明白了的安静。张明没有走过去，悄悄退回了房间轻轻带上门。
-    content_roles:
-    - {file: SCENE-003, role: reference_image}
-    - {file: CHAR-003-L01, role: reference_image}
-  dialogue: []
-- segment_id: EP35-SEG09
-  shot_ids: [EP35-S09]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-010]
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01, CHAR-010-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 林家客厅·黄昏。慧兰站起来走到窗边——窗外夕阳把天空染成了暖金色。她看着那片暖色心里慢慢平静下来。她想起自己写的那句"这是我的第二次人生"。她转身笑着对慧芳说——走，出去吃顿好的。今天开始我只为自己花钱了。
-    content_roles:
-    - {file: SCENE-001, role: reference_image}
-    - {file: CHAR-001-L01, role: reference_image}
-    - {file: CHAR-010-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 慧芳。走——出去吃顿好的。我请客。}
-  - {speaker: CHAR-010, line: 真的？}
-  - {speaker: CHAR-001, line: 今天开始——我只为自己花钱了。}
+  - segment_id: EP35-SEG01
+    shot_ids: [EP35-S01]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-010]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（朴素暗色系日常）【图2】林慧芳 CHAR-010-L01（灰蓝色旧外套）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：日间林家客厅。图1看手机银行，判决生效好几天了余额没变。她叹了口气但并不意外。图2在旁边担心地看着。图1放下手机拿起座机话筒，拨号的手指稳稳的。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐，钱到了吗？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「没有。」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「他是不是想赖账？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「意料之中。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「张律师，麻烦你帮我申请强制执行。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP35-SEG02
+    shot_ids: [EP35-S02]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-003]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
+    api:
+      text: |
+        【图1】张大强 CHAR-002-L01（白衬衫棕色马甲）【图2】张明 CHAR-003-L01（浅蓝衬衫）【图3】儿子家客厅 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：儿子家客厅。图1靠在沙发上翘着腿转核桃，一脸得意。图2坐在旁边没说话。图1话音刚落手机响了，银行短信通知。他拿起来一看笑容瞬间凝固。图2看着图1的表情从得意变成惊慌。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「我就不给她，她能把我怎么样？」
+        对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「……」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「……」
+        对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「爸？怎么了？」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「法院……把我账户冻了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP35-SEG03
+    shot_ids: [EP35-S03]
+    duration_sec: 10
+    speakers: [CHAR-002, CHAR-003]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
+    api:
+      text: |
+        【图1】张大强 CHAR-002-L01（白衬衫棕色马甲）【图2】张明 CHAR-003-L01（浅蓝衬衫）【图3】儿子家客厅 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：儿子家客厅。图1从沙发上弹起来在客厅里转圈翻手机，每个APP都显示已冻结。他手指在屏幕上乱戳额头冒汗，拿起电话想打又挂断。图2看着图1像热锅上的蚂蚁，终于开口。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「所有账户都冻了！工资卡、储蓄卡、就连给张昊存的那笔——」
+        对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「教育基金？」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「对！都冻了！」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「我——我找他们去！」
+        对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「爸。法院冻的，你找谁？」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「……」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP35-SEG04
+    shot_ids: [EP35-S04]
+    duration_sec: 10
+    speakers: [CHAR-003, CHAR-002]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
+    api:
+      text: |
+        【图1】张明 CHAR-003-L01（浅蓝衬衫）【图2】张大强 CHAR-002-L01（白衬衫棕色马甲）【图3】儿子家客厅 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：儿子家客厅。图1看着图2，没有提高音量但每个字都带着疲惫的失望。图2站在客厅中央攥着手机想反驳。图1不急不躁地说完，客厅安静了几秒。图2张了几次嘴一个字都说不出来。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「爸。你就把钱给妈吧。」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「凭什么——」
+        对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「你自己也说了，是你挣的。」
+        对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「那你就再挣呗。」
+        对白（张明，普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准）：「可妈那四十年——她要得回来吗？」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP35-SEG05
+    shot_ids: [EP35-S05]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-002, CHAR-010]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（朴素暗色系日常）【图2】林慧芳 CHAR-010-L01（灰蓝色旧外套）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：林家客厅。图1手机响了，来电显示张大强。她看着屏幕犹豫了一下接起来，声音平静。电话那头图1听到一个从未听过的语气。她只回了一个字然后挂掉。图2凑过来问。图1表情没有波澜地回答。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「喂。」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「慧兰……我给钱。你让法院解冻。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「好。」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「他说什么了？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「他服了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP35-SEG06
+    shot_ids: [EP35-S06]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-010]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（朴素暗色系日常）【图2】林慧芳 CHAR-010-L01（灰蓝色旧外套）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定镜头：林家客厅。图1坐在沙发上拿着手机，表情平静但有些恍惚。她以为自己会开心。图2担心地看着图1。图1想了想说出了心里话——不是抱怨，就是陈述事实。四十年换来的赢不值得高兴。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「姐……你怎么不高兴？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我以为我会高兴。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「他终于低头了。四十年的委屈——终于有结果了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「但我只觉得很累。」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「……」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「四十年换来的赢——没什么好高兴的。只是——终于可以翻篇了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP35-SEG07
+    shot_ids: [EP35-S07]
+    duration_sec: 10
+    speakers: [CHAR-002]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
+    api:
+      text: |
+        【图1】张大强 CHAR-002-L01（白衬衫棕色马甲）【图2】儿子家客厅 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：儿子家客厅。图1一个人坐在空荡荡的客厅里。钱已经让儿子转过去了但他没有如释重负的感觉。他第一次认认真真地想了想慧兰这四十年每天在做什么。他抬起手捂住了脸。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「……」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「每天早上五点半……晚上十一点……」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「她从来没买过一件贵衣服……」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「从来没说过……她想要什么。」
+        对白（张大强，低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音）：「我四十年……都没问过她一句。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP35-SEG08
+    shot_ids: [EP35-S08]
+    duration_sec: 10
+    speakers: []
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-003-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-003.png
+    api:
+      text: |
+        【图1】张明 CHAR-003-L01（浅蓝衬衫）【图2】张大强 CHAR-002-L01（白衬衫棕色马甲）【图3】儿子家客厅 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：儿子家客厅。图1从房间出来，看到图2捂着脸坐在客厅里。他站在门口看了一会儿没有走过去。他悄悄退回了房间把门轻轻带上。客厅里只剩下图2一个人，安静得能听见墙上挂钟在走。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP35-SEG09
+    shot_ids: [EP35-S09]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-010]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L01（朴素暗色系日常）【图2】林慧芳 CHAR-010-L01（灰蓝色旧外套）【图3】林家客厅 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：黄昏林家客厅。图1站起来走到窗边，窗外夕阳把天空染成了暖金色。她看着那片暖色心里慢慢平静下来。图1转过身来脸上带着久违的轻松的笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「慧芳。」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「嗯？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「走——出去吃顿好的。我请客。」
+        对白（林慧芳，沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音）：「真的？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「今天开始——我只为自己花钱了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

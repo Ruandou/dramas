@@ -5,52 +5,67 @@ defaults:
   model: doubao-seedance-2-0-fast
   ratio: '9:16'
   resolution: 720p
-  duration: 5
-  generate_audio: false
+  generate_audio: true
   watermark: false
   prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+  prompt_suffix_silent: 本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
   negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声，略带沧桑感；追问女儿时冷静清晰，认错时声音轻但坚定，鼓励时温柔有力
-  CHAR-005: 年轻的职场女声，前期崩溃委屈语速慢带哭腔；中期愣住语气变化；后期明朗轻松
+  CHAR-001: 温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音
+  CHAR-002: 低沉粗哑的中老年男声，习惯性命令式语气，语速较快，生气时声音会提高八度，普通话带北方口音
+  CHAR-003: 普通的年轻男声，初期唯唯诺诺、语气不确定，后期逐渐变得沉稳有力，普通话标准
+  CHAR-004: 尖利明快的年轻女声，语速快，理直气壮时音调高，被怼时语气会突然低下去，普通话标准
+  CHAR-005: 干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准
+  CHAR-006: 温和儒雅的中老年男声，语速从容，音色温暖有书卷气，普通话标准
+  CHAR-007: 爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音
+  CHAR-008: 清脆童声，天真烂漫，语速偏快，偶尔咬字不清
+  CHAR-010: 沙哑疲倦的中年女声，音色偏暗，语速慢，经常哽咽或欲言又止，普通话带地方口音
+  CHAR-GRP-002: 阴阳怪气的中老年声音，压低嗓门说闲话的语气
 segments:
 - segment_id: EP19-SEG01
   shot_ids:
   - EP19-S01
   duration_sec: 10
   speakers:
-  - CHAR-005
   - CHAR-001
+  - CHAR-005
   refs:
     scene_id: SCENE-004
-    look_ids:
-    - CHAR-005-L01
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
     scene_urls:
-      SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004
+      SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
   api:
-    text: 【图1】张蕾公寓 SCENE-004（晚上，客厅灯光温暖，茶几上放着红酒和水果）【图2】CHAR-005-L01 张蕾（抱着抱枕坐在沙发上，眼睛红肿，声音沙哑）【图3】CHAR-001-L01 林慧兰（坐在女儿旁边，安静地看着她）。中景：张蕾红着眼睛，慧兰进门看到女儿这副模样什么也没问先坐下了。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】张蕾 CHAR-005-L01（高马尾，灰西装套裙，干练气质）【图3】女儿家 SCENE-004。
+
+      竖屏9比16连贯叙事。
+
+      镜头1（10秒）中景 固定镜头：女儿家晚上。图2坐在沙发上抱着抱枕，眼睛红肿——睫毛膏晕开了一圈。面前摆着一杯没碰过的红酒，酒液在杯壁上挂了一层薄薄的泪痕。门开了——图1拎着一袋水果进来。她看到图2这副模样，什么也没问，先放下水果走过去坐下了。沙发陷下去的弧度让图2往图1那边歪了歪。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈，你怎么来了？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你打电话也不说话，妈能不来吗？」
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「公司那个项目……我熬了一个月。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-004
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
     - file: CHAR-005-L01
       role: reference_image
       label: 图2
-    - file: CHAR-001-L01
+    - file: SCENE-004
       role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-005
-    line: 妈，你怎么来了？
-  - speaker: CHAR-001
-    line: 你打电话也不说话，妈能不来吗？
-  - speaker: CHAR-005
-    line: 公司那个项目……我熬了一个月。
+  transition_to_next: hard_cut
 - segment_id: EP19-SEG02
   shot_ids:
   - EP19-S02
@@ -59,29 +74,41 @@ segments:
   - CHAR-005
   refs:
     scene_id: SCENE-004
-    look_ids:
-    - CHAR-005-L01
   assets:
     look_urls:
-      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
     scene_urls:
-      SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004
+      SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
   api:
-    text: 【图1】张蕾公寓 SCENE-004（张蕾咬着嘴唇说着今天的事）【图2】CHAR-005-L01 张蕾（眼泪掉下来，委屈不甘）。近景：张蕾说着方案被抢的事越说越委屈，眼泪掉下来。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】张蕾 CHAR-005-L01（高马尾，灰西装套裙，干练气质）【图3】女儿家 SCENE-004。
+
+      竖屏9比16连贯叙事。
+
+      镜头2（10秒）近景 固定镜头：图2咬着嘴唇说着今天的事——她辛苦做了一个月的方案——数据、分析、PPT全是一页一页做的。在汇报会上男同事在汇报前十分钟说"他来主讲"——然后领导当众表扬了那个男同事。图2说着说着眼泪掉下来，不是伤心——是委屈和不甘。她的手攥着抱枕的一角，指甲陷进布料里。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「今天汇报。我做了一个月的方案——数据、分析、PPT全是我一页一页做的。」
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「他就在汇报前十分钟说他来主讲。领导当着全组的面表扬他能干。」
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「一个字都没提我。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-004
+    - file: CHAR-001-L01
       role: reference_image
       label: 图1
     - file: CHAR-005-L01
       role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-005
-    line: 今天汇报。我做了一个月的方案——数据、分析、PPT全是我一页一页做的。
-  - speaker: CHAR-005
-    line: 他就在汇报前十分钟说他来主讲。领导当着全组的面表扬他能干。
-  - speaker: CHAR-005
-    line: 一个字都没提我。
+    - file: SCENE-004
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP19-SEG03
   shot_ids:
   - EP19-S03
@@ -91,36 +118,43 @@ segments:
   - CHAR-005
   refs:
     scene_id: SCENE-004
-    look_ids:
-    - CHAR-001-L01
-    - CHAR-005-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
     scene_urls:
-      SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004
+      SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
   api:
-    text: 【图1】张蕾公寓 SCENE-004（慧兰沉默后开口）【图2】CHAR-001-L01 林慧兰（握着女儿的手，认真问）【图3】CHAR-005-L01 张蕾（愣住）。近景：慧兰没有马上安慰，而是冷静地追问细节——她不像一个退休主妇。张蕾第一次觉得妈妈不一样了。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】张蕾 CHAR-005-L01（高马尾，灰西装套裙，干练气质）【图3】女儿家 SCENE-004。
+
+      竖屏9比16连贯叙事。
+
+      镜头3（10秒）近景 固定镜头：图1沉默地听着没有马上说"忍忍就过去了"——那句话她以前说过太多次了。她看着图2的眼睛，第一次认认真真地想了才开口。然后伸手握住图2的手——那只手因为长期做家务有点粗糙，但温度很稳。图2感觉到图1的手劲和往常不一样。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你跟领导说了吗？」
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「说了有什么用？他是老员工，我只是个女的。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你有证据吗？方案是你做的证据。」
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「有……但……」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-004
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-005-L01
       role: reference_image
+      label: 图2
+    - file: SCENE-004
+      role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-001
-    line: 你跟领导说了吗？
-  - speaker: CHAR-005
-    line: 说了有什么用？他是老员工，我只是个女的。
-  - speaker: CHAR-001
-    line: 你有证据吗？方案是你做的证据。
-  - speaker: CHAR-005
-    line: 有……但……
+  transition_to_next: hard_cut
 - segment_id: EP19-SEG04
   shot_ids:
   - EP19-S04
@@ -130,38 +164,45 @@ segments:
   - CHAR-005
   refs:
     scene_id: SCENE-004
-    look_ids:
-    - CHAR-001-L01
-    - CHAR-005-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
     scene_urls:
-      SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004
+      SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
   api:
-    text: 【图1】张蕾公寓 SCENE-004（母女认真对话）【图2】CHAR-001-L01 林慧兰（一句一句问得像盘问案情）【图3】CHAR-005-L01 张蕾（被妈妈问得一愣一愣）。中景：慧兰一字一句问得清清楚楚，逻辑清晰——张蕾被妈妈的冷静镇住了。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】张蕾 CHAR-005-L01（高马尾，灰西装套裙，干练气质）【图3】女儿家 SCENE-004。
+
+      竖屏9比16连贯叙事。
+
+      镜头4（10秒）近景 固定镜头：图2愣住了——她从来没想过跟自己妈妈讨论职场斗争。图1的语气不像一个退休的家庭主妇——她一字一句问得清清楚楚，像在盘问一个案情。图2第一次觉得妈妈不一样了——眼前这个人不再是那个只会说"算了算了"的家庭妇女。她的眼神锐利而专注。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「有什么证据？」
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「邮件往来记录。每个版本都有时间戳。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「有人能证明是你做的吗？」
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「组里两个同事知道，但他们不敢说。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「那够了。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-004
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-005-L01
       role: reference_image
+      label: 图2
+    - file: SCENE-004
+      role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-001
-    line: 有什么证据？
-  - speaker: CHAR-005
-    line: 邮件往来记录。每个版本都有时间戳。
-  - speaker: CHAR-001
-    line: 有人能证明是你做的吗？
-  - speaker: CHAR-005
-    line: 组里两个同事知道，但他们不敢说。
-  - speaker: CHAR-001
-    line: 那够了。
+  transition_to_next: hard_cut
 - segment_id: EP19-SEG05
   shot_ids:
   - EP19-S05
@@ -171,145 +212,183 @@ segments:
   - CHAR-005
   refs:
     scene_id: SCENE-004
-    look_ids:
-    - CHAR-001-L01
-    - CHAR-005-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
     scene_urls:
-      SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004
+      SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
   api:
-    text: 【图1】张蕾公寓 SCENE-004（慧兰握住女儿的手，认真看着她）【图2】CHAR-001-L01 林慧兰（声音很轻但每个字很重）【图3】CHAR-005-L01 张蕾（瞪大眼睛）。近景：慧兰没有教女儿忍也没有教女儿闹——她说了一句张蕾这辈子第一次听妈妈说的话：「我错了」。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】张蕾 CHAR-005-L01（高马尾，灰西装套裙，干练气质）【图3】女儿家 SCENE-004。
+
+      竖屏9比16连贯叙事。
+
+      镜头5（10秒）近景 固定镜头：图1握着图2的手认真看着她。她没有教女儿忍——也没有教女儿闹。她说的话让图2彻底愣住了。那是图2从小到大第一次听妈妈说"我错了"。客厅的灯光在图1脸上打出柔和的阴影，她的皱纹在这一刻不是老态——是四十年的重量。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「蕾蕾，妈跟你说个事儿。」
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「嗯？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你小时候跟同学吵架，回来哭。妈跟你说——忍一忍就过去了。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「这句话，我错了。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-004
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-005-L01
       role: reference_image
+      label: 图2
+    - file: SCENE-004
+      role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-001
-    line: 蕾蕾，妈跟你说个事儿。
-  - speaker: CHAR-005
-    line: 嗯？
-  - speaker: CHAR-001
-    line: 你小时候跟同学吵架，回来哭。妈跟你说——忍一忍就过去了。
-  - speaker: CHAR-001
-    line: 这句话，我错了。
+  transition_to_next: hard_cut
 - segment_id: EP19-SEG06
   shot_ids:
   - EP19-S06
   duration_sec: 10
   speakers:
-  - CHAR-005
   - CHAR-001
+  - CHAR-005
   refs:
     scene_id: SCENE-004
-    look_ids:
-    - CHAR-001-L01
-    - CHAR-005-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
-      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
     scene_urls:
-      SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004
+      SCENE-004: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-004.png
   api:
-    text: 【图1】张蕾公寓 SCENE-004（慧兰自嘲地笑了笑）【图2】CHAR-001-L01 林慧兰（说出这辈子最清醒的话）【图3】CHAR-005-L01 张蕾（愣愣地看着妈妈）。近景：慧兰说出自己忍了一辈子换来什么——然后告诉女儿：该你的，你去争。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】张蕾 CHAR-005-L01（高马尾，灰西装套裙，干练气质）【图3】女儿家 SCENE-004。
+
+      竖屏9比16连贯叙事。
+
+      镜头6（10秒）特写 固定镜头：图1说出"我错了"三个字时，图2瞪大了眼睛。她这辈子第一次听妈妈认错。图1的声音很轻，但每个字都很重——像在石板上刻字。她不是在道歉——她是在承认自己教错了女儿半辈子。窗外的城市灯火在玻璃上模糊成一片光斑。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈……」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我忍了一辈子——忍你爸、忍你奶奶、忍单位领导。换来什么？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「换来六十岁离婚，换来一身病。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你别学妈。该你的，你去争。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-004
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
-      label: 图2
+      label: 图1
     - file: CHAR-005-L01
       role: reference_image
+      label: 图2
+    - file: SCENE-004
+      role: reference_image
       label: 图3
-  dialogue:
-  - speaker: CHAR-005
-    line: 妈……
-  - speaker: CHAR-001
-    line: 我忍了一辈子——忍你爸、忍你奶奶、忍单位领导。换来什么？
-  - speaker: CHAR-001
-    line: 换来六十岁离婚，换来一身病。
-  - speaker: CHAR-001
-    line: 你别学妈。该你的，你去争。
+  transition_to_next: dissolve
 - segment_id: EP19-SEG07
   shot_ids:
   - EP19-S07
   duration_sec: 10
   speakers:
-  - CHAR-005
   - CHAR-001
+  - CHAR-005
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰捧着茶杯跟女儿视频）【图2】CHAR-001-L01 林慧兰（嘴角带着笑听女儿说话）。中景：第二天，慧兰坐在自家沙发上跟女儿视频。张蕾虽然还没翻盘但语气轻松多了。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】张蕾 CHAR-005-L01（高马尾，灰西装套裙，干练气质）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头7（10秒）中景 固定镜头：第二天。图1坐在沙发上，手里捧着一杯茶——热气袅袅升起。手机立在茶几上，图2在视频通话那头。她已经不像昨晚那么崩溃了——头发扎了起来，眼睛虽然还有点肿但眼神亮了。她在电话那头说她已经找领导谈过了——虽然结果不理想，但她说出口了。图1听着，嘴角慢慢弯起来。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「妈，我找领导谈了。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「然后呢？」
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「他说他会"了解一下情况"。但你知道吗——我说出来了。我以前都不敢说。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「说出来就好。第一次最难。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: CHAR-005-L01
+      role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-005
-    line: 妈，我找领导谈了。
-  - speaker: CHAR-001
-    line: 然后呢？
-  - speaker: CHAR-005
-    line: 他说他会"了解一下情况"。但你知道吗——我说出来了。我以前都不敢说。
-  - speaker: CHAR-001
-    line: 说出来就好。第一次最难。
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP19-SEG08
   shot_ids:
   - EP19-S08
   duration_sec: 10
   speakers:
-  - CHAR-005
   - CHAR-001
+  - CHAR-005
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-005-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰端着茶杯，笑容温暖）【图2】CHAR-001-L01 林慧兰（听着女儿的絮叨，眼里有光）。近景：张蕾絮絮叨叨说今天公司的变化——虽然没翻盘但心态完全不一样了。慧兰听着嘴角带着笑——女儿说话的语调变了。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】张蕾 CHAR-005-L01（高马尾，灰西装套裙，干练气质）【图3】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头8（10秒）近景 固定镜头：图1端着茶杯听着女儿絮絮叨叨说今天在公司的事——虽然没有当场翻盘但她感觉轻松多了。图1听着，嘴角带着笑。她发现女儿说话的语调变了——不是以前那个忍气吞声的小女孩了，语速变快了，句子变短了，每句话后面都有个句号。茶杯里的水面轻轻晃动。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「那个男同事今天看我的眼神都不对了。他知道我找领导了。」
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「不过妈——我以后是不是会经常遇到这种事？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「会。但你以后不会怕了。」
+
+      对白（张蕾，干净利落的职业女性声音，干练但不失温度，语速中等偏快，普通话标准）：「你怎么知道？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「因为你是我的女儿。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: CHAR-005-L01
+      role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-005
-    line: 那个男同事今天看我的眼神都不对了。他知道我找领导了。
-  - speaker: CHAR-005
-    line: 不过妈——我以后是不是会经常遇到这种事？
-  - speaker: CHAR-001
-    line: 会。但你以后不会怕了。
-  - speaker: CHAR-005
-    line: 你怎么知道？
-  - speaker: CHAR-001
-    line: 因为你是我的女儿。
+    - file: SCENE-001
+      role: reference_image
+      label: 图3
+  transition_to_next: hard_cut
 - segment_id: EP19-SEG09
   shot_ids:
   - EP19-S09
@@ -318,28 +397,36 @@ segments:
   - CHAR-001
   refs:
     scene_id: SCENE-001
-    look_ids:
-    - CHAR-001-L01
   assets:
     look_urls:
-      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01
+      CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
     scene_urls:
-      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001
+      SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
   api:
-    text: 【图1】林家客厅 SCENE-001（慧兰挂掉电话，茶杯冒着热气）【图2】CHAR-001-L01 林慧兰（安静地坐着，目光落在窗外，表情复杂）。特写：慧兰挂掉电话后安静地坐着。女儿昨晚问她的那句话还在耳边——她终于想清楚了答案。
+    text: '【图1】林慧兰 CHAR-001-L01（朴素暗色系家庭主妇装，银灰色短发）【图2】林家客厅 SCENE-001。
+
+      竖屏9比16连贯叙事。
+
+      镜头9（10秒）特写 固定镜头：图1挂掉电话放下手机。茶杯里的水还冒着热气——一缕白烟缓缓上升。她安静地坐着，目光落在窗外——天边有一抹橙色的晚霞。她教了女儿四十年的"忍"，今天终于说了"不忍"。虽然晚了，但至少女儿不用再走她的老路了。她端起茶杯抿了一口，热气模糊了她的眼睛。
+
+      [以下对白仅供语音合成，严禁在画面中显示任何文字]
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你年轻的时候是不是也遇到过这种事……」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「遇到过吗？」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「遇到过。忍了。」
+
+      对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「但蕾蕾不用忍了。」
+
+      画面全程无任何文字、字幕、标题、水印。
+
+      写实都市家庭伦理风格，竖屏9比16，无品牌 Logo，无平台 UI，无政治元素，无低俗暗示。'
     content_roles:
-    - file: SCENE-001
-      role: reference_image
-      label: 图1
     - file: CHAR-001-L01
       role: reference_image
+      label: 图1
+    - file: SCENE-001
+      role: reference_image
       label: 图2
-  dialogue:
-  - speaker: CHAR-001
-    line: 你年轻的时候是不是也遇到过这种事……
-  - speaker: CHAR-001
-    line: 遇到过吗？
-  - speaker: CHAR-001
-    line: 遇到过。忍了。
-  - speaker: CHAR-001
-    line: 但蕾蕾不用忍了。
+  transition_to_next: hard_cut

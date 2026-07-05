@@ -1,182 +1,296 @@
-# SOURCE FIDELITY: EP43_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP43/EP43_剧本.md
+# Source segments: 9 (SEG01 to SEG09)
+# Output segments: 9 (EP43-SEG01 to EP43-SEG09)
+# Mapping: 1:1 (all 10s single-shot segments)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS
+
 episode_id: EP43
+source_md: 剧本/EP43/EP43_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
-  ratio: '9:16'
+  ratio: "9:16"
   resolution: 720p
-  duration: 5
-  generate_audio: false
+  generate_audio: true
   watermark: false
-  prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，傍晚广场的暖色光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
-  negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，傍晚广场的暖色光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。竖向构图 9:16，温暖真实的生活质感，傍晚广场的暖色光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
 voice_prompts:
-  CHAR-001: 温和沉稳的中年女声；从关心朋友（"怎么了？"），到温柔地握住她的手说"你怕的东西我都怕过"，到那句最重要的鼓励（"那你有用没用——不是他说了算的"），到最后轻松地说（"走——我请你吃面"）——全程温暖坚实，像座山
-  CHAR-007: 爽朗大嗓门的中年女声；从强装没事（"就是有点累"），到哽咽说出心事（"慧兰——我也想离婚"），到崩溃（"我连一句嘴都没敢回过"），到被点亮（"是啊……我自己说了算的"），到最后轻松地笑——情绪大起大落
+  CHAR-001: "温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音"
+  CHAR-007: "爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音"
+
 segments:
-- segment_id: EP43-SEG01
-  shot_ids: [EP43-S01]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-007]
-  refs: {scene_id: SCENE-005, look_ids: [CHAR-001-L02, CHAR-007-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png}
-    scene_urls: {SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png}
-  api:
-    text: 社区广场·傍晚。跳完舞姐妹们散了。翠花坐在长椅上发呆。慧兰走过来坐下说怎么了今天心不在焉的。翠花说没事就是有点累。慧兰说咱们认识这么多年了你心里有事我看得出来。
-    content_roles:
-    - {file: SCENE-005, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-007-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 怎么了？今天心不在焉的。}
-  - {speaker: CHAR-007, line: 没事……就是有点累。}
-  - {speaker: CHAR-001, line: 咱们认识这么多年了——你心里有事，我看得出来。}
-- segment_id: EP43-SEG02
-  shot_ids: [EP43-S02]
-  duration_sec: 10
-  speakers: [CHAR-007]
-  refs: {scene_id: SCENE-005, look_ids: [CHAR-007-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png}
-  api:
-    text: 翠花深吸一口气说——慧兰我也想离婚。忍了二十多年了。我老公爱喝酒喝多了就骂人。以前觉得忍忍就过去了。但看到你离婚后过得那么好——我就在想我到底在怕什么。
-    content_roles:
-    - {file: SCENE-005, role: reference_image}
-    - {file: CHAR-007-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-007, line: 慧兰——我也想离婚。}
-  - {speaker: CHAR-007, line: 我也跟你一样——忍了二十多年了。我老公你也知道，爱喝酒，喝多了就骂人。}
-  - {speaker: CHAR-007, line: 以前觉得忍忍就过去了。但看到你离婚后过得那么好——我就在想，我到底在怕什么？}
-- segment_id: EP43-SEG03
-  shot_ids: [EP43-S03]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-007]
-  refs: {scene_id: SCENE-005, look_ids: [CHAR-001-L02, CHAR-007-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png}
-    scene_urls: {SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png}
-  api:
-    text: 慧兰拉住翠花的手——你怕的东西我都怕过。怕丢人怕一个人怕以后过不好。但我离婚了日子越过越好。翠花说你有李老师。慧兰说李老师是在我离婚之后——我是先把自己活好了才遇到的好事。
-    content_roles:
-    - {file: SCENE-005, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-007-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 你怕的东西——我都怕过。怕丢人，怕一个人，怕以后过不好。}
-  - {speaker: CHAR-001, line: 但你看看我——我离婚了，日子越过越好。}
-  - {speaker: CHAR-007, line: 你不一样——你有李老师。}
-  - {speaker: CHAR-001, line: 我有李老师——是在我离婚之后。我是先把自己活好了，才遇到的好事。}
-- segment_id: EP43-SEG04
-  shot_ids: [EP43-S04]
-  duration_sec: 10
-  speakers: [CHAR-007, CHAR-001]
-  refs: {scene_id: SCENE-005, look_ids: [CHAR-007-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png}
-  api:
-    text: 翠花捂着脸哭了——恨自己没胆量。老公骂了二十年一句嘴没敢回过。慧兰递纸巾说那你想从什么时候开始不继续忍了？翠花擦了眼泪说——我想但我不知道。
-    content_roles:
-    - {file: SCENE-005, role: reference_image}
-    - {file: CHAR-007-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-007, line: 我就是恨自己没胆量。我老公骂了我二十年——我连一句嘴都没敢回过。}
-  - {speaker: CHAR-001, line: 那你想从什么时候开始——不继续忍了？}
-  - {speaker: CHAR-007, line: 我想……但我不知道。}
-- segment_id: EP43-SEG05
-  shot_ids: [EP43-S05]
-  duration_sec: 10
-  speakers: [CHAR-001]
-  refs: {scene_id: SCENE-005, look_ids: [CHAR-001-L02, CHAR-007-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png}
-    scene_urls: {SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png}
-  api:
-    text: 慧兰说——没有谁一开始就有胆量的。我撕离婚协议的时候手也在抖心脏都要跳出来了。但撕完之后整个人都轻了。翠花我不会劝你离婚。但我想告诉你——你值得过更好的日子。这不是鸡汤是真的。
-    content_roles:
-    - {file: SCENE-005, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-007-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 没有谁一开始就有胆量的。那天我撕离婚协议的时候，手也在抖。}
-  - {speaker: CHAR-001, line: 但撕完之后——我整个人都轻了。}
-  - {speaker: CHAR-001, line: 翠花——我不会劝你离婚。但我想告诉你——你值得过更好的日子。这不是鸡汤——是真的。}
-- segment_id: EP43-SEG06
-  shot_ids: [EP43-S06]
-  duration_sec: 10
-  speakers: [CHAR-007, CHAR-001]
-  refs: {scene_id: SCENE-005, look_ids: [CHAR-007-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png}
-  api:
-    text: 翠花擦了眼泪说每天给他做饭洗衣收拾工资全交给他他还骂我没用。慧兰说——那你有用没用不是他说了算的是你自己说了算的。翠花愣了然后慢慢笑了——是啊我自己说了算的。
-    content_roles:
-    - {file: SCENE-005, role: reference_image}
-    - {file: CHAR-007-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-007, line: 我每天给他做饭洗衣收拾，我挣的工资全交给他。到最后他喝多了还骂我没用。}
-  - {speaker: CHAR-001, line: 那你有用没用——不是他说了算的。是你自己说了算的。}
-  - {speaker: CHAR-007, line: 是啊……我自己说了算的。}
-- segment_id: EP43-SEG07
-  shot_ids: [EP43-S07]
-  duration_sec: 10
-  speakers: [CHAR-007, CHAR-001]
-  refs: {scene_id: SCENE-005, look_ids: [CHAR-001-L02, CHAR-007-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png}
-    scene_urls: {SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png}
-  api:
-    text: 夜幕降临广场灯亮了。翠花靠在慧兰肩膀上——慧兰你怎么这么好啊。慧兰笑了——不是我好是我终于学会了对自己好。翠花说我也想对自己好。慧兰说那就从今天开始一天一天来我陪你。
-    content_roles:
-    - {file: SCENE-005, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-007-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-007, line: 慧兰——你怎么这么好啊。}
-  - {speaker: CHAR-001, line: 不是我好——是我终于学会了对自己好。}
-  - {speaker: CHAR-007, line: 我也想对自己好。}
-  - {speaker: CHAR-001, line: 那就从今天开始。一天一天来。我陪你。}
-- segment_id: EP43-SEG08
-  shot_ids: [EP43-S08]
-  duration_sec: 10
-  speakers: [CHAR-007, CHAR-001]
-  refs: {scene_id: SCENE-005, look_ids: [CHAR-007-L01, CHAR-001-L02]}
-  assets:
-    look_urls: {CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png, CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png}
-    scene_urls: {SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png}
-  api:
-    text: 翠花有点不好意思地说其实已经偷偷咨询过律师了。慧兰惊讶。翠花说看到你离婚了也去打听了一下律师说她这种情况可以离。一直没敢跟任何人说。慧兰笑了——翠花你比我勇敢。我六十岁才想明白的事你五十八岁就开始了。
-    content_roles:
-    - {file: SCENE-005, role: reference_image}
-    - {file: CHAR-007-L01, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-007, line: 其实——我已经偷偷咨询过律师了。}
-  - {speaker: CHAR-001, line: 你？}
-  - {speaker: CHAR-007, line: 我看你离婚了——我也去打听了一下。律师说我这种情况可以离。}
-  - {speaker: CHAR-007, line: 我一直没敢跟任何人说。}
-  - {speaker: CHAR-001, line: 翠花——你比我勇敢。我六十岁才想明白的事——你五十八岁就开始了。}
-- segment_id: EP43-SEG09
-  shot_ids: [EP43-S09]
-  duration_sec: 10
-  speakers: [CHAR-001, CHAR-007]
-  refs: {scene_id: SCENE-005, look_ids: [CHAR-001-L02, CHAR-007-L01]}
-  assets:
-    look_urls: {CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png, CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png}
-    scene_urls: {SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png}
-  api:
-    text: 慧兰站起来伸手拉翠花——走我请你吃面。翠花说你面馆还没开呢。慧兰笑着说开面馆之前还可以给别人家面馆捧场。翠花终于笑了。两个人挽着胳膊往广场外走——笑声在夜色里传得很远。
-    content_roles:
-    - {file: SCENE-005, role: reference_image}
-    - {file: CHAR-001-L02, role: reference_image}
-    - {file: CHAR-007-L01, role: reference_image}
-  dialogue:
-  - {speaker: CHAR-001, line: 走——我请你吃面。}
-  - {speaker: CHAR-007, line: 你面馆还没开呢。}
-  - {speaker: CHAR-001, line: 我开面馆之前——还可以给别人家面馆捧场。}
+  - segment_id: EP43-SEG01
+    shot_ids: [EP43-S01]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫，亮色丝巾）【图2】王翠花 CHAR-007-L01（红色广场舞队服）【图3】社区广场 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定：社区广场傍晚，跳完舞音乐停了，姐妹们陆续散了。广场上只剩几盏路灯刚亮起来，昏黄的光打在空荡荡的水泥地上。图2还坐在长椅上没走，拿着一瓶矿泉水发呆，瓶盖拧开了但一口都没喝，水在瓶子里纹丝不动。图1走过来在图2身边坐下，长椅微微沉了一下。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「怎么了？今天心不在焉的。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「没事……就是有点累。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「咱们认识这么多年了——你心里有事，我看得出来。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，傍晚广场的暖色光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG02
+    shot_ids: [EP43-S02]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png
+    api:
+      text: |
+        【图1】王翠花 CHAR-007-L01（红色广场舞队服）【图2】林慧兰 CHAR-001-L02（暖色衬衫，亮色丝巾）【图3】社区广场 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头2（10秒）近景 固定：图1深吸一口气，那口气吸得很深像是在给自己壮胆，然后她说出来了，声音不像平时那样洪亮而是压得低低的。图2愣了一下但只是一瞬间，表情没有太大变化。图1像是开了闸，手指不自觉地捏紧了水瓶。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「慧兰——我也想离婚。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「……」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「我也跟你一样——忍了二十多年了。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「我老公你也知道，爱喝酒，喝多了就骂人。倒是不打——但那张嘴比打还难受。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「我以前觉得忍忍就过去了。但看到你离婚后过得那么好——我就在想，我到底在怕什么？」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，傍晚广场的暖色光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG03
+    shot_ids: [EP43-S03]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫，亮色丝巾）【图2】王翠花 CHAR-007-L01（红色广场舞队服）【图3】社区广场 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头3（10秒）近景 固定：图1听完没有马上说话，她拉住图2的手，图2的手指很凉，明明跳完舞身上还热着但手是凉的。图1陈述一个事实，没有用过来人的高姿态。图2的眼眶红了——她平时是一个不会红眼眶的人。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你怕的东西——我都怕过。怕丢人，怕一个人，怕以后过不好。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「但你看看我——我离婚了，日子越过越好。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「你不一样——你有李老师。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我有李老师——是在我离婚之后。不是我离婚之前。我是先把自己活好了，才遇到的好事。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，傍晚广场的暖色光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG04
+    shot_ids: [EP43-S04]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png
+    api:
+      text: |
+        【图1】王翠花 CHAR-007-L01（红色广场舞队服）【图2】林慧兰 CHAR-001-L02（暖色衬衫，亮色丝巾）【图3】社区广场 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头4（10秒）近景 固定：图1忍不住哭了，不是嚎啕大哭而是咬着嘴唇眼泪自己往外冒的哭法，她捂着脸声音从指缝里挤出来。图2没有说别哭了，递了一张纸巾过去然后问了一个问题。图1愣住了，擦了擦眼泪说了两个字又收回去。图2没有催她只是等着。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「我就是恨自己没胆量。我老公骂了我二十年——我连一句嘴都没敢回过。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「那你想从什么时候开始？」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「什么？」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你想从什么时候开始——不继续忍了？」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「我想……但我不知道。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，傍晚广场的暖色光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG05
+    shot_ids: [EP43-S05]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫，亮色丝巾）【图2】王翠花 CHAR-007-L01（红色广场舞队服）【图3】社区广场 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头5（10秒）近景 固定：图1分享自己的记忆，那天她撕离婚协议的时候手也在抖，抖得差点撕不准那条线。但撕完之后不是后悔不是害怕——是轻了。她看着图2的眼睛认真地说了一句话，然后特意加了一句。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「没有谁一开始就有胆量的。那天我撕离婚协议的时候，手也在抖。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我把一纸协议撕掉的时候——我觉得心脏都要跳出来了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「但撕完之后——我整个人都轻了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「翠花——我不会劝你离婚。但我想告诉你——你值得过更好的日子。这不是鸡汤——是真的。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，傍晚广场的暖色光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG06
+    shot_ids: [EP43-S06]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png
+    api:
+      text: |
+        【图1】王翠花 CHAR-007-L01（红色广场舞队服）【图2】林慧兰 CHAR-001-L02（暖色衬衫，亮色丝巾）【图3】社区广场 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头6（10秒）近景 固定：图1擦了眼泪看着图2，眼睛还红着但声音不再是刚才那种自我贬低的哭腔，她开始算账说得很快，像在倒垃圾把积了二十年的东西一股脑倒出来。图2说完一句话，图1突然笑了，不是苦笑是那种对啊我怎么没想到的笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「你说得对。我每天给他做饭洗衣收拾，我挣的工资全交给他。到最后他喝多了还骂我没用。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「那你有用没用——不是他说了算的。是你自己说了算的。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「是啊……我自己说了算的。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，傍晚广场的暖色光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG07
+    shot_ids: [EP43-S07]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png
+    api:
+      text: |
+        【图1】王翠花 CHAR-007-L01（红色广场舞队服）【图2】林慧兰 CHAR-001-L02（暖色衬衫，亮色丝巾）【图3】社区广场 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头7（10秒）中景 固定：夜幕降临广场上的灯全亮了，昏黄的光把两个人的影子投在水泥地上叠在一起。跳广场舞的音响已经收走了，整个广场安安静静。图1靠在图2肩膀上，头有点重头发蹭着图2的丝巾。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「慧兰——你怎么这么好啊。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「不是我好——是我终于学会了对自己好。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「我也想对自己好。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「那就从今天开始。一天一天来。我陪你。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，傍晚广场的暖色光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG08
+    shot_ids: [EP43-S08]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png
+    api:
+      text: |
+        【图1】王翠花 CHAR-007-L01（红色广场舞队服）【图2】林慧兰 CHAR-001-L02（暖色衬衫，亮色丝巾）【图3】社区广场 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头8（10秒）近景 固定：图1从图2肩膀上抬起头，眼睛还红着但眼神变了，她犹豫了一下然后嘴角露出一个不好意思的笑，声音压得很低像是怕被别人听见。图2惊讶地看着她眼睛睁得比平时大了一圈。图1笑了，是那种我也有秘密的狡黠的笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「其实——我已经偷偷咨询过律师了。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「你？」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「我看你离婚了——我也去打听了一下。律师说我这种情况可以离。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「我一直没敢跟任何人说。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「翠花——你比我勇敢。我六十岁才想明白的事——你五十八岁就开始了。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，傍晚广场的暖色光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L02, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP43-SEG09
+    shot_ids: [EP43-S09]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-005
+    assets:
+      look_urls:
+        CHAR-001-L02: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L02.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-007-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-005.png
+    api:
+      text: |
+        【图1】林慧兰 CHAR-001-L02（暖色衬衫，亮色丝巾）【图2】王翠花 CHAR-007-L01（红色广场舞队服）【图3】社区广场 SCENE-005。
+        竖屏9比16连贯叙事。
+        镜头9（10秒）中景 固定：图1站起来，长椅轻轻弹了一下，她向图2伸出手掌朝上。路灯在图1身后形成暖黄色光圈，丝巾在夜风里轻轻飘着。图2把手放进图1手里，图1用力一拉把她从长椅上拽起来。两个人面对面站着都笑了。两个人挽着胳膊往广场外走，图2的红色广场舞队服和图1的暖色衬衫在路灯下像两团移动的火焰，笑声在夜色里传得很远。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「走——我请你吃面。」
+        对白（王翠花，爽朗大嗓门的中年女声，语速快、笑点低，自带喜庆感，普通话带地方口音）：「你面馆还没开呢。」
+        对白（林慧兰，温和沉稳的中年女声，略带沧桑感，语速中等偏慢，情绪激动时语调会上扬但保持克制，普通话标准带轻微北方口音）：「我开面馆之前——还可以给别人家面馆捧场。」
+        画面全程无任何文字、字幕、标题、水印。
+        竖向构图 9:16，温暖真实的生活质感，傍晚广场的暖色光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
+      content_roles:
+        - { file: CHAR-001-L02, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

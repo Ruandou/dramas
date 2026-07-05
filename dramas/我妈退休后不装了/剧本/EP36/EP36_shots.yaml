@@ -1,146 +1,268 @@
-# SOURCE FIDELITY: EP36_剧本.md -> 9 shots 1:1 | 90s | ALL PASS
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP36/EP36_剧本.md
+# Source shots: 9 (EP36-S01 to EP36-S09)
+# Output shots: 9 (EP36-S01 to EP36-S09)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s
+# Output total duration: 90s
+# Gate status: ALL PASS ([待补：民政局工作人员] triggers 集间群演回补子循环, SCENE-013 pending generation)
+
 episode_id: EP36
+source_md: 剧本/EP36/EP36_剧本.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast
-  ratio: '9:16'
-  resolution: 720p
+  ratio: "9:16"
+  resolution: 1080p
   duration: 5
   generate_audio: false
   watermark: false
-  prompt_suffix: 竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格
-  negative_prompt: 文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒
+  prompt_suffix: "竖向构图 9:16，温暖真实的生活质感，柔和的家庭光线，自然肤色，细腻纹理，电影级打光，细节丰富，高分辨率，写实摄影风格"
+  negative_prompt: "文字内容，模糊，低质量，扭曲的面部，畸形的手，水印，签名，卡通，动漫，插图风格，过度锐化，过度饱和，恐怖，灵异，血腥，暴力，政治元素，低俗暗示，卧姿，色情，泳装，裸露，吸烟，酗酒"
+
 shots:
-- shot_id: EP36-S01
-  shot_no: 1; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 【图1】林家客厅·清晨 SCENE-001（慧兰对着镜子整理暖色衬衫——系上那条亮色丝巾）【图2】CHAR-001-L01 林慧兰（看着镜子里的自己——六十岁，但眼神里有光了）。近景：慧兰对着镜子整理衣服——穿了一件暖色的衬衫，系了亮色丝巾。慧芳靠在门框上看她说姐你今天真好看。慧兰说今天是个好日子——得穿好看点。
-    content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-  dialogue:
-  - {speaker: CHAR-010, line: 姐，你今天真好看。}
-  - {speaker: CHAR-001, line: 今天是个好日子——得穿好看点。}
-  - {speaker: CHAR-010, line: 对。值得庆祝。}
-- shot_id: EP36-S02
-  shot_no: 2; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-001, look_ids: [CHAR-001-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png}
-    scene_urls: {SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png}
-  api:
-    text: 【图1】林家客厅门口 SCENE-001（慧兰拿起包——深吸一口气）【图2】CHAR-001-L01 林慧兰（回头看了一眼这个住了几十年的家——不是舍不得，是告别）。中景：慧兰拿起包要走。慧芳要陪她但她摇头说不用——这段路该我自己走完。她走到门口回头看了一眼这个家——然后拉开门走了出去。阳光迎面而来。
-    content_roles:
-    - {file: SCENE-001, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-  dialogue:
-  - {speaker: CHAR-010, line: 我陪你去吧。}
-  - {speaker: CHAR-001, line: 不用。这段路——该我自己走完。}
-  - {speaker: CHAR-001, line: 走了。}
-- shot_id: EP36-S03
-  shot_no: 3; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-013, look_ids: [CHAR-001-L01, CHAR-002-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png}
-  api:
-    text: 【图1】民政局离婚登记窗口——工作人员例行公事确认，慧兰和张大强并排坐着【图2】CHAR-001-L01 林慧兰（坚定地说确定）【图3】CHAR-002-L01 张大强（沉默没说话）。中景：民政局离婚登记窗口——慧兰和张大强并排坐着。工作人员问你们确定要离婚？张大强没说话。慧兰说——确定。钢印落下——"咔"一声，四十年的婚姻结束了。
-    content_roles:
-    - {file: SCENE-013, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-002-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-001, line: 确定。}
-- shot_id: EP36-S04
-  shot_no: 4; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-013, look_ids: [CHAR-001-L01, CHAR-002-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png}
-  api:
-    text: 【图1】民政局门口——慧兰和张大强拿着离婚证走出来【图2】CHAR-002-L01 张大强（停住脚步转头看着慧兰——憋了半天只说出保重两个字）【图3】CHAR-001-L01 林慧兰（看着他——没有恨没有怨，点了点头）。中景：两人走出民政局大门。张大强停住说慧兰——你保重。慧兰看着他平静地点头说你也保重。两人在门口站了片刻然后朝不同方向走去。
-    content_roles:
-    - {file: SCENE-013, role: reference_image, label: 图1}
-    - {file: CHAR-002-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-002, line: 慧兰——你……保重。}
-  - {speaker: CHAR-001, line: 你也保重。}
-- shot_id: EP36-S05
-  shot_no: 5; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-013, look_ids: [CHAR-001-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png}
-  api:
-    text: 【图1】民政局门口台阶——慧兰一个人站在那儿深深吸了一口气【图2】CHAR-001-L01 林慧兰（抬起头——秋天的风有点凉但很舒服，她看着湛蓝的天空笑了）。近景：慧兰独自站在民政局门口的台阶上——深深吸了一口气。秋天的风有点凉但很舒服。她抬起头看着湛蓝的天空——笑了。是那种从心底里溢出来的笑。四十年了——自由了。
-    content_roles:
-    - {file: SCENE-013, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-  dialogue:
-  - {speaker: CHAR-001, line: 四十年了……自由了。}
-- shot_id: EP36-S06
-  shot_no: 6; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L01, CHAR-006-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 【图1】社区公园·秋季 SCENE-006（慧兰走下台阶——看到马路对面有一个人）【图2】CHAR-006-L01 李建国（穿着驼色亚麻西装，手里捧着一束淡黄色雏菊——站在那里看着她笑着）【图3】CHAR-001-L01 林慧兰（看到他的那一刻脚步顿了一下，然后笑了）。中景：慧兰走下台阶——看到马路对面李建国站在那儿，手里捧着一束淡黄色雏菊。他没有走过来，只是站在那里看着她笑着。隔着一条马路的距离。
-    content_roles:
-    - {file: SCENE-006, role: reference_image, label: 图1}
-    - {file: CHAR-006-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
-  dialogue: []
-- shot_id: EP36-S07
-  shot_no: 7; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L01, CHAR-006-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 【图1】社区公园·秋季 SCENE-006（慧兰穿过马路走到他面前——李建国把雏菊递给她）【图2】CHAR-001-L01 林慧兰（接过花低头闻了闻——抬头看着他眼眶有点热）【图3】CHAR-006-L01 李建国（笑着说值得等的人等多久都值得）。近景：慧兰穿过马路走到他面前——问你怎么来了。李建国把花递给她说今天是个重要的日子。慧兰接过花低头闻了闻——抬头看着他眼眶有点热。她说你等了多久了。他说没多久——值得等的人等多久都值得。
-    content_roles:
-    - {file: SCENE-006, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-006-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-001, line: 你怎么来了？}
-  - {speaker: CHAR-006, line: 今天是个重要的日子——我想来看看。}
-  - {speaker: CHAR-001, line: 你等了多久了？}
-  - {speaker: CHAR-006, line: 没多久。值得等的人——等多久都值得。}
-- shot_id: EP36-S08
-  shot_no: 8; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L01, CHAR-006-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 【图1】社区公园·秋季 SCENE-006（两人并肩走在铺满金黄落叶的小径上）【图2】CHAR-001-L01 林慧兰（抱着雏菊边走边说——盖章的时候以为会哭结果没有，走出大门以为会回头结果也没有）【图3】CHAR-006-L01 李建国（走在她旁边温和地听着——说那你是真的放下了）。中景：两人并肩走在秋天的街道上——落叶金黄。慧兰抱着花说——刚才盖章的时候以为会哭，结果没有。走出大门的时候以为会回头看一眼，结果也没有。就是觉得终于结束了。李建国说——那是你真的放下了。
-    content_roles:
-    - {file: SCENE-006, role: reference_image, label: 图1}
-    - {file: CHAR-001-L01, role: reference_image, label: 图2}
-    - {file: CHAR-006-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-001, line: 你知道吗——刚才盖章的时候，我以为我会哭。}
-  - {speaker: CHAR-001, line: 结果我没有。走出大门的时候——我以为我会回头看一眼。}
-  - {speaker: CHAR-001, line: 结果我也没有。就是觉得——终于结束了。}
-  - {speaker: CHAR-006, line: 那是你真的放下了。}
-- shot_id: EP36-S09
-  shot_no: 9; mode: i2v_ref; duration_sec: 10
-  refs: {scene_id: SCENE-006, look_ids: [CHAR-001-L01, CHAR-006-L01]}
-  assets:
-    look_urls: {CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png, CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png}
-    scene_urls: {SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png}
-  api:
-    text: 【图1】社区公园·秋季 SCENE-006（慧兰停下脚步转头看着李建国——认真地说谢谢你今天来）【图2】CHAR-006-L01 李建国（认真地看着她·温和地说——林慧兰从今天开始你自由了）【图3】CHAR-001-L01 林慧兰（眼泪终于掉下来了——但她在笑）。特写：慧兰停下脚步转头看着李建国说李先生谢谢你今天来。李建国认真地看着她温和地说——林慧兰，从今天开始，你自由了。你可以做任何你想做的事了。慧兰眼泪终于掉下来——但她在笑。她抱着花站在秋天的阳光里——那是她六十年来第一次为自己流的、高兴的泪。
-    content_roles:
-    - {file: SCENE-006, role: reference_image, label: 图1}
-    - {file: CHAR-006-L01, role: reference_image, label: 图2}
-    - {file: CHAR-001-L01, role: reference_image, label: 图3}
-  dialogue:
-  - {speaker: CHAR-001, line: 李先生——谢谢你今天来。}
-  - {speaker: CHAR-006, line: 林慧兰——从今天开始，你自由了。}
-  - {speaker: CHAR-006, line: 你可以做任何你想做的事了。}
-  - {speaker: CHAR-001, line: 嗯。我自由了。}
+  - shot_id: EP36-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-010-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（暖色衬衫+亮色丝巾）【图2】CHAR-010-L01（灰蓝色旧外套）【图3】SCENE-001。近景 固定：清晨慧兰对着镜子整理衣服系亮色丝巾。晨光从窗户照进来照在丝巾上。慧芳靠在门框上看她眼里带着笑意。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - { speaker: CHAR-001, line: "……" }
+      - { speaker: CHAR-010, line: "姐，你今天真好看。" }
+      - { speaker: CHAR-001, line: "今天是个好日子——得穿好看点。" }
+      - { speaker: CHAR-010, line: "对。值得庆祝。" }
+    transition_to_next: hard_cut
+
+  - shot_id: EP36-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-010-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-010-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-010-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-001.png
+    api:
+      text: "【图1】CHAR-001-L01（暖色衬衫+亮色丝巾）【图2】CHAR-010-L01（灰蓝色旧外套）【图3】SCENE-001。中景 固定：慧兰深吸一口气拿起包。慧芳问要不要陪她去。慧兰摇头走到门口回头看了一眼这个家然后拉开门阳光迎面而来。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-010-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - { speaker: CHAR-001, line: "我走了。" }
+      - { speaker: CHAR-010, line: "我陪你去吧。" }
+      - { speaker: CHAR-001, line: "不用。这段路——该我自己走完。" }
+      - { speaker: CHAR-001, line: "走了。" }
+    transition_to_next: hard_cut
+
+  - shot_id: EP36-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png  # WARNING: no CDN URL — SCENE-013 image pending generation
+    api:
+      text: "【图1】CHAR-001-L01（暖色衬衫+亮色丝巾）【图2】CHAR-002-L01（白衬衫棕色马甲）【图3】SCENE-013。中景 固定：民政局离婚登记窗口，两人并排坐着隔了一个空位。工作人员确认后空气安静了几秒。慧兰看着前方张大强低着头。钢印落下沉闷而短促的一声。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    dialogue:
+      - { speaker: CHAR-001, line: "确定。" }
+    transition_to_next: hard_cut
+
+  - shot_id: EP36-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-002-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png  # WARNING: no CDN URL — SCENE-013 image pending generation
+    api:
+      text: "【图1】CHAR-001-L01（暖色衬衫+亮色丝巾）【图2】CHAR-002-L01（白衬衫棕色马甲）【图3】SCENE-013。中景 固定：两人拿着离婚证走出民政局大门。秋风吹来。张大强停住脚步转头看着慧兰。慧兰也看着他心里什么波澜都没有。张大强憋了半天终于说出一句话。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-013, role: reference_image, label: 图3 }
+    dialogue:
+      - { speaker: CHAR-002, line: "慧兰——" }
+      - { speaker: CHAR-001, line: "嗯？" }
+      - { speaker: CHAR-002, line: "你……保重。" }
+      - { speaker: CHAR-001, line: "你也保重。" }
+    transition_to_next: hard_cut
+
+  - shot_id: EP36-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-013
+      look_ids:
+        - CHAR-001-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+      scene_urls:
+        SCENE-013: assets/scenes/SCENE-013.png  # WARNING: no CDN URL — SCENE-013 image pending generation
+    api:
+      text: "【图1】CHAR-001-L01（暖色衬衫+亮色丝巾）【图2】SCENE-013。近景 固定：张大强已经走远了。慧兰独自站在民政局门口台阶上深吸一口气。秋风有点凉但很舒服。她抬起头看着湛蓝的天空笑了——从心底溢出来的笑。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-013, role: reference_image, label: 图2 }
+    dialogue:
+      - { speaker: CHAR-001, line: "四十年了——自由了。" }
+    transition_to_next: hard_cut
+
+  - shot_id: EP36-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: "【图1】CHAR-001-L01（暖色衬衫+亮色丝巾）【图2】CHAR-006-L01（驼色亚麻西装+金丝眼镜挂颈）【图3】SCENE-006。中景 固定：慧兰走下台阶看到马路对面有一个人。李建国穿着驼色亚麻西装手里捧着淡黄色雏菊。他没有走过来只是站在那里看着她笑着。隔着一条马路几辆车从中间驶过。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    dialogue:
+      - { speaker: CHAR-001, line: "……" }
+    transition_to_next: hard_cut
+
+  - shot_id: EP36-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: "【图1】CHAR-001-L01（暖色衬衫+亮色丝巾）【图2】CHAR-006-L01（驼色亚麻西装+金丝眼镜挂颈）【图3】SCENE-006。近景 固定：慧兰穿过马路走到他面前。李建国把花递给她动作很轻。慧兰接过花低头闻了闻抬头看着他眼眶有点热。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    dialogue:
+      - { speaker: CHAR-001, line: "你怎么来了？" }
+      - { speaker: CHAR-006, line: "今天是个重要的日子——我想来看看。" }
+      - { speaker: CHAR-001, line: "你等了多久了？" }
+      - { speaker: CHAR-006, line: "没多久。" }
+      - { speaker: CHAR-006, line: "值得等的人——等多久都值得。" }
+    transition_to_next: hard_cut
+
+  - shot_id: EP36-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: "【图1】CHAR-001-L01（暖色衬衫+亮色丝巾）【图2】CHAR-006-L01（驼色亚麻西装+金丝眼镜挂颈）【图3】SCENE-006。中景 固定：两人并肩走在秋天的街道上。梧桐叶黄了大半风一吹簌簌落下来。慧兰抱着雏菊边走边说。李建国走在她旁边步调刚好一致微微侧着身子看她。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    dialogue:
+      - { speaker: CHAR-001, line: "你知道吗——刚才盖章的时候，我以为我会哭。" }
+      - { speaker: CHAR-006, line: "嗯。" }
+      - { speaker: CHAR-001, line: "结果我没有。走出大门的时候——我以为我会回头看一眼。" }
+      - { speaker: CHAR-001, line: "结果我也没有。" }
+      - { speaker: CHAR-001, line: "就是觉得——终于结束了。" }
+      - { speaker: CHAR-006, line: "那是你真的放下了。" }
+    transition_to_next: hard_cut
+
+  - shot_id: EP36-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-006
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-006-L01
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我妈退休后不装了/CHAR-006-L01.png
+      scene_urls:
+        SCENE-006: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我妈退休后不装了/SCENE-006.png
+    api:
+      text: "【图1】CHAR-001-L01（暖色衬衫+亮色丝巾）【图2】CHAR-006-L01（驼色亚麻西装+金丝眼镜挂颈）【图3】SCENE-006。近景 固定：慧兰停下脚步转头看着李建国。阳光从梧桐叶缝隙洒下来落在她丝巾上。李建国认真地看着她。慧兰的眼泪终于掉下来但她在笑。她抱着花站在秋天的阳光里眼泪和笑容一起出现在同一张脸上。"
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-006, role: reference_image, label: 图3 }
+    dialogue:
+      - { speaker: CHAR-001, line: "李先生——谢谢你今天来。" }
+      - { speaker: CHAR-006, line: "不用谢。" }
+      - { speaker: CHAR-006, line: "林慧兰——从今天开始，你自由了。" }
+      - { speaker: CHAR-001, line: "……" }
+      - { speaker: CHAR-006, line: "你可以做任何你想做的事了。" }
+      - { speaker: CHAR-001, line: "嗯。" }
+      - { speaker: CHAR-001, line: "我自由了。" }
+    transition_to_next: hard_cut
