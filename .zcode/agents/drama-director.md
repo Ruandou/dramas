@@ -492,8 +492,12 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 
 ## 验证门控 G4
 
+> **格式一致性是 G4 的首项检查**：运行 `python3 scripts/format_check.py --ep EP## --project-root dramas/<剧名>`
+> 若格式门控失败 → **不进入后续 G4 检查**，直接退回 scene-writer 按 format_check.py 的输出逐一修正后重跑，直至通过。
+
 | 检查项 | 通过标准 | 失败处理 |
 |--------|----------|----------|
+| **格式一致性** | `python3 scripts/format_check.py --ep EP## --project-root dramas/<剧名>` 返回 0 | **G4 首项检查，未通过不进入后续**。要求 scene-writer 逐一修正格式问题后重跑 format_check.py，直到全部 ✅ |
 | 总时长 | 落在 `制片规范.md` → `episode_profile` 合规区间（示例 standard-72: ≥75s 且 ≤120s，EP01 90-120s；长集项目以实际 episode_profile 为准） | 时长不足或超限 → 要求 scene-writer **废弃当前稿、重写整集**（先做时长预算；禁止微调秒数补足，见 scene-writer 自检 1 红线） |
 | 镜头数一致 | 元数据声明镜数 == 实际镜头行数 | 请求修正元数据或补充镜头 |
 | Segment 数 | 6-10 段（EP01: 10-12 段），参见制片规范 episode_profile | 过少→拆分；过多→合并 |
@@ -567,12 +571,16 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 
 ## 验证门控 G5
 
+> **YAML 格式/语法是 G5 的首项检查**：运行 `python3 scripts/yaml_check.py --ep EP## --project-root dramas/<剧名>`
+> 若格式门控失败 → **不进入后续 G5 检查**，直接退回 segment-builder 按 yaml_check.py 的输出逐一修正后重跑，直至通过。
+
 | 检查项 | 通过标准 | 失败处理 |
 |--------|----------|----------|
+| **YAML 格式/语法** | `python3 scripts/yaml_check.py --ep EP## --project-root dramas/<剧名>` 返回 0 | **G5 首项检查，未通过不进入后续**。要求 segment-builder 逐一修正格式问题后重跑 yaml_check.py，直到全部 ✅ |
 | SOURCE FIDELITY PROOF | shots.yaml 顶部包含忠实度证明块 | 请求 segment-builder 重新生成 |
 | 镜头数一致 | shots 数量 == 源 .md 镜头表行数 | 上游问题→回退 Stage 4；本层问题→重新生成 |
 | 对白逐字一致 | 每行对白可追溯到源 .md 逐字对应 | 请求 segment-builder 修正 |
-| voice_prompt 全文一致 | YAML voice_prompt == 声音卡片原文 | 请求修正 |
+| voice_prompt 来源 | 每个出场角色 voice_prompt 可追溯到 `资产/声音卡片.md`（唯一来源）。YAML 中无 `# ⚠️` 推导注释 | Gate 4 失败 → 退回 production-planner 补充声音卡片后重试。禁止 segment-builder 编造 |
 | 时长合规 | 所有 segment 4-12s，总时长落在 `制片规范.md` → `episode_profile` 合规区间（示例 ≥75s 且 ≤120s） | 超出→检查是否上游时长问题 |
 | 不跨场景 | 每个 segment 内所有 shot 同一 SCENE | 请求拆分 |
 | content_roles 对应 | 【图N】 ↔ content_roles 一一对应 | 请求修正 |
@@ -602,9 +610,9 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 **G6 执行规则**：
 - 全部通过 → 标记为「发布就绪」，记录到 `工作计划.md`
 - 任一未通过 → 指出具体问题，修改后重新检查
-- 此阶段由 drama-director 直接执行（无需额外 agent），参考 `docs/references/platform-review-gate.md` 第六节
+- 此阶段由 drama-director 直接执行（无需额外 agent），参考 `docs/references/platform-review-gate.md` 第七节
 
-**参考文档**：`docs/references/platform-review-gate.md`（第六节：平台审核重点关注）
+**参考文档**：`docs/references/platform-review-gate.md`（第七节：平台审核重点关注）
 
 ---
 

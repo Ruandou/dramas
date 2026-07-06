@@ -34,6 +34,7 @@ story-architect → production-planner → prop-designer → [character-designer
 
 | 序号 | 文件 | 获取内容 |
 |------|------|----------|
+| 0 | **`资产/_模板_shots.yaml`** + **`资产/_模板_segments.yaml`**（**最先读取**） | **YAML 格式骨架**：不得删除任何字段，不得改变字段顺序和层级结构，不得将 `{...}` 中的 `,` 改为 `;`。模板是 YAML 格式的唯一真相源。 |
 | 1 | `制片规范.md` | 默认 model、ratio、resolution、prompt_suffix、negative_prompt、duration 约束 |
 | 2 | `资产/角色卡片.md` | CHAR-### ID、形象 ID（CHAR-###-L##）、voice_prompt |
 | 3 | `资产/场景卡片.md` | SCENE-### ID、场景描述 |
@@ -80,17 +81,17 @@ story-architect → production-planner → prop-designer → [character-designer
 - **存在冲突**（如源 .md 定义 SCENE-002 为"古铜镜镜面"，但场景卡片定义为"林泽书店"）：❌ 停止。列出冲突清单，请用户或 production-planner 修正。
 - **`[待补：描述]` 占位群演**（非 `CHAR-###`/`CHAR-GRP-##` 正式 ID）：不视为 Gate 3 冲突，转触发「集间群演回补子循环」（见升级协议 + drama-director）——由 production-planner 分配 `CHAR-GRP-##` + character-designer 回补 L01 后恢复。**不要**将占位误报为"ID 不在角色卡片中"。
 
-## Gate 4：voice_prompt 来源验证
+## Gate 4：voice_prompt 来源验证（🚫 硬停止，禁止回退）
 
-确认每个出场角色的 voice_prompt 可在以下文件中找到（按优先级）：
+**voice_prompt 唯一合法来源：`资产/声音卡片.md`。**
 
-1. `资产/声音卡片.md`（最高优先）
-2. `资产/角色卡片.md`
-3. `制片规范.md`
+确认每个出场角色的 voice_prompt 可在 `资产/声音卡片.md` 中找到。按 CHAR-ID 精确匹配。
 
-- **全部可追溯**：通过
-- **某角色无 voice_prompt 来源**：❌ 停止。报告缺失角色，请 production-planner 补充声音卡片。
-- **`[待补：描述]` 占位群演**（尚无正式 ID/声音卡片条目）：不视为 Gate 4 缺失，与 Gate 3 同步触发「集间群演回补子循环」——production-planner 建声音卡片条目 + 分配 `CHAR-GRP-##` 后，其 voice_prompt 即可追溯。**不要**将占位误报为"voice_prompt 缺失"。
+| 情况 | 处理 |
+|------|------|
+| 声音卡片有该 CHAR-ID 条目 | ✅ 全文复制（不含 `「」`） |
+| 声音卡片无该 CHAR-ID 条目 | ❌ **立即停止。不得编造、不得"推导"、不得从角色卡片回退、不得标注 `# ⚠️` 后继续。** 报告缺失角色，请 production-planner 补充声音卡片后重试 |
+| `[待补：描述]` 占位群演 | 不视为 Gate 4 缺失，与 Gate 3 同步触发「集间群演回补子循环」——production-planner 建声音卡片条目后补齐 |
 
 ---
 
@@ -167,7 +168,7 @@ shots:
 |------|------|------|
 | `shot_id` | string | 全局唯一，格式 `EP##-S##` |
 | `shot_no` | int | 全集连续编号（1, 2, 3...） |
-| `mode` | enum | `i2v_ref` / `t2v` / `skip` |
+| `mode` | enum | `i2v_ref` / `i2v` / `t2v` / `skip` |
 | `duration_sec` | int | 单镜头时长（≥4 秒） |
 | `refs.scene_id` | string | 所在场景 ID |
 | `refs.look_ids` | list | 出镜角色形象 ID 列表 |
@@ -809,13 +810,20 @@ segments:
 6. **每段最多 6 张参考图**——超出按优先级裁减
 7. **不跨场景**——一个 segment 内所有 shot 必须在同一 SCENE
 8. **YAML 语法正确**——生成后自检格式，确保可被 Python yaml.safe_load() 正确解析
-9. **中文 Prompt**——api.text 中所有描述使用中文（匹配 Seedance 2.0 中文 Prompt 策略）
-10. **禁止编造 CDN URL**——找不到就用本地路径 + WARNING 注释
-11. **Segment ID 连续**——不跳号，同一集内唯一
-12. **defaults 继承**——segment 级别可覆盖 defaults，未指定字段自动继承顶层 defaults
-13. **镜头 1:1 映射**——输出镜头数必须等于源 .md 镜头表行数，不得增删
-14. **对白逐字可溯**——输出中每行对白必须在源 .md 中有逐字对应
-15. **停止优于凑合**——遇到门控失败时，停止并上报优于降低标准继续生成
+9. **YAML 格式一致性（硬规则，违反 = 不通过 G5）**：
+   - 字段不增减：每个 shot/segment 必须包含模板中定义的全部字段，不得增加或删除
+   - 流式映射 `{...}` 用 `,`（逗号）分隔，**禁止**用 `;`（分号）
+   - 所有 image URL 必须使用 TOS 永久链接（`https://drama-reference-images.tos-cn-beijing.volces.com/...`），禁止临时预签名 URL
+   - dialogue 数组中每个 item 必须含 `speaker` 和 `line` 字段
+   - **🚫 api.text 镜头描述中必须用 `图N` 指代角色，禁止使用角色名**（如须写 `图1推开椅子` 不得写 `张大强推开椅子`）
+10. **输出前自检**：生成 shots.yaml 和 segments.yaml 后运行 `python3 scripts/yaml_check.py --ep EP## --type both --project-root dramas/<剧名>`，全部 ✅ 才可输出。未通过 → 按错误信息逐一修正后重跑，直到全通过。
+11. **中文 Prompt**——api.text 中所有描述使用中文（匹配 Seedance 2.0 中文 Prompt 策略）
+12. **禁止编造 CDN URL**——找不到就用本地路径 + WARNING 注释
+13. **Segment ID 连续**——不跳号，同一集内唯一
+14. **defaults 继承**——segment 级别可覆盖 defaults，未指定字段自动继承顶层 defaults
+15. **镜头 1:1 映射**——输出镜头数必须等于源 .md 镜头表行数，不得增删
+16. **对白逐字可溯**——输出中每行对白必须在源 .md 中有逐字对应
+17. **停止优于凑合**——遇到门控失败时，停止并上报优于降低标准继续生成
 
 ---
 

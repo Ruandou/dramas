@@ -610,9 +610,9 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 **G6 执行规则**：
 - 全部通过 → 标记为「发布就绪」，记录到 `工作计划.md`
 - 任一未通过 → 指出具体问题，修改后重新检查
-- 此阶段由 drama-director 直接执行（无需额外 agent），参考 `docs/references/platform-review-gate.md` 第六节
+- 此阶段由 drama-director 直接执行（无需额外 agent），参考 `docs/references/platform-review-gate.md` 第七节
 
-**参考文档**：`docs/references/platform-review-gate.md`（第六节：平台审核重点关注）
+**参考文档**：`docs/references/platform-review-gate.md`（第七节：平台审核重点关注）
 
 ---
 
