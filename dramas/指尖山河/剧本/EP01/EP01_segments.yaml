@@ -1,0 +1,415 @@
+episode_id: EP01
+source_md: 剧本/EP01/EP01_发布会崩塌.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: seedance-v2.5
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field"
+  negative_prompt: "anime, cartoon, illustration, 3d render, plastic skin, overexposed, neon lighting, cyberpunk, modern skyscrapers, western architecture, text watermark, signature, low quality, blurry, distorted face, extra limbs, mutated hands, bad anatomy, modern electronics, smartphones unless specified, modern cars in village scenes, satellite dishes, plastic furniture, LED lights in traditional settings"
+
+voice_prompts:
+  CHAR-001: "clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation"
+  CHAR-004: "sharp female soprano voice, Shanghai-accented Mandarin, fast speech tempo with aggressive edge in business settings, tone can switch from sugary sweet to ice cold in one sentence"
+  CHAR-005: "low male baritone voice, lacks confidence and conviction, standard Mandarin, often uses hesitation words like 'I think' and 'maybe', voice wavers under pressure"
+  CHAR-GRP-03: "older male voice, strong Huizhou dialect with rough Mandarin, urgent and direct tone, speaks loudly on phone as if not used to modern devices, rural village authority figure voice"
+
+segments:
+  # ===== SEG01 — 高光崩塌 =====
+  - segment_id: EP01-SEG01
+    shot_ids: [EP01-S01, EP01-S02]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/指尖山河/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏锦 CHAR-001-L01（象牙白真丝立领衬衫+炭灰阔腿裤，低马尾，淡妆，右手银戒指微光）【图2】上海·锦时工作室/发布会现场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：发布会舞台中央，聚光灯打在图1身上。身后LED大屏显示"锦时五周年·山河系列"。台下约百位嘉宾，前排是时尚媒体。她正笑着放下话筒，全场掌声雷动。
+        镜头2（5秒）近景 推近：图1的笑容还挂在脸上，但她的视线突然定住——看向舞台侧方。LED屏毫无预警地切换：苏锦设计稿与另一组设计稿并排对比，红色大字闪现——"抄袭？"。台下掌声戛然而止，转为密集的窃窃私语和快门声。图1的瞳孔骤缩。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「感谢各位。锦时五年，这只是开始。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「……不是。不是真的。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「今天。是我的发布会。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ===== SEG02 — 冷刃出鞘 =====
+  - segment_id: EP01-SEG02
+    shot_ids: [EP01-S03, EP01-S04]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/指尖山河/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏锦 CHAR-001-L01（象牙白真丝立领衬衫+炭灰阔腿裤，低马尾）【图2】林曼 CHAR-004-L01（炭灰权力套装+白色内搭，栗棕利落短发，浓妆+雾面红唇）【图3】上海·锦时工作室/发布会现场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：舞台侧方，图2踩着高跟鞋一步步走向舞台中央。她手里拿着一个黑色文件夹。台下闪光灯开始疯狂闪烁。她走得很慢——每一步都踩在台下议论声的节奏上。
+        镜头2（5秒）中景 固定：图2站到图1旁边，比她矮一点但气场凌厉。她拿起话筒，目光扫过台下媒体，然后转向图1——那个眼神，图1认识这张脸五年了，但从未见过这种目光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林曼，sharp female soprano voice, Shanghai-accented Mandarin, fast speech tempo with aggressive edge in business settings, tone can switch from sugary sweet to ice cold in one sentence）：「抱歉打断大家的掌声。」
+        对白（林曼，sharp female soprano voice, Shanghai-accented Mandarin, fast speech tempo with aggressive edge in business settings, tone can switch from sugary sweet to ice cold in one sentence）：「作为锦时的联合创始人，我有义务在这个场合，向大家坦白一件事——」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「林曼，你在说什么？」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ===== SEG03 — 猝不及防 =====
+  - segment_id: EP01-SEG03
+    shot_ids: [EP01-S05, EP01-S06]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/指尖山河/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】林曼 CHAR-004-L01（炭灰权力套装，栗棕短发，雾面红唇）【图2】苏锦 CHAR-001-L01（象牙白真丝立领衬衫，低马尾）【图3】上海·锦时工作室/发布会现场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1的面部特写。她的表情平静得可怕，嘴角甚至带着一丝笑。聚光灯从苏锦身上移开，全部打在她身上。她打开文件夹，动作优雅从容——像排练过无数次。
+        镜头2（5秒）特写 固定：图2的面部特写。她瞳孔骤缩、嘴唇微张、脸上的血色一点点褪去。身后的掌声变成密密麻麻的议论声，像蜂群。台下有人在拍她——不是拍作品，是拍她的表情。她下意识往后退了半步，鞋跟在舞台地板上磕出轻响。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林曼，sharp female soprano voice, Shanghai-accented Mandarin, fast speech tempo with aggressive edge in business settings, tone can switch from sugary sweet to ice cold in one sentence）：「苏锦小姐在过去一年中，系统性地抄袭了我的设计。从去年秋冬系列——到今晚发布的'山河'系列。全部。」
+        对白（林曼，sharp female soprano voice, Shanghai-accented Mandarin, fast speech tempo with aggressive edge in business settings, tone can switch from sugary sweet to ice cold in one sentence）：「每一件。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「她在说什么……不可能……林曼是我最好的朋友……」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「五年。每一天。每一张稿——都在同一个房间。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ===== SEG04 — 证据陷阱 =====
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S07, EP01-S08]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/指尖山河/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】林曼 CHAR-004-L01（炭灰权力套装，栗棕短发，雾面红唇）【图2】苏锦 CHAR-001-L01（象牙白真丝立领衬衫，低马尾）【图3】上海·锦时工作室/发布会现场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1举起文件夹朝台下媒体展示。LED屏同步切换——左侧苏锦"山河系列"设计稿，右侧图1声称的"原始稿"，日期标注比苏锦早三个月。台下快门声密集如暴雨。前排有记者站起来举手机。
+        镜头2（5秒）近景 固定：图2盯着屏幕。她的表情从困惑变成难以置信——那些"原始稿"是她在工作室和图1一起讨论的草稿，每张都有她用铅笔标的注释。现在注释消失了，日期被改过。她认得出自己的笔触——每一根线都是她画的。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林曼，sharp female soprano voice, Shanghai-accented Mandarin, fast speech tempo with aggressive edge in business settings, tone can switch from sugary sweet to ice cold in one sentence）：「屏幕上是今年三月——我的原始设计稿。各位可以对比日期。」
+        对白（林曼，sharp female soprano voice, Shanghai-accented Mandarin, fast speech tempo with aggressive edge in business settings, tone can switch from sugary sweet to ice cold in one sentence）：「锦，我给过你机会的。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「这些图……是我画的。上面还有我的铅笔标注——」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「她拍了所有草稿。从一开始就在拍。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ===== SEG05 — 双重背叛 =====
+  - segment_id: EP01-SEG05
+    shot_ids: [EP01-S09, EP01-S10]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-001-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/指尖山河/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】赵启明 CHAR-005-L01（藏蓝西装+浅蓝衬衫不系领带，发胶打理，银表）【图2】苏锦 CHAR-001-L01（象牙白真丝立领衬衫+炭灰阔腿裤，低马尾，右手银戒指）【图3】上海·锦时工作室/发布会现场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：舞台另一侧，图1迟疑地走上台。他站在林曼身边，不看苏锦。台下有人认出他——快门声更密了。苏锦盯着他的袖口——那对袖扣是她定制的，刻着"锦心"。
+        镜头2（5秒）中景 固定：图2盯着图1。图1没有回看。台上的聚光灯把三个人照得没有阴影。图2的右手无意识地摸向自己中指上的银戒指——那是她给自己买的，庆祝拿下国际大奖那天。台下有人发出嘘声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵启明，low male baritone voice, lacks confidence and conviction, standard Mandarin, often uses hesitation words like 'I think' and 'maybe', voice wavers under pressure）：「我可以作证。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「启明？你看着我——」
+        对白（赵启明，low male baritone voice, lacks confidence and conviction, standard Mandarin, often uses hesitation words like 'I think' and 'maybe', voice wavers under pressure）：「苏锦确实跟我提过。她压力太大，没有灵感。她说过——'借一点没关系'。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「我没有说过那句话。从来没有。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「启明。你是我信过的最后一个人。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ===== SEG06 — 困兽之辩 =====
+  - segment_id: EP01-SEG06
+    shot_ids: [EP01-S11, EP01-S12]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/指尖山河/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏锦 CHAR-001-L01（象牙白真丝立领衬衫，低马尾，右手银戒指）【图2】林曼 CHAR-004-L01（炭灰权力套装，栗棕短发，雾面红唇）【图3】上海·锦时工作室/发布会现场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定：图1深吸一口气。她的手停止颤抖。她抬起眼睛，直直看向林曼和赵启明。台下所有镜头对准她，但她不看镜头——只看这两个人。声音很低，但全场安静得能听见。
+        镜头2（5秒）中景 固定：图2的表情纹丝不动。她整理了一下袖口——那个动作图1太熟悉了。台下有人开始小声质疑"到底怎么回事"，但更多的手机举起来在拍。图2等台下的议论声达到峰值，才开口。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「林曼。这个品牌，是我们两个从零做起来的。五年——」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「启明。上个月你生日，我通宵改稿到凌晨四点。你说——这辈子最幸运的事就是遇到我。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「林曼——你看着我。你看着我的眼睛说那些话。」
+        对白（林曼，sharp female soprano voice, Shanghai-accented Mandarin, fast speech tempo with aggressive edge in business settings, tone can switch from sugary sweet to ice cold in one sentence）：「很感人的回忆杀，锦。但感情不能替代事实。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ===== SEG07 — 真面目 =====
+  - segment_id: EP01-SEG07
+    shot_ids: [EP01-S13, EP01-S14]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-004-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/指尖山河/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】林曼 CHAR-004-L01（炭灰权力套装，栗棕短发，雾面红唇）【图2】苏锦 CHAR-001-L01（象牙白真丝立领衬衫，低马尾）【图3】上海·锦时工作室/发布会现场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1的面部大特写。她对着苏锦微微一笑——那个笑容苏锦无比熟悉，在无数个加班到深夜的工作室里、在庆功宴上、在苏锦拿奖那天——都是这个笑。但现在她终于看懂了。那不是姐妹的笑容，是猎人看着猎物，在数还有几步进陷阱。
+        镜头2（5秒）近景 缓推：图2的嘴唇动了动。没有声音。她环顾四周——台下那些她请来的嘉宾、合作的品牌方、采访过她三次的时尚编辑——有人在低头打字，有人在打电话，有人已经起身离场。没有一个人看她的眼睛。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林曼，sharp female soprano voice, Shanghai-accented Mandarin, fast speech tempo with aggressive edge in business settings, tone can switch from sugary sweet to ice cold in one sentence）：「你知道吗？我忍了五年。」
+        对白（林曼，sharp female soprano voice, Shanghai-accented Mandarin, fast speech tempo with aggressive edge in business settings, tone can switch from sugary sweet to ice cold in one sentence）：「各位媒体朋友，锦时不会因为一个人的错误而倒下。从今天起——由我接手。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「不是这样的……我是设计师……这是我的品牌……」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「她在说谎。每个人都知道她在说谎——但没有人需要真相。他们只需要头条。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  # ===== SEG08 — 最后一击 =====
+  - segment_id: EP01-SEG08
+    shot_ids: [EP01-S15, EP01-S16]
+    duration_sec: 10
+    speakers: [CHAR-005, CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-004-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-005-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/指尖山河/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】赵启明 CHAR-005-L01（藏蓝西装+浅蓝衬衫不系领带，银表）【图2】苏锦 CHAR-001-L01（象牙白真丝立领衬衫，低马尾）【图3】林曼 CHAR-004-L01（炭灰权力套装，栗棕短发，雾面红唇）【图4】上海·锦时工作室/发布会现场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图1从文件袋里抽出一份文件，放在讲台上。他的手指在文件上停顿了一秒。然后他推了推眼镜，终于抬起头——但他看的是图3。图3对他微微点头。台下所有手机对准那份文件。
+        镜头2（5秒）中景 固定：图2低头看着那份文件——上面有她的签名。她认出了那个签名。上个月图3拿来让她签的"合作协议补充条款"。图3当时笑着说"就是个流程，我帮你看了，没问题"。现在图2看着那个签名——自己的名字，替自己签了一份死刑判决。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（赵启明，low male baritone voice, lacks confidence and conviction, standard Mandarin, often uses hesitation words like 'I think' and 'maybe', voice wavers under pressure）：「股权转让文件已经签好了。苏锦小姐持有的锦时百分之四十五股份，因违反联合创始人协议——已转让至林曼女士名下。」
+        对白（赵启明，low male baritone voice, lacks confidence and conviction, standard Mandarin, often uses hesitation words like 'I think' and 'maybe', voice wavers under pressure）：「按合同。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「上个月……那个补充条款……」
+        对白（林曼，sharp female soprano voice, Shanghai-accented Mandarin, fast speech tempo with aggressive edge in business settings, tone can switch from sugary sweet to ice cold in one sentence）：「对。就是那份。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「我信了你。我把每一份文件都交给你看——因为你是林曼。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-005-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  # ===== SEG09 — 坠落时刻 =====
+  - segment_id: EP01-SEG09
+    shot_ids: [EP01-S17, EP01-S18]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/指尖山河/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏锦 CHAR-001-L01（象牙白真丝立领衬衫，低马尾，右手银戒指）【图2】上海·锦时工作室/发布会现场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1的眼睛。那双曾被称为"有星辰"的眼睛，此刻像被抽空了所有光。她看着林曼唇上精致的雾面口红，看着赵启明袖口她送的那对刻着"锦心"的袖扣——他连摘都没摘。她突然想笑。太荒谬了。
+        镜头2（5秒）中景 拉远：图1独自站在舞台中央。聚光灯从她身上一盏一盏熄灭。LED屏上的对比图还在滚动，越来越多的嘉宾起身离场——椅子腿刮地板的声音此起彼伏。林曼和赵启明站在两侧，像两扇正在合拢的门。图1中指上的银戒指反射着最后一盏灯光，然后那盏也灭了。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「你连袖扣……都没摘。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「我今天早上还在想——结束以后带他去吃那家新开的餐厅。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「五年前。这里什么都没有。是我一块砖一块砖——」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「不是我。是'前设计师'。今天的头条已经写好了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ===== SEG10 — 被驱逐的人 =====
+  - segment_id: EP01-SEG10
+    shot_ids: [EP01-S19, EP01-S20]
+    duration_sec: 10
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-004-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-GRP-01-L01.png
+        CHAR-GRP-02-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-GRP-02-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/指尖山河/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏锦 CHAR-001-L01（象牙白真丝立领衬衫，低马尾）【图2】林曼 CHAR-004-L01（炭灰权力套装，栗棕短发，雾面红唇）【图3】保安甲 CHAR-GRP-01-L01（黑色西装，体格健壮）【图4】保安乙 CHAR-GRP-02-L01（黑色西装，稍瘦）【图5】上海·锦时工作室/发布会现场 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定：图3和图4两个穿黑色西装的保安走上舞台，一左一右站在图1身旁。图2退后两步，让出空间。她看着图1被保安架住手臂，表情平静——像在看一件与自己无关的事。台下最后一批记者举着手机，闪光灯刺眼。
+        镜头2（5秒）中景 跟随：保安架着图1穿过侧门过道。她的高跟鞋在抛光地板上拖出声响。过道两侧是锦时历年的海报——去年的春夏系列、前年的联名款、五年前创立时的第一场发布会。每张海报上都有她的名字。一张张从她身边掠过。她不再挣扎，低垂着头，头发散落遮住了脸。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（林曼，sharp female soprano voice, Shanghai-accented Mandarin, fast speech tempo with aggressive edge in business settings, tone can switch from sugary sweet to ice cold in one sentence）：「请苏锦小姐离场。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「林曼——你记住——」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「今天。你毁掉的不只是我。是你自己。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「第一张——是找妈妈借钱拍的。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「最后一张——是被保安架着走的。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-001, role: reference_image, label: 图5 }
+    transition_to_next: dissolve
+
+  # ===== SEG11 — 废墟之上 =====
+  - segment_id: EP01-SEG11
+    shot_ids: [EP01-S21, EP01-S22]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/指尖山河/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏锦 CHAR-001-L01（象牙白真丝立领衬衫蹭了墙灰，低马尾散落）【图2】上海·锦时工作室/消防通道外巷 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）全景 固定：消防通道外的巷子里，图1靠墙站着。水泥墙粗糙冰冷，头顶一盏昏黄安全灯在风中微微晃动。她的象牙白衬衫蹭上了墙灰。远处城市霓虹闪烁——与她只隔一条街，但已经是两个世界了。
+        镜头2（5秒）近景 固定：图1慢慢滑坐在地上。她低头看着自己中指上的银戒指，慢慢把它摘下来，放在掌心。戒指内侧刻着"苏锦 · 锦时"。她握紧戒指，指节发白。然后——手机在口袋里震动。她没动。手机又震了一下。再一下。持续地震动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「什么都没了。公司。朋友。男朋友。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「哦不对。——前男友。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「——是获奖那天给自己买的。」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「戒指还在。名字没用了。」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  # ===== SEG12 — 命运的转向 =====
+  - segment_id: EP01-SEG12
+    shot_ids: [EP01-S23, EP01-S24]
+    duration_sec: 10
+    speakers: [CHAR-GRP-03, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/指尖山河/CHAR-001-L01.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/指尖山河/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏锦 CHAR-001-L01（象牙白真丝立领衬衫蹭了墙灰，头发散落遮脸）【图2】上海·锦时工作室/消防通道外巷 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 固定：图1掏出手机——屏幕在昏暗中很亮。来电显示："云溪村村委会"。她皱眉——十年没回去过了，这个号码怎么还在通讯录里。犹豫两秒，划开接听。听筒里传来一个苍老而急切的声音，带着浓重的徽州口音。
+        镜头2（5秒）中景 缓拉：图1握着手机，一动不动。电话那头还在说着什么，但声音渐渐模糊——像从很远的地方传来。她抬头看向巷子尽头——城市霓虹依然绚烂。而电话那头是十年未曾回去的故乡，是奶奶走时她没赶上的最后一面。图1慢慢闭上眼睛，手中的银戒指从指间滑落，掉在地上发出清脆的一声"叮"。黑屏。字幕浮现："针下有山河，线里藏日月"。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（村委会干部，older male voice, strong Huizhou dialect with rough Mandarin, urgent and direct tone, speaks loudly on phone as if not used to modern devices, rural village authority figure voice）：「是苏锦吗？你奶奶的老宅——后山滑坡，塌了！」
+        对白（苏锦，clear female alto voice, slightly cool and crisp tone, standard Mandarin with occasional soft Huizhou accent endings, speaks faster when excited but slower and colder when angry, precise articulation）：「……什么？」
+        对白（村委会干部，older male voice, strong Huizhou dialect with rough Mandarin, urgent and direct tone, speaks loudly on phone as if not used to modern devices, rural village authority figure voice）：「人还好，房子不行了——」
+        对白（村委会干部，older male voice, strong Huizhou dialect with rough Mandarin, urgent and direct tone, speaks loudly on phone as if not used to modern devices, rural village authority figure voice）：「……继承手续需要你本人回来……喂？苏锦？你在听吗——」
+        画面全程无任何文字、字幕、标题、水印。
+        photorealistic, cinematic lighting, warm tones, 8k resolution, highly detailed textures, natural skin texture, soft natural light, professional color grading, depth of field，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut

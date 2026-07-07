@@ -222,6 +222,8 @@ Stage 1 产出的 72 集大纲（`短剧剧本_剧名_72集.md`）
 | negative_prompt | 制片规范中定义了 negative_prompt（含年代禁忌） | 请求补充 |
 | model 定义 | 制片规范中指定了 Seedance 模型版本 | 请求补充 |
 | 视觉风格锚点 | 制片规范中定义了视觉风格锚点（渲染风格/色调/题材关键词） | 请求补充 |
+| **▸ Prompt 质量** | | |
+| 中文文字语种 | 道具卡片中含中文文字的道具（绣字/刻字/题字/内页文字等），描述中已标注「⚠️ 中文文字，Prompt 需含 Simplified Chinese」 | 请求 production-planner 批量补充标注 |
 
 **G2 未通过 → 不得进入 Stage 3a。**
 
@@ -375,8 +377,8 @@ G3 在 **Stage 3a（prop-designer）、Stage 3b（character-designer）和 Stage
 | 反派设计 | 反派角色有"速恨"设计（具体恶行描述） | 请求 character-designer 补充 |
 | EP01 场景图完整 | EP01 涉及的所有 SCENE-* 均有对应 `assets/scenes/SCENE-*.png` | 请求 scene-designer 补充 |
 | EP01 道具图完整 | EP01 涉及的所有 `待生成` PROP-* 均有对应 `assets/props/PROP-*.png`（`场景内置`/`角色内置` 道具无独立图片，跳过此检查） | 请求 prop-designer 补充 |
-| 场景/道具 CDN 注册 | `assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json` 已生成，所有条目必须含 `tos_url` 永久链接。临时预签名 URL（含 `X-Tos-Expires`）**不可放行** → 要求对应设计师执行 `tos_upload.py sync` | 请求执行 TOS 上传 |
-| 文字渲染正确 | 含指定文字的场景/道具图文字逐字确认无误，中文大段文字使用 `Simplified Chinese` | 请求 scene-designer / prop-designer 重新生成 |
+| 场景/道具 CDN 注册 | `assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json` 已生成，所有条目必须含 `tos_url` 永久链接。**自动化校验**：`python3 script/check_cdn_registry.py <project-root>` 必须 pass。临时预签名 URL（含 `X-Tos-Expires`）**不可放行** → 要求对应设计师执行 `tos_upload.py sync` | 请求执行 TOS 上传 |
+| 文字渲染正确 | 含**任何**中文文字（不论字数——绣字/刻字/题字/内页等）的场景/道具图 Prompt 已使用 `Simplified Chinese`，成图文字逐字确认为简体非繁体/乱码 | 请求 scene-designer / prop-designer 重新生成 |
 | **场景/道具人脸禁令** | 所有场景图和道具图中**无任何人类面孔**（含照片、画像、贴纸、屏幕显示等平面媒介）。人物仅由 Seedance 视频阶段加入 | 请求对应设计师移除人脸并重新生成 |
 | 卡片状态已更新 | `资产/道具卡片.md`、`资产/场景卡片.md`、`资产/角色卡片.md` 中所有 `待生成` 条目的状态为 `✅ 已生成`（非 `待生成`）；`资产/形象索引.md` 中所有 `待填充` 行的状态列已填充为 `✅ 已生成`（非 `待填充`）；`场景内置`/`角色内置` 条目不参与此检查，SKIP 道具卡片已补充设计描述 | 请求对应设计师更新 |
 | 跨资产风格一致性 | 角色 L01 形象图、场景参考图、道具参考图三者在色调/光影/笔触上风格统一 | 请求调整不一致方重新生成 |

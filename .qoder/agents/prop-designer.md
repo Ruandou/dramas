@@ -258,6 +258,7 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
 - ✅ 永久 URL 格式：`https://<bucket>.tos-cn-beijing.volces.com/props/<project>/PROP-###.png`（无查询参数）
 - ❌ 仅有 `cdn_url`（Seedream API 返回的临时预签名 URL，24小时过期）→ **不可声明完成**
 - 失败处理：报告"生成完成，TOS 上传阻断"+ 错误详情，等待用户修复凭据
+- **自动化校验**：声明完成前必须运行 `python3 script/check_cdn_registry.py <project-root>`，exit code ≠ 0 则不得声明完成
 
 ## Step 9：迭代修复
 
@@ -312,11 +313,16 @@ Prop reference photograph, single object isolated on warm neutral silk backgroun
 
 ❌ 不可试图通过 `image_urls` 传角色 L01 来做"人脸一致性"——这不可靠。
 
-### 文字语种检查（含中文文字的道具）
+### 文字语种检查（含任何中文文字的道具）
 
-含大段中文文字的道具（商业计划书、信件、报纸、证书等），Prompt **必须**包含：
-- ✅ `Simplified Chinese`（不得只写 `Chinese text`，会出繁体）
+**强制规则**：道具描述中一旦出现中文文字（无论字数多少——绣字、刻字、封面题字、内页文字等），Prompt **必须**包含：
+- ✅ `Simplified Chinese`（不得只写 `Chinese text`、`Chinese characters`、`Chinese calligraphy`——会出繁体/乱码）
 - 精确中文汉字（单个字符）继续使用双引号标注，不受语种限制
+
+**🚫 常见漏网案例**（之前事故）：
+- "绣着'山河'二字" → Prompt 写了 `Chinese characters` 但没写 `Simplified Chinese` → 出繁体
+- "古籍封面金线绣字" → Prompt 只描述视觉没提语种 → 出乱码
+- 在写 Prompt 时**当场注入** `Simplified Chinese`，不要等写完再回头检查
 
 ## 结尾固定格式
 
