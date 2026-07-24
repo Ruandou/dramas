@@ -1,0 +1,249 @@
+episode_id: EP02
+source_md: 剧本/EP02/EP02_藏锋.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "vertical 9:16, cinematic lighting, xianxia fantasy, high detail flowing silk robes, ethereal spirit energy particles, Chinese cultivation world aesthetics, photorealistic rendering"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。vertical 9:16, cinematic lighting, xianxia fantasy, high detail flowing silk robes, ethereal spirit energy particles, Chinese cultivation world aesthetics, photorealistic rendering"
+  negative_prompt: "modern objects, contemporary clothing, glasses, watches, phones, cars, buildings with glass windows, plastic, neon signs, English text, Japanese text, Traditional Chinese characters appearing as gibberish, garbled text, tattoos, piercings, modern hairstyles, jeans, t-shirts, sneakers, concrete, asphalt road, power lines, western medieval armor, steampunk elements, cyberpunk elements, anime style, cartoon style, chibi, low quality, blurry, watermark"
+
+voice_prompts:
+  CHAR-001: "成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感"
+  CHAR-001-藏拙: "成年女性，17岁，声线清亮但刻意压低显得怯弱，语速偏快带犹豫停顿，说话时带微微颤音伪装胆小"
+  CHAR-007: "青年女性，19岁，声线尖锐刻薄，语速快带嘲讽笑意，说话爱翘嘴角导致字音偏高偏尖，后期转为紧张讨好时声音压低变小"
+  CHAR-GRP-01: "青年男性，20岁，声线普通平实略带隶属感，语速中等，跟风起哄时音调上扬带起哄意味，单独说话时则拘谨拘束"
+
+segments:
+  - segment_id: EP02-SEG01
+    # CHAR-GRP-01 为青年男性（与 L01 图一致，20岁男性），声音与视觉已对齐
+    shot_ids: [EP02-S01]
+    duration_sec: 10
+    speakers: [CHAR-GRP-01, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-002.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈清词 CHAR-001-L01（灰色粗布外门袍，低马尾，手腕古旧玉佩）【图2】外门弟子 CHAR-GRP-01-L01（灰袍外门弟子）【图3】破旧小院 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：清晨薄雾中的破旧小院，石阶上水迹未干（昨日被泼脏水的痕迹）。图1蹲在门前石水盆旁洗脸动作刻意迟缓笨拙。图2路过院门外探头看了一眼后嗤笑着走过。图1手指在水面下微微攥紧又松开水面泛起细微涟漪。远方宗门高阁隐在晨雾中——图1下意识抬眼扫了那个方向一瞬。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（外门弟子，青年男性，20岁，声线普通平实略带隶属感，语速中等，跟风起哄时音调上扬带起哄意味，单独说话时则拘谨拘束）：「废物妹妹又起这么早？勤快也没用。」
+        对白（沈清词，成年女性，17岁，声线清亮但刻意压低显得怯弱，语速偏快带犹豫停顿，说话时带微微颤音伪装胆小）：「师……师兄早。」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「昨夜那道气息——修为深不见底。」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「这世间最利的剑，是忍。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG02
+    shot_ids: [EP02-S02, EP02-S03]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-007-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈清词 CHAR-001-L01（灰色粗布外门袍，低马尾）【图2】刘芸 CHAR-007-L01（灰袍略新，双髻，尖刻表情）【图3】外门练剑场 SCENE-003。
+        角色分工：仅图2可推人/叉腰；图1被推后退不反抗。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景 固定镜头：晨光斜照练剑场石砖平台，铜色灵阵线纹在日光下隐现。十余名灰袍弟子排列站位听训，图1独自站在最末排角落背靠木栏杆离人群最远，双手规矩垂在身前肩膀微缩目光低垂。晨雾从平台边缘飘过脚踝。
+        镜头2（6秒）中景 固定镜头：图2大步走来伸手推图1肩膀将她从站位上推开半步。图1踉跄后退撞上木栏杆手抓住栏杆才稳住。图2叉腰站到原来位置下巴微扬。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「最后一排、最角落——倒也清净。」
+        对白（刘芸，青年女性，19岁，声线尖锐刻薄，语速快带嘲讽笑意，说话爱翘嘴角导致字音偏高偏尖，后期转为紧张讨好时声音压低变小）：「让开——这位置归我了。」
+        对白（刘芸，青年女性，19岁，声线尖锐刻薄，语速快带嘲讽笑意，说话爱翘嘴角导致字音偏高偏尖，后期转为紧张讨好时声音压低变小）：「没灵力的还占好位子？脸皮厚成这样？」
+        对白（沈清词，成年女性，17岁，声线清亮但刻意压低显得怯弱，语速偏快带犹豫停顿，说话时带微微颤音伪装胆小）：「对……对不起，刘师姐……」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG03
+    shot_ids: [EP02-S04, EP02-S05]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-GRP-01, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-007-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈清词 CHAR-001-L01（灰色粗布袍）【图2】刘芸 CHAR-007-L01（灰袍略新，双髻）【图3】外门弟子 CHAR-GRP-01-L01（灰袍弟子）【图4】外门练剑场 SCENE-003。
+        角色分工：仅图2可截灵石/凑近逼视；图3分发灵石；图1全程被动不反击。
+        道具：乳白色灵石（掌心大小，泛微微灵光），三颗。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：练功间歇，图3在人群中分发灵石。图2一步跨过来一把从图3手中截下三颗灵石，灵石在她掌中碰撞发出清脆声响。周围几名弟子转头看向这边有人窃笑。
+        镜头2（6秒）近景 固定镜头：图2凑近图1面前举着三颗灵石在她眼前晃。图1垂眼看着灵石被收走睫毛微颤双唇抿成一线。手藏在宽袖中指尖平稳如铁。日光照在侧脸上瞳孔深处极快闪过一丝冷光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（刘芸，青年女性，19岁，声线尖锐刻薄，语速快带嘲讽笑意，说话爱翘嘴角导致字音偏高偏尖，后期转为紧张讨好时声音压低变小）：「教习师兄，沈清词上月功课垫底——灵石给她不是浪费？」
+        对白（外门弟子，青年男性，20岁，声线普通平实略带隶属感，语速中等，跟风起哄时音调上扬带起哄意味，单独说话时则拘谨拘束）：「是啊，不如分给修炼快的。」
+        对白（刘芸，青年女性，19岁，声线尖锐刻薄，语速快带嘲讽笑意，说话爱翘嘴角导致字音偏高偏尖，后期转为紧张讨好时声音压低变小）：「废物用不着这些好东西。」
+        对白（刘芸，青年女性，19岁，声线尖锐刻薄，语速快带嘲讽笑意，说话爱翘嘴角导致字音偏高偏尖，后期转为紧张讨好时声音压低变小）：「要不你去跟教习说？你配吗？」
+        对白（沈清词，成年女性，17岁，声线清亮但刻意压低显得怯弱，语速偏快带犹豫停顿，说话时带微微颤音伪装胆小）：「没……没关系的，刘师姐用吧……」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「我碎过的灵石——比你见过的多。」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「可笑。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG04
+    shot_ids: [EP02-S06, EP02-S07]
+    duration_sec: 11
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-007-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】刘芸 CHAR-007-L01（灰袍略新，双髻）【图2】沈清词 CHAR-001-L01（灰色粗布袍）【图3】外门练剑场 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：授课结束弟子们三三两两散去。图1将抢来的灵石揣进腰间布袋拍了拍手掌作势要走。她回头对图2扔下一句话唇边挂着轻蔑笑意。身后两个女弟子跟着走远边走边回头看图2笑。练剑场渐空日光直射石砖。
+        镜头2（6秒）近景 固定镜头：练剑场只剩图2一人。她站在角落阴影中被推歪的衣领还没理好。风吹过空旷石台卷起一片枯叶。她低头看着自己的手——手指修长稳定没有一丝颤抖与方才判若两人。她缓缓把衣领理正动作从容不迫。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（刘芸，青年女性，19岁，声线尖锐刻薄，语速快带嘲讽笑意，说话爱翘嘴角导致字音偏高偏尖，后期转为紧张讨好时声音压低变小）：「以后配额发下来，你那份自觉交出来。」
+        对白（刘芸，青年女性，19岁，声线尖锐刻薄，语速快带嘲讽笑意，说话爱翘嘴角导致字音偏高偏尖，后期转为紧张讨好时声音压低变小）：「省得我每次亲自动手——累。」
+        对白（沈清词，成年女性，17岁，声线清亮但刻意压低显得怯弱，语速偏快带犹豫停顿，说话时带微微颤音伪装胆小）：「好的……刘师姐……」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「三个月。她的嘴脸一天比一天张狂。」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「查清那件事之前——这些账，一笔笔记着。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP02-SEG05
+    shot_ids: [EP02-S08, EP02-S09]
+    duration_sec: 12
+    speakers: [CHAR-GRP-01, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-GRP-01-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-002.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈清词 CHAR-001-L01（灰色粗布袍）【图2】外门弟子 CHAR-GRP-01-L01（灰袍弟子）【图3】破旧小院 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定镜头：黄昏暖光斜照，图1踏进小院门。图2在院墙外路过喊了一句，图1微微僵住随即露出惯常苦笑摆手回应。待脚步声远去她侧耳倾听确认四周无人。院门半掩夕阳将她影子拉得很长。门框上褪色灵符在风中微晃。
+        镜头2（6秒）近景 缓推：确认无人后图1脊背缓缓挺直如同一柄出鞘的剑。肩膀缩瑟消失下巴微抬目光从怯弱变回清冽。她靠在院中歪脖树干上抬手拂去肩上灰尘动作干净利落再无半分笨拙。夕阳映在侧脸上瞳孔深处有历经沧桑的冷静。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（外门弟子，青年男性，20岁，声线普通平实略带隶属感，语速中等，跟风起哄时音调上扬带起哄意味，单独说话时则拘谨拘束）：「沈师妹，今天又被芸姐欺负了吧？啧啧。」
+        对白（沈清词，成年女性，17岁，声线清亮但刻意压低显得怯弱，语速偏快带犹豫停顿，说话时带微微颤音伪装胆小）：「没有没有……只是让了灵石……」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「走了。终于。」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「比剑更难的，是装不会握剑。」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「这身皮囊——穿了三个月，每天都想撕掉。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG06
+    shot_ids: [EP02-S10]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-002.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈清词 CHAR-001-L01（灰色粗布袍，手指修长）【图2】破旧小院 SCENE-002。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）特写 固定镜头：图1伸手接住一片从歪脖树上飘落的枯叶平托在左掌心。右手食指与中指并拢轻轻一弹——无声无风，枯叶从中线开始如被极细丝线切割般分裂成无数齑粉，粉末在夕阳中缓缓飘散如金色尘埃。指尖没有任何灵光外泄剑气内敛到肉眼不可见。空气中只有极淡寒意一闪而过。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「百年剑意——弹指未散。」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「再忍一忍。」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「真相近了。我等得起。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP02-SEG07
+    shot_ids: [EP02-S11]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-002.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/满级师尊她装作刚入门/PROP-001.png
+    api:
+      text: |
+        【图1】沈清词 CHAR-001-L01（灰色粗布袍，手腕古旧玉佩）【图2】破旧小院 SCENE-002【图3】天命剑鞘碎片 PROP-001（半透明青白色泪滴形玉佩，4cm，裂缝发光）。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 镜头推近：夜色笼罩小院月光如水洒在门槛。图1坐在石阶上沉思手腕自然搁在膝上。忽然左手腕上的古旧玉佩碎片（图3）从裂缝中透出一缕温暖金白色微光如心跳般一明一暗脉动。光芒投射在她面颊上映出骤然睁大的眼瞳。她缓缓抬起手腕凑近端详——图3脉动愈发急促光芒向院墙外某个特定方向延伸如被牵引。远方群山黑影轮廓之上似有极远处的什么在遥相呼应。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「——这是……玉佩在发光？」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「三个月了从未如此……是什么在呼唤它？」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「那个方向——有东西在回应。」
+        对白（沈清词，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「你到底……是什么。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

@@ -1,0 +1,188 @@
+{
+  "summary": {
+    "projectName": "AI 短剧制作流水线 (demo1)",
+    "locale": "zh-CN",
+    "modelId": "agent-work-loop-v4",
+    "reportContractVersion": 24,
+    "overview": "项目由 AGENTS.md 与 9 个 .qoder 子代理构成一条门控清晰、题材合规边界权威的短剧制作流水线，启动与项目根守卫已机制化；但付费视频「提交/恢复」的默认路径与规范布局不一致，是当前最实的交付障碍。本次为 session-limited 审查（0 个可用会话），所有运行行为类结论保持“未观测”。",
+    "aiAgentPractice": {
+      "inspectedSurfaces": [
+        "Rules",
+        "Skills",
+        "MCP"
+      ],
+      "coverageRows": [
+        {
+          "surface": "Rules",
+          "scopes": [
+            "Project"
+          ],
+          "count": 4,
+          "paths": [
+            "AGENTS.md",
+            ".cursor/rules/video-generated-safety.mdc"
+          ]
+        },
+        {
+          "surface": "Skills",
+          "scopes": [
+            "Project"
+          ],
+          "count": 9,
+          "paths": [
+            ".qoder/agents/drama-director.md",
+            ".qoder/agents/scene-writer.md",
+            ".qoder/agents/segment-builder.md"
+          ]
+        },
+        {
+          "surface": "MCP",
+          "scopes": [
+            "Project"
+          ],
+          "count": 6,
+          "paths": [
+            "mcps/volc-ark/index.mjs",
+            "mcps/imgbb/",
+            "mcps/minimax/"
+          ]
+        }
+      ]
+    },
+    "suggestions": [
+      {
+        "id": "run-existing-yaml-format-gates",
+        "kind": "try-existing",
+        "title": "下一集在 G4/G5 用现成的 format_check.py / yaml_check.py 显式校验",
+        "reason": "仓库已内置与门控对应的两个校验器，但审查证据未显示它们按命令被实际调用；先跑现成校验器，再谈扩展或新建。",
+        "confidence": "Medium",
+        "owner": "drama-director / segment-builder",
+        "nextStep": "对下一集在 G4 后运行 format_check.py、G5 后运行 yaml_check.py，把命令与结果记入工作计划.md。",
+        "validation": "两个校验器返回通过，且门控放行的证据可在工作计划.md 中回溯。"
+      },
+      {
+        "id": "dry-run-before-paid-submit",
+        "kind": "try-existing",
+        "title": "付费提交前先用 --dry-run 确认 YAML 路径可解析",
+        "reason": "付费提交 CLI 支持 --dry-run，可在扣费前暴露默认路径不匹配（发现1）等问题。",
+        "confidence": "Medium",
+        "owner": "segment-builder",
+        "nextStep": "对每集先执行 ark_seedance_video.py shots/segments --dry-run，确认定位到 剧本/EP##/ 下的 YAML 后再真实提交。",
+        "validation": "dry-run 无“找不到文件”报错且指向 剧本/EP##/ 规范路径。"
+      }
+    ],
+    "assignmentSummaries": [],
+    "dimensions": [
+      {
+        "id": "task-understanding",
+        "label": "任务理解",
+        "score": 72,
+        "summary": "AGENTS.md 与制片规范把目标、验收门控（G1-G6 / R1-R2 数值阈值）、NRTA 题材合规边界写得权威清晰；但无会话证据佐证实际执行，行为层面未观测。",
+        "findingRefs": []
+      },
+      {
+        "id": "controlled-execution",
+        "label": "可控执行",
+        "score": 55,
+        "summary": "init_drama_project.sh 与 assert_valid_drama_project_root 是真实的机制化守卫；但付费提交默认 YAML 路径与规范布局不一致（见发现1），付费生成授权仅为文档约定而非包内强制。",
+        "findingRefs": [
+          "seedance-submit-default-path-mismatch",
+          "drama-pull-default-darams-typo"
+        ]
+      },
+      {
+        "id": "change-validation",
+        "label": "改动验证",
+        "score": 60,
+        "summary": "format_check.py / yaml_check.py 是与 G4/G5 对应的真实校验器；但审计脚本硬编码单一剧目（见发现3）、无测试文件、门控内是否按命令调用校验器未确认。",
+        "findingRefs": [
+          "audit-format-hardcoded-single-drama"
+        ]
+      },
+      {
+        "id": "reliable-delivery",
+        "label": "可靠交付",
+        "score": 52,
+        "summary": "质量门控、按 task_id 重下、素材覆盖保护齐备；但恢复/拉取默认路径因 darams 拼写指向孤儿目录（见发现2），且验收边界无会话证据佐证已执行。",
+        "findingRefs": [
+          "seedance-submit-default-path-mismatch",
+          "drama-pull-default-darams-typo"
+        ]
+      },
+      {
+        "id": "learning-capture",
+        "label": "经验沉淀",
+        "score": 42,
+        "summary": "44 份工作计划、222 份审核报告、事故复盘固化为规则，是仓库级持久资产；但无会话证据可确认其被实际使用或有效，且缺可运行的新鲜度/一致性巡检。",
+        "findingRefs": [
+          "learning-assets-effectiveness-unverified"
+        ]
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "seedance-submit-default-path-mismatch",
+      "title": "付费提交入口的默认 YAML 路径与规范布局不一致",
+      "severity": "High",
+      "reason": "AGENTS.md 与 init_drama_project.sh 规定分集 YAML 位于 剧本/EP##/EP##_*.yaml（实际 dramas/天工开物/剧本/EP01/ 亦如此），但 ark_seedance_video.py 的 shots/segments 默认解析到 project_root/分集剧本/EP##_*.yaml（760、959、1115 行）。MCP 工具 ark_seedance_shots（index.mjs:361）仅传 episode+project_root 会触发该默认值，标准布局的项目在不显式传 --shots-file/--segments-file 时提交将报“找不到 …/分集剧本/…”，是付费提交入口的实打实障碍。",
+      "expectedOutput": [
+        "shots/segments 默认路径解析到 剧本/EP##/EP##_*.yaml",
+        "--dry-run 在标准布局项目上无“找不到文件”报错"
+      ],
+      "expectedArtifact": "Patch",
+      "aiFixPrompt": "/better-loop fix this issue\n\n把 mcps/volc-ark/scripts/ark_seedance_video.py 中 shots/segments 的默认 YAML 路径改为规范布局 剧本/{ep}/{ep}_shots.yaml 与 剧本/{ep}/{ep}_segments.yaml（或在解析时先尝试 剧本/EP##/ 再回退 分集剧本/），并同步 index.mjs 与 help 文案。仅改默认路径，不改显式 --shots-file/--segments-file 覆盖行为。\n\n## Validation\n\n- 运行 python3 mcps/volc-ark/scripts/ark_seedance_video.py shots EP01 --project-root dramas/天工开物 --dry-run，确认在不传 --shots-file 时定位到 剧本/EP01/EP01_shots.yaml\n- segments 子命令同样以 --dry-run 验证定位到 剧本/EP01/EP01_segments.yaml",
+      "dimensionRefs": [
+        "controlled-execution",
+        "reliable-delivery"
+      ]
+    },
+    {
+      "id": "drama-pull-default-darams-typo",
+      "title": "恢复/拉取默认路径 darams 拼写错误指向孤儿目录",
+      "severity": "Medium",
+      "reason": "ark_drama_pull 默认根为 path.join(resolveProjectRoot(),'darams','天工开物')（index.mjs:349），darams 拼写错误扩散至多处 help/README/脚本（index.mjs:237/328/369、ark_seedance_video.py:1254/1260/1279、README.md:16、project_task_archive.py:5）。仓库中确有孤儿 darams/天工开物 与 darams/错嫁后我改写了王朝，与规范目录 dramas/ 并存。无参数的恢复拉取（文档中的素材找回路径）会解析到拼错的旧目录，割裂素材与任务状态。",
+      "expectedOutput": [
+        "默认恢复/拉取路径解析到 dramas/ 规范目录",
+        "代码与文档中不再有 darams 拼写残留",
+        "孤儿 darams/ 目录已上报待用户归并"
+      ],
+      "expectedArtifact": "Patch",
+      "aiFixPrompt": "/better-loop fix this issue\n\n把 mcps/volc-ark/index.mjs:349 的默认路径 'darams' 更正为 'dramas'，并清理所有 help/README/脚本注释中的 darams 拼写残留；同时把孤儿 darams/ 目录树报告给用户做归并（只读审查阶段不要删除）。\n\n## Validation\n\n- 无参数运行 ark_drama_pull EP01 解析到 dramas/天工开物\n- grep -rn darams mcps script scripts 无代码/文档残留\n- 向用户列出 darams/ 下的孤儿目录，等待归并确认",
+      "dimensionRefs": [
+        "reliable-delivery",
+        "controlled-execution"
+      ]
+    },
+    {
+      "id": "audit-format-hardcoded-single-drama",
+      "title": "审计脚本硬编码单一剧目，非可复用门控",
+      "severity": "Low",
+      "reason": "scripts/audit_format.py:5 固定 base='dramas/我妈退休后不装了'，不改源码无法审计其它项目，也未接入 G4/G5（仅 format_check.py / yaml_check.py 与门控对应）。作为“审计器”owner 它只是一次性产物，无法在流水线中被复用。",
+      "expectedOutput": [
+        "audit_format.py 接受 --project-root 并对任意项目产出审计表",
+        "移除硬编码 base 后行为在示例项目上验证通过"
+      ],
+      "expectedArtifact": "Patch",
+      "aiFixPrompt": "/better-loop fix this issue\n\n为 scripts/audit_format.py 增加 --project-root 参数（argparse，默认取环境变量 DRAMA_PROJECT_ROOT 或位置参数），移除硬编码 base，使其可审计任意项目。\n\n## Validation\n\n- python3 scripts/audit_format.py --project-root dramas/天工开物 打印该项目的审计表\n- 不传参时回退到 DRAMA_PROJECT_ROOT 且行为可预期",
+      "dimensionRefs": [
+        "change-validation"
+      ]
+    },
+    {
+      "id": "learning-assets-effectiveness-unverified",
+      "title": "持久学习资产的有效性无证据、缺自动巡检",
+      "severity": "Low",
+      "reason": "仓库有 44 份工作计划.md、222 份审核报告与固化为规则的事故复盘（人脸禁令、时长凑数、CHAR-006-L02、匿名坦白局 5 类失败）。但本次为 session-limited 审查（0 个可用会话根，5 个启用源均不存在），无法确认这些机制被实际使用或产生效果；仓库也没有可运行的新鲜度/一致性巡检，把工作计划.md 记录的流水线状态与真实产出（剧本/资产/YAML）对齐并给出 clean/gap/needs-evidence 判定。评审证据边界因此无法收敛为“充分且干净的无候选窗口”。",
+      "expectedOutput": [
+        "一个只读巡检对示例项目产出工作计划 vs 真实产出的 clean/gap 判定",
+        "结果可回溯到具体缺失的剧本/资产/审核项"
+      ],
+      "expectedArtifact": "Report",
+      "aiFixPrompt": "/better-loop fix this issue\n\n新增一个可运行的只读巡检（脚本或 Skill），对给定 dramas/<剧名> 比对工作计划.md 声明的阶段状态与磁盘真实产出（剧本/EP##/ 是否存在、assets/cdn_urls.json 是否登记、审核报告是否生成），输出 clean/gap 决策，不修改任何文件。作为经验沉淀的纵向巡检 owner。\n\n## Validation\n\n- 对至少一个既有项目（如 dramas/天工开物）运行巡检，产出 clean/gap 明细\n- 巡检为只读，不写入 dramas/ 下任何文件\n- 巡检结果可在报告中回溯到具体缺失项",
+      "dimensionRefs": [
+        "learning-capture"
+      ]
+    }
+  ]
+}
