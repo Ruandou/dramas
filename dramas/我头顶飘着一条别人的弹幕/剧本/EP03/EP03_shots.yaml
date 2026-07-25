@@ -1,0 +1,340 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP03/EP03_顾晚的PPT我连字体都没改.md
+# Source shots: 8 (EP03-S01 to EP03-S08)
+# Output shots: 8 (EP03-S01 to EP03-S08)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 70s
+# Output total duration: 70s
+# Gate status: ALL PASS
+
+episode_id: EP03
+source_md: 剧本/EP03/EP03_顾晚的PPT我连字体都没改.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "cinematic urban realism, natural soft lighting, shallow depth of field, vertical 9:16 composition, high detail, professional color grading, modern city of 2026, leave headroom space above characters' heads"
+  negative_prompt: "ancient costume, historical/dynasty setting, palace, sci-fi mecha, spaceship, weapons of war, ghost, spirit, apparition, phantom, soul, undead, ectoplasm, seance, incense ritual, religious altar, supernatural haunting, exposed real brand logos, watermark, burned-in subtitles, floating on-screen text, danmaku text baked into video, garbled text, warped characters, lowres, blurry, deformed hands, extra fingers, extra limbs, distorted face, low quality"
+
+shots:
+  - shot_id: EP03-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+        - CHAR-006-L01
+        - CHAR-GRP-02-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-004-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-006-L01.png
+        CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png  # ⏳ 待生成 - 客户形象尚未出图，无 TOS URL
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-004-L01【图3】CHAR-006-L01【图4】CHAR-GRP-02-L01【图5】SCENE-003。
+        中景 平移摇摄：会议室长桌，图2站在投影幕前自信展示PPT，容光焕发；图3坐主位颔首微笑。图4（客户）靠在椅背上面无表情。图1坐角落，眼神在图2和PPT之间来回——她看清了那是自己的方案。图2头顶大片留白。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-003, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-004
+        line: "「这次关于'国潮美食节'的提案，核心洞察是——年轻人愿意为'会讲故事的街头小吃'买单。」"
+      - speaker: CHAR-004
+        line: "「我熬了三个通宵，把这个方案做了出来。」"
+      - speaker: CHAR-004
+        line: "「我相信这套打法，能让客户在小红书和抖音双平台出圈。」"
+      - speaker: CHAR-006
+        line: "「嗯，白露这次确实下了功夫。」"
+      - speaker: CHAR-001
+        line: "「这份方案，连字体都没换——是我上周传给她的那份初稿。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-003.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/我头顶飘着一条别人的弹幕/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-003【图3】PROP-002。
+        近景 缓推：图1不慌不忙站起身，拿起碎屏手机按了一下——投影切到她自己的PPT。画面干净利落，数据图表清晰。她语调温和但每个字都有重量。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「白露说的洞察方向很对。不过——我这边刚好做了一套进阶版。」"
+      - speaker: CHAR-001
+        line: "「核心洞察一样，但我加了三个层面：品牌故事链路、KOL分级矩阵、以及……竞品投流数据参照。」"
+      - speaker: CHAR-001
+        line: "「您看，这是去年同赛道竞品在'国潮节点'的CPM与转化曲线——真正的发力窗口，是在预热期第三周。」"
+      - speaker: CHAR-GRP-02
+        line: "「哦？你们还有竞品数据？」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+        - CHAR-GRP-02-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-004-L01.png
+        CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png  # ⏳ 待生成 - 客户形象尚未出图，无 TOS URL
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-004-L01【图3】CHAR-GRP-02-L01【图4】SCENE-003。
+        中特写 固定：图2笑容僵住，手指不自觉地绞在一起。图3（客户）身体前倾，注意力完全转到图1这边。图1从容继续，头顶留白。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-003, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「白露刚才讲的那些，是基础版。这份进阶版才是完整的打法。」"
+      - speaker: CHAR-GRP-02
+        line: "「这个数据太关键了。你们团队确实专业。」"
+      - speaker: CHAR-001
+        line: "「她偷了我的壳，却不知道壳里装了什么。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+        - CHAR-006-L01
+        - CHAR-GRP-02-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-004-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-006-L01.png
+        CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png  # ⏳ 待生成 - 客户形象尚未出图，无 TOS URL
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-004-L01【图3】CHAR-006-L01【图4】CHAR-GRP-02-L01【图5】SCENE-003。
+        中景→近景 缓推：图4（客户）站起身主动与图1握手，表情从冷淡转为热络。图2僵在原地维持尴尬甜笑。图3坐主位，目光在图1和图2之间快速切换，眉心微拧。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-003, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-GRP-02
+        line: "「顾晚是吧？这个进阶方案我们很感兴趣。下周三能出一版细案吗？」"
+      - speaker: CHAR-001
+        line: "「没问题，我提前做好框架了，两天内可以交付。」"
+      - speaker: CHAR-004
+        line: "「那……基础版的方向我也一起配合。」"
+      - speaker: CHAR-GRP-02
+        line: "「基础版先放放吧，直接走进阶。」"
+      - speaker: CHAR-001
+        line: "「客户不傻，谁有真东西，一眼就能看出来。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-003
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+        - CHAR-006-L01
+        - CHAR-GRP-02-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-004-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-006-L01.png
+        CHAR-GRP-02-L01: assets/looks/CHAR-GRP-02-L01.png  # ⏳ 待生成 - 客户形象尚未出图，无 TOS URL
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-004-L01【图3】CHAR-006-L01【图4】CHAR-GRP-02-L01【图5】SCENE-003。
+        中景 固定：客户走后，会议室只剩三位女性。图3拍了拍图2的肩，又微笑着看向图1，把两人的贡献搅拌成一锅。图1面无表情。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-003, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-006
+        line: "「好了，结果挺好的。白露的打基础，顾晚的拔高度，各有分工嘛——这个案子就算团队成果。」"
+      - speaker: CHAR-004
+        line: "「蔓姐说得对，我们一起做的。」"
+      - speaker: CHAR-001
+        line: "「嗯。」"
+      - speaker: CHAR-001
+        line: "「唐蔓知道她在抢功。但她选了和稀泥。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 8
+    refs:
+      scene_id: SCENE-011
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-004-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-004-L01.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-011.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-004-L01【图3】SCENE-011。
+        中景→全景 跟随→横移：散会后图1在走廊看见图2接了个电话表情柔软甜腻。图1直觉触动悄悄尾随。图2走出写字楼转弯进了一条街，最后停在咖啡馆橱窗外。图1在街对面停下脚步，透过玻璃看见——图2径直走向一张靠窗的桌，桌边坐着周延。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-011, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「那个电话……她从来没对周延用过那种语气——等等。」"
+      - speaker: CHAR-001
+        line: "「她要去哪？这条街不是回她家的方向。」"
+      - speaker: CHAR-001
+        line: "「咖啡馆——她进了那家咖啡馆。」"
+      - speaker: CHAR-001
+        line: "「靠窗那桌坐着的人——周延。」"
+      - speaker: CHAR-001
+        line: "「他们……真的在一起。」"
+      - speaker: CHAR-001
+        line: "「弹幕没有骗我。」"
+    transition_to_next: audio_bridge
+
+  - shot_id: EP03-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-004-L01
+        - CHAR-005-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-004-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-005-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-005.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-004-L01【图2】CHAR-005-L01【图3】SCENE-005。
+        近景 固定：透过咖啡馆大橱窗，从图1（顾晚）视角看进去：图2（周延）伸手摸了摸图1（白露）的手背，图1低头娇笑。两人亲密举止毫不遮掩，头顶各自留白。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-005
+        line: "「今天辛苦了，回头带你去吃好的。」"
+      - speaker: CHAR-004
+        line: "「那你可得补偿我，我今天可被人欺负了。」"
+      - speaker: CHAR-005
+        line: "「谁还敢欺负你？回头我找他。」"
+    transition_to_next: hard_cut
+
+  - shot_id: EP03-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+        - CHAR-004-L01
+        - CHAR-005-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-002-L01.png
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-004-L01.png
+        CHAR-005-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-005-L01.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-005.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】CHAR-004-L01【图4】CHAR-005-L01【图5】SCENE-005。
+        特写→全景 缓推→定格：图1深吸一口气推开咖啡馆玻璃门，门铃轻响。图3和图4同时抬头看见图1，表情双双僵住。但图1的目光只在他们脸上停留一秒，就被吧台方向吸引——吧台后图2（陆时）正擦着一只咖啡杯，缓缓抬眼隔着半个咖啡馆望向图1。他头顶那片熟悉的空白，在这满屋弹幕的世界里像一块沉默的磁石。图1攥紧门把手，心跳漏了一拍。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-004-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-005-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-005, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "「他也在……一直看着我。」"
+      - speaker: CHAR-001
+        line: "「全世界都在说谎。只有他头顶——什么都没有。」"
+      - speaker: CHAR-001
+        line: "「可为什么，那片空白，比所有弹幕都让我慌。」"
+    transition_to_next: hard_cut

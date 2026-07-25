@@ -1,0 +1,256 @@
+episode_id: EP02
+source_md: 剧本/EP02/EP02_弹幕铺天盖地.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "cinematic urban realism, natural soft lighting, shallow depth of field, vertical 9:16 composition, high detail, professional color grading, modern city of 2026, leave headroom space above characters' heads"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。cinematic urban realism, natural soft lighting, shallow depth of field, vertical 9:16 composition, high detail, professional color grading, modern city of 2026, leave headroom space above characters' heads"
+  negative_prompt: "ancient costume, historical/dynasty setting, palace, sci-fi mecha, spaceship, weapons of war, ghost, spirit, apparition, phantom, soul, undead, ectoplasm, seance, incense ritual, religious altar, supernatural haunting, exposed real brand logos, watermark, burned-in subtitles, floating on-screen text, danmaku text baked into video, garbled text, warped characters, lowres, blurry, deformed hands, extra fingers, extra limbs, distorted face, low quality"
+
+voice_prompts:
+  CHAR-001: "成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中"
+  CHAR-006: "成年女性，40岁，声线沉稳有压迫感，语速稳、咬字利落，官腔式绵里藏针"
+  CHAR-004: "成年女性，27岁，声线甜腻偏做作，防备时语速快而心虚，赎罪时低沉诚恳"
+  CHAR-003: "成年女性，25岁，声线明亮元气，语速快、音量偏大，夸张活泼、爱起哄"
+
+segments:
+  - segment_id: EP02-SEG01
+    shot_ids: [EP02-S01, EP02-S02]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-012
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-012.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/我头顶飘着一条别人的弹幕/PROP-002.png
+    api:
+      text: |
+        【图1】顾晚 CHAR-001-L01（米色针织开衫，手持碎屏手机）【图2】地铁车厢 SCENE-012【图3】碎屏手机 PROP-002。
+        角色分工：仅图1可持手机、做抬头/侧头动作；图2纯环境不可触碰物品。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：早高峰地铁车厢，图1一手抓着吊环，一手握着碎屏手机。她犹豫了一下，缓缓抬头望向对面乘客。日光灯白亮，窗外隧道壁飞速后退。她深吸一口气，像在做实验。
+        镜头2（6秒）中特写 缓推：图1微微侧头，目光锁定对面一名穿西装的中年男乘客（背景路人，不需身份一致）。对方低头刷手机，一无所觉。图1眼神从疑惑变为隐约的确认。地铁报站灯闪烁，车厢轻微晃动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「抬头就有……低头就消失……」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「不是眼睛的问题。」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「那个人头顶——'这个月房租又涨了'……」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「所以……不是幻觉。」
+        画面全程无任何文字、字幕、标题、水印。
+        cinematic urban realism, natural soft lighting, shallow depth of field, vertical 9:16 composition, high detail, professional color grading, modern city of 2026, leave headroom space above characters' heads
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-012, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG02
+    shot_ids: [EP02-S03, EP02-S04]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    # ⏳ NOTE: Script has [待补：乘客] dialogue line: "哎，谢谢谢谢！" — needs CHAR-GRP ID assignment via 集间群演回补子循环
+    refs:
+      scene_id: SCENE-012
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-012.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】顾晚 CHAR-001-L01（米色针织开衫）【图2】地铁车厢 SCENE-012。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1转动视线，逐一扫过车厢里不同的人——一个穿校服的女孩、一个拎公文包的男人、一个打瞌睡的老太太（背景路人，不需身份一致）。每一个头顶都留白（后期弹幕位）。车厢广播模糊播报站名。
+        镜头2（6秒）中景 固定：图1身边一个中年女乘客（背景路人）手忙脚乱弯腰捡掉落购物袋，袋里苹果滚出来。图1下意识蹲下帮她捡了一个。两人短暂对视，对方感激一笑。地铁减速进站，人流开始挪动。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「那个学生妹——'考试能及格吗……'」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「那个白领——'PPT还有三页没改完'……」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「您的卡掉了——」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「给。」
+        # ⏳ 以下对白对应[待补：乘客]（地铁路人，见待补群演清单），voice_prompt 待 CHAR-GRP 分配后补充
+        # 「哎，谢谢谢谢！」
+        画面全程无任何文字、字幕、标题、水印。
+        cinematic urban realism, natural soft lighting, shallow depth of field, vertical 9:16 composition, high detail, professional color grading, modern city of 2026, leave headroom space above characters' heads
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-012, role: reference_image, label: 图2 }
+    transition_to_next: audio_bridge
+
+  - segment_id: EP02-SEG03
+    shot_ids: [EP02-S05]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    # ⏳ NOTE: Script has [待补：男同事] dialogue line: "早啊，顾晚！身体好点了？" — needs CHAR-GRP ID assignment via 集间群演回补子循环
+    refs:
+      scene_id: SCENE-012
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+      scene_urls:
+        SCENE-012: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-012.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】顾晚 CHAR-001-L01（米色针织开衫）【图2】写字楼电梯 SCENE-012。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）近景 固定：电梯门合上，密闭空间内站着几个穿职业装的同事（背景路人）。图1抬眼环视——每个人头顶都留白（后期弹幕位），拥挤铺在头顶上方空间。楼层数字逐一亮起，电梯内安静，只有机械提示音。她紧握手机，指尖发白。旁边一个男同事（背景路人）礼貌地朝她点头。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「电梯里也有……每个人头顶都有。」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「那个小姐姐——'这个月KPI还差一截'……」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「那个小哥哥——'昨晚又熬夜了，困死了'……」
+        # ⏳ 以下对白对应[待补：男同事]（电梯同事，见待补群演清单），voice_prompt 待 CHAR-GRP 分配后补充
+        # 「早啊，顾晚！身体好点了？」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「早。好多了，谢谢。」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「他们的嘴会说谎……但弹幕不会。」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「我……真的能看见别人在想什么。」
+        画面全程无任何文字、字幕、标题、水印。
+        cinematic urban realism, natural soft lighting, shallow depth of field, vertical 9:16 composition, high detail, professional color grading, modern city of 2026, leave headroom space above characters' heads
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-012, role: reference_image, label: 图2 }
+    transition_to_next: fade
+
+  - segment_id: EP02-SEG04
+    shot_ids: [EP02-S06, EP02-S07]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】顾晚 CHAR-001-L01（米色针织开衫）【图2】唐蔓 CHAR-006-L01（炭灰权力套装+金胸针）【图3】办公室 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图1刚走到工位放下包。图2从身后走近，面带官方式热情微笑，伸手轻拍图1肩膀。冷白办公室荧光灯一排排亮着，远处工位键盘声此起彼伏。图2目光热切，话语亲密。
+        镜头2（6秒）近景 固定：图2笑着把一叠文件放到图1桌上，语气殷切。图1下意识抬眼看向图2头顶——留白处（后期弹幕位）。图1嘴角笑意僵了半秒，立刻恢复。图2毫无察觉，拍她肩转身走开。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（唐蔓，成年女性，40岁，声线沉稳有压迫感，语速稳、咬字利落，官腔式绵里藏针）：「顾晚，回来啦？身体恢复得怎么样？」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「好多了，谢谢唐总监。」
+        对白（唐蔓，成年女性，40岁，声线沉稳有压迫感，语速稳、咬字利落，官腔式绵里藏针）：「正好，公司来了个大客户，这个方案——非你不可。」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「好的……我看看。」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「她嘴上说非我不可……头顶那条却说——」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「'出了事正好赖她头上'……」
+        画面全程无任何文字、字幕、标题、水印。
+        cinematic urban realism, natural soft lighting, shallow depth of field, vertical 9:16 composition, high detail, professional color grading, modern city of 2026, leave headroom space above characters' heads
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG05
+    shot_ids: [EP02-S08, EP02-S09]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-004-L01.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】白露 CHAR-004-L01（粉嫩荷叶边衬衫+米色裙）【图2】顾晚 CHAR-001-L01（米色针织开衫）【图3】办公室 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 固定：图2刚走，图1端着两杯奶茶笑盈盈走过来，妆容精致，眼神关切。她把一杯放在图2桌上，亲昵坐下。办公室日光灯打在图1甜美的笑容上，温暖画面下的暗流。
+        镜头2（6秒）近景 缓推：图1笑得温柔，关切倾身。图2端起奶茶，同时习惯性抬眼——图1头顶留白处（后期弹幕位）。图2端奶茶的手停顿一瞬，睫毛微颤，但表情维持住微笑。图1浑然不觉。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（白露，成年女性，27岁，声线甜腻偏做作，防备时语速快而心虚，赎罪时低沉诚恳）：「晚晚，昨天下班那么早，身体好点没呀？特意给你带了奶茶~」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「谢谢白露姐。」
+        对白（白露，成年女性，27岁，声线甜腻偏做作，防备时语速快而心虚，赎罪时低沉诚恳）：「这几天工作我帮你盯着的，别太累哦~」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「嗯……谢谢你。」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「她头顶——'她这方案我明天就要抢过来'……」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「白露……她明天，要抢我的方案。」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「白露姐慢走。」
+        画面全程无任何文字、字幕、标题、水印。
+        cinematic urban realism, natural soft lighting, shallow depth of field, vertical 9:16 composition, high detail, professional color grading, modern city of 2026, leave headroom space above characters' heads
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP02-SEG06
+    shot_ids: [EP02-S10]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】顾晚 CHAR-001-L01（米色针织开衫，工位前）【图2】办公室 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）特写 缓推：白露走远。图1缓缓放下奶茶杯，坐在工位前，目光失焦落在电脑屏幕上。她慢慢环视整个办公室——每个同事头顶都留白（后期弹幕位）。她深呼吸，指尖轻轻扣在桌面，情绪从震惊、混乱沉淀为冰冷的清明。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「唐蔓说把方案给我，是为了让我背锅。」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「白露说关心我，是为了抢我的方案。」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「办公室里每一个人——说的和想的，都不一样。」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「这不是幻觉。弹幕——从来没有骗人的。」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「弹幕不会骗人。」
+        画面全程无任何文字、字幕、标题、水印。
+        cinematic urban realism, natural soft lighting, shallow depth of field, vertical 9:16 composition, high detail, professional color grading, modern city of 2026, leave headroom space above characters' heads
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG07
+    shot_ids: [EP02-S11, EP02-S12]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/我头顶飘着一条别人的弹幕/CHAR-001-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/我头顶飘着一条别人的弹幕/SCENE-003.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/我头顶飘着一条别人的弹幕/PROP-002.png
+    api:
+      text: |
+        【图1】顾晚 CHAR-001-L01（米色针织开衫，桌案前）【图2】办公室 SCENE-003【图3】碎屏手机 PROP-002。
+        角色分工：仅图1可持手机接听。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定：图1正在看方案文档，手机震动。她接起，声音里带着还没散去的沉重感。窗外城市天际线透过百叶窗投下明暗相间的条纹光。
+        镜头2（6秒）大特写 镜头推近：图1挂断电话。镜头缓缓推近图1的眼睛，瞳孔里映着电脑屏幕的微光。嘴角微微上扬——不是苦笑，而是一个冷静算计的微笑。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（钱多多，成年女性，25岁，声线明亮元气，语速快、音量偏大，夸张活泼、爱起哄）：「姐妹儿，晚上回来吃啥？我煮火锅！」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「今晚加班，你先吃。」
+        对白（钱多多，成年女性，25岁，声线明亮元气，语速快、音量偏大，夸张活泼、爱起哄）：「又加班？那唐扒皮又给你派活了？你才刚出院啊！」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「没事……这个方案，我得好好做。」
+        对白（钱多多，成年女性，25岁，声线明亮元气，语速快、音量偏大，夸张活泼、爱起哄）：「那行吧，给你留一份！别熬太晚！」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「白露说明天要抢……」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「那她抢走的版本——就是我预设的陷阱。」
+        对白（顾晚，成年女性，26岁，声线清亮偏软，早期怯懦轻柔、语速偏慢，觉醒后利落有力、带机敏笑意，语速适中）：「弹幕不会骗人……但我会。」
+        画面全程无任何文字、字幕、标题、水印。
+        cinematic urban realism, natural soft lighting, shallow depth of field, vertical 9:16 composition, high detail, professional color grading, modern city of 2026, leave headroom space above characters' heads
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
