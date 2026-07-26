@@ -372,6 +372,8 @@ def build_shot_body(episode: dict, shot: dict, project_root: Path) -> dict[str, 
         "generate_audio": defaults.get("generate_audio", False),
         "watermark": defaults.get("watermark", False),
     }
+    if defaults.get("seed") is not None:
+        body["seed"] = defaults["seed"]
     api = shot.get("api") or {}
     if api.get("return_last_frame"):
         body["return_last_frame"] = True
@@ -687,8 +689,12 @@ def build_segment_body(
     api = segment.get("api") or {}
     if api.get("return_last_frame"):
         body["return_last_frame"] = True
+    # 音色/节奏稳定：官方推荐「固定 seed + 详细声音描述」（SD2.0_音色参考不准导致漂移的解法 Tip1）。
+    # 段级 api.seed 优先，其次 defaults.seed（全集统一）；都未设则随机。
     if api.get("seed") is not None:
         body["seed"] = api["seed"]
+    elif defaults.get("seed") is not None:
+        body["seed"] = defaults["seed"]
     return body
 
 

@@ -205,6 +205,7 @@ source_md: 剧本/EP01/EP01_敲门.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast-260128  # ⚠️ 必须带版本后缀（以制片规范中声明的完整名为准）；无后缀名方舟返回 404 InvalidEndpointOrModel.NotFound
+  seed: 78786  # ⚠️ 全集固定 seed（项目内统一）：官方推荐「固定 seed+详细声音描述」提升同角色跨段音色/语速稳定度；段级 api.seed 可覆盖
   ratio: "9:16"
   resolution: 720p
   generate_audio: true  # segments 为最终 API 提交单位，需合成配音音轨

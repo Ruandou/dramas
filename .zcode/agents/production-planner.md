@@ -107,6 +107,7 @@ look_ids: [CHAR-001-L01, CHAR-002-L01]
 prop_ids: [PROP-001, ...]
 seedance_defaults:
   model: doubao-seedance-2-0-fast-260128  # ⚠️ 必须带版本后缀（如 -260128），无后缀名方舟返回 404
+  seed: <项目统一固定值>  # ⚠️ 全剧固定一个 seed，提升同角色跨段音色/语速稳定；可从首个满意成片任务回填
   ratio: "9:16"
   resolution: 720p
   image_resolution: 1600×2848（Seedream 参考图，9:16 竖屏）
