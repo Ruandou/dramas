@@ -197,7 +197,19 @@ python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
   --output "dramas/<剧名>/assets/looks/CHAR-XXX-L02.png"
 ```
 
-### G. 事故速查表（跳过后会发生什么）
+### G. 面部网格变体强制（Seedance 输入人脸过滤解法）
+
+> 来自生产验证（2026-07-26，《满级师尊她装作刚入门》EP01 全集 10/10 段）：照片级写实人脸参考图会被 ARK 以 `InputImageSensitiveContentDetected.PrivacyInformation` 确定性拒绝（HTTP 400 不建单不扣费）。解法：用 `script/add_face_mesh.py` 在面部叠加 AR 风格三角网格后即可通过，且**网格不会被复现到成片、面部一致性保持**（男女角色、特写/全景均验证）。轻度 CG 风格化重渲染**无效**（仍被拒）。
+
+规则：
+- [ ] **生成时机**：character-designer 在每张含可见人脸的 L01/L02+ 确认后，立即生成 `-mesh.png` 变体，并随「即生即传」流程一并上传 TOS
+- [ ] **命名**：`CHAR-###-L##-mesh.png`，群演为 `CHAR-GRP-##-L01-mesh.png`（群演同样适用本规则）；与原图同目录（`assets/looks/`），同步注册 cdn_urls.json
+- [ ] **登记凭据**：生成或豁免结论必须登记到 `资产/形象索引.md` 对应行（`✅ mesh已生成` / `mesh豁免（剪影）` / `mesh豁免（背影）`）；下游 segment-builder 与 G3 均以此登记为准，**无登记视为缺口**，不得自行猜测是否豁免
+- [ ] **使用边界**：仅 Seedance 视频提交（shots/segments YAML 的 `look_urls`）用 mesh 版；Seedream L02+ 衍生、对外展示仍用原图
+- [ ] **豁免**：逆光剪影、背影等无可见人脸的形象图不触发过滤，无需 mesh 版（需登记豁免，见上）
+- [ ] **根治并行**：向平台申请 AIGC 白名单后可逐步退场
+
+### H. 事故速查表（跳过后会发生什么）
 
 | 跳过此项 | 结果 |
 |---------|------|
@@ -207,6 +219,7 @@ python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
 | 串行门控 | 道具/角色/场景并行生成，无法使用 `image_urls` 交叉引用 |
 | 生成后验证 | 卡片状态卡在“待生成”，下游阶段缺少 TOS URL |
 | L02+ 面部一致性门控 | L02 生成完全不同的人脸（CHAR-006-L02 事故），必须重新生成 |
+| 面部网格变体 | Seedance 提交被人脸过滤 HTTP 400 拦截，整集无法开工（满级师尊 EP01 事故，后由 mesh 方案解决） |
 
 ## ID 格式
 

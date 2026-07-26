@@ -235,13 +235,23 @@ tools: [Read, Write, Grep, Glob, Bash]
 
     > **L01→L02+ 桥接步骤**：全部 L01 生成 + TOS 上传完成后，编辑 batch YAML 将所有 L02+ 条目的 `image_urls` 从 `[]` 更新为对应 L01 的 **TOS URL**，方可提交 L02+ 批次生成。L02+ 生成后同样执行即生即传。
 
+    > **面部网格变体（Seedance 输入人脸过滤解法，见 AGENTS.md Stage 3 清单 G）**：每张含可见人脸的 L01/L02+ 确认并上传后，立即生成网格变体并再次 sync 上传（**群演 `CHAR-GRP-##-L01` 同样适用**）：
+    > ```bash
+    > python3 script/add_face_mesh.py --input assets/looks/CHAR-###-L##.png \
+    >   --output assets/looks/CHAR-###-L##-mesh.png --face cx,cy,rx,ry
+    > ```
+    > - `--face` 为面部椭圆像素坐标（中心+半轴），需目检确认网格覆盖面部
+    > - 逆光剪影/背影等无可见人脸的形象图豁免，不生成 mesh 版
+    > - **登记凭据（必做）**：生成或豁免结论登记到 `资产/形象索引.md` 对应行的 mesh 列（`✅ mesh已生成` / `mesh豁免（剪影）` / `mesh豁免（背影）`）；下游 segment-builder 与 G3 均以此登记为准，无登记视为缺口
+    > - mesh 版仅供 Seedance 视频提交使用；L02+ 衍生的 `image_urls` 面部参考**仍用原图** L01
+
 #### TOS 上传完成性验证（硬性门控）
 
 设计师在声明完成前，**必须**验证 `cdn_urls.json` 中每个条目包含 `tos_url` 字段：
 
 **通过条件**：
 - ✅ 每个已生成角色 ID 在 `cdn_urls.json` 中存在对应 key
-- ✅ 每个条目的 `tos_url` 字段为永久 URL（格式：`https://<bucket>.tos-cn-beijing.volces.com/looks/<project>/CHAR-###-L##.png`，无 `X-Tos-Expires` 参数）
+- ✅ 每个条目的 `tos_url` 字段为永久 URL（格式：`https://<bucket>.tos-cn-beijing.volces.com/looks/<project>/CHAR-###-L##.png`，mesh 变体为 `CHAR-###-L##-mesh.png`，均无 `X-Tos-Expires` 参数）
 - ✅ `tos_url` 可通过 HTTP HEAD 请求验证可达
 
 **阻断条件**（不可声明完成）：
@@ -838,7 +848,7 @@ This person is clearly a TEENAGER, not a child. Adolescent proportions, angular 
 1. tier_1_critical 角色（主角、核心配角）的 L01 必须**最先生成**并获得用户确认
 2. 全部 L01 生成并确认后，方可开始任何 L02+ 衍生生成
 3. 群演/道具 L01 可与主角 L01 同批生成，但不得与 L02+ 混批
-4. **所有 `CHAR-GRP-##` ID 都必须生成 L01**——即使只有 1 张图，也不能留为"待生成"。套用「Seedream Prompt 模板」+「风格强制规则」生成，确保每个群演有独特面孔
+4. **所有 `CHAR-GRP-##` ID 都必须生成 L01**——即使只有 1 张图，也不能留为"待生成"。套用「Seedream Prompt 模板」+「风格强制规则」生成，确保每个群演有独特面孔；含可见人脸的群演 L01 同样适用面部网格变体规则（生成 `-mesh.png` + 登记形象索引，见 AGENTS.md Stage 3 清单 G）
 5. 违反此顺序的批量提交应被拆分为多批次执行
 
 ---

@@ -183,6 +183,8 @@ shots:
 
 > **参考图数量限制**：TOS URL 模式下每镜头 ≤ 6 张参考图（base64 模式下 ≤ 3 张）。典型配置：1 场景 + 1~2 角色 + 0~2 道具 = 3~5 张。道具参考图仅在该道具本镜头中**显著可见且需外观锁定**时添加——勿为背景中出现的小物品添加。
 
+> **人脸参考图必须用 mesh 版（硬性规则，见 AGENTS.md Stage 3 清单 G）**：`look_urls` 中所有含可见人脸的形象参考图，必须使用 `-mesh.png` 后缀的 TOS URL（如 `looks/<剧名>/CHAR-001-L01-mesh.png`），否则 Seedance 提交将被人脸过滤 HTTP 400 拒绝。**判据为 `资产/形象索引.md` 的 mesh 登记列**：`✅ mesh已生成` → 用 mesh URL；`mesh豁免（剪影/背影）` → 用原图；无登记或 mesh URL 在 `assets/looks/cdn_urls.json` 中不存在 → 报告缺口，请求 character-designer 补充（不得降级用原图提交，也不得自行判断是否豁免）。镜头描述 `api.text` 中的形象标注仍写原 ID（如 `CHAR-001-L01`），不带 mesh 后缀。
+
 ## mode 选择规则
 
 | 剧本中的模式列 | shots.yaml mode | 说明 |
@@ -493,9 +495,9 @@ assets:
 ## 解析流程
 
 1. 读取 `assets/looks/cdn_urls.json`、`assets/scenes/cdn_urls.json` 和 `assets/props/cdn_urls.json`
-2. 用形象 ID / 场景 ID / 道具 ID 作为 key 查找 CDN URL
-3. 找到 → 填入 `assets.look_urls` / `assets.scene_urls` / `assets.prop_urls`
-4. 未找到 → 使用本地路径（如 `assets/looks/CHAR-001-L01.png`），并在 YAML 中添加警告注释
+2. 用形象 ID / 场景 ID / 道具 ID 作为 key 查找 CDN URL。**形象 ID 特例**：先查 `资产/形象索引.md` 的 mesh 登记列——`✅ mesh已生成` → 改用 `<形象ID>-mesh` 作为 key 查找；`mesh豁免（剪影/背影）` → 用原 ID 查找；无登记 → 按上方硬性规则报告缺口，不得回退原图
+3. 找到 → 填入 `assets.look_urls` / `assets.scene_urls` / `assets.prop_urls`（look_urls 的 key 仍写原形象 ID，URL 指向 mesh 版文件）
+4. 未找到 → 场景/道具使用本地路径并加警告注释；**含人脸形象的 mesh URL 缺失不适用本地降级，直接报告缺口**
 5. **URL 类型标记** — 对每个解析到的 CDN URL 检查是否为预签名临时链接：
    - 若 URL 包含 `X-Tos-Expires`、`X-Tos-Signature` 或 `X-Tos-Credential` 参数 → 在对应 YAML 条目添加注释：`# ⚠️ TEMP_URL: 预签名链接（24h过期），提交 Seedance 前须替换为永久 TOS URL`
    - 合法永久 URL：纯路径无查询参数（如 `https://xxx.tos-cn-beijing.volces.com/looks/project/CHAR-001-L01.png`）
@@ -506,7 +508,7 @@ assets:
 ```yaml
 assets:
   look_urls:
-    CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL
+    CHAR-001-L01: assets/looks/CHAR-001-L01.png  # WARNING: no CDN URL（剪影豁免形象的本地降级示例；含人脸形象缺 mesh 时不得如此降级，应报告缺口）
   scene_urls:
     SCENE-001: https://cdn.example.com/scene-001.png  # 示例图床 URL
 ```

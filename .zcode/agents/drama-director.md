@@ -372,6 +372,7 @@ G3 在 **Stage 3a（prop-designer）、Stage 3b（character-designer）和 Stage
 |--------|----------|----------|
 | 角色卡片完整 | `资产/角色卡片.md` 已创建，大纲中所有关键角色有定义 | 请求 character-designer 补充 |
 | L01 形象完整 | 每个角色至少有 L01 基础形象图（`assets/looks/CHAR-*-L01.png`） | 请求 character-designer 生成 |
+| 面部网格变体完整 | 每张含可见人脸的 L01/L02+ 均有 `CHAR-*-L##-mesh.png` 变体且已注册 cdn_urls.json `tos_url`；生成/豁免结论已登记 `资产/形象索引.md` mesh 列（`✅ mesh已生成` / `mesh豁免（剪影/背影）`），无登记视为缺口（Seedance 输入人脸过滤解法，见 AGENTS.md Stage 3 清单 G） | 请求 character-designer 用 `script/add_face_mesh.py` 补充并上传/补登记 |
 | 角色 CDN 注册 | `assets/looks/cdn_urls.json` 已生成，所有条目必须含 `tos_url` 永久链接。临时预签名 URL（含 `X-Tos-Expires`）**不可放行** → 要求 character-designer 执行 `tos_upload.py sync` | 请求执行 TOS 上传 |
 | CHAR-ID 一致 | 角色卡片中 ID 与 production-planner 分配的 ID 一致 | 请求修正 |
 | 反派设计 | 反派角色有"速恨"设计（具体恶行描述） | 请求 character-designer 补充 |
@@ -396,6 +397,7 @@ G3 在 **Stage 3a（prop-designer）、Stage 3b（character-designer）和 Stage
 |--------|----------|----------|
 | 新群演 ID 登记 | `资产/角色索引.md` 含该 `CHAR-GRP-##` 条目（由 production-planner 子循环时创建） | 请求 production-planner 补登记 |
 | 新群演 L01 形象完整 | 回补的 `CHAR-GRP-##` 有对应 `assets/looks/CHAR-GRP-##-L01.png` | 请求 character-designer 生成 |
+| 新群演 mesh 变体 | 含可见人脸的新群演 L01 有对应 `CHAR-GRP-##-L01-mesh.png` 且已注册 `tos_url`；生成/豁免结论已登记形象索引 mesh 列（见 AGENTS.md Stage 3 清单 G） | 请求 character-designer 用 `script/add_face_mesh.py` 补充并上传/补登记 |
 | 新群演 CDN 注册 | `assets/looks/cdn_urls.json` 含该 `CHAR-GRP-##-L01` 条目且为 `tos_url` 永久链接（非预签名临时 URL） | 请求 character-designer 执行 `tos_upload.py sync` |
 | 新群演卡片状态 | 角色卡片中该群演「形象图」字段为 `✅ 已生成`（非 `待生成`）；形象索引中该群演 `CHAR-GRP-##-L01` 行状态为 `✅ 已生成`（非 `待填充`） | 请求 character-designer 更新 |
 | 新群演 voice_prompt | 声音卡片含该 `CHAR-GRP-##` 的 voice_prompt 条目 | 请求 production-planner 补充 |
@@ -740,7 +742,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 ### 集间资产增量验证
 
 启动 EP(N>01) 的 Stage 4 前，drama-director 须验证：
-1. 大纲中 EP(N) 新增角色已录入角色卡片并完成 L01 生成
+1. 大纲中 EP(N) 新增角色已录入角色卡片并完成 L01 生成；含可见人脸的新增 L01/L02+ 已生成 `-mesh.png` 变体并上传 TOS（见 AGENTS.md Stage 3 清单 G）
 2. EP(N) 新增场景已录入场景卡片并完成参考图生成
 3. EP(N) 新增道具已录入道具卡片；`待生成` 道具已完成参考图生成，`场景内置`/`角色内置` 道具已补充设计描述
 4. 所有新增资产已上传 CDN 并注册 cdn_urls.json
