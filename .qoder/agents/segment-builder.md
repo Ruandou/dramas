@@ -117,7 +117,7 @@ episode_id: EP01
 source_md: 剧本/EP01/EP01_敲门.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
-  model: doubao-seedance-2-0-fast  # 版本号以制片规范中声明为准
+  model: doubao-seedance-2-0-fast-260128  # ⚠️ 必须带版本后缀（以制片规范中声明的完整名为准）；无后缀名方舟返回 404 InvalidEndpointOrModel.NotFound
   ratio: "9:16"
   resolution: 720p
   duration: 5  # Seedance API 模型默认视频长度（秒）；非单镜头时长。每段实际时长见 shot.duration_sec，须保证全集合计落入 75-120s（见 Gate 1）
@@ -204,7 +204,7 @@ episode_id: EP01
 source_md: 剧本/EP01/EP01_敲门.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
-  model: doubao-seedance-2-0-fast  # 版本号以制片规范中声明为准
+  model: doubao-seedance-2-0-fast-260128  # ⚠️ 必须带版本后缀（以制片规范中声明的完整名为准）；无后缀名方舟返回 404 InvalidEndpointOrModel.NotFound
   ratio: "9:16"
   resolution: 720p
   generate_audio: true  # segments 为最终 API 提交单位，需合成配音音轨

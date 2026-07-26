@@ -30,7 +30,7 @@ TAIL = "画面全程无任何文字、字幕、标题、水印。modern urban Ch
 
 DEFAULTS_SHOTS = """defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
-  model: doubao-seedance-2-0-fast
+  model: doubao-seedance-2-0-fast-260128
   ratio: "9:16"
   resolution: 720p
   duration: 5
@@ -42,7 +42,7 @@ DEFAULTS_SHOTS = """defaults:
 
 DEFAULTS_SEGMENTS = """defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
-  model: doubao-seedance-2-0-fast
+  model: doubao-seedance-2-0-fast-260128
   ratio: "9:16"
   resolution: 720p
   generate_audio: true

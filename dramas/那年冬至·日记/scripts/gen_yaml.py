@@ -24,7 +24,7 @@ PROP_URLS = {f"PROP-{i:03d}": f"{PROPS_TOS}/PROP-{i:03d}.png" for i in [1,2,3,4,
 
 DEFAULTS_SHOTS = """defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
-  model: doubao-seedance-2-0-fast
+  model: doubao-seedance-2-0-fast-260128
   ratio: "9:16"
   resolution: 720p
   duration: 5
@@ -36,7 +36,7 @@ DEFAULTS_SHOTS = """defaults:
 
 DEFAULTS_SEGMENTS = """defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
-  model: doubao-seedance-2-0-fast
+  model: doubao-seedance-2-0-fast-260128
   ratio: "9:16"
   resolution: 720p
   generate_audio: true

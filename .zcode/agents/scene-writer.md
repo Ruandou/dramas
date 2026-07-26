@@ -147,7 +147,7 @@ prop_ids: [PROP-001, PROP-002, ...]
 # 注：scene-writer 标注的 [待补：描述] 群演属 pending，回补前不计入 character_ids/look_ids。
 # 待补群演只在「待补群演清单」section 登记；回补转正后由 scene-writer 补入这两个数组。
 seedance_defaults:
-  model: doubao-seedance-2-0-fast
+  model: doubao-seedance-2-0-fast-260128  # ⚠️ 必须带版本后缀（如 -260128），无后缀名方舟返回 404
   ratio: "9:16"
   resolution: 720p
   duration_sec: "8-10"

@@ -62,6 +62,30 @@ except ImportError:
 DEFAULT_MODEL = "doubao-seedance-2-0-fast-260128"
 DEFAULT_ENDPOINT_SUFFIX = TASKS_PATH
 
+# 缺版本后缀的模型名会被方舟以 HTTP 404 InvalidEndpointOrModel.NotFound 拒绝（不建单不扣费）。
+# 历史上大量 YAML/模板把无后缀名写进 defaults.model，这里做统一规范化兜底，
+# 任何来源（YAML defaults / --model / 环境变量）的模型名都经过 normalize_model()。
+MODEL_ALIASES = {
+    "doubao-seedance-2-0-fast": "doubao-seedance-2-0-fast-260128",
+    "doubao-seedance-2-0": "doubao-seedance-2-0-260128",
+}
+
+
+def normalize_model(name: str | None) -> str:
+    """模型名规范化：已知无后缀别名自动补齐并告知；未知无后缀 doubao-seed* 名称告警。"""
+    import re
+
+    name = (name or "").strip()
+    if not name:
+        return default_model()
+    if name in MODEL_ALIASES:
+        fixed = MODEL_ALIASES[name]
+        print(f"⚠️ 模型名 '{name}' 缺版本后缀，已自动规范化为 '{fixed}'（请修正 YAML 源头）", file=sys.stderr)
+        return fixed
+    if name.startswith("doubao-seed") and not re.search(r"-\d{6}$", name):
+        print(f"⚠️ 模型名 '{name}' 疑似缺版本后缀（如 -260128），方舟可能返回 404", file=sys.stderr)
+    return name
+
 
 def default_model() -> str:
     import os
@@ -340,7 +364,7 @@ def build_content_array(shot: dict, project_root: Path) -> list[dict]:
 def build_shot_body(episode: dict, shot: dict, project_root: Path) -> dict[str, Any]:
     defaults = episode.get("defaults") or {}
     body: dict[str, Any] = {
-        "model": defaults.get("model", default_model()),
+        "model": normalize_model(defaults.get("model") or default_model()),
         "content": build_content_array(shot, project_root),
         "ratio": defaults.get("ratio", "9:16"),
         "resolution": defaults.get("resolution", "720p"),
@@ -410,6 +434,8 @@ def cmd_create(args: argparse.Namespace) -> int:
     )
     if args.body_json:
         body = json.loads(Path(args.body_json).expanduser().read_text(encoding="utf-8"))
+        if isinstance(body, dict) and body.get("model"):
+            body["model"] = normalize_model(body["model"])
     else:
         if not args.text:
             print(json.dumps({"error": "需要 --text 或 --body-json"}, ensure_ascii=False))
@@ -422,7 +448,7 @@ def cmd_create(args: argparse.Namespace) -> int:
             else:
                 images.append((spec.strip(), args.image_role or "reference_image"))
         body = {
-            "model": args.model or default_model(),
+            "model": normalize_model(args.model or default_model()),
             "content": build_content_from_simple(
                 args.text, images or None, project_root
             ),
@@ -647,7 +673,7 @@ def build_segment_body(
     cdn_registry: dict | None = None,
 ) -> dict[str, Any]:
     defaults = episode.get("defaults") or {}
-    model = defaults.get("model", default_model())
+    model = normalize_model(defaults.get("model") or default_model())
     raw_dur = segment.get("duration_sec", defaults.get("duration", 5))
     body: dict[str, Any] = {
         "model": model,

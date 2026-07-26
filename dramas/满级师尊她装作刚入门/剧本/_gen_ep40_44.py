@@ -19,7 +19,7 @@ source_md: 剧本/{ep}/{ep}_{title}.md
 
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
-  model: doubao-seedance-2-0-fast
+  model: doubao-seedance-2-0-fast-260128
   ratio: "9:16"
   resolution: 720p
   duration: 5
@@ -36,7 +36,7 @@ source_md: 剧本/{ep}/{ep}_{title}.md
 
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
-  model: doubao-seedance-2-0-fast
+  model: doubao-seedance-2-0-fast-260128
   ratio: "9:16"
   resolution: 720p
   generate_audio: true
@@ -184,7 +184,7 @@ source_md: 剧本/EP40/EP40_暗手.md
 
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
-  model: doubao-seedance-2-0-fast
+  model: doubao-seedance-2-0-fast-260128
   ratio: "9:16"
   resolution: 720p
   generate_audio: true
