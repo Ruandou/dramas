@@ -1,0 +1,243 @@
+episode_id: EP22
+source_md: 剧本/EP22/EP22_教学.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "vertical 9:16, cinematic lighting, xianxia fantasy, high detail flowing silk robes, ethereal spirit energy particles, Chinese cultivation world aesthetics, photorealistic rendering"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。vertical 9:16, cinematic lighting, xianxia fantasy, high detail flowing silk robes, ethereal spirit energy particles, Chinese cultivation world aesthetics, photorealistic rendering"
+  negative_prompt: "modern objects, contemporary clothing, glasses, watches, phones, cars, buildings with glass windows, plastic, neon signs, English text, Japanese text, Traditional Chinese characters appearing as gibberish, garbled text, tattoos, piercings, modern hairstyles, jeans, t-shirts, sneakers, concrete, asphalt road, power lines, western medieval armor, steampunk elements, cyberpunk elements, anime style, cartoon style, chibi, low quality, blurry, watermark"
+
+voice_prompts:
+  CHAR-001(藏拙态): "成年女性，17岁，声线清亮但刻意压低显得怯弱，语速偏快带犹豫停顿，说话时带微微颤音伪装胆小"
+  CHAR-001(真实态): "成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感"
+  CHAR-002: "成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔"
+  CHAR-003: "成年女性，23岁，声线冷硬如铁，语速平稳，每个字如钉子钉入木板无多余气息"
+  CHAR-006: "青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调"
+
+segments:
+  - segment_id: EP22-SEG01
+    shot_ids: [EP22-S01, EP22-S02]
+    duration_sec: 10
+    speakers: [CHAR-006, CHAR-003]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-006-L01.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-003-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】白璟言 CHAR-006-L01（金边白衣，长剑）【图2】冷凝霜 CHAR-003-L01（紫黑修士服，冷面）【图3】后山竹林 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：图3后山竹林暗处图1靠竹干抱臂。月光透竹叶打在金边白衣上斑驳。面上还带石台上那种嚣张笑但多了一分阴鸷。对面暗影中走出图2紫黑修士服。
+        镜头2（5秒）近景 固定镜头：图2侧脸月光半照。面容冷硬如铁眼中有计算。手指在袖中微微动作——似在传音给什么人。图1在旁嗤笑不以为意但眼底有认真。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（白璟言，青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调）：「你说那丫头有问题——什么问题？」
+        对白（冷凝霜，成年女性，23岁，声线冷硬如铁，语速平稳，每个字如钉子钉入木板无多余气息）：「说不上来。但她身上灵力波动不对。」
+        对白（白璟言，青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调）：「无所谓——明天擂台上我亲自试她。三招之内见真假。」
+        对白（冷凝霜，成年女性，23岁，声线冷硬如铁，语速平稳，每个字如钉子钉入木板无多余气息）：「别大意。如果她真有问题——三招未必够。」
+        对白（白璟言，青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调）：「那就五招。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP22-SEG02
+    shot_ids: [EP22-S03, EP22-S04]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈清词 CHAR-001-L01（灰色外门粗布袍，低马尾）【图2】顾渊白 CHAR-002-L01（白银宗门掌门袍，束发玉冠）【图3】后山竹林 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景 固定镜头：图3竹林深处月光如水洒落的空地。图1持木剑站空地中央灰袍在月光下如银。图2负手立三步外白银袍如月下流光。竹影婆娑两人如画中人。
+        镜头2（6秒）近景 固定镜头：图2上前一步从袖中取出木剑。修长手指握剑如握笔——随意但每个角度精确。缓缓演示一招剑招简单但故意在某处卡顿——像是差点失手。然后稳住。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「明天的要点——赢。但赢得磕碰。」
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「让人觉得你是运气好——不是实力强。」
+        对白（沈清词·藏拙，成年女性，17岁，声线清亮但刻意压低显得怯弱，语速偏快带犹豫停顿，说话时带微微颤音伪装胆小）：「掌门师兄……具体怎么做？」
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「第三式——到这里故意慢半拍。像控制不住力量。」
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「然后险险稳住。观众看到'差点输'——但你赢了。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「他在教我演戏——用掌门级的理解教弟子级的藏拙。有趣。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP22-SEG03
+    shot_ids: [EP22-S05]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈清词 CHAR-001-L01（灰色外门粗布袍，低马尾）【图2】顾渊白 CHAR-002-L01（白银宗门掌门袍，束发玉冠）【图3】后山竹林 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中景 固定镜头：图1按他教的演示。剑招中藏拙——但图2微微摇头。上前一步距离近了。他伸手轻点图1持剑的手腕——指尖触碰一瞬间又收回。月光将两人影子投在竹林地面几乎重叠。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「手腕太稳。真正的新人——这里会抖。」
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「这里。放松。让它像在颤。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「他碰了我手腕——指尖很凉。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「百年前我教弟子也是这样纠正。身份互换的感觉——奇怪。」
+        对白（沈清词·藏拙，成年女性，17岁，声线清亮但刻意压低显得怯弱，语速偏快带犹豫停顿，说话时带微微颤音伪装胆小）：「这、这样吗……」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP22-SEG04
+    shot_ids: [EP22-S06, EP22-S07]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈清词 CHAR-001-L01（灰色外门粗布袍，低马尾）【图2】顾渊白 CHAR-002-L01（白银宗门掌门袍，束发玉冠）【图3】后山竹林 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定镜头：图1再试。这次手腕刻意放松——但肩膀还是太平。自然的弱者肩会塌。她皱眉自我调整灰袍下肩线微塌如卸力。月光下努力模仿"弱"的样子有种说不出的违和可爱。
+        镜头2（6秒）近景 固定镜头：图2微微叹息走到她身后。修长手掌轻按她肩——帮她调整角度。两人距离极近月光下他比她高出一个头。白银长袍衣袂几乎触到她灰袍后背。他面容平静但耳尖在月光下隐约微红。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈清词·藏拙，成年女性，17岁，声线清亮但刻意压低显得怯弱，语速偏快带犹豫停顿，说话时带微微颤音伪装胆小）：「肩膀也要塌吗……好难。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「一百年来都是挺直的——让我塌肩比打十个白璟言还难。」
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「肩——这里。往下沉一寸。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「他的手——在我肩上。声音就在耳后。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「距离——太近了。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP22-SEG05
+    shot_ids: [EP22-S08]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈清词 CHAR-001-L01（灰色外门粗布袍，低马尾）【图2】顾渊白 CHAR-002-L01（白银宗门掌门袍，束发玉冠）【图3】后山竹林 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）特写 缓推：图2的手从肩滑下——覆上图1握剑的右手。修长手指包裹住她的手将剑角度微微偏移三分。两只手重叠在木剑柄上。月光将交叠的手指照得分明——他的手大她的手小。两人都没动也没说话。空气凝住。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「……角度。偏三分。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「他的手——包住了我的手。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「很暖——和指尖刚才碰到时不一样。整只手都是暖的。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「前世一百年——没有人这样碰过我。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP22-SEG06
+    shot_ids: [EP22-S09]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】顾渊白 CHAR-002-L01（白银宗门掌门袍，束发玉冠）【图2】后山竹林 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）近景 固定镜头：图1突然松手——如触电般后退两步。面容月光下依然平静但喉结微微滚动。垂手的指尖攥入掌心如在控制什么。两步距离在两人间如天堑。他别开目光看向竹林——不看她。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「……差不多了。明天照这个打。」
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「早点回去休息。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「他后退了——是他先退的。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「他也——」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-007, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP22-SEG07
+    shot_ids: [EP22-S10]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-007
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-002-L01.png
+      scene_urls:
+        SCENE-007: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-007.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈清词 CHAR-001-L01（灰色外门粗布袍，低马尾）【图2】顾渊白 CHAR-002-L01（白银宗门掌门袍，束发玉冠）【图3】后山竹林 SCENE-007。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）全景 固定镜头：图3竹林月光空地。图1和图2相距两步——背对彼此。图2面朝竹林深处白银袍月下如流光。图1面朝来路灰袍在月光中如薄雾。都没有走也都没有转身。竹叶在风中沙沙响填满沉默。月光平等照两人如一幅画定格。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「前世独行百年不知心跳为何物。原来——是这种感觉。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「明天——论剑会。先解决白璟言。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「这件事……之后再想。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-007, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

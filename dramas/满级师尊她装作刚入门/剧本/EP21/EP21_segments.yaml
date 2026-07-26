@@ -1,0 +1,239 @@
+episode_id: EP21
+source_md: 剧本/EP21/EP21_天骄.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "vertical 9:16, cinematic lighting, xianxia fantasy, high detail flowing silk robes, ethereal spirit energy particles, Chinese cultivation world aesthetics, photorealistic rendering"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。vertical 9:16, cinematic lighting, xianxia fantasy, high detail flowing silk robes, ethereal spirit energy particles, Chinese cultivation world aesthetics, photorealistic rendering"
+  negative_prompt: "modern objects, contemporary clothing, glasses, watches, phones, cars, buildings with glass windows, plastic, neon signs, English text, Japanese text, Traditional Chinese characters appearing as gibberish, garbled text, tattoos, piercings, modern hairstyles, jeans, t-shirts, sneakers, concrete, asphalt road, power lines, western medieval armor, steampunk elements, cyberpunk elements, anime style, cartoon style, chibi, low quality, blurry, watermark"
+
+voice_prompts:
+  CHAR-001(藏拙态): "成年女性，17岁，声线清亮但刻意压低显得怯弱，语速偏快带犹豫停顿，说话时带微微颤音伪装胆小"
+  CHAR-001(真实态): "成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感"
+  CHAR-002: "成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔"
+  CHAR-006: "青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调"
+  CHAR-GRP-05: "青年，声线泛用无显著特征，语速中等，大场面惊呼/警论时情绪上扬，用于人群反应填充"
+
+segments:
+  - segment_id: EP21-SEG01
+    shot_ids: [EP21-S01, EP21-S02]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-GRP-05]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+        CHAR-GRP-05-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-GRP-05-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】论剑会弟子 CHAR-GRP-05-L01【图2】沈清词 CHAR-001-L01（灰色外门粗布袍，低马尾）【图3】练剑场 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）全景 固定镜头：图3天璇宗练剑场巨大石台居中四周阶梯看台坐满各宗弟子。旗帜飘扬写着"百宗论剑"。日光从云缝泻下照石台如天光聚焦。图1人群嗡嗡议论气氛紧张亢奋。
+        镜头2（6秒）近景 固定镜头：图2坐看台角落灰袍不起眼如融入背景。双手捧杯灵茶面容呆萌如看热闹的普通弟子。但眼底有极快扫过的锐利——分析完场上所有人后恢复无害。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（论剑会弟子，青年，声线泛用无显著特征，语速中等，大场面惊呼/警论时情绪上扬，用于人群反应填充）：「天璇宗来了——听说这次派了白璟言。」
+        对白（论剑会弟子，青年，声线泛用无显著特征，语速中等，大场面惊呼/警论时情绪上扬，用于人群反应填充）：「筑基期第一？那个十六岁就破境的？」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「百宗论剑——各宗筑基期精英。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「白璟言——天璇宗首席。实力……前世也算见过类似天才。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「不关我事。看戏就好。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-GRP-05-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG02
+    shot_ids: [EP21-S03]
+    duration_sec: 10
+    speakers: [CHAR-006, CHAR-GRP-05]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】白璟言 CHAR-006-L01（金边白衣，长剑）【图2】练剑场 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（10秒）中景 固定镜头：石台上一道金白剑光闪过——图1金边白衣猎猎作响。手持长剑姿态张扬剑尖指天。面容俊朗但嘴角永远挂不屑笑意。对手连退三步剑脱手飞出。图1收剑单手负背连看都不看对方。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（白璟言，青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调）：「就这？云霄宗的筑基第一——就这水平？」
+        对白（白璟言，青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调）：「下一个。别浪费我时间。」
+        对白（论剑会弟子，青年，声线泛用无显著特征，语速中等，大场面惊呼/警论时情绪上扬，用于人群反应填充）：「三招——又是三招就结束了！」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG03
+    shot_ids: [EP21-S04, EP21-S05]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】白璟言 CHAR-006-L01（金边白衣，长剑）【图2】沈清词 CHAR-001-L01（灰色外门粗布袍，低马尾）【图3】练剑场 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定镜头：图1连续击败第二人第三人。金白剑气如风暴扫过石台。每次结束后收剑姿态一模一样——单手负背不看对手。面上笑意越来越浓越来越不耐烦。汗水一滴没有呼吸不乱。
+        镜头2（6秒）近景 固定镜头：图2看台上依然装呆萌。但捧杯的手指轻轻敲了一下杯壁——分析完成。眼底闪过一丝笑意如猎手看猎物不自知。旁边弟子们都在紧张议论没人注意灰袍角落的她。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（白璟言，青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调）：「三个了。都不经打。」
+        对白（白璟言，青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调）：「有没有能接我五招的？五招就行。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「剑法很快但根基浮躁。花招多实质薄——年轻人通病。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「前世我弟子里他排不进前五。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「继续看戏。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG04
+    shot_ids: [EP21-S06]
+    duration_sec: 12
+    speakers: [CHAR-006, CHAR-GRP-05]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】白璟言 CHAR-006-L01（金边白衣，长剑）【图2】练剑场 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中景 固定镜头：图1站台中央环视看台。目光扫过——突然停在角落灰袍少女身上。嘴角笑意加深如发现有趣玩物。剑尖缓缓抬起遥遥指向清词所在方向。全场顺他剑尖看去数百道目光齐齐落在清词身上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（白璟言，青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调）：「那边——灰袍的。你是哪个宗的？看着面生。」
+        对白（白璟言，青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调）：「缩在角落喝茶——是来看戏的？还是不敢上台？」
+        对白（论剑会弟子，青年，声线泛用无显著特征，语速中等，大场面惊呼/警论时情绪上扬，用于人群反应填充）：「那不是……天璇宗的新弟子？」
+        对白（论剑会弟子，青年，声线泛用无显著特征，语速中等，大场面惊呼/警论时情绪上扬，用于人群反应填充）：「外门的？她怎么也在……」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG05
+    shot_ids: [EP21-S07, EP21-S08]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-006, CHAR-GRP-05]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-001-L01.png
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-006-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈清词 CHAR-001-L01（灰色外门粗布袍，低马尾）【图2】白璟言 CHAR-006-L01（金边白衣，长剑）【图3】练剑场 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）近景 固定镜头：图1被数百目光注视瞬间"惊慌"——杯子差点脱手手忙脚乱接住。大眼无辜看向台上白璟言面带"不知所措"的怯弱。嘴唇微微颤抖如被突然点名的差生。
+        镜头2（6秒）近景 固定镜头：图2看到她的反应笑意更盛如捕猎者确认猎物弱小。收剑入鞘从石台边缘跳下缓步走向看台方向。金白衣袂在风中猎猎步伐从容每步都带碾压气势。全场为他让路。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈清词·藏拙，成年女性，17岁，声线清亮但刻意压低显得怯弱，语速偏快带犹豫停顿，说话时带微微颤音伪装胆小）：「我、我吗？我只是来看的……」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「盯上我了——因为我看起来最弱。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「挑软柿子捏——天才的坏毛病。」
+        对白（白璟言，青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调）：「不敢？没关系——我轻点。」
+        对白（白璟言，青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调）：「让你先出三剑也行。」
+        对白（论剑会弟子，青年，声线泛用无显著特征，语速中等，大场面惊呼/警论时情绪上扬，用于人群反应填充）：「他走过去了——太欺负人了吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-006-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG06
+    shot_ids: [EP21-S09]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002, CHAR-GRP-05]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】顾渊白 CHAR-002-L01（白银宗门掌门袍，束发玉冠）【图2】练剑场 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（12秒）中景 固定镜头：白璟言走到清词面前三步距离时——图1白银身影无声出现在清词身后。白银掌门袍在日光下如圣光笼罩。面容无波但气场压得空气都沉了一分。他没看白璟言只是站着。全场倒吸一口凉气。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「论剑会规矩——点名需过掌门。」
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「白公子想挑人——先问我。」
+        对白（论剑会弟子，青年，声线泛用无显著特征，语速中等，大场面惊呼/警论时情绪上扬，用于人群反应填充）：「天璇宗掌门！顾渊白亲自来了！」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「他来了——又是这样。不动声色地挡在前面。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-003, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP21-SEG07
+    shot_ids: [EP21-S10]
+    duration_sec: 14
+    speakers: [CHAR-001, CHAR-002, CHAR-006]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-006-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-006-L01.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/满级师尊她装作刚入门/CHAR-002-L01.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/满级师尊她装作刚入门/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】白璟言 CHAR-006-L01（金边白衣，长剑）【图2】顾渊白 CHAR-002-L01（白银宗门掌门袍，束发玉冠）【图3】练剑场 SCENE-003。
+        竖屏9比16连贯叙事。
+        镜头1（14秒）近景 固定镜头：图1和图2对视。图1嚣张笑容微微僵住但很快恢复——年轻人的傲气不允许退缩。他握剑的手指收紧指节发白。图2平静如山面容毫无波澜只是站着就让空气温度下降。两人之间的空气仿佛凝固。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（白璟言，青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调）：「顾掌门亲自护犊子？看来这小弟子很特别。」
+        对白（白璟言，青年男性，20岁，声线明亮高亢带傲慢鼻音，语速快且居高临下，嚣张时拖长尾音表示不屑，败后切换为谄媚讨好的高音急促语调）：「越护着——我越想看看她什么水平。」
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「论剑会明日正式开始。届时——各凭本事。」
+        对白（顾渊白，成年男性，27岁，低沉磁性嗓音如古琴低弦，语速极慢且精简，句与句之间有明显停顿，对清词时尾音微微上扬带不自觉温柔）：「今天。她不上台。」
+        对白（沈清词·内心，成年女性，17岁，声线清冷凌厉如冰泉，语速从容不迫，每个字清晰有力不带一丝多余情绪，偶尔轻笑时带淡漠距离感）：「护犊子——前世没人为我挡过。这种感觉……不讨厌。」
+        画面全程无任何文字、字幕、标题、水印。
+        仙侠修真世界，写实仙侠风格，竖屏9比16，无品牌Logo，无平台UI。
+      content_roles:
+        - { file: CHAR-006-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
