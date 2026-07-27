@@ -1,0 +1,396 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP01/EP01_流放荒星.md
+# Source shots: 12 (EP01-S01 to EP01-S12) → Segments: 12 (EP01-SEG01 to EP01-SEG12, 1:1)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 120s | Output total duration: 120s (EP01 特批区间 90-120s)
+# Gate status: ALL PASS | suspected_padding: none
+
+episode_id: EP01
+source_md: 剧本/EP01/EP01_流放荒星.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128  # 必须带版本后缀，无后缀名方舟返回 404 InvalidEndpointOrModel.NotFound
+  seed: 78786  # 全集固定 seed（制片规范 §4/§8）：固定 seed+详细声音描述提升同角色跨段音色/语速稳定；段级 api.seed 可覆盖
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI."
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。Cinematic photorealistic sci-fi wasteland, rusted metal with glowing crystal accents, dramatic lighting, vertical 9:16, desaturated rust-orange wasteland palette, dusty haze, no text, no watermark."
+  negative_prompt: "modern city skyline, contemporary streets, present-day cars, smartphones, real-world country flags, national emblems, police uniform, military uniform, judicial or courtroom iconography, religious symbols, real brand logos, license plates, text, subtitles, captions, watermark, UI elements, anime, cartoon, deformed hands, extra fingers"
+
+# voice_prompts 来源：资产/声音卡片.md（P0 唯一权威），全文复制「」内纯文本，同角色跨 segment 全文一致
+voice_prompts:
+  CHAR-001: "Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies"
+  CHAR-003: "Adult male, 28 years old, gentle warm mid-range voice with polished courteous phrasing, unhurried measured pace, a smiling tone that never fully commits, voice cracks slightly only when speaking of his younger sister"
+  CHAR-004: "Adult female, 24 years old, sweet refined socialite voice with silky polite cadence in early episodes, switching to cold clipped commanding tone after her exposure, controlled pace, condescension hidden under elegance"
+  CHAR-009: "Adult male, 27 years old, polished corporate-elite voice, smooth confident mid-range with rehearsed turning phrases, maintains composed formal diction even when humiliated, slightly strained politeness under pressure"
+  系统广播: "Neutral genderless AI announcement voice, cold synthetic even tone, emotionless official cadence for starship broadcasts and corporate proclamations"
+
+segments:
+  - segment_id: EP01-SEG01
+    shot_ids: [EP01-S01]
+    duration_sec: 10
+    speakers: [系统广播]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-001.png
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（coarse rust-brown canvas exile work clothes, goggles pushed up on head, star-pattern pendant outside her collar）【图2】流放星舰囚舱 SCENE-001【图3】星纹吊坠 PROP-001。
+        竖屏9比16连贯叙事。
+        镜头1（10s）中近景 缓推：图1 sits alone on a metal bench inside the starship prison cabin, cold white overhead light strips cutting hard-edged shadows. A matte dark-gray seamless metal restraint cuff locked on her wrist, snug fit, occasionally flickering with a single thin blue electric arc. Her fingertips tremble once, then clench. The pendant 图3 hangs outside her collar in dormant state — matte tungsten-silver oval, star-orbit engravings holding only a faint residual blue glow inside the grooves — its rust-orange weld seam the only warm color in the cold light. Drag marks on the floor stretch toward the sealed ejection hatch at the far end.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（系统广播·冷合成音，Neutral genderless AI announcement voice, cold synthetic even tone, emotionless official cadence for starship broadcasts and corporate proclamations）：「星环商会公议庭，最终裁定。」
+        对白（系统广播·无起伏，Neutral genderless AI announcement voice, cold synthetic even tone, emotionless official cadence for starship broadcasts and corporate proclamations）：「苏晚萤，判为精神力污染者，即刻除名苏氏。」
+        对白（系统广播·无起伏，Neutral genderless AI announcement voice, cold synthetic even tone, emotionless official cadence for starship broadcasts and corporate proclamations）：「放逐废土星K-7，执行开垦，终身不得返航。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG02
+    shot_ids: [EP01-S02]
+    duration_sec: 10
+    speakers: [CHAR-001, 系统广播]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（coarse rust-brown canvas exile work clothes, star-pattern pendant at neck）【图2】流放星舰囚舱 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10s）近景→特写 镜头推近：图1 slowly lifts her eyes, sharp and gleaming under the cold light, staring straight at the red surveillance dot on the ceiling — the calmer she looks, the clearer the fire burns at the bottom of her eyes. A thin, almost-smile curve rests at the corner of her lips. A matte dark-gray seamless metal restraint cuff locked on her wrist, snug fit, occasionally flickering with a single thin blue electric arc. The cuff's shadow lies across her face like a prison bar.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚萤·极静一字一顿，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「罪名，我认。」
+        对白（苏晚萤·抬眼直视，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「但你们，会后悔的。」
+        对白（系统广播·机械，Neutral genderless AI announcement voice, cold synthetic even tone, emotionless official cadence for starship broadcasts and corporate proclamations）：「污染者言论，已记录归档。」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「好，都记下来。一个字，都别替我漏。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP01-SEG03
+    shot_ids: [EP01-S03]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（coarse rust-brown canvas exile work clothes）【图2】流放星舰囚舱 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10s）特写 固定镜头：图1's face fills the frame. She closes her eyes, lashes quivering. The overhead light flickers bright and dark like a memory discharging. Her brow tightens bit by bit, the muscle along her cheek clenches, as if she were being struck again by that night. Only 图1 appears in frame; the second female voice is an off-screen memory voice with no visible figure.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚萤·内心独白画外音·闭眼，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「订婚宴那晚，检测仪是在我指尖炸的。」
+        对白（苏曼琪·画外记忆音·尖声，Adult female, 24 years old, sweet refined socialite voice with silky polite cadence in early episodes, switching to cold clipped commanding tone after her exposure, controlled pace, condescension hidden under elegance）：「啊——检测仪爆了！」
+        对白（苏曼琪·画外记忆音·颤声哽咽，Adult female, 24 years old, sweet refined socialite voice with silky polite cadence in early episodes, switching to cold clipped commanding tone after her exposure, controlled pace, condescension hidden under elegance）：「妹妹，你怎么会……怎么会是污染者？」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S04]
+    duration_sec: 10
+    speakers: [CHAR-009, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（coarse rust-brown canvas exile work clothes）【图2】流放星舰囚舱 SCENE-001。
+        竖屏9比16连贯叙事。
+        镜头1（10s）特写→近景 缓拉：图1 opens her eyes, fire deep inside them yet perfectly still. The overhead lamp shrinks in her pupils into the lingering after-image of a banquet chandelier. Her throat rolls once, swallowing the old words back down. A matte dark-gray seamless metal restraint cuff locked on her wrist, snug fit, occasionally flickering with a single thin blue electric arc. The cuff clinks softly as she closes her fist. Only 图1 appears in frame; the male voice is an off-screen memory voice with no visible figure.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（顾景臣·画外记忆音·端正持重，Adult male, 27 years old, polished corporate-elite voice, smooth confident mid-range with rehearsed turning phrases, maintains composed formal diction even when humiliated, slightly strained politeness under pressure）：「我承认，当年是顾家先提的亲。」
+        对白（顾景臣·画外记忆音·转折，Adult male, 27 years old, polished corporate-elite voice, smooth confident mid-range with rehearsed turning phrases, maintains composed formal diction even when humiliated, slightly strained politeness under pressure）：「但是，顾氏不能娶一个污染者。」
+        对白（顾景臣·画外记忆音，Adult male, 27 years old, polished corporate-elite voice, smooth confident mid-range with rehearsed turning phrases, maintains composed formal diction even when humiliated, slightly strained politeness under pressure）：「婚约作废，从此两清。」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「一句『但是』，情分当众清零。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG05
+    shot_ids: [EP01-S05]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-001.png
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（coarse rust-brown canvas exile work clothes）【图2】流放星舰囚舱 SCENE-001【图3】星纹吊坠 PROP-001。
+        竖屏9比16连贯叙事。
+        镜头1（10s）中景 缓推：图1 lowers her gaze to her crossed wrists, knuckles whitening. The pendant 图3 sways gently with her breathing, dormant state — a weak residual blue glow inside its star-orbit engravings. Midway she suddenly lifts her head, her expression turning from grievance into an ice-cold clarity, the first moment the audience sees her understand something.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「父亲当场签了呈报，说家门容不下污点。」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「姐姐哭到失声，满堂都夸她重情重义。」
+        对白（苏晚萤·内心独白画外音·忽然一顿，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「可我被拖走时，看见了她的手。」
+        对白（苏晚萤·内心独白画外音·冷，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「白丝手套交叠着，干净得没一丝褶皱。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: audio_bridge
+
+  - segment_id: EP01-SEG06
+    shot_ids: [EP01-S06]
+    duration_sec: 10
+    speakers: [CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-003-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（coarse rust-brown canvas exile work clothes）【图2】温祈 CHAR-003-L01（pristine white medical officer robe, gold-rimmed glasses, leather medicine-pouch belt）【图3】流放星舰囚舱 SCENE-001。
+        角色分工：仅图2持检测板走动；图1全程坐在长凳上不起身、不触碰任何物品。
+        竖屏9比16连贯叙事。
+        镜头1（10s）中景两人同框 固定镜头：outside the prison bars the hatch slides open, 图2 walks in holding a diagnostic tablet, his white robe jarringly clean inside the rusted cabin, gold-rimmed glasses catching the cold light, a polite shallow smile stopping at his eyelids. 图1 stays seated, unmoving, measuring him with raised eyes — one standing, one seated across the bars, forming a diagonal of scrutiny.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（温祈·温和公事公办，Adult male, 28 years old, gentle warm mid-range voice with polished courteous phrasing, unhurried measured pace, a smiling tone that never fully commits, voice cracks slightly only when speaking of his younger sister）：「例行体征复核。苏小姐，请抬腕。」
+        对白（苏晚萤·不动带嘲，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「医官也管死人的体征？」
+        对白（温祈·浅笑不达眼底，Adult male, 28 years old, gentle warm mid-range voice with polished courteous phrasing, unhurried measured pace, a smiling tone that never fully commits, voice cracks slightly only when speaking of his younger sister）：「K-7的辐射，可不分死人活人。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG07
+    shot_ids: [EP01-S07]
+    duration_sec: 10
+    speakers: [CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-003-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls:
+        PROP-015: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-015.png
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（coarse rust-brown canvas exile work clothes）【图2】温祈 CHAR-003-L01（pristine white medical officer robe, gold-rimmed glasses）【图3】流放星舰囚舱 SCENE-001【图4】应急包 PROP-015。
+        角色分工：仅图2可移动并传递图4；图1保持坐姿，仅以衣襟部位接住图4，不做手指精细动作。
+        道具：图4 = A palm-sized matte gray canvas soft pouch with a single magnetic snap clasp, slightly worn edges with faint scuff marks, no logo or markings.
+        竖屏9比16连贯叙事。
+        镜头1（10s）近景 固定镜头：图2 leans down, pressing the diagnostic tablet toward 图1's cuffed wrist, his wide white sleeve exactly blocking the surveillance sightline — the pouch 图4 slides from under his sleeve into the inside of her collar. His eyes never leave the tablet, his bearing flawless. Her pupils tighten slightly and she makes no sound. The handoff is covered by the white sleeve and framed at the collar area, no fine finger close-ups.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（温祈·低到几不可闻，Adult male, 28 years old, gentle warm mid-range voice with polished courteous phrasing, unhurried measured pace, a smiling tone that never fully commits, voice cracks slightly only when speaking of his younger sister）：「贴身收好，别让手环扫到。」
+        对白（苏晚萤·内心独白画外音·一凛，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「押运医官私放物资——他图什么？」
+        对白（温祈·起身恢复公事音量，Adult male, 28 years old, gentle warm mid-range voice with polished courteous phrasing, unhurried measured pace, a smiling tone that never fully commits, voice cracks slightly only when speaking of his younger sister）：「体征正常，可以执行放逐。」
+        对白（温祈·转身瞬间极低，Adult male, 28 years old, gentle warm mid-range voice with polished courteous phrasing, unhurried measured pace, a smiling tone that never fully commits, voice cracks slightly only when speaking of his younger sister）：「活下去。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - { file: PROP-015, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG08
+    shot_ids: [EP01-S08]
+    duration_sec: 10
+    speakers: [系统广播, CHAR-001]
+    refs:
+      scene_id: SCENE-001  # 弹射舱段属 SCENE-001（场景卡片含弹射舱段），参考图用 SCENE-001B 舱内图
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001B: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001B.png
+      prop_urls:
+        PROP-015: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-015.png
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（coarse rust-brown canvas exile work clothes）【图2】弹射舱内部 SCENE-001B【图3】应急包 PROP-015。
+        道具：图3 = A palm-sized matte gray canvas soft pouch with a single magnetic snap clasp, slightly worn edges with faint scuff marks, no logo or markings — hidden inside her collar, visible only as a slight bump under the fabric.
+        竖屏9比16连贯叙事。
+        镜头1（10s）中近景 固定镜头：Inside the cramped ejection pod: a single metal crash seat with black four-point restraint harness straps, one round porthole on the sealed hatch, a red strip warning light along the ceiling, rust-streaked iron handrail bars beside the seat, inner hatch door painted with yellow-black hazard stripes, cold riveted metal walls. The hazard-striped hatch seals shut, ink-black starfield outside the round porthole, red standby lights igniting cell by cell. 图1 is strapped into the crash seat, one hand pressing through her jacket onto the hidden pouch bump, thumb rolling over it. Her eyes are settling scores, not afraid.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（系统广播，Neutral genderless AI announcement voice, cold synthetic even tone, emotionless official cadence for starship broadcasts and corporate proclamations）：「放逐程序启动。弹射倒计时：十，九——」
+        对白（苏晚萤·内心独白画外音·攥紧衣襟，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「那句『活下去』，不像好心，像交代。」
+        对白（系统广播，Neutral genderless AI announcement voice, cold synthetic even tone, emotionless official cadence for starship broadcasts and corporate proclamations）：「三，二，一。弹射。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001B, role: reference_image, label: 图2 }
+        - { file: PROP-015, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG09
+    shot_ids: [EP01-S09]
+    duration_sec: 10
+    speakers: [系统广播, CHAR-001]
+    refs:
+      scene_id: SCENE-001  # 弹射舱段属 SCENE-001，参考图用 SCENE-001B 舱内图
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001B: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001B.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（coarse rust-brown canvas exile work clothes, loose strands escaping her braid）【图2】弹射舱内部 SCENE-001B。
+        竖屏9比16连贯叙事。
+        镜头1（10s）中近景 镜头跟随（震颤感）：Inside the cramped ejection pod: a single metal crash seat with black four-point restraint harness straps, one round porthole on the sealed hatch, a red strip warning light along the ceiling, rust-streaked iron handrail bars beside the seat, inner hatch door painted with yellow-black hazard stripes, cold riveted metal walls. The pod tears free of the mother ship and shakes violently. The strobing red warning light slices 图1's face into halves of light and dark. Orange-red atmospheric friction fire churns outside the porthole, rivets rattle in the walls, a loose nut pops off and bounces away. She grits her teeth against the jolts, loose strands of hair plastered to her cheek.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（系统广播·电流杂音，Neutral genderless AI announcement voice, cold synthetic even tone, emotionless official cadence for starship broadcasts and corporate proclamations）：「已进入K-7大气层，舱体温度超限。」
+        对白（苏晚萤·被颠得咬牙自语，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「苏家买的弹射舱，真够体面。」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「省下的钱，够姐姐再买十双白手套吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001B, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG10
+    shot_ids: [EP01-S10]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001  # 弹射舱段属 SCENE-001，参考图用 SCENE-001B 舱内图
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001B: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001B.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-001.png
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（coarse rust-brown canvas exile work clothes）【图2】弹射舱内部 SCENE-001B【图3】星纹吊坠 PROP-001（激活态）。
+        道具：图3 activated state = star-orbit engravings fully ignited with flowing cool blue light, pendant faintly translucent, glowing like a live circuit.
+        竖屏9比16连贯叙事。
+        镜头1（10s）大特写→特写 镜头推近：Inside the cramped ejection pod: a single metal crash seat with black four-point restraint harness straps, one round porthole on the sealed hatch, a red strip warning light along the ceiling, rust-streaked iron handrail bars beside the seat, inner hatch door painted with yellow-black hazard stripes, cold riveted metal walls. Macro close-up on the pendant 图3 at 图1's neck: star-orbit engravings fully ignited with flowing cool blue light, pendant faintly translucent, glowing like a live circuit — the engraved lines igniting one by one, washing the coarse cloth collar in faint blue. 图1 lowers her head, two points of blue light trembling in her pupils, wonder overpowering fear.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚萤·低呼，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「烫——？」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「娘留下的坠子，十八年从没亮过。」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「像是……它认得这颗星。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001B, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG11
+    shot_ids: [EP01-S11]
+    duration_sec: 10
+    speakers: [系统广播, CHAR-001]
+    refs:
+      scene_id: SCENE-001  # 弹射舱段属 SCENE-001，参考图用 SCENE-001B 舱内图
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001B: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001B.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-001.png
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（coarse rust-brown canvas exile work clothes）【图2】弹射舱内部 SCENE-001B【图3】星纹吊坠 PROP-001（激活态）。
+        道具：图3 activated state = star-orbit engravings fully ignited with flowing cool blue light, pendant faintly translucent, glowing like a live circuit.
+        竖屏9比16连贯叙事。
+        镜头1（10s）中景 快切（舷窗↔面部）：Inside the cramped ejection pod: a single metal crash seat with black four-point restraint harness straps, one round porthole on the sealed hatch, a red strip warning light along the ceiling, rust-streaked iron handrail bars beside the seat, inner hatch door painted with yellow-black hazard stripes, cold riveted metal walls. Rapid intercutting between the porthole and 图1's face: outside, a rust-colored mountain silhouette balloons at terrifying speed — a ridge of stacked starship wreckage stabbing at the sky. Every cabin light snaps to red, alarms shrilling. 图1 presses one hand on the glowing pendant 图3 and one hand on her collar, blue light leaking from between her fingers. The more lethal the crisis, the more terrifyingly calm her face.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（系统广播·急促告警，Neutral genderless AI announcement voice, cold synthetic even tone, emotionless official cadence for starship broadcasts and corporate proclamations）：「警告：着陆制动失效。」
+        对白（系统广播，Neutral genderless AI announcement voice, cold synthetic even tone, emotionless official cadence for starship broadcasts and corporate proclamations）：「预计撞击：十五秒。」
+        对白（苏晚萤·反而极静自语，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「后悔名单上，再记一笔。」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「十五秒，够我把这条命重新签个字据。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001B, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG12
+    shot_ids: [EP01-S12]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-001  # 弹射舱段属 SCENE-001，参考图用 SCENE-001B 舱内图
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001B: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001B.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-001.png
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（coarse rust-brown canvas exile work clothes）【图2】弹射舱内部 SCENE-001B【图3】星纹吊坠 PROP-001（激活态）。
+        道具：图3 activated state = star-orbit engravings fully ignited with flowing cool blue light, pendant faintly translucent, glowing like a live circuit.
+        竖屏9比16连贯叙事。
+        镜头1（10s）大特写 固定镜头：Inside the cramped ejection pod: a single metal crash seat with black four-point restraint harness straps, one round porthole on the sealed hatch, a red strip warning light along the ceiling, rust-streaked iron handrail bars beside the seat, inner hatch door painted with yellow-black hazard stripes, cold riveted metal walls. Macro close-up: 图1's hand grips the rust-streaked iron handrail bar beside the seat in a coarse full-hand hold. Where her fingertips touch, century-old rust peels away eerily like something alive, baring bright silver metal, the peeling crawling along the rail. The pendant 图3's blue light surges, dyeing half her face cold blue. The frame snaps to black — a colossal metal-tearing roar, then one beat of dead silence. Hand shown as macro grip with macro rust-flaking effect only, no fine finger deformation close-ups.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚萤·内心独白画外音·屏息，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「锈……在我手底下退。」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「是我疯了，还是这颗星疯了？」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「废墟不是终点——我也不是。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001B, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

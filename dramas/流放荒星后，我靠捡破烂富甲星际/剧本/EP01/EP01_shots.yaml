@@ -1,0 +1,447 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP01/EP01_流放荒星.md
+# Source shots: 12 (EP01-S01 to EP01-S12)
+# Output shots: 12 (EP01-S01 to EP01-S12)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 120s (12 x 10s, independently summed from shot table)
+# Output total duration: 120s
+# Gate status: ALL PASS (Gate1 时长 / Gate2 镜数 / Gate3 资产ID / Gate4 voice_prompt)
+# suspected_padding: none (every shot carries >=3 substantive dialogue lines + action)
+
+episode_id: EP01
+source_md: 剧本/EP01/EP01_流放荒星.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128  # 必须带版本后缀，无后缀名方舟返回 404 InvalidEndpointOrModel.NotFound
+  seed: 78786  # 与 segments.yaml defaults.seed 一致（全剧固定 seed，制片规范 §4）
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI."
+  negative_prompt: "modern city skyline, contemporary streets, present-day cars, smartphones, real-world country flags, national emblems, police uniform, military uniform, judicial or courtroom iconography, religious symbols, real brand logos, license plates, text, subtitles, captions, watermark, UI elements, anime, cartoon, deformed hands, extra fingers"
+
+shots:
+  - shot_id: EP01-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        # 含人脸形象一律 mesh 版（形象索引登记：mesh已生成）
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-001.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-001。
+        中近景 缓推：Medium close-up, slow push-in. Cold white overhead light strips cut hard-edged shadows across the starship prison cabin. 图1 in coarse exile work clothes sits alone on a metal bench. A matte dark-gray seamless metal restraint cuff locked on her wrist, snug fit, occasionally flickering with a single thin blue electric arc. Her fingertips tremble once, then clench. The star-pattern pendant 图3 hangs outside her collar in dormant state — matte tungsten-silver oval, star-orbit engravings holding only a faint residual blue glow inside the grooves — its rust-orange weld seam the only warm color in the cold light. Drag marks on the floor stretch toward the sealed ejection hatch at the far end.
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: 系统广播
+        line: "星环商会公议庭，最终裁定。"
+      - speaker: 系统广播
+        line: "苏晚萤，判为精神力污染者，即刻除名苏氏。"
+      - speaker: 系统广播
+        line: "放逐废土星K-7，执行开垦，终身不得返航。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001。
+        近景→特写 镜头推近：Close-up pushing into extreme close-up. 图1 slowly lifts her eyes, sharp and gleaming under the cold light, staring straight at the red surveillance dot on the ceiling — the calmer she looks, the clearer the fire burns at the bottom of her eyes. A thin, almost-smile curve rests at the corner of her lips. A matte dark-gray seamless metal restraint cuff locked on her wrist, snug fit, occasionally flickering with a single thin blue electric arc. The cuff's shadow lies across her face like a prison bar.
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "罪名，我认。"
+      - speaker: CHAR-001
+        line: "但你们，会后悔的。"
+      - speaker: 系统广播
+        line: "污染者言论，已记录归档。"
+      - speaker: CHAR-001
+        line: "好，都记下来。一个字，都别替我漏。"
+    transition_to_next: dissolve
+
+  - shot_id: EP01-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001。
+        特写 固定镜头：Fixed extreme close-up on 图1's face. She closes her eyes, lashes quivering. The overhead light flickers bright and dark like a memory discharging. Her brow tightens bit by bit, the muscle along her cheek clenches, as if she were being struck again by that night. CHAR-004 exists only as an off-screen memory voice, no second figure appears in frame.
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "订婚宴那晚，检测仪是在我指尖炸的。"
+      - speaker: CHAR-004
+        line: "啊——检测仪爆了！"
+      - speaker: CHAR-004
+        line: "妹妹，你怎么会……怎么会是污染者？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001。
+        特写→近景 缓拉：Slow pull-back from extreme close-up to close-up. 图1 opens her eyes, fire deep inside them yet perfectly still. The overhead lamp shrinks in her pupils into the lingering after-image of a banquet chandelier. Her throat rolls once, swallowing the old words back down. A matte dark-gray seamless metal restraint cuff locked on her wrist, snug fit, occasionally flickering with a single thin blue electric arc. The cuff clinks softly as she closes her fist. CHAR-009 exists only as an off-screen memory voice, no second figure appears in frame.
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-009
+        line: "我承认，当年是顾家先提的亲。"
+      - speaker: CHAR-009
+        line: "但是，顾氏不能娶一个污染者。"
+      - speaker: CHAR-009
+        line: "婚约作废，从此两清。"
+      - speaker: CHAR-001
+        line: "一句『但是』，情分当众清零。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-001.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-001。
+        中景 缓推：Medium shot, slow push-in. 图1 lowers her gaze to her crossed wrists, knuckles whitening. The pendant 图3 sways gently with her breathing, dormant state — a weak residual blue glow inside its star-orbit engravings. Midway she suddenly lifts her head, her expression turning from grievance into an ice-cold clarity, the first moment the audience sees her understand something.
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "父亲当场签了呈报，说家门容不下污点。"
+      - speaker: CHAR-001
+        line: "姐姐哭到失声，满堂都夸她重情重义。"
+      - speaker: CHAR-001
+        line: "可我被拖走时，看见了她的手。"
+      - speaker: CHAR-001
+        line: "白丝手套交叠着，干净得没一丝褶皱。"
+    transition_to_next: audio_bridge
+
+  - shot_id: EP01-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-003-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-003-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-003-L01【图3】SCENE-001。
+        中景两人同框 固定镜头：Fixed medium shot, two figures in frame. Outside the prison bars the hatch slides open. 图2, the white-robed medical officer, walks in holding a diagnostic tablet, his white robe jarringly clean inside the rusted cabin. Gold-rimmed glasses catch the cold light, a polite shallow smile stopping at his eyelids. 图1 stays seated, unmoving, measuring him with raised eyes — one standing, one seated across the bars, forming a diagonal of scrutiny.
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "例行体征复核。苏小姐，请抬腕。"
+      - speaker: CHAR-001
+        line: "医官也管死人的体征？"
+      - speaker: CHAR-003
+        line: "K-7的辐射，可不分死人活人。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-003-L01
+      prop_ids:
+        - PROP-015
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-003-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001.png
+      prop_urls:
+        PROP-015: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-015.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-003-L01【图3】SCENE-001【图4】PROP-015。
+        近景 固定镜头：Fixed close-up. 图2 leans down, pressing the diagnostic tablet toward 图1's cuffed wrist, his wide white sleeve exactly blocking the surveillance sightline — 图4（A palm-sized matte gray canvas soft pouch with a single magnetic snap clasp, slightly worn edges with faint scuff marks, no logo or markings）slides from under his sleeve into the inside of her collar. His eyes never leave the tablet, his bearing flawless. Her pupils tighten slightly and she makes no sound. The handoff is covered by the white sleeve and framed at the collar area, no fine finger close-ups.
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - { file: PROP-015, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "贴身收好，别让手环扫到。"
+      - speaker: CHAR-001
+        line: "押运医官私放物资——他图什么？"
+      - speaker: CHAR-003
+        line: "体征正常，可以执行放逐。"
+      - speaker: CHAR-003
+        line: "活下去。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001  # 弹射舱段属 SCENE-001（场景卡片含弹射舱段），参考图用 SCENE-001B 舱内图
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-015
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001B: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001B.png
+      prop_urls:
+        PROP-015: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-015.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001B【图3】PROP-015。
+        中近景 固定镜头：Fixed medium close-up. Inside the cramped ejection pod: a single metal crash seat with black four-point restraint harness straps, one round porthole on the sealed hatch, a red strip warning light along the ceiling, rust-streaked iron handrail bars beside the seat, inner hatch door painted with yellow-black hazard stripes, cold riveted metal walls. The hazard-striped hatch seals shut, ink-black starfield outside the round porthole, red standby lights igniting cell by cell. 图1 is strapped into the crash seat. One hand presses through her jacket onto the hidden pouch 图3（A palm-sized matte gray canvas soft pouch with a single magnetic snap clasp, slightly worn edges with faint scuff marks, no logo or markings）concealed inside her collar and showing only as a slight bump, her thumb rolling over that bump. Her eyes are settling scores, not afraid.
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001B, role: reference_image, label: 图2 }
+        - { file: PROP-015, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: 系统广播
+        line: "放逐程序启动。弹射倒计时：十，九——"
+      - speaker: CHAR-001
+        line: "那句『活下去』，不像好心，像交代。"
+      - speaker: 系统广播
+        line: "三，二，一。弹射。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001  # 弹射舱段属 SCENE-001，参考图用 SCENE-001B 舱内图
+      look_ids:
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001B: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001B.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001B。
+        中近景 镜头跟随（震颤感）：Tracking medium close-up with violent tremor. Inside the cramped ejection pod: a single metal crash seat with black four-point restraint harness straps, one round porthole on the sealed hatch, a red strip warning light along the ceiling, rust-streaked iron handrail bars beside the seat, inner hatch door painted with yellow-black hazard stripes, cold riveted metal walls. The pod tears free of the mother ship and shakes hard. The strobing red warning light slices 图1's face into halves of light and dark. Orange-red atmospheric friction fire churns outside the porthole, rivets rattle in the walls, a loose nut pops off and bounces away. She grits her teeth against the jolts, loose strands of hair plastered to her cheek.
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001B, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: 系统广播
+        line: "已进入K-7大气层，舱体温度超限。"
+      - speaker: CHAR-001
+        line: "苏家买的弹射舱，真够体面。"
+      - speaker: CHAR-001
+        line: "省下的钱，够姐姐再买十双白手套吧。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001  # 弹射舱段属 SCENE-001，参考图用 SCENE-001B 舱内图
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001B: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001B.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-001.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001B【图3】PROP-001。
+        大特写→特写 镜头推近：Push-in from macro close-up to close-up. Inside the cramped ejection pod: a single metal crash seat with black four-point restraint harness straps, one round porthole on the sealed hatch, a red strip warning light along the ceiling, rust-streaked iron handrail bars beside the seat, inner hatch door painted with yellow-black hazard stripes, cold riveted metal walls. Macro close-up on the pendant 图3 at her neck, now activated: star-orbit engravings fully ignited with flowing cool blue light, pendant faintly translucent, glowing like a live circuit — the engraved lines light up one by one, washing the coarse cloth collar in faint blue. 图1 lowers her head, two points of blue light trembling in her pupils, wonder overpowering fear.
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001B, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "烫——？"
+      - speaker: CHAR-001
+        line: "娘留下的坠子，十八年从没亮过。"
+      - speaker: CHAR-001
+        line: "像是……它认得这颗星。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001  # 弹射舱段属 SCENE-001，参考图用 SCENE-001B 舱内图
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001B: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001B.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-001.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001B【图3】PROP-001。
+        中景 快切（舷窗↔面部）：Medium shot with rapid intercutting between the porthole and her face. Inside the cramped ejection pod: a single metal crash seat with black four-point restraint harness straps, one round porthole on the sealed hatch, a red strip warning light along the ceiling, rust-streaked iron handrail bars beside the seat, inner hatch door painted with yellow-black hazard stripes, cold riveted metal walls. Outside the porthole a rust-colored mountain silhouette balloons at terrifying speed — a ridge of stacked starship wreckage stabbing at the sky. Every cabin light snaps to red, alarms shrilling. 图1 presses one hand on the pendant 图3 (star-orbit engravings fully ignited with flowing cool blue light, pendant faintly translucent, glowing like a live circuit) and one hand on her collar, blue light leaking from between her fingers. The more lethal the crisis, the more terrifyingly calm her face.
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001B, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: 系统广播
+        line: "警告：着陆制动失效。"
+      - speaker: 系统广播
+        line: "预计撞击：十五秒。"
+      - speaker: CHAR-001
+        line: "后悔名单上，再记一笔。"
+      - speaker: CHAR-001
+        line: "十五秒，够我把这条命重新签个字据。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-001  # 弹射舱段属 SCENE-001，参考图用 SCENE-001B 舱内图
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001B: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-001B.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-001.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001B【图3】PROP-001。
+        大特写 固定镜头：Fixed macro close-up. Inside the cramped ejection pod: a single metal crash seat with black four-point restraint harness straps, one round porthole on the sealed hatch, a red strip warning light along the ceiling, rust-streaked iron handrail bars beside the seat, inner hatch door painted with yellow-black hazard stripes, cold riveted metal walls. 图1's hand grips the rust-streaked iron handrail bar beside the seat in a coarse full-hand hold. Where her fingertips touch, century-old rust peels away eerily like something alive, baring bright silver metal, the peeling crawling along the rail. The pendant 图3's blue light surges (star-orbit engravings fully ignited with flowing cool blue light, pendant faintly translucent, glowing like a live circuit), dyeing half her face cold blue. The frame snaps to black — a colossal metal-tearing roar, then one beat of dead silence. Hand shown as macro grip with macro rust-flaking effect only, no fine finger deformation close-ups.
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001B, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "锈……在我手底下退。"
+      - speaker: CHAR-001
+        line: "是我疯了，还是这颗星疯了？"
+      - speaker: CHAR-001
+        line: "废墟不是终点——我也不是。"
+    transition_to_next: hard_cut
