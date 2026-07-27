@@ -142,6 +142,16 @@ script-reviewer 不在主流水线必经路径上，但在以下节点必须触�
 - **R2 for EP02+**：软门控——低于 25/35 时**暂停并报告**，用户可选 override 后带记录继续（默认阻断推进，须用户主动放行）
 - 如审查评分低于阈值，drama-director 暂停流水线并报告审查结果
 
+> **⚠️ notes 清零协议（对 R1/R2 所有审查强制，2026-07-26 起）**：分数达标≠放行。审查产出「PASS with notes」时，该判定是**中间态**，drama-director 必须自动执行以下循环（不向用户提问"要不要修"），直到升级为 **PASS（clean）** 才算该审查点通过：
+> ```
+> PASS with notes → 派产出源头 agent 逐条源头修复（R1→story-architect 改大纲正文；R2→scene-writer 改剧本）
+>   → 同步受影响的下游文件（卡片/制片规范等，由 drama-director 检查并派单）
+>   → drama-director 实测验证修复落位（grep/读取，不只采信 subagent 自报）
+>   → script-reviewer 核销轮（逐条核验+新问题扫描）
+>   → notes 清零 → PASS（clean）放行；未清零 → 回循环（上限 3 轮，超限升级用户）
+> ```
+> 「结构性观察」（题材属性/赛道同质化等无法文本修复项）不计 notes、不阻断、不入循环，仅归档备查。禁止行为：把 notes 挂账给下游阶段"注意消化"后就放行（唯一例外：本阶段产物无法承载的**验证动作**可转入下一审查点，但前提是已在本阶段产物内写入可执行约束）。详细定义见 script-reviewer「判定终态与 notes 清零协议」。
+
 > **软门控语义统一标注**：EP02+ 软门控未过 = **暂停并报告**，由用户决定 override（带记录放行）或要求返工；不取"不强制阻塞、仅附建议"的另一义。drama-director 与 script-reviewer 描述必须保持此同一语义。
 
 **前置条件绑定**：
@@ -825,6 +835,7 @@ EP03: Stage4 → ...
 | G3 失败（道具问题） | Stage 3a | 请求 prop-designer 补充/重新生成道具参考图 |
 | G3 失败（跨资产风格不一致） | Stage 3a / 3b / 3c | 由 drama-director 判定哪方需调整 |
 | G4 失败 | Stage 4 | 请求 scene-writer 修正剧本。**时长不达标（低于 episode_profile 下限或高于上限）：重写整集，非局部修正**（见 scene-writer 自检 1 红线）。**scene-writer 3 稿仍不达标升级到 director → director 诊断根因**：若是单集写作问题 → 指导 scene-writer 调整叙事密度；若是大纲场景容量不足（如本集只规划了 2 个场景撑不起下限时长）→ 回退 Stage 1 请求 story-architect 补充该集场景 |
+| R1/R2 达标但带 notes（PASS with notes） | Stage 1 / Stage 4 | **非终态，不得据此放行** → 自动执行「notes 清零协议」：派产出源头 agent 逐条源头修复（R1→story-architect；R2→scene-writer）→ 同步下游文件 → director 实测验证 → script-reviewer 核销轮 → notes 清零升级 PASS（clean）后方可放行（循环上限 3 轮，超限升级用户）。结构性观察不入循环 |
 | R2 失败（EP01 硬门控） | Stage 4 | 未达 28/35 → 默认阻断推进，请求 scene-writer 针对低分维度（<3 分）返工。连续 3 次返工仍未达标 → 升级用户决策（不可 override 放行） |
 | R2 失败（EP02+ 软门控） | Stage 4 | 未达 25/35 → **默认阻断推进**，向用户报告并提供选项：(a) override 带记录放行进入 Stage 5；(b) 要求 scene-writer 返工（连续 3 次返工仍未达标 → 升级用户决策）。注：override 放行不进入 3 次计数（见 script-reviewer「门控判定规则 > 硬门控」段的「3 次升级」计数口径） |
 | G5 失败（上游问题） | Stage 4 | 修正源 .md 后重跑 Stage 5 |
@@ -856,7 +867,7 @@ EP03: Stage4 → ...
 5. **状态可追溯** — 每次阶段推进必须更新 `工作计划.md`
 6. **失败回退** — 验证失败时回退到上游阶段修复，不得降低标准继续
 7. **题材合规** — 初始化时必须检查概念是否符合"其他微短剧"资质约束
-8. **集间严格顺序** — 每集必须完整经历 Stage 4 → G4 → R2（EP01 硬门控必须 ≥28/35；EP02+ 软门控 ≥25/35，未过则暂停并报告、用户可 override）→ Stage 5 → G5 全部闭环后，方可启动下一集的 Stage 4。禁止 G4 交叉执行（原规则已废止），禁止批量/并行写作多集
+8. **集间严格顺序** — 每集必须完整经历 Stage 4 → G4 → R2（EP01 硬门控必须 ≥28/35；EP02+ 软门控 ≥25/35，未过则暂停并报告、用户可 override；**达标带 notes 时须完成 notes 清零协议升级 PASS（clean）**）→ Stage 5 → G5 全部闭环后，方可启动下一集的 Stage 4。禁止 G4 交叉执行（原规则已废止），禁止批量/并行写作多集
 9. **不写占位素材** — 禁止向 `assets/generated/` 写入占位视频或测试文件
 10. **不调用生成 API** — 禁止未经用户授权调用 Seedance/Seedream/即梦等生成工具
 11. **ID 只增不删** — 所有 CHAR/SCENE/PROP ID 只增加、不删除，弃用标 deprecated
