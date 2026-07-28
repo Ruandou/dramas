@@ -1,0 +1,349 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP03/EP03_利刃退敌.md (v1.0, R2 PASS clean)
+# Source shots: 12 (EP03-S01 to EP03-S12) → Segments: 9 (EP03-SEG01 to EP03-SEG09)
+# Merge map: SEG01=S01+S02 / SEG02=S03 / SEG03=S04 / SEG04=S05 / SEG05=S06+S07 / SEG06=S08 / SEG07=S09 / SEG08=S10 / SEG09=S11+S12（与剧本 ⏱ 段统计逐段一致）
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 91s | Output total duration: 91s (11/10/10/10/11/10/10/9/10, EP02+ 合规区间 75-120s)
+# Gate status: ALL PASS | suspected_padding: none
+# 转场标记：剧本 8 个（hard_cut×6 + dissolve×1 + audio_bridge×1）= SEG 数 9 − 1；末段 transition_to_next 为模板必填字段，取默认 hard_cut
+
+episode_id: EP03
+source_md: 剧本/EP03/EP03_利刃退敌.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128  # 必须带版本后缀，无后缀名方舟返回 404 InvalidEndpointOrModel.NotFound
+  seed: 78786  # 全集固定 seed（制片规范 §4/§8）：固定 seed+详细声音描述提升同角色跨段音色/语速稳定；段级 api.seed 可覆盖
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI."
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。Cinematic photorealistic sci-fi wasteland, rusted metal with glowing crystal accents, dramatic lighting, vertical 9:16, desaturated rust-orange wasteland palette, dusty haze, no text, no watermark."
+  negative_prompt: "modern city skyline, contemporary streets, present-day cars, smartphones, real-world country flags, national emblems, police uniform, military uniform, judicial or courtroom iconography, religious symbols, real brand logos, license plates, text, subtitles, captions, watermark, UI elements, anime, cartoon, deformed hands, extra fingers"
+
+# voice_prompts 来源：资产/声音卡片.md v1.2（P0 唯一权威），全文复制「」内纯文本，同角色跨 segment 全文一致（含 GRP-03 新行）
+voice_prompts:
+  CHAR-001: "Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies"
+  CHAR-007: "Teenage male, 16 years old, bright energetic boyish voice, quick eager delivery full of exclamations, emotions completely transparent, later comically imitating adult negotiation cadence"
+  CHAR-GRP-01: "Adult male, around 40 years old, hoarse gravelly scavenger voice roughened by dust and shouting, low coarse menacing rasp, unhurried drawling threats that speed into sudden furious bellows, greedy gloating undertone"
+  CHAR-GRP-02: "Young adult male, early 20s, thin shrill reedy voice, fast jumpy sycophantic delivery always echoing his boss, fawning wheedling tone that cracks and jumps an octave when frightened"
+  CHAR-GRP-03: "Adult male, around 40 years old, dry flat clerk-like bureaucratic voice, thin rasping timbre with a dismissive take-it-or-leave-it drawl, lazy dragging pace when lowballing prices, snapping into a hushed urgent undertone with startled quickened delivery the moment he spots something truly valuable"
+
+segments:
+  - segment_id: EP03-SEG01
+    shot_ids: [EP03-S01, EP03-S02]
+    duration_sec: 11
+    speakers: [CHAR-GRP-01, CHAR-001, CHAR-GRP-02]  # 主对手=甲与她，乙仅1行跟班短句，符合"主说话人≤2"口径
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        # 4 形象+1 场景+1 道具=6 张，顶格配额（EP02 双钩承接四人对峙戏，全员出镜不可裁）
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-GRP-01-L01-mesh.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-007-L01-mesh.png
+        CHAR-GRP-02-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-GRP-02-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-002.png
+      prop_urls:
+        PROP-005: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-005.png
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（rust-brown canvas scavenger jacket, goggles pushed up on head, star-pattern pendant at neck）【图2】拾荒者甲 CHAR-GRP-01-L01（stocky bald scavenger with leather half-mask and long iron hook staff）【图3】阿铁 CHAR-007-L01（scavenger boy in patched work clothes, tape-wrapped goggles at neck）【图4】拾荒者乙 CHAR-GRP-02-L01（lanky tall follower in oversized ragged coat with rope belt）【图5】垃圾山废料场 SCENE-002【图6】第一把重构利刃 PROP-005。
+        角色分工：仅图1持利刃（图6）单拍磕挡后定格；仅图2持长铁钩杖、被磕开后踉跄；图3空手立于图1侧后半步；图4缩在竖立舱板后只露半张脸，不持械；无连续格斗编排。
+        竖屏9比16连贯叙事。
+        镜头1（6s）中近景 手持震颤感→定格：At the cliff edge 图1 instinctively raises the newly formed blade 图6 crosswise in her palm — a long iron hook clangs down onto the blade spine, striking a single line of sparks; 图2 is jolted by the impact, his grip going numb, staggering half a step back. Residual cold-blue molecular light still drifts in the blade's liquid flow patterns, reflected in 图2's abruptly narrowed eyes. 图3 stands half a step behind 图1, mouth frozen open in an O shape. Single-beat parry freezing straight into a standoff.
+        镜头2（5s）近景（反打） 固定镜头：Reverse shot: 图4 shrinks behind an upright hull plate with only half his face showing, his pointing finger trembling, the dust scarf slipped down to his chin; in the foreground the side profile of 图2 stares at the blue light roaming along the blade, the greed in his narrow eyes pressed down by a layer of dread.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（拾荒者甲·钩被磕开·骇，Adult male, around 40 years old, hoarse gravelly scavenger voice roughened by dust and shouting, low coarse menacing rasp, unhurried drawling threats that speed into sudden furious bellows, greedy gloating undertone）：「这刃……哪来的？」
+        对白（苏晚萤·横刃·极静，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「你猜。」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「手还在抖……但不能让他看出来。」
+        对白（拾荒者乙·缩在舱板后·发飘，Young adult male, early 20s, thin shrill reedy voice, fast jumpy sycophantic delivery always echoing his boss, fawning wheedling tone that cracks and jumps an octave when frightened）：「哥，污染者会吃人的……」
+        对白（拾荒者甲·盯刃·低声，Adult male, around 40 years old, hoarse gravelly scavenger voice roughened by dust and shouting, low coarse menacing rasp, unhurried drawling threats that speed into sudden furious bellows, greedy gloating undertone）：「闭嘴。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图3 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图4 }
+        - { file: SCENE-002, role: reference_image, label: 图5 }
+        - { file: PROP-005, role: reference_image, label: 图6 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP03-SEG02
+    shot_ids: [EP03-S03]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-GRP-01, CHAR-GRP-02]  # 乙台词为画外渐远，但其背影在画中（角色列含乙），保留形象图；GRP-01/02 本段退场，SEG03 起不再传图
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+        CHAR-GRP-01-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-GRP-01-L01-mesh.png
+        CHAR-GRP-02-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-GRP-02-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-002.png
+      prop_urls:
+        PROP-005: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-005.png
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（rust-brown canvas scavenger jacket, star-pattern pendant at neck）【图2】拾荒者甲 CHAR-GRP-01-L01（stocky bald scavenger with leather half-mask and iron hook staff）【图3】拾荒者乙 CHAR-GRP-02-L01（lanky tall follower in oversized ragged coat）【图4】垃圾山废料场 SCENE-002【图5】第一把重构利刃 PROP-005。
+        角色分工：仅图1持刃（图5），刃锋仅擦过杖身一次、无人身接触；图2持杖后退并拽走图3；图3连滚带爬背影缩进扬尘；退敌全程动作留白。
+        竖屏9比16连贯叙事。
+        镜头1（10s）中景 缓推：图1 lifts the blade 图5 and takes one step forward, the blade tip pointing from a distance at the iron hook staff in 图2's hand — the blade edge grazes the staff shaft once, lightly: a line of rust skin peels away at the touch, exposing bright silver beneath, a silent demonstration of lingering power. 图2 stares at that bright line, throat bobbing, the strength draining from his grip on the staff; he hauls 图3 backward into the scrap-iron corridor; 图3 scrambles and stumbles, their backs quickly shrinking into the rising dust.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚萤·提刃上前·一字一顿，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「规矩改了。头三天，不动手。」
+        对白（拾荒者甲·盯着杖上亮线·嘶哑，Adult male, around 40 years old, hoarse gravelly scavenger voice roughened by dust and shouting, low coarse menacing rasp, unhurried drawling threats that speed into sudden furious bellows, greedy gloating undertone）：「走。这单，彪爷不接了。」
+        对白（拾荒者乙·连滚带爬·画外渐远，Young adult male, early 20s, thin shrill reedy voice, fast jumpy sycophantic delivery always echoing his boss, fawning wheedling tone that cracks and jumps an octave when frightened）：「哥，等等我——」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「吓退的。下次，就没这么便宜。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-01-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-GRP-02-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+        - { file: PROP-005, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP03-SEG03
+    shot_ids: [EP03-S04]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-007-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-002.png
+      prop_urls:
+        PROP-012: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-012.png
+    api:
+      text: |
+        【图1】阿铁 CHAR-007-L01（scavenger boy in patched work clothes with tool satchel）【图2】苏晚萤 CHAR-001-L01（rust-brown canvas scavenger jacket, short blade in hand being stowed）【图3】垃圾山废料场 SCENE-002【图4】阿铁的护目镜 PROP-012。
+        角色分工：图1捶自己胸口并高举手掌；图2抬手与图1击掌；全程站姿击掌拍胸起誓，无下跪动作、无下跪特写；图4护目镜挂图1颈间。
+        竖屏9比16连贯叙事。
+        镜头1（10s）中景（两人同框） 固定镜头：The backs of the two scavengers vanish at the far end of the corridor. 图1 spins around and gapes dumbstruck at the blade in 图2's hand, unable to close his mouth; then he snaps bolt upright, pounds his right fist hard against his own chest, and raises his open palm high toward 图2. 图2 gives him one look, lifts her hand and claps his palm — a crisp clap, the pact sealed. The old tape-wrapped goggles 图4 hang at 图1's neck.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（阿铁·目瞪口呆，Teenage male, 16 years old, bright energetic boyish voice, quick eager delivery full of exclamations, emotions completely transparent, later comically imitating adult negotiation cadence）：「姐……你这手，神了！」
+        对白（苏晚萤·收刃·盯他，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「刚才的事，烂在肚子里。」
+        对白（阿铁·捶胸·举掌·响亮，Teenage male, 16 years old, bright energetic boyish voice, quick eager delivery full of exclamations, emotions completely transparent, later comically imitating adult negotiation cadence）：「阿铁起誓，走漏半个字，护目镜归你！」
+        对白（苏晚萤·击掌·内心独白画外音·微松，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「拿命根子起誓……这孩子。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+        - { file: PROP-012, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP03-SEG04
+    shot_ids: [EP03-S05]
+    duration_sec: 10
+    speakers: [CHAR-001, CHAR-007]  # 阿铁为画外声（凑近），不传其形象图
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-002.png
+      prop_urls:
+        PROP-005: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-005.png
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-001.png
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（rust-brown canvas scavenger jacket, tool belt, star-pattern pendant at neck）【图2】垃圾山废料场 SCENE-002【图3】第一把重构利刃 PROP-005【图4】星纹吊坠 PROP-001。
+        道具：图3利刃=光纹载体；图4吊坠全程保持 A 常态=dormant matte tungsten-silver pendant, completely unlit, no glow（光纹只在她眼里，吊坠不得发光抢戏，禁 B 态）。
+        竖屏9比16连贯叙事。
+        镜头1（10s）近景→主观镜头 缓推+主观切换：图1 lowers her eyes to the blade 图3 in her palm — her pupils contract: across the blade surface, faint blue-white molecular light-veins flowing across metal surfaces like slow underwater light paths, delicate branching current lines drifting and pulsing, cool blue-white as the sole accent color against the desaturated rust-orange palette, visible only from her point of view. Cut to her POV: on the scrap-iron heap at her feet, every piece of metal carries drifting light-veins of different density — dense as woven cloth in places, thin as single silk threads in others. The pendant 图4 at her neck stays dormant and unlit. She slowly stows the blade into her tool belt, hiding it deep under the canvas flap.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚萤·内心独白画外音·屏息，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「刃上有光……在流。」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「不是错觉。每块铁上，都有纹路。」
+        对白（阿铁·画外·凑近，Teenage male, 16 years old, bright energetic boyish voice, quick eager delivery full of exclamations, emotions completely transparent, later comically imitating adult negotiation cadence）：「姐？你看啥呢？」
+        对白（苏晚萤·回神·收刃入腰带，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「看路。带我去镇上。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: PROP-005, role: reference_image, label: 图3 }
+        - { file: PROP-001, role: reference_image, label: 图4 }
+    transition_to_next: dissolve
+
+  - segment_id: EP03-SEG05
+    shot_ids: [EP03-S06, EP03-S07]
+    duration_sec: 11
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-007-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-003.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】阿铁 CHAR-007-L01（scavenger boy in patched work clothes, tape-wrapped goggles at neck）【图2】苏晚萤 CHAR-001-L01（rust-brown canvas scavenger jacket, blade hidden under tool belt canvas, not visible）。【图3】锈谷镇主街 SCENE-003。
+        角色分工：背景群像均背对镜头或前景虚化，无面部、无台词；利刃已收入图2工具腰带帆布下不外露。
+        竖屏9比16连贯叙事。
+        镜头1（5s）全景（一点透视） 固定镜头：Single-point perspective down the long street at dusk. Tilting, stacked sheet-metal shacks press in over the roadway; wordless neon tubes bent into geometric shapes hum in faded cyan-pink; overhead cables weave into a net; at the vanishing point, silhouettes of distant wreckage-mountains stab into the dusk. 图1 and 图2 walk small into the lower edge of the vertical frame, 图1 spreading both arms wide like a tour guide.
+        镜头2（6s）中景 镜头跟随（中速）：图1 and 图2 walk through the market: sorting stalls built from iron crates, an oil-drum fire casting warm light through white steam-pipe mist, a hunched silhouette repairing a neon tube. 图1's swagger fades; he lowers his voice, chin tipping toward the end of the street — where a line of scavengers carrying sacks stands waiting, all back-to-camera or foreground-blurred, no faces.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（阿铁·张开手臂·得意，Teenage male, 16 years old, bright energetic boyish voice, quick eager delivery full of exclamations, emotions completely transparent, later comically imitating adult negotiation cadence）：「锈谷镇！全星的破烂都在这换饭吃。」
+        对白（苏晚萤·打量四周，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「换给谁？」
+        对白（阿铁·压低声，Teenage male, 16 years old, bright energetic boyish voice, quick eager delivery full of exclamations, emotions completely transparent, later comically imitating adult negotiation cadence）：「全镇的废料，只能卖一家——卡隆收购站。」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「一家独收……价钱就不是价钱了。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+    transition_to_next: audio_bridge
+
+  - segment_id: EP03-SEG06
+    shot_ids: [EP03-S08]
+    duration_sec: 10
+    speakers: [CHAR-GRP-03, CHAR-007, CHAR-001]  # 主说话人=收购员与阿铁，她仅内心独白
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-GRP-03-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-GRP-03-L01-mesh.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-007-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        # 档口镜随镜传 SCENE-003B（主街 B 视角档口特写，R2-EP03-O2 闭环）；refs.scene_id 仍为 SCENE-003
+        SCENE-003B: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-003B.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】收购员 CHAR-GRP-03-L01（gaunt middle-aged purchasing clerk, appearance carried by reference image）【图2】阿铁 CHAR-007-L01（scavenger boy hugging his sack）【图3】苏晚萤 CHAR-001-L01（rust-brown canvas scavenger jacket）【图4】收购站档口 SCENE-003B。
+        角色分工：仅图1在铁栅后拨币盘、敲秤台，头也不抬；图2把麻袋往怀里紧抱；图3立于图2侧后打量；佝偻背影仅前景虚化掠过即出画、无面部；同框清晰人物≤3。
+        竖屏9比16连贯叙事。
+        镜头1（10s）中景 固定镜头：The purchasing-post counter at the end of the street — behind a barred counter window, a battered balance scale and a tray of thin metal tokens at hand. 图1 flicks through the token tray without looking up, a basket of mixed scrap iron dumped out on the scale. A hunched back clutching a few thin tokens passes as a foreground blur and exits frame, hands shaking badly. 图2 hugs his sack tighter against his chest; 图3 stands half a step behind him, her gaze sweeping the wordless vulture-totem iron plaque hanging above the counter.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（收购员·头也不抬·公事腔，Adult male, around 40 years old, dry flat clerk-like bureaucratic voice, thin rasping timbre with a dismissive take-it-or-leave-it drawl, lazy dragging pace when lowballing prices, snapping into a hushed urgent undertone with startled quickened delivery the moment he spots something truly valuable）：「杂铁，三个筹。爱卖不卖。」
+        对白（阿铁·小声愤愤，Teenage male, 16 years old, bright energetic boyish voice, quick eager delivery full of exclamations, emotions completely transparent, later comically imitating adult negotiation cadence）：「上月还五个筹呢……」
+        对白（收购员·敲秤台，Adult male, around 40 years old, dry flat clerk-like bureaucratic voice, thin rasping timbre with a dismissive take-it-or-leave-it drawl, lazy dragging pace when lowballing prices, snapping into a hushed urgent undertone with startled quickened delivery the moment he spots something truly valuable）：「嫌少？出了这街，你卖给风吗？」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「压得刚好饿不死——好狠的算盘。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-GRP-03-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-003B, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP03-SEG07
+    shot_ids: [EP03-S09]
+    duration_sec: 10
+    speakers: [CHAR-GRP-03, CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-007-L01-mesh.png
+        CHAR-GRP-03-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-GRP-03-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-003B: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-003B.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】阿铁 CHAR-007-L01（scavenger boy emptying his sack）【图2】收购员 CHAR-GRP-03-L01（gaunt middle-aged purchasing clerk behind the counter）【图3】苏晚萤 CHAR-001-L01（rust-brown canvas scavenger jacket）【图4】收购站档口 SCENE-003B。
+        角色分工：仅图1把麻袋倒上秤台；仅图2两根手指拨拉铜件并比出"二"的手势；图3伸手按住麻袋口，不触碰秤台。
+        竖屏9比16连贯叙事。
+        镜头1（10s）近景 固定镜头：图1 empties his sack onto the counter scale — half a bag of dull, tarnished scrap copper pieces. 图2 rakes through them twice with two fingers and holds up a "two" gesture. 图1's clenched fist slowly loosens — he accepts it. 图3's gaze lands on the scrap copper — a flash of her POV: across the copper surfaces, faint blue-white molecular light-veins flowing across metal surfaces like slow underwater light paths, delicate branching current lines drifting and pulsing, cool blue-white as the sole accent color against the desaturated rust-orange palette, visible only from her point of view, the light-veins murky, clogged and broken like silted waterways, dim and stuttering. She reaches out and presses her hand down on the mouth of the sack.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（收购员·拨拉铜件·嫌弃，Adult male, around 40 years old, dry flat clerk-like bureaucratic voice, thin rasping timbre with a dismissive take-it-or-leave-it drawl, lazy dragging pace when lowballing prices, snapping into a hushed urgent undertone with startled quickened delivery the moment he spots something truly valuable）：「杂铜掺锈，两个筹。」
+        对白（阿铁·攥拳又松·低声，Teenage male, 16 years old, bright energetic boyish voice, quick eager delivery full of exclamations, emotions completely transparent, later comically imitating adult negotiation cadence）：「……两个就两个。」
+        对白（苏晚萤·内心独白画外音，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「铜上的光纹是浑的……杂质。」
+        对白（苏晚萤·按住麻袋口·低声，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「先别卖。跟我来。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-03-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-003B, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP03-SEG08
+    shot_ids: [EP03-S10]
+    duration_sec: 9
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-001-L01-mesh.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-007-L01-mesh.png
+      scene_urls:
+        # 侧巷镜用 SCENE-003 主街基础版（暗巷为主街空间一部分，非档口，不用 003B）
+        SCENE-003: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-003.png
+      prop_urls:
+        PROP-016: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-016.png
+    api:
+      text: |
+        【图1】苏晚萤 CHAR-001-L01（rust-brown canvas scavenger jacket）【图2】阿铁 CHAR-007-L01（scavenger boy covering his mouth with both hands）【图3】锈谷镇主街 SCENE-003【图4】纯铜锭 PROP-016。
+        角色分工：仅图1双手攥握废铜件、掌心贴合；图2双手捂嘴、不触碰任何物品。
+        道具：图4=A palm-sized rectangular ingot of freshly purified pure copper, crisp clean-cut edges, mirror-smooth faces with a warm reddish-gold metallic luster, faint ghost-lines of molecular refinement barely visible on its surface, impossibly pristine against the grimy wasteland surroundings. 成品铜锭本体不发光：no blue-white glow, no glowing engravings, no luminescence（提纯幽纹为凝固态残影非发光态，道具卡 v1.2 决策）。
+        竖屏9比16连贯叙事。
+        镜头1（9s）近景→大特写 缓推：A dark corner of a side alley off the main street, beyond the reach of the oil-drum fire's warm glow. 图1 grips a handful of scrap copper pieces, palm pressed flat against them — faint blue-white molecular light-veins flowing across metal surfaces like slow underwater light paths, delicate branching current lines drifting and pulsing, cool blue-white as the sole accent color against the desaturated rust-orange palette, visible only from her point of view — the murky veins are combed straight inch by inch, dark ash-gray impurities flaking and sifting down from between her fingers; in her palm slowly condenses the ingot 图4, its warm reddish-gold sheen sitting like a small ember in the dark alley, the finished ingot itself emitting no blue-white glow. 图2 clamps both hands over his own mouth. Palm-level macro fluid-metal effect with coarse full-hand grip only, no fine finger deformation close-ups.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（苏晚萤·内心独白画外音·专注，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「顺着光纹走……把浑的，赶出去。」
+        对白（阿铁·捂嘴·气声，Teenage male, 16 years old, bright energetic boyish voice, quick eager delivery full of exclamations, emotions completely transparent, later comically imitating adult negotiation cadence）：「我的天……」
+        对白（苏晚萤·把铜锭塞进他手里·喘了口气，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「拿去卖。就说崖底捡的。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003, role: reference_image, label: 图3 }
+        - { file: PROP-016, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP03-SEG09
+    shot_ids: [EP03-S11, EP03-S12]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-GRP-03, CHAR-001]  # 她仅街角阴影画外内心独白，不传其形象图；主说话人=阿铁与收购员
+    refs:
+      scene_id: SCENE-003
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-007-L01-mesh.png
+        CHAR-GRP-03-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/流放荒星后，我靠捡破烂富甲星际/CHAR-GRP-03-L01-mesh.png
+      scene_urls:
+        SCENE-003B: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/流放荒星后，我靠捡破烂富甲星际/SCENE-003B.png
+      prop_urls:
+        PROP-016: https://drama-reference-images.tos-cn-beijing.volces.com/props/流放荒星后，我靠捡破烂富甲星际/PROP-016.png
+    api:
+      text: |
+        【图1】阿铁 CHAR-007-L01（scavenger boy, arms akimbo imitating adults）【图2】收购员 CHAR-GRP-03-L01（gaunt middle-aged purchasing clerk behind the barred window）【图3】收购站档口 SCENE-003B【图4】纯铜锭 PROP-016。
+        角色分工：仅图1把铜锭拍上秤台后叉腰；仅图2隔铁栅拿起铜锭举到吊灯下翻转；苏晚萤不入画（镜头2画外内心独白），远景至多一个街角霓虹阴影里的剪影、不给面部。
+        道具：图4=A palm-sized rectangular ingot of freshly purified pure copper, crisp clean-cut edges, mirror-smooth faces with a warm reddish-gold metallic luster, faint ghost-lines of molecular refinement barely visible on its surface, impossibly pristine against the grimy wasteland surroundings. 铜锭本体不发光：no blue-white glow, no luminescence.
+        竖屏9比16连贯叙事。
+        镜头1（4s）中景 固定镜头：At the counter, 图1 slaps the copper ingot 图4 down onto the counter scale with a sharp clack, then plants his hands on his hips in an imitation of a grown-up stance. behind a barred counter window, a battered balance scale and a tray of thin metal tokens at hand — 图2 reaches out lazily to pick the ingot up, and his hand freezes in mid-air.
+        镜头2（6s）近景→大特写 缓推：图2 raises the ingot 图4 up under the hanging lamp and turns it over — the faces flat as a mirror, a watery reddish-gold luster flowing across his knuckles, the reflection shrinking his pupils. His expression changes violently; he snaps his head up, the eyes behind the barred window nailing dead onto the boy off-frame. Neon light flickers twice across his face. No third figure enters the frame.
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（阿铁·叉腰·学大人腔，Teenage male, 16 years old, bright energetic boyish voice, quick eager delivery full of exclamations, emotions completely transparent, later comically imitating adult negotiation cadence）：「收不收？照市价。」
+        对白（收购员·脸色剧变·压低声，Adult male, around 40 years old, dry flat clerk-like bureaucratic voice, thin rasping timbre with a dismissive take-it-or-leave-it drawl, lazy dragging pace when lowballing prices, snapping into a hushed urgent undertone with startled quickened delivery the moment he spots something truly valuable）：「这纯度……你从哪弄来的？」
+        对白（苏晚萤·街角阴影·画外内心独白，Adult female, 22 years old, clear steady mid-low voice, calm and razor-controlled, the angrier she is the quieter and slower she speaks, crisp clipped sentence endings in negotiation, softens with a faint warmth only toward family and close allies）：「鱼，咬钩了。」
+        画面全程无任何文字、字幕、标题、水印。
+        Cinematic photorealistic sci-fi wasteland, rusted metal textures with glowing crystal light accents, dramatic character lighting, film grain, 24fps cadence, vertical 9:16 composition, desaturated rust-orange wasteland palette, dusty haze, no text, no subtitles, no watermark, no logo, no platform UI.
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-03-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-003B, role: reference_image, label: 图3 }
+        - { file: PROP-016, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
