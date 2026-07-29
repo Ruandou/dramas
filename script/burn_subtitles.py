@@ -121,9 +121,18 @@ def wrap(text: str, n: int) -> list[str]:
     return [text[i:i + n] for i in range(0, len(text), n)] or [text]
 
 
+# 烧录层去标点（爆款实测字幕近零标点：句读删除、句中停顿用空格）；
+# 仅作用于画面字幕，SRT 保留原标点供 TTS 断句/审阅。
+CUE_PUNCT_RE = re.compile(r"[，。、；：！？!?,.;:…]+|—+|~+|～+")
+
+
+def clean_cue_text(text: str) -> str:
+    return re.sub(r"\s+", " ", CUE_PUNCT_RE.sub(" ", text)).strip()
+
+
 def render_cue_png(text: str, width: int, out: Path, font) -> int:
-    """渲染透明底字幕条，返回图高。"""
-    lines = wrap(text, WRAP_CHARS)
+    """渲染透明底字幕条（去标点后），返回图高。"""
+    lines = wrap(clean_cue_text(text), WRAP_CHARS)
     line_h = FONT_SIZE + 14
     h = line_h * len(lines) + 12
     img = Image.new("RGBA", (width, h), (0, 0, 0, 0))
