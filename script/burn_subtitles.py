@@ -7,7 +7,8 @@
 
 对白时间轴为估算：每段内按台词字数比例分配（无 ASR 对齐），
 排版规范对齐 docs/references/爆款短剧制作工艺拉片.md：
-底部安全区约 15%、白字黑描边、单行短句优先（超长自动折行）。
+字幕块底边距底部 320px（25%）、字幕中心约 72% 高度、白字黑描边；
+单行短句优先，超 14 字自动折行仅为兜底（源头台词应控制短句）。
 
 人物出场卡（name card）：segments.yaml 的 segment 上可选 `name_card` 字段
 （dict 或 list），首次登场自动叠加「姓名（大）+ 关系/头衔（小）」卡：
@@ -17,9 +18,9 @@
       name: 宋昭           # 必填：姓名（大字）
       role: 护国公府二小姐  # 可选：以主角为锚点的关系或头衔（小字）
       style: vertical      # 可选：vertical（默认，四部爆款实测均竖排）| horizontal
-      at: 0.3              # 可选：段内出现时刻（秒，默认 0.3）
-      duration: 1.5        # 可选：停留时长（秒，默认 1.5）
-      x: 480               # 可选：像素坐标覆盖默认位置
+      at: 0.3              # 可选：段内出现时刻（秒，默认 0.3；应对准角色清晰露脸镜头）
+      duration: 2.5        # 可选：停留时长（秒，默认 2.5；爆款实测 ≥2s）
+      x: 480               # 可选：像素坐标覆盖；未指定时自动选画面较空一侧（左/右边缘复杂度分析）
       y: 140
 
 用法（仓库根）：
@@ -38,7 +39,7 @@ import sys
 from pathlib import Path
 
 import yaml
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageStat
 
 FONT_CANDIDATES = [
     "/System/Library/Fonts/Hiragino Sans GB.ttc",
@@ -55,8 +56,8 @@ TAIL_PAD = 0.4           # 每段末尾留白
 MIN_CUE = 1.0            # 单条最短显示时长
 
 # 人物出场卡默认参数（见 docs/references/爆款短剧制作工艺拉片.md §四）
-CARD_AT = 0.3            # 段内默认出现时刻
-CARD_DURATION = 1.5      # 默认停留时长
+CARD_AT = 0.3            # 段内默认出现时刻（应对准角色清晰露脸镜头，可用 at 覆盖）
+CARD_DURATION = 2.5      # 默认停留时长（爆款实测卡在屏 ≥2s）
 CARD_NAME_SIZE = 58      # 姓名字号（大，实测≈50–60px）
 CARD_ROLE_SIZE = 34      # 关系/头衔字号（小）
 CARD_NAME_GAP = 12       # 竖排姓名字间距
@@ -156,20 +157,47 @@ def _soft_shadow(txt_layer: Image.Image) -> Image.Image:
     return shadow.filter(ImageFilter.GaussianBlur(4))
 
 
+def pick_empty_side(mp4: Path, t: float, tmp_png: Path) -> str:
+    """抽挂卡时刻的帧，比较左右上部边缘复杂度，返回较空一侧 'left'/'right'。
+
+    参考剧做法：卡放人物侧旁负空间，避免压脸/压主体。分析失败时回退 right。
+    """
+    try:
+        subprocess.run(
+            ["ffmpeg", "-y", "-v", "error", "-ss", f"{max(t, 0.0):.3f}",
+             "-i", str(mp4), "-frames:v", "1", str(tmp_png)],
+            check=True, capture_output=True)
+        frame = Image.open(tmp_png).convert("L")
+        w, h = frame.size
+        band_w, y0, y1 = int(w * 0.36), int(h * 0.07), int(h * 0.5)  # 卡所在的上部区域
+        edges = frame.filter(ImageFilter.FIND_EDGES)
+        left = ImageStat.Stat(edges.crop((0, y0, band_w, y1))).mean[0]
+        right = ImageStat.Stat(edges.crop((w - band_w, y0, w, y1))).mean[0]
+        return "left" if left < right else "right"
+    except Exception as exc:  # 单卡选边失败不阻断整集烧录
+        print(f"⚠️ 出场卡选边分析失败（{exc}），默认靠右", file=sys.stderr)
+        return "right"
+
+
 def render_name_card_png(card: dict, out: Path,
-                         width: int, height: int) -> tuple[int, int]:
-    """渲染人物出场卡 PNG，返回默认叠加坐标 (x, y)。
+                         width: int, height: int,
+                         side: str = "right") -> tuple[int, int]:
+    """渲染人物出场卡 PNG，返回叠加坐标 (x, y)。
 
     默认竖排（四部爆款实测均为竖排卡）：身份/关系小字列在左上，
     姓名大字列在右侧向下错落；宋体粗体、白字柔和投影。
     style: vertical（默认）| horizontal（保留选项，姓名一行+关系一行）。
+    side：'left'/'right'，由调用方选边（负空间分析）；card 显式 x/y 优先。
     """
-    name = str(card["name"]).strip()
+    name = str(card.get("name", "") or "").strip()
     role = str(card.get("role", "") or "").strip()
     if len(role) > 7:
         print(f"⚠️ 出场卡身份过长（{len(role)}字）：「{role}」——爆款基准 ≤7 字，建议精简",
               file=sys.stderr)
     style = card.get("style", "vertical")
+    if style not in ("vertical", "horizontal"):
+        print(f"⚠️ 出场卡 style 非法值「{style}」，已按 vertical 渲染", file=sys.stderr)
+        style = "vertical"
     name_font = load_card_font(CARD_NAME_SIZE)
     role_font = load_card_font(CARD_ROLE_SIZE)
     pad = 10
@@ -186,7 +214,7 @@ def render_name_card_png(card: dict, out: Path,
         if role:
             d.text((pad, pad + CARD_NAME_SIZE + 14), role, font=role_font,
                    fill=(255, 255, 255, 235))
-        dx, dy = 56, int(height * 0.30)
+        dy = int(height * 0.30)
     else:
         role_h = len(role) * (CARD_ROLE_SIZE + CARD_ROLE_GAP) if role else 0
         name_h = len(name) * (CARD_NAME_SIZE + CARD_NAME_GAP)
@@ -202,13 +230,15 @@ def render_name_card_png(card: dict, out: Path,
                                   fill=(255, 255, 255, 235))
         _draw_vertical_column(d, name, name_x, pad + stagger, name_font,
                               CARD_NAME_SIZE, CARD_NAME_GAP)
-        dx, dy = width - w - 56, 130
+        dy = 130
 
-    img = Image.new("RGBA", txt.size, (0, 0, 0, 0))
-    img.alpha_composite(_soft_shadow(txt), (3, 4))
-    img.alpha_composite(txt)
+    dx = 56 if side == "left" else width - txt.width - 56
+    m = 10  # 阴影外扩边距，避免模糊尾部被画布截断
+    img = Image.new("RGBA", (txt.width + m * 2, txt.height + m * 2), (0, 0, 0, 0))
+    img.alpha_composite(_soft_shadow(txt), (m + 3, m + 4))
+    img.alpha_composite(txt, (m, m))
     img.save(out)
-    return int(card.get("x", dx)), int(card.get("y", dy))
+    return int(card.get("x", dx - m)), int(card.get("y", dy - m))
 
 
 def main() -> None:
@@ -230,9 +260,13 @@ def main() -> None:
     cards = []  # (start, end, card_dict)
     clips = []
     t0 = 0.0
-    for seg in segments:
+    for i, seg in enumerate(segments):
         # 兼容两种命名：segment_id: EP01-SEG01（文件同名）/ seg_id: SEG01（文件 EP01_SEG01）
-        sid = seg.get("segment_id") or f"{ep}_{seg['seg_id']}"
+        sid = seg.get("segment_id") or (
+            f"{ep}_{seg['seg_id']}" if seg.get("seg_id") else None)
+        if not sid:
+            print(f"segments[{i}] 缺 segment_id / seg_id 字段", file=sys.stderr)
+            sys.exit(1)
         mp4 = gen_dir / f"{sid}.mp4"
         if not mp4.is_file():
             print(f"缺片段视频：{mp4}", file=sys.stderr)
@@ -242,9 +276,16 @@ def main() -> None:
         nc = seg.get("name_card")
         if nc:
             for card in (nc if isinstance(nc, list) else [nc]):
-                at = min(float(card.get("at", CARD_AT)), max(dur - 0.5, 0.0))
+                if not str(card.get("name", "") or "").strip():
+                    print(f"{sid}.name_card 缺必填字段 name", file=sys.stderr)
+                    sys.exit(1)
+                at = max(0.0, min(float(card.get("at", CARD_AT)),
+                                  max(dur - 0.5, 0.0)))
                 cd = float(card.get("duration", CARD_DURATION))
-                cards.append((t0 + at, min(t0 + at + cd, t0 + dur), card))
+                # 选边用挂卡显示窗口中点帧（限在本段内）
+                mid = min(at + cd / 2, max(dur - 0.1, 0.0))
+                cards.append((t0 + at, min(t0 + at + cd, t0 + dur),
+                              card, mp4, mid))
         lines = [m[1].strip() for m in DIALOG_RE.findall(seg["api"]["text"])]
         if lines:
             usable = max(dur - LEAD_IN - TAIL_PAD, MIN_CUE * len(lines))
@@ -300,9 +341,12 @@ def main() -> None:
             f"[{prev}][{idx + 1}:v]overlay=0:{y}:enable='between(t,{s:.3f},{e:.3f})'[{out}]")
         prev = out
         idx += 1
-    for s, e, card in cards:
+    for s, e, card, seg_mp4, mid in cards:
         png = subs_dir / f"card{idx:03d}.png"
-        cx, cy = render_name_card_png(card, png, width, height)
+        side = "right"
+        if "x" not in card:  # 未手动指定时自动选较空一侧
+            side = pick_empty_side(seg_mp4, mid, subs_dir / f"_side{idx:03d}.png")
+        cx, cy = render_name_card_png(card, png, width, height, side=side)
         over_inputs += ["-i", str(png)]
         out = f"v{idx}"
         chain.append(

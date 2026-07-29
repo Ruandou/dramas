@@ -275,6 +275,7 @@ segments:
 | `api.text` | string | 合并后的 Segment Prompt |
 | `api.content_roles` | list | 参考图绑定列表 |
 | `transition_to_next` | enum | 可选。到下一 Segment 的转场类型：`hard_cut`（默认）/ `dissolve` / `fade` / `audio_bridge`。未标注时默认 `hard_cut` |
+| `name_card` | map | 可选。人物首次登场卡（后期 overlay，**不进** `api.text`）：`name`（必填，姓名）+ `role`（关系/头衔，**≤7 字**）+ 可选 `style`（默认 `vertical`）/`at`/`duration`/`x`/`y`。来源：剧本「本集制作备注·出场卡」登记行，逐条忠实转译到对应 SEG；烧录由 `script/burn_subtitles.py` 消费（见 docs/references/爆款短剧制作工艺拉片.md §四） |
 
 ---
 
