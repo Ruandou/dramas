@@ -1,0 +1,382 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP01/EP01_剧本.md
+# Source segments: 11 (EP01-SEG01 to EP01-SEG11) / Source shots: 12
+# Output segments: 11 / Output shots referenced: 12
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 120s（逐段自算：11+12+12+12+12+12+12+10+10+10+7）
+# Output total duration: 120s
+# Gate status: ALL PASS
+
+episode_id: EP01
+source_md: 剧本/EP01/EP01_剧本.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128  # 必须带版本后缀，无后缀名方舟返回 404 InvalidEndpointOrModel.NotFound
+  seed: 20260729  # 全剧统一固定 seed（制片规范§五 / 分集文件头 seedance_defaults；与 EP01_shots.yaml 一致）
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。"
+  negative_prompt: "modern objects, modern clothing, plastic, glass panes, electric light, light bulb, power lines, wires, rubber, zipper, wristwatch, phone, vehicle, bicycle, asphalt road, concrete, printed modern signage, modern hairstyle, modern makeup, eyeglasses, gunpowder firearms, identifiable real-dynasty imperial regalia, gibberish text, distorted Chinese characters"
+
+# voice_prompts 来源：资产/声音卡片.md（P0 权威源）· 全文复制「」内纯文本，逐字未改
+voice_prompts:
+  CHAR-001: "成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句"
+  CHAR-007: "中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高"
+  CHAR-009: "青年男性，27岁，虚浮怯懦的轻音，语速迟疑多停顿，句尾含糊吞字，转变后（EP48/77）语句才完整但音色不变"
+
+segments:
+  - segment_id: EP01-SEG01
+    shot_ids: [EP01-S01]
+    duration_sec: 11
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-007-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-010.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/assets/props/PROP-003.png
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/assets/props/PROP-006.png
+    api:
+      text: |
+        【图1】崔氏 CHAR-007-L01（深褐襦裙金耳坠）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪）【图3】顾家堂屋雨夜 SCENE-010【图4】休书 PROP-003【图5】樟木箱 PROP-006。
+        角色分工：仅图1可摔出图4休书；图2全程不弯腰、不触碰任何物品。
+        道具：图4休书为粗麻纸墨书带一枚红指印，纸面文字全程虚化不可辨认；图5樟木箱包铜角、闭合捆扎，压在墙角嫁妆箱笼最底。
+        竖屏9比16连贯叙事。
+        镜头1（11s）中景 缓推：雨点砸在窗纸上，油灯火苗被穿堂风压得忽明忽暗，青灰冷光罩住堂屋；图1立于堂中金耳坠晃动，将图4狠狠摔在图2脚前的青砖上；图2立在门侧，垂眼看纸，不弯腰；墙角摞着捆扎好的嫁妆箱笼，图5压在最底。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「沈青盐，接休书！」
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「今日当着列祖列宗，休了她！」
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「我儿落水三日高热不退，全是你克的！」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「落水是船翻。这罪名，我不认。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+        - { file: PROP-003, role: reference_image, label: 图4 }
+        - { file: PROP-006, role: reference_image, label: 图5 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG02
+    shot_ids: [EP01-S02]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-007-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】崔氏 CHAR-007-L01（深褐襦裙金耳坠）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪）【图3】顾家堂屋雨夜 SCENE-010。
+        竖屏9比16连贯叙事。
+        镜头1（12s）近景 固定镜头：青灰冷光堂屋，图1逼近一步，帕子甩得啪啪响，唾沫星子映着灯光；反打图2面无表情，目光越过图1，落在供桌边那只三日没动过的空药碗上，碗底积了层灰；图2开口时神情轻得像自语。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「满镇谁不说你八字硬、命带煞？」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「人病是病，不是我克的。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「郎中三日没请了。省下的是药钱吧。」
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「哟，我可没说什么呀——老天爷说的！」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG03
+    shot_ids: [EP01-S03]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-009]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+        CHAR-009-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-009-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈青盐 CHAR-001-L01（粗布素衣木簪）【图2】顾世安 CHAR-009-L01（灰蓝细布长衫）【图3】顾家堂屋雨夜 SCENE-010。
+        角色分工：仅图2卧于竹榻绞被角；图1立于榻前三步处不靠近、不触碰任何物品。
+        竖屏9比16连贯叙事。
+        镜头1（12s）中景 镜头跟随：堂屋侧间竹榻，图2裹着薄被半坐，脸色蜡黄，额上敷着的布巾滑到一边，说话时眼神始终躲着图1，手指无意识地绞着被角；图1立在榻前三步处，没有再靠近，听完只极轻地点了一下头；油灯把两人的影子在土墙上拉得很长、离得很远。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「顾世安，你也信这个？」
+        对白（顾世安，青年男性，27岁，虚浮怯懦的轻音，语速迟疑多停顿，句尾含糊吞字，转变后（EP48/77）语句才完整但音色不变）：「我娘说……你走了，我这病就能好……」
+        对白（顾世安，青年男性，27岁，虚浮怯懦的轻音，语速迟疑多停顿，句尾含糊吞字，转变后（EP48/77）语句才完整但音色不变）：「总归……不太好吧，可娘、娘定了……」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「好。你娘定的，你认。我记下了。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-009-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG04
+    shot_ids: [EP01-S04]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-007-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-010.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/assets/props/PROP-003.png
+    api:
+      text: |
+        【图1】崔氏 CHAR-007-L01（深褐襦裙金耳坠）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪）【图3】顾家堂屋雨夜 SCENE-010【图4】休书 PROP-003。
+        角色分工：仅图1可拾起、展开、拍放图4休书；图2一动不动不触碰任何物品。
+        道具：图4休书为粗麻纸墨书，纸上墨字全程虚化不可辨认，唯一枚红指印在冷光里刺眼；休书内容全部由台词读出，画面不显示文字。
+        竖屏9比16连贯叙事。
+        镜头1（12s）近景 缓推：图1拾起图4展开，凑到灯下宣读，读罢把纸拍在供桌上，下巴扬起；图2一动不动，只盯着那枚红指印看。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「『沈氏无出，妨害夫身，两讫无涉』！」
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「红指印按了，官凭私据两清。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「他病得握不住笔。这字，谁写的？」
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「我请先生写的，一样作数！」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+        - { file: PROP-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG05
+    shot_ids: [EP01-S05, EP01-S06]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-007-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-010.png
+      prop_urls:
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/assets/props/PROP-006.png
+    api:
+      text: |
+        【图1】崔氏 CHAR-007-L01（深褐襦裙金耳坠）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪）【图3】顾家堂屋雨夜 SCENE-010【图4】樟木箱 PROP-006。
+        角色分工：仅图1可持账册、拍图4箱盖；图2不触碰任何物品，仅以目光落向图4。
+        道具：图4樟木箱包铜角、闭合捆扎，压在嫁妆箱笼最底，绳结崭新；账册纸面文字虚化不可辨认。
+        竖屏9比16连贯叙事。
+        镜头1（6s）中景 固定镜头：图1捏着一本账册倚在嫁妆箱笼旁，指尖点着页面逐条报数，金耳坠随着点头一晃一晃，帕子搭在腕上；身后箱笼捆得结结实实，绳结崭新。
+        镜头2（6s）近景 固定镜头：图2的目光越过图1肩头，落在箱笼最底那只包铜角的图4上，眼神第一次起了波澜；图1顺着她的视线回头，一掌拍在箱盖铜角上，护食一般横过半个身子。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「嫁妆折银四十两，抵我儿药钱。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「顾家三年的席面，都出自我这双手。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「箱子里，是我娘留我的东西。」
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「抬进顾家门，就是顾家的！」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+        - { file: PROP-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG06
+    shot_ids: [EP01-S07]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-007]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-007-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-010.png
+      prop_urls:
+        PROP-006: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/assets/props/PROP-006.png
+    api:
+      text: |
+        【图1】沈青盐 CHAR-001-L01（粗布素衣木簪）【图2】崔氏 CHAR-007-L01（深褐襦裙金耳坠）【图3】顾家堂屋雨夜 SCENE-010【图4】樟木箱 PROP-006。
+        角色分工：图1仅以指尖按住图4铜环后收手；仅图2可拍开图1的手并横身挡箱。
+        道具：图4樟木箱包铜角、闭合捆扎，带黄铜箱环。
+        竖屏9比16连贯叙事。
+        镜头1（12s）近景 固定镜头：图1上前，指尖按住图4的铜环，动作很轻却按得极稳；图2一把拍开她的手，整个人横身挡在箱前；图1收手，指节在袖中慢慢攥紧、又松开；灯花爆了一声。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「银子归你。箱子，我带走。」
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「休妇还想搬箱？让全镇看笑话！」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「先留命。东西，日后我拿得回来。」
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「识相。顾家仁义，还赏你块地呢。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+        - { file: PROP-006, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG07
+    shot_ids: [EP01-S08]
+    duration_sec: 12
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-007-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-010.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/assets/props/PROP-003.png
+    api:
+      text: |
+        【图1】崔氏 CHAR-007-L01（深褐襦裙金耳坠）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪）【图3】顾家堂屋雨夜 SCENE-010【图4】休书 PROP-003。
+        角色分工：仅图1可甩出地契；仅图2可拾起地契与图4休书并折好收入怀襟。
+        道具：地契与图4休书均为粗麻纸，纸面文字全程虚化不可辨认。
+        竖屏9比16连贯叙事。
+        镜头1（12s）中景 固定镜头：图1从袖中抽出一纸地契，甩在图2脚前；图2蹲身拾起，就着灯光看得极慢极认真，随手把桌上那纸图4也一并拾起，两纸折好、收进怀襟贴身处；图1抱臂冷笑，没看见图2低头时眼里一闪而过的光。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「斥卤滩三亩白地，抵你全部嫁妆。」
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「草都不长的盐碱窝，配你正好。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「白纸黑字——这三亩，往后是我的？」
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「拿去。饿死滩上，别怨顾家！」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+        - { file: PROP-003, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG08
+    shot_ids: [EP01-S09]
+    duration_sec: 10
+    speakers: [CHAR-007, CHAR-001]
+    refs:
+      scene_id: SCENE-010
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-007-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-010.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/assets/props/PROP-001.png
+    api:
+      text: |
+        【图1】沈青盐 CHAR-001-L01（粗布素衣木簪）【图2】崔氏 CHAR-007-L01（深褐襦裙金耳坠）【图3】顾家堂屋雨夜 SCENE-010【图4】《盐卤手记》旧书 PROP-001。
+        角色分工：仅图1可抱坛、拉门；图2立于堂中不动。
+        道具：缺口腌菜坛坛口以粗布扎紧；图4为半册靛蓝布面旧书，揣在图1怀襟里，只露出磨白的书脊一角，封皮不露全貌。
+        竖屏9比16连贯叙事。
+        镜头1（10s）中景到全景 镜头跟随：图1弯腰抱起灶间那只缺口腌菜坛，坛口粗布扎得整整齐齐，怀襟里露出图4磨白的书脊一角；图1抱坛走向大门，在门口停了半步，说完最后一句，拉门——雨声轰然灌进堂屋，门板在图2面前重重摔上。音效：摔门声与雨声轰然。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（崔氏，中老年女性，50岁，尖利刻薄带拖腔，语速忽快忽慢、阴阳顿挫的反问调，理亏时音量陡然拔高）：「金银细软不争，抱个破坛子走？」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「坛是我的手艺，书是我爹的命。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「这门，我自己走。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+        - { file: PROP-001, role: reference_image, label: 图4 }
+    transition_to_next: fade
+
+  - segment_id: EP01-SEG09
+    shot_ids: [EP01-S10]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-011
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-011.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/assets/props/PROP-003.png
+    api:
+      text: |
+        【图1】沈青盐 CHAR-001-L01（粗布素衣木簪）【图2】城门外官道 SCENE-011【图3】休书 PROP-003。
+        道具：图3休书折角露在图1怀口，纸面文字虚化不可辨认。
+        竖屏9比16连贯叙事。
+        镜头1（10s）全景 缓推：拂晓青蓝，城门外官道空无一人，路面积水映着灰白天光；图1怀抱腌菜坛立在道旁，怀口那纸图3被夜风掀得哗哗作响；远处地平线上，一片白茫茫的滩地泛着微光；图1眯起眼，望着那片白。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「三年灶台，咸淡我从没错过手。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「爹说过——舌头，不会骗人。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+        - { file: PROP-003, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP01-SEG10
+    shot_ids: [EP01-S11]
+    duration_sec: 10
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-011
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-011: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-011.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈青盐 CHAR-001-L01（粗布素衣木簪）【图2】城门外官道 SCENE-011。
+        竖屏9比16连贯叙事。
+        镜头1（10s）近景到大特写 镜头推近：图1把坛放在脚边，蹲下，抓起路旁一把泛白的浮土，指尖捻开——白霜簌簌落下；指尖沾了一点送到唇边轻触；一瞬间，瞳孔骤亮；图1缓缓抬头，望向那片白茫茫的滩地，风把鬓发吹起，画面定格在她骤亮的眼上。舔土动作仅以指尖沾唇与面部反应呈现，不出现舌部特写。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「咸的……」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「这地……是咸的。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-011, role: reference_image, label: 图2 }
+    transition_to_next: dissolve
+
+  - segment_id: EP01-SEG11
+    shot_ids: [EP01-S12]
+    duration_sec: 7
+    speakers: []
+    refs:
+      scene_id: SCENE-001
+    assets:
+      look_urls: {}
+      scene_urls: {}
+      prop_urls: {}
+    api:
+      text: |
+        主观视界：斥卤滩在拂晓中一直铺到天边，盐碱白霜像落了一层不化的雪，风卷起细白的盐尘掠过龟裂地面。荒滩无人，天际线泛出第一线冷金色晨光——废地在发光。
+        竖屏9比16连贯叙事。
+        镜头1（7s）远景 缓推：白茫茫盐碱荒滩铺向天际，风卷盐尘掠过龟裂地面，冷金色晨光自地平线亮起，荒滩无人。音效：无对白，风声渐强，收束在一声极轻的心跳声上。
+        画面全程无任何文字、字幕、标题、水印。
+        本段无对白无语音，禁止画面中出现任何文字。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles: []
+    transition_to_next: hard_cut
