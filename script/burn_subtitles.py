@@ -11,7 +11,9 @@
 单行短句优先，超 14 字自动折行仅为兜底（源头台词应控制短句）。
 
 人物出场卡（name card）：segments.yaml 的 segment 上可选 `name_card` 字段
-（dict 或 list），首次登场自动叠加「姓名（大）+ 关系/头衔（小）」卡：
+（dict 或 list），首次登场自动叠加「姓名（大）+ 关系/头衔（小）」卡；
+地点卡（location card）：可选 `location_card` 字段，场景首次出现时叠加
+竖排地点名（如「护国公府」），爆款实测同款：
 
   - segment_id: EP01-SEG02
     name_card:            # 或 list 支持同段多卡
@@ -22,6 +24,15 @@
       duration: 2.5        # 可选：停留时长（秒，默认 2.5；爆款实测 ≥2s）
       x: 480               # 可选：像素坐标覆盖；未指定时自动选画面较空一侧（左/右边缘复杂度分析）
       y: 140
+    location_card:         # 地点卡：场景首次出现的 SEG 登记
+      text: 护国公府        # 必填：地点名（建议 ≤6 字）
+      at: 0.3              # 可选，同上
+      duration: 2.5
+
+字幕-语音对齐（--tts-dir）：默认时间轴按字数估算；传入 tts_batch_edge 产出的
+目录（001.mp3...与 cue 顺序一致）后，按每句音频实际时长重排时间轴，
+再经 mix_tts_from_srt.py 按 SRT 起点叠音即可声字同步。同时产出
+`EP##_对白_lines.txt`（一行一句，供 tts_batch_edge --lines）闭环。
 
 用法（仓库根）：
   python3 script/burn_subtitles.py EP01 --project-root dramas/<剧名>
@@ -62,6 +73,9 @@ CARD_NAME_SIZE = 58      # 姓名字号（大，实测≈50–60px）
 CARD_ROLE_SIZE = 34      # 关系/头衔字号（小）
 CARD_NAME_GAP = 12       # 竖排姓名字间距
 CARD_ROLE_GAP = 8        # 竖排身份字间距
+LOC_SIZE = 40            # 地点卡字号（竖排单列，介于姓名与身份之间）
+LOC_GAP = 10             # 地点卡字间距
+CUE_GAP = 0.15           # TTS 对齐模式下相邻 cue 间隔
 
 DIALOG_RE = re.compile(r"对白（([^，）]+)[^）]*）：「(.+?)」", re.S)
 
@@ -128,6 +142,21 @@ CUE_PUNCT_RE = re.compile(r"[，。、；：！？!?,.;:…]+|—+|~+|～+")
 
 def clean_cue_text(text: str) -> str:
     return re.sub(r"\s+", " ", CUE_PUNCT_RE.sub(" ", text)).strip()
+
+
+# 长台词按句拆条（一句一条、随语音节奏切，对齐爆款）；拆分后保留原标点供 SRT/TTS
+SENT_SPLIT_RE = re.compile(r"(?<=[。！？!?；;])|(?<=……)|(?<=——)")
+
+
+def split_sentences(line: str) -> list[str]:
+    pieces = [p.strip() for p in SENT_SPLIT_RE.split(line) if p.strip()]
+    merged: list[str] = []
+    for p in pieces:  # 碎片（≤2字，如单独的“——”残片）并入前一条
+        if merged and len(clean_cue_text(p)) <= 2:
+            merged[-1] += p
+        else:
+            merged.append(p)
+    return merged or [line]
 
 
 def render_cue_png(text: str, width: int, out: Path, font) -> int:
@@ -250,11 +279,36 @@ def render_name_card_png(card: dict, out: Path,
     return int(card.get("x", dx - m)), int(card.get("y", dy - m))
 
 
+def render_location_card_png(card: dict, out: Path,
+                             width: int, height: int,
+                             side: str = "right") -> tuple[int, int]:
+    """渲染地点卡 PNG（竖排单列，爆款实测同款如「护国公府」），返回叠加坐标。"""
+    text = str(card.get("text", "") or "").strip()
+    if len(text) > 6:
+        print(f"⚠️ 地点卡过长（{len(text)}字）：「{text}」，建议 ≤6 字", file=sys.stderr)
+    font = load_card_font(LOC_SIZE)
+    pad = 8
+    w = LOC_SIZE + pad * 2 + 4
+    h = len(text) * (LOC_SIZE + LOC_GAP) + pad * 2
+    txt = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(txt)
+    _draw_vertical_column(d, text, pad, pad, font, LOC_SIZE, LOC_GAP)
+    dx = 48 if side == "left" else width - w - 48
+    dy = 110
+    m = 10
+    img = Image.new("RGBA", (w + m * 2, h + m * 2), (0, 0, 0, 0))
+    img.alpha_composite(_soft_shadow(txt), (m + 3, m + 4))
+    img.alpha_composite(txt, (m, m))
+    img.save(out)
+    return int(card.get("x", dx - m)), int(card.get("y", dy - m))
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("episode")
     ap.add_argument("--project-root", required=True)
     ap.add_argument("--no-burn", action="store_true", help="只出 SRT 和拼接，不烧字幕")
+    ap.add_argument("--tts-dir", help="tts_batch_edge 产出目录（001.mp3...），按音频实际时长对齐字幕时间轴")
     args = ap.parse_args()
 
     ep = args.episode
@@ -264,9 +318,10 @@ def main() -> None:
     data = yaml.safe_load(seg_yaml.read_text(encoding="utf-8"))
     segments = data.get("segments") or data.get("Segments")
 
-    # 1. 收集片段与对白，累加时间轴；同时收集人物出场卡
-    cues = []   # (start, end, text)
-    cards = []  # (start, end, card_dict)
+    # 1. 收集片段与对白（按句拆条），累加时间轴；同时收集人物出场卡/地点卡
+    cues = []   # [start, end, text, seg_start, seg_end]
+    cards = []  # (start, end, card_dict, mp4, mid)
+    locs = []   # (start, end, card_dict, mp4, mid)
     clips = []
     t0 = 0.0
     for i, seg in enumerate(segments):
@@ -295,7 +350,20 @@ def main() -> None:
                 mid = min(at + cd / 2, max(dur - 0.1, 0.0))
                 cards.append((t0 + at, min(t0 + at + cd, t0 + dur),
                               card, mp4, mid))
-        lines = [m[1].strip() for m in DIALOG_RE.findall(seg["api"]["text"])]
+        lc = seg.get("location_card")
+        if lc:
+            for card in (lc if isinstance(lc, list) else [lc]):
+                if not str(card.get("text", "") or "").strip():
+                    print(f"{sid}.location_card 缺必填字段 text", file=sys.stderr)
+                    sys.exit(1)
+                at = max(0.0, min(float(card.get("at", CARD_AT)),
+                                  max(dur - 0.5, 0.0)))
+                cd = float(card.get("duration", CARD_DURATION))
+                mid = min(at + cd / 2, max(dur - 0.1, 0.0))
+                locs.append((t0 + at, min(t0 + at + cd, t0 + dur),
+                             card, mp4, mid))
+        lines = [s for m_ in DIALOG_RE.findall(seg["api"]["text"])
+                 for s in split_sentences(m_[1].strip())]
         if lines:
             usable = max(dur - LEAD_IN - TAIL_PAD, MIN_CUE * len(lines))
             weights = [max(len(x), 4) for x in lines]
@@ -304,15 +372,40 @@ def main() -> None:
             for ln, w in zip(lines, weights):
                 d = max(usable * w / total_w, MIN_CUE)
                 end = min(t + d, t0 + dur - 0.1)
-                cues.append((t, end, ln))
+                cues.append([t, end, ln, t0, t0 + dur])
                 t = end
         t0 += dur
 
-    # 2. 写 SRT
+    # 1.5 TTS 对齐：按每句音频实际时长重排时间轴（段内顺序、溢出告警）
+    if args.tts_dir:
+        mp3s = sorted(Path(args.tts_dir).glob("*.mp3"),
+                      key=lambda p: int(re.sub(r"\D", "", p.stem) or 0))
+        if len(mp3s) != len(cues):
+            print(f"TTS 音频数 {len(mp3s)} ≠ 字幕条数 {len(cues)}，无法对齐", file=sys.stderr)
+            sys.exit(1)
+        cursor = None
+        prev_seg = None
+        for cue, mp3 in zip(cues, mp3s):
+            seg_start, seg_end = cue[3], cue[4]
+            if seg_start != prev_seg:  # 新段从段首 LEAD_IN 起排
+                cursor = seg_start + LEAD_IN
+                prev_seg = seg_start
+            d = ffprobe_duration(mp3)
+            cue[0] = cursor
+            cue[1] = cursor + d
+            if cue[1] > seg_end:
+                print(f"⚠️ TTS 溢出段尾 {cue[1]-seg_end:.2f}s：「{cue[2][:12]}…」"
+                      f"（段窗口 {seg_start:.1f}-{seg_end:.1f}s）", file=sys.stderr)
+            cursor = cue[1] + CUE_GAP
+        print(f"TTS 对齐：{len(mp3s)} 句音频时长已回填时间轴")
+
+    # 2. 写 SRT（保留原标点供 TTS/审阅）+ lines.txt（供 tts_batch_edge）
     srt_path = seg_yaml.parent / f"{ep}_对白.srt"
     with srt_path.open("w", encoding="utf-8") as f:
-        for i, (s, e, txt) in enumerate(cues, 1):
+        for i, (s, e, txt, *_rest) in enumerate(cues, 1):
             f.write(f"{i}\n{fmt_srt(s)} --> {fmt_srt(e)}\n{txt}\n\n")
+    lines_path = seg_yaml.parent / f"{ep}_对白_lines.txt"
+    lines_path.write_text("\n".join(c[2] for c in cues) + "\n", encoding="utf-8")
     print(f"SRT: {srt_path}  cues={len(cues)}  总时长={t0:.2f}s")
 
     # 3. 拼接（统一音频采样率）
@@ -340,7 +433,7 @@ def main() -> None:
     over_inputs, chain = [], []
     prev = "0:v"
     idx = 0
-    for s, e, txt in cues:
+    for s, e, txt, *_rest in cues:
         png = subs_dir / f"cue{idx:03d}.png"
         h = render_cue_png(txt, width, png, font)
         over_inputs += ["-i", str(png)]
@@ -362,8 +455,22 @@ def main() -> None:
             f"[{prev}][{idx + 1}:v]overlay={cx}:{cy}:enable='between(t,{s:.3f},{e:.3f})'[{out}]")
         prev = out
         idx += 1
+    for s, e, card, seg_mp4, mid in locs:
+        png = subs_dir / f"loc{idx:03d}.png"
+        side = "right"
+        if "x" not in card:
+            side = pick_empty_side(seg_mp4, mid, subs_dir / f"_side{idx:03d}.png")
+        cx, cy = render_location_card_png(card, png, width, height, side=side)
+        over_inputs += ["-i", str(png)]
+        out = f"v{idx}"
+        chain.append(
+            f"[{prev}][{idx + 1}:v]overlay={cx}:{cy}:enable='between(t,{s:.3f},{e:.3f})'[{out}]")
+        prev = out
+        idx += 1
     if cards:
         print(f"出场卡：{len(cards)} 张")
+    if locs:
+        print(f"地点卡：{len(locs)} 张")
     final = gen_dir / f"{ep}_成片_字幕.mp4"
     subprocess.run(
         ["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), *over_inputs,
