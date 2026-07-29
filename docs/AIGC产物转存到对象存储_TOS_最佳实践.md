@@ -88,4 +88,5 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root "dramas/<剧名>
 - **禁止**手工 `upload --key` 自创前缀（如 `videos/`）——会绕过登记产生孤儿对象；单文件补传也须沿用上表前缀并随后 `update-registry`
 - 道具/角色/场景图路径中**不含** `assets/` 段（事故复盘：`props/<剧名>/assets/props/PROP-###.png` 系错误拼接 → 400 resource not found，见 2026-07-29 边荒盐妇 EP01）
 - 验收：上传后对 `cdn_urls.json` 登记的 tos_url 抽样 `curl -I` 验 HEAD 200 + Content-Length 与本地一致
+- ⚠️ **sync 不覆盖同名对象**（只判 object_exists，不比内容）：重烧成片/重生成同名素材后，必须对变更文件单独 `upload --key <同前缀同名>` 强制覆盖，并用 Content-Length 比对验收（事故复盘：2026-07-29 边荒盐妇 EP01 补烧出场卡后 sync 全部 SKIP，TOS 上仍是旧版）
 
