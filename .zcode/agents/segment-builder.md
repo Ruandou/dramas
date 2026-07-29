@@ -226,6 +226,13 @@ voice_prompts:
 # 规则：必须全文复制原文（含「」内全部文字），禁止缩写/改写/翻译
 # 注：声音卡片.md 中用「」包裹 voice_prompt 是 Markdown 格式标记，
 # YAML 中存储括号内的纯文本内容（不含「」）。“全文复制”指复制括号内的文字。
+#
+# 语速分层透传（v2.1 基准 Rule 44c，可选）：
+# 当 scene-writer 制作备注「音乐/节奏」字段含 TTS 语速建议（高潮 +10%/抒情 −10%）时：
+# ① Seedance 路径（本 YAML）：在对应段 prompt 的台词括号声音描述尾部追加「语速加快，情绪激动」
+#    或「语速放缓，情绪低沉」（文字描述驱动，Seedance 自合成音轨，无 rate 参数）；
+# ② 本地 TTS 路径：在段级加可选字段 `tts_rate: "+10%"`（yaml_check 不拦额外字段），
+#    供 script/tts_batch_edge.py `--rate`/行级 `[rate:±X%]` 标记消费（已支持）。
 
 segments:
   - segment_id: EP01-SEG01
