@@ -58,7 +58,7 @@ story-architect → production-planner → prop-designer → [character-designer
 
 计算源 `.md` 中所有镜头的 `时长` 列之和。
 
-> **阈值来源**：以本集 `制片规范.md` → `episode_profile` 定义的 `duration_sec` 下限/上限为准（示例 standard-72: 75-120s，EP01 90-120s；长集项目如 140-200s 以实际 episode_profile 为准）。判定前先读本集 episode_profile 取阈值。
+> **阈值来源**：以本集 `制片规范.md` → `episode_profile` 定义的 `duration_sec` 下限/上限为准（示例 standard-86: 75-120s，EP01 90-120s；长集项目如 140-200s 以实际 episode_profile 为准）。判定前先读本集 episode_profile 取阈值。
 
 - 落在 episode_profile 合规区间（示例 ≥75s 且 ≤120s，EP01 ≥90s）：通过，继续
 - **低于下限**（示例 <75s / EP01 <90s）：❌ 停止。报告："源文件总时长 Xs，低于 episode_profile 下限门槛，差 Ys。请 scene-writer **废弃当前稿、重写整集**后重试（禁止微调秒数补足，见 scene-writer 自检 1 红线）。"
@@ -445,7 +445,7 @@ assets:
 | 理想时长 | 8–10 秒 | 最佳生成效果 |
 | 每 segment 镜头数 | 1–3（最多 3） | 超出必须拆分 |
 | 每 segment 说话人 | ≤2 | 超出必须拆分 |
-| 全集总时长 | 落在 `制片规范.md` → `episode_profile` 合规区间（示例 ≥75s 且 ≤120s，EP01 90-120s；长集项目以实际为准） | 90 秒（standard-72 默认） |
+| 全集总时长 | 落在 `制片规范.md` → `episode_profile` 合规区间（示例 ≥75s 且 ≤120s，EP01 90-120s；长集项目以实际为准） | 90 秒（standard-86 默认） |
 | 全集 segment 数 | 6–10 段 | 合理密度 |
 | 每集镜头数 | 8–12 镜 | 对应每集 6–10 段 × 1–3 镜/段 |
 
@@ -731,7 +731,7 @@ segments:
 
 | 层 | 文件 | 角色 |
 |----|------|------|
-| 1 | `短剧剧本_剧名_72集.md` | story-architect |
+| 1 | `短剧剧本_剧名_86集.md` | story-architect |
 | 2 | `剧本/EP##/EP##_*.md` | scene-writer |
 | **3** | **`剧本/EP##/EP##_shots.yaml`** | **segment-builder（本角色）** |
 | **4** | **`剧本/EP##/EP##_segments.yaml`** | **segment-builder（本角色）** |

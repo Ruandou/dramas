@@ -49,7 +49,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 | 输入 | 来源 | 用途 |
 |------|------|------|
-| `短剧剧本_剧名_72集.md` | 用户/story-architect | 获取叙事上下文：人物性格、关系、情绪弧线 |
+| `短剧剧本_剧名_86集.md` | 用户/story-architect | 获取叙事上下文：人物性格、关系、情绪弧线 |
 | CHAR-### ID 骨架（角色卡片骨架 / 制片规范.md） | production-planner | 已分配的角色 ID、姓名、阵营、戏剧功能分类——character-designer **不再自行分配 ID** |
 | `制片规范.md` | production-planner | Seedream 模型、分辨率、negative prompts、style_anchors、视觉禁忌 |
 | `assets/props/PROP-###.png` | prop-designer (Stage 3a) | `待生成` 道具的参考图，用作 Seedream image reference 确保道具视觉一致性 |
@@ -1226,7 +1226,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 
 ## 三、四层反派系统（4-Layer Villain System）
 
-> 改编自 0xsline 反派设计框架，适配 72 集短剧格式。与 story-architect 的满足感编码（satisfaction codes）联动。
+> 改编自 0xsline 反派设计框架，适配 86 集短剧格式。与 story-architect 的满足感编码（satisfaction codes）联动。
 
 ### 第一层：小反派（Minor Villain，EP1-9）
 
@@ -1330,7 +1330,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 |------|------|------|
 | 核心角色 | 3-5 人 | 主角 + 主要对手 + 情感线核心 |
 | 功能角色 | 最多 10 人 | 每人必须服务明确剧情功能 |
-| 总上限 | 15 个有名角色 | 72 集剧不超过 |
+| 总上限 | 15 个有名角色 | 86 集剧不超过 |
 | 群演/背景 | 不计入有名角色上限 | 每个独立视觉角色必须有独立 ID + L01，禁止多人共用一脸 |
 
 ### "有用 + 有记忆点"双重测试
@@ -1459,7 +1459,7 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 | # | 检查项 | 通过标准 |
 |---|--------|----------|
 | 1 | ID 唯一性 | 所有 CHAR-### 不重复 |
-| 2 | 大纲覆盖 | 72集大纲中出现的所有有名角色均有卡片 |
+| 2 | 大纲覆盖 | 86集大纲中出现的所有有名角色均有卡片 |
 | 3 | L01 存在 | 每个角色至少有一个 L01 形象定义 |
 | 4 | voice_prompt 格式 | 所有 voice_prompt 使用「性别，年龄，音色，语速，情绪/习惯」格式 |
 | 5 | PROP 交叉引用 | 角色专属道具标注了 PROP-### ID |
