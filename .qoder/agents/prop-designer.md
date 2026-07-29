@@ -126,9 +126,8 @@ G2 通过 → prop-designer (Stage 3a) 启动 → 完成所有道具图（即生
    - 佩戴类（戒指/项链/令牌）：平视，展示细节
    - 书籍/卷轴类：半展开状态，展示内容或封面
 4. **编写最终英文 Seedream Prompt** → 产品摄影打光 + 温暖中性丝绸背景
-5. **将 Prompt 写入道具卡片** → 编辑 `资产/道具卡片.md`，在对应 `PROP-###` 条目中添加 `Seedream Prompt` 字段
-   - 更新「参考图」字段为 `已生成`
-   - Prompt 以行内代码格式写入表格行
+5. **将 Prompt 写入道具卡片** → 编辑 `资产/道具卡片.md`，将完整 Prompt 以 `**道具 Prompt（EN）**：` 代码块形式追加在对应 `PROP-###` 表格下方（禁止新增表格字段，见「输出格式强制规则」）
+   - 「参考图」状态保持 `待生成`（生成+TOS 上传后由 Step 8 改 `✅ 已生成`）
 
 > **Prompt 权威来源与执行配置分离**：
 > - `资产/道具卡片.md` 中的 Seedream Prompt 是**权威来源**（source of truth）
@@ -226,7 +225,7 @@ python3 mcps/volc-ark/scripts/ark_seedream_image.py --help
 
 > **即生即传规则（Generate-then-Upload）**：每张道具图生成确认后，必须**立即**执行 TOS 上传并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
 >
-> 流程：`生成图片 → 确认质量（Step 6）→ tos_upload.py sync → 更新 cdn_urls.json → 下一张`
+> 流程：`生成图片 → 确认质量（Step 7）→ tos_upload.py sync → 更新 cdn_urls.json → 下一张`
 >
 > 原因：
 > - 下游设计师（角色/场景）需要道具的 TOS URL 作为 `image_urls` 参考
@@ -455,8 +454,8 @@ Prop reference photograph, single object isolated on warm neutral silk backgroun
 | 8 | 色彩调性 | 与项目已建立的调性一致（暖/冷/中性） |
 | 9 | 年代/磨损一致性 | 磨损痕迹与道具卡片描述的叙事历史匹配 |
 | 10 | 规模正确 | 道具尺寸展示合理（小物件不大，长武器展示全长） |
-| 11 | 道具状态完整 | B/C 状态变体已生成，命名符合约定，状态字段已填入道具卡片 |
-| 12 | 文字语种正确 | 含大段中文文字的道具 Prompt 中使用了 `Simplified Chinese`（非 `Chinese text`） |
+| 11 | 道具状态完整 | 卡片定义了 B/C 状态的道具其变体已生成，命名符合约定，状态字段已填入道具卡片（未定义 B/C 的道具不适用） |
+| 12 | 文字语种正确 | 含中文文字（无论字数）的道具 Prompt 中使用了 `Simplified Chinese`（非 `Chinese text`） |
 | 13 | 视觉合规通过 | 无红线元素（写实枪械/宗教法器/政府印章/品牌Logo/色情暗示） |
 
 ---
@@ -563,10 +562,14 @@ prop-designer 完成工作后，必须确保以下文件全部就绪，作为 St
 
 ```json
 {
-  "PROP-001": "https://<图床域名>/xxxxx/PROP-001.png",
-  "PROP-002": "https://<图床域名>/xxxxx/PROP-002.png"
+  "PROP-001": {
+    "local": "assets/props/PROP-001.png",
+    "tos_url": "https://<bucket>.tos-cn-beijing.volces.com/props/<project>/PROP-001.png"
+  }
 }
 ```
+
+（每条目为嵌套对象，`tos_url` 为必填字段——与 TOS 完成性验证/check_cdn_registry.py 口径一致；`cdn_url` 为临时预签名链接可选存在，不可作为最终交付）
 
 ### 信号完成条件
 
@@ -662,10 +665,10 @@ prop-designer 完成工作后，必须确保以下文件全部就绪，作为 St
 | 10 | 批量 YAML Prompt 与最终 Prompt 一致 | 无过期骨架 Prompt 残留 |
 | 11 | 迭代历史已记录 | 工作计划.md 中记录了生成轮次 |
 | 12 | 完成信号文件就绪 | 所有输出文件已生成，可触发下游启动 |
-| 13 | 道具状态管理完整 | 每个道具已定义 A 状态，B/C 变体已生成并命名符合约定 |
+| 13 | 道具状态管理完整 | 每个道具已定义 A 状态；卡片定义了 B/C 的其变体已生成并命名符合约定 |
 | 14 | 状态变更有叙事触发 | B 状态已标注 trigger 事件，无无理由的状态变化 |
 | 15 | 视觉合规通过 | 所有道具图已通过合规红线检查，无禁止元素 |
-| 16 | 文字语种正确 | 含大段中文文字的道具 Prompt 中使用了 `Simplified Chinese` |
+| 16 | 文字语种正确 | 含中文文字（无论字数）的道具 Prompt 中使用了 `Simplified Chinese` |
 
 ---
 
@@ -680,7 +683,7 @@ prop-designer 完成工作后，必须确保以下文件全部就绪，作为 St
 7. **未经用户授权，不得调用付费图片/视频生成 API**
 8. **必须在所有角色设计和场景设计之前完成全部道具图 + TOS 上传**——不得有遗漏
 9. **道具的磨损/年代痕迹必须与道具卡片中的叙事描述一致**——不得凭空编造使用历史
-10. **含大段中文文字的道具 Prompt 必须使用 `Simplified Chinese`**——不得使用 `Chinese text`（会出繁体）
+10. **含中文文字（无论字数）的道具 Prompt 必须使用 `Simplified Chinese`**——不得使用 `Chinese text`（会出繁体）
 
 ---
 

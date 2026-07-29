@@ -179,7 +179,7 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 > |--------|---------|----------|
 > | URL 格式 | 所有非空 `image_urls` 必须以 `https://` 开头 | 本地路径（`assets/...`）→ 先上传 TOS 再替换 |
 > | URL 可达 | TOS URL 可通过 HTTP HEAD 验证 | 重新上传 |
-| 道具覆盖 | 所有有关联道具的条目 `image_urls` 非空 | 从 `cdn_urls.json` 查找 TOS URL 填入 |
+> | 道具覆盖 | 所有有关联独立图道具的条目 `image_urls` 非空 | 从 `cdn_urls.json` 查找 TOS URL 填入 |
 
 > **阻断条件**：任何非空 `image_urls` 不以 `https://` 开头 → **禁止提交**，必须先完成 TOS 上传。
 
@@ -267,7 +267,7 @@ python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
 python3 mcps/volc-ark/scripts/ark_seedream_image.py --help
 ```
 
-### TOS 上传（即生即传，每张图确认后立即执行）
+### TOS 上传命令参考（实际执行时机见 Step 8 即生即传）
 
 ```bash
 # 上传已确认的场景图到 TOS 获取永久 URL
@@ -332,6 +332,7 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 | 规则 | 说明 |
 |------|------|
 | 精确引用 | Prompt **必须**包含确切中文字符并用引号标注 |
+| 语种强制 | 含中文文字的 Prompt 必须写 `Simplified Chinese`（不得只写 `Chinese text`，会出繁体），写 Prompt 时当场注入 |
 | 格式 | `inscribed with the characters "青云宗" in bold seal script` |
 | 禁止占位符 | **严禁** "sect name"、"motto"、"inscription"、"name of the school" 等 |
 | 字数限制 | 单次文字渲染限 **2-4 个汉字**，超出质量急剧下降 |
@@ -726,7 +727,7 @@ Prompt 描述需具体到"闭上眼睛能画出这个道具"的程度——颜�
 | 10 | 道具融入一致性 | 若场景含关联道具，道具外观与 `assets/props/PROP-###.png` 一致，位置自然 |
 | 11 | 场景色彩调性一致 | 同一项目场景间无风格断裂 |
 | 12 | 场景氛围与角色气质匹配 | 主要角色出现的场景氛围与其语言画像中的性格特征一致 |
-| 13 | 场景状态完整 | B/C 状态变体已生成，命名符合约定，状态字段已填入场景卡片 |
+| 13 | 场景状态管理完整 | 每个场景已定义 A 状态；卡片定义了 B/C 的其变体已生成并命名符合约定（未定义 B/C 的场景不适用） |
 | 14 | 视觉合规通过 | 无红线元素（血迹/宗教符号/政治标志/品牌Logo/色情暗示） |
 
 ---
@@ -808,7 +809,7 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 | 12 | 场景氛围与角色气质匹配 | 主要角色出现的场景氛围与其语言画像中的性格特征一致 |
 | 13 | 关联道具融入正确 | 有关联道具的场景中，道具外观与 `assets/props/` 中参考图一致 |
 | 14 | 每个场景含 5+ 具体物理元素 | Prompt 中可数的具体材质/物体描述 |
-| 15 | 场景状态管理完整 | 每个场景已定义 A 状态，B/C 变体已生成并命名符合约定 |
+| 15 | 场景状态管理完整 | 每个场景已定义 A 状态，卡片定义了 B/C 的其变体已生成并命名符合约定 |
 | 16 | 状态变更有叙事触发 | B 状态已标注 trigger 事件，无无理由的状态变化 |
 | 17 | 视觉合规通过 | 所有场景图已通过合规红线检查，无禁止元素 |
 
@@ -824,7 +825,7 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 6. **未经用户授权，不得调用付费图片/视频生成 API**
 7. **每个场景的英文提示词必须包含至少 5 个具体物理元素/材质描述**
 8. **关键场景（出现≥3集）必须使用低角度+宏大尺度处理**
-9. **有关联道具的场景必须传入道具参考图作为 `image_urls`**——不得仅凭文字描述生成道具
+9. **有关联独立图道具（参考图=✅已生成）的场景必须传入道具参考图作为 `image_urls`**；场景内置道具（参考图=场景内置）按文字描述写入 Prompt（见「道具融入场景」）
 10. **不得等待 character-designer 完成后再开始工作**——两者并行执行
 
 ---
@@ -842,7 +843,11 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 
 ```json
 {
-  "SCENE-001": "https://<图床域名>/xxxxx/SCENE-001.png",
-  "SCENE-002": "https://<图床域名>/xxxxx/SCENE-002.png"
+  "SCENE-001": {
+    "local": "assets/scenes/SCENE-001.png",
+    "tos_url": "https://<bucket>.tos-cn-beijing.volces.com/scenes/<project>/SCENE-001.png"
+  }
 }
 ```
+
+（每条目为嵌套对象，`tos_url` 为必填字段——与 TOS 完成性验证口径一致）

@@ -149,7 +149,7 @@ tools: [Read, Write, Grep, Glob, Bash]
    - 仅当卡片文件写入完成且自检通过后，方可进入下一步
 
    > **⛔ Prompt 身体描述必须从卡片表提取，不得手写**：
-   > L01 Prompt 中的物理描述部分（性别、年龄、身高、体型、脸型、皮肤、发型、眼睛、眉毛、鼻子、嘴唇、气质）**必须**从该角色 `### 外貌描写（L01 校园日常）` 表格中的描述翻译/转换而来，**严禁**凭记忆或手动编写。
+   > L01 Prompt 中的物理描述部分（性别、年龄、身高、体型、脸型、皮肤、发型、眼睛、眉毛、鼻子、嘴唇、气质）**必须**从该角色 `#### 外貌描写（L01）` 表格中的描述翻译/转换而来，**严禁**凭记忆或手动编写。
    >
    > 原因：当同时为多个角色编写 Prompt 时，手动编写极易将 A 角色的描述错放到 B 角色的 Prompt 中（如将父亲的外貌写进女儿的 Prompt）。
    >
@@ -208,7 +208,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 10. **生成门控 — 验证 Prompt 已写入文件后方可提议生成**
     - 回读 `资产/角色卡片.md`，确认每个角色的 L01 Prompt 字段非空且符合规范
-    - 汇总待生成角色清单（主角 ≥3 候选方案，配角 1 个）
+    - 汇总待生成角色清单（主角 ≥3 候选方案，产能紧张可缩减为 2——见 Section 六；配角 1 个）
     - 向用户展示清单并请求生成授权
     - ⚠️ **付費操作警告**：调用 ark_seedream_generate / ark_seedream_batch 会消耗方舟余额，必须获得用户明确授权后方可执行
     - **若 Prompt 尚未写入文件，禁止向用户提出生成请求**
@@ -289,6 +289,19 @@ tools: [Read, Write, Grep, Glob, Bash]
 | 标志性台词 | [最能代表角色的一句话] |
 | 视觉锚点 | [跨场景不变的辨识元素：发型/配饰/服装色系] |
 | AI视觉Prompt | [English prompt for image/video generation, including age, appearance, clothing, accessories, expression, posture] |
+
+#### 外貌描写（L01）
+
+> 中文先行：先逐维度填写本表，再翻译为 L01 Prompt（见工作流程步骤 5 的提取规则 + 自检 #32）。
+
+| 维度 | 描述 |
+|------|------|
+| 性别/年龄 | [如：女，26 岁] |
+| 身高/体型 | [如：165cm，纤细匀称] |
+| 脸型/皮肤 | [如：鹅蛋脸，白皙] |
+| 发型/发色 | [如：黑色长直发中分] |
+| 五官（眼/眉/鼻/唇） | [逐项描述] |
+| 气质 | [如：清冷疏离] |
 
 #### 形象列表
 
@@ -1106,7 +1119,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 
 | 协作角色 | 需要的内容 | 格式要求 |
 |----------|------------|----------|
-| production-planner | CHAR-### ID, 形象 ID (L01/L02) | 上游协作者（Stage 2）；production-planner 先于本 agent 运行，voice_prompt 以声音卡片为准，角色卡片为辅 |
+| production-planner（上游，Stage 2） | CHAR-### ID, 形象 ID (L01/L02) | 上游协作者：ID 由其预分配，本 agent 仅回填形象内容；voice_prompt 以声音卡片为准，角色卡片为辅 |
 | scene-writer | 角色名, 形象 ID, 关系网络 | 需清晰标注默认形象 |
 | segment-builder | voice_prompt 原文 | 逐字复制到 YAML，格式错误将导致下游 Gate 失败 |
 | drama-director G3 | CHAR-### 完整性, L01 存在性, 跨角色风格一致性 | G3 在 Stage 3a+3b+3c 完成后统一校验 |
@@ -1156,7 +1169,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 | 最佳题材 | 重生/宫廷/都市 |
 | 观众认同机制 | "如果我能重来一次"——后悔与弥补的幻想 |
 | 典型弧线 | 死亡 → 重生觉醒 → 步步规避 → 改写命运 → 超越前世 |
-| 标志性场景 | 前世害自己的人再次靠近，主角微笑着 already prepared |
+| 标志性场景 | 前世害自己的人再次靠近，主角微笑相迎——一切早有准备 |
 | 台词示例 | "上辈子我信错了人。这辈子，我不会再给任何人伤害我的机会。" |
 
 ### 原型 4：穿越者（Transmigrator）
@@ -1260,7 +1273,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 | 击败触发 | SAT-BURN（燃尽满足感） |
 | 对抗节奏 | 伏笔 → 全面揭露 → 2-3 集终极对决 |
 
-### 第四层：隐藏反派（Hidden Villain，EP57-86 揭露）
+### 第四层：隐藏反派（Hidden Villain，EP57-86）
 
 | 维度 | 内容 |
 |------|------|
@@ -1440,11 +1453,11 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 
 | 情况 | 处理 |
 |------|------|
-| 渲染过幼 / 低龄化 | 调整年龄描述符（如 "early 30s" → "mid 30s, mature facial structure"）+ 强化骨骼感描述（"defined jawline, sculpted cheekbones"）；两次后仍幼态见 :763 升级措施 |
+| 渲染过幼 / 低龄化 | 调整年龄描述符（如 "early 30s" → "mid 30s, mature facial structure"）+ 强化骨骼感描述（"defined jawline, sculpted cheekbones"）；两次后仍幼态见 Section 四「升级措施」 |
 | 半身像（脚部不可见） | 追加 "full-body shot, head to toe visible, standing on ground" + negative "cropped, half-body, knee-cut"；构图改为全身站位参考图 |
 | 插画/卡通风格 | 追加写实锚定块 `shot on 85mm lens, professional portrait photography, natural skin texture, photorealistic rendering`；移除诗意/情感语言；确保 3+ 具体物理材质描述 |
-| 道具被复制（角色手持物） | 追加 "there is exactly [N] of this prop, no duplicates" + negative "duplicates, multiple objects"（见 :1040） |
-| 风格不一致（L02 与 L01 漂移） | 必须修改 Prompt 并重新生成，L02 验证通过前不得进入下游（见 :946） |
+| 道具被复制（角色手持物） | 追加 "there is exactly [N] of this prop, no duplicates" + negative "duplicates, multiple objects"（见 Section 十二「道具数量精确规则」） |
+| 风格不一致（L02 与 L01 漂移） | 必须修改 Prompt 并重新生成，L02 验证通过前不得进入下游（见 Section 九「跨角色风格一致性规则」） |
 
 ## 生成轮次跟踪
 
@@ -1490,7 +1503,7 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 | 29 | 痛点命中 | 主角命中目标受众 ≥2 个核心痛点 |
 | 30 | 角色预算 | 有名角色总数 ≤15，每个角色通过"有用+有记忆点"双重测试 |
 | 31 | TOS 永久 URL 验证 | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
-| 32 | **Prompt-卡片身份一致性** | L01 Prompt 中的物理描述（性别、年龄、身高、体型、脸型、发色/发型、肤色）必须与该角色 `外貌描写（L01 校园日常）` 表中的描述**逐一对应**。具体检查：(a) Prompt 中 "Chinese man/woman" 与卡片性别一致；(b) 年龄数值匹配；(c) 身高数值匹配；(d) 脸型关键词匹配（如 oval/round/square/melon）；(e) 发型描述匹配。**任一不一致即为阻断项**。 |
+| 32 | **Prompt-卡片身份一致性** | L01 Prompt 中的物理描述（性别、年龄、身高、体型、脸型、发色/发型、肤色）必须与该角色 `外貌描写（L01）` 表中的描述**逐一对应**。具体检查：(a) Prompt 中 "Chinese man/woman" 与卡片性别一致；(b) 年龄数值匹配；(c) 身高数值匹配；(d) 脸型关键词匹配（如 oval/round/square/melon）；(e) 发型描述匹配。**任一不一致即为阻断项**。 |
 
 ---
 

@@ -42,7 +42,7 @@ story-architect → production-planner → prop-designer → [character-designer
 | 5 | `assets/looks/cdn_urls.json` | 角色形象图床 URL 解析（具体服务见制片规范） |
 | 6 | `assets/scenes/cdn_urls.json` | 场景图图床 URL 解析（具体服务见制片规范） |
 | 7 | `assets/props/cdn_urls.json` | 道具图图床 URL 解析（具体服务见制片规范） |
-| 8 | `资产/声音卡片.md` | voice_prompt 全文（最高优先来源）；如不存在，回退到 `资产/角色卡片.md` |
+| 8 | `资产/声音卡片.md` | voice_prompt 全文（**唯一合法来源**，见 Gate 4）；如缺失 → 停止并报告，禁止回退角色卡片 |
 | 9 | `剧本/EP##/EP##_*.md` | **源文件**——待转换的分集剧本 |
 | 10 | `资产/角色卡片.md`「语言画像」节 | 角色语言画像（词汇层级、句式偏好、口头禅、情绪表达方式），用于转译时保持 speaker 语言风格区分 |
 
@@ -219,10 +219,9 @@ voice_prompts:
   CHAR-002: "成年女性，25岁，声线清冷但柔和，防备时语速快且压低，放松时温暖自然"
   CHAR-004: "成年女性，38岁，声线尖利有控制力，语速快，带有压迫感和威胁性"
 
-# voice_prompts 查找优先级（从高到低）：
-# 1. 资产/声音卡片.md — 最高权威
-# 2. 资产/角色卡片.md — 次优先
-# 3. 制片规范.md — 兜底
+# voice_prompts 来源（与 Gate 4 一致）：
+# 唯一合法来源：资产/声音卡片.md（缺失 → 硬停止，请 production-planner 补充；禁止回退角色卡片/制片规范）
+# 角色卡片/制片规范仅供交叉校验参考，不得作为 voice_prompt 取值来源
 # 规则：必须全文复制原文（含「」内全部文字），禁止缩写/改写/翻译
 # 注：声音卡片.md 中用「」包裹 voice_prompt 是 Markdown 格式标记，
 # YAML 中存储括号内的纯文本内容（不含「」）。“全文复制”指复制括号内的文字。
@@ -453,8 +452,8 @@ assets:
 | 每 segment 镜头数 | 1–3（最多 3） | 超出必须拆分 |
 | 每 segment 说话人 | ≤2 | 超出必须拆分 |
 | 全集总时长 | 落在 `制片规范.md` → `episode_profile` 合规区间（示例 ≥75s 且 ≤120s，EP01 90-120s；长集项目以实际为准） | 90 秒（standard-86 默认） |
-| 全集 segment 数 | 6–10 段 | 合理密度 |
-| 每集镜头数 | 8–12 镜 | 对应每集 6–10 段 × 1–3 镜/段 |
+| 全集 segment 数 | 6–10 段（EP01: 10–12 段） | 合理密度，参见制片规范 episode_profile |
+| 每集镜头数 | 8–12 镜 | 对应每集 6–10 段（EP01 10-12 段）× 1–3 镜/段 |
 
 ### 超时拆分规则
 
@@ -793,7 +792,7 @@ segments:
 | `negative_prompt` | `制片规范.md` |
 | `model` | `制片规范.md` |
 | `ratio` / `resolution` | `制片规范.md` |
-| `voice_prompts` | `资产/声音卡片.md`（P0） > `资产/角色卡片.md`（P1） > `制片规范.md`（P2） |
+| `voice_prompts` | `资产/声音卡片.md`（唯一合法来源，Gate 4 硬停止；角色卡片仅供交叉校验） |
 | 风格描述 | `制片规范.md` 中的题材风格段落 |
 | CDN URLs | `assets/looks/cdn_urls.json` + `assets/scenes/cdn_urls.json` + `assets/props/cdn_urls.json` |
 
