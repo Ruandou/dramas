@@ -5,7 +5,7 @@
 安装：pip install edge-tts
 
 用法：
-  python3 video/automation/tts_batch_edge.py --lines 对白.txt --out-dir video/automation/tts_out
+  python3 script/tts_batch_edge.py --lines 对白.txt --out-dir video/automation/tts_out
 
 对白.txt：一行一句，生成 001.mp3, 002.mp3 … 再在剪映或 ffmpeg 里对齐时间轴。
 
