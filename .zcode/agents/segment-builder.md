@@ -66,12 +66,16 @@ story-architect → production-planner → prop-designer → [character-designer
 
 > **Gate 1 计算规则**：将源 .md 镜头表中所有镜头的「时长」列数值逐个相加。禁止使用 VALIDATION 块中的 `total_duration` 声称值作为 Gate 1 判断依据。如果逐项求和低于 episode_profile 下限（示例 <75s / EP01 <90s），即使 VALIDATION 块标记为 ✅，仍必须触发 Gate 1 停止。
 
-## Gate 2：镜头数一致性
+## Gate 2：镜头数一致性与切镜节奏
 
 比对源 `.md` 元数据中声明的 `Seedance 有效镜数` 与镜头表实际行数。
 
 - **一致**：通过
 - **不一致**：❌ 停止。报告具体差异（如"声明24镜，实际仅18行"）
+
+**切镜节奏检查（v2.2，基准 §五）**：
+- 单镜 `时长` >8s 且镜头行「画面」列无长镜理由标注 → **WARN**（汇总入报告）
+- 单镜 >10s，或 段 ≥8s 仅 1 镜（非静音视觉锤） → ❌ 标注 `suspected_static: [镜号清单]`，报告要求 scene-writer 按 Rule 45 拆镜，不得放行
 
 ## Gate 3：资产 ID 冲突检测
 
@@ -454,7 +458,7 @@ assets:
 | 每 segment 说话人 | ≤2 | 超出必须拆分 |
 | 全集总时长 | 落在 `制片规范.md` → `episode_profile` 合规区间（示例 ≥75s 且 ≤120s，EP01 90-120s；长集项目以实际为准） | 90 秒（standard-86 默认） |
 | 全集 segment 数 | 6–10 段（EP01: 10–12 段） | 合理密度，参见制片规范 episode_profile |
-| 每集镜头数 | 8–12 镜 | 对应每集 6–10 段（EP01 10-12 段）× 1–3 镜/段 |
+| 每集镜头数 | 16–30 镜（EP01 20-36） | v2.2（原 8-12 已废）：每集 6–10 段（EP01 10-12 段）× 2–3 镜/段；基准：台词节奏基准.md §五 |
 
 ### 超时拆分规则
 
