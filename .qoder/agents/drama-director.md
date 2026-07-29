@@ -513,7 +513,7 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 |--------|----------|----------|
 | **格式一致性** | `python3 scripts/format_check.py --ep EP## --project-root dramas/<剧名>` 返回 0 | **G4 首项检查，未通过不进入后续**。要求 scene-writer 逐一修正格式问题后重跑 format_check.py，直到全部 ✅ |
 | 总时长 | 落在 `制片规范.md` → `episode_profile` 合规区间（示例 standard-86: ≥75s 且 ≤120s，EP01 90-120s；长集项目以实际 episode_profile 为准） | 时长不足或超限 → 要求 scene-writer **废弃当前稿、重写整集**（先做时长预算；禁止微调秒数补足，见 scene-writer 自检 1 红线） |
-| 镜头数一致 | 元数据声明镜数 == 实际镜头行数 | 请求修正元数据或补充镜头 |
+| 镜头数一致与镜数带 | 元数据声明镜数 == 实际镜头行数；且镜头总数落 episode_profile 镜数带（standard-86: EP02+ [16,30]、EP01 [20,36]；v2.2，基准 §五） | 不一致→修正元数据或补镜；低于镜数带→请求 scene-writer 按 Rule 45 段内拆镜（非加段） |
 | Segment 数 | 6-10 段（EP01: 10-12 段），参见制片规范 episode_profile | 过少→拆分；过多→合并 |
 | 单段时长 | 每段 4-12s | 超出→拆分；不足→合并 |
 | 场景一致 | 每段内所有镜头属同一 SCENE-### | 跨场景→在边界处拆分 |
