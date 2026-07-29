@@ -747,6 +747,8 @@ drama-director 读取全部 L01 角色参考图、全部场景参考图、以及
 
 **注:** Stages 7-9（视频制作、后期、发行）在此追踪但由人工或未来 Agent 执行。工作计划提供全生命周期可见性，无论自动化程度如何。
 
+> **成片 TOS 归档（Stage 7 完成后必做）**：段视频与成片下载到 `assets/generated/EP##/` 后，执行 `tos_upload.py sync --project-root dramas/<剧名>` 归档（前缀 `generated/<剧名>/EP##/`，自动登记 `generated/cdn_urls.json`）；禁止自创前缀手工上传。详见 `docs/AIGC产物转存到对象存储_TOS_最佳实践.md`「本仓库 TOS 路径约定」。
+
 ---
 
 ### 集间资产增量验证

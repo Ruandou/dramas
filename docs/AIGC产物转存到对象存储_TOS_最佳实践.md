@@ -64,3 +64,28 @@ FetchObject API：https://www.volcengine.com/docs/6349/1257670?lang=zh
 示例代码（TOS Python SDK）：
 
 ---
+
+## 本仓库 TOS 路径约定（项目规范，2026-07-29 补录）
+
+> 背景：此前约定只存在于 `mcps/volc-ark/scripts/tos_upload.py` 的 sync_dirs 代码中，文档未载明，导致 2026-07-29 误开 `videos/` 自定义前缀（孤儿副本待控制台清理）。现将事实标准补录为规范。
+
+### 前缀表（Bucket: drama-reference-images）
+
+| 产物 | 本地目录 | TOS 前缀 | 递归 | 扩展名 |
+|------|---------|---------|------|--------|
+| 角色形象图 | `assets/looks/` | `looks/<剧名>/` | 否 | png/jpg/jpeg/webp |
+| 场景图 | `assets/scenes/` | `scenes/<剧名>/` | 否 | 同上 |
+| 道具图 | `assets/props/` | `props/<剧名>/` | 否 | 同上 |
+| **生成视频（段+成片）** | `assets/generated/` | `generated/<剧名>/EP##/` | **是** | mp4/mov/avi/webm |
+
+### 唯一正确姿势
+
+```bash
+python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root "dramas/<剧名>"
+```
+
+- sync 自动：上传四类目录 + 写 `cdn_urls.json` 登记（generated 的键为相对路径如 `EP01/EP01-SEG01.mp4`，值含 `{local, tos_url, size}`）
+- **禁止**手工 `upload --key` 自创前缀（如 `videos/`）——会绕过登记产生孤儿对象；单文件补传也须沿用上表前缀并随后 `update-registry`
+- 道具/角色/场景图路径中**不含** `assets/` 段（事故复盘：`props/<剧名>/assets/props/PROP-###.png` 系错误拼接 → 400 resource not found，见 2026-07-29 边荒盐妇 EP01）
+- 验收：上传后对 `cdn_urls.json` 登记的 tos_url 抽样 `curl -I` 验 HEAD 200 + Content-Length 与本地一致
+
