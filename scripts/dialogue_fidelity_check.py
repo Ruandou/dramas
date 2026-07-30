@@ -23,10 +23,15 @@ import subprocess
 import sys
 from pathlib import Path
 
-QUOTE_RE = re.compile(r"「([^」]*)」")
+QUOTE_RE = re.compile(r"(?<=：)「([^」]*)」")
 
 
 def extract_lines(text: str) -> list[str]:
+    """仅提取真实台词（说话人全角冒号 ： 后的「」）。
+
+    排除 VALIDATION/时长预算表等 metadata 里的孤立「」（如「实际」、统计表里的重述金句），
+    避免污染保真比对与标点密度扫描（事故：EP03/EP04 metadata 「」 被误计入台词）。
+    .md 镜头表与 .yaml 段提示词的台词均为 `：「…」` 格式，口径一致。"""
     return QUOTE_RE.findall(text)
 
 
