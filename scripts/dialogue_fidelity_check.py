@@ -48,13 +48,59 @@ def read_baseline(spec: str, file_path: str) -> str:
     return p.read_text(encoding="utf-8")
 
 
+def punct_scan(file_path: str) -> int:
+    """标点 AI 腔密度扫描（基准 §二口径：省略号按 U+2026 逐字计，一个「……」=2）。
+
+    阈值：省略号 ≤20/千字、破折号 ≤2/千字。防 scene-writer 把「……」当 1 个数导致的漏判。
+    退出码：0=入 band；1=超标（逐条列超标项）。
+    """
+    p = Path(file_path)
+    if not p.is_file():
+        print(f"ERROR: 文件不存在：{file_path}", file=sys.stderr)
+        return 2
+    lines = extract_lines(p.read_text(encoding="utf-8"))
+    n = sum(len(x) for x in lines)
+    if n == 0:
+        print("ERROR: 未提取到「」台词", file=sys.stderr)
+        return 2
+    ell = sum(x.count("\u2026") for x in lines)          # U+2026 逐字（与语料基线同口径）
+    dash = sum(x.count("\u2014") for x in lines)         # U+2014 逐字
+    ell_k, dash_k = ell / n * 1000, dash / n * 1000
+    bad = 0
+    ell_ok = ell_k <= 20
+    dash_ok = dash_k <= 2
+    print(f"台词 {n} 字 | 省略号 {ell_k:.1f}/千（≤20 {'✅' if ell_ok else '❌'}） | 破折号 {dash_k:.1f}/千（≤2 {'✅' if dash_ok else '⚠️'}）")
+    if not ell_ok:
+        print(f"  ❌ 省略号超标（{ell} 个 U+2026，拖沓腔——无合法理由超 band，必修），含省略号台词：", file=sys.stderr)
+        for x in lines:
+            if "\u2026" in x:
+                print(f"    「{x}」", file=sys.stderr)
+        bad = 1
+    if not dash_ok:
+        # 破折号在单集小样本中会被合法角色口头禅（如「我呸——」）触发（一个“——”=2 字即 ≈ 4.7/千@420字）；
+        # 基准的 ≤2 是全剧级口径，故此处只 WARN 不 FAIL，交由人工/reviewer 对声音卡片核实
+        print(f"  ⚠️ 破折号 {dash_k:.1f}/千 超全剧级基准 ≤2（{dash} 个 U+2014）——单集小样本常由角色口头禅触发，需对声音卡片核实：若为已定义口头禅则免扣，否则改写。含破折号台词：", file=sys.stderr)
+        for x in lines:
+            if "\u2014" in x:
+                print(f"    「{x}」", file=sys.stderr)
+    return bad
+
+
 def main() -> int:
-    ap = argparse.ArgumentParser(description="台词「」逐字保真校验")
+    ap = argparse.ArgumentParser(description="台词「」逐字保真校验 + 标点 AI 腔密度扫描")
     ap.add_argument("--file", required=True, help="待校验文件（新版）")
-    ap.add_argument("--baseline", required=True, help="基线：git:HEAD / git:<rev> / 文件路径")
+    ap.add_argument("--baseline", help="基线：git:HEAD / git:<rev> / 文件路径（--punct-scan 模式不需）")
     ap.add_argument("--allow-reorder", action="store_true",
                     help="只比内容集合不比顺序（拆镜重排台词顺序合法时用；默认严格按序）")
+    ap.add_argument("--punct-scan", action="store_true",
+                    help="标点 AI 腔密度扫描（省略号按 U+2026 逐字计，与语料基线同口径）；不需 --baseline")
     args = ap.parse_args()
+
+    if args.punct_scan:
+        return punct_scan(args.file)
+    if not args.baseline:
+        print("ERROR: 非 --punct-scan 模式必须提供 --baseline", file=sys.stderr)
+        return 2
 
     new_path = Path(args.file)
     if not new_path.is_file():
