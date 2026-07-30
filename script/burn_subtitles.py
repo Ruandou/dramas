@@ -323,6 +323,7 @@ def main() -> None:
     cards = []  # (start, end, card_dict, mp4, mid)
     locs = []   # (start, end, card_dict, mp4, mid)
     clips = []
+    seg_scene_cards = []  # (sid, scene_id, has_location_card) — 场景首现缺卡检查用
     t0 = 0.0
     for i, seg in enumerate(segments):
         # 兼容两种命名：segment_id: EP01-SEG01（文件同名）/ seg_id: SEG01（文件 EP01_SEG01）
@@ -362,6 +363,8 @@ def main() -> None:
                 mid = min(at + cd / 2, max(dur - 0.1, 0.0))
                 locs.append((t0 + at, min(t0 + at + cd, t0 + dur),
                              card, mp4, mid))
+        seg_scene_cards.append(
+            (sid, ((seg.get("refs") or {}).get("scene_id")), bool(lc)))
         lines = [s for m_ in DIALOG_RE.findall(seg["api"]["text"])
                  for s in split_sentences(m_[1].strip())]
         if lines:
@@ -375,6 +378,22 @@ def main() -> None:
                 cues.append([t, end, ln, t0, t0 + dur])
                 t = end
         t0 += dur
+
+    # 1.4 卡位检查（仅告警不阻断）：
+    # (a) 出场卡/地点卡时间窗重叠 —— 同屏叠卡视觉打架（事故：边荒盐妇 EP01 地点卡与崔氏卡重叠 0.8s）
+    _wins = ([(s, e, f"出场卡「{c.get('name','')}」") for s, e, c, _, _ in cards]
+             + [(s, e, f"地点卡「{c.get('text','')}」") for s, e, c, _, _ in locs])
+    _wins.sort()
+    for (s1, e1, n1), (s2, e2, n2) in zip(_wins, _wins[1:]):
+        if s2 < e1 - 0.05:
+            print(f"⚠️ 卡时间重叠：{n1}({s1:.1f}-{e1:.1f}s) 与 {n2}({s2:.1f}-{e2:.1f}s) —— 建议错开时序", file=sys.stderr)
+    # (b) 场景首次出现的 SEG 无地点卡 —— 场景切换漏登（事故：边荒盐妇 EP01 三场景只登了首张）
+    _seen = set()
+    for sid_, scene_, has_lc_ in seg_scene_cards:
+        if scene_ and scene_ not in _seen:
+            _seen.add(scene_)
+            if not has_lc_:
+                print(f"⚠️ 场景首现缺地点卡：{sid_} 首次进入 {scene_} 但未登记 location_card", file=sys.stderr)
 
     # 1.5 TTS 对齐：按每句音频实际时长重排时间轴（段内顺序、溢出告警）
     if args.tts_dir:
