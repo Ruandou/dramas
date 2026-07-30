@@ -1,0 +1,311 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP02/EP02_剧本.md（v1.0 定稿，v2.2 切镜节奏，R2 PASS clean）
+# Source segments: 8 (EP02-SEG01 to EP02-SEG08) / Source shots: 18
+# Output segments: 8 / Output shots referenced: 18
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s（逐段自算：12+10+11+12+11+11+11+12）
+# Output total duration: 90s
+# Gate status: ALL PASS（Gate 2 v2.2 切镜节奏：单镜最长 6s；段全部 2-3 镜；Gate 4 voice_prompt 含 CHAR-GRP-23 已在声音卡片补齐）
+
+episode_id: EP02
+source_md: 剧本/EP02/EP02_剧本.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128  # 必须带版本后缀，无后缀名方舟返回 404 InvalidEndpointOrModel.NotFound
+  seed: 20260729  # 全剧统一固定 seed（制片规范§五 / 分集文件头 seedance_defaults；与 EP02_shots.yaml 一致）
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。"
+  negative_prompt: "modern objects, modern clothing, plastic, glass panes, electric light, light bulb, power lines, wires, rubber, zipper, wristwatch, phone, vehicle, bicycle, asphalt road, concrete, printed modern signage, modern hairstyle, modern makeup, eyeglasses, gunpowder firearms, identifiable real-dynasty imperial regalia, gibberish text, distorted Chinese characters"
+
+# voice_prompts 来源：资产/声音卡片.md（P0 权威源）· 全文复制括号内纯文本，逐字未改
+voice_prompts:
+  CHAR-001: "成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句"
+  CHAR-003: "老年男性，60岁，沙哑低缓的烟嗓，语速极慢、半天一句，句间停顿长，急事时才骤然提速连说，带边地老农土音感"
+  CHAR-004: "成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声"
+  CHAR-GRP-23: "中年女性，35岁，敌意警惕的尖硬嗓音，语速快而冲，拒人于外的抢白腔，尾音上扬带讽刺"
+
+segments:
+  - segment_id: EP02-SEG01
+    shot_ids: [EP02-S01, EP02-S02, EP02-S03]
+    duration_sec: 12
+    speakers: [CHAR-GRP-23, CHAR-001]
+    location_card:
+      text: 盐滩村
+      at: 0.3
+      duration: 2.0
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+        CHAR-GRP-23-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-GRP-23-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈青盐 CHAR-001-L01（粗布素衣木簪，怀抱缺口腌菜坛）【图2】冷淡村妇 CHAR-GRP-23-L01（土褐头巾补丁短褐）【图3】盐滩村村道 SCENE-002。
+        角色分工：仅图1可怀抱腌菜坛行走；图2始终挡在自家门框处不离门、不靠近图1。
+        道具：缺口腌菜坛为粗陶色、坛口以粗布扎紧，抱在图1怀中；图2身后门缝里露出一口倒扣的空米缸，缸壁蒙尘。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）中景 镜头跟随：午后灰白日光，盐碱泛白的村道两侧土墙斑驳；图1怀抱腌菜坛走入画面，粗布素衣沾着半日风尘；前方图2裹着头巾正扯着孩子往门里缩，看见图1来路就侧了身。
+        镜头2（4秒）近景（反打） 固定镜头：图2半个身子挡住门框，上下打量画面边缘的图1，嗓门高了半分；她身后门缝里露出那口倒扣的空米缸。
+        镜头3（4秒）近景 固定镜头：图1没停步，目光掠过身旁落在更远处的破败土屋群上；腌菜坛在怀里稳稳当当，下巴微抬半分；身后图2啐了一口朝门里退去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（冷淡村妇，中年女性，35岁，敌意警惕的尖硬嗓音，语速快而冲，拒人于外的抢白腔，尾音上扬带讽刺）：「离远点，外头来的。」
+        对白（冷淡村妇，中年女性，35岁，敌意警惕的尖硬嗓音，语速快而冲，拒人于外的抢白腔，尾音上扬带讽刺）：「这是滩上人的地界，哪来的野媳妇？」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「顾家休的。地契写了三亩，哪间屋空？」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-23-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG02
+    shot_ids: [EP02-S04, EP02-S05]
+    duration_sec: 10
+    speakers: [CHAR-003, CHAR-001]
+    name_card:
+      name: 周老蔫
+      role: 老盐工
+      at: 1.0
+      duration: 2.5
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-003-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls:
+        PROP-017: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/PROP-017.png
+    api:
+      text: |
+        【图1】周老蔫 CHAR-003-L01（补丁坎肩磨得盐白，旱烟杆）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪，怀抱腌菜坛）【图3】盐滩村村道枯井旁 SCENE-002【图4】祖传盐耙 PROP-017。
+        角色分工：仅图1坐在石墩上衔旱烟杆，全程不起身；图2只停步、点头、走开，不触碰图4。
+        道具：图4为老木盐耙，木柄磨得发亮，斜倚在图1身侧如杖。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：村道尽头一口枯井旁，图1坐在石墩上，补丁坎肩磨得盐白，图4斜倚在身侧如杖；他没抬头，旱烟杆衔在嘴角，只斜着眼皮看了来路一眼。
+        镜头2（5秒）近景（过肩反打） 固定镜头：图1肩背前景虚化，图2脚步顿了一拍，看了他一眼——这是唯一一个开口指路的人；她微微点头，继续朝最东头走去。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周老蔫，老年男性，60岁，沙哑低缓的烟嗓，语速极慢、半天一句，句间停顿长，急事时才骤然提速连说，带边地老农土音感）：「最东头那间。屋顶还剩两块瓦，风大别在里头生火。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「两块瓦也行。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+        - { file: PROP-017, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG03
+    shot_ids: [EP02-S06, EP02-S07]
+    duration_sec: 11
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈青盐 CHAR-001-L01（粗布素衣木簪，怀抱腌菜坛）【图2】盐滩村青盐土屋内 SCENE-002。
+        道具：缺口腌菜坛粗陶色、坛口以粗布扎紧，被轻轻搁在灶台边。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 缓推：图1推门而入，土屋低矮逼仄，屋顶两块残瓦透着天光，泥地中央一摊水渍；灶台冷灰散落，灶口乌黑；墙角一只米缸侧倒空空，缸壁结了层尘；图1把腌菜坛轻轻搁在灶台边。
+        镜头2（6秒）近景 固定镜头：图1蹲在灶前，指尖拨开冷灰摸了摸灶膛内壁——黑是旧黑，灶砖还完整；她站起来，袖子掸了掸灶沿的灰，动作利落如在收拾自家灶台。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈青盐内心独白，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「米缸空的，灶冷的，顶上漏的。」
+        对白（沈青盐内心独白，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「灶还在。灶在，就能活。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG04
+    shot_ids: [EP02-S08, EP02-S09, EP02-S10]
+    duration_sec: 12
+    speakers: [CHAR-004, CHAR-001]
+    name_card:
+      name: 春杏
+      role: 隔壁寡妇
+      at: 2.0
+      duration: 2.5
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-004-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】春杏 CHAR-004-L01（土黄头巾圆脸大眼）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪）【图3】盐滩村青盐土屋内 SCENE-002。
+        角色分工：图1全程只以贴在墙面裂缝处的半张脸出现，绝不露全身、不进入图2所在房间；图2始终在墙这一侧。
+        竖屏9比16连贯叙事。
+        镜头1（4秒）近景 固定镜头：土墙另一侧突然一掌拍过来，薄墙震下一层干泥灰；画面聚焦墙面裂缝处：图1的一双圆亮大眼凑上来，土黄头巾包着的额头贴着墙。
+        镜头2（4秒）近景（反打） 固定镜头：图2猛地转身面对墙壁，手还沾着灶灰，身体微绷；裂缝里隐约能看到隔壁那双眼；图1这句对白为墙外画外音。
+        镜头3（4秒）近景（墙缝双视角） 固定镜头：图2靠近墙缝一步，没退；墙缝那头，图1的半张脸贴着裂口，圆眼瞪得认真；两人隔着一掌厚的土墙对视。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（春杏，成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声）：「嗐！那头的，听见没有？」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「谁？」
+        对白（春杏，成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声）：「隔壁的。劝你一句，天黑前走。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「走去哪？」
+        对白（春杏，成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声）：「这村活着的就剩十来口，死的可多了。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG05
+    shot_ids: [EP02-S11, EP02-S12]
+    duration_sec: 11
+    speakers: [CHAR-004, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-004-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-004-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】春杏 CHAR-004-L01（土黄头巾圆脸大眼）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪）【图3】盐滩村青盐土屋内 SCENE-002。
+        角色分工：图1仅在镜头1以墙缝处的半脸和一只手出现，镜头2不入画只留声音；图2仅在镜头2出现，背靠墙壁坐地。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）近景 固定镜头：图1一只手撑墙一只手在墙缝口比划，语速如连珠炮，头巾松了一角也不管；画面只见墙缝这侧的半脸和手；图2这句问话为墙内画外音。
+        镜头2（6秒）近景（反打交替） 固定镜头：反打回图2这侧：她背靠墙壁坐在地上，仰头听着墙那边的声音；光从屋顶破洞斜落在她膝上；图1不入画，声音从墙缝里灌进来。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（春杏，成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声）：「哪都行，别留滩上。」
+        对白（春杏，成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声）：「这地界四十年没出过盐，官家早不管了。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「村里人怎么活的？」
+        对白（春杏，成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声）：「熬着呗。捞鱼摸虾刨野菜，今日不知明日。」
+        对白（春杏，成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声）：「我呸——谁叫咱是弃民？命苦别怨天。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「你家有几口人？」
+        对白（春杏，成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声）：「一个半。我和我儿。半个，是他命硬。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「我不怨。我是来住的。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-004-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP02-SEG06
+    shot_ids: [EP02-S13, EP02-S14]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈青盐 CHAR-001-L01（粗布素衣木簪）【图2】盐滩村青盐土屋内·夜 SCENE-002。
+        角色分工：全段只有图1一人入画；隔壁邻居全程不入画，其对白均为墙外画外音。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）中景 固定镜头：夜，油灯搁在灶沿上，暖黄火苗把土墙照出凹凸纹路；图1侧躺在干草铺上睡不着，目光无意间落在对面墙壁下半截——一层薄薄的白色粉霜在灯光下微微泛着光；她坐起身，凑近了看，轻拍墙。
+        镜头2（6秒）近景 固定镜头：近景对焦图1面部，她指尖悬在白霜上方没碰；墙那边传来翻身声和含糊回应——画面不切到隔壁，只有声音从墙缝里穿来。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「隔壁的，你墙上也有白的？」
+        对白（春杏，成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声）：「白什么白……土墙返碱，年年有。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「不是碱……」
+        对白（春杏，成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声）：「管它是啥，又不能吃不能卖。睡吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG07
+    shot_ids: [EP02-S15, EP02-S16]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-004]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】沈青盐 CHAR-001-L01（粗布素衣木簪）【图2】盐滩村青盐土屋内·夜 SCENE-002。
+        角色分工：全段只有图1一人入画；隔壁邻居全程不入画，其对白均为墙外画外音。
+        竖屏9比16连贯叙事。
+        镜头1（5秒）特写 缓推：图1手部特写，指尖从墙面刮下一层白霜，细粉簌簌落在掌心；她凑到唇边，轻轻碰了碰——瞳孔微张；油灯光打在指尖白色粉末上，格外亮。
+        镜头2（6秒）近景 固定镜头：图1的脸在油灯暖光中骤然亮了——不是灯光变强，是眼神；嘴角一点极轻的弧度，指尖上还粘着白粉；她转头朝墙缝方向开口。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「但它白得不对。」
+        对白（春杏，成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声）：「你作什么呢，墙皮也吃？」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「是盐。」
+        对白（春杏，成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声）：「你说啥？」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「咸的。舌头不骗人。」
+        对白（春杏，成年女性，30岁，嗓音洪亮而糙、大嗓门，语速快如连珠炮，反问句多，情绪全挂在音量上，哭也大声笑也大声）：「咸的？真咸的？」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP02-SEG08
+    shot_ids: [EP02-S17, EP02-S18]
+    duration_sec: 12
+    speakers: [CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/PROP-001.png
+    api:
+      text: |
+        【图1】沈青盐 CHAR-001-L01（粗布素衣木簪）【图2】盐滩村青盐土屋内·夜 SCENE-002【图3】《盐卤手记》旧书 PROP-001。
+        角色分工：仅图1可取书、捧书、翻书、攥书角。
+        道具：图3为半册靛蓝布面旧书，边角磨白；封皮与书页文字全程虚化不可辨认，书名内容全部由台词画外声承载，画面不显示任何文字。
+        竖屏9比16连贯叙事。
+        镜头1（6秒）中景 缓推：图1从怀襟里取出图3半册靛蓝布面旧书，双手捧着凑到油灯下；灯火映出磨白的书脊和布面褪色的纹路；她翻开封皮——画面不给书页正面文字。
+        镜头2（6秒）大特写 镜头推近：图1的眼睛在灯光中——瞳孔里映着暖黄书页的光；她缓缓抬头，目光越过书页落在墙上那层白霜上；手指无意识地攥紧书角。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈青盐内心独白，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「爹……你在这里头写了什么？」
+        对白（沈青盐内心独白，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「盐卤手记……墙上的盐，能变成钱？」
+        对白（沈青盐内心独白，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「爹，你是不是早就知道了。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
