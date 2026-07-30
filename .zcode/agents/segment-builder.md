@@ -637,6 +637,8 @@ segments:
 
 每次生成 `EP##_shots.yaml` 时，**必须**在文件顶部（`episode_id` 之前）插入以下注释块：
 
+> 台词逐字保真可用统一工具机检（与 scene-writer Rule 46 同尺）：`python3 scripts/dialogue_fidelity_check.py --file <shots或segments.yaml> --baseline <剧本.md> --allow-reorder`——提取两侧「」序列比对，防 LLM 重打劣化生僻字（事故：边荒盐妇 EP01 vB 讫/噎类形近字替换）。
+
 ```yaml
 # === SOURCE FIDELITY PROOF ===
 # Source: 剧本/EP##/EP##_XXX.md
