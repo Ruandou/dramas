@@ -1,0 +1,318 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP04/EP04_剧本.md（v1.0 定稿，v2.2 切镜节奏，R2 PASS 31/35 notes 清零）
+# Source segments: 8 (EP04-SEG01 to EP04-SEG08) / Source shots: 18
+# Output segments: 8 / Output shots referenced: 18
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s（逐段自算：11+12+11+12+11+11+11+11）
+# Output total duration: 90s
+# Gate status: ALL PASS（Gate 2 v2.2 切镜节奏：单镜最长 6s；段全部 2-3 镜；Gate 4 voice_prompt 三角色均在声音卡片 P0）
+# 场景变体：SEG01-08 全集 SCENE-002-wasteland（破败期①EP02-08）；SEG01-06 午后青灰冷光（对峙色系），SEG07-08 夜·暖黄油灯光（人情色系），SEG06→07 dissolve（午后→入夜）
+# 出场卡：SEG01 陆恒之／盐课巡检（EP04 男主首登，S01 中景正面清晰露脸，卡停留 2.5s）；沈青盐/周老蔫 EP02 已登不重登
+# 地点卡：盐滩村 EP02-SEG01 已登（location_card 首现即登原则），本集同场景不重登
+# PROP-008 说明：本集仅「油布包裹态」（SEG08）；参考图为展开态（黄麻纸官帖+朱印+中文文字），与包裹态不符且有文字入画风险，不作参考图引入，
+#   外观由 prompt 文字锁定；EP05 展开时再引入（道具卡片：首次出场 EP04 油布包/EP05 展开）
+
+episode_id: EP04
+source_md: 剧本/EP04/EP04_剧本.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128  # 必须带版本后缀，无后缀名方舟返回 404 InvalidEndpointOrModel.NotFound
+  seed: 20260729  # 全剧统一固定 seed（制片规范§五 / 分集文件头 seedance_defaults；与 EP04_shots.yaml 一致）
+  ratio: "9:16"
+  resolution: 720p
+  generate_audio: true
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。"
+  prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。"
+  negative_prompt: "modern objects, modern clothing, plastic, glass panes, electric light, light bulb, power lines, wires, rubber, zipper, wristwatch, phone, vehicle, bicycle, asphalt road, concrete, printed modern signage, modern hairstyle, modern makeup, eyeglasses, gunpowder firearms, identifiable real-dynasty imperial regalia, gibberish text, distorted Chinese characters"
+
+# voice_prompts 来源：资产/声音卡片.md（P0 权威源）· 全文复制括号内纯文本，逐字未改
+voice_prompts:
+  CHAR-001: "成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句"
+  CHAR-002: "成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声"
+  CHAR-003: "老年男性，60岁，沙哑低缓的烟嗓，语速极慢、半天一句，句间停顿长，急事时才骤然提速连说，带边地老农土音感"
+
+segments:
+  - segment_id: EP04-SEG01
+    shot_ids: [EP04-S01, EP04-S02]
+    duration_sec: 11
+    speakers: [CHAR-002, CHAR-001]
+    name_card:
+      name: 陆恒之
+      role: 盐课巡检
+      at: 1.0
+      duration: 2.5
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆恒之 CHAR-002-L01（青灰官服洗至褪白，腰间铜符，身姿挺直）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪，一手沾灶灰）【图3】盐滩村青盐土屋前·午后 SCENE-002。
+        角色分工：图1大步行至土屋门前三步开外站定；图2镜头2才出现，从屋内跨出门槛站定不迎不让。
+        竖屏9比16连贯叙事。午后冷白日光，青灰冷光对峙色系。
+        镜头1（5秒）中景 镜头跟随：盐碱村道尽头，图1一身青灰官服，身姿笔挺，大步朝土屋方向走来；袖口领口褪色发白，腰间铜符随步伐轻晃；冷白日光打在他肩上，面容清正冷峻；远景背景几间歪斜土屋，无人出迎。
+        镜头2（6秒）近景 固定镜头：土屋门口，图2从屋内跨出门槛站定，一手还沾着灶灰，身后露出灶台一角和锅沿；图1已到三步开外，目光越过图2肩头往屋内扫；两人目光第一次对上。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「盐课巡检，例行查灶。」
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「灶在何处？」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「在这。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG02
+    shot_ids: [EP04-S03, EP04-S04, EP04-S05]
+    duration_sec: 12
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆恒之 CHAR-002-L01（青灰官服洗至褪白，腰间铜符）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪）【图3】盐滩村青盐土屋内·午后 SCENE-002。
+        角色分工：仅图1可刮锅沿捻粉末、背手宣令；图2全程立姿不跪不退，仅手搭灶沿；镜头3图1不入画，其对白为画外冷声。
+        竖屏9比16连贯叙事。冷白光从屋顶破洞落入，灶火仅余烬，青灰冷光对峙色系。
+        镜头1（4秒）近景 固定镜头：图1迈入屋内，目光落在灶膛——炭火余烬未尽，锅沿一圈白色卤渣；他食指在锅沿轻刮一下，捻了捻指尖粉末，面无表情。
+        镜头2（4秒）中景 固定镜头：图1直起身，双手背后，面向图2方向，姿态如宣读判词；冷白光从屋顶破洞落在他肩头，铜符微微反光。
+        镜头3（4秒）近景 固定镜头：反打图2——她站在灶台侧面，手搭在灶沿上没动；脊背挺直，目光平视前方，既不下跪也不后退，嘴角线条平直。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「灶膛有卤渣，案上有盐霜。」
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「依《盐律》卷三第十九条，无帖煮卤者，封灶没器。」
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「灶户当跪听。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「我不是灶户。你自己说的，无帖。」
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「无帖煮卤便是私煮。跪不跪，同罪。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG03
+    shot_ids: [EP04-S06, EP04-S07]
+    duration_sec: 11
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/PROP-001.png
+    api:
+      text: |
+        【图1】陆恒之 CHAR-002-L01（青灰官服洗至褪白，腰间铜符）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪）【图3】盐滩村青盐土屋内·午后 SCENE-002【图4】《盐卤手记》旧书 PROP-001。
+        角色分工：仅图1可俯身查锅、按灶沿指锅内；仅图2可取木勺指锅底残渣；图4旧书搁在灶台上翻开态，封皮与书页文字全程虚化不可辨认。
+        道具：灶边一把木勺；锅底残卤白渣。
+        竖屏9比16连贯叙事。青灰冷光对峙色系。
+        镜头1（5秒）近景 固定镜头：图1绕到灶前，俯身看锅底残卤，一手按在灶沿，一手指向锅内；图2站在灶的另一侧，隔灶台与他对望。
+        镜头2（6秒）近景 缓推：图2伸手取灶边木勺，朝锅底残渣一指；镜头缓推至她面部——目光平静，说话不急不缓，像在讲一门手艺而非求饶；灶台上翻开的图4旧书角落可见。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「锅里煮了多少？」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「一锅卤。腌了三根萝卜。」
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「一锅也是私煮。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「大人验过这卤没有？」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「霜土煮卤，含盐不过三分。剩下是苦卤，直煮伤人。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+        - { file: PROP-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG04
+    shot_ids: [EP04-S08, EP04-S09, EP04-S10]
+    duration_sec: 12
+    speakers: [CHAR-001, CHAR-002]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/PROP-001.png
+    api:
+      text: |
+        【图1】沈青盐 CHAR-001-L01（粗布素衣木簪，手指沾盐霜）【图2】陆恒之 CHAR-002-L01（青灰官服洗至褪白，腰间铜符）【图3】盐滩村青盐土屋内·午后 SCENE-002【图4】《盐卤手记》旧书 PROP-001。
+        角色分工：仅图1可捧起图4旧书、推陶碟；图2目视不接书不碰碟；镜头2图1不入画，其对白为画外平声。
+        道具：粗陶碟搁灶沿，碟里三片腌萝卜泛微黄盐光；图4旧书封面靛蓝布皮磨白、一角翘起，封皮文字全程虚化不可辨认。
+        竖屏9比16连贯叙事。青灰冷光对峙色系，灶火余烬仅在图2侧脸留一点暖光。
+        镜头1（4秒）特写 固定镜头：特写图1的手从灶台上拿起图4半册旧书；她双手捧书朝图2方向略略举起；书旁灶沿上搁着一只粗陶碟，碟里三片腌萝卜泛着微黄盐光。
+        镜头2（4秒）近景 固定镜头：反打图2——他的目光从书上移到碟中萝卜，鼻翼微动，眉心微蹙，嘴角依旧抿平；背后灶火余烬映着一点暖光打在他侧脸。
+        镜头3（4秒）近景 固定镜头：图1把陶碟往灶沿前推了一寸；她的目光稳稳盯着图2方向，嘴角没有笑，但神情笃定；手指沾着盐霜，指甲缝嵌着白。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「我爹留的。每一页盐理，大人翻翻，哪条是假？」
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「半册残书算什么凭据。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「碟里的萝卜是凭据。咸而不涩。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「杂卤不去净腌不出这味。大人不尝，鼻子总有吧。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+        - { file: PROP-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG05
+    shot_ids: [EP04-S11, EP04-S12]
+    duration_sec: 11
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆恒之 CHAR-002-L01（青灰官服洗至褪白，腰间铜符）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪）【图3】盐滩村青盐土屋内·午后 SCENE-002。
+        角色分工：仅图1可抬手作封灶姿态——右手掌心朝下悬停灶口上方，全程不落下不触碰灶口；图2立姿不退；镜头2图2不入画，其对白为画外一字一顿。
+        竖屏9比16连贯叙事。青灰冷光对峙色系。全集核心视觉锤：图1的手悬停灶口半空，必须清晰呈现「抬→悬→停」。
+        镜头1（5秒）中景 固定镜头：图1向前半步，目光变锐；他右手已抬起——掌心朝下，似要按在灶口上，但还没落下；图2站在灶另一侧不退。
+        镜头2（6秒）特写 固定镜头：特写图1的手悬在灶口上方——五指张开，停在半空，像被一根无形的线拽住；他的目光从灶口慢慢移向图2的方向，眉心的蹙慢慢松开半分；两秒的静默。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「提卤去苦，你用什么法子？」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「皂角澄卤，日头收干。三遍。」
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「盐课吏考核三年未必答得出。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「盐不认官阶。认的是手。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG06
+    shot_ids: [EP04-S13, EP04-S14]
+    duration_sec: 11
+    speakers: [CHAR-002, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】陆恒之 CHAR-002-L01（青灰官服洗至褪白，腰间铜符）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪）【图3】盐滩村青盐土屋内·午后 SCENE-002。
+        角色分工：仅图1可收手、退步、转身走向门口、门槛处侧身停顿不回头；图2立灶边目送，手指摩挲灶沿盐渍；图2最后一句为内心独白，口型不动。
+        竖屏9比16连贯叙事。青灰冷光对峙色系，门外冷白光切轮廓。
+        镜头1（5秒）中景 固定镜头：图1把悬着的手缓缓收回身侧，握成拳又松开；他退后一步，恢复公事姿态——脊背挺直，目光冷正，面向图2。
+        镜头2（6秒）近景 固定镜头：图1转身朝门口走，行至门槛处侧身停了一瞬，半张侧脸被屋外冷白光切出轮廓，没回头；图2站在灶边目送，手指无意识摩挲灶沿上的盐渍。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「灶籍凭据，有没有？」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「没有。」
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「三日。拿凭据来。否则封灶。」
+        对白（陆恒之，成年男性，28岁，音色清正偏冷，中音区带书卷气，语速平稳、条理分明如宣读律条，冷幽默时尾音微挑，动情时话短促收声）：「本官认律条，不认手艺。」
+        对白（沈青盐内心独白，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「三日。他没当场封。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: dissolve
+
+  - segment_id: EP04-SEG07
+    shot_ids: [EP04-S15, EP04-S16]
+    duration_sec: 11
+    speakers: [CHAR-001, CHAR-003]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-003-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/PROP-001.png
+    api:
+      text: |
+        【图1】沈青盐 CHAR-001-L01（粗布素衣木簪）【图2】周老蔫 CHAR-003-L01（补丁坎肩，花白短发）【图3】盐滩村青盐土屋内·夜 SCENE-002【图4】《盐卤手记》旧书 PROP-001。
+        角色分工：仅图1可翻书、合书起身、开门；图2仅镜头2以门缝月光半身轮廓出现，不进屋，怀里抱着深色物件；图1镜头1两句均为内心独白，口型不动。
+        道具：油灯一盏，暖黄光；图4旧书摊开在图1膝头，书页文字全程虚化不可辨认。
+        竖屏9比16连贯叙事。夜戏，暖黄油灯光人情色系，灶台方向黑暗无火。
+        镜头1（5秒）近景 固定镜头：油灯微黄，映亮图1半张脸；她盘腿坐在矮榻上，膝头摊开图4那半册旧书，手指抵在某页没动；灶台方向黑洞洞的——火已灭；她望着灶口方向出神。
+        镜头2（6秒）中景 固定镜头：突然两下叩门声；图1抬头，合上书起身；门推开一条缝——月光里图2的半身轮廓：补丁坎肩，花白短发，怀里抱着什么东西。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（沈青盐内心独白，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「灶籍。这村从前有灶户，谁手里会有？」
+        对白（沈青盐内心独白，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「周叔说过……灶籍定户。」
+        对白（周老蔫，老年男性，60岁，沙哑低缓的烟嗓，语速极慢、半天一句，句间停顿长，急事时才骤然提速连说，带边地老农土音感）：「丫头，是我。开门。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「周叔？」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+        - { file: PROP-001, role: reference_image, label: 图4 }
+    transition_to_next: hard_cut
+
+  - segment_id: EP04-SEG08
+    shot_ids: [EP04-S17, EP04-S18]
+    duration_sec: 11
+    speakers: [CHAR-003, CHAR-001]
+    refs:
+      scene_id: SCENE-002
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-003-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】周老蔫 CHAR-003-L01（补丁坎肩，花白短发）【图2】沈青盐 CHAR-001-L01（粗布素衣木簪）【图3】盐滩村青盐土屋内·夜 SCENE-002。
+        角色分工：仅图1可从怀中取出油布包、双手递出、转身离去；仅图2可双手接包、掂量；油布包全程裹紧不展开，看不见包内之物；镜头2图1不入画，其对白为画外沉声；图2最后一句为内心独白，口型不动。
+        道具：深色油布包裹——四方扁平，层层裹紧，入手沉甸，纸张的硬度和厚度隔布可感。
+        竖屏9比16连贯叙事。夜戏，暖黄油灯光人情色系。
+        镜头1（5秒）近景 固定镜头：油灯下，图1侧身进屋；他从怀里取出一个深色油布包裹——四方扁平，层层裹紧；双手递向图2；他的眼神沉且亮，嘴唇紧抿。
+        镜头2（6秒）特写 镜头推近：特写图2双手接住油布包——入手沉甸；镜头缓推至她的脸：眉头微动，目光从包裹移向门口图1离去的背影方向；油灯火苗晃了一下。
+        [以下对白仅供语音合成，严禁在画面中显示任何文字]
+        对白（周老蔫，老年男性，60岁，沙哑低缓的烟嗓，语速极慢、半天一句，句间停顿长，急事时才骤然提速连说，带边地老农土音感）：「接着。三日够用了。」
+        对白（沈青盐，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「这是什么？」
+        对白（周老蔫，老年男性，60岁，沙哑低缓的烟嗓，语速极慢、半天一句，句间停顿长，急事时才骤然提速连说，带边地老农土音感）：「该你知道的时候自然知道。先收好。」
+        对白（沈青盐内心独白，成年女性，26岁，音色清而沉稳，中低音区，语速偏慢、字字落地，情绪越激烈声音反而越轻越静，狠话轻声说，惯用十字以内短句）：「沉甸甸……是纸。」
+        画面全程无任何文字、字幕、标题、水印。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，竖屏9比16，无品牌 Logo，无平台 UI。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    transition_to_next: hard_cut

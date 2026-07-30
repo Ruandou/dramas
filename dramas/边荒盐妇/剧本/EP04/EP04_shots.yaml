@@ -1,0 +1,603 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP04/EP04_剧本.md（v1.0 定稿，v2.2 切镜节奏，R2 PASS 31/35 notes 清零）
+# Source shots: 18 (EP04-S01 to EP04-S18)
+# Output shots: 18 (EP04-S01 to EP04-S18)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 90s（segment-builder 逐镜自算：5+6+4+4+4+5+6+4+4+4+5+6+5+6+5+6+5+6；与源 .md VALIDATION 声称值一致）
+# Output total duration: 90s
+# Gate status: ALL PASS（Gate 2 v2.2 切镜节奏：单镜最长 6s，无 >8s 长镜；段全部 2-3 镜；Gate 4 voice_prompt 三角色均在声音卡片 P0）
+# 场景变体说明：SCENE-002 破败期态①用 SCENE-002-wasteland.png（EP02-08，同 EP02/EP03）；SEG07-08 夜戏同场景内景，夜感由 prompt 文字锁定（暖黄油灯光）
+# PROP-008 说明：本集仅「油布包裹态」出场（S17-S18）；PROP-008.png 参考图为展开态（黄麻纸官帖+朱印+中文文字可见），与包裹态不符且有文字入画风险，
+#   故本集不作参考图引入，外观由 prompt 文字锁定；EP05 展开时再引入参考图（道具卡片：首次出场 EP04 油布包/EP05 展开）
+
+episode_id: EP04
+source_md: 剧本/EP04/EP04_剧本.md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128  # 必须带版本后缀，无后缀名方舟返回 404 InvalidEndpointOrModel.NotFound
+  seed: 20260729  # 全剧统一固定 seed（制片规范§五 / 分集文件头 seedance_defaults）
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。"
+  negative_prompt: "modern objects, modern clothing, plastic, glass panes, electric light, light bulb, power lines, wires, rubber, zipper, wristwatch, phone, vehicle, bicycle, asphalt road, concrete, printed modern signage, modern hairstyle, modern makeup, eyeglasses, gunpowder firearms, identifiable real-dynasty imperial regalia, gibberish text, distorted Chinese characters"
+
+shots:
+  # ===== SEG01 巡检到村 =====
+  - shot_id: EP04-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】SCENE-002。
+        中景 镜头跟随：盐碱村道尽头，图1一身青灰官服，身姿笔挺，大步朝土屋方向走来；袖口领口褪色发白，腰间铜符随步伐轻晃；冷白日光打在他肩上，面容清正冷峻；远景背景几间歪斜土屋，无人出迎。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "盐课巡检，例行查灶。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】SCENE-002。
+        近景 固定镜头：土屋门口，图1从屋内跨出门槛站定，一手还沾着灶灰，身后露出灶台一角和锅沿；图2已到三步开外，目光越过图1肩头往屋内扫；两人目光第一次对上。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "灶在何处？"
+      - speaker: CHAR-001
+        line: "在这。"
+    transition_to_next: hard_cut
+
+  # ===== SEG02 宣律不跪 =====
+  - shot_id: EP04-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】SCENE-002。
+        近景 固定镜头：图1迈入屋内，目光落在灶膛——炭火余烬未尽，锅沿一圈白色卤渣；他食指在锅沿轻刮一下，捻了捻指尖粉末，面无表情。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "灶膛有卤渣，案上有盐霜。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】SCENE-002。
+        中景 固定镜头：图1直起身，双手背后，姿态如宣读判词；冷白光从屋顶破洞落在他肩头，铜符微微反光。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "依《盐律》卷三第十九条，无帖煮卤者，封灶没器。"
+      - speaker: CHAR-002
+        line: "灶户当跪听。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-002。
+        近景 固定镜头：反打图1——她站在灶台侧面，手搭在灶沿上没动；脊背挺直，目光平视前方，既不下跪也不后退，嘴角线条平直。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "我不是灶户。你自己说的，无帖。"
+      - speaker: CHAR-002
+        line: "无帖煮卤便是私煮。跪不跪，同罪。"
+    transition_to_next: hard_cut
+
+  # ===== SEG03 第一回合 =====
+  - shot_id: EP04-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】SCENE-002。
+        近景 固定镜头：图1绕到灶前，俯身看锅底残卤，一手按在灶沿，一手指向锅内；图2站在灶的另一侧，隔灶台与他对望。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "锅里煮了多少？"
+      - speaker: CHAR-001
+        line: "一锅卤。腌了三根萝卜。"
+      - speaker: CHAR-002
+        line: "一锅也是私煮。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/PROP-001.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-002【图3】PROP-001。
+        近景 缓推：图1伸手取灶边木勺，朝锅底残渣一指；镜头缓推至她面部——目光平静，说话不急不缓，像在讲一门手艺而非求饶；灶台上翻开的图3旧书角落可见，封皮与书页文字全程虚化不可辨认。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "大人验过这卤没有？"
+      - speaker: CHAR-001
+        line: "霜土煮卤，含盐不过三分。剩下是苦卤，直煮伤人。"
+    transition_to_next: hard_cut
+
+  # ===== SEG04 手记与萝卜 =====
+  - shot_id: EP04-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/PROP-001.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-002【图3】PROP-001。
+        特写 固定镜头：特写图1的手从灶台上拿起图3半册旧书——封面靛蓝布皮磨白，一角翘起，封皮文字虚化不可辨认；她双手捧书略略朝前举起；书旁灶沿上搁着一只粗陶碟，碟里三片腌萝卜泛着微黄盐光。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "我爹留的。每一页盐理，大人翻翻，哪条是假？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】SCENE-002。
+        近景 固定镜头：反打图1——他的目光从书上移到碟中萝卜，鼻翼微动，眉心微蹙，嘴角依旧抿平；背后灶火余烬映着一点暖光打在他侧脸。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "半册残书算什么凭据。"
+      - speaker: CHAR-001
+        line: "碟里的萝卜是凭据。咸而不涩。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-002。
+        近景 固定镜头：图1把陶碟往灶沿前推了一寸；她的目光稳稳盯着正前方，嘴角没有笑，但神情笃定；手指沾着盐霜，指甲缝嵌着白。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "杂卤不去净腌不出这味。大人不尝，鼻子总有吧。"
+    transition_to_next: hard_cut
+
+  # ===== SEG05 封灶手停 =====
+  - shot_id: EP04-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】SCENE-002。
+        中景 固定镜头：图1向前半步，目光变锐；他右手已抬起——掌心朝下，似要按在灶口上，但还没落下；图2站在灶另一侧不退。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "提卤去苦，你用什么法子？"
+      - speaker: CHAR-001
+        line: "皂角澄卤，日头收干。三遍。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】SCENE-002。
+        特写 固定镜头：特写图1的手悬在灶口上方——五指张开，停在半空，像被一根无形的线拽住；他的目光从灶口慢慢移开，眉心的蹙慢慢松开半分；两秒的静默。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "盐课吏考核三年未必答得出。"
+      - speaker: CHAR-001
+        line: "盐不认官阶。认的是手。"
+    transition_to_next: hard_cut
+
+  # ===== SEG06 三日之限 =====
+  - shot_id: EP04-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】SCENE-002。
+        中景 固定镜头：图1把悬着的手缓缓收回身侧，握成拳又松开；他退后一步，恢复公事姿态——脊背挺直，目光冷正，面向图2。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "灶籍凭据，有没有？"
+      - speaker: CHAR-001
+        line: "没有。"
+      - speaker: CHAR-002
+        line: "三日。拿凭据来。否则封灶。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】SCENE-002。
+        近景 固定镜头：图1转身朝门口走，行至门槛处侧身停了一瞬，半张侧脸被屋外冷白光切出轮廓，没回头；图2站在灶边目送，手指无意识摩挲灶沿上的盐渍。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "本官认律条，不认手艺。"
+      - speaker: CHAR-001
+        line: "三日。他没当场封。"
+    transition_to_next: dissolve
+
+  # ===== SEG07 夜灯独思 =====
+  - shot_id: EP04-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-001
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/边荒盐妇/PROP-001.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-002【图3】PROP-001。
+        近景 固定镜头：夜，油灯微黄，映亮图1半张脸；她盘腿坐在矮榻上，膝头摊开图3那半册旧书，手指抵在某页没动，书页文字虚化不可辨认；灶台方向黑洞洞的——火已灭；她望着灶口方向出神。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "灶籍。这村从前有灶户，谁手里会有？"
+      - speaker: CHAR-001
+        line: "周叔说过……灶籍定户。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-003-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-003-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-003-L01【图3】SCENE-002。
+        中景 固定镜头：夜，突然两下叩门声；图1抬头，合上书起身；门推开一条缝——月光里图2的半身轮廓：补丁坎肩，花白短发，怀里抱着什么东西。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-003-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "丫头，是我。开门。"
+      - speaker: CHAR-001
+        line: "周叔？"
+    transition_to_next: hard_cut
+
+  # ===== SEG08 油布包 =====
+  - shot_id: EP04-S17
+    shot_no: 17
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-008  # 油布包裹态；参考图为展开态（含中文官帖）不引入，外观由 prompt 文字锁定（EP05 展开时引入）
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-003-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-003-L01【图2】CHAR-001-L01【图3】SCENE-002。
+        近景 固定镜头：夜，油灯下，图1侧身进屋；他从怀里取出一个深色油布包裹——四方扁平，层层裹紧，看不见包内之物；双手递向图2；他的眼神沉且亮，嘴唇紧抿。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "接着。三日够用了。"
+      - speaker: CHAR-001
+        line: "这是什么？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP04-S18
+    shot_no: 18
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-008  # 油布包裹态；参考图为展开态（含中文官帖）不引入，外观由 prompt 文字锁定
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/边荒盐妇/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/边荒盐妇/SCENE-002-wasteland.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-002。
+        特写 镜头推近：夜，特写图1双手接住深色油布包——入手沉甸，包裹始终裹紧不展开；镜头缓推至她的脸：眉头微动，目光从包裹移向门口方向；油灯火苗晃了一下。
+        禁止画面中出现任何文字或字幕。架空古代大雍朝·前工业海盐边地写实风格，低饱和大地色为底、盐白高光点睛，9:16 竖屏。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "该你知道的时候自然知道。先收好。"
+      - speaker: CHAR-001
+        line: "沉甸甸……是纸。"
+    transition_to_next: hard_cut
