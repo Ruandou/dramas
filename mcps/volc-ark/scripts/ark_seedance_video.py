@@ -33,9 +33,14 @@ import uuid
 from pathlib import Path
 from typing import Any
 
-from ark_archive import list_tasks as list_local_tasks
+# 公共基建层 mcps/shared（本项目脚本从 mcps/shared/ 直接运行时无需此段）
+_SHARED_DIR = Path(__file__).resolve().parents[2] / "shared"
+if str(_SHARED_DIR) not in sys.path:
+    sys.path.insert(0, str(_SHARED_DIR))
+
+from archive import list_tasks as list_local_tasks
 from project_task_archive import KIND_SEEDANCE, assert_valid_drama_project_root
-import ark_dedup
+import dedup
 from ark_seedance_record import (
     record_status,
     record_submit,
@@ -52,7 +57,7 @@ from ark_common import (
     task_id_from_response,
     task_status,
 )
-from ark_media import load_cdn_registry, lookup_tos_url, resolve_image_url, resolve_media_url
+from media_utils import load_cdn_registry, lookup_tos_url, resolve_image_url, resolve_media_url
 
 try:
     import yaml
@@ -150,7 +155,7 @@ def create_task(
         if proot and identity_key:
             try:
                 if not fingerprint:
-                    fingerprint = ark_dedup.fingerprint_video(
+                    fingerprint = dedup.fingerprint_video(
                     prompt=_segment_text_from_body(body),
                     model=body.get("model"),
                     duration=body.get("duration"),
@@ -158,7 +163,7 @@ def create_task(
                     resolution=body.get("resolution"),
                     media_urls=_segment_media_urls_from_body(body),
                 )
-                ark_dedup.add_submitting_placeholder(
+                dedup.add_submitting_placeholder(
                     proot,
                     kind=KIND_SEEDANCE,
                     episode_id=archive_meta.get("episode"),
@@ -184,7 +189,7 @@ def create_task(
         if proot:
             #提拔 submitting 卡位 → 写入真实 task_id
             try:
-                ark_dedup.promote_submitting(
+                dedup.promote_submitting(
                     proot,
                     kind=KIND_SEEDANCE,
                     episode_id=archive_meta.get("episode"),
@@ -239,7 +244,7 @@ def _segment_media_urls_from_body(body: dict) -> list[str]:
 
 
 def get_archive_base_hint() -> str:
-    from ark_archive import get_archive_base
+    from archive import get_archive_base
 
     return get_archive_base()
 
@@ -701,7 +706,7 @@ def build_segment_body(
 def _segment_fingerprint(seg: dict, episode: dict) -> str:
     """从 segment 字典算视频内容指纹（prompt/时長/素材图等）。"""
     try:
-        return ark_dedup.fingerprint_segment(seg, model=episode.get("model") or default_model())
+        return dedup.fingerprint_segment(seg, model=episode.get("model") or default_model())
     except Exception:
         # 解析失败不应阻塞提交；返回空让对账退化为本地 identity 去重
         return ""
@@ -709,7 +714,7 @@ def _segment_fingerprint(seg: dict, episode: dict) -> str:
 
 def _segment_status_label(sid: str, fp: str, project_root: Path, ep_id: str, remote_index: dict | None) -> str:
     """生成 ✅submitted / ⏳submitting / ❓not_submitted 标签。"""
-    local = ark_dedup.local_lookup(
+    local = dedup.local_lookup(
         project_root, kind=KIND_SEEDANCE, episode_id=ep_id,
         identity_key=sid, fingerprint=fp,
     )
@@ -726,14 +731,14 @@ def _shot_fingerprint(shot: dict, episode: dict) -> str:
     """shot 与 segment 结构同构，复用 fingerprint_segment（identity 字段为 shot_id）。"""
     # 把 shot 当 segment 算；content 字段名一致
     try:
-        return ark_dedup.fingerprint_segment(shot, model=episode.get("model") or default_model())
+        return dedup.fingerprint_segment(shot, model=episode.get("model") or default_model())
     except Exception:
         return ""
 
 
 def _shot_status_label(sid: str, fp: str, project_root: Path, ep_id: str, remote_index: dict | None) -> str:
     """shots 的 ✅submitted / ⏳submitting / ❓not_submitted 状态标签。"""
-    local = ark_dedup.local_lookup(
+    local = dedup.local_lookup(
         project_root, kind=KIND_SEEDANCE, episode_id=ep_id,
         identity_key=sid, fingerprint=fp,
     )
@@ -756,7 +761,7 @@ def _coordination_block(
 
     remote_index 为 {fingerprint: {remote_task_id, remote_task}}，供循环内本地未命中时查远程。
     网络/无 key 失败时返回 None（退回本地去重），不抛错。"""
-    ok_force, force_msg = ark_dedup.require_force_confirm(args.force)
+    ok_force, force_msg = dedup.require_force_confirm(args.force)
     if args.force and not ok_force:
         print(force_msg, file=sys.stderr)
         args.force = False
@@ -768,7 +773,7 @@ def _coordination_block(
             remote_tasks = list_tasks(model=default_model(), page_size=100, max_pages=6)
             remote_index = {}
             for rt in remote_tasks:
-                fp = ark_dedup.remote_fingerprint_from_task(rt)
+                fp = dedup.remote_fingerprint_from_task(rt)
                 if fp and fp not in remote_index:
                     tid = rt.get("id") or rt.get("task_id")
                     remote_index[fp] = {"remote_task_id": tid, "remote_task": rt}
@@ -815,7 +820,7 @@ def cmd_segments(args: argparse.Namespace) -> int:
             )
 
     # force 二次确认：挡 agent 随手 --force 重复扣费
-    ok_force, force_msg = ark_dedup.require_force_confirm(args.force)
+    ok_force, force_msg = dedup.require_force_confirm(args.force)
     if args.force and not ok_force:
         print(force_msg, file=sys.stderr)
         args.force = False
@@ -834,7 +839,7 @@ def cmd_segments(args: argparse.Namespace) -> int:
                 remote_tasks = list_tasks(model=default_model(), page_size=100, max_pages=6)
                 remote_index = {}
                 for rt in remote_tasks:
-                    fp = ark_dedup.remote_fingerprint_from_task(rt)
+                    fp = dedup.remote_fingerprint_from_task(rt)
                     if fp and fp not in remote_index:
                         tid = rt.get("id") or rt.get("task_id")
                         remote_index[fp] = {"remote_task_id": tid, "remote_task": rt}
@@ -864,7 +869,7 @@ def cmd_segments(args: argparse.Namespace) -> int:
         fp = seg_fp.get(sid, "")
         # --- 对账：本地指纹 → 远程指纹 → submitting 卡位 ---
         if not args.force:
-            local = ark_dedup.local_lookup(
+            local = dedup.local_lookup(
                 project_root, kind=KIND_SEEDANCE, episode_id=ep_id,
                 identity_key=sid, fingerprint=fp,
             )
@@ -880,7 +885,7 @@ def cmd_segments(args: argparse.Namespace) -> int:
                     if hit:
                         rtid = hit["remote_task_id"]
                         try:
-                            ark_dedup.write_back_remote(
+                            dedup.write_back_remote(
                                 project_root, episode_id=ep_id, remote_task_id=rtid,
                                 fingerprint=fp, identity_key=sid,
                                 extra_params={"segment_id": sid, "project": project_root.name},
@@ -904,7 +909,7 @@ def cmd_segments(args: argparse.Namespace) -> int:
                 if hit:
                     rtid = hit["remote_task_id"]
                     try:
-                        ark_dedup.write_back_remote(
+                        dedup.write_back_remote(
                             project_root, episode_id=ep_id, remote_task_id=rtid,
                             fingerprint=fp, identity_key=sid,
                             extra_params={"segment_id": sid, "project": project_root.name},
@@ -1028,7 +1033,7 @@ def cmd_shots(args: argparse.Namespace) -> int:
         fp = shot_fp.get(sid, "")
         # --- 对账 ---
         if not args.force:
-            local = ark_dedup.local_lookup(
+            local = dedup.local_lookup(
                 project_root, kind=KIND_SEEDANCE, episode_id=ep_id,
                 identity_key=sid, fingerprint=fp,
             )
@@ -1043,7 +1048,7 @@ def cmd_shots(args: argparse.Namespace) -> int:
                     if hit:
                         rtid = hit["remote_task_id"]
                         try:
-                            ark_dedup.write_back_remote(
+                            dedup.write_back_remote(
                                 project_root, episode_id=ep_id, remote_task_id=rtid,
                                 fingerprint=fp, identity_key=sid,
                                 extra_params={"shot_id": sid, "project": project_root.name},
@@ -1064,7 +1069,7 @@ def cmd_shots(args: argparse.Namespace) -> int:
                 hit = remote_index[fp]
                 rtid = hit["remote_task_id"]
                 try:
-                    ark_dedup.write_back_remote(
+                    dedup.write_back_remote(
                         project_root, episode_id=ep_id, remote_task_id=rtid,
                         fingerprint=fp, identity_key=sid,
                         extra_params={"shot_id": sid, "project": project_root.name},
@@ -1155,7 +1160,7 @@ def cmd_reconcile(args: argparse.Namespace) -> int:
         return 1
     remote_index: dict[str, dict] = {}
     for rt in remote_tasks:
-        fp = ark_dedup.remote_fingerprint_from_task(rt)
+        fp = dedup.remote_fingerprint_from_task(rt)
         if fp and fp not in remote_index:
             remote_index[fp] = {"remote_task_id": rt.get("id") or rt.get("task_id"), "remote_task": rt}
 
@@ -1165,7 +1170,7 @@ def cmd_reconcile(args: argparse.Namespace) -> int:
         for seg in episode.get("segments") or []:
             sid = seg.get("segment_id", "?")
             fp = _segment_fingerprint(seg, episode)
-            local = ark_dedup.local_lookup(
+            local = dedup.local_lookup(
                 project_root, kind=KIND_SEEDANCE, episode_id=ep_id,
                 identity_key=sid, fingerprint=fp,
             )
@@ -1176,7 +1181,7 @@ def cmd_reconcile(args: argparse.Namespace) -> int:
             if hit:
                 rtid = hit["remote_task_id"]
                 try:
-                    ark_dedup.write_back_remote(
+                    dedup.write_back_remote(
                         project_root, episode_id=ep_id, remote_task_id=rtid,
                         fingerprint=fp, identity_key=sid,
                         extra_params={"segment_id": sid, "project": project_root.name},
@@ -1190,13 +1195,13 @@ def cmd_reconcile(args: argparse.Namespace) -> int:
                 results.append({"segment_id": sid, "status": "remote_not_found", "note": "可安全重发（或排除网络原因）"})
     else:
         # 不指定 yaml：只把远程存在但本地缺的任务整体回写
-        idx = ark_dedup.read_local_index(project_root, kind=KIND_SEEDANCE, episode_id=ep_id)
+        idx = dedup.read_local_index(project_root, kind=KIND_SEEDANCE, episode_id=ep_id)
         existing_ids = {_fp(t) for t in idx.values()}
         for fp, hit in remote_index.items():
             if hit["remote_task_id"] in existing_ids:
                 continue
             try:
-                ark_dedup.write_back_remote(
+                dedup.write_back_remote(
                     project_root, episode_id=ep_id, remote_task_id=hit["remote_task_id"],
                     fingerprint=fp, identity_key="(reconciled)",
                     extra_params={"project": project_root.name},
@@ -1283,13 +1288,13 @@ def main() -> int:
 
     p_rec = sub.add_parser("reconcile", help="拉近 7 天远程任务按指纹回写本地归档")
     p_rec.add_argument("episode", help="如 EP01")
-    p_rec.add_argument("--project-root", required=True, help="短剧项目根，如 darams/天工开物")
+    p_rec.add_argument("--project-root", required=True, help="短剧项目根，如 dramas/天工开物")
     p_rec.add_argument("--segments-file", help="基于 segments yaml 算指纹；不指定则仅回写远程存在但本地缺的")
     p_rec.set_defaults(func=cmd_reconcile)
 
     p_shots = sub.add_parser("shots", help="从 EP##_shots.yaml 提交")
     p_shots.add_argument("episode", help="如 EP01")
-    p_shots.add_argument("--project-root", required=True, help="短剧项目根，如 darams/天工开物")
+    p_shots.add_argument("--project-root", required=True, help="短剧项目根，如 dramas/天工开物")
     p_shots.add_argument("--shots-file", help="覆盖默认 分集剧本/EP##_shots.yaml")
     p_shots.add_argument(
         "--cdn-base",
@@ -1308,7 +1313,7 @@ def main() -> int:
 
     p_seg = sub.add_parser("segments", help="从 EP##_segments.yaml 提交段落视频")
     p_seg.add_argument("episode", help="如 EP01")
-    p_seg.add_argument("--project-root", required=True, help="短剧项目根，如 darams/天工开物")
+    p_seg.add_argument("--project-root", required=True, help="短剧项目根，如 dramas/天工开物")
     p_seg.add_argument("--segments-file", help="覆盖默认 分集剧本/EP##_segments.yaml")
     p_seg.add_argument("--segment", help="仅指定 segment_id")
     p_seg.add_argument("--check-only", action="store_true")

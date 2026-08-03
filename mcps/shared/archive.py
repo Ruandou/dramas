@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-方舟 volc-ark 任务归档。
+"""任务归档门面（Seedream / Seedance / gpt-image 共用）。
 
 方案 A（默认）：设置 DRAMA_PROJECT_ROOT 或调用时传入 project_root →
-  {project}/assets/generated/EP##/tasks.json 、assets/tasks_seedream.json
+  {project}/assets/generated/EP##/tasks.json 、assets/tasks_*.json
 
 无 project_root 时回退仓库 video/ark_tasks/（遗留，勿再用于天工开物）。
 
 CLI:
-  python3 ark_archive.py list [--project-root PATH] [--type image|video] [--episode EP01]
+  python3 archive.py list [--project-root PATH] [--type image|video] [--episode EP01]
 """
 from __future__ import annotations
 
@@ -29,6 +28,8 @@ def _map_kind(task_type: str, params: dict | None = None) -> tuple[str, str | No
         return pta.KIND_SEEDREAM, None
     if "seedance" in t:
         return pta.KIND_SEEDANCE, (p.get("episode") or "").upper() or None
+    if "gpt_image" in t:
+        return pta.KIND_GPT_IMAGE, None
     return pta.KIND_SEEDREAM, None
 
 
@@ -37,7 +38,8 @@ def get_archive_base() -> str:
     if proot:
         return str(proot / "assets")
     script_dir = Path(__file__).resolve().parent
-    archive_dir = script_dir.parent.parent.parent / "video" / "ark_tasks"
+    # mcps/shared/ 下：parent=shared, parent.parent=仓库根
+    archive_dir = script_dir.parent.parent / "video" / "ark_tasks"
     archive_dir.mkdir(parents=True, exist_ok=True)
     return str(archive_dir)
 

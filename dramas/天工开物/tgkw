@@ -3,10 +3,10 @@
 天工开物 · 制片 CLI（人工 / Cursor Agent 通用）
 
 在仓库任意位置均可调用（自动定位本剧根目录）：
-  darams/天工开物/tgkw pull EP01 --concat
-  darams/天工开物/tgkw check EP01
-  darams/天工开物/tgkw concat EP01
-  darams/天工开物/tgkw tasks EP01
+  dramas/天工开物/tgkw pull EP01 --concat
+  dramas/天工开物/tgkw check EP01
+  dramas/天工开物/tgkw concat EP01
+  dramas/天工开物/tgkw tasks EP01
 
 环境：ARK_API_KEY（pull/submit 必填）· DRAMA_PROJECT_ROOT（可选，默认本目录）
 """
@@ -79,7 +79,7 @@ def cmd_concat(args: argparse.Namespace) -> int:
 
 def cmd_tasks(args: argparse.Namespace) -> int:
     ep = args.episode.upper()
-    cli = REPO_ROOT / "mcps" / "volc-ark" / "scripts" / "project_task_archive.py"
+    cli = REPO_ROOT / "mcps" / "shared" / "project_task_archive.py"
     if not cli.is_file():
         print(f"找不到 {cli}", file=sys.stderr)
         return 1

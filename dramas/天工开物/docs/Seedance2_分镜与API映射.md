@@ -163,7 +163,7 @@ shots:
 **脚本展开规则**（`script/storyboard_to_seedance.py` 已实现导出；API 提交待写）：
 
 ```bash
-cd darams/天工开物 && python3 script/storyboard_to_seedance.py   # EP01–03
+cd dramas/天工开物 && python3 script/storyboard_to_seedance.py   # EP01–03
 python3 script/storyboard_to_seedance.py EP04                    # 单集
 ```
 

@@ -31,12 +31,12 @@
 "volc-ark": {
   "env": {
     "ARK_API_KEY": "…",
-    "DRAMA_PROJECT_ROOT": "/绝对路径/darams/天工开物"
+    "DRAMA_PROJECT_ROOT": "/绝对路径/dramas/天工开物"
   }
 }
 ```
 
-未传 `project_root` 时，`ark_drama_pull` 用 `DRAMA_PROJECT_ROOT` 或默认 `darams/天工开物`。
+未传 `project_root` 时，`ark_drama_pull` 用 `DRAMA_PROJECT_ROOT` 或默认 `dramas/天工开物`。
 
 ---
 
@@ -45,7 +45,7 @@
 会自动尝试读取 **`.cursor/mcp.json`** 里 `volc-ark` 的 Key（与 MCP 同源）。
 
 ```bash
-cd darams/天工开物
+cd dramas/天工开物
 ./tgkw pull EP01 --concat
 ```
 

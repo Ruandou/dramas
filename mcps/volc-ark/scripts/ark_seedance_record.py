@@ -5,7 +5,7 @@ Seedance 任务登记（方案 A）→ {project_root}/assets/generated/EP##/task
 所有提交入口须经本模块；禁止写 video/ark_tasks 或 task_log.jsonl。
 
 CLI（委托 project_task_archive）:
-  python3 ark_seedance_record.py list --project-root darams/天工开物 [--episode EP01]
+  python3 ark_seedance_record.py list --project-root dramas/天工开物 [--episode EP01]
   python3 ark_seedance_record.py import-jsonl <path> --project-root ... --episode EP01
 """
 from __future__ import annotations
@@ -14,6 +14,11 @@ import json
 import sys
 from pathlib import Path
 from typing import Any
+
+# 公共基建层 mcps/shared（本项目脚本从 mcps/shared/ 直接运行时无需此段）
+_SHARED_DIR = Path(__file__).resolve().parents[2] / "shared"
+if str(_SHARED_DIR) not in sys.path:
+    sys.path.insert(0, str(_SHARED_DIR))
 
 import project_task_archive as pta
 

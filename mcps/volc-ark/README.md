@@ -7,13 +7,16 @@
 | **Seedream 5.0 lite** 文生图 | `doubao-seedream-5-0-lite-260128`（`ARK_SEEDREAM_MODEL` 可覆盖） | `POST /api/v3/images/generations` |
 | **Seedance 2.0 fast** 视频 | `doubao-seedance-2-0-fast-260128` | `POST /api/v3/contents/generations/tasks` |
 
+> **gpt-image-2 CLI** 已独立到 [`mcps/gpt-image/`](../gpt-image/README.md)（OpenAI 兼容中转，走 GetGoAPI）。
+> 通用媒体基建（`media_utils` / `dedup` / `archive` / `project_task_archive` / `cdn_registry`）已抽到 **`mcps/shared/`**，本目录脚本通过 sys.path 引导引用，请勿在 `scripts/` 下重建同名模块。
+
 ## 图床
 
 **不需要。** 本地 `assets/` 图片在提交时自动转为 **data URI**（base64）写入 API；仅当参考图本身已是 `https://` 或 `data:` 时原样使用。
 
 ## 任务归档（方案 A · 推荐）
 
-设置 **`DRAMA_PROJECT_ROOT`**（短剧根，如 `darams/天工开物`）后，任务写入该剧 `assets/`：
+设置 **`DRAMA_PROJECT_ROOT`**（短剧根，如 `dramas/天工开物`）后，任务写入该剧 `assets/`：
 
 ```
 assets/generated/EP01/tasks.json   # Seedance 按集

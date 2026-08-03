@@ -4,7 +4,7 @@
 
 默认 --dry-run（不写 API）；--submit 需 ARK_API_KEY（本地图自动 base64，无需图床）。
 
-用法（在 darams/天工开物 下）：
+用法（在 dramas/天工开物 下）：
   python3 script/storyboard_submit_seedance.py EP01
   python3 script/storyboard_submit_seedance.py EP01 --shot EP01-S02
   python3 script/storyboard_submit_seedance.py EP01 --check-only
@@ -35,7 +35,10 @@ _REPO_SCRIPTS = Path(__file__).resolve(
 ).parents[3] / "mcps" / "volc-ark" / "scripts"
 if str(_REPO_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_REPO_SCRIPTS))
-from ark_media import resolve_image_url  # noqa: E402
+_SHARED = Path(__file__).resolve().parents[3] / "mcps" / "shared"
+if str(_SHARED) not in sys.path:
+    sys.path.insert(0, str(_SHARED))
+from media_utils import resolve_image_url  # noqa: E402
 from ark_seedance_record import record_submit  # noqa: E402
 
 EPISODE_DIR = ROOT / "剧本"

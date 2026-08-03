@@ -15,9 +15,9 @@ from datetime import datetime
 from pathlib import Path
 
 _VOLC_SCRIPTS = Path(__file__).resolve().parent
-_ARK_SCRIPTS = _VOLC_SCRIPTS.parent.parent / "volc-ark" / "scripts"
-if str(_ARK_SCRIPTS) not in sys.path:
-    sys.path.insert(0, str(_ARK_SCRIPTS))
+_SHARED = _VOLC_SCRIPTS.parent.parent / "shared"
+if str(_SHARED) not in sys.path:
+    sys.path.insert(0, str(_SHARED))
 
 import project_task_archive as pta  # noqa: E402
 

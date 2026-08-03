@@ -39,10 +39,16 @@ try:
 except ImportError:
     yaml = None  # type: ignore
 
-from ark_archive import add_task, get_archive_base
-from ark_media import resolve_image_url
-import ark_dedup
+# 公共基建层 mcps/shared（本项目脚本从 mcps/shared/ 直接运行时无需此段）
+_SHARED_DIR = Path(__file__).resolve().parents[2] / "shared"
+if str(_SHARED_DIR) not in sys.path:
+    sys.path.insert(0, str(_SHARED_DIR))
+
+from archive import add_task, get_archive_base
+from media_utils import resolve_image_url
+import dedup
 from project_task_archive import KIND_SEEDREAM, assert_valid_drama_project_root
+from cdn_registry import update_cdn_urls_json
 import uuid
 
 DEFAULT_BASE = "https://ark.cn-beijing.volces.com"
@@ -210,80 +216,6 @@ def download_file(url: str, dest: Path) -> dict[str, Any]:
     return {"path": str(dest.resolve()), "bytes": len(data), "url": url}
 
 
-def update_cdn_urls_json(
-    output: Path,
-    cdn_url: str,
-    task_id: str | None,
-    model: str | None,
-    size: str | None,
-    project_root: Path | None = None,
-) -> Path | None:
-    """Upsert the CDN URL entry into the appropriate cdn_urls.json.
-
-    Returns the path to the updated cdn_urls.json, or None if skipped.
-    """
-    out_str = str(output)
-    # Determine asset type from output path
-    if "/looks/" in out_str:
-        asset_type = "looks"
-    elif "/scenes/" in out_str:
-        asset_type = "scenes"
-    else:
-        return None  # Not in a known asset directory; skip
-
-    # Determine project root
-    root = project_root
-    if root is None:
-        env_root = os.environ.get("DRAMA_PROJECT_ROOT")
-        if env_root:
-            root = Path(env_root)
-    if root is None:
-        # Try to infer from output path: walk up to find assets/ dir
-        candidate = output.parent
-        for _ in range(10):
-            if (candidate / "assets").is_dir():
-                root = candidate
-                break
-            if candidate.parent == candidate:
-                break
-            candidate = candidate.parent
-    if root is None:
-        return None
-
-    cdn_json_path = root / "assets" / asset_type / "cdn_urls.json"
-    cdn_json_path.parent.mkdir(parents=True, exist_ok=True)
-
-    # Read existing
-    registry: dict[str, Any] = {}
-    if cdn_json_path.is_file():
-        try:
-            registry = json.loads(cdn_json_path.read_text(encoding="utf-8"))
-        except (json.JSONDecodeError, OSError):
-            registry = {}
-
-    # Asset ID = filename stem (e.g. CHAR-001-L01.png -> CHAR-001-L01)
-    asset_id = output.stem
-
-    now = datetime.now().astimezone()
-    expires = now + timedelta(hours=24)
-
-    registry[asset_id] = {
-        "local": output.name,
-        "cdn_url": cdn_url,
-        "task_id": str(task_id) if task_id else None,
-        "generated_at": now.isoformat(timespec="seconds"),
-        "expires_at": expires.isoformat(timespec="seconds"),
-        "model": model,
-        "size": size,
-    }
-
-    cdn_json_path.write_text(
-        json.dumps(registry, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-    return cdn_json_path
-
-
 def generate_one(
     prompt: str,
     output: Path | None,
@@ -324,7 +256,7 @@ def generate_one(
 
     # 指纹 + submitting 卡位（图片 API 无历史列表，提交后网络中断无远程对账兜底，
     # 卡位让下次对账发现"提交状态不明"→ 拒自动重发避免双倍扣费）。
-    fp = ark_dedup.fingerprint_image(
+    fp = dedup.fingerprint_image(
         prompt, size=payload.get("size"), ratio=ratio, image_urls=image_urls,
     )
     identity_key = output.stem if output else ""
@@ -333,7 +265,7 @@ def generate_one(
     if project_root and identity_key:
         try:
             os.environ.setdefault("DRAMA_PROJECT_ROOT", str(Path(project_root).resolve()))
-            ark_dedup.add_submitting_placeholder(
+            dedup.add_submitting_placeholder(
                 project_root,
                 kind=KIND_SEEDREAM,
                 episode_id=None,
@@ -389,7 +321,7 @@ def generate_one(
         if placeholder_ok:
             # 提拔 submitting 卡位 → 写入真实 id
             try:
-                ark_dedup.promote_submitting(
+                dedup.promote_submitting(
                     project_root,
                     kind=KIND_SEEDREAM,
                     episode_id=None,
@@ -517,7 +449,7 @@ def _seedream_dedup_check(
 
     Seedream 无远程历史列表，对账只走本地归档 + output 文件存在双查。
     返回 None = 放行；返回 dict = 已命中，调用方应 skip。"""
-    ok_force, force_msg = ark_dedup.require_force_confirm(force)
+    ok_force, force_msg = dedup.require_force_confirm(force)
     if force and not ok_force:
         print(force_msg, file=sys.stderr)
         force = False
@@ -528,11 +460,11 @@ def _seedream_dedup_check(
         if output and output.is_file():
             return {"status": "skip", "reason": "文件已存在", "output": str(output)}
         return None
-    fp = ark_dedup.fingerprint_image(
+    fp = dedup.fingerprint_image(
         prompt, size=size or resolve_size(ratio, size), ratio=ratio, image_urls=image_urls,
     )
     identity_key = output.stem
-    local = ark_dedup.local_lookup(
+    local = dedup.local_lookup(
         project_root, kind=KIND_SEEDREAM, episode_id=None,
         identity_key=identity_key, fingerprint=fp,
     )
@@ -654,11 +586,11 @@ def cmd_batch(args: argparse.Namespace) -> int:
 
         if getattr(args, "status", False):
             # dry-run 状态查询
-            fp = ark_dedup.fingerprint_image(
+            fp = dedup.fingerprint_image(
                 prompt, size=item.get("size") or default_size or resolve_size(ratio, None),
                 ratio=ratio, image_urls=image_urls,
             )
-            local = ark_dedup.local_lookup(
+            local = dedup.local_lookup(
                 project_root, kind=KIND_SEEDREAM, episode_id=None,
                 identity_key=out_path.stem, fingerprint=fp,
             ) if project_root else None
@@ -772,11 +704,11 @@ def cmd_reconcile(args: argparse.Namespace) -> int:
             if isinstance(item_images, str):
                 item_images = [item_images]
             image_urls = [str(u).strip() for u in (item_images or []) if str(u).strip()] or None
-            fp = ark_dedup.fingerprint_image(
+            fp = dedup.fingerprint_image(
                 prompt, size=item.get("size") or resolve_size(ratio, None),
                 ratio=ratio, image_urls=image_urls,
             )
-            local = ark_dedup.local_lookup(
+            local = dedup.local_lookup(
                 project_root, kind=KIND_SEEDREAM, episode_id=None,
                 identity_key=out_path.stem, fingerprint=fp,
             )
@@ -785,13 +717,13 @@ def cmd_reconcile(args: argparse.Namespace) -> int:
             elif out_path.is_file():
                 # 图在盘但归档缺 → 补一条记录（无真实 task_id，仅作指纹冻结避免重出）
                 try:
-                    ark_dedup.add_submitting_placeholder(
+                    dedup.add_submitting_placeholder(
                         project_root, kind=KIND_SEEDREAM, episode_id=None,
                         client_request_id=f"local-recon-{out_path.stem}",
                         fingerprint=fp, identity_key=out_path.stem,
                         extra_params={"output": str(out_path), "status_hint": "file_present_no_archive"},
                     )
-                    ark_dedup.promote_submitting(
+                    dedup.promote_submitting(
                         project_root, kind=KIND_SEEDREAM, episode_id=None,
                         client_request_id=f"local-recon-{out_path.stem}",
                         real_task_id=f"file:{out_path.stem}",
@@ -805,10 +737,10 @@ def cmd_reconcile(args: argparse.Namespace) -> int:
                 results.append({"id": item_id, "status": "未生成，可安全出图"})
     else:
         # 不指定 yaml：扫描归档清理孤儿（落盘文件不存在的条目标记）
-        idx = ark_dedup.read_local_index(project_root or Path("."), kind=KIND_SEEDREAM, episode_id=None)
+        idx = dedup.read_local_index(project_root or Path("."), kind=KIND_SEEDREAM, episode_id=None)
         for tid, t in idx.items():
             outp = (t.get("params") or {}).get("output")
-            real = ark_dedup.resolve_output_anywhere(outp, project_root or Path(".")) if outp else None
+            real = dedup.resolve_output_anywhere(outp, project_root or Path(".")) if outp else None
             if outp and real is None:
                 results.append({"task_id": tid, "status": "孤儿条目（output 不存在）", "output": outp})
             else:

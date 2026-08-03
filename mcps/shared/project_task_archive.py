@@ -2,7 +2,7 @@
 """
 方案 A：短剧任务归档落在项目 assets/ 下（贴近成片/素材），不混仓库 video/*_tasks。
 
-路径约定（project_root = 如 darams/天工开物）：
+路径约定（project_root = 如 dramas/天工开物）：
   assets/generated/EP01/tasks.json     — Seedance 段落/镜级视频（按集）
   assets/tasks_seedream.json           — Seedream 出图
   assets/tasks_jimeng_image.json       — 即梦/视觉 图片
@@ -27,12 +27,14 @@ from typing import Any
 
 KIND_SEEDANCE = "seedance_video"
 KIND_SEEDREAM = "seedream_image"
+KIND_GPT_IMAGE = "gpt_image"
 KIND_JIMENG_IMAGE = "jimeng_image"
 KIND_JIMENG_VIDEO = "jimeng_video"
 KIND_KLING = "kling"
 
 KIND_TO_FILENAME = {
     KIND_SEEDREAM: "tasks_seedream.json",
+    KIND_GPT_IMAGE: "tasks_gpt_image.json",
     KIND_JIMENG_IMAGE: "tasks_jimeng_image.json",
     KIND_JIMENG_VIDEO: "tasks_jimeng_video.json",
     KIND_KLING: "tasks_kling.json",
@@ -71,7 +73,8 @@ def archive_file(
 
 
 def _repo_root() -> Path:
-    return Path(__file__).resolve().parents[3]
+    # mcps/shared/ 下：parents[0]=shared, [1]=mcps, [2]=仓库根
+    return Path(__file__).resolve().parents[2]
 
 
 def assert_valid_drama_project_root(project_root: Path | str | None) -> Path:

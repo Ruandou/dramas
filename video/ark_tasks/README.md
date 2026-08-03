@@ -5,7 +5,7 @@
 本目录仅作 **未设置 `DRAMA_PROJECT_ROOT`** 时的回退；天工开物等请设环境变量或 `--project-root`。
 
 ```bash
-export DRAMA_PROJECT_ROOT=/path/to/darams/天工开物
-python3 mcps/volc-ark/scripts/project_task_archive.py migrate-legacy-video \
+export DRAMA_PROJECT_ROOT=/path/to/dramas/天工开物
+python3 mcps/shared/project_task_archive.py migrate-legacy-video \
   --project-root "$DRAMA_PROJECT_ROOT"
 ```

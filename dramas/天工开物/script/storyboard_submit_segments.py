@@ -5,7 +5,7 @@
 默认 dry-run；--submit 需 ARK_API_KEY。--wait --download 在提交后轮询并落盘 mp4。
 任务登记（方案 A）：assets/generated/EP##/tasks.json（经 ark_seedance_record）。
 
-用法（在 darams/天工开物 下）：
+用法（在 dramas/天工开物 下）：
   python3 script/storyboard_submit_segments.py EP01 --check-only
   python3 script/storyboard_submit_segments.py EP01 --segment EP01-SEG04b
   export ARK_API_KEY=...
@@ -38,8 +38,11 @@ _REPO_ROOT = Path(__file__).resolve().parents[3]
 _REPO_SCRIPTS = _REPO_ROOT / "mcps" / "volc-ark" / "scripts"
 if str(_REPO_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_REPO_SCRIPTS))
+_SHARED = _REPO_ROOT / "mcps" / "shared"
+if str(_SHARED) not in sys.path:
+    sys.path.insert(0, str(_SHARED))
 
-from ark_media import resolve_image_url, resolve_media_url  # noqa: E402
+from media_utils import resolve_image_url, resolve_media_url  # noqa: E402
 from ark_seedance_record import record_status, record_submit  # noqa: E402
 
 EPISODE_DIR = ROOT / "剧本"

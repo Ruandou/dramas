@@ -32,21 +32,21 @@ ls -lh assets/looks/*.png assets/scenes/*.png
 ## 4. 提交 Seedance（段落）
 
 ```bash
-cd darams/天工开物
+cd dramas/天工开物
 python3 script/storyboard_submit_segments.py EP01 --check-only
 python3 script/storyboard_submit_segments.py EP01 --segment EP01-SEG04b   # dry-run → configs/
 export ARK_API_KEY=...
 python3 script/storyboard_submit_segments.py EP01 --segment EP01-SEG04b --submit
 ```
 
-或仓库根：`python3 mcps/volc-ark/scripts/ark_seedance_video.py segments EP01 --project-root darams/天工开物`
+或仓库根：`python3 mcps/volc-ark/scripts/ark_seedance_video.py segments EP01 --project-root dramas/天工开物`
 
 成片：`assets/generated/EP##/EP01-SEGxx.mp4`
 
 **任务登记（方案 A）**：`assets/generated/EP##/tasks.json` 等，见 [`TASKS.md`](./TASKS.md)。提交前建议 `export DRAMA_PROJECT_ROOT=$(pwd)`。
 
 ```bash
-python3 mcps/volc-ark/scripts/project_task_archive.py list --project-root . --episode EP01
+python3 mcps/shared/project_task_archive.py list --project-root . --episode EP01
 ```
 
 ```bash

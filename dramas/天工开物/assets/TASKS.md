@@ -13,7 +13,7 @@
 ## 环境变量
 
 ```bash
-export DRAMA_PROJECT_ROOT=/path/to/darams/天工开物
+export DRAMA_PROJECT_ROOT=/path/to/dramas/天工开物
 ```
 
 `mcp.json` 的 `volc-ark` / `volc-jimeng` 建议加上述 `env`。
@@ -21,17 +21,17 @@ export DRAMA_PROJECT_ROOT=/path/to/darams/天工开物
 ## 查询
 
 ```bash
-python3 mcps/volc-ark/scripts/project_task_archive.py list \
-  --project-root darams/天工开物 --episode EP01
+python3 mcps/shared/project_task_archive.py list \
+  --project-root dramas/天工开物 --episode EP01
 
-python3 mcps/volc-ark/scripts/project_task_archive.py list \
-  --project-root darams/天工开物 --kind seedream
+python3 mcps/shared/project_task_archive.py list \
+  --project-root dramas/天工开物 --kind seedream
 ```
 
 ## 从旧 task_log.jsonl 导入
 
 ```bash
-python3 mcps/volc-ark/scripts/project_task_archive.py import-jsonl \
-  darams/天工开物/assets/generated/EP01/task_log.jsonl \
-  --project-root darams/天工开物 --episode EP01
+python3 mcps/shared/project_task_archive.py import-jsonl \
+  dramas/天工开物/assets/generated/EP01/task_log.jsonl \
+  --project-root dramas/天工开物 --episode EP01
 ```

@@ -16,9 +16,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PYTHON =
   process.env.VOLC_ARK_PYTHON || process.env.ARK_PYTHON || "python3";
 const SCRIPTS = path.join(__dirname, "scripts");
+const SHARED = path.join(__dirname, "..", "shared");
 const IMAGE_CLI = path.join(SCRIPTS, "ark_seedream_image.py");
 const VIDEO_CLI = path.join(SCRIPTS, "ark_seedance_video.py");
-const ARCHIVE_CLI = path.join(SCRIPTS, "ark_archive.py");
+const ARCHIVE_CLI = path.join(SHARED, "archive.py");
 
 function resolveProjectRoot() {
   const root =
@@ -234,7 +235,7 @@ server.registerTool(
       project_root: z
         .string()
         .optional()
-        .describe("短剧根目录，如 darams/天工开物；建议在 mcp env 设 DRAMA_PROJECT_ROOT"),
+        .describe("短剧根目录，如 dramas/天工开物；建议在 mcp env 设 DRAMA_PROJECT_ROOT"),
       episode: z.string().optional().describe("仅列该集 Seedance 任务，如 EP01"),
       type: z.enum(["image", "video", "all"]).optional(),
       limit: z.number().optional(),
@@ -325,7 +326,7 @@ server.registerTool(
       project_root: z
         .string()
         .optional()
-        .describe("短剧根目录；默认 mcp env 的 DRAMA_PROJECT_ROOT 或 darams/天工开物"),
+        .describe("短剧根目录；默认 mcp env 的 DRAMA_PROJECT_ROOT 或 dramas/天工开物"),
       concat: z
         .boolean()
         .optional()
@@ -346,7 +347,7 @@ server.registerTool(
       ? resolveUserPath(p.project_root)
       : process.env.DRAMA_PROJECT_ROOT
         ? path.resolve(process.env.DRAMA_PROJECT_ROOT)
-        : path.join(resolveProjectRoot(), "darams", "天工开物");
+        : path.join(resolveProjectRoot(), "dramas", "天工开物");
     const ep = p.episode.toUpperCase();
     const args = ["pull", ep];
     if (p.concat) args.push("--concat");
@@ -366,7 +367,7 @@ server.registerTool(
       "读取 EP##_shots.yaml，本地 assets 自动 base64 提交。会扣费。",
     inputSchema: z.object({
       episode: z.string().describe("如 EP01"),
-      project_root: z.string().describe("短剧根目录，如 darams/天工开物"),
+      project_root: z.string().describe("短剧根目录，如 dramas/天工开物"),
       cdn_base: z.string().optional().describe("（已废弃，忽略）"),
       shot_id: z.string().optional(),
       check_only: z.boolean().optional(),
