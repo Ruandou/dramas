@@ -110,7 +110,7 @@ seedance_defaults:
   seed: <项目统一固定值>  # ⚠️ 全剧固定一个 seed，提升同角色跨段音色/语速稳定；可从首个满意成片任务回填
   ratio: "9:16"
   resolution: 720p
-  image_resolution: 1600×2848（Seedream 参考图，9:16 竖屏）
+  image_resolution: 1600×2848（图片生成参考图，9:16 竖屏）
   duration_sec: "8-10"
   generate_audio: true
 ---

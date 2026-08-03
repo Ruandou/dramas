@@ -140,7 +140,7 @@ Step → Verify → [有问题? → Fix → Verify (循环至干净)] → Next S
 
 每个 prompt 逐条检查：
 - [ ] **场景/道具人脸禁令**：场景和道具图中**严禁**出现任何人类面孔（含照片、画像、贴纸、屏幕显示等平面媒介）。人物由 Seedance 视频阶段加入。角色卡要求"墙上挂照片"时，改用物品替代（名牌/奖状/标志性物件）
-- [ ] **道具参考图自然锚点（2026-07-30 双事故复盘）**：Seedream 会把 `image_urls` 参考图**原样复制进画面**。仅当 prompt 显式把道具绑定到自然物理锚点（held in hand / hanging at waist sash / parked on the floor beside X）并写明接触面时才可传道具参考图；镜头中不自然可见的道具一律文字描述、不传图（事故：残页参考图被平贴到角色胸口）
+- [ ] **道具参考图自然锚点（2026-07-30 双事故复盘）**：图片生成引擎会把 `image_urls` 参考图**原样复制进画面**（该结论为 Seedream 实测，当前默认引擎 gpt-image 需以实际输出验证）。仅当 prompt 显式把道具绑定到自然物理锚点（held in hand / hanging at waist sash / parked on the floor beside X）并写明接触面时才可传道具参考图；镜头中不自然可见的道具一律文字描述、不传图（事故：残页参考图被平贴到角色胸口）
 - [ ] **空间介词无歧义**：禁用 "at the head of the table" 类可读作"在桌面上"的歧义表述，必须显式命名支撑面（on the floor / on the tabletop）（事故：轮椅被摆上会议桌桌面）
 - [ ] **文字语种**：场景/道具/角色物品（刻字玉佩、绣字长袍等）如需出现中文，必须写 `Simplified Chinese`，不能只写 `Chinese text`（会出繁体）
 - [ ] **文字内容**：所有需要的标签、铭文、手写内容必须**完整拼出**在 prompt 中
@@ -189,13 +189,13 @@ L02+ 衍生形象**必须**通过 `image_urls`（CLI: `--image-url`）传入对�
 
 - [ ] **L01 参考图必须传入**：`image_urls` 包含 L01 的 `https://` TOS URL，不得为空 `[]`
 - [ ] **Prompt 必须包含面部一致性指令**："SAME person as the reference image"、"Keep the SAME face"
-- [ ] **禁止仅靠文本 FACE ANCHOR**：Seedream 无法从文本描述复现同一张脸，即使一字不差的 FACE ANCHOR 也会生成不同人脸
+- [ ] **禁止仅靠文本 FACE ANCHOR**：图片生成引擎无法从文本描述复现同一张脸（该结论为 Seedream 实测，gpt-image 需以实际输出验证），即使一字不差的 FACE ANCHOR 也会生成不同人脸
 
 **事故复盘**：《修仙界唯一的男人》CHAR-006-L02 首次生成时仅用文本 FACE ANCHOR（未传 L01 参考图），导致生成完全不同的人脸。重新生成时传入 L01 `--image-url` 后问题解决。
 
-CLI 示例：
+CLI 示例（当前默认引擎 gpt-image；CLI 路径随引擎，见 `mcps/shared/engine_registry.py`）：
 ```bash
-python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
+python3 mcps/gpt-image/scripts/gpt_image.py generate \
   --image-url "https://drama-reference-images.tos-cn-beijing.volces.com/looks/<剧名>/CHAR-XXX-L01.png" \
   --prompt "The SAME person as the reference image..." \
   --output "dramas/<剧名>/assets/looks/CHAR-XXX-L02.png"
@@ -209,7 +209,7 @@ python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
 - [ ] **生成时机**：character-designer 在每张含可见人脸的 L01/L02+ 确认后，立即生成 `-mesh.png` 变体，并随「即生即传」流程一并上传 TOS
 - [ ] **命名**：`CHAR-###-L##-mesh.png`，群演为 `CHAR-GRP-##-L01-mesh.png`（群演同样适用本规则）；与原图同目录（`assets/looks/`），同步注册 cdn_urls.json
 - [ ] **登记凭据**：生成或豁免结论必须登记到 `资产/形象索引.md` 对应行（`✅ mesh已生成` / `mesh豁免（剪影）` / `mesh豁免（背影）`）；下游 segment-builder 与 G3 均以此登记为准，**无登记视为缺口**，不得自行猜测是否豁免
-- [ ] **使用边界**：仅 Seedance 视频提交（shots/segments YAML 的 `look_urls`）用 mesh 版；Seedream L02+ 衍生、对外展示仍用原图
+- [ ] **使用边界**：仅 Seedance 视频提交（shots/segments YAML 的 `look_urls`）用 mesh 版；图片生成 L02+ 衍生、对外展示仍用原图
 - [ ] **豁免**：逆光剪影、背影等无可见人脸的形象图不触发过滤，无需 mesh 版（需登记豁免，见上）
 - [ ] **根治并行**：向平台申请 AIGC 白名单后可逐步退场
 
@@ -246,7 +246,7 @@ dramas/<剧名>/
 ├── 剧本/EP01/         ← 分集剧本 + 分镜脚本 + YAML
 ├── assets/            ← AI 生成素材
 │   ├── generated/     ← 视频素材（Seedance 输出）
-│   ├── looks/         ← 角色形象参考图（Seedream 输出）
+│   ├── looks/         ← 角色形象参考图（图片生成输出）
 │   └── scenes/        ← 场景参考图
 ├── 制片规范.md        ← 项目"宪法"（ID 系统、分段规则）
 ├── 工作计划.md        ← 流水线状态追踪
@@ -259,9 +259,12 @@ dramas/<剧名>/
 
 ## MCP 工具链
 
+> 🔌 **引擎注册表**：图片/视频生成按「能力」引用，当前默认引擎由 `mcps/shared/engine_registry.py` 统一解析：`image_gen`（图片生成，默认 **gpt-image**，备选 seedream）、`video_gen`（视频生成，默认 seedance，备选 kling）。切换引擎改注册表或设 `IMAGE_GEN_ENGINE` / `VIDEO_GEN_ENGINE` 环境变量即可，agent 提示词无需改。
+
 | 功能 | MCP 服务 | 工具 | 扣费 |
 |------|----------|------|------|
-| 图片生成 | `volc-ark` | `ark_seedream_generate` / `ark_seedream_batch` | **是** |
+| 图片生成（默认 image_gen） | `gpt-image` | `gpt_image_generate` / `gpt_image_batch` | **是** |
+| 图片生成（备选） | `volc-ark` | `ark_seedream_generate` / `ark_seedream_batch` | **是** |
 | 图片托管 | `imgbb` | `imgbb_upload` | 否 |
 | 视频生成 | `volc-ark` | `ark_seedance_create` / `ark_seedance_shots` | **是** |
 | 视频查询 | `volc-ark` | `ark_seedance_list` / `ark_seedance_get` / `ark_seedance_wait` | 否 |
@@ -279,7 +282,7 @@ MCP 工具本质是 Python CLI 的薄包装。MCP 未启动时，通过 Bash 直
 | 查询任务 | `python3 mcps/volc-ark/scripts/ark_seedance_video.py get --task-id cgt-xxx` |
 | 列出远程任务 | `python3 mcps/volc-ark/scripts/ark_seedance_video.py list --json` |
 | 下载视频 | `python3 mcps/volc-ark/scripts/ark_seedance_video.py download --task-id cgt-xxx -o out.mp4` |
-| 生成图片 | `python3 mcps/volc-ark/scripts/ark_seedream_image.py generate --prompt "..." --output path.png` |
+| 生成图片（当前默认引擎 gpt-image；CLI 路径随引擎，见 `mcps/shared/engine_registry.py`） | `python3 mcps/gpt-image/scripts/gpt_image.py generate --prompt "..." --output path.png` |
 
 **环境变量**：`export ARK_API_KEY=xxx`（或 `DRAMA_PROJECT_ROOT=dramas/<剧名>`）
 
@@ -404,6 +407,7 @@ python3 script/download_jimeng_from_tasks.py
 - `volc_visual_query`（查询视觉任务状态）
 - `kling_image_*`、`kling_video_*`（Kling 相关）
 - `minimax_text_to_image`（MiniMax 图片生成）
+- **`gpt_image_generate`、`gpt_image_batch`**（gpt-image 出图）
 - **`ark_seedream_generate`、`ark_seedream_batch`**（方舟 Seedream 出图）
 - **`ark_seedance_create`、`ark_seedance_shots`**（方舟 Seedance 出视频）
 
