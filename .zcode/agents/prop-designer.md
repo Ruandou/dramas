@@ -33,11 +33,11 @@ G2 通过 → prop-designer (Stage 3a) 启动 → 完成所有道具图（即生
 
 道具卡片中每个 PROP-### 的 `参考图` 字段在 Stage 2 已由 production-planner 按决策表分类为 `待生成` / `场景内置` / `角色内置`。prop-designer **不再执行分类决策**，仅读取已有分类并按对应工作流处理：
 
-- **`待生成` 道具**（GENERATE workflow）：进入 Step 4–9，发展视觉概念 → 生成独立参考图 → 上传 TOS
+- **`待生成` 道具**（GENERATE workflow）：进入 Step 4–9，发展视觉概念 → 生成独立参考图 → 对象存储上传（storage）
 - **`场景内置` / `角色内置` 道具**（SKIP workflow）：
   1. 补充材质/颜色/尺寸/磨损描述到 `资产/道具卡片.md`
   2. 编写适合内嵌到场景/角色 Prompt 的 inline description
-  3. **不**生成独立图片、**不**上传 TOS、**不**加入 batch YAML
+  3. **不**生成独立图片、**不**上传对象存储、**不**加入 batch YAML
 
 > 分类决策表定义详见 `production-planner.md` Step 3.5。若 prop-designer 认为分类有误（如发现新的跨场景引用），应向 drama-director 申请重新分类，不可自行修改。
 >
@@ -106,7 +106,7 @@ G2 通过 → prop-designer (Stage 3a) 启动 → 完成所有道具图（即生
 1. 基于道具卡片的现有元数据（持有者性格、关联场景氛围、叙事功能），编写材质/颜色/尺寸/磨损/工艺描述
 2. 编写 inline description（英文，适合直接嵌入 scene/character Prompt）
 3. 将描述写入 `资产/道具卡片.md` 对应条目的「设计描述」字段
-4. 确认：不生成图片、不上传 TOS、不加入 batch YAML
+4. 确认：不生成图片、不上传对象存储、不加入 batch YAML
 
 ## Step 4：道具概念发展（仅 GENERATE 道具）
 
@@ -127,7 +127,7 @@ G2 通过 → prop-designer (Stage 3a) 启动 → 完成所有道具图（即生
    - 书籍/卷轴类：半展开状态，展示内容或封面
 4. **编写最终英文图片生成 Prompt** → 产品摄影打光 + 温暖中性丝绸背景
 5. **将 Prompt 写入道具卡片** → 编辑 `资产/道具卡片.md`，将完整 Prompt 以 `**道具 Prompt（EN）**：` 代码块形式追加在对应 `PROP-###` 表格下方（禁止新增表格字段，见「输出格式强制规则」）
-   - 「参考图」状态保持 `待生成`（生成+TOS 上传后由 Step 8 改 `✅ 已生成`）
+   - 「参考图」状态保持 `待生成`（生成+对象存储上传后由 Step 8 改 `✅ 已生成`）
 
 > **Prompt 权威来源与执行配置分离**：
 > - `资产/道具卡片.md` 中的图片生成 Prompt 是**权威来源**（source of truth）
@@ -222,21 +222,21 @@ python3 mcps/gpt-image/scripts/gpt_image.py --help
 
 按质量审查清单逐项检查每张生成图。
 
-## Step 8：即生即传（TOS 上传 + 注册永久 URL）
+## Step 8：即生即传（对象存储上传 + 注册永久 URL）
 
-> **即生即传规则（Generate-then-Upload）**：每张道具图生成确认后，必须**立即**执行对象存储上传（storage 能力，当前 CLI：`tos_upload.py sync`，路径见 `engine_registry.cli_path('storage')`）并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
+> **即生即传规则（Generate-then-Upload）**：每张道具图生成确认后，必须**立即**执行对象存储上传（storage 能力，当前默认引擎 TOS，CLI 为 `tos_upload.py sync`，路径见 `engine_registry.cli_path('storage')`）并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
 >
-> 流程：`生成图片 → 确认质量（Step 7）→ tos_upload.py sync → 更新 cdn_urls.json → 下一张`
+> 流程：`生成图片 → 确认质量（Step 7）→ 存储 sync（当前 tos_upload.py）→ 更新 cdn_urls.json → 下一张`
 >
 > 原因：
-> - 下游设计师（角色/场景）需要道具的 TOS URL 作为 `image_urls` 参考
+> - 下游设计师（角色/场景）需要道具的存储永久 URL（当前 TOS `tos_url`）作为 `image_urls` 参考
 > - 道具是跨资产的视觉锚点，必须最先对下游可用
-> - 即时上传避免生成完毕后才发现 TOS 凭据问题
+> - 即时上传避免生成完毕后才发现存储凭据问题
 
 上传步骤：
-1. 执行 `tos_upload.py sync --project-root dramas/<剧名>` 上传已确认的道具图
-2. 确认 `assets/props/cdn_urls.json` 中该道具 ID 的 `tos_url` 已更新为永久 TOS URL
-3. 永久 URL 格式：`https://<bucket>.tos-cn-beijing.volces.com/props/<project>/PROP-###.png`（无查询参数）
+1. 执行存储 sync（当前 `tos_upload.py sync --project-root dramas/<剧名>`）上传已确认的道具图
+2. 确认 `assets/props/cdn_urls.json` 中该道具 ID 的 `tos_url` 已更新为永久 URL
+3. 永久 URL 格式（当前 TOS 默认引擎）：`https://<bucket>.tos-cn-beijing.volces.com/props/<project>/PROP-###.png`（无查询参数）
 
 上传后同步更新以下文件的生成状态：
 - 编辑 `资产/道具卡片.md`，将该道具条目的 `参考图` 字段从 `待生成` 改为 `✅ 已生成`
@@ -247,17 +247,17 @@ python3 mcps/gpt-image/scripts/gpt_image.py --help
 python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
 ```
 
-若项目 `制片规范.md` 定义了 `tos_bucket` / `tos_key_prefix`，传入对应参数。
+若项目 `制片规范.md` 定义了 `tos_bucket` / `tos_key_prefix`（当前 TOS 存储引擎参数），传入对应参数。
 
-**注意**：图片生成 API 返回的预签名 URL（含 `X-Tos-Expires`/`X-Tos-Signature` 参数）仅 24 小时有效，不可作为最终 CDN URL。
+**注意**：当前存储引擎（TOS）图片生成 API 返回的预签名 URL（含 `X-Tos-Expires`/`X-Tos-Signature` 参数）仅 24 小时有效，不可作为最终 CDN URL。
 
-#### TOS 上传完成性验证（硬性门控）
+#### 对象存储上传完成性验证（硬性门控）
 
 道具设计师在声明完成前，**必须**验证 `assets/props/cdn_urls.json` 中每个条目包含 `tos_url` 字段：
 
 - ✅ 永久 URL 格式：`https://<bucket>.tos-cn-beijing.volces.com/props/<project>/PROP-###.png`（无查询参数）
 - ❌ 仅有 `cdn_url`（图片生成 API 返回的临时预签名 URL，24小时过期）→ **不可声明完成**
-- 失败处理：报告"生成完成，TOS 上传阻断"+ 错误详情，等待用户修复凭据
+- 失败处理：报告"生成完成，对象存储上传阻断"+ 错误详情，等待用户修复凭据
 - **自动化校验**：声明完成前必须运行 `python3 script/check_cdn_registry.py <project-root>`，exit code ≠ 0 则不得声明完成
 
 ## Step 9：迭代修复
@@ -527,9 +527,9 @@ prop-designer 的输出是新流水线中多个下游环节的基础。下游消
 
 | 下游消费者 | 如何使用道具图 | 触发条件 |
 |-----------|--------------|---------|
-| **character-designer** (Stage 3b) | 当角色持有、佩戴或使用某件道具时，将道具的 TOS URL 作为 `image_urls` 传入图片生成引擎，确保角色参考图中的道具外观与独立道具图一致 | 角色卡片的「持有道具」字段引用了 PROP-### |
-| **scene-designer** (Stage 3c) | 当场景中显著展示某件道具时（如祭坛上的神器、武器架上的剑、桌上的药瓶），将道具的 TOS URL 作为 `image_urls` 传入图片生成引擎，确保场景环境中的道具与独立参考图一致 | 道具卡片的「关联场景」字段引用了 SCENE-### |
-| **segment-builder** (Stage 5) | 道具 TOS URL 传入 `shots.yaml` 的 `prop_urls`，由视频生成引擎（video_gen）视频生成直接引用，锁定道具外观不漂移 | 该道具需在视频镜头中保持外观一致 |
+| **character-designer** (Stage 3b) | 当角色持有、佩戴或使用某件道具时，将道具的存储永久 URL（当前 TOS `tos_url`）作为 `image_urls` 传入图片生成引擎，确保角色参考图中的道具外观与独立道具图一致 | 角色卡片的「持有道具」字段引用了 PROP-### |
+| **scene-designer** (Stage 3c) | 当场景中显著展示某件道具时（如祭坛上的神器、武器架上的剑、桌上的药瓶），将道具的存储永久 URL（当前 TOS `tos_url`）作为 `image_urls` 传入图片生成引擎，确保场景环境中的道具与独立参考图一致 | 道具卡片的「关联场景」字段引用了 SCENE-### |
+| **segment-builder** (Stage 5) | 道具存储永久 URL（当前 TOS `tos_url`）传入 `shots.yaml` 的 `prop_urls`，由视频生成引擎（video_gen）视频生成直接引用，锁定道具外观不漂移 | 该道具需在视频镜头中保持外观一致 |
 
 ### ⏭️ 内置道具描述消费者（SKIP props）
 
@@ -570,7 +570,7 @@ prop-designer 完成工作后，必须确保以下文件全部就绪，作为 St
 }
 ```
 
-（每条目为嵌套对象，`tos_url` 为必填字段——与 TOS 完成性验证/check_cdn_registry.py 口径一致；`cdn_url` 为临时预签名链接可选存在，不可作为最终交付）
+（每条目为嵌套对象，`tos_url` 为必填字段——与对象存储上传完成性验证/check_cdn_registry.py 口径一致；`cdn_url` 为临时预签名链接可选存在，不可作为最终交付）
 
 ### 信号完成条件
 
@@ -662,7 +662,7 @@ prop-designer 完成工作后，必须确保以下文件全部就绪，作为 St
 | 6 | 写实度 ≥7/10 | 无插画/卡通风格漂移 |
 | 7 | 跨资产风格匹配 | 渲染风格与制片规范参数一致 |
 | 8 | 年代/磨损一致 | 磨损痕迹与叙事历史匹配 |
-| 9 | TOS 永久 URL 已注册 | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
+| 9 | 对象存储永久 URL 已注册（storage） | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
 | 10 | 批量 YAML Prompt 与最终 Prompt 一致 | 无过期骨架 Prompt 残留 |
 | 11 | 迭代历史已记录 | 工作计划.md 中记录了生成轮次 |
 | 12 | 完成信号文件就绪 | 所有输出文件已生成，可触发下游启动 |
@@ -682,7 +682,7 @@ prop-designer 完成工作后，必须确保以下文件全部就绪，作为 St
 5. **不得生成分辨率低于 1600×2848 (9:16) 的图片生成参考图**。视频生成分辨率以 `制片规范.md` 中 `video_resolution` 字段为准（默认 720p）。
 6. **道具图的视觉风格必须与制片规范定义的写实摄影风格保持一致**
 7. **未经用户授权，不得调用付费图片/视频生成 API**
-8. **必须在所有角色设计和场景设计之前完成全部道具图 + TOS 上传**——不得有遗漏
+8. **必须在所有角色设计和场景设计之前完成全部道具图 + 对象存储上传**——不得有遗漏
 9. **道具的磨损/年代痕迹必须与道具卡片中的叙事描述一致**——不得凭空编造使用历史
 10. **含中文文字（无论字数）的道具 Prompt 必须使用 `Simplified Chinese`**——不得使用 `Chinese text`（会出繁体）
 

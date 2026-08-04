@@ -68,7 +68,7 @@ story-architect → production-planner → prop-designer → [character-designer
 
 ## Gate 2：镜头数一致性与切镜节奏
 
-比对源 `.md` 元数据中声明的 `Seedance 有效镜数` 与镜头表实际行数。
+比对源 `.md` 元数据中声明的 `视频引擎有效镜数` 与镜头表实际行数。
 
 - **一致**：通过
 - **不一致**：❌ 停止。报告具体差异（如"声明24镜，实际仅18行"）
@@ -185,9 +185,9 @@ shots:
 | `dialogue` | list | 本镜台词（speaker + line） |
 | `transition_to_next` | enum | 可选。到下一镜头的转场类型：`hard_cut`（默认）/ `dissolve` / `fade` / `audio_bridge` |
 
-> **参考图数量限制**：TOS URL 模式下每镜头 ≤ 6 张参考图（base64 模式下 ≤ 3 张）。典型配置：1 场景 + 1~2 角色 + 0~2 道具 = 3~5 张。道具参考图仅在该道具本镜头中**显著可见且需外观锁定**时添加——勿为背景中出现的小物品添加。
+> **参考图数量限制**：当前 TOS 永久 URL（storage）模式下每镜头 ≤ 6 张参考图（base64 模式下 ≤ 3 张）。典型配置：1 场景 + 1~2 角色 + 0~2 道具 = 3~5 张。道具参考图仅在该道具本镜头中**显著可见且需外观锁定**时添加——勿为背景中出现的小物品添加。
 
-> **人脸参考图必须用 mesh 版（硬性规则，见 AGENTS.md Stage 3 清单 G）**：`look_urls` 中所有含可见人脸的形象参考图，必须使用 `-mesh.png` 后缀的 TOS URL（如 `looks/<剧名>/CHAR-001-L01-mesh.png`），否则视频生成引擎提交将被人脸过滤 HTTP 400 拒绝。**判据为 `资产/形象索引.md` 的 mesh 登记列**：`✅ mesh已生成` → 用 mesh URL；`mesh豁免（剪影/背影）` → 用原图；无登记或 mesh URL 在 `assets/looks/cdn_urls.json` 中不存在 → 报告缺口，请求 character-designer 补充（不得降级用原图提交，也不得自行判断是否豁免）。镜头描述 `api.text` 中的形象标注仍写原 ID（如 `CHAR-001-L01`），不带 mesh 后缀。
+> **人脸参考图必须用 mesh 版（硬性规则，见 AGENTS.md Stage 3 清单 G）**：`look_urls` 中所有含可见人脸的形象参考图，必须使用 `-mesh.png` 后缀的存储永久 URL（如 `looks/<剧名>/CHAR-001-L01-mesh.png`），否则视频生成引擎提交将被人脸过滤 HTTP 400 拒绝。**判据为 `资产/形象索引.md` 的 mesh 登记列**：`✅ mesh已生成` → 用 mesh URL；`mesh豁免（剪影/背影）` → 用原图；无登记或 mesh URL 在 `assets/looks/cdn_urls.json` 中不存在 → 报告缺口，请求 character-designer 补充（不得降级用原图提交，也不得自行判断是否豁免）。镜头描述 `api.text` 中的形象标注仍写原 ID（如 `CHAR-001-L01`），不带 mesh 后缀。
 
 ## mode 选择规则
 
@@ -511,7 +511,7 @@ assets:
 3. 找到 → 填入 `assets.look_urls` / `assets.scene_urls` / `assets.prop_urls`（look_urls 的 key 仍写原形象 ID，URL 指向 mesh 版文件）
 4. 未找到 → 场景/道具使用本地路径并加警告注释；**含人脸形象的 mesh URL 缺失不适用本地降级，直接报告缺口**
 5. **URL 类型标记** — 对每个解析到的 CDN URL 检查是否为预签名临时链接：
-   - 若 URL 包含 `X-Tos-Expires`、`X-Tos-Signature` 或 `X-Tos-Credential` 参数 → 在对应 YAML 条目添加注释：`# ⚠️ TEMP_URL: 预签名链接（24h过期），提交视频生成引擎前须替换为永久 TOS URL`
+   - 若 URL 包含 `X-Tos-Expires`、`X-Tos-Signature` 或 `X-Tos-Credential` 参数 → 在对应 YAML 条目添加注释：`# ⚠️ TEMP_URL: 预签名链接（24h过期），提交视频生成引擎前须替换为永久存储 URL`
    - 合法永久 URL：纯路径无查询参数（如 `https://xxx.tos-cn-beijing.volces.com/looks/project/CHAR-001-L01.png`）
    - 此检查为 WARNING 级别——不阻断 YAML 生成，但提醒下游 G5 门控会硬拦
 
@@ -829,7 +829,7 @@ segments:
 9. **YAML 格式一致性（硬规则，违反 = 不通过 G5）**：
    - 字段不增减：每个 shot/segment 必须包含模板中定义的全部字段，不得增加或删除
    - 流式映射 `{...}` 用 `,`（逗号）分隔，**禁止**用 `;`（分号）
-   - 所有 image URL 必须使用 TOS 永久链接（`https://drama-reference-images.tos-cn-beijing.volces.com/...`），禁止临时预签名 URL
+   - 所有 image URL 必须使用存储永久链接（当前 TOS：`https://drama-reference-images.tos-cn-beijing.volces.com/...`），禁止临时预签名 URL
    - dialogue 数组中每个 item 必须含 `speaker` 和 `line` 字段
    - **🚫 api.text 镜头描述中必须用 `图N` 指代角色，禁止使用角色名**（如须写 `图1推开椅子` 不得写 `张大强推开椅子`）
 10. **输出前自检**：生成 shots.yaml 和 segments.yaml 后运行 `python3 scripts/yaml_check.py --ep EP## --type both --project-root dramas/<剧名>`，全部 ✅ 才可输出。未通过 → 按错误信息逐一修正后重跑，直到全通过。

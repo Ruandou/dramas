@@ -86,36 +86,36 @@ tools: [Read, Write, Grep, Glob, Bash]
    - 读取 `资产/道具卡片.md`，识别 `持有者` 字段包含当前角色 CHAR-ID 的所有道具
    - **分类处理**（`参考图` 字段值由 production-planner 在 Stage 2 确定）：
 
-   **🔵 `待生成` 道具**（有独立 .png + TOS URL）：
+   **🔵 `待生成` 道具**（有独立 .png + 存储永久 URL）：
    - 确认对应 `assets/props/PROP-###.png` 已由 prop-designer 生成
    - 在 L01 图片生成 Prompt 中自然融入道具描述，描述与 `.png` 实际外观一致（材质、颜色、大小、磨损程度）
    - 使用数量精确规则（"ONE single jade pendant"），位置明确（颈间/腰间/手持/发间）
-   - **生成时传入道具参考图**：`image_urls` 使用 `assets/props/cdn_urls.json` 中 TOS URL
+   - **生成时传入道具参考图**：`image_urls` 使用 `assets/props/cdn_urls.json` 中的存储永久 URL（当前 TOS `tos_url`）
 
    **⏭️ `角色内置` 道具**（无独立图片，仅有设计描述文本）：
    - 读取 `资产/道具卡片.md` 中该 PROP-### 的设计描述（材质/颜色/尺寸/磨损）
-   - 将设计描述文本直接嵌入角色 L01 Prompt（无需 .png 或 TOS URL）
+   - 将设计描述文本直接嵌入角色 L01 Prompt（无需 .png 或存储永久 URL）
    - 不传 `image_urls` 给该道具
 
-   - **⚠️ TOS URL 优先**：`image_urls` 必须使用 `assets/props/cdn_urls.json` 中的 `tos_url`（`https://` 永久链接），而非本地路径。详见下方「TOS URL 强制规则」
+   - **⚠️ 存储永久 URL 优先**：`image_urls` 必须使用 `assets/props/cdn_urls.json` 中的 `tos_url`（`https://` 永久链接，当前默认存储引擎为 TOS），而非本地路径。详见下方「存储永久 URL 强制规则」
 
-### TOS URL 强制规则
+### 存储永久 URL 强制规则
 
-> **TOS URL 优先规则**：当 `cdn_urls.json` 中已有道具的 `tos_url` 永久链接时，`image_urls` 字段**必须**使用 TOS URL 而非本地路径。TOS URL 直接通过 `resolve_image_url()` 传递（无 base64 编码开销），比本地路径（需 base64 转 data URI，每图增加 ~1MB payload）更高效。
+> **存储永久 URL 优先规则**：当 `cdn_urls.json` 中已有道具的 `tos_url` 永久链接时，`image_urls` 字段**必须**使用存储永久 URL 而非本地路径。永久 URL 直接通过 `resolve_image_url()` 传递（无 base64 编码开销），比本地路径（需 base64 转 data URI，每图增加 ~1MB payload）更高效。
 >
-> - ✅ `image_urls: ["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"]`
-> - ❌ `image_urls: ["assets/props/PROP-001.png"]`（仅在 TOS URL 不可用时降级使用）
+> - ✅ `image_urls: ["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"]`（当前 TOS 永久 URL 示例）
+> - ❌ `image_urls: ["assets/props/PROP-001.png"]`（仅在存储永久 URL 不可用时降级使用）
 >
 > **提交前 image_urls 检查（硬性门控）**：提交任何图片生成批次前，必须逐条检查 batch YAML 中所有 `image_urls` 字段：
 >
 > | 检查项 | 通过条件 | 失败处理 |
 > |--------|---------|----------|
-> | URL 格式 | 所有非空 `image_urls` 必须以 `https://` 开头 | 本地路径（`assets/...`）→ 先上传 TOS 再替换 |
-> | URL 可达 | TOS URL 可通过 HTTP HEAD 验证 | 重新上传 |
-> | 道具覆盖 | 所有有关联道具的条目 `image_urls` 非空 | 从 `cdn_urls.json` 查找 TOS URL 填入 |
-> | L02+ 依赖 | 所有 L02+ 条目 `image_urls` 包含已确认 L01 的 TOS URL | 阻塞：L01 未生成或未上传 |
+> | URL 格式 | 所有非空 `image_urls` 必须以 `https://` 开头 | 本地路径（`assets/...`）→ 先上传对象存储（storage）再替换 |
+> | URL 可达 | 存储永久 URL 可通过 HTTP HEAD 验证 | 重新上传 |
+> | 道具覆盖 | 所有有关联道具的条目 `image_urls` 非空 | 从 `cdn_urls.json` 查找存储永久 URL 填入 |
+> | L02+ 依赖 | 所有 L02+ 条目 `image_urls` 包含已确认 L01 的存储永久 URL | 阻塞：L01 未生成或未上传 |
 >
-> **阻断条件**：任何非空 `image_urls` 不以 `https://` 开头 → **禁止提交**，必须先完成 TOS 上传。
+> **阻断条件**：任何非空 `image_urls` 不以 `https://` 开头 → **禁止提交**，必须先完成对象存储上传。
 
 ### 种族强制规则
 
@@ -169,7 +169,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
    > **⚠️ 字段名强制**：批量 YAML 中参考图字段必须为 `image_urls`，提示词字段必须为 `prompt`。CLI（当前默认引擎 gpt-image 为 `gpt_image.py`）仅读取 `image_urls` / `image_url` 和 `prompt` / `prompt_en` 字段。使用 `prop_ref`、`ref_images` 等名称将被 CLI 忽略，导致生成时无参考图输入。
 
-   > **⚠️ TOS URL 强制**：所有 `image_urls` 必须使用 `https://` TOS 永久链接，不得使用本地路径。详见上方「TOS URL 强制规则」。
+   > **⚠️ 存储永久 URL 强制**：所有 `image_urls` 必须使用 `https://` 存储永久链接（当前 TOS `tos_url`），不得使用本地路径。详见上方「存储永久 URL 强制规则」。
 
    L01 基础形象格式：
    ```yaml
@@ -178,33 +178,33 @@ tools: [Read, Write, Grep, Glob, Bash]
        name: "苏霜心 · 银发银瞳·剑灵态"
        prompt: "[final prompt, verbatim from 角色卡片]"
        image_urls:
-         - "https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"  # TOS URL
+         - "https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"  # 存储永久 URL（当前 TOS）
        output: "assets/looks/CHAR-001-L01.png"
    ```
 
-   L02+ 变体格式（需 L01 已生成 + TOS 已上传）：
+   L02+ 变体格式（需 L01 已生成 + 对象存储已上传）：
    ```yaml
      - id: "CHAR-001-L02"
        name: "苏霜心 · 透明化态"
        based_on: "CHAR-001-L01"
        image_urls:
-         - "https://drama-reference-images.tos-cn-beijing.volces.com/looks/<剧名>/CHAR-001-L01.png"  # ← 必须填入 L01 TOS URL
+         - "https://drama-reference-images.tos-cn-beijing.volces.com/looks/<剧名>/CHAR-001-L01.png"  # ← 必须填入 L01 存储永久 URL
        prompt: "[delta prompt, verbatim from 角色卡片]"
        output: "assets/looks/CHAR-001-L02.png"
    ```
 
    > **🚫 L02+ 面部一致性硬门控（HARD GATE）**：
-   > L02+ 衍生形象**必须**在 `image_urls` 中传入对应角色 L01 的 TOS URL 作为面部参考图。
+   > L02+ 衍生形象**必须**在 `image_urls` 中传入对应角色 L01 的存储永久 URL（当前 TOS `tos_url`）作为面部参考图。
    > **禁止**仅靠文本 FACE ANCHOR 描述来维持面部一致性——图片生成引擎无法从文本描述复现同一张脸（该结论为 Seedream 实测，gpt-image 需以实际输出验证）。
    >
    > | 检查项 | 通过条件 | 失败处理 |
    > |--------|---------|----------|
-   > | L01 参考图 | `image_urls` 包含 L01 的 `https://` TOS URL | **阻塞：禁止提交生成** |
+   > | L01 参考图 | `image_urls` 包含 L01 的 `https://` 存储永久 URL | **阻塞：禁止提交生成** |
    > | Prompt 面部指令 | Prompt 包含 "SAME person as the reference image" | 补充面部一致性指令 |
    >
    > **事故复盘**：CHAR-006-L02 首次生成时未传 L01 参考图，仅靠文本 FACE ANCHOR，导致生成了完全不同的人脸。重新生成时传入 L01 `--image-url` 后问题解决。
    >
-   > CLI 等价：`gpt_image.py generate --image-url "<L01 TOS URL>" --prompt "..."`
+   > CLI 等价：`gpt_image.py generate --image-url "<L01 存储永久 URL>" --prompt "..."`
 
 10. **生成门控 — 验证 Prompt 已写入文件后方可提议生成**
     - 回读 `资产/角色卡片.md`，确认每个角色的 L01 Prompt 字段非空且符合规范
@@ -215,27 +215,27 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 11. **执行生成 + 即生即传**（仅在用户于 Step 10 授权后）
 
-    > **即生即传规则（Generate-then-Upload）**：每张参考图生成确认后，必须**立即**执行对象存储上传（storage 能力，当前 CLI：`tos_upload.py sync`，路径见 `engine_registry.cli_path('storage')`）并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
+    > **即生即传规则（Generate-then-Upload）**：每张参考图生成确认后，必须**立即**执行对象存储上传（storage 能力，当前默认引擎 TOS，CLI 为 `tos_upload.py sync`，路径见 `engine_registry.cli_path('storage')`）并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
     >
-    > 流程：`生成图片 → 确认质量 → tos_upload.py sync → 更新 cdn_urls.json → 下一张`
+    > 流程：`生成图片 → 确认质量 → 存储 sync（当前 tos_upload.py）→ 更新 cdn_urls.json → 下一张`
     >
     > 原因：
-    > - L02+ 变体需要 L01 的 TOS URL 作为 `image_urls` 参考
-    > - 下游设计师（场景）可能需要角色 TOS URL
-    > - 即时上传避免生成完毕后才发现 TOS 凭据问题
+    > - L02+ 变体需要 L01 的存储永久 URL（当前 TOS `tos_url`）作为 `image_urls` 参考
+    > - 下游设计师（场景）可能还需要角色存储永久 URL
+    > - 即时上传避免生成完毕后才发现存储凭据问题
 
     - 按「多候选选优」规则生成
     - 主角 L01 生成至少 3 个候选方案进行比选
-    - **L01 确认后，立即 TOS 上传**：
-      1. 执行 `tos_upload.py sync --project-root dramas/<剧名>` 上传已确认的 L01 图
-      2. 确认 `assets/looks/cdn_urls.json` 中该形象 ID 的 `tos_url` 已更新为永久 TOS URL
+    - **L01 确认后，立即对象存储上传**：
+      1. 执行存储 sync（当前 `tos_upload.py sync --project-root dramas/<剧名>`）上传已确认的 L01 图
+      2. 确认 `assets/looks/cdn_urls.json` 中该形象 ID 的 `tos_url` 已更新为永久 URL
       3. 更新形象索引中对应条目的状态和 CDN URL
-    - ⚠️ 图片生成 API 返回的预签名 URL（含 `X-Tos-Expires` 参数）仅 24 小时有效，不可作为最终 CDN URL
-    - 若项目 `制片规范.md` 定义了 `tos_bucket` / `tos_key_prefix`，传入对应参数
+    - ⚠️ 当前存储引擎（TOS）图片生成 API 返回的预签名 URL（含 `X-Tos-Expires` 参数）仅 24 小时有效，不可作为最终 CDN URL
+    - 若项目 `制片规范.md` 定义了 `tos_bucket` / `tos_key_prefix`（当前 TOS 存储引擎参数），传入对应参数
 
-    > **L01→L02+ 桥接步骤**：全部 L01 生成 + TOS 上传完成后，编辑 batch YAML 将所有 L02+ 条目的 `image_urls` 从 `[]` 更新为对应 L01 的 **TOS URL**，方可提交 L02+ 批次生成。L02+ 生成后同样执行即生即传。
+    > **L01→L02+ 桥接步骤**：全部 L01 生成 + 对象存储上传完成后，编辑 batch YAML 将所有 L02+ 条目的 `image_urls` 从 `[]` 更新为对应 L01 的 **存储永久 URL（当前 TOS `tos_url`）**，方可提交 L02+ 批次生成。L02+ 生成后同样执行即生即传。
 
-    > **面部网格变体（Seedance 输入人脸过滤解法，见 AGENTS.md Stage 3 清单 G）**：每张含可见人脸的 L01/L02+ 确认并上传后，立即生成网格变体并再次 sync 上传（**群演 `CHAR-GRP-##-L01` 同样适用**）：
+    > **面部网格变体（视频生成引擎（video_gen）输入人脸过滤解法，见 AGENTS.md Stage 3 清单 G）**：每张含可见人脸的 L01/L02+ 确认并上传后，立即生成网格变体并再次 sync 上传（**群演 `CHAR-GRP-##-L01` 同样适用**）：
     > ```bash
     > python3 script/add_face_mesh.py --input assets/looks/CHAR-###-L##.png \
     >   --output assets/looks/CHAR-###-L##-mesh.png --face cx,cy,rx,ry
@@ -243,9 +243,9 @@ tools: [Read, Write, Grep, Glob, Bash]
     > - `--face` 为面部椭圆像素坐标（中心+半轴），需目检确认网格覆盖面部
     > - 逆光剪影/背影等无可见人脸的形象图豁免，不生成 mesh 版
     > - **登记凭据（必做）**：生成或豁免结论登记到 `资产/形象索引.md` 对应行的 mesh 列（`✅ mesh已生成` / `mesh豁免（剪影）` / `mesh豁免（背影）`）；下游 segment-builder 与 G3 均以此登记为准，无登记视为缺口
-    > - mesh 版仅供 Seedance 视频提交使用；L02+ 衍生的 `image_urls` 面部参考**仍用原图** L01
+    > - mesh 版仅供视频生成引擎（video_gen）提交使用；L02+ 衍生的 `image_urls` 面部参考**仍用原图** L01
 
-#### TOS 上传完成性验证（硬性门控）
+#### 对象存储上传完成性验证（硬性门控）
 
 设计师在声明完成前，**必须**验证 `cdn_urls.json` 中每个条目包含 `tos_url` 字段：
 
@@ -257,10 +257,10 @@ tools: [Read, Write, Grep, Glob, Bash]
 **阻断条件**（不可声明完成）：
 - ❌ `cdn_urls.json` 中仅有 `cdn_url`（临时预签名 URL）而无 `tos_url`
 - ❌ `tos_url` 字段包含 `X-Tos-Expires` 或 `X-Tos-Signature` 查询参数
-- ❌ `tos_upload.py sync` 执行失败或未执行
+- ❌ 存储 sync（当前 `tos_upload.py sync`）执行失败或未执行
 
 **失败处理**：
-若 `tos_upload.py sync` 因凭据缺失或网络问题失败 → 报告"图片生成完成，TOS 上传阻断"，附具体错误信息，等待用户处理凭据后重试。**不可跳过此步骤声明完成。**
+若存储 sync（当前 `tos_upload.py sync`）因凭据缺失或网络问题失败 → 报告"图片生成完成，对象存储上传阻断"，附具体错误信息，等待用户处理凭据后重试。**不可跳过此步骤声明完成。**
 
 # 输出格式
 
@@ -513,7 +513,7 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 
 **道具融入规则**（当角色持有已注册 PROP 时，分类由 production-planner 在 Stage 2 确定）：
 
-**🔵 `待生成` 道具**（有独立参考图 + TOS URL）：
+**🔵 `待生成` 道具**（有独立参考图 + 存储永久 URL）：
 
 在服装描述之后、风格后缀之前，插入道具描述段：
 ```
@@ -524,7 +524,7 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 - 道具描述必须与 `assets/props/PROP-###.png` 实际外观严格匹配——不可凭想象编造道具外观
 - 位置词必须明确（`at the neck`、`at the waist`、`in the right hand`、`in the hair`）
 - 数量词必须包含（`ONE single`、`exactly two`）
-- 提交生成请求时 `image_urls` 字段必须包含对应 PROP 参考图的 **TOS URL**（从 `assets/props/cdn_urls.json` 的 `tos_url` 获取）
+- 提交生成请求时 `image_urls` 字段必须包含对应 PROP 参考图的 **存储永久 URL**（从 `assets/props/cdn_urls.json` 的 `tos_url` 获取）
 
 **⏭️ `角色内置` 道具**（无独立图片，仅有设计描述文本）：
 
@@ -576,7 +576,7 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 **禁止**：
 - 禁止在 L01 Prompt 中包含场景背景（花园、书房、雨中、宫殿等）
 - 禁止在 L01 Prompt 中包含情绪灯光（moonlit, cinematic, somber lighting 等）
-- 角色卡片中的叙事性 AI视觉Prompt 仅用于 Seedance 视频分镜，不用于 L01 参考图生成
+- 角色卡片中的叙事性 AI视觉Prompt 仅用于视频生成引擎（video_gen）视频分镜，不用于 L01 参考图生成
 
 ### 美学打光升级
 
@@ -1385,20 +1385,20 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 # 查看当前引擎完整参数说明
 gpt_image_docs()
 
-# 生成角色 L01 基础形象（待生成 道具传 TOS URL；角色内置 道具不传图）
+# 生成角色 L01 基础形象（待生成 道具传存储永久 URL；角色内置 道具不传图）
 gpt_image_generate(
   prompt="Character reference sheet, full body front view, white background. Young male, 25 years old...",
   output_path="assets/looks/CHAR-001-L01.png",
   ratio="9:16",
-  image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"]  # TOS URL
+  image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"]  # 存储永久 URL（当前 TOS）
 )
 
-# 生成角色 L02 衍生形象（使用 L01 的 TOS URL）
+# 生成角色 L02 衍生形象（使用 L01 的存储永久 URL）
 gpt_image_generate(
   prompt="Character reference sheet, full body front view, white background. Same character in formal attire...",
   output_path="assets/looks/CHAR-001-L02.png",
   ratio="9:16",
-  image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑骨霜心/CHAR-001-L01.png"]  # L01 TOS URL
+  image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑骨霜心/CHAR-001-L01.png"]  # L01 存储永久 URL
 )
 
 # 批量生成多角色（读 image_batch_characters.yaml）
@@ -1413,7 +1413,7 @@ gpt_image_batch(
 > CLI 路径随当前引擎，可用 `python3 mcps/shared/engine_registry.py` 查询；以下为 gpt-image 示例。
 
 ```bash
-# 单张生成（带 TOS URL 参考图）
+# 单张生成（带存储永久 URL 参考图）
 python3 mcps/gpt-image/scripts/gpt_image.py generate \
   --prompt "Character reference sheet, full body front view, white background..." \
   --output assets/looks/CHAR-001-L01.png \
@@ -1424,13 +1424,13 @@ python3 mcps/gpt-image/scripts/gpt_image.py generate \
 python3 mcps/gpt-image/scripts/gpt_image.py --help
 ```
 
-### TOS 上传（即生即传，每张图确认后立即执行）
+### 对象存储上传（storage，即生即传，每张图确认后立即执行）
 
 ```bash
-# 上传已确认的角色形象到 TOS 获取永久 URL
+# 上传已确认的角色形象到对象存储获取永久 URL
 python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
 
-# 指定 bucket（如制片规范定义了 tos_bucket）
+# 指定 bucket（如制片规范定义了 tos_bucket，当前 TOS 存储引擎参数）
 python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>
 ```
 
@@ -1479,7 +1479,7 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 | 3 | L01 存在 | 每个角色至少有一个 L01 形象定义 |
 | 4 | voice_prompt 格式 | 所有 voice_prompt 使用「性别，年龄，音色，语速，情绪/习惯」格式 |
 | 5 | PROP 交叉引用 | 角色专属道具标注了 PROP-### ID |
-| 5.5 | 道具参考图集成 | `待生成` 道具：L01 Prompt 中道具描述与 `.png` 实际外观一致，`image_urls` 含 TOS URL；`角色内置` 道具：描述取自道具卡片「设计描述」字段，不传 `image_urls` |
+| 5.5 | 道具参考图集成 | `待生成` 道具：L01 Prompt 中道具描述与 `.png` 实际外观一致，`image_urls` 含存储永久 URL（当前 TOS `tos_url`）；`角色内置` 道具：描述取自道具卡片「设计描述」字段，不传 `image_urls` |
 | 6 | 关系网络完整 | 主要角色间的关系有明确定义 |
 | 7 | 群演标注 | 无名但有功能的角色使用 CHAR-GRP-## 格式 |
 | 8 | 图片生成风格锚定 | 所有图片生成 Prompt 包含正向写实锚定词且末尾有 "NOT anime" 反向提示 |
@@ -1505,7 +1505,7 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 | 28 | 反派层级覆盖 | 根据题材确认所需的反派层级数，各层有明确时段和满足感编码 |
 | 29 | 痛点命中 | 主角命中目标受众 ≥2 个核心痛点 |
 | 30 | 角色预算 | 有名角色总数 ≤15，每个角色通过"有用+有记忆点"双重测试 |
-| 31 | TOS 永久 URL 验证 | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
+| 31 | 对象存储永久 URL 验证（storage） | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
 | 32 | **Prompt-卡片身份一致性** | L01 Prompt 中的物理描述（性别、年龄、身高、体型、脸型、发色/发型、肤色）必须与该角色 `外貌描写（L01）` 表中的描述**逐一对应**。具体检查：(a) Prompt 中 "Chinese man/woman" 与卡片性别一致；(b) 年龄数值匹配；(c) 身高数值匹配；(d) 脸型关键词匹配（如 oval/round/square/melon）；(e) 发型描述匹配。**任一不一致即为阻断项**。 |
 
 ---

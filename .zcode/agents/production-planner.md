@@ -43,7 +43,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 - 编号**连续、不跳号**
 - 新建角色：先在 `资产/角色索引.md` 登记 `CHAR-###`，再由 character-designer（Stage 3b）建 `L01` 基础形象
 - 新建换装/阶段形象：**只加 `L02+` 衍生形象**，并写明 `based_on: CHAR-xxx-L01`
-- **群演按需创建，不设数量上限**：有名字+跨 segment 出现 → 独立 `CHAR-###`；纯背景无台词但需视觉区分 → `CHAR-GRP-##`。每个 `CHAR-GRP-##` 都必须分配独立 ID 和 L01 形象。唯一约束是 API 参考图配额（每 segment ≤6 张，TOS URL 模式）——超出时按 segment-builder 优先级裁减
+- **群演按需创建，不设数量上限**：有名字+跨 segment 出现 → 独立 `CHAR-###`；纯背景无台词但需视觉区分 → `CHAR-GRP-##`。每个 `CHAR-GRP-##` 都必须分配独立 ID 和 L01 形象。唯一约束是 API 参考图配额（每 segment ≤6 张，当前 TOS 永久 URL 模式）——超出时按 segment-builder 优先级裁减
 - 同一 CHAR-GRP-## 可跨集复用（如"守卫甲"在 EP01-03 都出现），但不同视觉角色不可共用同一 ID（如"队长"与"年轻守卫"必须是 GRP-01 和 GRP-02 两个 ID）
 
 ### 形象层级结构定义
@@ -496,7 +496,7 @@ production-planner 完成 Step 2 + 3 + 3.5 后，同时向两个下游消费者�
 **输出**：`资产/道具卡片.md`（含 ID、道具名、持有者、关联场景、首次出场、叙事功能、**已分类的 `参考图` 字段**）
 
 **prop-designer 职责**：
-- `待生成` 道具：发展视觉概念、编写英文 Prompt、生成参考图、上传 TOS、更新状态为 `✅ 已生成`
+- `待生成` 道具：发展视觉概念、编写英文 Prompt、生成参考图、对象存储上传（storage）、更新状态为 `✅ 已生成`
 - `场景内置` / `角色内置` 道具：补充材质/颜色/尺寸/磨损描述文本（供 scene-designer / character-designer 内嵌）
 
 **不可修改**：PROP-### ID、必填元数据字段、道具持有者/转移关系、**`参考图` 分类结果**（由 production-planner 决定）

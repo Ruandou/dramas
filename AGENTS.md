@@ -149,14 +149,14 @@ Step → Verify → [有问题? → Fix → Verify (循环至干净)] → Next S
 
 **场景中出现特定道具作为陈设时**：
 - [ ] 该道具图是否在 `image_urls` 中？
-- [ ] 该道具是否已生成并上传 TOS？
+- [ ] 该道具是否已生成并上传对象存储（storage）？
 
 **视频生成引擎（video_gen）阶段道具锁定**：
 场景图本身不保证道具在视频中外观稳定——视频生成引擎可能改变场景中的物品。需要道具外观严格一致的镜头，**必须**在 `shots.yaml` 中将道具图作为独立参考图传入：
 ```yaml
 assets:
   prop_urls:
-    PROP-003: https://.../PROP-003.png   # TOS URL
+    PROP-003: https://.../PROP-003.png   # 存储永久 URL（当前 TOS）
 api:
   content_roles:
     - file: PROP-003
@@ -170,7 +170,7 @@ api:
 ```
 Stage 3a（道具，含即生即传） → [验证 cdn_urls.json] → Stage 3b（角色）∥ Stage 3c（场景）
 ```
-- 道具必须已上 TOS，角色/场景才能引用
+- 道具必须已上传对象存储（storage），角色/场景才能引用
 
 ### D. 生成后验证（每批次生成后立即执行）
 
@@ -185,9 +185,9 @@ Stage 3a（道具，含即生即传） → [验证 cdn_urls.json] → Stage 3b�
 
 ### F. L02+ 面部一致性硬门控
 
-L02+ 衍生形象**必须**通过 `image_urls`（CLI: `--image-url`）传入对应角色 L01 的 TOS URL 作为面部参考图。
+L02+ 衍生形象**必须**通过 `image_urls`（CLI: `--image-url`）传入对应角色 L01 的存储永久 URL（当前 TOS `tos_url`）作为面部参考图。
 
-- [ ] **L01 参考图必须传入**：`image_urls` 包含 L01 的 `https://` TOS URL，不得为空 `[]`
+- [ ] **L01 参考图必须传入**：`image_urls` 包含 L01 的 `https://` 存储永久 URL，不得为空 `[]`
 - [ ] **Prompt 必须包含面部一致性指令**："SAME person as the reference image"、"Keep the SAME face"
 - [ ] **禁止仅靠文本 FACE ANCHOR**：图片生成引擎无法从文本描述复现同一张脸（该结论为 Seedream 实测，gpt-image 需以实际输出验证），即使一字不差的 FACE ANCHOR 也会生成不同人脸
 
@@ -201,12 +201,12 @@ python3 mcps/gpt-image/scripts/gpt_image.py generate \
   --output "dramas/<剧名>/assets/looks/CHAR-XXX-L02.png"
 ```
 
-### G. 面部网格变体强制（Seedance 输入人脸过滤解法）
+### G. 面部网格变体强制（视频生成引擎（video_gen）输入人脸过滤解法）
 
 > 来自生产验证（2026-07-26，《满级师尊她装作刚入门》EP01 全集 10/10 段）：照片级写实人脸参考图会被 ARK 以 `InputImageSensitiveContentDetected.PrivacyInformation` 确定性拒绝（HTTP 400 不建单不扣费）。解法：用 `script/add_face_mesh.py` 在面部叠加 AR 风格三角网格后即可通过，且**网格不会被复现到成片、面部一致性保持**（男女角色、特写/全景均验证）。轻度 CG 风格化重渲染**无效**（仍被拒）。
 
 规则：
-- [ ] **生成时机**：character-designer 在每张含可见人脸的 L01/L02+ 确认后，立即生成 `-mesh.png` 变体，并随「即生即传」流程一并上传 TOS
+- [ ] **生成时机**：character-designer 在每张含可见人脸的 L01/L02+ 确认后，立即生成 `-mesh.png` 变体，并随「即生即传」流程一并上传对象存储（storage）
 - [ ] **命名**：`CHAR-###-L##-mesh.png`，群演为 `CHAR-GRP-##-L01-mesh.png`（群演同样适用本规则）；与原图同目录（`assets/looks/`），同步注册 cdn_urls.json
 - [ ] **登记凭据**：生成或豁免结论必须登记到 `资产/形象索引.md` 对应行（`✅ mesh已生成` / `mesh豁免（剪影）` / `mesh豁免（背影）`）；下游 segment-builder 与 G3 均以此登记为准，**无登记视为缺口**，不得自行猜测是否豁免
 - [ ] **使用边界**：仅视频生成引擎（video_gen）提交（shots/segments YAML 的 `look_urls`）用 mesh 版；图片生成 L02+ 衍生、对外展示仍用原图
@@ -222,9 +222,9 @@ python3 mcps/gpt-image/scripts/gpt_image.py generate \
 | 文字语种检查 | 简体内容出现繁体文字（PROP-011 商业计划书） |
 | 道具交叉引用检查 | 道具与场景不匹配 |
 | 串行门控 | 道具/角色/场景并行生成，无法使用 `image_urls` 交叉引用 |
-| 生成后验证 | 卡片状态卡在“待生成”，下游阶段缺少 TOS URL |
+| 生成后验证 | 卡片状态卡在“待生成”，下游阶段缺少存储永久 URL |
 | L02+ 面部一致性门控 | L02 生成完全不同的人脸（CHAR-006-L02 事故），必须重新生成 |
-| 面部网格变体 | Seedance 提交被人脸过滤 HTTP 400 拦截，整集无法开工（满级师尊 EP01 事故，后由 mesh 方案解决） |
+| 面部网格变体 | 视频生成引擎提交被人脸过滤 HTTP 400 拦截，整集无法开工（满级师尊 EP01 事故，后由 mesh 方案解决） |
 
 ## ID 格式
 
@@ -245,7 +245,7 @@ dramas/<剧名>/
 ├── 资产/              ← 角色卡片.md, 形象索引.md, 场景卡片.md, 道具卡片.md, 声音卡片.md
 ├── 剧本/EP01/         ← 分集剧本 + 分镜脚本 + YAML
 ├── assets/            ← AI 生成素材
-│   ├── generated/     ← 视频素材（Seedance 输出）
+│   ├── generated/     ← 视频素材（视频生成引擎输出）
 │   ├── looks/         ← 角色形象参考图（图片生成输出）
 │   └── scenes/        ← 场景参考图
 ├── 制片规范.md        ← 项目"宪法"（ID 系统、分段规则）

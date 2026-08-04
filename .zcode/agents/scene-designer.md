@@ -33,8 +33,8 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 
 ### 与 prop-designer 的依赖关系
 
-- **场景生成依赖道具的永久 TOS URL**：当某场景显著展示特定道具时（祭坛上的神 器、武器架上的剑），scene-designer 需读取对应道具的 `tos_url`（从 `cdn_urls.json`），将其作为 `image_urls` 传入图片生成引擎
-- **道具 TOS URL 已在 `assets/props/cdn_urls.json` 中就绪**——prop-designer 在 Stage 3a 已完成所有道具生成 + 对象存储上传（storage 能力，TOS 为当前默认引擎）
+- **场景生成依赖道具的存储永久 URL（当前 TOS `tos_url`）**：当某场景显著展示特定道具时（祭坛上的神 器、武器架上的剑），scene-designer 需读取对应道具的 `tos_url`（从 `cdn_urls.json`），将其作为 `image_urls` 传入图片生成引擎
+- **道具存储永久 URL 已在 `assets/props/cdn_urls.json` 中就绪**——prop-designer 在 Stage 3a 已完成所有道具生成 + 对象存储上传（storage 能力，TOS 为当前默认引擎）
 - **不得等待** character-designer 完成后再开始工作——两者并行
 - **场景中绝对禁止出现任何人类面孔**（含照片、画像、海报、屏幕显示等平面媒介）——人物由视频生成引擎（video_gen）阶段加入
 
@@ -94,7 +94,7 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 - `制片规范.md` —— 项目宪法：题材、风格锚定词、negative_prompt_image、分辨率要求
 
 **道具视觉参考（来自 prop-designer，Stage 3a）：**
-- `assets/props/PROP-###.png` + `assets/props/cdn_urls.json` —— `待生成` 道具的独立参考图 + TOS URL（prop-designer 已生成）
+- `assets/props/PROP-###.png` + `assets/props/cdn_urls.json` —— `待生成` 道具的独立参考图 + 存储永久 URL（当前 TOS `tos_url`，prop-designer 已生成）
 - `资产/道具卡片.md` 中 `参考图` 字段为 `场景内置` 的道具 —— 仅有材质/颜色/尺寸/磨损文字描述（production-planner 分类，prop-designer 补充设计描述），无独立图片
 
 **叙事上下文：**
@@ -166,22 +166,22 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 
 ❌ 不可试图通过 `image_urls` 传角色 L01 来做"人脸一致性"——这不可靠，且增加不必要的依赖。
 
-### TOS URL 强制规则
+### 存储永久 URL 强制规则
 
-> **TOS URL 优先规则**：当 `cdn_urls.json` 中已有道具的 `tos_url` 永久链接时，`image_urls` 字段**必须**使用 TOS URL 而非本地路径。TOS URL 直接通过 `resolve_image_url()` 传递（无 base64 编码开销），比本地路径（需 base64 转 data URI，每图增加 ~1MB payload）更高效。
+> **存储永久 URL 优先规则**：当 `cdn_urls.json` 中已有道具的 `tos_url` 永久链接时，`image_urls` 字段**必须**使用存储永久 URL 而非本地路径。永久 URL 直接通过 `resolve_image_url()` 传递（无 base64 编码开销），比本地路径（需 base64 转 data URI，每图增加 ~1MB payload）更高效。
 >
-> - ✅ `image_urls: ["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"]`
-> - ❌ `image_urls: ["assets/props/PROP-001.png"]`（仅在 TOS URL 不可用时降级使用）
+> - ✅ `image_urls: ["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"]`（当前 TOS 永久 URL 示例）
+> - ❌ `image_urls: ["assets/props/PROP-001.png"]`（仅在存储永久 URL 不可用时降级使用）
 >
 > **提交前 image_urls 检查（硬性门控）**：提交任何图片生成批次前，必须逐条检查 batch YAML 中所有 `image_urls` 字段：
 >
 > | 检查项 | 通过条件 | 失败处理 |
 > |--------|---------|----------|
-> | URL 格式 | 所有非空 `image_urls` 必须以 `https://` 开头 | 本地路径（`assets/...`）→ 先上传 TOS 再替换 |
-> | URL 可达 | TOS URL 可通过 HTTP HEAD 验证 | 重新上传 |
-> | 道具覆盖 | 所有有关联独立图道具的条目 `image_urls` 非空 | 从 `cdn_urls.json` 查找 TOS URL 填入 |
+> | URL 格式 | 所有非空 `image_urls` 必须以 `https://` 开头 | 本地路径（`assets/...`）→ 先上传对象存储（storage）再替换 |
+> | URL 可达 | 存储永久 URL 可通过 HTTP HEAD 验证 | 重新上传 |
+> | 道具覆盖 | 所有有关联独立图道具的条目 `image_urls` 非空 | 从 `cdn_urls.json` 查找存储永久 URL 填入 |
 
-> **阻断条件**：任何非空 `image_urls` 不以 `https://` 开头 → **禁止提交**，必须先完成 TOS 上传。
+> **阻断条件**：任何非空 `image_urls` 不以 `https://` 开头 → **禁止提交**，必须先完成对象存储上传。
 
 输出：
 - `assets/image_batch_scenes.yaml`
@@ -190,7 +190,7 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 
 > **⚠️ 字段名强制**：批量 YAML 中参考图字段必须为 `image_urls`，提示词字段必 须为 `prompt`。CLI（当前默认引擎 gpt-image 为 `gpt_image.py`）仅读取 `image_urls` / `image_url` 和 `prompt` / `prompt_en` 字段。使用 `prop_ref`、`ref_images` 等名称将被 CLI 忽略，导致生成时无参考图输入。
 
-> **⚠️ TOS URL 强制**：所有 `image_urls` 必须使用 `https://` TOS 永久链接，不得使用本地路径。详见下方「TOS URL 强制规则」。
+> **⚠️ 存储永久 URL 强制**：所有 `image_urls` 必须使用 `https://` 存储永久链接（当前 TOS `tos_url`），不得使用本地路径。详见上方「存储永久 URL 强制规则」。
 
 格式：
 ```yaml
@@ -198,7 +198,7 @@ items:
   - id: "SCENE-001"
     prompt: "[final prompt from Step 4, verbatim from 场景卡片]"
     image_urls:
-      - "https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-003.png"  # TOS URL
+      - "https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-003.png"  # 存储永久 URL（当前 TOS）
     output: "assets/scenes/SCENE-001.png"
   - id: "SCENE-002"
     prompt: "[...]"
@@ -215,8 +215,8 @@ items:
 
 **批量生成**（使用当前 `image_gen` 引擎 MCP 的 `<前缀>_batch` 工具，gpt-image 下为 `gpt_image_batch`）：
 - 将 batch YAML 中的每条 prompt 逐一提交
-- 有关联道具的场景，传入道具 TOS URL 作为 `image_urls` 参考（从 `assets/props/cdn_urls.json` 的 `tos_url` 字段获取）
-- TOS URL（`https://...`）直接传递；仅当 TOS URL 不可用时才降级为本地路径（自动转 data URI）
+- 有关联道具的场景，传入道具存储永久 URL 作为 `image_urls` 参考（从 `assets/props/cdn_urls.json` 的 `tos_url` 字段获取）
+- 存储永久 URL（`https://...`）直接传递；仅当存储永久 URL 不可用时才降级为本地路径（自动转 data URI）
 
 **单张生成**（使用当前 `image_gen` 引擎 MCP 的 `<前缀>_generate` 工具，gpt-image 下为 `gpt_image_generate`）：
 - 传入 `prompt`（英文提示词）、可选 `image_urls`（道具参考图）和输出路径
@@ -237,12 +237,12 @@ gpt_image_generate(
   ratio="9:16"
 )
 
-# 生成场景（有关联道具 —— 传入道具 TOS URL 确保一致性）
+# 生成场景（有关联道具 —— 传入道具存储永久 URL 确保一致性）
 gpt_image_generate(
   prompt="Interior of sword pavilion, ornate sword with jade hilt resting on stone pedestal...",
   output_path="assets/scenes/SCENE-008.png",
   ratio="9:16",
-  image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-003.png"]  # TOS URL
+  image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-003.png"]  # 存储永久 URL（当前 TOS）
 )
 
 # 批量生成多场景（读 image_batch_scenes.yaml）
@@ -257,7 +257,7 @@ gpt_image_batch(
 > CLI 路径随当前引擎，可用 `python3 mcps/shared/engine_registry.py` 查询；以下为 gpt-image 示例。
 
 ```bash
-# 单张生成（带道具 TOS URL 参考图）
+# 单张生成（带道具存储永久 URL 参考图）
 python3 mcps/gpt-image/scripts/gpt_image.py generate \
   --prompt "Ancient Chinese sect main gate..." \
   --output assets/scenes/SCENE-001.png \
@@ -271,7 +271,7 @@ python3 mcps/gpt-image/scripts/gpt_image.py --help
 ### 对象存储上传命令参考（storage 能力，TOS 为当前默认引擎；CLI 路径以 `engine_registry.cli_path('storage')` 为准。实际执行时机见 Step 8 即生即传）
 
 ```bash
-# 上传已确认的场景图到 TOS 获取永久 URL
+# 上传已确认的场景图到对象存储获取永久 URL
 python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
 
 # 指定 bucket
@@ -286,33 +286,33 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 
 按质量审查清单逐项检查每张生成图。
 
-## Step 8：即生即传（TOS 上传 + 注册永久 URL）
+## Step 8：即生即传（对象存储上传 + 注册永久 URL）
 
-> **即生即传规则（Generate-then-Upload）**：每张场景图生成确认后，必须**立即**执行 TOS 上传并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
+> **即生即传规则（Generate-then-Upload）**：每张场景图生成确认后，必须**立即**执行对象存储上传（storage 能力，当前默认引擎 TOS，CLI 为 `tos_upload.py sync`，路径见 `engine_registry.cli_path('storage')`）并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
 >
-> 流程：`生成图片 → 确认质量（Step 7）→ tos_upload.py sync → 更新 cdn_urls.json → 下一张`
+> 流程：`生成图片 → 确认质量（Step 7）→ 存储 sync（当前 tos_upload.py）→ 更新 cdn_urls.json → 下一张`
 >
 > 原因：
-> - 即时上传避免生成完毕后才发现 TOS 凭据问题
+> - 即时上传避免生成完毕后才发现存储凭据问题
 > - 下游消费者（segment-builder）可及早获取永久 URL
-> - 迭代修复时，已确认的图已有 TOS URL 不会被意外覆盖
+> - 迭代修复时，已确认的图已有存储永久 URL 不会被意外覆盖
 
 上传步骤：
-1. 执行 `tos_upload.py sync --project-root dramas/<剧名>` 上传已确认的场景图
-2. 确认 `assets/scenes/cdn_urls.json` 中该场景 ID 的 `tos_url` 已更新为永久 TOS URL
-3. 永久 URL 格式：`https://<bucket>.tos-cn-beijing.volces.com/scenes/<project>/SCENE-###.png`（无查询参数）
+1. 执行存储 sync（当前 `tos_upload.py sync --project-root dramas/<剧名>`）上传已确认的场景图
+2. 确认 `assets/scenes/cdn_urls.json` 中该场景 ID 的 `tos_url` 已更新为永久 URL
+3. 永久 URL 格式（当前 TOS 默认引擎）：`https://<bucket>.tos-cn-beijing.volces.com/scenes/<project>/SCENE-###.png`（无查询参数）
 
-**注意**：图片生成 API 返回的预签名 URL（含 `X-Tos-Expires`/`X-Tos-Signature` 参数）仅 24 小时有效，不可作为最终 CDN URL。
+**注意**：当前存储引擎（TOS）图片生成 API 返回的预签名 URL（含 `X-Tos-Expires`/`X-Tos-Signature` 参数）仅 24 小时有效，不可作为最终 CDN URL。
 
-若项目 `制片规范.md` 定义了 `tos_bucket` / `tos_key_prefix`，传入对应参数。
+若项目 `制片规范.md` 定义了 `tos_bucket` / `tos_key_prefix`（当前 TOS 存储引擎参数），传入对应参数。
 
-#### TOS 上传完成性验证（硬性门控）
+#### 对象存储上传完成性验证（硬性门控）
 
 场景设计师在声明完成前，**必须**验证 `assets/scenes/cdn_urls.json` 中每个条目包含 `tos_url` 字段：
 
 - ✅ 永久 URL 格式：`https://<bucket>.tos-cn-beijing.volces.com/scenes/<project>/SCENE-###.png`（无查询参数）
 - ❌ 仅有 `cdn_url`（临时预签名 URL）→ **不可声明完成**
-- 失败处理：报告"生成完成，TOS 上传阻断"+ 错误详情，等待用户修复凭据
+- 失败处理：报告"生成完成，对象存储上传阻断"+ 错误详情，等待用户修复凭据
 
 ## Step 9：迭代修复
 
@@ -513,7 +513,7 @@ Photorealistic rendering, shot on wide-angle lens, natural lighting, real archit
 # 道具融入场景（Prop-in-Scene Integration）
 
 > 此节是场景-道具协作的核心。道具分两类处理（分类由 production-planner 在 Stage 2 完成）：
-> - 🔵 **独立道具图**（`参考图: ✅ 已生成`，prop-designer 已生成并上传 TOS）：传入 `image_urls` 作为图片生成参考
+> - 🔵 **独立道具图**（`参考图: ✅ 已生成`，prop-designer 已生成并上传对象存储（storage））：传入 `image_urls` 作为图片生成参考
 > - ⏭️ **场景内置道具**（`参考图: 场景内置`，production-planner 分类）：将 prop-designer 补充的材质/设计描述直接写入场景 Prompt
 
 ## 步骤一：识别场景-道具关联
@@ -540,7 +540,7 @@ Photorealistic rendering, shot on wide-angle lens, natural lighting, real archit
 ## 步骤二：处理道具参考
 
 ### 🔵 独立道具图（参考图状态 = ✅ 已生成）
-1. 从 `assets/props/cdn_urls.json` 读取该道具的 TOS URL
+1. 从 `assets/props/cdn_urls.json` 读取该道具的存储永久 URL（当前 TOS `tos_url`）
 2. 查看 `assets/props/PROP-###.png` 确认道具的实际外观
 3. 记录道具的关键视觉特征（颜色、材质、形状、尺寸）
 4. 规划道具在场景中的自然位置
@@ -564,7 +564,7 @@ Photorealistic rendering, shot on wide-angle lens, natural lighting, real archit
    - id: "SCENE-001"
      prompt: "[场景 Prompt，含道具位置描述, verbatim from 场景卡片]"
      image_urls:
-       - "https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-003.png"  # TOS URL
+       - "https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-003.png"  # 存储永久 URL（当前 TOS）
      output: "assets/scenes/SCENE-001.png"
    ```
 
@@ -805,7 +805,7 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 | 5 | 每个场景含题材视觉标记 | 至少 1 个/图 |
 | 6 | 写实度 ≥7/10 | 无插画/卡通风格漂移 |
 | 7 | 跨资产风格匹配 | 渲染风格与制片规范参数一致（若角色图已就绪则交叉比对） |
-| 8 | TOS 永久 URL 已注册 | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
+| 8 | 对象存储永久 URL 已注册（storage） | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
 | 9 | 批量 YAML Prompt 与最终 Prompt 一致 | 无过期骨架 Prompt 残留 |
 | 10 | 场景色彩调性一致 | 同一项目场景间无风格断裂 |
 | 11 | 迭代历史已记录 | 工作计划.md 中记录了生成轮次 |
@@ -853,4 +853,4 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 }
 ```
 
-（每条目为嵌套对象，`tos_url` 为必填字段——与 TOS 完成性验证口径一致）
+（每条目为嵌套对象，`tos_url` 为必填字段——与对象存储上传完成性验证口径一致）
