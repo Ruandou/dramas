@@ -95,24 +95,18 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 ### 分集文件头 YAML 模板
 
+> 制作参数（model/seed/ratio/resolution 等）**不属于分集文件头**——由 `制片规范.md` 定义 + `engine_registry.video_defaults()` 解析，segment-builder 构建 shots/segments YAML 时读取。分集文件头仅含叙事数据：
+
 ```yaml
 ---
 episode_id: EP01
 episode_title: [集标题]
-duration_sec: 90  # EP01 为 120s；EP02+ 理想 75-100s/合规 75-120s；参见制片规范 episode_profile
+duration_sec: 90  # 整数秒（format_check G4 硬字段，须等于镜头表总时长秒数）；EP01 为 120，EP02+ 理想 75-100/合规 75-120；参见制片规范 episode_profile
 season: S1
 scene_ids: [SCENE-001, SCENE-002]
 character_ids: [CHAR-001, CHAR-002]
 look_ids: [CHAR-001-L01, CHAR-002-L01]
 prop_ids: [PROP-001, ...]
-seedance_defaults:  # 分集文件头固定字段名（数据契约，format_check.py/audit_format.py 解析此键，禁止重命名）。块内默认参数值由 `mcps/shared/engine_registry.py` 的 video_defaults() 按当前 video_gen 引擎解析
-  model: <引擎模型名>  # ⚠️ 部分引擎（如 seedance）必须带版本后缀（如 -260128），无后缀方舟返回 404；以 video_defaults() 为准
-  seed: <项目统一固定值>  # ⚠️ 全剧固定一个 seed，提升同角色跨段音色/语速稳定；可从首个满意成片任务回填
-  ratio: "9:16"
-  resolution: 720p
-  image_resolution: 1600×2848（图片生成参考图，9:16 竖屏）
-  duration_sec: "8-10"
-  generate_audio: true
 ---
 ```
 

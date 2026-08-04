@@ -96,9 +96,10 @@ ENGINES = {
 }
 
 # ---------------------------------------------------------------------------
-# 视频引擎默认参数（video_defaults）：production-planner 的 `seedance_defaults`
-# 模板块引擎化。agent 不硬编码模型名/时长限制/采样参数，改由本表按当前
-# video_gen 引擎解析。键与分集文件头 YAML 模板字段一一对应。
+# 视频引擎默认参数（video_defaults）：制作参数权威源（引擎化）。agent 不硬编码
+# 模型名/时长限制/采样参数，改由本表按当前 video_gen 引擎解析。segment-builder
+# 构建 shots/segments YAML 的 `defaults` 块时从本表读取；制片规范中的引擎参数
+# 定义以此为据。键与 YAML `defaults` 块字段一一对应。
 # ---------------------------------------------------------------------------
 VIDEO_DEFAULTS = {
     "seedance": {
@@ -196,8 +197,8 @@ def storage_url(key: str) -> str:
 def video_defaults(engine_id: str | None = None) -> dict:
     """返回视频引擎的默认参数（model/时长限制/generate_audio 等）。
 
-    不传 engine_id 时解析当前 video_gen 默认引擎。供 production-planner 的
-    分集文件头 YAML 模板（原 `seedance_defaults` 块）按引擎动态填充。
+    不传 engine_id 时解析当前 video_gen 默认引擎。segment-builder 构建
+    shots/segments YAML 的 `defaults` 块时读取；也是制片规范引擎参数定义的依据。
     """
     eid = engine_id or default_engine(CAP_VIDEO_GEN)
     if eid not in VIDEO_DEFAULTS:

@@ -9,17 +9,16 @@ REQUIRED_SECTIONS = [
 
 def check_frontmatter(fm: dict) -> list:
     errors = []
-    for f in ["episode_id", "episode_title", "duration_min", "season",
+    for f in ["episode_id", "episode_title", "season",
               "scene_ids", "character_ids", "look_ids", "prop_ids"]:
         if f not in fm:
             errors.append(f"缺顶层字段: {f}")
-    sd = fm.get("seedance_defaults", {})
-    if not isinstance(sd, dict):
-        return errors + ["缺 seedance_defaults 块"]
-    for f in ["model", "ratio", "resolution", "duration_sec",
-              "generate_audio", "prompt_suffix", "negative_prompt"]:
-        if f not in sd:
-            errors.append(f"seedance_defaults 缺: {f}")
+    # 时长字段：新契约用 duration_sec（秒，整数，与制作层 episode_profile 口径一致）；
+    # 历史剧本用 duration_min（分钟），兼容两者至少其一（历史文件不迁移）。
+    if "duration_sec" not in fm and "duration_min" not in fm:
+        errors.append("缺时长字段: duration_sec（或历史格式 duration_min）")
+    # 制作参数（model/ratio/resolution/...）不属于剧本层，由 yaml_check 在制作层把关，
+    # 分集剧本 frontmatter 不再校验 seedance_defaults。
     return errors
 
 
