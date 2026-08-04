@@ -215,7 +215,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 11. **执行生成 + 即生即传**（仅在用户于 Step 10 授权后）
 
-    > **即生即传规则（Generate-then-Upload）**：每张参考图生成确认后，必须**立即**执行 TOS 上传并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
+    > **即生即传规则（Generate-then-Upload）**：每张参考图生成确认后，必须**立即**执行对象存储上传（storage 能力，当前 CLI：`tos_upload.py sync`，路径见 `engine_registry.cli_path('storage')`）并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
     >
     > 流程：`生成图片 → 确认质量 → tos_upload.py sync → 更新 cdn_urls.json → 下一张`
     >

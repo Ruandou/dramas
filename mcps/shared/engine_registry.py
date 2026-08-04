@@ -22,6 +22,7 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 CAP_IMAGE_GEN = "image_gen"   # 图片生成（文生图/图生图）
 CAP_VIDEO_GEN = "video_gen"   # 视频生成
+CAP_STORAGE   = "storage"     # 对象存储 / CDN（参考图永久托管）
 
 # ---------------------------------------------------------------------------
 # 引擎注册表：engine_id -> 元数据
@@ -70,18 +71,68 @@ ENGINES = {
         "env_key": "KLING_AK",
         "display": "可灵 AI 视频",
     },
+    # -----------------------------------------------------------------------
+    # 对象存储 / CDN 引擎（参考图永久托管，供 image_gen / video_gen 引用）
+    #   bucket       : 默认桶名
+    #   endpoint     : 默认 endpoint（不含 scheme）
+    #   region       : 默认 region
+    #   url_template : 永久 URL 模板，{bucket}/{endpoint}/{key} 占位
+    #   env_keys     : 鉴权环境变量列表（按优先级）
+    # -----------------------------------------------------------------------
+    "tos": {
+        "capability": CAP_STORAGE,
+        "cli": "mcps/volc-ark/scripts/tos_upload.py",
+        "mcp_server": "volc-ark",
+        "mcp_prefix": "tos",
+        "archive_kind": "tos_upload",
+        "env_key": "VOLC_ACCESS_KEY",
+        "env_keys": ["VOLC_ACCESS_KEY", "VOLC_SECRET_KEY"],
+        "bucket": "drama-reference-images",
+        "endpoint": "tos-cn-beijing.volces.com",
+        "region": "cn-beijing",
+        "url_template": "https://{bucket}.{endpoint}/{key}",
+        "display": "火山引擎 TOS 对象存储（参考图永久 CDN）",
+    },
+}
+
+# ---------------------------------------------------------------------------
+# 视频引擎默认参数（video_defaults）：production-planner 的 `seedance_defaults`
+# 模板块引擎化。agent 不硬编码模型名/时长限制/采样参数，改由本表按当前
+# video_gen 引擎解析。键与分集文件头 YAML 模板字段一一对应。
+# ---------------------------------------------------------------------------
+VIDEO_DEFAULTS = {
+    "seedance": {
+        "model": "doubao-seedance-2-0-fast-260128",  # ⚠️ 必须带版本后缀，无后缀方舟 404
+        "ratio": "9:16",
+        "resolution": "720p",
+        "image_resolution": "1600×2848",  # 图片生成参考图，9:16 竖屏
+        "duration_sec": "8-10",
+        "segment_duration_sec": "4-12",   # Seedance fast 单 segment 硬限制
+        "generate_audio": True,
+    },
+    "kling": {
+        "model": "kling-v2",
+        "ratio": "9:16",
+        "resolution": "720p",
+        "image_resolution": "1600×2848",
+        "duration_sec": "5-10",
+        "segment_duration_sec": "5-10",
+        "generate_audio": False,
+    },
 }
 
 # 能力 -> 默认引擎（环境变量可覆盖）
 DEFAULT_ENGINES = {
     CAP_IMAGE_GEN: "gpt-image",
     CAP_VIDEO_GEN: "seedance",
+    CAP_STORAGE: "tos",
 }
 
 # 环境变量名（能力 -> 覆盖该能力默认引擎的 env var）
 _CAP_ENV = {
     CAP_IMAGE_GEN: "IMAGE_GEN_ENGINE",
     CAP_VIDEO_GEN: "VIDEO_GEN_ENGINE",
+    CAP_STORAGE: "STORAGE_ENGINE",
 }
 
 
@@ -129,6 +180,33 @@ def engines_for(capability: str) -> list[str]:
     return [e for e, m in ENGINES.items() if m["capability"] == capability]
 
 
+def storage_info() -> dict:
+    """返回当前对象存储引擎的完整元数据（含解析后的绝对 CLI 路径）。"""
+    return resolve(CAP_STORAGE)
+
+
+def storage_url(key: str) -> str:
+    """按当前存储引擎的 url_template 拼出某 object key 的永久 CDN URL。"""
+    info = storage_info()
+    return info["url_template"].format(
+        bucket=info["bucket"], endpoint=info["endpoint"], key=key
+    )
+
+
+def video_defaults(engine_id: str | None = None) -> dict:
+    """返回视频引擎的默认参数（model/时长限制/generate_audio 等）。
+
+    不传 engine_id 时解析当前 video_gen 默认引擎。供 production-planner 的
+    分集文件头 YAML 模板（原 `seedance_defaults` 块）按引擎动态填充。
+    """
+    eid = engine_id or default_engine(CAP_VIDEO_GEN)
+    if eid not in VIDEO_DEFAULTS:
+        raise ValueError(
+            f"视频引擎 {eid!r} 无默认参数；已配置: {sorted(VIDEO_DEFAULTS)}"
+        )
+    return dict(VIDEO_DEFAULTS[eid])
+
+
 if __name__ == "__main__":
     import json
 
@@ -138,6 +216,8 @@ if __name__ == "__main__":
             "available": engines_for(cap),
             "resolved": resolve(cap),
         }
-        for cap in (CAP_IMAGE_GEN, CAP_VIDEO_GEN)
+        for cap in (CAP_IMAGE_GEN, CAP_VIDEO_GEN, CAP_STORAGE)
     }
+    out["video_defaults"] = video_defaults()
+    out["storage_url_example"] = storage_url("looks/<剧名>/CHAR-001-L01.png")
     print(json.dumps(out, ensure_ascii=False, indent=2))

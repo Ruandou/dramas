@@ -116,7 +116,7 @@ Step → Verify → [有问题? → Fix → Verify (循环至干净)] → Next S
 
 ## 时长红线（禁止数学游戏）⚠️ 对 scene-writer / segment-builder / drama-director 强制执行
 
-> 以下规则来自生产事故复盘：大模型在剧本时长不够时倾向于"数学游戏"——直接给某几个镜头加 1s 或几秒凑数，内容不变，产出的视频是拖长的空镜/慢动作。剧本是整条流水线的真相源（scene-writer → segment-builder → Seedance 按段扣费的视频生成），剧本凑数=后面全浪费，故必须从源头杜绝。
+> 以下规则来自生产事故复盘：大模型在剧本时长不够时倾向于"数学游戏"——直接给某几个镜头加 1s 或几秒凑数，内容不变，产出的视频是拖长的空镜/慢动作。剧本是整条流水线的真相源（scene-writer → segment-builder → 视频生成引擎按段扣费的视频生成），剧本凑数=后面全浪费，故必须从源头杜绝。
 
 ### 三条硬规则
 
@@ -139,7 +139,7 @@ Step → Verify → [有问题? → Fix → Verify (循环至干净)] → Next S
 ### A. Prompt 设计自检（生成前 — agent 必须执行）
 
 每个 prompt 逐条检查：
-- [ ] **场景/道具人脸禁令**：场景和道具图中**严禁**出现任何人类面孔（含照片、画像、贴纸、屏幕显示等平面媒介）。人物由 Seedance 视频阶段加入。角色卡要求"墙上挂照片"时，改用物品替代（名牌/奖状/标志性物件）
+- [ ] **场景/道具人脸禁令**：场景和道具图中**严禁**出现任何人类面孔（含照片、画像、贴纸、屏幕显示等平面媒介）。人物由视频生成引擎（video_gen）阶段加入。角色卡要求"墙上挂照片"时，改用物品替代（名牌/奖状/标志性物件）
 - [ ] **道具参考图自然锚点（2026-07-30 双事故复盘）**：图片生成引擎会把 `image_urls` 参考图**原样复制进画面**（该结论为 Seedream 实测，当前默认引擎 gpt-image 需以实际输出验证）。仅当 prompt 显式把道具绑定到自然物理锚点（held in hand / hanging at waist sash / parked on the floor beside X）并写明接触面时才可传道具参考图；镜头中不自然可见的道具一律文字描述、不传图（事故：残页参考图被平贴到角色胸口）
 - [ ] **空间介词无歧义**：禁用 "at the head of the table" 类可读作"在桌面上"的歧义表述，必须显式命名支撑面（on the floor / on the tabletop）（事故：轮椅被摆上会议桌桌面）
 - [ ] **文字语种**：场景/道具/角色物品（刻字玉佩、绣字长袍等）如需出现中文，必须写 `Simplified Chinese`，不能只写 `Chinese text`（会出繁体）
@@ -151,8 +151,8 @@ Step → Verify → [有问题? → Fix → Verify (循环至干净)] → Next S
 - [ ] 该道具图是否在 `image_urls` 中？
 - [ ] 该道具是否已生成并上传 TOS？
 
-**Seedance 视频阶段道具锁定**：
-场景图本身不保证道具在视频中外观稳定——Seedance 可能改变场景中的物品。需要道具外观严格一致的镜头，**必须**在 `shots.yaml` 中将道具图作为独立参考图传入：
+**视频生成引擎（video_gen）阶段道具锁定**：
+场景图本身不保证道具在视频中外观稳定——视频生成引擎可能改变场景中的物品。需要道具外观严格一致的镜头，**必须**在 `shots.yaml` 中将道具图作为独立参考图传入：
 ```yaml
 assets:
   prop_urls:
@@ -174,7 +174,7 @@ Stage 3a（道具，含即生即传） → [验证 cdn_urls.json] → Stage 3b�
 
 ### D. 生成后验证（每批次生成后立即执行）
 
-1. [ ] **TOS 上传 + 更新 registry**：`tos_upload.py sync --project-root dramas/<剧名>`
+1. [ ] **对象存储上传 + 更新 registry**（storage 能力，TOS 为当前默认引擎；CLI 路径见 `engine_registry.cli_path('storage')`）：`tos_upload.py sync --project-root dramas/<剧名>`
    （`sync` 内部已自动上传 + 更新 `cdn_urls.json`，等价于底层 `upload-dir` + `update-registry` 两步；与 prop/character/scene-designer 的命令一致）
 2. [ ] **更新卡片状态**：道具卡片.md、角色卡片.md、场景卡片.md、形象索引.md 中所有 `待生成` → `✅ 已生成`
 3. [ ] **更新工作计划.md** 流水线状态
@@ -209,7 +209,7 @@ python3 mcps/gpt-image/scripts/gpt_image.py generate \
 - [ ] **生成时机**：character-designer 在每张含可见人脸的 L01/L02+ 确认后，立即生成 `-mesh.png` 变体，并随「即生即传」流程一并上传 TOS
 - [ ] **命名**：`CHAR-###-L##-mesh.png`，群演为 `CHAR-GRP-##-L01-mesh.png`（群演同样适用本规则）；与原图同目录（`assets/looks/`），同步注册 cdn_urls.json
 - [ ] **登记凭据**：生成或豁免结论必须登记到 `资产/形象索引.md` 对应行（`✅ mesh已生成` / `mesh豁免（剪影）` / `mesh豁免（背影）`）；下游 segment-builder 与 G3 均以此登记为准，**无登记视为缺口**，不得自行猜测是否豁免
-- [ ] **使用边界**：仅 Seedance 视频提交（shots/segments YAML 的 `look_urls`）用 mesh 版；图片生成 L02+ 衍生、对外展示仍用原图
+- [ ] **使用边界**：仅视频生成引擎（video_gen）提交（shots/segments YAML 的 `look_urls`）用 mesh 版；图片生成 L02+ 衍生、对外展示仍用原图
 - [ ] **豁免**：逆光剪影、背影等无可见人脸的形象图不触发过滤，无需 mesh 版（需登记豁免，见上）
 - [ ] **根治并行**：向平台申请 AIGC 白名单后可逐步退场
 
@@ -217,7 +217,7 @@ python3 mcps/gpt-image/scripts/gpt_image.py generate \
 
 | 跳过此项 | 结果 |
 |---------|------|
-| 道具参考图自然锚点/空间介词检查 | 道具图被原样平贴进画面（残页贴胸口）、道具落在荒诞位置（轮椅上会议桌），Seedance 继承缺陷至成片 |
+| 道具参考图自然锚点/空间介词检查 | 道具图被原样平贴进画面（残页贴胸口）、道具落在荒诞位置（轮椅上会议桌），视频生成引擎继承缺陷至成片 |
 | 场景/道具人脸禁令 | 场景中出现错误角色面孔、西方面孔或无意义人脸（SCENE-009 教授照） |
 | 文字语种检查 | 简体内容出现繁体文字（PROP-011 商业计划书） |
 | 道具交叉引用检查 | 道具与场景不匹配 |
@@ -259,14 +259,14 @@ dramas/<剧名>/
 
 ## MCP 工具链
 
-> 🔌 **引擎注册表**：图片/视频生成按「能力」引用，当前默认引擎由 `mcps/shared/engine_registry.py` 统一解析：`image_gen`（图片生成，默认 **gpt-image**，备选 seedream）、`video_gen`（视频生成，默认 seedance，备选 kling）。切换引擎改注册表或设 `IMAGE_GEN_ENGINE` / `VIDEO_GEN_ENGINE` 环境变量即可，agent 提示词无需改。
+> 🔌 **引擎注册表**：图片/视频生成/存储按「能力」引用，当前默认引擎由 `mcps/shared/engine_registry.py` 统一解析：`image_gen`（图片生成，默认 **gpt-image**，备选 seedream）、`video_gen`（视频生成，默认 seedance，备选 kling）、`storage`（对象存储/参考图永久托管，默认 **tos**，备选可扩展）。切换引擎改注册表或设 `IMAGE_GEN_ENGINE` / `VIDEO_GEN_ENGINE` / `STORAGE_ENGINE` 环境变量即可，agent 提示词无需改。视频默认参数（model/ratio/resolution/duration_sec 等）由 `video_defaults()` 解析；存储桶/永久 URL 由 `storage_info()` / `storage_url()` 解析；各能力 CLI 路径由 `cli_path()` 解析。
 
 | 功能 | MCP 服务 | 工具 | 扣费 |
 |------|----------|------|------|
 | 图片生成（默认 image_gen） | `gpt-image` | `gpt_image_generate` / `gpt_image_batch` | **是** |
 | 图片生成（备选） | `volc-ark` | `ark_seedream_generate` / `ark_seedream_batch` | **是** |
 | 图片托管 | `imgbb` | `imgbb_upload` | 否 |
-| 视频生成 | `volc-ark` | `ark_seedance_create` / `ark_seedance_shots` | **是** |
+| 视频生成（默认 video_gen） | `volc-ark` | `ark_seedance_create` / `ark_seedance_shots` | **是** |
 | 视频查询 | `volc-ark` | `ark_seedance_list` / `ark_seedance_get` / `ark_seedance_wait` | 否 |
 | 视频下载 | `volc-ark` | `ark_seedance_download` | 否 |
 | 任务归档 | `volc-ark` | `ark_list_tasks` | 否 |

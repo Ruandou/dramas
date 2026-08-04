@@ -34,9 +34,9 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 ### 与 prop-designer 的依赖关系
 
 - **场景生成依赖道具的永久 TOS URL**：当某场景显著展示特定道具时（祭坛上的神 器、武器架上的剑），scene-designer 需读取对应道具的 `tos_url`（从 `cdn_urls.json`），将其作为 `image_urls` 传入图片生成引擎
-- **道具 TOS URL 已在 `assets/props/cdn_urls.json` 中就绪**——prop-designer 在 Stage 3a 已完成所有道具生成 + TOS 上传
+- **道具 TOS URL 已在 `assets/props/cdn_urls.json` 中就绪**——prop-designer 在 Stage 3a 已完成所有道具生成 + 对象存储上传（storage 能力，TOS 为当前默认引擎）
 - **不得等待** character-designer 完成后再开始工作——两者并行
-- **场景中绝对禁止出现任何人类面孔**（含照片、画像、海报、屏幕显示等平面媒介）——人物由 Seedance 视频阶段加入
+- **场景中绝对禁止出现任何人类面孔**（含照片、画像、海报、屏幕显示等平面媒介）——人物由视频生成引擎（video_gen）阶段加入
 
 ### 与 character-designer 的并行关系
 
@@ -158,7 +158,7 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 
 > ⚠️ 来自生产事故复盘（"匿名坦白局"项目）：场景 Prompt 中出现人脸导致西方面孔或错误人物。
 
-场景参考图中**绝对禁止**出现任何人类面孔（含照片、画像、海报、贴纸、屏幕显示等**所有平面媒介**）。人物由 Seedance 视频阶段加入。
+场景参考图中**绝对禁止**出现任何人类面孔（含照片、画像、海报、贴纸、屏幕显示等**所有平面媒介**）。人物由视频生成引擎（video_gen）阶段加入。
 
 如场景描述要求"墙上挂某人照片/肖像"（如"陈教授旧居墙上挂有陈教授照片"），**必须**将其替换为不含人脸的元素：
 - 照片/肖像 → 替换为名牌/奖状/题字/标志性物品
@@ -268,7 +268,7 @@ python3 mcps/gpt-image/scripts/gpt_image.py generate \
 python3 mcps/gpt-image/scripts/gpt_image.py --help
 ```
 
-### TOS 上传命令参考（实际执行时机见 Step 8 即生即传）
+### 对象存储上传命令参考（storage 能力，TOS 为当前默认引擎；CLI 路径以 `engine_registry.cli_path('storage')` 为准。实际执行时机见 Step 8 即生即传）
 
 ```bash
 # 上传已确认的场景图到 TOS 获取永久 URL
@@ -837,7 +837,7 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 
 | 下游消费者 | 需要的内容 | 格式/位置 |
 |-----------|-----------|----------|
-| segment-builder | 场景图床 URL 用于 Seedance `i2v_ref` | `assets/scenes/cdn_urls.json` |
+| segment-builder | 场景图床 URL 用于视频生成引擎（video_gen）图生视频参考（当前为 `i2v_ref`） | `assets/scenes/cdn_urls.json` |
 | scene-writer | 场景视觉参考用于镜头构图设计 | `assets/scenes/SCENE-###.png` 图片文件 |
 | production-planner | 生成状态用于 Gate 验证 | 工作计划.md 中的状态字段 |
 | drama-director | Gate G3 通过证据 | 所有 EP01 场景有图片 + 图床 URL |

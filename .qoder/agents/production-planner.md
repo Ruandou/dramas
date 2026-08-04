@@ -72,7 +72,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 | 约束             | 值              | 说明                                                    |
 | ---------------- | --------------- | ------------------------------------------------------- |
-| 单 segment 时长  | **4–12 秒**     | Seedance fast 硬限制；超出必须拆分                      |
+| 单 segment 时长  | **4–12 秒**     | 视频生成引擎（video_gen）硬限制；超出必须拆分。具体区间以 `engine_registry.video_defaults()` 的 `segment_duration_sec` 为准 |
 | 理想时长         | 8–10 秒         | 一条 API = 一段可拍的戏                                 |
 | 每 segment 镜头数 | ≤3 镜；段 ≥8s 必 ≥2 镜（典型 2-3） | v2.2 切镜节奏；静音视觉锤段可单镜但 ≤8s                    |
 | 最小叙事单位     | 1 个完整 beat   | 每个 segment 必须构成完整叙事节拍                       |
@@ -90,7 +90,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 ### 关键区分
 
 - **场景（SCENE-###）** = 空间单位（地点不变 = 同一场景）
-- **Segment（SEGxx）** = AI 生成单位（一次 Seedance API 调用）
+- **Segment（SEGxx）** = AI 生成单位（一次视频生成引擎（video_gen）API 调用）
 - 同一场景**可以**包含多个 segment；segment **不得**跨场景
 
 ### 分集文件头 YAML 模板
@@ -105,8 +105,8 @@ scene_ids: [SCENE-001, SCENE-002]
 character_ids: [CHAR-001, CHAR-002]
 look_ids: [CHAR-001-L01, CHAR-002-L01]
 prop_ids: [PROP-001, ...]
-seedance_defaults:
-  model: doubao-seedance-2-0-fast-260128  # ⚠️ 必须带版本后缀（如 -260128），无后缀名方舟返回 404
+seedance_defaults:  # 分集文件头固定字段名（数据契约，format_check.py/audit_format.py 解析此键，禁止重命名）。块内默认参数值由 `mcps/shared/engine_registry.py` 的 video_defaults() 按当前 video_gen 引擎解析
+  model: <引擎模型名>  # ⚠️ 部分引擎（如 seedance）必须带版本后缀（如 -260128），无后缀方舟返回 404；以 video_defaults() 为准
   seed: <项目统一固定值>  # ⚠️ 全剧固定一个 seed，提升同角色跨段音色/语速稳定；可从首个满意成片任务回填
   ratio: "9:16"
   resolution: 720p
@@ -209,7 +209,7 @@ seedance_defaults:
 | 说明 | 一句话描述功能/意义 |
 | 叙事功能 | 推动情节/象征意义/伏笔 |
 | 关联场景 | `SCENE-###`（[位置/展示方式]）。道具作为环境一部分出现在某场景中时填写。**仅一个场景 vs 多个场景** 决定道具是否需要独立参考图。 |
-| 参考图 | production-planner 在提取时分类：`待生成`（跨场景/跨角色/Seedance 引用，prop-designer 生成后更新为 `✅ 已生成`）/ `场景内置`（单场景专属，scene-designer 内嵌）/ `角色内置`（单角色专属，character-designer 内嵌）。无视觉上下文的道具不收录。 |
+| 参考图 | production-planner 在提取时分类：`待生成`（跨场景/跨角色/视频生成引擎引用，prop-designer 生成后更新为 `✅ 已生成`）/ `场景内置`（单场景专属，scene-designer 内嵌）/ `角色内置`（单角色专属，character-designer 内嵌）。无视觉上下文的道具不收录。 |
 
 #### 与制片规范的关系
 
@@ -266,7 +266,7 @@ seedance_defaults:
 
 - 旁白角色不分配 CHAR-ID，写为「旁白」，voice_prompt 独立定义
 - 分集剧本镜头表中标注音效（如 `敲门声`、`紧张弦乐`）
-- Seedance `generate_audio: true` 合成基础环境音；特殊音效后期叠加
+- 视频生成引擎 `generate_audio: true`（见 `video_defaults()`）合成基础环境音；特殊音效后期叠加
 
 ---
 
@@ -386,7 +386,7 @@ dramas/剧名/
 
 - 确认集数、单集时长、总时长、画面比例
 - 确认年代/题材背景
-- 确认生成工具（Seedance / 即梦）
+- 确认生成工具（视频生成引擎 video_gen / 即梦，当前默认引擎见 `engine_registry.py`）
 - 建立目录结构
 
 ### Step 2：提取角色身份 → 分配 CHAR-ID，建立角色卡片骨架
@@ -438,7 +438,7 @@ For each PROP-###:
 ├── appears in 2+ distinct SCENE-###                   → 🔵 待生成 (cross-scene anchor)
 ├── held by 2+ distinct CHAR-###                        → 🔵 待生成 (cross-character anchor)
 ├── appears in ≥1 scene AND held by ≥1 character        → 🔵 待生成 (dual-end appearance)
-├── referenced as prop_urls in Seedance shots.yaml      → 🔵 待生成 (video-level visual lock)
+├── referenced as prop_urls in video_gen shots.yaml     → 🔵 待生成 (video-level visual lock)
 ├── exclusive to ONE scene only, never held by a char   → ⏭️ 场景内置 (scene-designer bakes into scene prompt)
 ├── exclusive to ONE character only, never standalone   → ⏭️ 角色内置 (character-designer bakes into char prompt)
 └── no scene, no character                              → ❌ 不收录 (prop has no visual context — do not create card)
@@ -616,14 +616,14 @@ production-planner 完成后产出以下文件：
 
 1. **ID 分配必须连续、不跳号**——便于脚本解析和资产追踪
 2. **形象层级变更必须同步更新对应索引文件**——角色索引、形象索引保持一致
-3. **分段时长严格控制在 4-12 秒**——超出需拆分或合并，这是 Seedance fast 硬限制
+3. **分段时长严格控制在视频生成引擎（video_gen）限制内**（当前 seedance 为 4-12 秒，以 `video_defaults()` 的 `segment_duration_sec` 为准）——超出需拆分或合并
 
 > **数值约束集中引用**：分段时长 4–12s、每集段落数 6–10（EP01 可至 12）、每集镜头数 16–30（EP01 20-36；v2.2）、单集 75–120s（EP01 合规 90-120s） 等共享数值约束的规范定义位于项目 `制片规范.md`。所有 Agent 必须以该文件为 single source of truth，禁止在各自定义中硬编码不同数值。
 4. **制片规范是项目宪法**——其他所有文档必须遵从
 5. **工作流修改严格按层向下**——禁止先改 segments.yaml 再回头补剧本
 6. **voice_prompt 跨段一致**——同一角色在所有 segment 中使用完全相同的 voice_prompt 文案
 7. **禁止向 `generated/` 写入占位视频**——该目录仅存放 AI 平台导出的正式成片
-8. **字幕后期添加**——Seedance 不烧录字幕，通过 ffmpeg 统一处理
+8. **字幕后期添加**——视频生成引擎不烧录字幕，通过 ffmpeg 统一处理
 9. **视觉创意不由本 Agent 定义**——Prompt 工程、negative prompt、style anchors 等视觉细节由 character-designer、prop-designer 和 scene-designer 各自负责。例外：年代/题材禁忌类 negative_prompt（如「唐代剧禁止出现现代物品」）属于结构性约束，由本 Agent 在制片规范中定义。创意领域 negative_prompt（如「禁止动漫风格」）由设计师负责。
 10. **语言画像为对白创作约束**——production-planner 从大纲推断角色语言风格草案（词汇层级、句式偏好、口头禅、情绪表达方式），写入角色卡片「语言画像」节。此为 scene-writer 对白创作的语言约束依据，确保不同角色台词风格有明显差异。
 

@@ -224,7 +224,7 @@ python3 mcps/gpt-image/scripts/gpt_image.py --help
 
 ## Step 8：即生即传（TOS 上传 + 注册永久 URL）
 
-> **即生即传规则（Generate-then-Upload）**：每张道具图生成确认后，必须**立即**执行 TOS 上传并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
+> **即生即传规则（Generate-then-Upload）**：每张道具图生成确认后，必须**立即**执行对象存储上传（storage 能力，当前 CLI：`tos_upload.py sync`，路径见 `engine_registry.cli_path('storage')`）并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
 >
 > 流程：`生成图片 → 确认质量（Step 7）→ tos_upload.py sync → 更新 cdn_urls.json → 下一张`
 >
@@ -242,7 +242,7 @@ python3 mcps/gpt-image/scripts/gpt_image.py --help
 - 编辑 `资产/道具卡片.md`，将该道具条目的 `参考图` 字段从 `待生成` 改为 `✅ 已生成`
 - 编辑 `工作计划.md`，更新流水线状态（如 G3-PROPS 进度）
 
-**CLI 命令：**
+**CLI 命令**（storage 能力，TOS 为当前默认引擎；路径以 `engine_registry.cli_path('storage')` 为准）：
 ```bash
 python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
 ```
@@ -304,7 +304,7 @@ Prop reference photograph, single object isolated on warm neutral silk backgroun
 
 ### 人脸禁令（绝对禁止）
 
-道具参考图中**绝对禁止**出现任何人类面孔（含照片、画像、贴纸、屏幕显示等平面媒介）。人物由 Seedance 视频阶段加入。
+道具参考图中**绝对禁止**出现任何人类面孔（含照片、画像、贴纸、屏幕显示等平面媒介）。人物由视频生成引擎（video_gen）阶段加入。
 
 如道具卡片要求道具包含人脸（如"旧照片"、"笔记本贴纸"），**必须**将其替换为不含人脸的元素：
 - 照片类 → 替换为风景/物品/文字内容
@@ -529,7 +529,7 @@ prop-designer 的输出是新流水线中多个下游环节的基础。下游消
 |-----------|--------------|---------|
 | **character-designer** (Stage 3b) | 当角色持有、佩戴或使用某件道具时，将道具的 TOS URL 作为 `image_urls` 传入图片生成引擎，确保角色参考图中的道具外观与独立道具图一致 | 角色卡片的「持有道具」字段引用了 PROP-### |
 | **scene-designer** (Stage 3c) | 当场景中显著展示某件道具时（如祭坛上的神器、武器架上的剑、桌上的药瓶），将道具的 TOS URL 作为 `image_urls` 传入图片生成引擎，确保场景环境中的道具与独立参考图一致 | 道具卡片的「关联场景」字段引用了 SCENE-### |
-| **segment-builder** (Stage 5) | 道具 TOS URL 传入 `shots.yaml` 的 `prop_urls`，由 Seedance 视频生成直接引用，锁定道具外观不漂移 | 该道具需在视频镜头中保持外观一致 |
+| **segment-builder** (Stage 5) | 道具 TOS URL 传入 `shots.yaml` 的 `prop_urls`，由视频生成引擎（video_gen）视频生成直接引用，锁定道具外观不漂移 | 该道具需在视频镜头中保持外观一致 |
 
 ### ⏭️ 内置道具描述消费者（SKIP props）
 
@@ -694,7 +694,7 @@ prop-designer 完成工作后，必须确保以下文件全部就绪，作为 St
 |-----------|-----------|----------|
 | character-designer | 道具图用于角色携带/佩戴道具的参考 | `assets/props/PROP-###.png` |
 | scene-designer | 道具图用于场景中道具展示的参考 | `assets/props/PROP-###.png` |
-| segment-builder | 道具图床 URL 写入 `shots.yaml` 的 `prop_urls`（API 层映射为 Seedance 参考图输入） | `assets/props/cdn_urls.json` |
+| segment-builder | 道具图床 URL 写入 `shots.yaml` 的 `prop_urls`（API 层映射为视频生成引擎参考图输入） | `assets/props/cdn_urls.json` |
 | scene-writer | 道具视觉参考用于剧本描写 | `assets/props/PROP-###.png` 图片文件 |
 | production-planner | 生成状态用于 Gate 验证 | 工作计划.md 中的状态字段 |
 | drama-director | Gate G3 通过证据 | 所有道具图片 + 图床 URL |
