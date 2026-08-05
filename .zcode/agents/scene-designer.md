@@ -86,6 +86,8 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 
 # 工作流程
 
+> **双轨两步结构（2026-08-05）**：本 Agent 工作拆为 **3c-D 设计**（Steps 1-5，零扣费：场景概念 + 英文 Prompt 写入卡片 + 提交用户确认，**禁止调用图片生成引擎**）与 **3c-G 生成**（Step 6 起，扣费：用户授权后读卡片 Prompt 调引擎 + 对象存储上传 + 状态更新）。用户在 3c-D 完成即可预览设计方向；3c-G 须获得用户明确授权（见 Step 6）。执行顺序：3a-D → (3b-D ∥ 3c-D) → 3a-G → (3b-G ∥ 3c-G)，详见 drama-director C5。
+
 ## Step 1：读取输入文件
 
 **主要输入（来自 production-planner，Stage 2）：**
@@ -94,8 +96,8 @@ G3 门控：验证所有资产（角色 + 场景 + 道具）的跨资产一致�
 - `制片规范.md` —— 项目宪法：题材、风格锚定词、negative_prompt_image、分辨率要求
 
 **道具视觉参考（来自 prop-designer，Stage 3a）：**
-- `assets/props/PROP-###.png` + `assets/props/cdn_urls.json` —— `待生成` 道具的独立参考图 + 存储永久 URL（当前 TOS `tos_url`，prop-designer 已生成）
-- `资产/道具卡片.md` 中 `参考图` 字段为 `场景内置` 的道具 —— 仅有材质/颜色/尺寸/磨损文字描述（production-planner 分类，prop-designer 补充设计描述），无独立图片
+- `assets/props/PROP-###.png` + `assets/props/cdn_urls.json` —— `待生成` 道具的独立参考图 + 存储永久 URL（当前 TOS `tos_url`，prop-designer 3a-G 已生成）——**仅 3c-G 阶段需要**（作 `image_urls` 参考）
+- `资产/道具卡片.md` 中 `参考图` 字段为 `场景内置` 的道具 —— 仅有材质/颜色/尺寸/磨损文字描述（production-planner 分类，prop-designer 3a-D 补充设计描述），无独立图片——**3c-D 阶段读取**（写入场景 Prompt）
 
 **叙事上下文：**
 - `短剧剧本_剧名_86集.md` —— 故事大纲，用于理解场景叙事权重
@@ -205,7 +207,7 @@ items:
     output: "assets/scenes/SCENE-002.png"
 ```
 
-## Step 6：执行生成
+## Step 6：执行生成（3c-G）
 
 > ⚠️ **付费操作**：以下 MCP 工具调用会消耗图片生成额度（当前默认引擎 gpt-image-2 约 **$0.10/张** 一口价），**必须获得用户明确授权后**方可执行。
 >

@@ -399,10 +399,10 @@ dramas/剧名/
   - 性格特征/情感弧线（供 character-designer 理解角色气质）
   - 初始音色建议（基于性格/年龄推断 voice_prompt 初稿）
 - 群演分级：有名字+跨 segment 出现 → 独立 CHAR-###；纯背景无台词 → CHAR-GRP（但每个视觉不同角色仍需独立 ID）
-- scene-writer 在剧本中标注的新群演（`[待补：...]`）由本 Agent 在**集间群演回补子循环**统一分配 `CHAR-GRP-##` ID（从已有最大编号+1），并建声音卡片条目（含 voice_prompt）+ 角色索引条目 + 形象索引骨架行（`CHAR-GRP-##-L01` 7 列骨架，ID/类型/适用预填，其余留空）；L01 形象图 + 角色卡片段落 + 形象索引填充由 character-designer 回补。回补完成（G3 增量验证通过）后该群演方可进入 segment-builder（子循环详见 drama-director）
+- scene-writer 在剧本中标注的新群演（`[待补：...]`）由本 Agent 在**集间群演回补子循环**统一分配 `CHAR-GRP-##` ID（从已有最大编号+1），并建声音卡片条目（含 voice_prompt）+ 角色索引条目 + 形象索引骨架行（`CHAR-GRP-##-L01` 7 列骨架，ID/类型/适用预填，其余留空）；L01 形象图 + 角色卡片段落 + 形象索引填充由 character-designer 回补。回补完成（G3 增量验证通过）后该群演方可进入 segment-builder（子循环详见 drama-director A3 交接协议 item 3 + C10）。**双轨路由拆两段**：本 Agent 的 ID/声音卡片/索引骨架分配属**文字回补（剧本轨内部，零扣费）**，剧本轨可立即继续；L01 生成属**L01 回补（制作轨）**，由该集 3-G 或 C7 素材就绪缺口时执行
 - 生成**角色卡片骨架**：
-  - 包含：CHAR-ID、姓名、角色定位、阵营/派系、首次出场、关键关系、性格概要
-  - **不包含**：外貌描写、AI Prompt、生成参数 —— 这些由 character-designer 填充
+  - 包含：CHAR-ID、姓名、角色定位、阵营/派系、首次出场、关键关系、性格概要、**外貌锚点**（每角色 3-5 句中文外貌/服装描述，粗粒度，供 scene-writer 画面列对齐 + character-designer 视觉设计起点）
+  - **不包含**：完整外貌描写表、AI Prompt、生成参数 —— 这些由 character-designer 填充（外貌锚点除外）
 - 输出 `资产/角色索引.md`（含完整 CHAR-ID 列表）
 - 输出 `资产/形象索引.md` 骨架（仅 ID 占位，待 character-designer 填充）
 
@@ -469,19 +469,32 @@ For each PROP-###:
 
 > 语言画像为 scene-writer 提供对白创作的语言约束依据，确保不同角色的台词风格有明显差异。
 
+### Step 3.6a：角色外貌锚点（粗粒度）
+
+从故事大纲中推断每个**有对白角色**的外貌/服装特征，为 scene-writer 的画面列描写提供视觉一致性锚点（对应 scene-writer Rule 14 的双轨适配）：
+
+- **外貌锚点**：3-5 句中文描述，覆盖性别/年龄/体型/发型/五官特征/气质
+- **服装锚点**：1-2 句标志性服装描述（主要场景的穿着）
+- 写入 `资产/角色卡片.md` 中对应角色条目下的「外貌锚点」字段
+- 此为**粗粒度**锚点（从大纲可推断的最低限度描述），character-designer 在 3b-D 基于锚点发展完整外貌描写表 + 英文 Prompt（锚点 → 外貌描写 → EN Prompt 链）
+
+> 外貌锚点与 Step 3.6 语言画像草案同级：均为零扣费文字产出，剧本轨（scene-writer）依赖它们即可独立推进，不依赖制作轨视觉设计。
+
 ### Step 3.7：双通道移交协议（Dual Handoff Protocol）
 
-production-planner 完成 Step 2 + 3 + 3.5 后，同时向两个下游消费者移交：
+production-planner 完成 Step 2 + 3 + 3.5 + 3.6 + 3.6a 后，同时向两个下游消费者移交：
+
+> **设计先行说明（2026-08-05 双轨）**：下游设计师在 Stage 3 内**先 3-D 设计（零扣费）后 3-G 生成（扣费）**——3-D 完成即可供用户预览设计方向，无需等待图片生成；骨架移交本身不变。详见 drama-director C1/C5 与各设计师规范。
 
 ---
 
 #### A. 移交给 character-designer（Stage 3b）
 
-**输出**：角色卡片骨架（CHAR-### ID、姓名、定位、阵营、首次出场、关键关系、性格概要、初始音色建议）+ 故事大纲原文引用 + `资产/角色索引.md` + `资产/形象索引.md` 骨架
+**输出**：角色卡片骨架（CHAR-### ID、姓名、定位、阵营、首次出场、关键关系、性格概要、**外貌锚点**、初始音色建议）+ 故事大纲原文引用 + `资产/角色索引.md` + `资产/形象索引.md` 骨架
 
-**character-designer 填充**：外貌描写、L01/L02+ Prompt、形象索引 Prompt 摘要
+**character-designer 填充**：外貌描写（基于锚点细化）、L01/L02+ Prompt、形象索引 Prompt 摘要
 
-**不可修改**：CHAR-### ID 编号、角色定位/关系结构、表格格式
+**不可修改**：CHAR-### ID 编号、角色定位/关系结构、**外貌锚点**、表格格式
 
 ---
 
@@ -490,8 +503,8 @@ production-planner 完成 Step 2 + 3 + 3.5 后，同时向两个下游消费者�
 **输出**：`资产/道具卡片.md`（含 ID、道具名、持有者、关联场景、首次出场、叙事功能、**已分类的 `参考图` 字段**）
 
 **prop-designer 职责**：
-- `待生成` 道具：发展视觉概念、编写英文 Prompt、生成参考图、对象存储上传（storage）、更新状态为 `✅ 已生成`
-- `场景内置` / `角色内置` 道具：补充材质/颜色/尺寸/磨损描述文本（供 scene-designer / character-designer 内嵌）
+- `待生成` 道具：发展视觉概念（3a-D）→ 编写英文 Prompt 写入卡片 → 提交用户确认 → 授权后生成参考图（3a-G）→ 对象存储上传（storage）→ 更新状态为 `✅ 已生成`
+- `场景内置` / `角色内置` 道具：3a-D 时补充材质/颜色/尺寸/磨损描述文本（供 scene-designer / character-designer 的 3b-D/3c-D 内嵌）
 
 **不可修改**：PROP-### ID、必填元数据字段、道具持有者/转移关系、**`参考图` 分类结果**（由 production-planner 决定）
 
@@ -535,7 +548,7 @@ production-planner 完成后产出以下文件：
 | 文件 | 说明 | 下游消费者 |
 |------|------|---------------|
 | `制片规范.md` | 项目宪法：ID体系、分段规则、结构约束、视觉风格锚点 | 全员 |
-| `资产/角色卡片.md`（骨架） | CHAR-ID + 身份元数据 + 性格概要（无视觉描写） | character-designer (Stage 3b) |
+| `资产/角色卡片.md`（骨架） | CHAR-ID + 身份元数据 + 性格概要 + 外貌锚点（无完整视觉描写） | character-designer (Stage 3b) |
 | `资产/角色索引.md` | 完整 CHAR-### 列表 | character-designer, scene-writer, segment-builder |
 | `资产/形象索引.md`（骨架） | ID 占位，待填充 | character-designer (Stage 3b) |
 | `资产/场景卡片.md` | SCENE-### + 结构元数据 | scene-designer (Stage 3c) |

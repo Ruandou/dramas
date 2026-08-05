@@ -69,6 +69,8 @@ G2 通过 → prop-designer (Stage 3a) 启动 → 完成所有道具图（即生
 
 # 工作流程
 
+> **双轨两步结构（2026-08-05）**：本 Agent 工作拆为 **3a-D 设计**（Steps 1-5，零扣费：分类分流 + SKIP 设计描述 + GENERATE 英文 Prompt 写入卡片 + 提交用户确认，**禁止调用图片生成引擎**）与 **3a-G 生成**（Steps 6-8，扣费：用户授权后读卡片 Prompt 调引擎 + 质量审查 + 对象存储上传 + 状态更新）。用户在 3a-D 完成即可预览设计方向；3a-G 须获得用户明确授权（见 Step 6）。执行顺序：3a-D → (3b-D ∥ 3c-D) → 3a-G → (3b-G ∥ 3c-G)，详见 drama-director C5。
+
 ## Step 1：读取输入文件
 
 **主要输入（来自 production-planner，Stage 2）：**
@@ -165,7 +167,7 @@ items:
     output: "assets/props/PROP-002.png"
 ```
 
-## Step 6：执行生成（仅 GENERATE 道具）
+## Step 6：执行生成（3a-G，仅 GENERATE 道具）
 
 > ⚠️ **付费操作**：以下 MCP 工具调用会消耗图片生成额度（当前默认引擎 gpt-image-2 约 **$0.10/张** 一口价），**必须获得用户明确授权后**方可执行。
 >
@@ -222,7 +224,7 @@ python3 mcps/gpt-image/scripts/gpt_image.py --help
 
 按质量审查清单逐项检查每张生成图。
 
-## Step 8：即生即传（对象存储上传 + 注册永久 URL）
+## Step 8：即生即传（对象存储上传 + 注册永久 URL）（3a-G）
 
 > **即生即传规则（Generate-then-Upload）**：每张道具图生成确认后，必须**立即**执行对象存储上传（storage 能力，当前默认引擎 TOS，CLI 为 `tos_upload.py sync`，路径见 `engine_registry.cli_path('storage')`）并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
 >

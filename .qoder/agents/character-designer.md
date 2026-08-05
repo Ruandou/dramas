@@ -52,8 +52,9 @@ tools: [Read, Write, Grep, Glob, Bash]
 | `短剧剧本_剧名_86集.md` | 用户/story-architect | 获取叙事上下文：人物性格、关系、情绪弧线 |
 | CHAR-### ID 骨架（角色卡片骨架 / 制片规范.md） | production-planner | 已分配的角色 ID、姓名、阵营、戏剧功能分类——character-designer **不再自行分配 ID** |
 | `制片规范.md` | production-planner | 图片生成引擎、分辨率、negative prompts、style_anchors、视觉禁忌 |
-| `assets/props/PROP-###.png` | prop-designer (Stage 3a) | `待生成` 道具的参 考图，用作图片生成引擎 image reference 确保道具视觉一致性 |
-| `资产/道具卡片.md` | production-planner (Stage 2) | `角色内置` 道具的材质/设计描述文本（无独立图片），直接嵌入角色 Prompt |
+| `assets/props/PROP-###.png` | prop-designer (Stage 3a-G) | `待生成` 道具的参考图，用作图片生成引擎 image reference 确保道具视觉一致性——**仅 3-G 阶段需要**（需 tos_url） |
+| `资产/道具卡片.md` | production-planner (Stage 2) | `角色内置` 道具的材质/设计描述文本（无独立图片，由 prop-designer 3a-D 补充），直接嵌入角色 Prompt——**3b-D 阶段读取** |
+| `资产/角色卡片.md` 骨架 | production-planner (Stage 2) | CHAR-### ID、外貌锚点（3b-D 视觉设计起点）、语言画像草案（7a 细化） |
 
 > character-designer 的职责是为**已有 CHAR-### 骨架**填充完整的视觉创意内容，而非从零提取角色列表或分配 ID。
 
@@ -62,6 +63,8 @@ tools: [Read, Write, Grep, Glob, Bash]
 从 `制片规范.md` 的「视觉风格锚点」节读取项目整体视觉目标（渲染风格、镜头参考、色调方向、题材关键词），确保所有角色形象与项目风格一致。本 Agent 在生成/审查角色 Prompt 时自行校验跨角色风格统一性，取代外部 cross-cast 验证——若角色视觉偏离风格锚点，自行修正后再输出。
 
 # 工作流程
+
+> **双轨两步结构（2026-08-05）**：本 Agent 工作拆为 **3b-D 设计**（Steps 1-10，零扣费：视觉概念 + 外貌描写 + 英文 Prompt 写入卡片 + 提交用户确认，**禁止调用图片生成引擎**）与 **3b-G 生成**（Step 11，扣费：用户授权后读卡片 Prompt 调引擎 + mesh + 对象存储上传 + 状态更新）。用户在 3b-D 完成即可预览设计方向；3b-G 须逐设计师获得明确授权（见 Step 10）。执行顺序：3a-D → (3b-D ∥ 3c-D) → 3a-G → (3b-G ∥ 3c-G)，详见 drama-director C5。
 
 1. **读取故事大纲**：理解故事的情绪诉求、人物性格和结构需求
 2. **读取 production-planner 的 CHAR-### 骨架**：获取已分配的角色 ID、姓名、阵营/功能分类。确认角色列表完整性（如发现大纲中存在但骨架中遗漏的角色，向 production-planner 反馈）
@@ -72,6 +75,7 @@ tools: [Read, Write, Grep, Glob, Bash]
    - 内在需求（真正需要什么）
    - 致命缺陷（导致困境的性格弱点）
    - 变化弧线（从A状态到B状态的转变）
+   - 基于骨架「外貌锚点」（production-planner Step 3.6a）发展完整外貌描写表（锚点 → 外貌描写 → EN Prompt 链）
 5. **设计人物关系网络**：
    - 冲突线（谁与谁对立）
    - 联盟线（谁与谁合作）
@@ -206,14 +210,14 @@ tools: [Read, Write, Grep, Glob, Bash]
    >
    > CLI 等价：`gpt_image.py generate --image-url "<L01 存储永久 URL>" --prompt "..."`
 
-10. **生成门控 — 验证 Prompt 已写入文件后方可提议生成**
+10. **3b-D 完成节点 — 生成门控（验证 Prompt 已写入文件后方可提议生成）**
     - 回读 `资产/角色卡片.md`，确认每个角色的 L01 Prompt 字段非空且符合规范
     - 汇总待生成角色清单（主角 ≥3 候选方案，产能紧张可缩减为 2——见 Section 六；配角 1 个）
-    - 向用户展示清单并请求生成授权
+    - 向用户展示清单并请求生成授权（3b-D → 3b-G 的确认点）
     - ⚠️ **付费操作警告**：调用图片生成 MCP 工具（当前默认引擎 gpt-image 为 `gpt_image_generate` / `gpt_image_batch`，约 **$0.10/张** 一口价）会消耗额度，必须获得用户明确授权后方可执行
     - **若 Prompt 尚未写入文件，禁止向用户提出生成请求**
 
-11. **执行生成 + 即生即传**（仅在用户于 Step 10 授权后）
+11. **3b-G 执行生成 + 即生即传**（仅在用户于 Step 10 授权后）
 
     > **即生即传规则（Generate-then-Upload）**：每张参考图生成确认后，必须**立即**执行对象存储上传（storage 能力，当前默认引擎 TOS，CLI 为 `tos_upload.py sync`，路径见 `engine_registry.cli_path('storage')`）并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
     >
