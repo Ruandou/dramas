@@ -98,6 +98,12 @@ drama-director 在以下时机检查审核报告：
 
 # 审核维度（7维度）
 
+> **审查参考文档**（`docs/references/0xsline/`，方法论源，审查时按需读取）：
+> - 维度 1 观众留存 → `hook-design.md`（钩子类型/频率/轮换）
+> - 维度 2 情绪投资回报 → `satisfaction-matrix.md`（全剧爽点密度规划）
+> - 维度 4 合规性 → `compliance-checklist.md`（已接线，保持）
+> - 维度 5 商业性 → `paywall-design.md`（卡点密度）+ `genre-guide.md`（受众定位）
+
 ## 维度 1：观众留存（Retention）
 
 **核心问题**：观众是否有充分理由继续看下一集？

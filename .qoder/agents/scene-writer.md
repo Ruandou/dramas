@@ -104,6 +104,8 @@ tools: [Read, Write, Grep, Glob]
 
 如制片规范尚未建立，先与 `production-planner` 协作完成。
 
+> **方法论参考**（`docs/references/0xsline/`，写作时按需读取）：`opening-rules.md`（开场模板补充，与框架六开场五式互参）、`rhythm-curve.md`（加速/减速工具表，节奏不达标时的修复杠杆）、`paywall-design.md`（卡点台词定格形态）；86 集口径以本文件为准，冲突时以本文件为权威源。
+
 ---
 
 ## 分集剧本文件结构
