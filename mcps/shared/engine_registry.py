@@ -71,6 +71,15 @@ ENGINES = {
         "env_key": "KLING_AK",
         "display": "可灵 AI 视频",
     },
+    "minimax": {
+        "capability": CAP_VIDEO_GEN,
+        "cli": "mcps/minimax/scripts/minimax_video.py",
+        "mcp_server": "minimax",
+        "mcp_prefix": "minimax_video",
+        "archive_kind": "minimax_video",
+        "env_key": "MINIMAX_API_KEY",
+        "display": "MiniMax-H3（0.50 元/秒 768P / 0.80 元/秒 2K）",
+    },
     # -----------------------------------------------------------------------
     # 对象存储 / CDN 引擎（参考图永久托管，供 image_gen / video_gen 引用）
     #   bucket       : 默认桶名
@@ -119,6 +128,15 @@ VIDEO_DEFAULTS = {
         "duration_sec": "5-10",
         "segment_duration_sec": "5-10",
         "generate_audio": False,
+    },
+    "minimax": {
+        "model": "MiniMax-H3",
+        "ratio": "9:16",
+        "resolution": "768P",
+        "image_resolution": "1600×2848",
+        "duration_sec": "4-15",
+        "segment_duration_sec": "4-15",
+        "generate_audio": True,  # H3 原生输出音轨，无需外部 TTS 混音
     },
 }
 
