@@ -1,10 +1,10 @@
 # gpt-image · OpenAI 兼容中转图生图 CLI
 
-GetGoAPI（`https://cn.getgoapi.com`，OpenAI 兼容协议）gpt-image-2 文生图/图生图 CLI。
+GetGoAPI（`https://api.getgoapi.com`，OpenAI 兼容协议）gpt-image-2 文生图/图生图 CLI。
 
 | 能力 | 模型示例 | 接口 |
 |------|----------|------|
-| **gpt-image-2** 文生图/图生图 | `openai/gpt-image-2`（`GPT_IMAGE_MODEL` 可覆盖） | `POST https://cn.getgoapi.com/v1/images/generations` |
+| **gpt-image-2** 文生图/图生图 | `openai/gpt-image-2`（`GPT_IMAGE_MODEL` 可覆盖） | `POST https://api.getgoapi.com/v1/images/generations` |
 
 ## 用法
 
@@ -24,7 +24,7 @@ python3 mcps/gpt-image/scripts/gpt_image.py reconcile --yaml assets/looks/gpt_im
 | 变量 | 说明 |
 |------|------|
 | `GPT_IMAGE_API_KEY` | 必填，Bearer 鉴权（兼容回退 `OPENAI_API_KEY`） |
-| `GPT_IMAGE_BASE_URL` | 默认 `https://cn.getgoapi.com`（兼容回退 `OPENAI_BASE_URL`） |
+| `GPT_IMAGE_BASE_URL` | 默认 `https://api.getgoapi.com`（兼容回退 `OPENAI_BASE_URL`） |
 | `GPT_IMAGE_MODEL` | 默认 `openai/gpt-image-2` |
 | `GPT_IMAGE_QUALITY` | `low` / `medium` / `high` / `auto`（默认 auto） |
 | `GPT_IMAGE_SIZE_TIER` | `standard` / `2k` / `4k`（默认 standard） |

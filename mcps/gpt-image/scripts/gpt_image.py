@@ -5,12 +5,12 @@ OpenAI 兼容中转 · gpt-image-2 文生图/图生图 CLI
 
 文档：https://zrlef1mcfh.apifox.cn/1（OpenAI 兼容协议，base_url 需带 /v1/ 后缀）
 接口：POST {base}/v1/images/generations（JSON，非 multipart）
-API 地址：https://cn.getgoapi.com（控制台可查，勿与官转站点混用 KEY）
+API 地址：https://api.getgoapi.com（控制台可查）
 
 鉴权：Authorization: Bearer <API_KEY>
 环境变量：
   GPT_IMAGE_API_KEY（必填，兼容回退 OPENAI_API_KEY）
-  GPT_IMAGE_BASE_URL（默认 https://cn.getgoapi.com，兼容回退 OPENAI_BASE_URL）
+  GPT_IMAGE_BASE_URL（默认 https://api.getgoapi.com，兼容回退 OPENAI_BASE_URL）
   GPT_IMAGE_MODEL（默认 openai/gpt-image-2）
   GPT_IMAGE_QUALITY（low / medium / high / auto，默认 auto）
   GPT_IMAGE_SIZE_TIER（standard / 2k / 4k，默认 standard）
@@ -58,7 +58,7 @@ import dedup
 from project_task_archive import KIND_GPT_IMAGE, assert_valid_drama_project_root
 import uuid
 
-DEFAULT_BASE = "https://cn.getgoapi.com"
+DEFAULT_BASE = "https://api.getgoapi.com"
 IMAGES_PATH = "/v1/images/generations"
 DEFAULT_MODEL = "openai/gpt-image-2"
 MAX_REF_IMAGES = 16  # 参考图上限（gpt-image-2 官方限制）
@@ -153,8 +153,12 @@ def build_payload(
         "model": model or default_model(),
         "prompt": prompt,
         "size": resolve_size(ratio, size, tier),
-        "response_format": "url",
     }
+    # response_format 默认 url（兼容旧版）；部分中转渠道不支持该参数，
+    # 设 GPT_IMAGE_RESPONSE_FORMAT=none 时省略（gpt-image-2 原生返回 b64_json）。
+    _rf = (os.environ.get("GPT_IMAGE_RESPONSE_FORMAT") or "url").strip().lower()
+    if _rf and _rf != "none":
+        body["response_format"] = _rf
     q = (quality or default_quality()).strip().lower()
     if q and q != "auto":
         body["quality"] = q
@@ -707,7 +711,7 @@ def cmd_docs(_: argparse.Namespace) -> int:
         "auth": "Bearer GPT_IMAGE_API_KEY",
         "env": [
             "GPT_IMAGE_API_KEY（必填，兼容回退 OPENAI_API_KEY）",
-            "GPT_IMAGE_BASE_URL（默认 https://cn.getgoapi.com）",
+            "GPT_IMAGE_BASE_URL（默认 https://api.getgoapi.com）",
             "GPT_IMAGE_MODEL（默认 openai/gpt-image-2）",
             "GPT_IMAGE_QUALITY（low/medium/high/auto，默认 auto）",
             "GPT_IMAGE_SIZE_TIER（standard/2k/4k，默认 standard）",
