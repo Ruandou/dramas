@@ -152,6 +152,8 @@ shots:
         PROP-003: assets/props/PROP-003.png
     api:
       text: "【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-003。镜头特写，..."
+
+> **情节道具必须经 prop_urls 传入（硬规则）**：场景底图为空场景（不含情节道具，见 scene-designer 空场景底图原则）。凡镜头中出现的**情节道具**（襁褓/信件/兵器等随剧情出现消失的物体）必须在该镜头 `prop_urls` 中传入其参考图锁定外观；仅固定陈设（祭坛/武器架等，已在场景底图中）无需重复传入（2026-08-07 事故：襁褓曾被固化进 SCENE-001 底图导致跨集穿帮，已改为空场景 + 此处动态传入）
       content_roles:
         - file: CHAR-001-L01
           role: reference_image

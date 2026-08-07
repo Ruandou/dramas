@@ -217,7 +217,7 @@ items:
 
 **批量生成**（使用当前 `image_gen` 引擎 MCP 的 `<前缀>_batch` 工具，gpt-image 下为 `gpt_image_batch`）：
 - 将 batch YAML 中的每条 prompt 逐一提交
-- 有关联道具的场景，传入道具存储永久 URL 作为 `image_urls` 参考（从 `assets/props/cdn_urls.json` 的 `tos_url` 字段获取）
+- 有关联**固定陈设**道具（祭坛、武器架、牌匾等常驻物）的场景，传入道具存储永久 URL 作为 `image_urls` 参考（从 `assets/props/cdn_urls.json` 的 `tos_url` 字段获取）；**情节道具（襁褓、信件、兵器等随剧情出现/消失的物体）严禁入场景底图**——由视频阶段 `shots.yaml` 的 `prop_urls` 动态传入锁定外观（2026-08-07 事故：襁褓固化进 SCENE-001 底图导致跨集穿帮）
 - 存储永久 URL（`https://...`）直接传递；仅当存储永久 URL 不可用时才降级为本地路径（自动转 data URI）
 
 **单张生成**（使用当前 `image_gen` 引擎 MCP 的 `<前缀>_generate` 工具，gpt-image 下为 `gpt_image_generate`）：
@@ -830,7 +830,7 @@ shot on 24mm wide-angle lens, natural lighting, real construction materials, arc
 6. **未经用户授权，不得调用付费图片/视频生成 API**
 7. **每个场景的英文提示词必须包含至少 5 个具体物理元素/材质描述**
 8. **关键场景（出现≥3集）必须使用低角度+宏大尺度处理**
-9. **有关联独立图道具（参考图=✅已生成）的场景必须传入道具参考图作为 `image_urls`**；场景内置道具（参考图=场景内置）按文字描述写入 Prompt（见「道具融入场景」）
+9. **空场景底图原则（硬规则）**：场景参考图必须是**空场景**（无人物、无情节道具）。道具交叉引用**仅限固定陈设**（参考图=✅已生成 且属常驻物：祭坛、武器架、匾额等）→ 传入道具参考图作为 `image_urls`；**情节道具（襁褓/信件/兵器等随剧情出现消失的物体）一律不入底图**（即使卡片写了"XX 位"），由视频阶段 `shots.yaml` 的 `prop_urls` 锁定外观——场景图跨集复用，固化情节道具 = 穿帮（2026-08-07 事故复盘：SCENE-001 底图固化襁褓）；场景内置道具（参考图=场景内置）按文字描述写入 Prompt（见「道具融入场景」）
 10. **不得等待 character-designer 完成后再开始工作**——两者并行执行
 
 ---

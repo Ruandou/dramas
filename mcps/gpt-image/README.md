@@ -28,6 +28,7 @@ python3 mcps/gpt-image/scripts/gpt_image.py reconcile --yaml assets/looks/gpt_im
 | `GPT_IMAGE_MODEL` | 默认 `openai/gpt-image-2` |
 | `GPT_IMAGE_QUALITY` | `low` / `medium` / `high` / `auto`（默认 auto） |
 | `GPT_IMAGE_SIZE_TIER` | `standard` / `2k` / `4k`（默认 standard） |
+| `GPT_IMAGE_REF_FIELD` | 参考图字段名：默认 **`input_image`**（GetGoAPI 中转站实测，`image` 会被拒 400）；若换 OpenAI 官方兼容站点可设 `image` |
 
 ## 模型选择与计费
 

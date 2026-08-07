@@ -170,7 +170,8 @@ def build_payload(
                 file=sys.stderr,
             )
         resolved = [resolve_image_url(u, project_root) for u in urls]
-        body["image"] = resolved  # 中转站 schema：image 为字符串数组
+        _ref_field = (os.environ.get("GPT_IMAGE_REF_FIELD") or "input_image").strip()  # 默认 input_image（GetGoAPI 中转站实测，image 会被拒 400）；换 OpenAI 官方兼容站可设 GPT_IMAGE_REF_FIELD=image
+        body[_ref_field] = resolved  # 参考图字段名
     return body
 
 
