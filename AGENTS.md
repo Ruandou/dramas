@@ -282,6 +282,8 @@ dramas/<剧名>/
 
 ## MCP 工具链
 
+> 🔴 **执行前先读规范（硬约束，2026-08-07 事故固化）**：任何环节动手前，必须**先读**对应权威规则再执行——`docs/制片规范模板.md`（后期合成必读 §七 声音/§七B 字幕与叠加层）、项目 `制片规范.md`、`AGENTS.md` 强制清单。**禁止凭直觉/经验直接开工**（事故链：字幕用错工具漏出场卡、--force 未测即用、reconcile 一轮不跑、情节道具入底图，全部是"先干后查"导致）。执行顺序：读规则 → 确认适用项 → 执行 → 对照规则自检 → 才可交付。
+
 > 🔌 **引擎注册表**：图片/视频生成/存储按「能力」引用，当前默认引擎由 `mcps/shared/engine_registry.py` 统一解析：`image_gen`（图片生成，默认 **gpt-image**，备选 seedream）、`video_gen`（视频生成，默认 seedance，备选 kling）、`storage`（对象存储/参考图永久托管，默认 **tos**，备选可扩展）。切换引擎改注册表或设 `IMAGE_GEN_ENGINE` / `VIDEO_GEN_ENGINE` / `STORAGE_ENGINE` 环境变量即可，agent 提示词无需改。视频默认参数（model/ratio/resolution/duration_sec 等）由 `video_defaults()` 解析；存储桶/永久 URL 由 `storage_info()` / `storage_url()` 解析；各能力 CLI 路径由 `cli_path()` 解析。
 
 | 功能 | MCP 服务 | 工具 | 扣费 |
