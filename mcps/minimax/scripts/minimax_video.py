@@ -77,7 +77,7 @@ try:
 except ImportError:
     yaml = None  # type: ignore
 
-BASE_URL = "https://api.minimaxi.com"
+BASE_URL = os.environ.get("MINIMAX_API_BASE", "https://metaso.cn/api/minimax")  # metaso 中转（2026-08-07 切换默认，Bearer mk- key）；官方站可设 MINIMAX_API_BASE=https://api.minimaxi.com
 CREATE_PATH = "/v2/video_generation"
 QUERY_PATH = "/v2/query/video_generation"  # GET 单查 {id} / GET 列表
 DELETE_PATH = "/v2/video_generation"       # DELETE {id}
@@ -179,6 +179,35 @@ def _clamp_duration(sec: Any) -> int:
     except (TypeError, ValueError):
         v = 5
     return max(DURATION_MIN, min(DURATION_MAX, v))
+
+
+def _clear_submitting(project_root: Path, ep_id: str, sid: str) -> None:
+    """删除某 segment 的 submitting 卡位（确认 HTTP 错误未建单后调用，防重复拦截）。"""
+    try:
+        for t in dedup.find_local_by_identity(
+            project_root, kind=KIND_MINIMAX, episode_id=ep_id, identity_key=sid
+        ):
+            if (t.get("status") or "").strip() == "submitting":
+                path = archive_file(project_root, KIND_MINIMAX, ep_id)
+                doc = load_doc(path)
+                doc["tasks"] = [
+                    x for x in doc.get("tasks", []) or []
+                    if not (str(x.get("task_id")) == str(t.get("task_id")) and (x.get("status") or "").strip() == "submitting")
+                ]
+                save_doc(path, doc, kind=KIND_MINIMAX, episode_id=ep_id)
+    except Exception:
+        pass
+
+
+def _http_status_of(err: str) -> int | None:
+    """从错误文本提取 HTTP 状态码（"-> HTTP 429: ..."）。非 HTTP 错误返回 None。"""
+    import re as _re
+    m = _re.search(r"-> HTTP (\d{3})", str(err))
+    return int(m.group(1)) if m else None
+
+
+MAX_RATE_LIMIT_RETRY = 6      # 429/503 等待配额释放重试上限
+RATE_LIMIT_WAIT_SEC = 45      # 429/503 重试等待（metaso 并发上限约 5，逐段提交时通常 1 轮即可恢复）
 
 
 def _segment_fingerprint(seg: dict, episode: dict) -> str:
@@ -360,6 +389,7 @@ def create_task(
     dry_run: bool = False,
     archive_meta: dict | None = None,
 ) -> dict[str, Any]:
+    archive_meta = archive_meta or {}  # 不带 --project-root 的裸提交也允许（无归档/去重）
     if dry_run:
         return {
             "status": "dry_run",
@@ -798,6 +828,40 @@ def _coordination_block(
     return None
 
 
+def _precheck_duplicates(project_root: Path, ep_id: str) -> list[str]:
+    """提交前强制本地预检：同段多个 submitted = 重复扣费风险；stale submitting（>1h 未结算）。返回问题列表。"""
+    problems: list[str] = []
+    try:
+        doc = load_doc(archive_file(project_root, KIND_MINIMAX, ep_id))
+        tasks = doc.get("tasks", []) or []
+    except Exception:
+        return problems
+    seg_submitted: dict[str, list] = {}
+    now = time.time()
+    for t in tasks:
+        seg = (t.get("params") or {}).get("segment_id") or ""
+        st = (t.get("status") or "").strip()
+        if st == "submitted" and seg and seg != "(reconciled)":  # reconcile 杂项段不计入段级重复检测
+            seg_submitted.setdefault(seg, []).append(str(t.get("task_id")))
+        if st == "submitting":
+            ts = t.get("updated_at") or t.get("created_at") or 0
+            age = 0.0
+            try:
+                age = time.time() - float(ts)  # 数字时间戳
+            except (TypeError, ValueError):
+                try:  # ISO 字符串（如 2026-08-07T18:13:07.369851）
+                    from datetime import datetime as _dt
+                    age = time.time() - _dt.fromisoformat(str(ts)).timestamp()
+                except Exception:
+                    age = 0.0
+            if age > 3600:
+                problems.append(f"stale submitting: {seg} {t.get('task_id')}（>1h 未结算，先 reconcile 核实远程状态）")
+    for seg, tids in seg_submitted.items():
+        if len(tids) > 1:
+            problems.append(f"重复提交风险: {seg} 已有 {len(tids)} 个 submitted 任务 {tids}（先 reconcile + 人工确认再继续）")
+    return problems
+
+
 def _run_submit_loop(
     *,
     episode: dict,
@@ -809,32 +873,42 @@ def _run_submit_loop(
     cdn_registry: dict | None = None,
 ) -> tuple[list[dict[str, Any]], int, int]:
     """segments / shots 共用提交循环（对账 → 校验 → dry-run/提交）。"""
+    # 提交前强制预检（硬约束）：重复提交/卡位异常 → 阻止提交，除非 --force + ARK_ALLOW_FORCE=1 显式覆盖
+    problems = _precheck_duplicates(project_root, ep_id)
+    if problems and not (args.force and os.environ.get("ARK_ALLOW_FORCE") == "1"):
+        print("⛔ 提交前预检发现异常，已阻止（确认后可 --force + ARK_ALLOW_FORCE=1 覆盖）：", file=sys.stderr)
+        for p in problems:
+            print("  - " + p, file=sys.stderr)
+        return [{"error": "precheck_blocked", "problems": problems}], 0, 0
+    if problems:
+        print("⚠️ 预检警告（--force 覆盖，请确认已人工核实）：", file=sys.stderr)
+        for p in problems:
+            print("  - " + p, file=sys.stderr)
     results: list[dict[str, Any]] = []
     ready = skipped = 0
 
     for item in items:
         sid = str(item.get(id_field) or "?")
         fp = _segment_fingerprint(item, episode)
-        # --- 对账（本地指纹为主）---
-        if not args.force:
-            local = dedup.local_lookup(
-                project_root, kind=KIND_MINIMAX, episode_id=ep_id,
-                identity_key=sid, fingerprint=fp,
+        # --- 对账（本地指纹为主）；--force 仅绕过 submitting 卡位，已 submitted 始终跳过（防重复扣费）---
+        local = dedup.local_lookup(
+            project_root, kind=KIND_MINIMAX, episode_id=ep_id,
+            identity_key=sid, fingerprint=fp,
+        )
+        if local.get("matched") and local.get("kind") == "submitted":
+            et = local["existing_task"].get("task_id")
+            results.append({id_field: sid, "status": "already_submitted", "existing_task_id": et})
+            print(f"⊙ {sid} 本地命中已提交 (task_id={et})，skip", file=sys.stderr)
+            continue
+        if local.get("matched") and local.get("kind") == "submitting" and not args.force:
+            results.append({id_field: sid, "status": "submitting_blocked",
+                            "reason": "本地 submitting 卡位未结算（MiniMax 无内容级远程对账，不盲重发）"})
+            print(
+                f"⛔ {sid} 本地 submitting 卡位未结算（可能 MiniMax 已扣费）。"
+                f"如确认原请求未真发出，用 --force + ARK_ALLOW_FORCE=1 重发。",
+                file=sys.stderr,
             )
-            if local.get("matched") and local.get("kind") == "submitted":
-                et = local["existing_task"].get("task_id")
-                results.append({id_field: sid, "status": "already_submitted", "existing_task_id": et})
-                print(f"⊙ {sid} 本地命中已提交 (task_id={et})，skip", file=sys.stderr)
-                continue
-            if local.get("matched") and local.get("kind") == "submitting":
-                results.append({id_field: sid, "status": "submitting_blocked",
-                                "reason": "本地 submitting 卡位未结算（MiniMax 无内容级远程对账，不盲重发）"})
-                print(
-                    f"⛔ {sid} 本地 submitting 卡位未结算（可能 MiniMax 已扣费）。"
-                    f"如确认原请求未真发出，用 --force + ARK_ALLOW_FORCE=1 重发。",
-                    file=sys.stderr,
-                )
-                continue
+            continue
         if item.get("mode") == "skip":
             skipped += 1
             continue
@@ -853,22 +927,51 @@ def _run_submit_loop(
             if args.dry_run:
                 results.append({id_field: sid, "status": "dry_run", "body": sanitize_body_for_log(body)})
                 continue
-            r = create_task(
-                body,
-                dry_run=False,
-                archive_meta={
-                    id_field: sid,
-                    "episode": ep_id,
-                    "project_root": str(project_root),
-                    "project": project_root.name,
-                    "fingerprint": fp,
-                },
-            )
-            r[id_field] = sid
-            results.append(r)
-            time.sleep(args.delay)
+            # 429/503 配额限制自动重试；402 积分不足停止整批；明确 HTTP 错误清卡位防下次拦截
+            attempt = 0
+            while True:
+                try:
+                    r = create_task(
+                        body,
+                        dry_run=False,
+                        archive_meta={
+                            id_field: sid,
+                            "episode": ep_id,
+                            "project_root": str(project_root),
+                            "project": project_root.name,
+                            "fingerprint": fp,
+                        },
+                    )
+                    r[id_field] = sid
+                    results.append(r)
+                    time.sleep(args.delay)
+                    break
+                except Exception as e:
+                    code = _http_status_of(str(e))
+                    if code == 402:
+                        _clear_submitting(project_root, ep_id, sid)  # 未建单，清卡位
+                        results.append({id_field: sid, "status": "quota_exhausted", "error": str(e)})
+                        break
+                    if code in (429, 503) and attempt < MAX_RATE_LIMIT_RETRY:
+                        attempt += 1
+                        print(
+                            f"⏳ {sid} 配额限制(HTTP {code})，等待 {RATE_LIMIT_WAIT_SEC}s 重试 ({attempt}/{MAX_RATE_LIMIT_RETRY})",
+                            file=sys.stderr,
+                        )
+                        time.sleep(RATE_LIMIT_WAIT_SEC)
+                        continue
+                    if code is not None:
+                        _clear_submitting(project_root, ep_id, sid)  # 明确 4xx/5xx = 未建单
+                    results.append({id_field: sid, "status": "error", "error": str(e)})
+                    break
         except Exception as e:
             results.append({id_field: sid, "status": "error", "error": str(e)})
+    # 提交后自动对账摘要（每轮必看：0 重复/0 孤儿才继续下一轮）
+    from collections import Counter as _Counter
+    _c = _Counter(r.get("status") for r in results)
+    print(f"提交汇总: {dict(_c)}", file=sys.stderr)
+    if _c.get("quota_exhausted"):
+        print("⚠️ H3 积分余额不足——请充值后重跑（已自动停止，勿用 --force 整批重发）", file=sys.stderr)
     return results, ready, skipped
 
 

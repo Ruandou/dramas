@@ -143,7 +143,7 @@ VIDEO_DEFAULTS = {
 # 能力 -> 默认引擎（环境变量可覆盖）
 DEFAULT_ENGINES = {
     CAP_IMAGE_GEN: "gpt-image",
-    CAP_VIDEO_GEN: "seedance",
+    CAP_VIDEO_GEN: "minimax",  # 2026-08-07 切换：MiniMax-H3（metaso）为默认出片引擎；seedance/kling 保留候选（VIDEO_GEN_ENGINE 可切换）
     CAP_STORAGE: "tos",
 }
 
