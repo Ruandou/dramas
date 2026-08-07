@@ -1,0 +1,778 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP01/EP01_剧本.md
+# Source shots: 22 (EP01-S01 to EP01-S22)
+# Output shots: 22 (EP01-S01 to EP01-S22)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 120s (自行计算, VALIDATION块声称120s, 一致)
+# Output total duration: 120s
+# Gate status: ALL PASS (Gate 1: 120s within EP01 90-120s ✅, Gate 2: 22=22 ✅,
+#   Gate 3: SCENE-001/002 + CHAR-001/002/003/GRP-12 + PROP-001/002/003 all match cards ✅,
+#   Gate 4: CHAR-001/002/003/GRP-12 voice_prompt from 声音卡片 P0-v1.1 ✅)
+# 引擎: MiniMax-H3 (engine_registry.video_defaults(), 2026-08-07 切换) — 非 seedance 快照
+
+episode_id: EP01
+source_md: 剧本/EP01/EP01_剧本.md
+defaults:
+  endpoint: https://metaso.cn/api/minimax/v2/video_generation  # MiniMax-H3（metaso 中转）；CLI 实际以 MINIMAX_API_BASE 为准，本字段为信息性
+  model: MiniMax-H3  # engine_registry.video_defaults() minimax；无版本后缀（seedance 需后缀，minimax 不需要）
+  seed: 78786  # 与同项目 segments.yaml 的 defaults.seed 保持一致（固定 seed 提升音色/语速稳定度）
+  ratio: "9:16"
+  resolution: 768P  # MiniMax-H3 分辨率档位（seedance 快照为 720p，不一致以 video_defaults() 为准）
+  duration: 5  # 视频生成引擎模型默认视频长度（秒）；非单镜头时长。每段实际时长见 shot.duration_sec，须保证全集合计落入 90-120s（见 Gate 1）
+  generate_audio: false  # shots 为中间产物，无需独立音频合成
+  watermark: false
+  prompt_suffix: "ancient Chinese xianxia fantasy, bright warm golden tones with spring green accents, cute candy-color accents on the baby heroine, soft bright atmosphere, comedic tone over oppression, cinematic lighting, high detail, 9:16 vertical composition"
+  negative_prompt: "modern objects, smartphone, electric wires, cars, glass skyscraper, neon signs, zipper, wristwatch, jeans, sneakers, plastic items, contemporary clothing, real-world dynasty emblems or era names, blood, gore, graphic injury, burnt corpse, painful scream close-up, horror atmosphere, dark oppressive tone, kneeling worship crowd, incense altar worship, religious idol veneration, english text, latin letters, watermark, logo, platform UI"
+
+shots:
+  - shot_id: EP01-S01
+    shot_no: 1
+    mode: t2v
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids: []
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls: {}
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-002.png
+    api:
+      text: |
+        暴雨如注的青云剑宗山门外石阶：破旧匾额在雨幕中若隐若现，藤蔓贴着石阶，殿檐雨帘如瀑。石阶上放着一只破旧却干净的襁褓（PROP-002），雨水正一点点打湿它的边角。远处雷声低吼。
+        远景 固定镜头，无人物。
+      content_roles: []
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-002。
+        特写 缓推：襁褓里探出图1的小脸，圆脸胖乎、双丸子头被雨水打湿、粉白小袍沾着水珠，瘪着嘴大哭，睫毛上挂满泪珠；她头顶的雨帘骤然加急，雨点像被她的哭声牵着走。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "娘亲，糯糯好冷好饿！"
+      - speaker: CHAR-001
+        line: "娘亲，你怎么还不来接糯糯呀。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-GRP-12-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-GRP-12-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-GRP-12-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-GRP-12-L01【图2】SCENE-001【图3】PROP-002。
+        中景 固定：图1（约十八九岁，补丁短打，提一盏破灯笼）冒雨巡山，灯笼光在雨幕里一晃一晃；他忽然停下脚步，侧耳听了听，脸色一紧。
+      content_roles:
+        - { file: CHAR-GRP-12-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-GRP-12
+        line: "师姐！石阶上有个孩子，哭声比雨还大！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-GRP-12-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-GRP-12-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-GRP-12-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-GRP-12-L01【图2】CHAR-001-L01【图3】SCENE-001【图4】PROP-002。
+        中景 固定：图1蹲到襁褓边，灯笼凑近，照见图2哭成泪人，他倒吸一口气，心疼地缩了缩手；山门方向传来云昭的回应声。
+      content_roles:
+        - { file: CHAR-GRP-12-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-GRP-12
+        line: "这么小的娃娃，谁这么狠心扔这儿？"
+      - speaker: CHAR-002
+        line: "来了来了，别让雨淋着她，快撑伞！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-GRP-12-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+        CHAR-GRP-12-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-GRP-12-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】CHAR-GRP-12-L01【图3】CHAR-001-L01【图4】SCENE-001【图5】PROP-002。
+        中景 固定：图1（青白剑袍、利落高马尾、腰间佩剑）冒雨快步跑来，蹲在襁褓前，雨水顺着她的下颌滴落；图2把破伞往她头顶斜；她轻声开口，声音温柔压过雨声。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-12-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+        - { file: PROP-002, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "别怕别怕，姐姐来了。"
+      - speaker: CHAR-002
+        line: "不哭了啊，姐姐在呢，雨淋不着你了。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】SCENE-001【图4】PROP-002。
+        特写 缓推：图1小心翼翼连襁褓带图2抱进怀里，图2在图1臂弯里抽噎着睁开眼，湿漉漉的小手抓住图1的衣襟；图1低头，眼里全是心疼。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "呜，姐姐香香的。"
+      - speaker: CHAR-002
+        line: "乖，没事了，姐姐带你回宗。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+      prop_ids:
+        - PROP-001
+        - PROP-003
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-001.png
+      prop_urls:
+        PROP-001: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-001.png
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-003.png
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】SCENE-001【图3】PROP-001【图4】PROP-003【图5】PROP-002。
+        特写 固定：图1一只手探进襁褓，摸出一枚温润的半块玉锁图3，又触到一张泛黄字条图4；雨水顺着她的指节往下淌，她的动作顿了一下。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-001, role: reference_image, label: 图3 }
+        - { file: PROP-003, role: reference_image, label: 图4 }
+        - { file: PROP-002, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "这是玉锁？还有字条？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-GRP-12-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-003
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+        CHAR-GRP-12-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-GRP-12-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-001.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-003.png
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】CHAR-GRP-12-L01【图3】CHAR-001-L01【图4】SCENE-001【图5】PROP-003。
+        中特写 固定：图1就着图2举起的灯笼光展开字条，一字一字读完，指尖微微一顿，脸色沉了下去；图2凑近看了一眼，倒吸一口凉气；图3在图1怀里不安地动了动。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-12-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+        - { file: PROP-003, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "此女无灵根，克亲，勿留。"
+      - speaker: CHAR-GRP-12
+        line: "那咱咋办？"
+      - speaker: CHAR-002
+        line: "字条是字条。她是她。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】SCENE-001【图4】PROP-002。
+        中景 缓推：图1把图2连襁褓裹进自己的外袍，图2睁着一双怯生生的眼睛望着图1；图1低头，目光从心疼一点点变得坚定。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "走，跟姐姐回宗，咱们回宗去，好不好？"
+      - speaker: CHAR-001
+        line: "姐姐，会赶糯糯走吗？糯糯很乖的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-GRP-12-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+        CHAR-GRP-12-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-GRP-12-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】CHAR-GRP-12-L01【图3】CHAR-001-L01【图4】SCENE-001【图5】PROP-002。
+        中景 镜头跟随：图1抱紧孩子站起身，大步朝山门走去，步伐又稳又快；图2愣了一下，追上去把破伞举到两人头顶；图3往图1怀里缩了缩。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-12-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+        - { file: PROP-002, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "不会。有姐姐在，谁也不能赶你走。"
+      - speaker: CHAR-001
+        line: "嗯，糯糯有姐姐了，不冷啦。"
+    transition_to_next: dissolve
+
+  - shot_id: EP01-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-GRP-12-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+        CHAR-GRP-12-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-GRP-12-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】CHAR-GRP-12-L01【图3】CHAR-001-L01【图4】SCENE-001【图5】PROP-002。
+        中全景 固定：雨中穿过破旧山门，匾额字迹斑驳，藤蔓攀着石阶，石缝里积着水洼；图2把破伞拼命往图1那边斜，伞面的破洞往外漏着水珠，像一串小帘子。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-12-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-001, role: reference_image, label: 图4 }
+        - { file: PROP-002, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-GRP-12
+        line: "咱这宗穷得伞都漏啦。"
+      - speaker: CHAR-002
+        line: "漏就漏吧，淋不着她就行。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-002-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-002-L01【图3】SCENE-001【图4】PROP-002。
+        中景 固定：图2怀里的图1探出半个脑袋，好奇地看着灯笼光，打了个小小的哈欠，又往图2怀里缩了缩；雨声在头顶的破伞上噼啪作响。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+        - { file: PROP-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-GRP-12
+        line: "再多一张嘴，米缸怕是三天就见底咯。"
+      - speaker: CHAR-002
+        line: "米缸见底了，还有山上的野菜呢。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-003-L01-mesh.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-002.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-003-L01【图2】CHAR-002-L01【图3】CHAR-001-L01【图4】SCENE-002【图5】PROP-002。
+        全景 固定：掌门殿内，斑驳梁柱、供着一柄旧剑、灯火昏黄；图1（破旧掌门袍、花白胡须、腰别酒葫芦）负手站在殿中，望着门外雨帘；图2抱着图3进殿，衣袍湿透。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+        - { file: PROP-002, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "掌门，山门外捡到个孩子，浑身都淋湿了，哭得人心都揪起来。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-003-L01-mesh.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-002.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/剑宗小祖宗/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-003-L01【图2】CHAR-002-L01【图3】CHAR-001-L01【图4】SCENE-002【图5】PROP-002。
+        中景 缓推：图1迎上来，低头看见襁褓里的小脸，眼睛瞪圆，花白胡须一翘；图3盯着他颤动的胡子，忘了哭。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+        - { file: PROP-002, role: reference_image, label: 图5 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "深意！深意啊！暴雨夜天降一婴，此乃天降大任于斯人也。"
+      - speaker: CHAR-001
+        line: "伯伯，你的胡子像小扫帚，扫一扫就干净啦。"
+      - speaker: CHAR-003
+        line: "咳，童言无忌，童言无忌。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-003-L01-mesh.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-002.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-003-L01【图2】CHAR-002-L01【图3】CHAR-001-L01【图4】SCENE-002。
+        中景 固定：图1弯下腰，声音放软，在袖子里翻找吃的；图3在他面前眼巴巴地望，饿得直咽口水；图2站在一旁，无奈又心疼。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "小娃娃饿了吧？老夫这就去给你找点吃的。"
+      - speaker: CHAR-001
+        line: "饭饭！糯糯要吃饭饭！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S16
+    shot_no: 16
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-001-L01
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-003-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-002.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-003-L01【图2】CHAR-001-L01【图3】CHAR-002-L01【图4】SCENE-002。
+        特写 缓推：图1翻遍袖子，只掏出一个酒葫芦，尴尬地凑到图2面前；图2凑近闻了闻，嫌弃地瘪嘴，往后缩进图3怀里。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "咳，老夫这儿，就只有这个了。"
+      - speaker: CHAR-001
+        line: "唔，臭臭的，糯糯不要。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S17
+    shot_no: 17
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-002.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】CHAR-001-L01【图3】SCENE-002。
+        中景 固定：图2饿得越哭越大声，从委屈瘪嘴变成嚎啕大哭，眼泪一颗颗往下掉；图1抱紧图2轻拍后背，急得额头冒汗。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "不哭了，姐姐马上就给你找吃的。"
+      - speaker: CHAR-001
+        line: "呜，好饿，肚肚咕咕叫，呜。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S18
+    shot_no: 18
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-GRP-12-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-GRP-12-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-GRP-12-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-002.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-GRP-12-L01【图2】SCENE-002。
+        中景 固定：殿外雨幕骤急，殿檐雨帘倾泻而下，几乎连成一面水墙；图1凑到窗边往外看，被雨声惊得缩了缩脖子，回头张了张嘴；云昭的画外喊声传来。
+      content_roles:
+        - { file: CHAR-GRP-12-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "去灶房看看，还有没有剩的粥饭。"
+      - speaker: CHAR-GRP-12
+        line: "哎，师姐你听，这雨怎么越下越邪性？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S19
+    shot_no: 19
+    mode: i2v_ref
+    duration_sec: 7
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-GRP-12-L01
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-GRP-12-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-GRP-12-L01-mesh.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-002.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-GRP-12-L01【图2】CHAR-002-L01【图3】CHAR-001-L01【图4】SCENE-002。
+        中景 固定：图1凑到图2身边，压低声音，眼睛却盯着窗外；图2抱着大哭的图3，怔在原地，声音发紧；烛火被穿堂风刮得乱晃。
+      content_roles:
+        - { file: CHAR-GRP-12-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-GRP-12
+        line: "方才雨还没这么大，她一哭，雨就大一层。"
+      - speaker: CHAR-002
+        line: "别说了。"
+      - speaker: CHAR-GRP-12
+        line: "我没听岔，真的一哭，雨就大一层！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S20
+    shot_no: 20
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-003-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-003-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-002.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-003-L01【图2】SCENE-002。
+        中特写 镜头跟随：图1背手缓步走到窗边，望着殿檐雨帘；雨丝在檐前忽然一偏，朝殿内方向飘斜；他花白的胡须抖了抖。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "今夜这雨，不对劲。"
+      - speaker: CHAR-002
+        line: "可她哭累了，雨却一点没小。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S21
+    shot_no: 21
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-003-L01
+        - CHAR-002-L01
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-003-L01-mesh.png
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-002-L01-mesh.png
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-002.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-003-L01【图2】CHAR-002-L01【图3】CHAR-001-L01【图4】SCENE-002。
+        中特写 固定：图1缓缓转身，脸色已经变了；图2抱着图3站在原地，屏住呼吸；殿内忽然安静，只剩下雨声和哭声一高一低。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-002-L01, role: reference_image, label: 图2 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图3 }
+        - { file: SCENE-002, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "掌门，这雨？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S22
+    shot_no: 22
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-002
+      look_ids:
+        - CHAR-003-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-003-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑宗小祖宗/CHAR-003-L01-mesh.png
+      scene_urls:
+        SCENE-002: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/剑宗小祖宗/SCENE-002.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-003-L01【图2】SCENE-002。
+        特写 缓推：图1看看窗外的雨，又看看哭着的糯米，胡子抖了抖，一字一顿地开口，目光里带着一丝他自己都不信的惊疑。
+      content_roles:
+        - { file: CHAR-003-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-002, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-003
+        line: "云昭，你可听明白了？这雨声。"
+      - speaker: CHAR-002
+        line: "听不明白。"
+      - speaker: CHAR-003
+        line: "这雨……跟着她走。"
+    transition_to_next: fade
