@@ -4,14 +4,16 @@
 OpenAI 兼容中转 · gpt-image-2 文生图/图生图 CLI
 
 文档：https://zrlef1mcfh.apifox.cn/1（OpenAI 兼容协议，base_url 需带 /v1/ 后缀）
-接口：POST {base}/v1/images/generations（JSON，非 multipart）
-API 地址：https://api.getgoapi.com（控制台可查）
+接口：
+  - 文生图：POST {base}/v1/images/generations（JSON）
+  - 图生图：POST {base}/v1/images/edits（multipart/form-data，参考图真正生效）
+API 地址：https://cn.getgoapi.com（国内节点，控制台可查）
 
 鉴权：Authorization: Bearer <API_KEY>
 环境变量：
   GPT_IMAGE_API_KEY（必填，兼容回退 OPENAI_API_KEY）
-  GPT_IMAGE_BASE_URL（默认 https://api.getgoapi.com，兼容回退 OPENAI_BASE_URL）
-  GPT_IMAGE_MODEL（默认 openai/gpt-image-2）
+  GPT_IMAGE_BASE_URL（默认 https://cn.getgoapi.com，兼容回退 OPENAI_BASE_URL）
+  GPT_IMAGE_MODEL（默认 gpt-image-2）
   GPT_IMAGE_QUALITY（low / medium / high / auto，默认 auto）
   GPT_IMAGE_SIZE_TIER（standard / 2k / 4k，默认 standard）
 
@@ -30,6 +32,8 @@ from __future__ import annotations
 
 import argparse
 import base64
+import gzip
+import io
 import json
 import os
 import re
@@ -58,9 +62,10 @@ import dedup
 from project_task_archive import KIND_GPT_IMAGE, assert_valid_drama_project_root
 import uuid
 
-DEFAULT_BASE = "https://api.getgoapi.com"
+DEFAULT_BASE = "https://cn.getgoapi.com"
 IMAGES_PATH = "/v1/images/generations"
-DEFAULT_MODEL = "openai/gpt-image-2"
+EDITS_PATH = "/v1/images/edits"
+DEFAULT_MODEL = "gpt-image-2"
 MAX_REF_IMAGES = 16  # 参考图上限（gpt-image-2 官方限制）
 
 # 按比例/档位预置尺寸（满足 16 倍数、像素区间约束）
@@ -184,14 +189,89 @@ def http_post_json(url: str, key: str, payload: dict[str, Any], timeout: int = 6
             "Authorization": f"Bearer {key}",
             "Content-Type": "application/json",
             "Accept": "application/json",
+            "Accept-Encoding": "gzip",
         },
         method="POST",
     )
     try:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
-            raw = resp.read().decode("utf-8", errors="replace")
+            raw_bytes = resp.read()
+            # gzip 解压（GetGoAPI 大响应强制 gzip）
+            if raw_bytes[:2] == b"\x1f\x8b":
+                raw_bytes = gzip.decompress(raw_bytes)
+            raw = raw_bytes.decode("utf-8", errors="replace")
     except urllib.error.HTTPError as e:
-        detail = e.read().decode("utf-8", errors="replace") if e.fp else ""
+        detail = ""
+        if e.fp:
+            err_bytes = e.fp.read()
+            if err_bytes[:2] == b"\x1f\x8b":
+                err_bytes = gzip.decompress(err_bytes)
+            detail = err_bytes.decode("utf-8", errors="replace")
+        raise RuntimeError(f"HTTP {e.code}: {detail or e.reason}") from e
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError as e:
+        raise RuntimeError(f"响应非 JSON: {raw[:500]}") from e
+
+
+def http_post_multipart(
+    url: str,
+    key: str,
+    fields: dict[str, str],
+    files: list[tuple[str, str, bytes, str]],
+    timeout: int = 600,
+) -> dict[str, Any]:
+    """multipart/form-data POST（用于 /v1/images/edits 图生图）。
+
+    fields: 文本字段 {"model": "gpt-image-2", "prompt": "...", ...}
+    files: [(field_name, filename, data_bytes, content_type), ...]
+    """
+    boundary = f"----WebKitFormBoundary{uuid.uuid4().hex[:16]}"
+    body = io.BytesIO()
+
+    # 文本字段
+    for name, value in fields.items():
+        body.write(f"--{boundary}\r\n".encode())
+        body.write(f'Content-Disposition: form-data; name="{name}"\r\n\r\n'.encode())
+        body.write(f"{value}\r\n".encode())
+
+    # 文件字段
+    for field_name, filename, data, content_type in files:
+        body.write(f"--{boundary}\r\n".encode())
+        body.write(
+            f'Content-Disposition: form-data; name="{field_name}"; filename="{filename}"\r\n'.encode()
+        )
+        body.write(f"Content-Type: {content_type}\r\n\r\n".encode())
+        body.write(data)
+        body.write(b"\r\n")
+
+    body.write(f"--{boundary}--\r\n".encode())
+    body_bytes = body.getvalue()
+
+    req = urllib.request.Request(
+        url,
+        data=body_bytes,
+        headers={
+            "Authorization": f"Bearer {key}",
+            "Content-Type": f"multipart/form-data; boundary={boundary}",
+            "Accept": "application/json",
+            "Accept-Encoding": "gzip",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            raw_bytes = resp.read()
+            if raw_bytes[:2] == b"\x1f\x8b":
+                raw_bytes = gzip.decompress(raw_bytes)
+            raw = raw_bytes.decode("utf-8", errors="replace")
+    except urllib.error.HTTPError as e:
+        detail = ""
+        if e.fp:
+            err_bytes = e.fp.read()
+            if err_bytes[:2] == b"\x1f\x8b":
+                err_bytes = gzip.decompress(err_bytes)
+            detail = err_bytes.decode("utf-8", errors="replace")
         raise RuntimeError(f"HTTP {e.code}: {detail or e.reason}") from e
     try:
         return json.loads(raw)
@@ -441,6 +521,253 @@ def generate_one(
     return result
 
 
+def _download_to_bytes(url_or_path: str, project_root: Path | None = None) -> tuple[bytes, str]:
+    """下载或读取参考图，返回 (bytes, filename)。"""
+    from urllib.parse import quote, urlsplit, urlunsplit
+    s = url_or_path.strip()
+    if s.startswith(("http://", "https://")):
+        # URL 中非 ASCII 字符（中文等）需要 percent-encode
+        parts = urlsplit(s)
+        encoded_path = quote(parts.path, safe="/")
+        encoded_url = urlunsplit((parts.scheme, parts.netloc, encoded_path, parts.query, parts.fragment))
+        req = urllib.request.Request(encoded_url, headers={"User-Agent": "gpt-image-cli/1.0"})
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            data = resp.read()
+        # 从 URL 提取文件名
+        fname = s.split("/")[-1].split("?")[0] or "ref.png"
+        return data, fname
+    # 本地路径
+    p = Path(s).expanduser()
+    if not p.is_absolute() and project_root is not None:
+        p = project_root / p
+    p = p.resolve()
+    if not p.is_file():
+        raise FileNotFoundError(f"参考图不存在: {p}")
+    return p.read_bytes(), p.name
+
+
+def _guess_content_type(filename: str) -> str:
+    ext = filename.rsplit(".", 1)[-1].lower() if "." in filename else "png"
+    return {
+        "png": "image/png",
+        "jpg": "image/jpeg",
+        "jpeg": "image/jpeg",
+        "webp": "image/webp",
+    }.get(ext, "image/png")
+
+
+def edit_one(
+    prompt: str,
+    output: Path | None,
+    *,
+    model: str | None = None,
+    size: str | None = None,
+    ratio: str | None = None,
+    tier: str | None = None,
+    quality: str | None = None,
+    image_urls: list[str] | None = None,
+    dry_run: bool = False,
+    index: int = 0,
+    project_root: Path | None = None,
+) -> dict[str, Any]:
+    """图生图：POST /v1/images/edits（multipart/form-data）。
+
+    参考图通过 multipart 文件上传，真正传入模型（image_tokens > 0）。
+    与 generate_one（generations 端点，input_image 被静默忽略）不同。
+    """
+    key = api_key()
+    if not key and not dry_run:
+        return {"error": "未设置 GPT_IMAGE_API_KEY 或 OPENAI_API_KEY"}
+
+    if not image_urls:
+        return {"error": "edit 模式必须提供至少 1 张参考图（--image-url）"}
+
+    # 下载/读取参考图
+    ref_files: list[tuple[str, str, bytes, str]] = []
+    for u in image_urls[:MAX_REF_IMAGES]:
+        data, fname = _download_to_bytes(u, project_root)
+        ct = _guess_content_type(fname)
+        ref_files.append(("image[]", fname, data, ct))
+
+    resolved_size = resolve_size(ratio, size, tier)
+    edit_model = model or default_model()
+    # edits 端点模型名不带 openai/ 前缀
+    if edit_model.startswith("openai/"):
+        edit_model = edit_model.split("/", 1)[1]
+
+    fields: dict[str, str] = {
+        "model": edit_model,
+        "prompt": prompt,
+    }
+    if resolved_size:
+        fields["size"] = resolved_size
+    q = (quality or default_quality()).strip().lower()
+    if q and q != "auto":
+        fields["quality"] = q
+
+    if dry_run:
+        return {
+            "status": "dry_run",
+            "endpoint": base_url() + EDITS_PATH,
+            "method": "multipart/form-data",
+            "fields": fields,
+            "ref_files": [{"filename": f[1], "size_bytes": len(f[2]), "content_type": f[3]} for f in ref_files],
+            "output": str(output) if output else None,
+        }
+
+    # 指纹 + submitting 卡位
+    fp = dedup.fingerprint_image(
+        prompt, size=resolved_size, ratio=ratio, image_urls=image_urls,
+    )
+    identity_key = output.stem if output else ""
+    client_request_id = f"local-{uuid.uuid4()}"
+    placeholder_ok = False
+    if project_root and identity_key:
+        try:
+            os.environ.setdefault("DRAMA_PROJECT_ROOT", str(Path(project_root).resolve()))
+            dedup.add_submitting_placeholder(
+                project_root,
+                kind=KIND_GPT_IMAGE,
+                episode_id=None,
+                client_request_id=client_request_id,
+                fingerprint=fp,
+                identity_key=identity_key,
+                extra_params={
+                    "prompt": prompt[:500],
+                    "model": edit_model,
+                    "size": resolved_size,
+                    "output": str(output) if output else None,
+                    "endpoint": "edits",
+                },
+            )
+            placeholder_ok = True
+        except Exception as e:
+            print(
+                f"⚠️ 归档写卡位失败但即将继续 POST，中转站可能已扣费：{e}",
+                file=sys.stderr,
+            )
+
+    t0 = time.time()
+    try:
+        resp = http_post_multipart(
+            base_url() + EDITS_PATH, key, fields, ref_files,
+        )
+    except Exception as e:
+        if placeholder_ok:
+            print(
+                "⚠️ 图片提交状态不明，可能已扣费但本地无法对账。"
+                "不自动重发。如确认原请求真没发出，用 --force + ARK_ALLOW_FORCE=1 重发。",
+                file=sys.stderr,
+            )
+            return {
+                "error": "post_failed",
+                "detail": str(e),
+                "pending_placeholder": client_request_id,
+                "fingerprint": fp,
+            }
+        return {"error": "post_failed", "detail": str(e)}
+
+    urls = extract_image_urls(resp)
+    b64s = extract_b64_images(resp) if not urls else []
+    if not urls and not b64s:
+        return {
+            "error": "响应中未解析到图片（无 url 也无 b64_json）",
+            "response_id": resp.get("id"),
+            "raw_preview": json.dumps(resp, ensure_ascii=False)[:2000],
+        }
+
+    rid = resp.get("id") or resp.get("created")
+    if rid and project_root:
+        os.environ.setdefault("DRAMA_PROJECT_ROOT", str(Path(project_root).resolve()))
+        if placeholder_ok:
+            try:
+                dedup.promote_submitting(
+                    project_root,
+                    kind=KIND_GPT_IMAGE,
+                    episode_id=None,
+                    client_request_id=client_request_id,
+                    real_task_id=str(rid),
+                    extra_updates={
+                        "prompt": prompt[:500],
+                        "model": edit_model,
+                        "size": resolved_size,
+                        "has_ref_images": True,
+                        "output": str(output) if output else None,
+                        "cdn_url": urls[0] if urls else None,
+                        "identity": identity_key,
+                        "fingerprint": fp,
+                        "endpoint": "edits",
+                    },
+                )
+            except Exception:
+                add_task(
+                    KIND_GPT_IMAGE,
+                    str(rid),
+                    {
+                        "prompt": prompt[:500],
+                        "model": edit_model,
+                        "size": resolved_size,
+                        "has_ref_images": True,
+                        "output": str(output) if output else None,
+                        "cdn_url": urls[0] if urls else None,
+                        "identity": identity_key,
+                        "fingerprint": fp,
+                        "endpoint": "edits",
+                    },
+                    status=str(resp.get("status") or "completed"),
+                )
+        else:
+            add_task(
+                KIND_GPT_IMAGE,
+                str(rid),
+                {
+                    "prompt": prompt[:500],
+                    "model": edit_model,
+                    "size": resolved_size,
+                    "has_ref_images": True,
+                    "output": str(output) if output else None,
+                    "cdn_url": urls[0] if urls else None,
+                    "identity": identity_key,
+                    "fingerprint": fp,
+                    "endpoint": "edits",
+                },
+                status=str(resp.get("status") or "completed"),
+            )
+
+    pick_url = urls[min(index, len(urls) - 1)] if urls else None
+    result: dict[str, Any] = {
+        "status": "ok",
+        "model": edit_model,
+        "size": resolved_size,
+        "endpoint": "edits",
+        "image_url": pick_url,
+        "all_urls": urls,
+        "response_id": rid,
+        "elapsed_sec": round(time.time() - t0, 2),
+        "usage": resp.get("usage"),
+        "archive_dir": str(get_archive_base()),
+    }
+
+    if output:
+        if pick_url:
+            result["saved"] = download_file(pick_url, output)
+        elif b64s:
+            raw = base64.b64decode(b64s[min(index, len(b64s) - 1)])
+            result["saved"] = save_image_bytes(raw, output)
+        if pick_url:
+            cdn_json = update_cdn_urls_json(
+                output,
+                cdn_url=pick_url,
+                task_id=str(rid) if rid else None,
+                model=edit_model,
+                size=resolved_size,
+                project_root=project_root,
+            )
+            if cdn_json:
+                result["cdn_urls_json"] = str(cdn_json)
+    return result
+
+
 def load_batch_yaml(yaml_path: Path) -> list[dict[str, Any]]:
     if yaml is None:
         raise RuntimeError("批量模式需要 PyYAML: pip3 install pyyaml")
@@ -553,19 +880,36 @@ def cmd_generate(args: argparse.Namespace) -> int:
     if hit is not None:
         print(json.dumps(hit, ensure_ascii=False, indent=2))
         return 0 if hit.get("status") in ("skip", "blocked") else 1
-    result = generate_one(
-        args.prompt,
-        out,
-        model=args.model,
-        size=args.size,
-        ratio=args.ratio,
-        tier=args.tier,
-        quality=args.quality,
-        image_urls=image_urls or None,
-        project_root=project_root,
-        dry_run=args.dry_run,
-        index=args.index,
-    )
+    # 有参考图 → 走 edits 端点（multipart，参考图真正生效）
+    # 无参考图 → 走 generations 端点（纯文生图）
+    if image_urls:
+        result = edit_one(
+            args.prompt,
+            out,
+            model=args.model,
+            size=args.size,
+            ratio=args.ratio,
+            tier=args.tier,
+            quality=args.quality,
+            image_urls=image_urls,
+            project_root=project_root,
+            dry_run=args.dry_run,
+            index=args.index,
+        )
+    else:
+        result = generate_one(
+            args.prompt,
+            out,
+            model=args.model,
+            size=args.size,
+            ratio=args.ratio,
+            tier=args.tier,
+            quality=args.quality,
+            image_urls=None,
+            project_root=project_root,
+            dry_run=args.dry_run,
+            index=args.index,
+        )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0 if result.get("status") in ("ok", "dry_run") else 1
 
@@ -675,18 +1019,34 @@ def cmd_batch(args: argparse.Namespace) -> int:
                     results.append({"id": item_id, **hit})
                 continue
 
-        r = generate_one(
-            prompt,
-            out_path,
-            model=item.get("model") or default_model,
-            size=item.get("size") or default_size,
-            ratio=ratio,
-            tier=item.get("tier") or default_tier,
-            quality=item.get("quality") or default_quality,
-            image_urls=image_urls,
-            project_root=project_root,
-            dry_run=args.dry_run,
-        )
+        # 有参考图 → edits 端点（multipart，参考图真正生效）
+        # 无参考图 → generations 端点（纯文生图）
+        if image_urls:
+            r = edit_one(
+                prompt,
+                out_path,
+                model=item.get("model") or default_model,
+                size=item.get("size") or default_size,
+                ratio=ratio,
+                tier=item.get("tier") or default_tier,
+                quality=item.get("quality") or default_quality,
+                image_urls=image_urls,
+                project_root=project_root,
+                dry_run=args.dry_run,
+            )
+        else:
+            r = generate_one(
+                prompt,
+                out_path,
+                model=item.get("model") or default_model,
+                size=item.get("size") or default_size,
+                ratio=ratio,
+                tier=item.get("tier") or default_tier,
+                quality=item.get("quality") or default_quality,
+                image_urls=None,
+                project_root=project_root,
+                dry_run=args.dry_run,
+            )
         r["id"] = item_id
         r["output"] = str(out_path)
         results.append(r)
@@ -707,13 +1067,14 @@ def cmd_docs(_: argparse.Namespace) -> int:
         "docs": [
             "https://zrlef1mcfh.apifox.cn/1（OpenAI 兼容协议，base_url 需带 /v1/ 后缀）",
         ],
-        "endpoint": base_url() + IMAGES_PATH,
+        "endpoint_generations": base_url() + IMAGES_PATH,
+        "endpoint_edits": base_url() + EDITS_PATH,
         "model_default": default_model(),
         "auth": "Bearer GPT_IMAGE_API_KEY",
         "env": [
             "GPT_IMAGE_API_KEY（必填，兼容回退 OPENAI_API_KEY）",
-            "GPT_IMAGE_BASE_URL（默认 https://api.getgoapi.com）",
-            "GPT_IMAGE_MODEL（默认 openai/gpt-image-2）",
+            "GPT_IMAGE_BASE_URL（默认 https://cn.getgoapi.com）",
+            "GPT_IMAGE_MODEL（默认 gpt-image-2）",
             "GPT_IMAGE_QUALITY（low/medium/high/auto，默认 auto）",
             "GPT_IMAGE_SIZE_TIER（standard/2k/4k，默认 standard）",
         ],
@@ -722,7 +1083,7 @@ def cmd_docs(_: argparse.Namespace) -> int:
         "size_9_16_2k": SIZE_BY_TIER["2k"]["9:16"],
         "size_9_16_4k": SIZE_BY_TIER["4k"]["9:16"],
         "constraints": "边长须为 16 的倍数，最大边长 ≤3840，长边/短边 ≤3:1，总像素 655,360~8,294,400",
-        "note": "参考图可为本地路径，自动转 data URI；任务写入项目 assets/tasks_gpt_image.json",
+        "note": "有参考图时自动走 /v1/images/edits（multipart）；无参考图走 /v1/images/generations（JSON）。任务写入项目 assets/tasks_gpt_image.json",
     }
     print(json.dumps(text, ensure_ascii=False, indent=2))
     return 0
