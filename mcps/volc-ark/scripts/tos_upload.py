@@ -496,9 +496,10 @@ def _update_registry_for_project(cfg: dict[str, str], project_root: Path) -> Non
             if not isinstance(entry, dict):
                 continue
             local_name = entry.get("local", "")
-            if not local_name:
-                local_name = f"{asset_id}.png"
-            key = f"{kp}{subdir}/{project_name}/{local_name}"
+            # 只取文件名（bug 修复 2026-08-08：local 含 assets/<cat>/ 前缀，
+            # 直接拼入 key 会生成 .../assets/looks/xxx 双重前缀导致 404）
+            file_name = Path(local_name).name if local_name else f"{asset_id}.png"
+            key = f"{kp}{subdir}/{project_name}/{file_name}"
             tos_url = build_public_url(cfg, key)
 
             if entry.get("tos_url") != tos_url:
