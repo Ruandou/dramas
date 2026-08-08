@@ -454,8 +454,13 @@ Photorealistic rendering, shot on wide-angle lens, natural lighting, real archit
 **规则：**
 1. **仅生成剧本明确要求的时段变体**——不要投机性地为每个场景生成全部 4 种
 2. 基准版本（无后缀）代表该场景在剧本中出现频率最高的时段
-3. 变体 Prompt **必须保持构图和建筑/地形完全一致**——仅修改：光线方向与色温、阴影长度与方向、天空/背景色调、环境散射色
-4. 时段变体在 batch YAML 中紧跟基准版本列出
+3. **🚫 变体必须基于基准图 image_urls 编辑生成（硬门控，2026-08-08 事故固化）**：
+   - 变体条目 `image_urls` **必须**包含对应基准图的存储永久 URL（`assets/scenes/cdn_urls.json` 中 `SCENE-###` 的 tos_url）
+   - 变体 prompt 必须以基准图为参照写 **delta 编辑式**：`same scene as the reference image, keep the layout, architecture, signage and structures exactly, [仅修改状态/光线/时段差异]`
+   - 禁止变体从零生成（image_urls 空）——文字"保持构图一致"无法约束 gpt-image 几何一致性（实测 ORB 匹配 3-20 点 = 全高漂移，交叉使用穿帮）
+   - 3c-G 组装 batch YAML 时逐条校验：**变体条目 image_urls 非空且为基准图 https:// tos_url，否则禁止提交**
+4. 变体 Prompt **必须保持构图和建筑/地形完全一致**——仅修改：光线方向与色温、阴影长度与方向、天空/背景色调、环境散射色
+5. 时段变体在 batch YAML 中紧跟基准版本列出
 
 **Prompt 调整示例（夜间）：**
 ```
