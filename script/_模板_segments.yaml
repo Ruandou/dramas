@@ -35,14 +35,36 @@ segments:
         SCENE-###: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/<剧名>/SCENE-###.png
       prop_urls: {}
     api:
-      text: |
-        【图1】CHAR-###-L##【图2】SCENE-###。
-        竖屏9比16连贯叙事。
-        镜头1（Xs）[景别] [运镜]：[画面描述，用图1指代角色]
-        [以下对白仅供语音合成，严禁在画面中显示任何文字]
-        对白（角色名，{voice_prompt}）：「台词内容」
-        画面全程无任何文字、字幕、标题、水印。
-        [风格描述]，竖屏9比16，无品牌 Logo，无平台 UI。
+      # 结构化 api 块（推荐，P2 起主推）：平台无关，CLI 按引擎渲染最终 text——
+      #   minimax(H3) → Ref2VA 六段式（含 LOCK FACE 锁脸声明 + <d> 内嵌对白）
+      #   seedance    → 旧【图N】格式（由 prompt_renderer._render_legacy 生成）
+      # subjects: 本段全部参考素材（角色/场景/道具），id/file 与 content_roles 对应
+      subjects:
+        - id: CHAR-###-L##
+          file: CHAR-###-L##
+          name: 角色名
+          role: character          # character / scene / prop
+          gender: female           # character 必填：female→LOCK HER FACE / male→LOCK HIS FACE
+          desc: 服装/外形简述（供锁脸声明）
+        - id: SCENE-###
+          file: SCENE-###
+          name: 场景名
+          role: scene
+          desc: 时段/光线简述
+      # shots: 逐镜头描述；speakers 为镜头内对白（voice 用声音卡片 P0 全文）
+      shots:
+        - shot_no: 1
+          duration_sec: 5
+          shot_type: 中景
+          camera: 固定镜头
+          visual: 画面描述，角色用 subject id 指代（如 CHAR-###-L## 推门进来）
+          speakers:
+            - subject: CHAR-###-L##
+              voice: "{voice_prompt 全文}"
+              dialogue: "台词内容"
+      soundscape: 环境音简述（可选，默认「环境音贯穿」）
+      music: N/A                    # 或 BGM 描述；无 BGM 写 N/A
+      # 旧 text 字段已废弃（CLI 渲染生成）；存量 YAML 保留作兼容兜底
       content_roles:
         - { file: CHAR-###-L##, role: reference_image, label: 图1 }
         - { file: SCENE-###, role: reference_image, label: 图2 }

@@ -287,7 +287,83 @@ segments:
 
 ---
 
-# api.text Prompt 构建规则（核心）
+# api 结构化块构建规则（主推，P2 起新集数必须使用）
+
+> 自 2026-08-09 起，`api` 块改为**平台无关结构化数据**（subjects/shots/soundscape/music），最终 text 由 CLI 按引擎渲染：
+> - minimax（H3 默认）→ `prompt_renderer._render_ref2va`：官方 Ref2VA 六段式，含 **LOCK FACE 锁脸声明** + `<d>` 内嵌对白（修复人脸漂移/嘴型不同步）
+> - seedance → `prompt_renderer._render_legacy`：旧【图N】格式（逐字等价）
+> - 旧 `api.text` 字段**废弃**（CLI 渲染生成），存量 YAML 保留作兼容兜底（render 无结构化块时原样回退）
+> - 渲染器：`mcps/shared/prompt_renderer.py`（单一真相源，禁止在 YAML 手写引擎特有语法）
+
+每个 segment 的 `api` **必须**严格遵循以下结构：
+
+```yaml
+api:
+  subjects:
+    - id: CHAR-###-L##          # 素材 ID（与 content_roles.file 对应）
+      file: CHAR-###-L##
+      name: 角色名
+      role: character           # character / scene / prop
+      gender: female            # character 必填：female→LOCK HER FACE / male→LOCK HIS FACE
+      desc: 服装/外形简述（供锁脸声明）
+    - id: SCENE-###
+      file: SCENE-###
+      name: 场景名
+      role: scene
+      desc: 时段/光线简述
+  shots:
+    - shot_no: 1
+      duration_sec: 5
+      shot_type: 中景
+      camera: 固定镜头
+      visual: 画面描述，角色用 subject id 指代（如 CHAR-###-L## 推门进来）
+      speakers:
+        - subject: CHAR-###-L##
+          voice: "{voice_prompt 全文，声音卡片 P0}"
+          dialogue: "台词内容"
+  soundscape: 环境音简述（可选，默认「环境音贯穿」）
+  music: N/A                    # 或 BGM 描述；无 BGM 写 N/A
+  content_roles:
+    - { file: CHAR-###-L##, role: reference_image, label: 图1 }
+    - { file: SCENE-###, role: reference_image, label: 图2 }
+```
+
+## 逐字段规则
+
+### S1. subjects（素材声明）
+
+- 列出本段**所有**引用的角色形象、场景、道具，顺序即图号（图1、图2...）
+- `role` 取值：`character` / `scene` / `prop`；`character` **必须**填 `gender`（female/male），渲染器据此输出 `LOCK HER/HIS FACE` 锁脸声明（官方规范：人脸漂移的头号原因是未声明参考图用途）
+- `desc` 写关键视觉特征（服装/发型/时段/光线），供 subject_definitions 与锁脸声明使用
+- `id`/`file` 与 `assets.*_urls` 及 `content_roles.file` 一一对应
+
+### S2. shots（镜头）
+
+- 每行一个镜头，`shot_no` 从 1 连续编号；`duration_sec` 必须与该 shot 在剧本中的时长一致
+- `visual`：纯视觉动作描述，**禁止**在 visual 中嵌入对白文本；角色用 subject id 指代
+- `shot_type`（景别）/`camera`（运镜）从剧本镜头表提取
+
+### S3. speakers（对白）
+
+- `subject` 引用 subjects 中的 id；`voice` 从 `voice_prompts` 映射表**全文复制**（声音卡片 P0，禁止缩写/改写/翻译）
+- `dialogue` 与分集剧本逐字逐标点一致（含「」、……、！）
+- 渲染器将对白内嵌进镜头句（H3 `<d>[中文] ...</d>` 格式，说话人按首次发声分配 S1/S2...）——**这就是嘴型同步的关键**，禁止把对白单独拎出画面描述
+- 无对白镜头：`speakers: []` 或省略
+
+### S4. soundscape / music
+
+- `soundscape`：环境音（可省略，默认「环境音贯穿」）；`music`：BGM 描述，无 BGM 写 `N/A`
+- 渲染器输出六段式的 overall_soundscape / non_diegetic_music 段
+
+### S5. content_roles
+
+- 与 subjects 一一对应、顺序一致；`file` 为资产 ID（`CHAR-###-L##` / `SCENE-###` / `PROP-###`）
+
+---
+
+# api.text Prompt 构建规则（旧格式，仅存量兼容）
+
+> 以下旧规则仅适用于存量 YAML（2026-08-09 前产出）。新集数**必须**使用上方结构化 api 块；旧 `api.text` 由 CLI 渲染生成，禁止手写。
 
 每个 segment 的 `api.text` **必须**严格遵循以下结构：
 
