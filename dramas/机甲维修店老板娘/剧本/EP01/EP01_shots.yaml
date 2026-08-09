@@ -1,0 +1,779 @@
+# === SOURCE FIDELITY PROOF ===
+# Source: 剧本/EP01/EP01_剧本.md
+# Source shots: 25 (EP01-S01 to EP01-S25)
+# Output shots: 25 (EP01-S01 to EP01-S25)
+# Mapping: 1:1 (no insertions, no deletions, no reordering)
+# Source total duration: 108s (时长预算表, VALIDATION块声称108s, 一致)
+# Output total duration: 108s
+# Gate status: ALL PASS (Gate 1: 108s within EP01 90-120s ✅, Gate 2: 25=25 ✅,
+#   Gate 3: SCENE-001/005/010 + CHAR-001/002/007/GRP-07/GRP-08 + PROP-002/003/004/005 all match cards ✅,
+#   Gate 4: CHAR-001/002/007/GRP-07/GRP-08 voice_prompt from 声音卡片 P0-v1.1 ✅)
+# 引擎: MiniMax-H3 (engine_registry.video_defaults(), 2026-08-07 切换) — 非 seedance 快照
+
+episode_id: EP01
+source_md: 剧本/EP01/EP01_剧本.md
+defaults:
+  endpoint: https://metaso.cn/api/minimax/v2/video_generation  # MiniMax-H3（metaso 中转）；CLI 实际以 MINIMAX_API_BASE 为准，本字段为信息性
+  model: MiniMax-H3  # engine_registry.video_defaults() minimax；无版本后缀（seedance 需后缀，minimax 不需要）
+  seed: 78786  # 与同项目 segments.yaml 的 defaults.seed 保持一致（固定 seed 提升音色/语速稳定度）
+  ratio: "9:16"
+  resolution: 768P  # MiniMax-H3 分辨率档位（seedance 快照为 720p，不一致以 video_defaults() 为准）
+  duration: 5  # 视频生成引擎模型默认视频长度（秒）；非单镜头时长。每段实际时长见 shot.duration_sec，须保证全集合计落入 90-120s（见 Gate 1）
+  generate_audio: false  # shots 为中间产物，无需独立音频合成
+  watermark: false
+  prompt_suffix: "vertical 9:16 composition, stylized realism with cinematic lighting, detailed mechanical textures, warm-cool color contrast (amber workshop tones vs cool steel blue tech tones), subtle film grain, high detail, high quality"
+  negative_prompt: "military themes, weapons, soldiers, war scenes, modern politics, political symbols, real brand logos, real celebrity faces, traditional Chinese characters, garbled text, supernatural or religious elements, gore, blood, violence, children in danger, deformed hands, extra fingers, watermark, low quality, blurry, distorted"
+
+shots:
+  - shot_id: EP01-S01
+    shot_no: 1
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-007-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-007-L01【图2】SCENE-010。
+        深夜老城街道，对街星河维修站灯箱通亮（中文招牌「星河维修站」 Simplified Chinese），图1钱多宝（花衬衫、油头、金链子）倚着门框，朝小满维修铺方向喊。
+        中景 固定镜头。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "哟！林小满！大半夜的，又跟你的电饭煲搏斗呢？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S02
+    shot_no: 2
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-007-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-007-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-007-L01【图2】SCENE-010。
+        图1钱多宝走过来，指指点点，几个街坊从门里探头看热闹。
+        近景 固定镜头。
+      content_roles:
+        - { file: CHAR-007-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-007
+        line: "我跟你说啊，这条街开店的，谁不是修机甲的？就你，只配修电饭煲！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S03
+    shot_no: 3
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-007-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-007-L01【图3】SCENE-010。
+        图1女主站在店门口，工装连体裤、高马尾、满脸灰，平静地擦手；街坊窃笑；图2钱多宝叉腰等着看她难堪。
+        中景 固定镜头。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "电饭煲，也是电器。"
+      - speaker: CHAR-007
+        line: "电器？哈哈哈哈！"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S04
+    shot_no: 4
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-007-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-007-L01【图3】SCENE-010。
+        图1女主抬头，目光平静，一字一句；图2钱多宝的笑声卡在喉咙里。
+        近景 固定镜头。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "电饭煲修好了，也是手艺。"
+      - speaker: CHAR-007
+        line: "……行，嘴硬是吧。我看你这店，还能撑几天。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S05
+    shot_no: 5
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-007-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+        CHAR-007-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-007-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-007-L01【图3】SCENE-010。
+        图1女主转身进门，留个背影；图2钱多宝在她身后哼了一声。
+        中景 镜头跟随。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-007-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "撑到它撑不动那天。"
+      - speaker: CHAR-007
+        line: "哼。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S06
+    shot_no: 6
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-07-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+        CHAR-GRP-07-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-GRP-07-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-GRP-07-L01【图3】SCENE-001。
+        暖黄工作灯照着老柜台，柜台堆着零件与半拆的电机，墙上挂满工具。图2一位围着花布围裙的阿姨抱着圆滚滚的饭煲机进门，图1女主抬头。
+        中景 固定镜头。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-07-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "婶儿，这饭煲机又趴窝了？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S07
+    shot_no: 7
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-07-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+        CHAR-GRP-07-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-GRP-07-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-GRP-07-L01【图3】SCENE-001。
+        图1女主接过锅盖翻开外壳检查，手指灵活地拨动线路；图2阿姨站在柜台前，看着图1认真干活的样子。
+        近景 固定镜头。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-07-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-GRP-07
+        line: "还是你实在。对门那家，修一次顶三天。"
+      - speaker: CHAR-001
+        line: "他那是修？那叫糊弄。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S08
+    shot_no: 8
+    mode: i2v_ref
+    duration_sec: 3
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-07-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+        CHAR-GRP-07-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-GRP-07-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】CHAR-GRP-07-L01【图3】SCENE-001。
+        图1女主拧紧最后一颗螺丝，把饭煲机递还图2阿姨；图2掏钱放在柜台，图1摆手。
+        特写 固定镜头。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-GRP-07-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-001, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-GRP-07
+        line: "嘴硬。钱放柜台了。"
+      - speaker: CHAR-001
+        line: "婶儿，下回喊我上门，别抱这么重。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S09
+    shot_no: 9
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls:
+        PROP-004: https://drama-reference-images.tos-cn-beijing.volces.com/props/机甲维修店老板娘/PROP-004.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-004。
+        图2阿姨出门，门铃又响一声。图1女主转身收拾柜台，墙角立着圆滚滚的图3锅盖机甲（PROP-004），机身贴着一张褪色的贴纸。
+        中景 固定镜头。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "都送走仨了，你倒好，一晚上喷我两回灰。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S10
+    shot_no: 10
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-004
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls:
+        PROP-004: https://drama-reference-images.tos-cn-beijing.volces.com/props/机甲维修店老板娘/PROP-004.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-004。
+        图1女主蹲下继续调图3锅盖，锅盖"噗"喷出一股灰，正喷图1一脸；图1抹了一把脸，对着锅盖叹了口气。
+        近景 固定镜头。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-004, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "行吧。谁让你是爷爷留下的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S11
+    shot_no: 11
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-005
+      look_ids: []
+      prop_ids:
+        - PROP-003
+    assets:
+      look_urls: {}
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-005.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/机甲维修店老板娘/PROP-003.png
+    api:
+      text: |
+        【图1】PROP-003【图2】SCENE-005。
+        赛场灯光如昼，深蓝机甲图1天狼（PROP-003）立在场地中央，观众声浪如潮（人群用声浪+局部虚化代偿）。
+        全景 固定镜头。
+      content_roles:
+        - { file: PROP-003, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S12
+    shot_no: 12
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-005
+      look_ids:
+        - CHAR-002-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-002-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-002-L01-mesh.png
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-005.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-002-L01【图2】SCENE-005。
+        驾驶舱内，图1江野（冷峻眉眼、右眉旧疤）摘头盔，低头看仪表盘，眉头微皱。
+        近景 缓推。
+      content_roles:
+        - { file: CHAR-002-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-002
+        line: "波形不对。这个波形，不是我的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S13
+    shot_no: 13
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-005
+      look_ids: []
+      prop_ids:
+        - PROP-005
+    assets:
+      look_urls: {}
+      scene_urls:
+        SCENE-005: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-005.png
+      prop_urls:
+        PROP-005: https://drama-reference-images.tos-cn-beijing.volces.com/props/机甲维修店老板娘/PROP-005.png
+    api:
+      text: |
+        【图1】PROP-005【图2】SCENE-005。
+        仪表盘上，核心指示灯红蓝乱跳，数值跳动。
+        特写 固定镜头。
+      content_roles:
+        - { file: PROP-005, role: reference_image, label: 图1 }
+        - { file: SCENE-005, role: reference_image, label: 图2 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S14
+    shot_no: 14
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001。
+        图1女主端着泡面看柜台上的老电视，电视里重播着夺冠画面，解说声亢奋；她撇嘴。
+        中景 固定镜头。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "三连冠。修的人，怕是连名字都没人知道。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S15
+    shot_no: 15
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001。
+        图1女主关电视，屏幕暗下去；她顿了顿，伸手关掉工作灯，店铺陷入黑暗，只剩招牌的暖光从窗缝漏进来。
+        近景 固定镜头。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "修机甲的，最后都成了背景板。……爷爷当年，也这样？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S16
+    shot_no: 16
+    mode: t2v
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-010
+      look_ids: []
+      prop_ids:
+        - PROP-003
+    assets:
+      look_urls: {}
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-010.png
+      prop_urls:
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/机甲维修店老板娘/PROP-003.png
+    api:
+      text: |
+        深夜街头，一辆无人运甲车无声停在店门口，车斗里一台深蓝机甲轮廓（PROP-003 天狼，深蓝装甲、银色关节）；驾驶位下来一个压低帽檐的人。
+        全景 固定镜头，无人物正脸。
+      content_roles: []
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S17
+    shot_no: 17
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-001-L01
+        - CHAR-GRP-08-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+        CHAR-GRP-08-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-GRP-08-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-GRP-08-L01【图2】CHAR-001-L01【图3】SCENE-010。
+        图1送货人（深藏青无标工装、压低帽檐）递过签收屏；图2女主披着外套出来，一脸懵。
+        中景 固定镜头。
+      content_roles:
+        - { file: CHAR-GRP-08-L01, role: reference_image, label: 图1 }
+        - { file: CHAR-001-L01, role: reference_image, label: 图2 }
+        - { file: SCENE-010, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-GRP-08
+        line: "匿名件。点名送这家。"
+      - speaker: CHAR-001
+        line: "机甲？送我这？你们是不是送错门了？"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S18
+    shot_no: 18
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-010
+      look_ids:
+        - CHAR-GRP-08-L01
+      prop_ids: []
+    assets:
+      look_urls:
+        CHAR-GRP-08-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-GRP-08-L01-mesh.png
+      scene_urls:
+        SCENE-010: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-010.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-GRP-08-L01【图2】SCENE-010。
+        签收屏特写：收件栏「小满维修铺」，寄件栏一片空白（中文 Simplified Chinese）；图1送货人转身要走。
+        近景 固定镜头。
+      content_roles:
+        - { file: CHAR-GRP-08-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-010, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-GRP-08
+        line: "错不了。寄件人说，全城只有你家接得了这单。"
+      - speaker: CHAR-001
+        line: "等等！谁寄的？至少留个名字！"
+      - speaker: CHAR-GRP-08
+        line: "寄件人说，你会知道的。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S19
+    shot_no: 19
+    mode: i2v_ref
+    duration_sec: 6
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+        - PROP-003
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/机甲维修店老板娘/PROP-002.png
+        PROP-003: https://drama-reference-images.tos-cn-beijing.volces.com/props/机甲维修店老板娘/PROP-003.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-002【图4】PROP-003。
+        维修间，图1女主围着图4天狼转了一圈，手指划过深蓝装甲，随手打开维修舱门；腰间图3银扳手（PROP-002，刻「守正」）一晃。
+        中景 镜头跟随。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+        - { file: PROP-003, role: reference_image, label: 图4 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "全城只有我？这话我倒要看看怎么个说法。"
+      - speaker: CHAR-001
+        line: "好家伙，还是联赛专用机。这东西，黑市都买不到。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S20
+    shot_no: 20
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-002
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls:
+        PROP-002: https://drama-reference-images.tos-cn-beijing.volces.com/props/机甲维修店老板娘/PROP-002.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-002。
+        舱内指示灯闪烁，图1女主歪头看，抄起图3银扳手敲了敲核心舱盖。
+        近景 固定镜头。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-002, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "还真有毛病？"
+      - speaker: CHAR-001
+        line: "返厂？排队都要三个月。给我三天，我修好你。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S21
+    shot_no: 21
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls:
+        PROP-005: https://drama-reference-images.tos-cn-beijing.volces.com/props/机甲维修店老板娘/PROP-005.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-005。
+        核心舱盖缓缓打开，露出蓝水晶状的核心图3（PROP-005），内部暗纹缓缓流动，蓝光映亮图1女主的脸。
+        特写 固定镜头。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-005, role: reference_image, label: 图3 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S22
+    shot_no: 22
+    mode: i2v_ref
+    duration_sec: 4
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls:
+        PROP-005: https://drama-reference-images.tos-cn-beijing.volces.com/props/机甲维修店老板娘/PROP-005.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-005。
+        图1女主的手顿在半空，瞳孔骤缩，呼吸一滞；她死死盯着图3核心的纹路。
+        近景 缓推。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-005, role: reference_image, label: 图3 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "这个核心……我见过。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S23
+    shot_no: 23
+    mode: i2v_ref
+    duration_sec: 3
+    refs:
+      scene_id: SCENE-001
+      look_ids: []
+      prop_ids:
+        - PROP-005
+    assets:
+      look_urls: {}
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls:
+        PROP-005: https://drama-reference-images.tos-cn-beijing.volces.com/props/机甲维修店老板娘/PROP-005.png
+    api:
+      text: |
+        【图1】PROP-005【图2】SCENE-001。
+        图1核心暗纹特写：一组陌生的、不属于任何现役规格的纹路，随着呼吸般的节奏明灭。
+        特写 固定镜头。
+      content_roles:
+        - { file: PROP-005, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-001
+        line: "爷爷的笔记里，画过一模一样的纹路。"
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S24
+    shot_no: 24
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls:
+        PROP-005: https://drama-reference-images.tos-cn-beijing.volces.com/props/机甲维修店老板娘/PROP-005.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-005。
+        图1女主的手悬在图3核心上方，指尖微颤，目光从震惊转为凝重；暖黄工作灯下，蓝光与暗纹映在她脸上。
+        特写 固定镜头。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-005, role: reference_image, label: 图3 }
+    dialogue: []
+    transition_to_next: hard_cut
+
+  - shot_id: EP01-S25
+    shot_no: 25
+    mode: i2v_ref
+    duration_sec: 5
+    refs:
+      scene_id: SCENE-001
+      look_ids:
+        - CHAR-001-L01
+      prop_ids:
+        - PROP-005
+    assets:
+      look_urls:
+        CHAR-001-L01: https://drama-reference-images.tos-cn-beijing.volces.com/looks/机甲维修店老板娘/CHAR-001-L01-mesh.png
+      scene_urls:
+        SCENE-001: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/机甲维修店老板娘/SCENE-001.png
+      prop_urls:
+        PROP-005: https://drama-reference-images.tos-cn-beijing.volces.com/props/机甲维修店老板娘/PROP-005.png
+    api:
+      text: |
+        【图1】CHAR-001-L01【图2】SCENE-001【图3】PROP-005。
+        图1女主眼睛的大特写，瞳孔里倒映着图3核心的蓝光与暗纹，纹路在她眼底缓缓流动；画面渐暗至黑场。
+        大特写 缓推至黑场。
+      content_roles:
+        - { file: CHAR-001-L01, role: reference_image, label: 图1 }
+        - { file: SCENE-001, role: reference_image, label: 图2 }
+        - { file: PROP-005, role: reference_image, label: 图3 }
+    dialogue: []
+    transition_to_next: hard_cut
