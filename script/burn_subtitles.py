@@ -104,8 +104,8 @@ def extract_dialogue_lines(seg: dict) -> list[str]:
                 dialogue = str(sp.get("dialogue") or "").strip()
                 if not dialogue:
                     continue
-                who = sub_names.get(sub_ref, sub_ref)
-                lines.extend(split_sentences(f"{who}：{dialogue}"))
+                # 只拆台词本身（与旧正则路径一致，不拼说话人前缀，避免字幕带「角色：」）
+                lines.extend(split_sentences(dialogue))
         return lines
     for m_ in DIALOG_RE.findall(api.get("text", "") or ""):
         # 元组形如 (角色名, 旧格式台词, 新<d>台词)：取非空的台词组（组 1 或组 2）

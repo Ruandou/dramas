@@ -17,6 +17,7 @@ Prompt 渲染层（prompt renderer）：平台无关结构化 api 块 → 引擎
 """
 from __future__ import annotations
 
+import re
 from typing import Any
 
 # ---------------------------------------------------------------------------
@@ -82,6 +83,7 @@ def _render_ref2va(api: dict[str, Any], prompt_suffix: str | None = None) -> str
 
     # 编号映射：subject id / file → <Subject N>；file 同时映射 <Picture N>
     sub_by_id: dict[str, dict[str, Any]] = {}
+    sub_by_name: dict[str, dict[str, Any]] = {}  # 角色名 → subject（兼容迁移产物 speaker 用角色名）
     enhanced: list[dict[str, Any]] = []
     for i, s in enumerate(subjects, 1):
         s = dict(s)
@@ -93,20 +95,38 @@ def _render_ref2va(api: dict[str, Any], prompt_suffix: str | None = None) -> str
             sub_by_id[str(s["id"])] = s
         if s.get("file"):
             sub_by_id.setdefault(str(s["file"]), s)
+        if s.get("name"):
+            sub_by_name.setdefault(str(s["name"]), s)
     subjects = enhanced
 
     def tag_of(ref: str) -> str:
-        s = sub_by_id.get(str(ref).strip())
+        s = sub_by_id.get(str(ref).strip()) or sub_by_name.get(str(ref).strip())
         return s["_tag"] if s else str(ref)
 
     def replace_refs(visual: str) -> str:
-        """visual 中的素材引用替换为 <Subject N>：优先 asset id，兼容旧【图N】。"""
+        """visual 中的素材引用替换为 <Subject N>：asset id/角色名/图号。
+
+        顺序：asset id → 图号 → 角色名兜底（仅 character）。图号与角色名相邻时
+        （「图1钱多宝」）只保留图号替换结果，角色名作为叙述文字保留，
+        避免重复标签。"""
+        # 第一轮：asset id（精确，无歧义）
         for ref, s in sub_by_id.items():
             if ref and ref in visual:
                 visual = visual.replace(ref, s["_tag"])
+        # 第二轮：图号（旧格式指代，替换后加空格防粘连）
         for s in enhanced:
             if f"图{s['_no']}" in visual:
-                visual = visual.replace(f"图{s['_no']}", s["_tag"])
+                visual = visual.replace(f"图{s['_no']}", s["_tag"] + " ")
+        # 第三轮：character 角色名兜底（仅当该角色名后不是紧跟 <Subject 标签，防重复）
+        for name, s in sub_by_name.items():
+            if not name or str(s.get("role")) != "character":
+                continue
+            tag = s["_tag"]
+            # 若 visual 已含该角色的标签（图号已替换），跳过角色名替换
+            if tag in visual:
+                continue
+            if name in visual:
+                visual = visual.replace(name, tag + " ")
         return visual
 
     # --- subject_definitions ---
