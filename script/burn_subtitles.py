@@ -77,7 +77,42 @@ LOC_SIZE = 40            # 地点卡字号（竖排单列，介于姓名与身�
 LOC_GAP = 10             # 地点卡字间距
 CUE_GAP = 0.15           # TTS 对齐模式下相邻 cue 间隔
 
-DIALOG_RE = re.compile(r"对白（([^，）]+)[^）]*）：「(.+?)」", re.S)
+DIALOG_RE = re.compile(
+    r"对白（([^，）]+)[^）]*）：「(.+?)」|<d>\[中文\]\s*(.+?)</d>", re.S)
+
+
+def extract_dialogue_lines(seg: dict) -> list[str]:
+    """提取段内对白（按句拆条）。
+
+    优先读结构化 api 块（subjects/shots[].speakers[].dialogue，P2 主路径，
+    与渲染产物解耦）；无结构化块时回退 DIALOG_RE 正则解析 api.text
+    （兼容旧格式「对白（角色，voice）：『台词』」与新六段式 <d>[中文] 台词</d>）。"""
+    api = seg.get("api") or {}
+    shots = api.get("shots") or []
+    lines: list[str] = []
+    if api.get("subjects") and shots:
+        # 结构化块：subjects 提供角色名映射，speakers 按出现顺序收集
+        sub_names = {}
+        for s in api.get("subjects") or []:
+            if s.get("id"):
+                sub_names[str(s["id"])] = str(s.get("name") or s["id"])
+            if s.get("file"):
+                sub_names.setdefault(str(s["file"]), str(s.get("name") or s["file"]))
+        for sh in shots:
+            for sp in sh.get("speakers") or []:
+                sub_ref = str(sp.get("subject") or "").strip()
+                dialogue = str(sp.get("dialogue") or "").strip()
+                if not dialogue:
+                    continue
+                who = sub_names.get(sub_ref, sub_ref)
+                lines.extend(split_sentences(f"{who}：{dialogue}"))
+        return lines
+    for m_ in DIALOG_RE.findall(api.get("text", "") or ""):
+        # 元组形如 (角色名, 旧格式台词, 新<d>台词)：取非空的台词组（组 1 或组 2）
+        line = next((x for x in m_[1:] if x), "")
+        if line:
+            lines.extend(split_sentences(line.strip()))
+    return lines
 
 
 def ffprobe_duration(path: Path) -> float:
@@ -86,6 +121,17 @@ def ffprobe_duration(path: Path) -> float:
          "-of", "default=noprint_wrappers=1:nokey=1", str(path)],
         capture_output=True, text=True, check=True)
     return float(r.stdout.strip())
+
+
+def ffprobe_size(path: Path) -> tuple[int, int]:
+    """探测视频宽高（MiniMax-H3 768P 为 768x1344，非 720x1280，字幕/卡需按实际尺寸居中）。"""
+    r = subprocess.run(
+        ["ffprobe", "-v", "error", "-select_streams", "v:0",
+         "-show_entries", "stream=width,height",
+         "-of", "default=noprint_wrappers=1:nokey=1", str(path)],
+        capture_output=True, text=True, check=True)
+    lines = r.stdout.strip().split("\n")
+    return int(lines[0].strip()), int(lines[1].strip())
 
 
 def fmt_srt(sec: float) -> str:
@@ -141,7 +187,8 @@ CUE_PUNCT_RE = re.compile(r"[，。、；：！？!?,.;:…]+|—+|~+|～+")
 
 
 def clean_cue_text(text: str) -> str:
-    return re.sub(r"\s+", " ", CUE_PUNCT_RE.sub(" ", text)).strip()
+    # 标点直接删除而非替换为空格（中文标点后无需空格，避免字幕出现怪异空格）
+    return re.sub(r"\s+", " ", CUE_PUNCT_RE.sub("", text)).strip()
 
 
 # 长台词按句拆条（一句一条、随语音节奏切，对齐爆款）；拆分后保留原标点供 SRT/TTS
@@ -309,6 +356,7 @@ def main() -> None:
     ap.add_argument("--project-root", required=True)
     ap.add_argument("--no-burn", action="store_true", help="只出 SRT 和拼接，不烧字幕")
     ap.add_argument("--tts-dir", help="tts_batch_edge 产出目录（001.mp3...），按音频实际时长对齐字幕时间轴")
+    ap.add_argument("--no-asr", action="store_true", help="关闭 ASR 对齐，改用字数估算时间轴（默认开启 ASR）")
     args = ap.parse_args()
 
     ep = args.episode
@@ -365,8 +413,7 @@ def main() -> None:
                              card, mp4, mid))
         seg_scene_cards.append(
             (sid, ((seg.get("refs") or {}).get("scene_id")), bool(lc)))
-        lines = [s for m_ in DIALOG_RE.findall(seg["api"]["text"])
-                 for s in split_sentences(m_[1].strip())]
+        lines = extract_dialogue_lines(seg)
         if lines:
             usable = max(dur - LEAD_IN - TAIL_PAD, MIN_CUE * len(lines))
             weights = [max(len(x), 4) for x in lines]
@@ -418,6 +465,66 @@ def main() -> None:
             cursor = cue[1] + CUE_GAP
         print(f"TTS 对齐：{len(mp3s)} 句音频时长已回填时间轴")
 
+    # 1.6 ASR 对齐：用 faster-whisper 识别每段实际语音边界，按真实语音时长重排时间轴
+    # （H3 原生音轨时推荐；字数估算与真实语速/停顿偏差大，导致字幕与对白不同步）
+    if not args.no_asr:
+        try:
+            from faster_whisper import WhisperModel
+        except ImportError:
+            print("ASR 对齐需要 faster-whisper: pip3 install faster-whisper", file=sys.stderr)
+            sys.exit(1)
+        print("ASR 对齐：加载模型（首次约 1-2 分钟）...", file=sys.stderr)
+        _wm = WhisperModel("base", device="cpu", compute_type="int8")
+        _idx = 0
+        for seg in segments:
+            sid = seg.get("segment_id") or (f"{ep}_{seg['seg_id']}" if seg.get("seg_id") else None)
+            if not sid:
+                continue
+            mp4 = gen_dir / f"{sid}.mp4"
+            if _idx >= len(cues):
+                break
+            seg_start = cues[_idx][3]
+            seg_cues = []
+            while _idx < len(cues) and abs(cues[_idx][3] - seg_start) < 1e-6:
+                seg_cues.append(cues[_idx])
+                _idx += 1
+            if not seg_cues:
+                continue
+            try:
+                _segs, _ = _wm.transcribe(
+                    str(mp4), language="zh", vad_filter=True)
+                frags = [(s.start, s.end) for s in _segs]
+            except Exception as e:
+                print(f"⚠️ {sid} ASR 失败（保留字数估算）：{e}", file=sys.stderr)
+                continue
+            if not frags:
+                print(f"⚠️ {sid} ASR 无语音片段（保留字数估算）", file=sys.stderr)
+                continue
+            total_voice = sum(e - s for s, e in frags)
+            if total_voice <= 0:
+                continue
+            weights = [max(len(c[2]), 4) for c in seg_cues]
+            total_w = sum(weights)
+
+            def _at(ratio: float) -> float:
+                target = ratio * total_voice
+                acc = 0.0
+                for s, e in frags:
+                    d = e - s
+                    if acc + d >= target:
+                        return s + (target - acc)
+                    acc += d
+                return frags[-1][1]
+
+            cum = 0.0
+            for c, w in zip(seg_cues, weights):
+                s = _at(cum / total_w)
+                cum += w
+                e = _at(cum / total_w)
+                c[0] = seg_start + max(s, 0.0)
+                c[1] = seg_start + max(e, s + 0.1)
+        print(f"ASR 对齐：{len(cues)} 条字幕时间轴已按实际语音边界回填")
+
     # 2. 写 SRT（保留原标点供 TTS/审阅）+ lines.txt（供 tts_batch_edge）
     srt_path = seg_yaml.parent / f"{ep}_对白.srt"
     with srt_path.open("w", encoding="utf-8") as f:
@@ -444,8 +551,11 @@ def main() -> None:
     if args.no_burn:
         return
 
-    # 4. 渲染字幕/出场卡 PNG + overlay 烧录
-    width, height = 720, 1280
+    # 4. 渲染字幕/出场卡 PNG + overlay 烧录（按实际视频宽高渲染，避免 720 画布居中于 768 画面时偏左）
+    vw, vh = ffprobe_size(clips[0][0])
+    width, height = vw, vh
+    # 底边距按高度比例缩放（规范基准 720x1280 下 320px ≈ 25%）
+    BOTTOM_MARGIN_SCALED = int(BOTTOM_MARGIN * vh / 1280)
     subs_dir = gen_dir / "_subs"
     subs_dir.mkdir(exist_ok=True)
     font = load_font()
@@ -456,7 +566,7 @@ def main() -> None:
         png = subs_dir / f"cue{idx:03d}.png"
         h = render_cue_png(txt, width, png, font)
         over_inputs += ["-i", str(png)]
-        y = height - BOTTOM_MARGIN - h
+        y = height - BOTTOM_MARGIN_SCALED - h
         out = f"v{idx}"
         chain.append(
             f"[{prev}][{idx + 1}:v]overlay=0:{y}:enable='between(t,{s:.3f},{e:.3f})'[{out}]")
