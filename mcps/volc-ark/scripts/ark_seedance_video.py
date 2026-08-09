@@ -348,13 +348,17 @@ def role_file_to_path(shot: dict, file_key: str) -> str | None:
 
 
 def build_content_array(shot: dict, project_root: Path,
-                        prompt_suffix: str | None = None) -> list[dict]:
+                        prompt_suffix: str | None = None,
+                        prompt_suffix_silent: str | None = None) -> list[dict]:
     api = shot.get("api") or {}
     # 结构化 api 块（subjects/shots）→ 按 Seedance 旧【图N】格式渲染；无结构化块回退 api.text
     try:
         from prompt_renderer import render as _render_prompt
-        text = _render_prompt("seedance", api, prompt_suffix=prompt_suffix)
-    except Exception:
+        text = _render_prompt("seedance", api, prompt_suffix=prompt_suffix,
+                              prompt_suffix_silent=prompt_suffix_silent)
+    except Exception as e:
+        # 渲染器异常不应静默：回退 api.text 但报警，避免掩盖渲染 bug
+        print(f"⚠️ prompt_renderer 渲染失败，回退 api.text：{e}", file=sys.stderr)
         text = api.get("text", "")
     content: list[dict] = [{"type": "text", "text": text}]
     for role_spec in api.get("content_roles") or []:
@@ -378,7 +382,8 @@ def build_shot_body(episode: dict, shot: dict, project_root: Path) -> dict[str, 
     body: dict[str, Any] = {
         "model": normalize_model(defaults.get("model") or default_model()),
         "content": build_content_array(shot, project_root,
-                                        prompt_suffix=defaults.get("prompt_suffix")),
+                                        prompt_suffix=defaults.get("prompt_suffix"),
+                                        prompt_suffix_silent=defaults.get("prompt_suffix_silent")),
         "ratio": defaults.get("ratio", "9:16"),
         "resolution": defaults.get("resolution", "720p"),
         "duration": shot.get("duration_sec", defaults.get("duration", 5)),
@@ -640,13 +645,17 @@ def build_segment_content_array(
     project_root: Path,
     cdn_registry: dict | None = None,
     prompt_suffix: str | None = None,
+    prompt_suffix_silent: str | None = None,
 ) -> list[dict]:
     api = segment.get("api") or {}
     # 结构化 api 块（subjects/shots）→ 按 Seedance 旧【图N】格式渲染；无结构化块回退 api.text
     try:
         from prompt_renderer import render as _render_prompt
-        text = _render_prompt("seedance", api, prompt_suffix=prompt_suffix)
-    except Exception:
+        text = _render_prompt("seedance", api, prompt_suffix=prompt_suffix,
+                              prompt_suffix_silent=prompt_suffix_silent)
+    except Exception as e:
+        # 渲染器异常不应静默：回退 api.text 但报警，避免掩盖渲染 bug
+        print(f"⚠️ prompt_renderer 渲染失败，回退 api.text：{e}", file=sys.stderr)
         text = (api.get("text") or "").strip()
     content: list[dict] = [{"type": "text", "text": text}]
     for role_spec in api.get("content_roles") or []:
@@ -700,7 +709,8 @@ def build_segment_body(
     body: dict[str, Any] = {
         "model": model,
         "content": build_segment_content_array(segment, project_root, cdn_registry,
-                                                 prompt_suffix=defaults.get("prompt_suffix")),
+                                                 prompt_suffix=defaults.get("prompt_suffix"),
+                                                 prompt_suffix_silent=defaults.get("prompt_suffix_silent")),
         "ratio": defaults.get("ratio", "9:16"),
         "resolution": defaults.get("resolution", "720p"),
         "duration": _clamp_duration(raw_dur, model),

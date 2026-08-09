@@ -111,6 +111,8 @@ def extract_dialogue_lines(seg: dict) -> list[str]:
         # 元组形如 (角色名, 旧格式台词, 新<d>台词)：取非空的台词组（组 1 或组 2）
         line = next((x for x in m_[1:] if x), "")
         if line:
+            # 反转义渲染器转义的 < >（<d> 路径可能含 &lt;/&gt;）
+            line = line.replace("&lt;", "<").replace("&gt;", ">")
             lines.extend(split_sentences(line.strip()))
     return lines
 

@@ -29,8 +29,12 @@ def render(
     engine: str,
     api: dict[str, Any],
     prompt_suffix: str | None = None,
+    prompt_suffix_silent: str | None = None,
 ) -> str:
-    """按引擎渲染 api 结构化块；无结构化块或引擎无渲染器时回退 api.text。"""
+    """按引擎渲染 api 结构化块；无结构化块或引擎无渲染器时回退 api.text。
+
+    prompt_suffix_silent：静音段（shots 全无 speakers）时优先使用（含
+    「本段无对白无语音」指令，与旧格式静音段处理一致）。"""
     if not isinstance(api, dict):
         return ""
     if "subjects" not in api or "shots" not in api:
@@ -38,7 +42,12 @@ def render(
     fn = RENDERERS.get(engine)
     if not fn:
         return api.get("text", "") or ""
-    return fn(api, prompt_suffix=prompt_suffix)
+    suffix = prompt_suffix
+    shots = api.get("shots") or []
+    if prompt_suffix_silent and not any(
+        sh.get("speakers") for sh in shots if isinstance(sh, dict)):
+        suffix = prompt_suffix_silent  # 静音段用 silent 后缀
+    return fn(api, prompt_suffix=suffix)
 
 
 # 通用工具
@@ -53,8 +62,11 @@ def _with_suffix(body: str, prompt_suffix: str | None) -> str:
     out = body.rstrip()
     if _NO_SUFFIX_MARKER not in out:
         out += "\n" + _NO_SUFFIX_MARKER
-    if prompt_suffix and prompt_suffix.strip() not in out:
-        out += "\n" + prompt_suffix.strip()
+    if prompt_suffix and prompt_suffix.strip():
+        # 整行精确匹配判断（防子串误判导致 suffix 截断）
+        lines = out.split("\n")
+        if prompt_suffix.strip() not in [l.strip() for l in lines]:
+            out += "\n" + prompt_suffix.strip()
     return out
 
 
@@ -64,6 +76,16 @@ def _role_name(role: str) -> str:
         "scene": "scene",
         "prop": "object",
     }.get(role, role)
+
+
+def _role_of(s: dict[str, Any]) -> str:
+    """subject 的 role 规范化（strip，防带空格写法漏 LOCK FACE）。"""
+    return str(s.get("role") or "").strip()
+
+
+def _escape_dialogue(text: str) -> str:
+    """转义对白中的 < >，防止破坏 <d> 标签结构（输入注入防护）。"""
+    return text.replace("<", "&lt;").replace(">", "&gt;")
 
 
 def _is_male(subject: dict[str, Any]) -> bool:
@@ -85,7 +107,8 @@ def _render_ref2va(api: dict[str, Any], prompt_suffix: str | None = None) -> str
     sub_by_id: dict[str, dict[str, Any]] = {}
     sub_by_name: dict[str, dict[str, Any]] = {}  # 角色名 → subject（兼容迁移产物 speaker 用角色名）
     enhanced: list[dict[str, Any]] = []
-    for i, s in enumerate(subjects, 1):
+    # 先过滤非 dict 脏数据再编号，保证 <Subject N> 编号连续且与参考图顺序对齐
+    for i, s in enumerate([s for s in subjects if isinstance(s, dict)], 1):
         s = dict(s)
         s["_no"] = i
         s["_tag"] = f"<Subject {i}>"
@@ -119,7 +142,7 @@ def _render_ref2va(api: dict[str, Any], prompt_suffix: str | None = None) -> str
                 visual = visual.replace(f"图{s['_no']}", s["_tag"] + " ")
         # 第三轮：character 角色名兜底（仅当该角色名后不是紧跟 <Subject 标签，防重复）
         for name, s in sub_by_name.items():
-            if not name or str(s.get("role")) != "character":
+            if not name or _role_of(s) != "character":
                 continue
             tag = s["_tag"]
             # 若 visual 已含该角色的标签（图号已替换），跳过角色名替换
@@ -132,9 +155,9 @@ def _render_ref2va(api: dict[str, Any], prompt_suffix: str | None = None) -> str
     # --- subject_definitions ---
     lines: list[str] = ["subject_definitions:"]
     for s in subjects:
-        role = _role_name(str(s.get("role") or ""))
+        role = _role_name(_role_of(s))
         lock = ""
-        if str(s.get("role")) == "character":
+        if _role_of(s) == "character":
             lock = "LOCK HER FACE" if not _is_male(s) else "LOCK HIS FACE"
         desc = str(s.get("desc") or "").strip()
         tail = f". {desc}" if desc else ""
@@ -160,7 +183,7 @@ def _render_ref2va(api: dict[str, Any], prompt_suffix: str | None = None) -> str
     lines.append("")
     lines.append("retention_analysis:")
     for s in subjects:
-        role = str(s.get("role") or "")
+        role = _role_of(s)
         note = "脸/发型/服装完全保留" if role == "character" else "结构与外观完全保留"
         lines.append(
             f"{s['_tag']} (appears in all shots): fully_preserved - {note}")
@@ -172,6 +195,8 @@ def _render_ref2va(api: dict[str, Any], prompt_suffix: str | None = None) -> str
     speaker_ids: dict[str, int] = {}
     n_speaker = 0
     for sh in shots:
+        if not isinstance(sh, dict):
+            continue  # 脏数据防护：与 render() 静音判定的 isinstance 过滤对齐
         shot_no = sh.get("shot_no", "")
         dur = sh.get("duration_sec", "")
         shot_type = str(sh.get("shot_type") or "中景")
@@ -182,19 +207,24 @@ def _render_ref2va(api: dict[str, Any], prompt_suffix: str | None = None) -> str
         parts = [f"镜头{shot_no}（{dur}秒）{shot_type} {camera}：{visual}"]
         speakers = sh.get("speakers") or []
         for sp in speakers:
+            if not isinstance(sp, dict):
+                continue  # 脏数据防护
             sub_ref = str(sp.get("subject") or "").strip()
             tag = tag_of(sub_ref) if sub_ref else ""
-            if sub_ref not in speaker_ids:
+            # 说话人 ID 分配：有 subject 用 subject；无 subject（画外音）用 voice 描述
+            # 作 key——不同声音是不同发声源，不能共用 Sx
+            sid_key = sub_ref if sub_ref else f"VO:{str(sp.get('voice') or '').strip()}"
+            if sid_key not in speaker_ids:
                 n_speaker += 1
-                speaker_ids[sub_ref] = n_speaker
-            sx = f"(S{speaker_ids[sub_ref]})"
+                speaker_ids[sid_key] = n_speaker
+            sx = f"(S{speaker_ids[sid_key]})"
             voice = str(sp.get("voice") or "").strip()
             dialogue = str(sp.get("dialogue") or "").strip()
             voice_part = f"以{voice}说道" if voice else "说道"
             if tag:
-                parts.append(f"{tag} {sx} {voice_part}，<d>[中文] {dialogue}</d>，说完闭唇。")
+                parts.append(f"{tag} {sx} {voice_part}，<d>[中文] {_escape_dialogue(dialogue)}</d>，说完闭唇。")
             else:
-                parts.append(f"{sx} {voice_part}，<d>[中文] {dialogue}</d>，说完闭唇。")
+                parts.append(f"{sx} {voice_part}，<d>[中文] {_escape_dialogue(dialogue)}</d>，说完闭唇。")
         lines.append(" ".join(parts))
 
     # --- overall_soundscape / non_diegetic_music ---
@@ -226,7 +256,8 @@ def _render_legacy(api: dict[str, Any], prompt_suffix: str | None = None) -> str
 
     sub_by_id: dict[str, dict[str, Any]] = {}
     enhanced: list[dict[str, Any]] = []
-    for i, s in enumerate(subjects, 1):
+    # 先过滤非 dict 脏数据再编号，保证图号连续且与参考图顺序对齐
+    for i, s in enumerate([s for s in subjects if isinstance(s, dict)], 1):
         s = dict(s)
         s["_no"] = i
         enhanced.append(s)
@@ -248,13 +279,15 @@ def _render_legacy(api: dict[str, Any], prompt_suffix: str | None = None) -> str
     lines.append("".join(heads) + "。")
 
     # 角色分工（character 互动提示）
-    chars = [s for s in subjects if str(s.get("role")) == "character"]
+    chars = [s for s in subjects if _role_of(s) == "character"]
     if len(chars) >= 1:
         parts = [f"仅图{s['_no']}可执行动作" for s in chars]
         lines.append("角色分工：" + "；".join(parts) + "。")
 
     lines.append("竖屏9比16连贯叙事。")
     for sh in shots:
+        if not isinstance(sh, dict):
+            continue  # 脏数据防护：与 render() 静音判定的 isinstance 过滤对齐
         shot_no = sh.get("shot_no", "")
         dur = sh.get("duration_sec", "")
         shot_type = str(sh.get("shot_type") or "中景")
@@ -268,7 +301,11 @@ def _render_legacy(api: dict[str, Any], prompt_suffix: str | None = None) -> str
     # 对白区块
     all_dialogues: list[tuple[str, str, str]] = []  # (subject_ref, voice, dialogue)
     for sh in shots:
+        if not isinstance(sh, dict):
+            continue  # 脏数据防护：与上方镜头循环一致
         for sp in sh.get("speakers") or []:
+            if not isinstance(sp, dict):
+                continue  # 脏数据防护
             sub_ref = str(sp.get("subject") or "").strip()
             voice = str(sp.get("voice") or "").strip()
             dialogue = str(sp.get("dialogue") or "").strip()
