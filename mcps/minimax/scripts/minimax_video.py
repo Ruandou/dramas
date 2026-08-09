@@ -545,9 +545,16 @@ def role_file_to_path(shot: dict, file_key: str) -> str | None:
     return None
 
 
-def build_content_array(shot: dict, project_root: Path, cdn_registry: dict | None = None) -> list[dict]:
+def build_content_array(shot: dict, project_root: Path, cdn_registry: dict | None = None,
+                        prompt_suffix: str | None = None) -> list[dict]:
     api = shot.get("api") or {}
-    content: list[dict] = [{"type": "text", "text": api.get("text", "")}]
+    # 结构化 api 块（subjects/shots）→ 按 H3 Ref2VA 六段式渲染；无结构化块回退 api.text
+    try:
+        from prompt_renderer import render as _render_prompt
+        text = _render_prompt("minimax", api, prompt_suffix=prompt_suffix)
+    except Exception:
+        text = api.get("text", "")
+    content: list[dict] = [{"type": "text", "text": text}]
     for role_spec in api.get("content_roles") or []:
         file_key = role_spec["file"]
         # TOS URL 优先；无注册表/未命中时回退 assets 内 URL 或本地 data URI
@@ -575,7 +582,8 @@ def _build_body(episode: dict, item: dict, project_root: Path, cdn_registry: dic
     raw_dur = item.get("duration_sec", defaults.get("duration", 5))
     body: dict[str, Any] = {
         "model": default_model(),
-        "content": build_content_array(item, project_root, cdn_registry),
+        "content": build_content_array(item, project_root, cdn_registry,
+                                        prompt_suffix=defaults.get("prompt_suffix")),
         "ratio": defaults.get("ratio", "9:16"),
         "resolution": _normalize_resolution(defaults.get("resolution", "720p")),
         "duration": _clamp_duration(raw_dur),
