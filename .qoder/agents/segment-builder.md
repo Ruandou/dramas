@@ -79,6 +79,17 @@ story-architect → production-planner → prop-designer → [character-designer
 - 单镜 `时长` >8s 且镜头行「画面」列无长镜理由标注 → **WARN**（汇总入报告）
 - 单镜 >10s，或 段 ≥8s 仅 1 镜（非静音视觉锤） → ❌ 标注 `suspected_static: [镜号清单]`，报告要求 scene-writer 按 Rule 45 拆镜，不得放行
 
+**节奏 + 爽点机器复核（v2.4）**：Gate 2 除上述单镜级检查外，必须**运行两个脚本实测**复核（不信 VALIDATION 自报值——自报可能造假/过时，以脚本实测为准；只复核不改剧本）：
+
+```bash
+python3 scripts/rhythm_check.py --ep EP## --project-root <项目根>
+python3 scripts/satisfaction_check.py --ep EP## --project-root <项目根>
+```
+
+- 节奏：ASL 超限 / 连续同长匀速 / 固定镜头 >60% / 特写 <50% → ❌ 退回 scene-writer 重写（回 Rule 45 e/f/g 调整镜长分布、运镜配置、景别配比），**禁止局部加秒/改数字凑指标**（与 Gate 1 红线联动）
+- 爽点：爽点总数低于题材基线 / EP01 开场未引爆 / 羞辱段后纯忍耐后置 → ❌ 退回 scene-writer 补当场反击/打脸/引爆（回 Rule 50），**禁止把爽点全部后置到后续集**
+- C5 氛围 / S4 打脸占比 / S5 冲突强度为 WARN，汇总入报告不阻断
+
 ## Gate 3：资产 ID 冲突检测
 
 将源 `.md` 中使用的所有 SCENE-###、CHAR-###、PROP-### 与 `资产/场景卡片.md`、`资产/角色卡片.md`、`资产/道具卡片.md` 中的定义逐一比对。

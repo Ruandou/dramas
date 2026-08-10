@@ -622,6 +622,18 @@ drama-director 在以下时机检查审核报告：
 3. **基线对比**：低于题材基线的集标记为 **"爽感贫血"（Satisfaction Anemia）**
 4. **类型分布**：检查主打爽感类型是否符合题材配比（如复仇剧的 SAT-SLAP 占比应≥40%）
 
+### 机读衔接（v2.4，R2 剧本定稿门）
+
+R2 单集审查时，爽感密度维度**直接读取 `scripts/satisfaction_check.py` 机读结果**（而非纯人工定性）：
+
+```bash
+python3 scripts/satisfaction_check.py --ep EP## --project-root <项目根> --json
+```
+
+- **S1 爽点总数 / S2 开场引爆 / S3 冲突当场回应** 任一报错 → 该集爽感密度判 **FAIL**（硬门控），与 notes 清零协议联动：退回 scene-writer 按 Rule 50 补当场反击/打脸/引爆，修复后重跑核销
+- **S4 打脸占比 / S5 冲突强度** 为 WARN → 计 notes，按 notes 清零协议处理
+- 机读结果与人工定性冲突时，以机读为准（防 Goodhart 注水）；机读未覆盖的爽点质量（金句力度/情绪真实性）仍由人工定性补评
+
 ### 判定
 
 - **健康**：≥80% 的集数达到题材基线
