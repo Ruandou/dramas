@@ -10,6 +10,10 @@ DEFAULTS_FIELDS = ["endpoint", "model", "ratio", "resolution", "generate_audio",
                    "watermark", "prompt_suffix", "negative_prompt"]
 TOS_PATTERN = re.compile(r'https://drama-reference-images\.tos-cn-beijing\.volces\.com/')
 
+# 合法宽高比白名单（字符串形式）。YAML 1.1 会把无引号 `9:16` 按六十进制解析成
+# int 556，下游视频引擎 HTTP 400。G5 在此提前拦截，不等到提交才报错。
+VALID_RATIOS = {"9:16", "16:9", "1:1", "4:3", "3:4", "3:2", "2:3", "21:9", "auto"}
+
 
 def load_yaml(fpath: str) -> tuple:
     """Load YAML, return (data, errors)."""
@@ -58,6 +62,15 @@ def check_defaults(data: dict, label: str) -> list:
     for f in DEFAULTS_FIELDS:
         if f not in defaults:
             errors.append(f"{label} defaults 缺: {f}")
+    # ratio 必须是合法字符串；int（无引号 9:16 被六十进制解析成 556）一律拦截
+    if "ratio" in defaults:
+        r = defaults["ratio"]
+        if isinstance(r, bool) or not isinstance(r, (str, int)):
+            errors.append(f"{label} defaults.ratio 类型非法: {type(r).__name__}（须为字符串，如 \"9:16\"）")
+        elif isinstance(r, int):
+            errors.append(f"{label} defaults.ratio 是 int {r}（疑似无引号 `9:16` 被 YAML 六十进制解析），须加引号写成 \"9:16\"")
+        elif isinstance(r, str) and r.strip() not in VALID_RATIOS:
+            errors.append(f"{label} defaults.ratio 值非法: {r!r}（合法值: {sorted(VALID_RATIOS)}）")
     return errors
 
 

@@ -226,6 +226,52 @@ def video_defaults(engine_id: str | None = None) -> dict:
     return dict(VIDEO_DEFAULTS[eid])
 
 
+# 合法宽高比白名单（字符串形式）。YAML 1.1 会把无引号 `9:16` 按六十进制
+# 解析成 int（9*60+16=556），导致请求体 ratio=556 被引擎 HTTP 400 拒绝。
+# 本函数在解析端统一兜底：int 还原、str 规范化、非法值回退默认。
+VALID_RATIOS = {"9:16", "16:9", "1:1", "4:3", "3:4", "3:2", "2:3", "21:9", "auto"}
+
+# 六十进制 int → 标准 ratio 字符串的还原映射（PyYAML sexagesimal 解析产物）
+_SEXAGESIMAL_TO_RATIO = {
+    556: "9:16",   # 9*60+16
+    976: "16:9",   # 16*60+9
+    61: "1:1",     # 1*60+1
+    243: "4:3",    # 4*60+3
+    183: "3:4",    # 3*60+4
+    182: "3:2",    # 3*60+2
+    122: "2:3",    # 2*60+3
+    1269: "21:9",  # 21*60+9
+}
+
+
+def normalize_ratio(value, default: str = "9:16") -> str:
+    """把 YAML/参数解析后的 ratio 归一化为合法字符串，解析端统一兜底。
+
+    处理三类输入：
+      - int（YAML 1.1 无引号 `9:16` 被六十进制解析成 556）→ 还原为 "9:16"
+      - str（"9:16" / " 9:16 " / 带空白）→ strip 后校验白名单
+      - 其他/非法值 → 回退 default
+
+    所有视频引擎 CLI 在构造请求体前必须调用本函数，不得直接透传
+    `defaults.get("ratio")`（可能携带 int 556 导致引擎 HTTP 400）。
+    """
+    if isinstance(value, bool):  # bool 是 int 子类，先排除
+        return default
+    if isinstance(value, int):
+        return _SEXAGESIMAL_TO_RATIO.get(value, default)
+    if isinstance(value, float):  # 兜底：9.16 之类非法浮点
+        return default
+    if isinstance(value, str):
+        r = value.strip()
+        if r in VALID_RATIOS:
+            return r
+        # 尝试把 "556" 这类数字字符串也还原
+        if r.isdigit():
+            return _SEXAGESIMAL_TO_RATIO.get(int(r), default)
+        return default
+    return default
+
+
 if __name__ == "__main__":
     import json
 

@@ -57,6 +57,7 @@ if str(_SHARED_DIR) not in sys.path:
     sys.path.insert(0, str(_SHARED_DIR))
 
 import dedup
+import engine_registry
 from media_utils import (
     load_cdn_registry,
     lookup_tos_url,
@@ -219,7 +220,7 @@ def _segment_fingerprint(seg: dict, episode: dict) -> str:
             prompt=dedup.video_text_from_segment(seg),
             model=default_model(),
             duration=_clamp_duration(duration),
-            ratio=defaults.get("ratio", "9:16"),
+            ratio=engine_registry.normalize_ratio(defaults.get("ratio", "9:16")),
             resolution=_normalize_resolution(defaults.get("resolution", "720p")),
             media_urls=dedup.video_media_urls_from_segment(seg),
         )
@@ -589,7 +590,7 @@ def _build_body(episode: dict, item: dict, project_root: Path, cdn_registry: dic
         "content": build_content_array(item, project_root, cdn_registry,
                                         prompt_suffix=defaults.get("prompt_suffix"),
                                         prompt_suffix_silent=defaults.get("prompt_suffix_silent")),
-        "ratio": defaults.get("ratio", "9:16"),
+        "ratio": engine_registry.normalize_ratio(defaults.get("ratio", "9:16")),
         "resolution": _normalize_resolution(defaults.get("resolution", "720p")),
         "duration": _clamp_duration(raw_dur),
     }

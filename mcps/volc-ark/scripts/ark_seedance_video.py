@@ -41,6 +41,7 @@ if str(_SHARED_DIR) not in sys.path:
 from archive import list_tasks as list_local_tasks
 from project_task_archive import KIND_SEEDANCE, assert_valid_drama_project_root
 import dedup
+import engine_registry
 from ark_seedance_record import (
     record_status,
     record_submit,
@@ -384,7 +385,7 @@ def build_shot_body(episode: dict, shot: dict, project_root: Path) -> dict[str, 
         "content": build_content_array(shot, project_root,
                                         prompt_suffix=defaults.get("prompt_suffix"),
                                         prompt_suffix_silent=defaults.get("prompt_suffix_silent")),
-        "ratio": defaults.get("ratio", "9:16"),
+        "ratio": engine_registry.normalize_ratio(defaults.get("ratio", "9:16")),
         "resolution": defaults.get("resolution", "720p"),
         "duration": shot.get("duration_sec", defaults.get("duration", 5)),
         "generate_audio": defaults.get("generate_audio", False),
@@ -711,7 +712,7 @@ def build_segment_body(
         "content": build_segment_content_array(segment, project_root, cdn_registry,
                                                  prompt_suffix=defaults.get("prompt_suffix"),
                                                  prompt_suffix_silent=defaults.get("prompt_suffix_silent")),
-        "ratio": defaults.get("ratio", "9:16"),
+        "ratio": engine_registry.normalize_ratio(defaults.get("ratio", "9:16")),
         "resolution": defaults.get("resolution", "720p"),
         "duration": _clamp_duration(raw_dur, model),
         "generate_audio": defaults.get("generate_audio", True),
