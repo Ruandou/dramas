@@ -120,6 +120,8 @@ def resolve_thresholds(profile: dict) -> dict:
     for k in th:
         if k in profile and isinstance(profile[k], (int, float)):
             th[k] = profile[k]
+    # 横竖屏差异化：将 aspect_ratio 存入 th 供后续使用
+    th["aspect_ratio"] = profile.get("aspect_ratio", "9:16")
     return th
 
 
@@ -218,13 +220,14 @@ def check_rhythm(shots: list[dict], th: dict) -> tuple[list[str], list[str], dic
                 f"C3 非固定运镜仅 {len(nonfixed_types)} 种（{sorted(nonfixed_types) or '无'}），"
                 f"少于 {th['min_nonfixed_types']} 种——运镜单一")
 
-    # C4 特写占比
+    # C4 特写占比（横竖屏差异化：竖屏 50%，横屏 35%）
     closeup = sum(1 for s in sizes if s in CLOSEUP_SIZES)
     closeup_pct = closeup / n * 100
+    aspect_ratio = th.get("aspect_ratio", "9:16")  # 从 thresholds 读取宽高比
     if not small_sample and closeup_pct < th["closeup_min_pct"]:
         errors.append(
             f"C4 特写+近景占比 {closeup_pct:.0f}% 低于下限 {th['closeup_min_pct']}%"
-            f"（{closeup}/{n}）——竖屏特写为王，中景过多稀释情绪")
+            f"（{closeup}/{n}）——{'竖屏特写为王，中景过多稀释情绪' if aspect_ratio == '9:16' else '横屏特写占比下限较低（AI 面部失真风险规避），但当前仍不足'}")
 
     # C5 氛围/前景（首轮 WARN）
     atmo = sum(1 for v in visuals

@@ -192,10 +192,11 @@ items:
 gpt_image_docs()
 
 # 单张生成（道具）
+# 注意：ratio 应从 `制片规范.md` → `aspect_ratio` 读取（"9:16" 竖屏 / "16:9" 横屏），以下为竖屏示例
 gpt_image_generate(
   prompt="Prop reference photograph, single object isolated on warm neutral silk background, dramatic product lighting with soft shadows. ONE single ancient jade pendant...",
   output_path="assets/props/PROP-001.png",
-  ratio="9:16"
+  ratio="9:16"  # 横竖屏可选：从 `制片规范.md` → `aspect_ratio` 读取
 )
 
 # 批量生成（多个道具，读 image_batch_props.yaml）
@@ -211,6 +212,7 @@ gpt_image_batch(
 
 ```bash
 # 单张生成
+# 注意：--ratio 应从 `制片规范.md` → `aspect_ratio` 读取（9:16 竖屏 / 16:9 横屏），以下为竖屏示例
 python3 mcps/gpt-image/scripts/gpt_image.py generate \
   --prompt "Prop reference photograph, single object isolated on warm neutral silk background..." \
   --output assets/props/PROP-001.png \
@@ -328,15 +330,16 @@ Prop reference photograph, single object isolated on warm neutral silk backgroun
 
 ## 结尾固定格式
 
-所有道具 Prompt **必须**以此结尾：
+所有道具 Prompt **必须**以此结尾（横竖屏可选，从 `制片规范.md` → `aspect_ratio` 读取）：
 ```
-Vertical 9:16, detailed prop reference sheet.
+竖屏 9:16：Vertical 9:16, detailed prop reference sheet.
+横屏 16:9：Horizontal 16:9, detailed prop reference sheet.
 ```
 
 ## 道具 Prompt 模板
 
 ```
-Prop reference photograph, single object isolated on warm neutral silk background, dramatic product lighting with soft shadows. ONE single [详细物体描述：材质、尺寸、形状、颜色]. [年代/磨损/使用痕迹描述]. [工艺/文化特征描述]. [题材标签]. Vertical 9:16, detailed prop reference sheet.
+Prop reference photograph, single object isolated on warm neutral silk background, dramatic product lighting with soft shadows. ONE single [详细物体描述：材质、尺寸、形状、颜色]. [年代/磨损/使用痕迹描述]. [工艺/文化特征描述]. [题材标签]. [横竖屏格式：Vertical 9:16 / Horizontal 16:9], detailed prop reference sheet.
 ```
 
 ## 道具分类提示词要点
@@ -557,7 +560,7 @@ prop-designer 完成工作后，必须确保以下文件全部就绪，作为 St
 
 | 文件 | 说明 |
 |------|------|
-| `assets/props/PROP-###.png` | 每个道具的高质量参考图（9:16 竖屏） |
+| `assets/props/PROP-###.png` | 每个道具的高质量参考图（横竖屏可选，从 `制片规范.md` → `aspect_ratio` 读取：9:16 竖屏 / 16:9 横屏） |
 | `assets/props/cdn_urls.json` | 所有道具的永久 CDN URL 映射 |
 | `工作计划.md` 中道具状态 | 标记所有道具为"已完成"状态 |
 
@@ -681,7 +684,7 @@ prop-designer 完成工作后，必须确保以下文件全部就绪，作为 St
 2. **每张道具图只展示一件道具**（除非道具卡片明确标注配套物品）
 3. **道具背景必须为暖色中性丝绸**（不是白色、不是渐变色）
 4. **所有材质描述必须具体精确**——不得用"金属"代替"精铁/青铜/白银"等具体材质
-5. **不得生成分辨率低于 1600×2848 (9:16) 的图片生成参考图**。视频生成分辨率以 `制片规范.md` 中 `video_resolution` 字段为准（默认 720p）。
+5. **不得生成分辨率低于 `engine_registry.video_defaults(aspect_ratio)` 返回的 `image_resolution` 的图片生成参考图**（竖屏 9:16 = 1600×2848，横屏 16:9 = 2848×1600，从 `制片规范.md` → `aspect_ratio` 读取）。视频生成分辨率以 `制片规范.md` 中 `video_resolution` 字段为准（默认 720p）。
 6. **道具图的视觉风格必须与制片规范定义的写实摄影风格保持一致**
 7. **未经用户授权，不得调用付费图片/视频生成 API**；**严禁擅自更换/探测生成模型、引擎或模型别名**（含 `--model`、`GPT_IMAGE_MODEL`、`IMAGE_GEN_ENGINE` 等）——配置模型报错（如 HTTP 500 get_channel_failed）时立即停止并报告，等待用户裁决（AGENTS.md「禁止擅自更换生成模型/引擎」硬红线）
 8. **必须在所有角色设计和场景设计之前完成全部道具图 + 对象存储上传**——不得有遗漏

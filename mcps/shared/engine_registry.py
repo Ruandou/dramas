@@ -212,18 +212,33 @@ def storage_url(key: str) -> str:
     )
 
 
-def video_defaults(engine_id: str | None = None) -> dict:
-    """返回视频引擎的默认参数（model/时长限制/generate_audio 等）。
+def video_defaults(engine_id: str | None = None, aspect_ratio: str | None = None) -> dict:
+    """返回视频引擎的默认参数（model/时长限制/generate_audio 等），支持动态宽高比覆盖。
 
     不传 engine_id 时解析当前 video_gen 默认引擎。segment-builder 构建
     shots/segments YAML 的 `defaults` 块时读取；也是制片规范引擎参数定义的依据。
+
+    aspect_ratio 参数（可选）：
+      - "9:16"（竖屏，默认）→ image_resolution = "1600×2848"
+      - "16:9"（横屏）→ image_resolution = "2848×1600"
+    不传时返回引擎默认值（当前所有引擎默认 9:16）。
     """
     eid = engine_id or default_engine(CAP_VIDEO_GEN)
     if eid not in VIDEO_DEFAULTS:
         raise ValueError(
             f"视频引擎 {eid!r} 无默认参数；已配置: {sorted(VIDEO_DEFAULTS)}"
         )
-    return dict(VIDEO_DEFAULTS[eid])
+    defaults = dict(VIDEO_DEFAULTS[eid])
+
+    # 动态宽高比覆盖（横竖屏可选，2026-08-19）
+    if aspect_ratio:
+        defaults["ratio"] = normalize_ratio(aspect_ratio)
+        if aspect_ratio == "16:9":
+            defaults["image_resolution"] = "2848×1600"  # 横屏参考图
+        elif aspect_ratio == "9:16":
+            defaults["image_resolution"] = "1600×2848"  # 竖屏参考图
+
+    return defaults
 
 
 # 合法宽高比白名单（字符串形式）。YAML 1.1 会把无引号 `9:16` 按六十进制

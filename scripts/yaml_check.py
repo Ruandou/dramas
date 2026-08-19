@@ -54,7 +54,7 @@ def check_top_fields(data: dict, required: list, label: str) -> list:
     return errors
 
 
-def check_defaults(data: dict, label: str) -> list:
+def check_defaults(data: dict, label: str, project_root: str | None = None) -> list:
     errors = []
     defaults = data.get("defaults", {})
     if not isinstance(defaults, dict):
@@ -71,6 +71,24 @@ def check_defaults(data: dict, label: str) -> list:
             errors.append(f"{label} defaults.ratio 是 int {r}（疑似无引号 `9:16` 被 YAML 六十进制解析），须加引号写成 \"9:16\"")
         elif isinstance(r, str) and r.strip() not in VALID_RATIOS:
             errors.append(f"{label} defaults.ratio 值非法: {r!r}（合法值: {sorted(VALID_RATIOS)}）")
+        # 横竖屏一致性校验（2026-08-19）：defaults.ratio 必须与制片规范.md 的 aspect_ratio 一致
+        elif isinstance(r, str) and project_root:
+            spec_path = os.path.join(project_root, "制片规范.md")
+            if os.path.isfile(spec_path):
+                try:
+                    with open(spec_path, encoding="utf-8") as f:
+                        spec_content = f.read()
+                    # 从制片规范中提取 aspect_ratio（简单正则匹配，支持 episode_profile 嵌套）
+                    import re
+                    match = re.search(r'aspect_ratio:\s*["\']?([0-9:]+)["\']?', spec_content)
+                    if match:
+                        expected_ratio = match.group(1)
+                        if r.strip() != expected_ratio:
+                            errors.append(
+                                f"{label} defaults.ratio \"{r}\" 与制片规范 aspect_ratio \"{expected_ratio}\" 不一致——"
+                                f"横竖屏项目必须全剧统一，请检查制片规范或 YAML 配置")
+                except Exception:
+                    pass  # 读取失败不阻断（仅警告）
     return errors
 
 
@@ -305,7 +323,7 @@ def main():
             ("分号检测", lambda: check_semicolons(fpath)),
             ("⚠️注释检测", lambda: check_warning_comments(fpath)),
             ("顶层字段", lambda: check_top_fields(data, top_fields, label)),
-            ("defaults", lambda: check_defaults(data, label)),
+            ("defaults", lambda: check_defaults(data, label, a.project_root)),
             ("子项字段", lambda: item_check(data)),
             ("content_roles", lambda: check_content_roles(data, label)),
             ("URL格式", lambda: check_urls(data, label)),

@@ -135,12 +135,12 @@ source_md: 剧本/EP01/EP01_敲门.md
 defaults:
   endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
   model: doubao-seedance-2-0-fast-260128  # ⚠️ 必须带版本后缀（以制片规范中声明的完整名为准）；无后缀名方舟返回 404 InvalidEndpointOrModel.NotFound
-  ratio: "9:16"  # ⚠️ 必须加引号！无引号 `9:16` 会被 YAML 1.1 六十进制解析成 int 556 → 视频引擎 HTTP 400。shots/segments 两个 defaults 块都必须带引号
+  ratio: "9:16"  # ⚠️ 必须加引号！无引号 `9:16` 会被 YAML 1.1 六十进制解析成 int 556 → 视频引擎 HTTP 400。shots/segments 两个 defaults 块都必须带引号。横竖屏可选：从 `制片规范.md` → `aspect_ratio` 读取（"9:16" 竖屏 / "16:9" 横屏）
   resolution: 720p
   duration: 5  # 视频生成引擎模型默认视频长度（秒）；非单镜头时长。每段实际时长见 shot.duration_sec，须保证全集合计落入 75-120s（见 Gate 1）
   generate_audio: false  # shots 为中间产物，无需独立音频合成
   watermark: false
-  prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。现代都市住宅环境。"
+  prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。现代都市住宅环境。"  # 横竖屏可选：从 `制片规范.md` → `visual_grammar.prompt_suffix` 读取（竖屏 "竖屏9比16连贯叙事" / 横屏 "横屏16比9连贯叙事"）
   negative_prompt: "real celebrity face, real brand logo, ancient costume, weapon, military uniform, gun, explosion, anime style, cartoon style"
 
 shots:
@@ -229,7 +229,7 @@ defaults:
   resolution: 720p
   generate_audio: true  # segments 为最终 API 提交单位，需合成配音音轨
   watermark: false
-  prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。现代都市住宅环境。"
+  prompt_suffix: "禁止画面中出现任何文字或字幕。真人实拍质感，电影级色彩，浅景深。现代都市住宅环境。"  # 横竖屏可选：从 `制片规范.md` → `visual_grammar.prompt_suffix` 读取（竖屏 "竖屏9比16连贯叙事" / 横屏 "横屏16比9连贯叙事"）
   prompt_suffix_silent: "本段无对白无语音，禁止画面中出现任何文字。真人实拍质感，电影级色彩，浅景深。现代都市住宅环境。"
   negative_prompt: "real celebrity face, real brand logo, ancient costume, weapon, military uniform, gun, explosion, anime style, cartoon style"
 
@@ -267,11 +267,11 @@ segments:
     api:
       text: |
         【图1】陆见 CHAR-001-L01（灰色卫衣）【图2】客厅 SCENE-001。
-        竖屏9比16连贯叙事。
+        横竖屏连贯叙事（从 `制片规范.md` → `visual_grammar.prompt_suffix` 读取）。
         镜头1（4秒）特写 固定：暴雨夜窗户雨水，图1背影双显示器蓝光映脸。
         镜头2（4秒）中景 缓推：图1起身拿外套走向门口。
         画面全程无任何文字、字幕、标题、水印。
-        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+        现代中国都市住宅小区，写实都市剧风格，横竖屏可选（从 `制片规范.md` → `aspect_ratio` 读取），无品牌 Logo，无平台 UI。
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: SCENE-001, role: reference_image, label: 图2 }
@@ -382,14 +382,14 @@ api:
 【图1】角色名 CHAR-###-L##（服装描述）【图2】场景名 SCENE-###。
 角色分工：仅图1可[触碰道具/执行动作]；图2禁止[某动作]。
 道具：[具体描述，含尺寸参考]。
-竖屏9比16连贯叙事。
+横竖屏连贯叙事（从 `制片规范.md` → `visual_grammar.prompt_suffix` 读取：竖屏 "竖屏9比16连贯叙事" / 横屏 "横屏16比9连贯叙事"）。
 镜头1（Xs）[景别] [运镜]：[纯视觉动作描述，不含对白，用图N指代角色]
 镜头2（Xs）[景别] [运镜]：[纯视觉动作描述，不含对白，用图N指代角色]
 [以下对白仅供语音合成，严禁在画面中显示任何文字]
 对白（角色A，{voice_prompt}）：「台词内容」
 对白（角色B，{voice_prompt}）：「台词内容」
 画面全程无任何文字、字幕、标题、水印。
-{topic_style_description}，写实风格，竖屏9比16，{negative_constraints}。
+{topic_style_description}，写实风格，横竖屏格式（从 `制片规范.md` → `aspect_ratio` 读取：竖屏 "竖屏9比16" / 横屏 "横屏16比9"），{negative_constraints}。
 ```
 
 ## 逐行规则
@@ -442,7 +442,7 @@ api:
 ### 6. 尾部
 
 - `画面全程无任何文字、字幕、标题、水印。`
-- `{题材风格描述}，写实风格，竖屏9比16，{负面约束}。`
+- `{题材风格描述}，写实风格，横竖屏格式（从 `制片规范.md` → `aspect_ratio` 读取：竖屏 "竖屏9比16" / 横屏 "横屏16比9"），{负面约束}。`
 - 题材风格和负面约束从 `制片规范.md` 的 `prompt_suffix` 和 `negative_prompt` 读取
 
 ### 7. 静音段特殊处理
@@ -685,13 +685,13 @@ segments:
     api:
       text: |
         【图1】陆见 CHAR-001-L01（灰色连帽卫衣，衣袖微卷）【图2】客厅 SCENE-001。
-        竖屏9比16连贯叙事。
+        横竖屏连贯叙事（从 `制片规范.md` → `visual_grammar.prompt_suffix` 读取）。
         镜头1（5秒）特写 固定：暴雨夜窗外雨水沿玻璃滑落，图1背影坐在双显示器前，蓝光映射侧脸，肩膀微微缩起。
         镜头2（5秒）中景 缓推：图1缓缓起身，从椅背上拿起灰色外套，转身走向门口，脚步犹豫。
         [以下对白仅供语音合成，严禁在画面中显示任何文字]
         对白（陆见，成年男性，27岁，语调平缓偏低沉，带有轻微社恐感，语速偏慢，说话时常停顿）：「又下雨了……」
         画面全程无任何文字、字幕、标题、水印。
-        现代中国都市住宅小区，写实都市剧风格，竖屏9比16，无品牌 Logo，无平台 UI。
+        现代中国都市住宅小区，写实都市剧风格，横竖屏可选（从 `制片规范.md` → `aspect_ratio` 读取），无品牌 Logo，无平台 UI。
       content_roles:
         - { file: CHAR-001-L01, role: reference_image, label: 图1 }
         - { file: SCENE-001, role: reference_image, label: 图2 }
@@ -713,7 +713,7 @@ segments:
     api:
       text: |
         【图1】小区楼道 SCENE-002。
-        竖屏9比16连贯叙事。
+        横竖屏连贯叙事（从 `制片规范.md` → `visual_grammar.prompt_suffix` 读取）。
         镜头1（6秒）全景 固定：暴雨夜小区楼道，昏暗的声控灯闪烁，雨水从门廊滴落形成水帘，远处路灯光晕被雨幕模糊。
         画面全程无任何文字、字幕、标题、水印。
         本段无对白无语音，禁止画面中出现任何文字。真人实拍质感，电影级色彩，浅景深。现代都市住宅环境。
