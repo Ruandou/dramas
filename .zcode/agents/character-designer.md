@@ -1390,10 +1390,11 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 gpt_image_docs()
 
 # 生成角色 L01 基础形象（待生成 道具传存储永久 URL；角色内置 道具不传图）
+# 注意：ratio 应从 `制片规范.md` → `aspect_ratio` 读取（"9:16" 竖屏 / "16:9" 横屏），以下为竖屏示例
 gpt_image_generate(
   prompt="Character reference sheet, full body front view, white background. Young male, 25 years old...",
   output_path="assets/looks/CHAR-001-L01.png",
-  ratio="9:16",
+  ratio="9:16",  # 横竖屏可选：从 `制片规范.md` → `aspect_ratio` 读取
   image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"]  # 存储永久 URL（当前 TOS）
 )
 
@@ -1401,7 +1402,7 @@ gpt_image_generate(
 gpt_image_generate(
   prompt="Character reference sheet, full body front view, white background. Same character in formal attire...",
   output_path="assets/looks/CHAR-001-L02.png",
-  ratio="9:16",
+  ratio="9:16",  # 横竖屏可选：从 `制片规范.md` → `aspect_ratio` 读取
   image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑骨霜心/CHAR-001-L01.png"]  # L01 存储永久 URL
 )
 
@@ -1418,6 +1419,7 @@ gpt_image_batch(
 
 ```bash
 # 单张生成（带存储永久 URL 参考图）
+# 注意：--ratio 应从 `制片规范.md` → `aspect_ratio` 读取（9:16 竖屏 / 16:9 横屏），以下为竖屏示例
 python3 mcps/gpt-image/scripts/gpt_image.py generate \
   --prompt "Character reference sheet, full body front view, white background..." \
   --output assets/looks/CHAR-001-L01.png \
@@ -1522,7 +1524,7 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 - 每个角色必须有明确的戏剧功能，禁止"装饰性角色"（存在但不推动情节的角色）
 - 主要角色总数控制在5-8人以内（AI生成一致性限制，角色越多越难保持画面一致）
 - 角色命名需简短、好记、有辨识度，避免同音或过于相似的名字
-- 所有角色的视觉设计需考虑竖屏9:16构图——定妆照必须确保从头顶到脚底完整可见（包含鞋/足部），面部为辨识锚点但全身服装与体态同等重要。竖屏比例意味着人物在画面中占比较高，但绝不允许裁切为半身像。
+- 所有角色的视觉设计需考虑横竖屏构图（从 `制片规范.md` → `aspect_ratio` 读取：竖屏 9:16 / 横屏 16:9）——定妆照必须确保从头顶到脚底完整可见（包含鞋/足部），面部为辨识锚点但全身服装与体态同等重要。竖屏比例意味着人物在画面中占比较高，但绝不允许裁切为半身像；横屏比例可允许更多环境叙事空间。
 - 反派角色必须在出场的前10秒内通过行为（而非旁白）建立恨意
 - 角色 ID 由 production-planner 预分配，character-designer 不得更改、新增或复用已有 ID
 - voice_prompt 必须严格遵循「性别，年龄，音色，语速，情绪/习惯」五要素格式

@@ -593,7 +593,7 @@ production-planner 完成后产出以下文件：
 | 渲染风格 | [photorealistic / stylized realism / 等] |
 | 镜头参考 | [cinematic 85mm lens / wide-angle 24mm / 等] |
 | 色调方向 | [warm golden tone / cool desaturated / 等] |
-| 画幅 | 9:16 vertical |
+| 画幅 | 9:16 vertical / 16:9 horizontal（从 `制片规范.md` → `aspect_ratio` 读取） |
 | 题材关键词 | [3-5 个定义整体美学的词] |
 
 ## 三、目录结构
