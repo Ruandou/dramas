@@ -512,7 +512,7 @@ L01 是角色全剧面部一致性的唯一锚点。生成 L01 参考图时**必
 - 古装项目：`...photorealistic costume reference, period-accurate historical costume, warm candlelight atmosphere, NOT anime, NOT cartoon, NOT illustration, NOT manga`
 
 ```
-Photorealistic costume reference, wide shot showing entire figure from head to toe with feet and shoes clearly visible at the bottom edge of the frame, single person standing upright facing the camera, plain white background, clean flat studio lighting. Full body fully visible, not cropped. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. Vertical 9:16, photorealistic costume reference, [style_anchors from 制片规范 or genre mapping], realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.
+Photorealistic costume reference, wide shot showing entire figure from head to toe with feet and shoes clearly visible at the bottom edge of the frame, single person standing upright facing the camera, plain white background, clean flat studio lighting. Full body fully visible, not cropped. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. [横竖屏格式：Vertical 9:16 / Horizontal 16:9，从 `制片规范.md` → `aspect_ratio` 读取], photorealistic costume reference, [style_anchors from 制片规范 or genre mapping], realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.
 ```
 
 **道具融入规则**（当角色持有已注册 PROP 时，分类由 production-planner 在 Stage 2 确定）：

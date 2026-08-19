@@ -328,15 +328,16 @@ Prop reference photograph, single object isolated on warm neutral silk backgroun
 
 ## 结尾固定格式
 
-所有道具 Prompt **必须**以此结尾：
+所有道具 Prompt **必须**以此结尾（横竖屏可选，从 `制片规范.md` → `aspect_ratio` 读取）：
 ```
-Vertical 9:16, detailed prop reference sheet.
+竖屏 9:16：Vertical 9:16, detailed prop reference sheet.
+横屏 16:9：Horizontal 16:9, detailed prop reference sheet.
 ```
 
 ## 道具 Prompt 模板
 
 ```
-Prop reference photograph, single object isolated on warm neutral silk background, dramatic product lighting with soft shadows. ONE single [详细物体描述：材质、尺寸、形状、颜色]. [年代/磨损/使用痕迹描述]. [工艺/文化特征描述]. [题材标签]. Vertical 9:16, detailed prop reference sheet.
+Prop reference photograph, single object isolated on warm neutral silk background, dramatic product lighting with soft shadows. ONE single [详细物体描述：材质、尺寸、形状、颜色]. [年代/磨损/使用痕迹描述]. [工艺/文化特征描述]. [题材标签]. [横竖屏格式：Vertical 9:16 / Horizontal 16:9], detailed prop reference sheet.
 ```
 
 ## 道具分类提示词要点
@@ -557,7 +558,7 @@ prop-designer 完成工作后，必须确保以下文件全部就绪，作为 St
 
 | 文件 | 说明 |
 |------|------|
-| `assets/props/PROP-###.png` | 每个道具的高质量参考图（9:16 竖屏） |
+| `assets/props/PROP-###.png` | 每个道具的高质量参考图（横竖屏可选，从 `制片规范.md` → `aspect_ratio` 读取：9:16 竖屏 / 16:9 横屏） |
 | `assets/props/cdn_urls.json` | 所有道具的永久 CDN URL 映射 |
 | `工作计划.md` 中道具状态 | 标记所有道具为"已完成"状态 |
 
