@@ -1390,7 +1390,7 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 gpt_image_docs()
 
 # 生成角色 L01 基础形象（待生成 道具传存储永久 URL；角色内置 道具不传图）
-# 注意：ratio 应从 `制片规范.md` → `aspect_ratio` 读取（"9:16" 竖屏 / "16:9" 横屏），以下为竖屏示例
+# 注意：ratio 应从 `制片规范.md` → `aspect_ratio` 读取（9:16 竖屏 / 16:9 横屏），以下为竖屏示例
 gpt_image_generate(
   prompt="Character reference sheet, full body front view, white background. Young male, 25 years old...",
   output_path="assets/looks/CHAR-001-L01.png",
@@ -1399,6 +1399,7 @@ gpt_image_generate(
 )
 
 # 生成角色 L02 衍生形象（使用 L01 的存储永久 URL）
+# 注意：ratio 应从 `制片规范.md` → `aspect_ratio` 读取（9:16 竖屏 / 16:9 横屏），以下为竖屏示例
 gpt_image_generate(
   prompt="Character reference sheet, full body front view, white background. Same character in formal attire...",
   output_path="assets/looks/CHAR-001-L02.png",

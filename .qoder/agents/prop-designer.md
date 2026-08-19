@@ -192,10 +192,11 @@ items:
 gpt_image_docs()
 
 # 单张生成（道具）
+# 注意：ratio 应从 `制片规范.md` → `aspect_ratio` 读取（"9:16" 竖屏 / "16:9" 横屏），以下为竖屏示例
 gpt_image_generate(
   prompt="Prop reference photograph, single object isolated on warm neutral silk background, dramatic product lighting with soft shadows. ONE single ancient jade pendant...",
   output_path="assets/props/PROP-001.png",
-  ratio="9:16"
+  ratio="9:16"  # 横竖屏可选：从 `制片规范.md` → `aspect_ratio` 读取
 )
 
 # 批量生成（多个道具，读 image_batch_props.yaml）
@@ -211,6 +212,7 @@ gpt_image_batch(
 
 ```bash
 # 单张生成
+# 注意：--ratio 应从 `制片规范.md` → `aspect_ratio` 读取（9:16 竖屏 / 16:9 横屏），以下为竖屏示例
 python3 mcps/gpt-image/scripts/gpt_image.py generate \
   --prompt "Prop reference photograph, single object isolated on warm neutral silk background..." \
   --output assets/props/PROP-001.png \
