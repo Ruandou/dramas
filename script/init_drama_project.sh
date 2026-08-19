@@ -8,8 +8,10 @@
 #   个脚本（而非手写 mkdir），路径完全由脚本控制、模型无决定空间。
 #
 # 用法：
-#   script/init_drama_project.sh <剧名>            # 在仓库根的 dramas/ 下创建 dramas/<剧名>/
-#   script/init_drama_project.sh <剧名> --dry-run  # 只打印将要创建的路径不写盘
+#   script/init_drama_project.sh <剧名>                      # 在仓库根的 dramas/ 下创建 dramas/<剧名>/（默认竖屏 9:16）
+#   script/init_drama_project.sh <剧名> --ratio 16:9         # 创建横屏项目
+#   script/init_drama_project.sh <剧名> --dry-run            # 只打印将要创建的路径不写盘
+#   script/init_drama_project.sh <剧名> --ratio 16:9 --dry-run
 #
 # 守门规则（脚本内置）：
 #   1. 必须从仓库根调用（脚本自动按自身位置回溯）；若不在仓库根、或仓库根下找不到 dramas/
@@ -22,14 +24,29 @@ set -euo pipefail
 
 DRY_RUN=0
 TITLE=""
-for a in "$@"; do
-  case "$a" in
-    --dry-run) DRY_RUN=1 ;;
+RATIO="9:16"  # 默认竖屏
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --dry-run) DRY_RUN=1; shift ;;
+    --ratio) RATIO="$2"; shift 2 ;;
     -h|--help)
       sed -n '1,30p' "$0"; exit 0 ;;
-    *) TITLE="$a" ;;
+    *) TITLE="$1"; shift ;;
   esac
 done
+
+# 校验 ratio 合法性
+if [ "$RATIO" != "9:16" ] && [ "$RATIO" != "16:9" ]; then
+  echo "❌ --ratio 参数非法：$RATIO（合法值：9:16 竖屏 / 16:9 横屏）" >&2
+  exit 2
+fi
+
+# 根据 ratio 选择 episode_profile
+if [ "$RATIO" = "16:9" ]; then
+  PROFILE="standard-86-horizontal"
+else
+  PROFILE="standard-86"
+fi
 
 # 1. 定位仓库根：脚本位于 <repo>/script/init_drama_project.sh
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -44,8 +61,9 @@ fi
 
 # 2. 校验剧名
 if [ -z "$TITLE" ]; then
-  echo "用法: $(basename "$0") <剧名> [--dry-run]" >&2
+  echo "用法: $(basename "$0") <剧名> [--ratio 9:16|16:9] [--dry-run]" >&2
   echo "例:   $(basename "$0") 三个闺蜜一台戏" >&2
+  echo "例:   $(basename "$0") 横屏测试剧 --ratio 16:9" >&2
   exit 2
 fi
 case "$TITLE" in
@@ -121,6 +139,11 @@ cat > "$PROJ_ROOT/制片规范.md" <<EOF
 
 > 占位文件。由 \`production-planner\` 在 Stage 2 填充：ID 系统、资产骨架、分段规则。
 > 创建时间：$(date "+%Y-%m-%d %H:%M:%S")
+
+## 项目配置
+
+episode_profile: $PROFILE
+aspect_ratio: "$RATIO"
 EOF
 
 cat > "$PROJ_ROOT/工作计划.md" <<EOF
@@ -147,6 +170,12 @@ EOF
 chmod +x "$PROJ_ROOT/assets" 2>/dev/null || true
 
 echo "✅ 已创建项目：$PROJ_ROOT"
+if [ "$RATIO" = "16:9" ]; then
+  echo "   宽高比：$RATIO（横屏）"
+else
+  echo "   宽高比：$RATIO（竖屏）"
+fi
+echo "   episode_profile：$PROFILE"
 echo "骨架:"
 ( cd "$PROJ_ROOT" && find . -type f -o -type d | sort | sed 's/^/  /' )
 echo ""
