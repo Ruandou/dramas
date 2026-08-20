@@ -37,7 +37,7 @@ done
 
 # 校验 ratio 合法性
 if [ "$RATIO" != "9:16" ] && [ "$RATIO" != "16:9" ]; then
-  echo "❌ --ratio 参数非法：$RATIO（合法值：9:16 竖屏 / 16:9 横屏）" >&2
+  echo "❌ --ratio 参数非法：${RATIO}（合法值：9:16 竖屏 / 16:9 横屏）" >&2
   exit 2
 fi
 
@@ -171,9 +171,9 @@ chmod +x "$PROJ_ROOT/assets" 2>/dev/null || true
 
 echo "✅ 已创建项目：$PROJ_ROOT"
 if [ "$RATIO" = "16:9" ]; then
-  echo "   宽高比：$RATIO（横屏）"
+  echo "   宽高比：${RATIO}（横屏）"
 else
-  echo "   宽高比：$RATIO（竖屏）"
+  echo "   宽高比：${RATIO}（竖屏）"
 fi
 echo "   episode_profile：$PROFILE"
 echo "骨架:"

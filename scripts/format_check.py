@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """格式门控 — 检查分集剧本的格式一致性。drama-director G4 首项检查。"""
-import argparse, os, re, sys, yaml
+import argparse, glob, os, re, sys, yaml
 
 REQUIRED_SECTIONS = [
     "元信息摘要", "时长预算表", "本集观众必须听懂",
@@ -78,9 +78,11 @@ def main():
     p.add_argument("--project-root", required=True)
     a = p.parse_args()
 
-    fpath = os.path.join(a.project_root, "剧本", a.ep, f"{a.ep}_剧本.md")
-    if not os.path.exists(fpath):
-        print(f"文件不存在: {fpath}"); sys.exit(1)
+    # 规范命名 EP##_[集标题].md；glob 兼容（与 dialogue_lint.py 一致），避免硬编码 EP##_剧本.md
+    cands = sorted(glob.glob(os.path.join(a.project_root, "剧本", a.ep, f"{a.ep}*.md")))
+    if not cands:
+        print(f"❌ 未找到剧本: {a.project_root}/剧本/{a.ep}/{a.ep}*.md"); sys.exit(1)
+    fpath = cands[0]
 
     with open(fpath) as f:
         c = f.read()
