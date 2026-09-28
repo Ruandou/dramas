@@ -34,6 +34,9 @@
 > ```
 > （删除时连同两端一起删。）
 >
+> **⚠️ 硬链接会被 git 打断（2026-09-28 实测漂移）**：git 把两侧当成两个独立 blob 存储，因此「只提交一边」或「`git checkout`/`merge` 换分支」都会让 inode 断开、两侧内容各自演化。本仓库就出现过 `.zcode/agents/` 落后 9-14 天的情况（缺 08-19 横竖屏可选改造、缺 08-08 场景变体 `image_urls` 硬门控）——ZCode 加载的是 `.zcode` 那份，漂移等于按旧规则干活。
+> 校验与修复：`script/check_zcode_agents.sh`（只报告）/ `script/check_zcode_agents.sh --fix`（以 `.qoder/agents/` 为准重建硬链接）。**换分支、合并、或改完 agent 定义后跑一次。**
+>
 > **历史**：早期按「ZCode CLI 读 `.zcode/cli/agents/`」推测放的 symlink 占位已删除——实际加载器只看 `.zcode/agents/`（无 `cli` 段），且 symlink 被 `isFile()` 过滤，故该旧目录本就不参与加载。
 
 ### Agent 列表
