@@ -19,9 +19,11 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-# **CHAR-001**[点头·极静]：「好。……」 / **旁白**：「……」（兼容全角括号［］）
+# **CHAR-001**[点头·极静]：「好。……」 / [待补：年轻守卫][呵斥]：「…」 / **旁白**：「……」（待补 speaker 无粗体，与 dialogue_lint.py/spec 一致）
+# （兼容全角括号［］；[待补：…] 为未分配 ID 的群演占位，同样计入审查，见 dialogue_lint.py）
 RE_LINE = re.compile(
-    r"\*\*(CHAR-[A-Z0-9-]+|旁白)\*\*(?:[\[［]([^\]］]*)[\]］])?：「([^」]*)」"
+    r"(?:\*\*(CHAR-[A-Z0-9-]+|旁白)\*\*|\[待补：([^\]]+)\])"
+    r"(?:[\[［]([^\]］]*)[\]］])?：「([^」]*)」"
 )
 RE_SEG = re.compile(r"^##\s+(SEG\d+\s*[—-].*?)\s*$")
 RE_SHOT = re.compile(r"`(EP\d+-S\d+)`")
@@ -77,7 +79,10 @@ def export(script_path: Path, name_map: dict, out_path: Path) -> int:
         shot = RE_SHOT.search(raw)
         if shot:
             cur_shot = shot.group(1).split("-")[-1]
-        for who, mood, line in RE_LINE.findall(raw):
+        for m in RE_LINE.finditer(raw):
+            who = m.group(1) or "待补：" + m.group(2)
+            mood = m.group(3) or ""
+            line = m.group(4)
             name = name_map.get(who, who) if who != "旁白" else "旁白"
             mood_s = f"[{mood}]" if mood else ""
             out.append(f"{cur_shot:>4} {name}{mood_s}：{line}")
@@ -122,7 +127,7 @@ def main() -> None:
     out_path = Path(args.output) if args.output else script_path.parent / f"{ep}_对白_审查.txt"
     n = export(script_path, name_map, out_path)
     if n == 0:
-        sys.exit("❌ 未解析到任何台词行，检查剧本格式（**CHAR-###**[标注]：「…」）")
+        sys.exit("❌ 未解析到任何台词行，检查剧本格式（**CHAR-###**[标注]：「…」 / **[待补：…]**[标注]：「…」）")
 
 
 if __name__ == "__main__":

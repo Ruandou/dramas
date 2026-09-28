@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """格式门控 — 检查分集剧本的格式一致性。drama-director G4 首项检查。"""
-import argparse, os, re, sys, yaml
+import argparse, glob, os, re, sys, yaml
 
 REQUIRED_SECTIONS = [
     "元信息摘要", "时长预算表", "本集观众必须听懂",
@@ -9,17 +9,16 @@ REQUIRED_SECTIONS = [
 
 def check_frontmatter(fm: dict) -> list:
     errors = []
-    for f in ["episode_id", "episode_title", "duration_min", "season",
+    for f in ["episode_id", "episode_title", "season",
               "scene_ids", "character_ids", "look_ids", "prop_ids"]:
         if f not in fm:
             errors.append(f"缺顶层字段: {f}")
-    sd = fm.get("seedance_defaults", {})
-    if not isinstance(sd, dict):
-        return errors + ["缺 seedance_defaults 块"]
-    for f in ["model", "ratio", "resolution", "duration_sec",
-              "generate_audio", "prompt_suffix", "negative_prompt"]:
-        if f not in sd:
-            errors.append(f"seedance_defaults 缺: {f}")
+    # 时长字段：新契约用 duration_sec（秒，整数，与制作层 episode_profile 口径一致）；
+    # 历史剧本用 duration_min（分钟），兼容两者至少其一（历史文件不迁移）。
+    if "duration_sec" not in fm and "duration_min" not in fm:
+        errors.append("缺时长字段: duration_sec（或历史格式 duration_min）")
+    # 制作参数（model/ratio/resolution/...）不属于剧本层，由 yaml_check 在制作层把关，
+    # 分集剧本 frontmatter 不再校验 seedance_defaults。
     return errors
 
 
@@ -79,9 +78,11 @@ def main():
     p.add_argument("--project-root", required=True)
     a = p.parse_args()
 
-    fpath = os.path.join(a.project_root, "剧本", a.ep, f"{a.ep}_剧本.md")
-    if not os.path.exists(fpath):
-        print(f"文件不存在: {fpath}"); sys.exit(1)
+    # 规范命名 EP##_[集标题].md；glob 兼容（与 dialogue_lint.py 一致），避免硬编码 EP##_剧本.md
+    cands = sorted(glob.glob(os.path.join(a.project_root, "剧本", a.ep, f"{a.ep}*.md")))
+    if not cands:
+        print(f"❌ 未找到剧本: {a.project_root}/剧本/{a.ep}/{a.ep}*.md"); sys.exit(1)
+    fpath = cands[0]
 
     with open(fpath) as f:
         c = f.read()

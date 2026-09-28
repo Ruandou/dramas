@@ -20,6 +20,13 @@ import uuid
 from datetime import datetime
 from pathlib import Path
 
+# 公共基建层 mcps/shared（ratio 归一化等）
+_SHARED_DIR = Path(__file__).resolve().parents[2] / "shared"
+if str(_SHARED_DIR) not in sys.path:
+    sys.path.insert(0, str(_SHARED_DIR))
+
+import engine_registry
+
 # ============ API配置 ============
 KLING_API_BASE = "https://api-beijing.klingai.com"
 
@@ -872,7 +879,7 @@ def mcp_main():
                 params.get("image_path", ""),
                 params.get("prompt", ""),
                 params.get("duration", 5),
-                params.get("aspect_ratio", "9:16"),
+                engine_registry.normalize_ratio(params.get("aspect_ratio", "9:16")),
                 params.get("audio_prompt", ""),
                 params.get("model", "kling-v3-omni"),
                 mcp_mode=True
@@ -881,7 +888,7 @@ def mcp_main():
             result = text_to_video(
                 params.get("prompt", ""),
                 params.get("duration", 5),
-                params.get("aspect_ratio", "9:16"),
+                engine_registry.normalize_ratio(params.get("aspect_ratio", "9:16")),
                 params.get("audio_prompt", ""),
                 params.get("model", "kling-v3-omni"),
                 mcp_mode=True
@@ -901,7 +908,7 @@ def mcp_main():
                 params.get("image_paths", ""),
                 params.get("prompt", ""),
                 params.get("duration", 5),
-                params.get("aspect_ratio", "9:16"),
+                engine_registry.normalize_ratio(params.get("aspect_ratio", "9:16")),
                 params.get("model", "kling-v3-omni"),
                 mcp_mode=True
             )

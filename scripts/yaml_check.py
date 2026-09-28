@@ -10,6 +10,10 @@ DEFAULTS_FIELDS = ["endpoint", "model", "ratio", "resolution", "generate_audio",
                    "watermark", "prompt_suffix", "negative_prompt"]
 TOS_PATTERN = re.compile(r'https://drama-reference-images\.tos-cn-beijing\.volces\.com/')
 
+# 合法宽高比白名单（字符串形式）。YAML 1.1 会把无引号 `9:16` 按六十进制解析成
+# int 556，下游视频引擎 HTTP 400。G5 在此提前拦截，不等到提交才报错。
+VALID_RATIOS = {"9:16", "16:9", "1:1", "4:3", "3:4", "3:2", "2:3", "21:9", "auto"}
+
 
 def load_yaml(fpath: str) -> tuple:
     """Load YAML, return (data, errors)."""
@@ -50,7 +54,7 @@ def check_top_fields(data: dict, required: list, label: str) -> list:
     return errors
 
 
-def check_defaults(data: dict, label: str) -> list:
+def check_defaults(data: dict, label: str, project_root: str | None = None) -> list:
     errors = []
     defaults = data.get("defaults", {})
     if not isinstance(defaults, dict):
@@ -58,6 +62,33 @@ def check_defaults(data: dict, label: str) -> list:
     for f in DEFAULTS_FIELDS:
         if f not in defaults:
             errors.append(f"{label} defaults 缺: {f}")
+    # ratio 必须是合法字符串；int（无引号 9:16 被六十进制解析成 556）一律拦截
+    if "ratio" in defaults:
+        r = defaults["ratio"]
+        if isinstance(r, bool) or not isinstance(r, (str, int)):
+            errors.append(f"{label} defaults.ratio 类型非法: {type(r).__name__}（须为字符串，如 \"9:16\"）")
+        elif isinstance(r, int):
+            errors.append(f"{label} defaults.ratio 是 int {r}（疑似无引号 `9:16` 被 YAML 六十进制解析），须加引号写成 \"9:16\"")
+        elif isinstance(r, str) and r.strip() not in VALID_RATIOS:
+            errors.append(f"{label} defaults.ratio 值非法: {r!r}（合法值: {sorted(VALID_RATIOS)}）")
+        # 横竖屏一致性校验（2026-08-19）：defaults.ratio 必须与制片规范.md 的 aspect_ratio 一致
+        elif isinstance(r, str) and project_root:
+            spec_path = os.path.join(project_root, "制片规范.md")
+            if os.path.isfile(spec_path):
+                try:
+                    with open(spec_path, encoding="utf-8") as f:
+                        spec_content = f.read()
+                    # 从制片规范中提取 aspect_ratio（简单正则匹配，支持 episode_profile 嵌套）
+                    import re
+                    match = re.search(r'aspect_ratio:\s*["\']?([0-9:]+)["\']?', spec_content)
+                    if match:
+                        expected_ratio = match.group(1)
+                        if r.strip() != expected_ratio:
+                            errors.append(
+                                f"{label} defaults.ratio \"{r}\" 与制片规范 aspect_ratio \"{expected_ratio}\" 不一致——"
+                                f"横竖屏项目必须全剧统一，请检查制片规范或 YAML 配置")
+                except Exception:
+                    pass  # 读取失败不阻断（仅警告）
     return errors
 
 
@@ -135,7 +166,10 @@ def check_warning_comments(fpath: str) -> list:
 
 
 def check_tu_refs(data: dict, label: str) -> list:
-    """Check api.text uses 图N references instead of character names."""
+    """Check api.text uses 图N references instead of character names.
+
+    仅适用于旧格式（无结构化 api 块）；已迁移的结构化块（subjects+shots）
+    text 仅为兜底产物，图N/角色名校验由 check_structured_api 负责，此处跳过。"""
     errors = []
     import re
     items = data.get("segments", []) if label == "segments" else data.get("shots", [])
@@ -145,6 +179,8 @@ def check_tu_refs(data: dict, label: str) -> list:
         api = item.get("api", {})
         if not isinstance(api, dict):
             continue
+        if isinstance(api.get("subjects"), list) and isinstance(api.get("shots"), list):
+            continue  # 结构化块跳过（text 为兜底）
         text = api.get("text", "")
         if not isinstance(text, str):
             continue
@@ -160,6 +196,87 @@ def check_tu_refs(data: dict, label: str) -> list:
                     # Has action verb but no图N - likely using character name
                     errors.append(f"{label}[{i}].api.text 镜头描述可能含角色名而非图N引用")
                     break
+    return errors
+
+
+def check_structured_api(data: dict, label: str) -> list:
+    """结构化 api 块校验（P2 主推写法）：speakers.subject 必须命中 subjects 的 id；
+
+    voice / dialogue 必须非空。画外音角色（未出现在 subjects 的 speaker，如电话里的
+    周叔/江野）允许 subject 非 ID，但 voice 仍须非空（声音卡片 P0 全文透传）。
+    仅校验存在 subjects+shots 的结构化块；旧 api.text 写法跳过。"""
+    errors = []
+    items = data.get("segments", []) if label == "segments" else data.get("shots", [])
+    for i, item in enumerate(items):
+        if not isinstance(item, dict):
+            continue
+        api = item.get("api", {})
+        if not isinstance(api, dict):
+            continue
+        subjects = api.get("subjects")
+        shots = api.get("shots")
+        if not isinstance(subjects, list) or not isinstance(shots, list):
+            continue  # 旧格式（仅 api.text）不校验
+        sub_ids = set()
+        sub_names = set()
+        for si, s in enumerate(subjects):
+            if isinstance(s, dict) and s.get("id"):
+                sub_ids.add(str(s["id"]))
+            if isinstance(s, dict) and s.get("file"):
+                sub_ids.add(str(s["file"]))
+            if isinstance(s, dict) and s.get("name"):
+                sub_names.add(str(s["name"]))
+            # role 必须是受控枚举（character/scene/prop），非法值会丢 LOCK FACE / 场景声明
+            if isinstance(s, dict):
+                r = str(s.get("role") or "").strip()
+                if r not in ("character", "scene", "prop"):
+                    errors.append(
+                        f"{label}[{i}].api.subjects[{si}] role '{r}' 非法——"
+                        f"必须为 character/scene/prop（非法值会导致 LOCK FACE 声明丢失）")
+            # character 必须声明 gender（渲染器据此输出 LOCK HER/HIS FACE；
+            # 缺省默认 female → 男性角色会错误输出 LOCK HER FACE）
+            if isinstance(s, dict) and str(s.get("role")).strip() == "character":
+                g = str(s.get("gender") or "").strip().lower()
+                if g not in ("female", "male", "女", "男"):
+                    errors.append(
+                        f"{label}[{i}].api.subjects[{si}] character "
+                        f"'{s.get('name') or s.get('id')}' 缺 gender（female/male）——"
+                        f"渲染器默认 female，男性角色会错误输出 LOCK HER FACE")
+        for j, sh in enumerate(shots):
+            if not isinstance(sh, dict):
+                continue
+            for k, sp in enumerate(sh.get("speakers") or []):
+                if not isinstance(sp, dict):
+                    continue
+                subj = str(sp.get("subject") or "").strip()
+                if not subj:
+                    errors.append(f"{label}[{i}].api.shots[{j}].speakers[{k}] 缺 subject")
+                    continue
+                if subj in sub_names and subj not in sub_ids:
+                    # 命中角色名而非素材 ID——锁脸关联断裂（v1 迁移 bug 形态）
+                    errors.append(
+                        f"{label}[{i}].api.shots[{j}].speakers[{k}] subject '{subj}' "
+                        f"是角色名而非素材 ID（应引用 subjects 的 id）")
+                elif subj not in sub_ids:
+                    # 形似素材 ID（CHAR-/SCENE-/PROP-/GRP- 前缀）但不在 subjects：
+                    # 不是画外音（画外音是中文名如周叔/江野），是拼错/指向不存在素材的 ID，
+                    # 锁脸关联断裂，无论 voice 是否非空都报错。
+                    if re.match(r'^(?:CHAR|SCENE|PROP|GRP)-', subj):
+                        errors.append(
+                            f"{label}[{i}].api.shots[{j}].speakers[{k}] subject '{subj}' "
+                            f"形似素材 ID 但不在 subjects——疑似 ID 拼错或指向不存在素材（锁脸断裂）")
+                    # 画外音角色（无参考图，中文名）允许非 ID；voice 仍须非空
+                    elif not sp.get("voice"):
+                        errors.append(
+                            f"{label}[{i}].api.shots[{j}].speakers[{k}] subject '{subj}' "
+                            f"不在 subjects 且 voice 为空——疑似角色名/ID 不匹配或画外音缺声音描述")
+                if not str(sp.get("voice") or "").strip():
+                    errors.append(
+                        f"{label}[{i}].api.shots[{j}].speakers[{k}] voice 为空——"
+                        f"必须全文复制声音卡片 P0 voice_prompt")
+                if not str(sp.get("dialogue") or "").strip():
+                    errors.append(
+                        f"{label}[{i}].api.shots[{j}].speakers[{k}] dialogue 为空")
     return errors
 
 
@@ -206,11 +323,12 @@ def main():
             ("分号检测", lambda: check_semicolons(fpath)),
             ("⚠️注释检测", lambda: check_warning_comments(fpath)),
             ("顶层字段", lambda: check_top_fields(data, top_fields, label)),
-            ("defaults", lambda: check_defaults(data, label)),
+            ("defaults", lambda: check_defaults(data, label, a.project_root)),
             ("子项字段", lambda: item_check(data)),
             ("content_roles", lambda: check_content_roles(data, label)),
             ("URL格式", lambda: check_urls(data, label)),
             ("图N引用", lambda: check_tu_refs(data, label)),
+            ("结构化api块", lambda: check_structured_api(data, label)),
         ]
         for name, fn in checks:
             errs = fn()

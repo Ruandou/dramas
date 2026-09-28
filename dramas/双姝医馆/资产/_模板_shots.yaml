@@ -1,0 +1,48 @@
+# === 格式模板 — 不得删除/增减任何字段 ===
+# 对齐影后装新人项目实战格式
+
+episode_id: EP##
+source_md: 剧本/EP##/EP##_[标题].md
+
+defaults:
+  endpoint: https://ark.cn-beijing.volces.com/api/v3/contents/generations/tasks
+  model: doubao-seedance-2-0-fast-260128  # ⚠️ 必须带版本后缀，无后缀名方舟返回 404 InvalidEndpointOrModel.NotFound
+  seed: 78786  # ⚠️ 与同项目 segments.yaml 的 defaults.seed 保持一致（固定 seed 提升音色/语速稳定度）
+  ratio: "9:16"
+  resolution: 720p
+  duration: 5
+  generate_audio: false
+  watermark: false
+  prompt_suffix: "[从制片规范复制]"
+  negative_prompt: "[从制片规范复制]"
+
+shots:
+  - shot_id: EP##-S01
+    shot_no: 1
+    mode: i2v_ref  # i2v_ref / i2v / t2v / skip
+    duration_sec: 10
+    refs:
+      scene_id: SCENE-###
+      look_ids:
+        - CHAR-###-L##
+      prop_ids: []
+    assets:
+      look_urls:
+        # 含可见人脸的形象必须用 -mesh 版（Seedance 人脸过滤，见 AGENTS.md Stage 3 清单 G）；
+        # 剪影/背影等无脸形象去掉 -mesh 后缀用原图（以 资产/形象索引.md 的 mesh 登记为准）
+        CHAR-###-L##: https://drama-reference-images.tos-cn-beijing.volces.com/looks/<剧名>/CHAR-###-L##-mesh.png
+      scene_urls:
+        SCENE-###: https://drama-reference-images.tos-cn-beijing.volces.com/scenes/<剧名>/SCENE-###.png
+      prop_urls: {}
+    api:
+      text: |
+        【图1】CHAR-###-L##【图2】SCENE-###。
+        景别 运镜：[画面描述，角色用图1指代，不得用角色名]
+        [画面风格尾缀]
+      content_roles:
+        - { file: CHAR-###-L##, role: reference_image, label: 图1 }
+        - { file: SCENE-###, role: reference_image, label: 图2 }
+    dialogue:
+      - speaker: CHAR-###
+        line: "[台词]"
+    transition_to_next: hard_cut

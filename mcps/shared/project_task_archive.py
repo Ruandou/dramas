@@ -31,6 +31,7 @@ KIND_GPT_IMAGE = "gpt_image"
 KIND_JIMENG_IMAGE = "jimeng_image"
 KIND_JIMENG_VIDEO = "jimeng_video"
 KIND_KLING = "kling"
+KIND_MINIMAX = "minimax_video"
 
 KIND_TO_FILENAME = {
     KIND_SEEDREAM: "tasks_seedream.json",
@@ -39,6 +40,7 @@ KIND_TO_FILENAME = {
     KIND_JIMENG_VIDEO: "tasks_jimeng_video.json",
     KIND_KLING: "tasks_kling.json",
     KIND_SEEDANCE: "tasks_seedance.json",
+    KIND_MINIMAX: "tasks_minimax_video.json",
 }
 
 
@@ -62,10 +64,14 @@ def archive_file(
 ) -> Path:
     root = Path(project_root).resolve()
     if kind == KIND_SEEDANCE and episode_id:
+        # seedance 按集归档在 assets/generated/EP##/tasks.json（出片同目录）
         ep = episode_id.upper()
         d = root / "assets" / "generated" / ep
         d.mkdir(parents=True, exist_ok=True)
         return d / "tasks.json"
+    # minimax 等其他引擎按 kind 隔离归档（assets/tasks_minimax_video.json）：
+    # 与 seedance 同文件会混入对方任务导致 dedup 误拦，且 MiniMax 无内容级远程对账，
+    # 本地归档是唯一可靠去重防线，必须按引擎隔离。
     name = KIND_TO_FILENAME.get(kind, f"tasks_{kind}.json")
     assets = root / "assets"
     assets.mkdir(parents=True, exist_ok=True)

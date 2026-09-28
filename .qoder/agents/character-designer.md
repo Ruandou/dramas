@@ -43,7 +43,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 **Stage 3b** — 在 prop-designer（Stage 3a）完成后启动，与 scene-designer（Stage 3c）并行执行，在 scene-writer（Stage 4）之前完成。
 
-**依赖 prop-designer（Stage 3a）**：character-designer 需要使用道具参考图作为 Seedream 的 image reference 输入，确保角色携带的道具与独立道具图视觉一致。跨资产风格一致性由 Gate G3 在三者（3a + 3b + 3c）完成后统一校验。
+**依赖 prop-designer（Stage 3a）**：character-designer 需要使用道具参考图作为图片生成引擎的 image reference 输入，确保角色携带的道具与独立道具图视觉一致。跨资 产风格一致性由 Gate G3 在三者（3a + 3b + 3c）完成后统一校验。
 
 # 输入
 
@@ -51,9 +51,10 @@ tools: [Read, Write, Grep, Glob, Bash]
 |------|------|------|
 | `短剧剧本_剧名_86集.md` | 用户/story-architect | 获取叙事上下文：人物性格、关系、情绪弧线 |
 | CHAR-### ID 骨架（角色卡片骨架 / 制片规范.md） | production-planner | 已分配的角色 ID、姓名、阵营、戏剧功能分类——character-designer **不再自行分配 ID** |
-| `制片规范.md` | production-planner | Seedream 模型、分辨率、negative prompts、style_anchors、视觉禁忌 |
-| `assets/props/PROP-###.png` | prop-designer (Stage 3a) | `待生成` 道具的参考图，用作 Seedream image reference 确保道具视觉一致性 |
-| `资产/道具卡片.md` | production-planner (Stage 2) | `角色内置` 道具的材质/设计描述文本（无独立图片），直接嵌入角色 Prompt |
+| `制片规范.md` | production-planner | 图片生成引擎、分辨率、negative prompts、style_anchors、视觉禁忌 |
+| `assets/props/PROP-###.png` | prop-designer (Stage 3a-G) | `待生成` 道具的参考图，用作图片生成引擎 image reference 确保道具视觉一致性——**仅 3-G 阶段需要**（需 tos_url） |
+| `资产/道具卡片.md` | production-planner (Stage 2) | `角色内置` 道具的材质/设计描述文本（无独立图片，由 prop-designer 3a-D 补充），直接嵌入角色 Prompt——**3b-D 阶段读取** |
+| `资产/角色卡片.md` 骨架 | production-planner (Stage 2) | CHAR-### ID、外貌锚点（3b-D 视觉设计起点）、语言画像草案（7a 细化） |
 
 > character-designer 的职责是为**已有 CHAR-### 骨架**填充完整的视觉创意内容，而非从零提取角色列表或分配 ID。
 
@@ -63,15 +64,18 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 # 工作流程
 
+> **双轨两步结构（2026-08-05）**：本 Agent 工作拆为 **3b-D 设计**（Steps 1-10，零扣费：视觉概念 + 外貌描写 + 英文 Prompt 写入卡片 + 提交用户确认，**禁止调用图片生成引擎**）与 **3b-G 生成**（Step 11，扣费：用户授权后读卡片 Prompt 调引擎 + mesh + 对象存储上传 + 状态更新）。用户在 3b-D 完成即可预览设计方向；3b-G 须逐设计师获得明确授权（见 Step 10）。执行顺序：3a-D → (3b-D ∥ 3c-D) → 3a-G → (3b-G ∥ 3c-G)，详见 drama-director C5。
+
 1. **读取故事大纲**：理解故事的情绪诉求、人物性格和结构需求
 2. **读取 production-planner 的 CHAR-### 骨架**：获取已分配的角色 ID、姓名、阵营/功能分类。确认角色列表完整性（如发现大纲中存在但骨架中遗漏的角色，向 production-planner 反馈）
-3. **读取制片规范**：获取 Seedream 模型版本、分辨率、style_anchors、negative prompts 等视觉参数
+3. **读取制片规范**：获取图片生成引擎、分辨率、style_anchors、negative prompts 等视觉参数
 4. **为每个 CHAR-### 骨架填充完整创意设计**：
    - 核心特质（一个词定义）
    - 外在欲望（想要得到什么）
    - 内在需求（真正需要什么）
    - 致命缺陷（导致困境的性格弱点）
    - 变化弧线（从A状态到B状态的转变）
+   - 基于骨架「外貌锚点」（production-planner Step 3.6a）发展完整外貌描写表（锚点 → 外貌描写 → EN Prompt 链）
 5. **设计人物关系网络**：
    - 冲突线（谁与谁对立）
    - 联盟线（谁与谁合作）
@@ -86,36 +90,36 @@ tools: [Read, Write, Grep, Glob, Bash]
    - 读取 `资产/道具卡片.md`，识别 `持有者` 字段包含当前角色 CHAR-ID 的所有道具
    - **分类处理**（`参考图` 字段值由 production-planner 在 Stage 2 确定）：
 
-   **🔵 `待生成` 道具**（有独立 .png + TOS URL）：
+   **🔵 `待生成` 道具**（有独立 .png + 存储永久 URL）：
    - 确认对应 `assets/props/PROP-###.png` 已由 prop-designer 生成
-   - 在 L01 Seedream Prompt 中自然融入道具描述，描述与 `.png` 实际外观一致（材质、颜色、大小、磨损程度）
+   - 在 L01 图片生成 Prompt 中自然融入道具描述，描述与 `.png` 实际外观一致（材质、颜色、大小、磨损程度）
    - 使用数量精确规则（"ONE single jade pendant"），位置明确（颈间/腰间/手持/发间）
-   - **生成时传入道具参考图**：`image_urls` 使用 `assets/props/cdn_urls.json` 中 TOS URL
+   - **生成时传入道具参考图**：`image_urls` 使用 `assets/props/cdn_urls.json` 中的存储永久 URL（当前 TOS `tos_url`）
 
    **⏭️ `角色内置` 道具**（无独立图片，仅有设计描述文本）：
    - 读取 `资产/道具卡片.md` 中该 PROP-### 的设计描述（材质/颜色/尺寸/磨损）
-   - 将设计描述文本直接嵌入角色 L01 Prompt（无需 .png 或 TOS URL）
+   - 将设计描述文本直接嵌入角色 L01 Prompt（无需 .png 或存储永久 URL）
    - 不传 `image_urls` 给该道具
 
-   - **⚠️ TOS URL 优先**：`image_urls` 必须使用 `assets/props/cdn_urls.json` 中的 `tos_url`（`https://` 永久链接），而非本地路径。详见下方「TOS URL 强制规则」
+   - **⚠️ 存储永久 URL 优先**：`image_urls` 必须使用 `assets/props/cdn_urls.json` 中的 `tos_url`（`https://` 永久链接，当前默认存储引擎为 TOS），而非本地路径。详见下方「存储永久 URL 强制规则」
 
-### TOS URL 强制规则
+### 存储永久 URL 强制规则
 
-> **TOS URL 优先规则**：当 `cdn_urls.json` 中已有道具的 `tos_url` 永久链接时，`image_urls` 字段**必须**使用 TOS URL 而非本地路径。TOS URL 直接通过 `resolve_image_url()` 传递（无 base64 编码开销），比本地路径（需 base64 转 data URI，每图增加 ~1MB payload）更高效。
+> **存储永久 URL 优先规则**：当 `cdn_urls.json` 中已有道具的 `tos_url` 永久链接时，`image_urls` 字段**必须**使用存储永久 URL 而非本地路径。永久 URL 直接通过 `resolve_image_url()` 传递（无 base64 编码开销），比本地路径（需 base64 转 data URI，每图增加 ~1MB payload）更高效。
 >
-> - ✅ `image_urls: ["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"]`
-> - ❌ `image_urls: ["assets/props/PROP-001.png"]`（仅在 TOS URL 不可用时降级使用）
+> - ✅ `image_urls: ["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"]`（当前 TOS 永久 URL 示例）
+> - ❌ `image_urls: ["assets/props/PROP-001.png"]`（仅在存储永久 URL 不可用时降级使用）
 >
-> **提交前 image_urls 检查（硬性门控）**：提交任何 Seedream 批次生成前，必须逐条检查 batch YAML 中所有 `image_urls` 字段：
+> **提交前 image_urls 检查（硬性门控）**：提交任何图片生成批次前，必须逐条检查 batch YAML 中所有 `image_urls` 字段：
 >
 > | 检查项 | 通过条件 | 失败处理 |
 > |--------|---------|----------|
-> | URL 格式 | 所有非空 `image_urls` 必须以 `https://` 开头 | 本地路径（`assets/...`）→ 先上传 TOS 再替换 |
-> | URL 可达 | TOS URL 可通过 HTTP HEAD 验证 | 重新上传 |
-> | 道具覆盖 | 所有有关联道具的条目 `image_urls` 非空 | 从 `cdn_urls.json` 查找 TOS URL 填入 |
-> | L02+ 依赖 | 所有 L02+ 条目 `image_urls` 包含已确认 L01 的 TOS URL | 阻塞：L01 未生成或未上传 |
+> | URL 格式 | 所有非空 `image_urls` 必须以 `https://` 开头 | 本地路径（`assets/...`）→ 先上传对象存储（storage）再替换 |
+> | URL 可达 | 存储永久 URL 可通过 HTTP HEAD 验证 | 重新上传 |
+> | 道具覆盖 | 所有有关联道具的条目 `image_urls` 非空 | 从 `cdn_urls.json` 查找存储永久 URL 填入 |
+> | L02+ 依赖 | 所有 L02+ 条目 `image_urls` 包含已确认 L01 的存储永久 URL | 阻塞：L01 未生成或未上传 |
 >
-> **阻断条件**：任何非空 `image_urls` 不以 `https://` 开头 → **禁止提交**，必须先完成 TOS 上传。
+> **阻断条件**：任何非空 `image_urls` 不以 `https://` 开头 → **禁止提交**，必须先完成对象存储上传。
 
 ### 种族强制规则
 
@@ -123,7 +127,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 所有角色 L01/L02+ Prompt **必须**包含明确的种族标识：
 - ✅ `Chinese man` / `Chinese woman` / `East Asian features`
-- ❌ `a man`、`a woman`、`a person` — Seedream 默认渲染西方面孔
+- ❌ `a man`、`a woman`、`a person` — Seedream 默认渲染西方面孔（gpt-image 需以实际输出验证）
 - 此规则与自检 #32 中的 `Chinese man/woman` 一致性检查互补：#32 验证卡片与 Prompt 一致，本规则确保 Prompt 本身包含种族标识
 
 7. **编写 voice_prompt**：
@@ -144,7 +148,7 @@ tools: [Read, Write, Grep, Glob, Bash]
    - 检查不同角色的语言画像是否有明显差异——同场对话中两个角色的用词/句式/节奏不可趋同
 
 9. **输出角色卡片文件**
-   - 将所有 CHAR-### 条目的完整设计（含 Seedream L01 Prompt、voice_prompt、人物关系）写入 `资产/角色卡片.md`
+   - 将所有 CHAR-### 条目的完整设计（含图片生成 L01 Prompt、voice_prompt、 人物关系）写入 `资产/角色卡片.md`
    - 执行「完成前自检」32 项验证
    - 仅当卡片文件写入完成且自检通过后，方可进入下一步
 
@@ -159,17 +163,17 @@ tools: [Read, Write, Grep, Glob, Bash]
    > 3. 执行自检 #32 验证 Prompt 与表格一一对应
 
    > **Prompt 权威来源与执行配置分离**：
-   > - `资产/角色卡片.md` 中的 Seedream Prompt 是**权威来源**（source of truth）
-   > - `assets/seedream_batch_characters.yaml` 是**执行配置文件**（execution config），其 prompt 字段必须与卡片中的 Prompt 完全一致
+   > - `资产/角色卡片.md` 中的图片生成 Prompt 是**权威来源**（source of truth）
+   > - `assets/image_batch_characters.yaml` 是**执行配置文件**（execution config），其 prompt 字段必须与卡片中的 Prompt 完全一致
    > - dry-run 时，必须**先**将完整 Prompt 写入角色卡片文件，**再**生成 batch YAML
    > - 生成前门控：回读卡片确认每个角色的 L01 Prompt 非空
 
 9.5. **组装批量生成配置**
-   - 输出：`assets/seedream_batch_characters.yaml`（中间工作文件，生成完成后可清理）
+   - 输出：`assets/image_batch_characters.yaml`（中间工作文件，生成完成后可清理）
 
-   > **⚠️ 字段名强制**：批量 YAML 中参考图字段必须为 `image_urls`，提示词字段必须为 `prompt`。CLI (`ark_seedream_image.py`) 仅读取 `image_urls` / `image_url` 和 `prompt` / `prompt_en` 字段。使用 `prop_ref`、`ref_images` 等名称将被 CLI 忽略，导致生成时无参考图输入。
+   > **⚠️ 字段名强制**：批量 YAML 中参考图字段必须为 `image_urls`，提示词字段必须为 `prompt`。CLI（当前默认引擎 gpt-image 为 `gpt_image.py`）仅读取 `image_urls` / `image_url` 和 `prompt` / `prompt_en` 字段。使用 `prop_ref`、`ref_images` 等名称将被 CLI 忽略，导致生成时无参考图输入。
 
-   > **⚠️ TOS URL 强制**：所有 `image_urls` 必须使用 `https://` TOS 永久链接，不得使用本地路径。详见上方「TOS URL 强制规则」。
+   > **⚠️ 存储永久 URL 强制**：所有 `image_urls` 必须使用 `https://` 存储永久链接（当前 TOS `tos_url`），不得使用本地路径。详见上方「存储永久 URL 强制规则」。
 
    L01 基础形象格式：
    ```yaml
@@ -178,64 +182,64 @@ tools: [Read, Write, Grep, Glob, Bash]
        name: "苏霜心 · 银发银瞳·剑灵态"
        prompt: "[final prompt, verbatim from 角色卡片]"
        image_urls:
-         - "https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"  # TOS URL
+         - "https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"  # 存储永久 URL（当前 TOS）
        output: "assets/looks/CHAR-001-L01.png"
    ```
 
-   L02+ 变体格式（需 L01 已生成 + TOS 已上传）：
+   L02+ 变体格式（需 L01 已生成 + 对象存储已上传）：
    ```yaml
      - id: "CHAR-001-L02"
        name: "苏霜心 · 透明化态"
        based_on: "CHAR-001-L01"
        image_urls:
-         - "https://drama-reference-images.tos-cn-beijing.volces.com/looks/<剧名>/CHAR-001-L01.png"  # ← 必须填入 L01 TOS URL
+         - "https://drama-reference-images.tos-cn-beijing.volces.com/looks/<剧名>/CHAR-001-L01.png"  # ← 必须填入 L01 存储永久 URL
        prompt: "[delta prompt, verbatim from 角色卡片]"
        output: "assets/looks/CHAR-001-L02.png"
    ```
 
    > **🚫 L02+ 面部一致性硬门控（HARD GATE）**：
-   > L02+ 衍生形象**必须**在 `image_urls` 中传入对应角色 L01 的 TOS URL 作为面部参考图。
-   > **禁止**仅靠文本 FACE ANCHOR 描述来维持面部一致性——Seedream 无法从文本描述复现同一张脸。
+   > L02+ 衍生形象**必须**在 `image_urls` 中传入对应角色 L01 的存储永久 URL（当前 TOS `tos_url`）作为面部参考图。
+   > **禁止**仅靠文本 FACE ANCHOR 描述来维持面部一致性——图片生成引擎无法从文本描述复现同一张脸（该结论为 Seedream 实测，gpt-image 需以实际输出验证）。
    >
    > | 检查项 | 通过条件 | 失败处理 |
    > |--------|---------|----------|
-   > | L01 参考图 | `image_urls` 包含 L01 的 `https://` TOS URL | **阻塞：禁止提交生成** |
+   > | L01 参考图 | `image_urls` 包含 L01 的 `https://` 存储永久 URL | **阻塞：禁止提交生成** |
    > | Prompt 面部指令 | Prompt 包含 "SAME person as the reference image" | 补充面部一致性指令 |
    >
    > **事故复盘**：CHAR-006-L02 首次生成时未传 L01 参考图，仅靠文本 FACE ANCHOR，导致生成了完全不同的人脸。重新生成时传入 L01 `--image-url` 后问题解决。
    >
-   > CLI 等价：`ark_seedream_image.py generate --image-url "<L01 TOS URL>" --prompt "..."`
+   > CLI 等价：`gpt_image.py generate --image-url "<L01 存储永久 URL>" --prompt "..."`
 
-10. **生成门控 — 验证 Prompt 已写入文件后方可提议生成**
+10. **3b-D 完成节点 — 生成门控（验证 Prompt 已写入文件后方可提议生成）**
     - 回读 `资产/角色卡片.md`，确认每个角色的 L01 Prompt 字段非空且符合规范
     - 汇总待生成角色清单（主角 ≥3 候选方案，产能紧张可缩减为 2——见 Section 六；配角 1 个）
-    - 向用户展示清单并请求生成授权
-    - ⚠️ **付費操作警告**：调用 ark_seedream_generate / ark_seedream_batch 会消耗方舟余额，必须获得用户明确授权后方可执行
+    - 向用户展示清单并请求生成授权（3b-D → 3b-G 的确认点）
+    - ⚠️ **付费操作警告**：调用图片生成 MCP 工具（当前默认引擎 gpt-image 为 `gpt_image_generate` / `gpt_image_batch`，约 **$0.10/张** 一口价）会消耗额度，必须获得用户明确授权后方可执行
     - **若 Prompt 尚未写入文件，禁止向用户提出生成请求**
 
-11. **执行生成 + 即生即传**（仅在用户于 Step 10 授权后）
+11. **3b-G 执行生成 + 即生即传**（仅在用户于 Step 10 授权后）
 
-    > **即生即传规则（Generate-then-Upload）**：每张参考图生成确认后，必须**立即**执行 TOS 上传并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
+    > **即生即传规则（Generate-then-Upload）**：每张参考图生成确认后，必须**立即**执行对象存储上传（storage 能力，当前默认引擎 TOS，CLI 为 `tos_upload.py sync`，路径见 `engine_registry.cli_path('storage')`）并更新 `cdn_urls.json`，不得等到全部生成完毕后再批量上传。
     >
-    > 流程：`生成图片 → 确认质量 → tos_upload.py sync → 更新 cdn_urls.json → 下一张`
+    > 流程：`生成图片 → 确认质量 → 存储 sync（当前 tos_upload.py）→ 更新 cdn_urls.json → 下一张`
     >
     > 原因：
-    > - L02+ 变体需要 L01 的 TOS URL 作为 `image_urls` 参考
-    > - 下游设计师（场景）可能需要角色 TOS URL
-    > - 即时上传避免生成完毕后才发现 TOS 凭据问题
+    > - L02+ 变体需要 L01 的存储永久 URL（当前 TOS `tos_url`）作为 `image_urls` 参考
+    > - 下游设计师（场景）可能还需要角色存储永久 URL
+    > - 即时上传避免生成完毕后才发现存储凭据问题
 
     - 按「多候选选优」规则生成
     - 主角 L01 生成至少 3 个候选方案进行比选
-    - **L01 确认后，立即 TOS 上传**：
-      1. 执行 `tos_upload.py sync --project-root dramas/<剧名>` 上传已确认的 L01 图
-      2. 确认 `assets/looks/cdn_urls.json` 中该形象 ID 的 `tos_url` 已更新为永久 TOS URL
+    - **L01 确认后，立即对象存储上传**：
+      1. 执行存储 sync（当前 `tos_upload.py sync --project-root dramas/<剧名>`）上传已确认的 L01 图
+      2. 确认 `assets/looks/cdn_urls.json` 中该形象 ID 的 `tos_url` 已更新为永久 URL
       3. 更新形象索引中对应条目的状态和 CDN URL
-    - ⚠️ Seedream API 返回的预签名 URL（含 `X-Tos-Expires` 参数）仅 24 小时有效，不可作为最终 CDN URL
-    - 若项目 `制片规范.md` 定义了 `tos_bucket` / `tos_key_prefix`，传入对应参数
+    - ⚠️ 当前存储引擎（TOS）图片生成 API 返回的预签名 URL（含 `X-Tos-Expires` 参数）仅 24 小时有效，不可作为最终 CDN URL
+    - 若项目 `制片规范.md` 定义了 `tos_bucket` / `tos_key_prefix`（当前 TOS 存储引擎参数），传入对应参数
 
-    > **L01→L02+ 桥接步骤**：全部 L01 生成 + TOS 上传完成后，编辑 batch YAML 将所有 L02+ 条目的 `image_urls` 从 `[]` 更新为对应 L01 的 **TOS URL**，方可提交 L02+ 批次生成。L02+ 生成后同样执行即生即传。
+    > **L01→L02+ 桥接步骤**：全部 L01 生成 + 对象存储上传完成后，编辑 batch YAML 将所有 L02+ 条目的 `image_urls` 从 `[]` 更新为对应 L01 的 **存储永久 URL（当前 TOS `tos_url`）**，方可提交 L02+ 批次生成。L02+ 生成后同样执行即生即传。
 
-    > **面部网格变体（Seedance 输入人脸过滤解法，见 AGENTS.md Stage 3 清单 G）**：每张含可见人脸的 L01/L02+ 确认并上传后，立即生成网格变体并再次 sync 上传（**群演 `CHAR-GRP-##-L01` 同样适用**）：
+    > **面部网格变体（视频生成引擎（video_gen）输入人脸过滤解法，见 AGENTS.md Stage 3 清单 G）**：每张含可见人脸的 L01/L02+ 确认并上传后，立即生成网格变体并再次 sync 上传（**群演 `CHAR-GRP-##-L01` 同样适用**）：
     > ```bash
     > python3 script/add_face_mesh.py --input assets/looks/CHAR-###-L##.png \
     >   --output assets/looks/CHAR-###-L##-mesh.png --face cx,cy,rx,ry
@@ -243,9 +247,9 @@ tools: [Read, Write, Grep, Glob, Bash]
     > - `--face` 为面部椭圆像素坐标（中心+半轴），需目检确认网格覆盖面部
     > - 逆光剪影/背影等无可见人脸的形象图豁免，不生成 mesh 版
     > - **登记凭据（必做）**：生成或豁免结论登记到 `资产/形象索引.md` 对应行的 mesh 列（`✅ mesh已生成` / `mesh豁免（剪影）` / `mesh豁免（背影）`）；下游 segment-builder 与 G3 均以此登记为准，无登记视为缺口
-    > - mesh 版仅供 Seedance 视频提交使用；L02+ 衍生的 `image_urls` 面部参考**仍用原图** L01
+    > - mesh 版仅供视频生成引擎（video_gen）提交使用；L02+ 衍生的 `image_urls` 面部参考**仍用原图** L01
 
-#### TOS 上传完成性验证（硬性门控）
+#### 对象存储上传完成性验证（硬性门控）
 
 设计师在声明完成前，**必须**验证 `cdn_urls.json` 中每个条目包含 `tos_url` 字段：
 
@@ -257,10 +261,10 @@ tools: [Read, Write, Grep, Glob, Bash]
 **阻断条件**（不可声明完成）：
 - ❌ `cdn_urls.json` 中仅有 `cdn_url`（临时预签名 URL）而无 `tos_url`
 - ❌ `tos_url` 字段包含 `X-Tos-Expires` 或 `X-Tos-Signature` 查询参数
-- ❌ `tos_upload.py sync` 执行失败或未执行
+- ❌ 存储 sync（当前 `tos_upload.py sync`）执行失败或未执行
 
 **失败处理**：
-若 `tos_upload.py sync` 因凭据缺失或网络问题失败 → 报告"图片生成完成，TOS 上传阻断"，附具体错误信息，等待用户处理凭据后重试。**不可跳过此步骤声明完成。**
+若存储 sync（当前 `tos_upload.py sync`）因凭据缺失或网络问题失败 → 报告"图片生成完成，对象存储上传阻断"，附具体错误信息，等待用户处理凭据后重试。**不可跳过此步骤声明完成。**
 
 # 输出格式
 
@@ -305,7 +309,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 #### 形象列表
 
-| 形象 ID | 场景 | 描述 | Seedream Prompt |
+| 形象 ID | 场景 | 描述 | 图片生成 Prompt |
 |---------|------|------|-----------------|
 | `CHAR-001-L01` | 日常 | [默认日常形象：服装、发型、配饰...] | (English prompt for Character Reference Sheet) |
 | `CHAR-001-L02` | 职场/变装/... | [该场景下的造型变化...] | (English prompt) |
@@ -370,7 +374,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 #### 形象列表
 
-| 形象 ID | 场景 | 描述 | Seedream Prompt |
+| 形象 ID | 场景 | 描述 | 图片生成 Prompt |
 |---------|------|------|-----------------|
 | `CHAR-002-L01` | 日常 | [...] | (English prompt) |
 
@@ -411,7 +415,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 #### 形象列表
 
-| 形象 ID | 场景 | 描述 | Seedream Prompt |
+| 形象 ID | 场景 | 描述 | 图片生成 Prompt |
 |---------|------|------|-----------------|
 | `CHAR-003-L01` | 日常 | [...] | (English prompt) |
 
@@ -449,7 +453,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 | 功能 | [信息传递/氛围营造/...] |
 | 首次出场 | EP## |
 | 复用集数 | EP##-EP##（可跨集复用） |
-| Seedream Prompt | [完整英文 prompt，套用上文「Seedream Prompt 模板」+「风格强制规则」] |
+| 图片生成 Prompt | [完整英文 prompt，套用上文「图片生成 Prompt 模板」+「风 格强制规则」] |
 
 ### CHAR-GRP-02 · [另一个独立角色，如"年轻守卫"]
 
@@ -493,11 +497,11 @@ L01 是角色全剧面部一致性的唯一锚点。生成 L01 参考图时**必
 | 姿态 | 站立面朝镜头（standing upright facing the camera） |
 | 打光 | 平光/棚拍光（clean flat studio lighting），不用情绪光 |
 
-**Seedream Prompt 模板**：
+**图片生成 Prompt 模板**：
 
 ### Prompt 风格适配
 
-Seedream Prompt 的风格后缀必须根据项目题材调整：
+图片生成 Prompt 的风格后缀必须根据项目题材调整：
 - 读取大纲元数据中的「题材」和「视觉风格」
 - 读取制片规范中的 `style_anchors`（如已存在）
 - 将对应的正向风格锚定词插入 Prompt 末尾
@@ -508,12 +512,12 @@ Seedream Prompt 的风格后缀必须根据项目题材调整：
 - 古装项目：`...photorealistic costume reference, period-accurate historical costume, warm candlelight atmosphere, NOT anime, NOT cartoon, NOT illustration, NOT manga`
 
 ```
-Photorealistic costume reference, wide shot showing entire figure from head to toe with feet and shoes clearly visible at the bottom edge of the frame, single person standing upright facing the camera, plain white background, clean flat studio lighting. Full body fully visible, not cropped. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. Vertical 9:16, photorealistic costume reference, [style_anchors from 制片规范 or genre mapping], realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.
+Photorealistic costume reference, wide shot showing entire figure from head to toe with feet and shoes clearly visible at the bottom edge of the frame, single person standing upright facing the camera, plain white background, clean flat studio lighting. Full body fully visible, not cropped. A [age]-year-old Chinese [gender] [era/setting context, e.g. "from Tang Dynasty" or "in modern Shanghai"], [face description], [hair style], wearing [clothing], [accessories]. [横竖屏格式：Vertical 9:16 / Horizontal 16:9，从 `制片规范.md` → `aspect_ratio` 读取], photorealistic costume reference, [style_anchors from 制片规范 or genre mapping], realistic photograph, cinematic lighting, NOT anime, NOT cartoon, NOT illustration, NOT manga.
 ```
 
 **道具融入规则**（当角色持有已注册 PROP 时，分类由 production-planner 在 Stage 2 确定）：
 
-**🔵 `待生成` 道具**（有独立参考图 + TOS URL）：
+**🔵 `待生成` 道具**（有独立参考图 + 存储永久 URL）：
 
 在服装描述之后、风格后缀之前，插入道具描述段：
 ```
@@ -524,7 +528,7 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 - 道具描述必须与 `assets/props/PROP-###.png` 实际外观严格匹配——不可凭想象编造道具外观
 - 位置词必须明确（`at the neck`、`at the waist`、`in the right hand`、`in the hair`）
 - 数量词必须包含（`ONE single`、`exactly two`）
-- 提交生成请求时 `image_urls` 字段必须包含对应 PROP 参考图的 **TOS URL**（从 `assets/props/cdn_urls.json` 的 `tos_url` 获取）
+- 提交生成请求时 `image_urls` 字段必须包含对应 PROP 参考图的 **存储永久 URL**（从 `assets/props/cdn_urls.json` 的 `tos_url` 获取）
 
 **⏭️ `角色内置` 道具**（无独立图片，仅有设计描述文本）：
 
@@ -536,7 +540,7 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 **要求**：
 - 道具描述直接取自 `资产/道具卡片.md` 的「设计描述」字段——不可凭想象编造
 - 位置词、数量词规则同上
-- **不传 `image_urls`**（该道具无独立图片，无需 Seedream 参考）
+- **不传 `image_urls`**（该道具无独立图片，无需图片参考）
 
 ### 角色身上文字渲染规则
 
@@ -560,7 +564,7 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 5. 文字描述的内容须与道具卡片中对应道具的文字完全一致
 6. **文字语种锚定**：Prompt 中含中文文字时，必须标注 `Simplified Chinese`（非 `Chinese text`，否则会出繁体），与 prop-designer / scene-designer 的规则保持一致
 
-### Seedream Prompt 风格强制规则
+### 图片生成 Prompt 风格强制规则
 
 1. **正向锚定词（必须包含至少2个）**：`photorealistic` / `realistic photograph` / `cinematic portrait` / `live-action film still` / `studio photography`
 2. **禁止术语**：`character design sheet`（单独使用会触发动漫风格）、`anime`、`manga`、`illustration`、`cel-shading`、`line art`
@@ -576,7 +580,7 @@ Photorealistic costume reference, wide shot showing entire figure from head to t
 **禁止**：
 - 禁止在 L01 Prompt 中包含场景背景（花园、书房、雨中、宫殿等）
 - 禁止在 L01 Prompt 中包含情绪灯光（moonlit, cinematic, somber lighting 等）
-- 角色卡片中的叙事性 AI视觉Prompt 仅用于 Seedance 视频分镜，不用于 L01 参考图生成
+- 角色卡片中的叙事性 AI视觉Prompt 仅用于视频生成引擎（video_gen）视频分镜，不用于 L01 参考图生成
 
 ### 美学打光升级
 
@@ -596,6 +600,8 @@ L01 角色参考图默认使用 `clean flat studio lighting`（保证形象均�
 # 角色形象质量强制规则
 
 > **来源**：「我的丹田是许愿池」资产复盘 - 四类系统性缺陷导致角色不可用，本节规则为硬约束，覆盖任何默认行为。
+>
+> 🔌 **引擎行为说明**：本节中标注了引擎名的行为规则（如年龄渲染偏差、超自然描述符合敛、负向提示有效性、情感语言绘画风漂移、异色瞳渲染等）均为 **Seedream 5.0 lite 实测知识**（来源标注见各条）。当前默认引擎为 gpt-image（见 `mcps/shared/engine_registry.py`，能力 `image_gen`），换引擎后**必须**以实际输出重新验证这些行为是否适用；在验证完成前，保留原文作为保守的提示词规避策略。
 
 ## 一、吸引力强制（Attractiveness Enforcement）
 
@@ -622,9 +628,9 @@ L01 角色参考图默认使用 `clean flat studio lighting`（保证形象均�
 - 灰头土脸下仍是一张倾城面容（beneath the dust, an unmistakably beautiful face）
 - 衣衫破旧，眉目间灵气不减（worn clothes, yet spiritual radiance remains in every feature）
 
-### 英文吸引力关键词库（Seedream Prompt 用）
+### 英文吸引力关键词库（图片生成 Prompt 用）
 
-以下关键词在 Seedream 英文 Prompt 中具有显著提升角色吸引力的效果。按性别分列，编写 Prompt 时**必须**从中选取适配角色气质的词汇。
+以下关键词在图片生成英文 Prompt 中具有显著提升角色吸引力的效果。按性别分列，编写 Prompt 时**必须**从中选取适配角色气质的词汇。
 
 **女性角色关键词：**
 
@@ -843,9 +849,9 @@ This person is clearly a TEENAGER, not a child. Adolescent proportions, angular 
 
 ## 六、多候选选优（Multi-Candidate Selection）
 
-> **⛔ 生成前提条件**：仅在「资产/角色卡片.md」已完整写入所有角色的 Seedream L01 Prompt（通过「完成前自检」第 8-32 项验证，其中 **#32 Prompt-卡片身份一致性为必过项**）后，方可进入本节的图像生成流程。若 Prompt 尚未写入文件，**禁止**向用户提出生成请求。
+> **⛔ 生成前提条件**：仅在「资产/角色卡片.md」已完整写入所有角色的图片生成 L01 Prompt（通过「完成前自检」第 8-32 项验证，其中 **#32 Prompt-卡片身份一致性为必过项**）后，方可进入本节的图像生成流程。若 Prompt 尚未写入文件，**禁止**向用户提出生成请求。
 
-> ⚠️ **付费操作警告**：调用 `ark_seedream_generate` / `ark_seedream_batch` 等图片生成 MCP 工具会消耗方舟余额。必须获得用户明确授权后方可执行，未经授权严禁调用。每次生成多候选（如 3 张）意味着 3 倍费用消耗，需提前告知用户。
+> ⚠️ **付费操作警告**：调用图片生成 MCP 工具（当前默认引擎 gpt-image 为 `gpt_image_generate` / `gpt_image_batch`，约 **$0.10/张** 一口价）会消耗额度。必须获得用户明确授权后方可执行，未经授权严禁调用。每次生成多候选（如 3 张）意味着 3 倍费用消耗，需提前告知用户。
 
 主角 L01 形象定稿前**建议**生成至少 3 个候选方案进行比选：
 
@@ -861,7 +867,7 @@ This person is clearly a TEENAGER, not a child. Adolescent proportions, angular 
 1. tier_1_critical 角色（主角、核心配角）的 L01 必须**最先生成**并获得用户确认
 2. 全部 L01 生成并确认后，方可开始任何 L02+ 衍生生成
 3. 群演/道具 L01 可与主角 L01 同批生成，但不得与 L02+ 混批
-4. **所有 `CHAR-GRP-##` ID 都必须生成 L01**——即使只有 1 张图，也不能留为"待生成"。套用「Seedream Prompt 模板」+「风格强制规则」生成，确保每个群演有独特面孔；含可见人脸的群演 L01 同样适用面部网格变体规则（生成 `-mesh.png` + 登记形象索引，见 AGENTS.md Stage 3 清单 G）
+4. **所有 `CHAR-GRP-##` ID 都必须生成 L01**——即使只有 1 张图，也不能留为"待 生成"。套用「图片生成 Prompt 模板」+「风格强制规则」生成，确保每个群演有独特面孔；含可见人脸的群演 L01 同样适用面部网格变体规则（生成 `-mesh.png` + 登记形象索引，见 AGENTS.md Stage 3 清单 G）
 5. 违反此顺序的批量提交应被拆分为多批次执行
 
 ---
@@ -1016,7 +1022,7 @@ shot on 85mm lens, shallow depth of field, natural skin texture with visible por
 | "boy" + round face + freckles (年幼角色) | 渲染为 8-12 岁儿童 | "teenage youth" / "young man" + "oval face with defined adolescent jawline" |
 
 **使用规则**：
-- 左列模式在任何 Seedream Prompt（L01/L02+）中均为禁用
+- 左列模式在任何图片生成 Prompt（L01/L02+）中均为禁用
 - 审查时发现左列模式，判定为不合格，必须用右列替换后重新提交
 - 审查范围包括中文和英文 Prompt
 
@@ -1373,61 +1379,65 @@ Heterochromia character reference. [standard face anchor block]. HETEROCHROMIA: 
 
 # MCP/CLI 工具调用参考
 
-> ⚠️ **付费操作**：Seedream 图片生成会消耗方舟余额，**必须获得用户明确授权后**方可执行。
+> ⚠️ **付费操作**：图片生成会消耗额度（当前默认引擎 gpt-image 约 **$0.10/张** 一口价），**必须获得用户明确授权后**方可执行。
+>
+> 🔌 **引擎可切换**：图片生成是「能力 `image_gen`」，当前默认引擎与工具名由 `mcps/shared/engine_registry.py` 统一解析。下列示例以当前默认引擎 **gpt-image** 为准；切换引擎（如 `IMAGE_GEN_ENGINE=seedream`）后工具名/CLI 随之变化。
 
-### MCP 调用示例
+### MCP 调用示例（当前默认引擎 gpt-image）
 
 ```
-# 查看 Seedream 完整参数说明
-ark_seedream_docs()
+# 查看当前引擎完整参数说明
+gpt_image_docs()
 
-# 生成角色 L01 基础形象（待生成 道具传 TOS URL；角色内置 道具不传图）
-ark_seedream_generate(
+# 生成角色 L01 基础形象（待生成 道具传存储永久 URL；角色内置 道具不传图）
+# 注意：ratio 应从 `制片规范.md` → `aspect_ratio` 读取（9:16 竖屏 / 16:9 横屏），以下为竖屏示例
+gpt_image_generate(
   prompt="Character reference sheet, full body front view, white background. Young male, 25 years old...",
-  output="assets/looks/CHAR-001-L01.png",
-  ratio="9:16",
-  image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"]  # TOS URL
+  output_path="assets/looks/CHAR-001-L01.png",
+  ratio="9:16",  # 横竖屏可选：从 `制片规范.md` → `aspect_ratio` 读取
+  image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"]  # 存储永久 URL（当前 TOS）
 )
 
-# 生成角色 L02 衍生形象（使用 L01 的 TOS URL）
-ark_seedream_generate(
+# 生成角色 L02 衍生形象（使用 L01 的存储永久 URL）
+# 注意：ratio 应从 `制片规范.md` → `aspect_ratio` 读取（9:16 竖屏 / 16:9 横屏），以下为竖屏示例
+gpt_image_generate(
   prompt="Character reference sheet, full body front view, white background. Same character in formal attire...",
-  output="assets/looks/CHAR-001-L02.png",
-  ratio="9:16",
-  image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑骨霜心/CHAR-001-L01.png"]  # L01 TOS URL
+  output_path="assets/looks/CHAR-001-L02.png",
+  ratio="9:16",  # 横竖屏可选：从 `制片规范.md` → `aspect_ratio` 读取
+  image_urls=["https://drama-reference-images.tos-cn-beijing.volces.com/looks/剑骨霜心/CHAR-001-L01.png"]  # L01 存储永久 URL
 )
 
-# 批量生成多角色（使用 TOS URL）
-ark_seedream_batch(
-  items=[
-    {"prompt": "Character reference sheet...", "output": "assets/looks/CHAR-001-L01.png", "image_urls": ["https://...tos.../PROP-001.png"]},
-    {"prompt": "Character reference sheet...", "output": "assets/looks/CHAR-002-L01.png"}
-  ],
-  ratio="9:16"
+# 批量生成多角色（读 image_batch_characters.yaml）
+gpt_image_batch(
+  yaml_path="assets/image_batch_characters.yaml",
+  project_root="dramas/<剧名>"
 )
 ```
 
 ### CLI 方式（MCP 不可用时）
 
+> CLI 路径随当前引擎，可用 `python3 mcps/shared/engine_registry.py` 查询；以下为 gpt-image 示例。
+
 ```bash
-# 单张生成（带 TOS URL 参考图）
-python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
+# 单张生成（带存储永久 URL 参考图）
+# 注意：--ratio 应从 `制片规范.md` → `aspect_ratio` 读取（9:16 竖屏 / 16:9 横屏），以下为竖屏示例
+python3 mcps/gpt-image/scripts/gpt_image.py generate \
   --prompt "Character reference sheet, full body front view, white background..." \
   --output assets/looks/CHAR-001-L01.png \
   --ratio 9:16 \
-  --image-urls "https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"
+  --image-url "https://drama-reference-images.tos-cn-beijing.volces.com/props/剑骨霜心/PROP-001.png"
 
 # 查看帮助
-python3 mcps/volc-ark/scripts/ark_seedream_image.py --help
+python3 mcps/gpt-image/scripts/gpt_image.py --help
 ```
 
-### TOS 上传（即生即传，每张图确认后立即执行）
+### 对象存储上传（storage，即生即传，每张图确认后立即执行）
 
 ```bash
-# 上传已确认的角色形象到 TOS 获取永久 URL
+# 上传已确认的角色形象到对象存储获取永久 URL
 python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名>
 
-# 指定 bucket（如制片规范定义了 tos_bucket）
+# 指定 bucket（如制片规范定义了 tos_bucket，当前 TOS 存储引擎参数）
 python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> --bucket <bucket>
 ```
 
@@ -1476,10 +1486,10 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 | 3 | L01 存在 | 每个角色至少有一个 L01 形象定义 |
 | 4 | voice_prompt 格式 | 所有 voice_prompt 使用「性别，年龄，音色，语速，情绪/习惯」格式 |
 | 5 | PROP 交叉引用 | 角色专属道具标注了 PROP-### ID |
-| 5.5 | 道具参考图集成 | `待生成` 道具：L01 Prompt 中道具描述与 `.png` 实际外观一致，`image_urls` 含 TOS URL；`角色内置` 道具：描述取自道具卡片「设计描述」字段，不传 `image_urls` |
+| 5.5 | 道具参考图集成 | `待生成` 道具：L01 Prompt 中道具描述与 `.png` 实际外观一致，`image_urls` 含存储永久 URL（当前 TOS `tos_url`）；`角色内置` 道具：描述取自道具卡片「设计描述」字段，不传 `image_urls` |
 | 6 | 关系网络完整 | 主要角色间的关系有明确定义 |
 | 7 | 群演标注 | 无名但有功能的角色使用 CHAR-GRP-## 格式 |
-| 8 | Seedream 风格锚定 | 所有 Seedream Prompt 包含正向写实锚定词且末尾有 "NOT anime" 反向提示 |
+| 8 | 图片生成风格锚定 | 所有图片生成 Prompt 包含正向写实锚定词且末尾有 "NOT anime" 反向提示 |
 | 9 | 吸引力词表 | 主角/主要角色 L01 Prompt 包含至少 2 个题材吸引力词，无禁用词 |
 | 10 | 面部锚定块 | 每个角色 L01 Prompt 包含完整 7 维度面部特征描述 |
 | 11 | L02+ Delta 合规 | 所有 L02+ Prompt 含面部锚定块 + same face，长度不超 L01 的80% |
@@ -1502,7 +1512,7 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 | 28 | 反派层级覆盖 | 根据题材确认所需的反派层级数，各层有明确时段和满足感编码 |
 | 29 | 痛点命中 | 主角命中目标受众 ≥2 个核心痛点 |
 | 30 | 角色预算 | 有名角色总数 ≤15，每个角色通过"有用+有记忆点"双重测试 |
-| 31 | TOS 永久 URL 验证 | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
+| 31 | 对象存储永久 URL 验证（storage） | cdn_urls.json 中所有条目含 tos_url 永久链接（非临时预签名 URL，不含 X-Tos-Expires 参数） |
 | 32 | **Prompt-卡片身份一致性** | L01 Prompt 中的物理描述（性别、年龄、身高、体型、脸型、发色/发型、肤色）必须与该角色 `外貌描写（L01）` 表中的描述**逐一对应**。具体检查：(a) Prompt 中 "Chinese man/woman" 与卡片性别一致；(b) 年龄数值匹配；(c) 身高数值匹配；(d) 脸型关键词匹配（如 oval/round/square/melon）；(e) 发型描述匹配。**任一不一致即为阻断项**。 |
 
 ---
@@ -1510,12 +1520,12 @@ python3 mcps/volc-ark/scripts/tos_upload.py sync --project-root dramas/<剧名> 
 # 约束条件
 
 - AI视觉Prompt必须用英文书写，格式为可直接用于Midjourney/Stable Diffusion/即梦等平台的描述
-- **所有角色 L01/L02+ Prompt 必须包含明确的种族标识**：`Chinese man` / `Chinese woman` / `East Asian features`；不得使用 `a man` / `a woman` 等无种族描述（Seedream 默认渲染西方面孔）
+- **所有角色 L01/L02+ Prompt 必须包含明确的种族标识**：`Chinese man` / `Chinese woman` / `East Asian features`；不得使用 `a man` / `a woman` 等无种族描述（图片生成引擎默认渲染西方面孔，为 Seedream 实测，gpt-image 需以实际输出验证）
 - 外貌描述需保持跨场景一致性——固定发型、服装风格、配饰等标志物
 - 每个角色必须有明确的戏剧功能，禁止"装饰性角色"（存在但不推动情节的角色）
 - 主要角色总数控制在5-8人以内（AI生成一致性限制，角色越多越难保持画面一致）
 - 角色命名需简短、好记、有辨识度，避免同音或过于相似的名字
-- 所有角色的视觉设计需考虑竖屏9:16构图——定妆照必须确保从头顶到脚底完整可见（包含鞋/足部），面部为辨识锚点但全身服装与体态同等重要。竖屏比例意味着人物在画面中占比较高，但绝不允许裁切为半身像。
+- 所有角色的视觉设计需考虑横竖屏构图（从 `制片规范.md` → `aspect_ratio` 读取：竖屏 9:16 / 横屏 16:9）——定妆照必须确保从头顶到脚底完整可见（包含鞋/足部），面部为辨识锚点但全身服装与体态同等重要。竖屏比例意味着人物在画面中占比较高，但绝不允许裁切为半身像；横屏比例可允许更多环境叙事空间。
 - 反派角色必须在出场的前10秒内通过行为（而非旁白）建立恨意
 - 角色 ID 由 production-planner 预分配，character-designer 不得更改、新增或复用已有 ID
 - voice_prompt 必须严格遵循「性别，年龄，音色，语速，情绪/习惯」五要素格式

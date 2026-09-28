@@ -52,48 +52,67 @@
 
 ## 流水线阶段
 
+> 自 2026-08-05 起运行**双轨制**：剧本轨（平台无关、零扣费、连续逐集）与制作轨（平台依赖、扣费、随时启动）独立推进、互不阻塞，仅通过「两轨交接协议」关联。
+
 ```
-概念 → [Stage 1] → G1 → [Stage 2] → G2 → [Stage 3a] → ┌─[Stage 3b]─┐ → G3 → [Stage 4] → G4 → [Stage 5] → G5 → [Stage 6] → G6
-         故事架构          制片规范          道具设计      │  角色设计   │        分镜编剧         分镜构建       标题/封面/简介合规
-                                                          └─[Stage 3c]─┘
-                                                             场景设计
+                        ┌─────────────────────────────────────────┐
+                        │          共享基础设施（Part A）            │
+                        │  初始化 → 门控通则 → 交接协议 → 工作计划    │
+                        └─────────────────────────────────────────┘
+                                      │
+              ┌───────────────────────┴───────────────────────┐
+              │                                               │
+  ┌───────────▼───────────┐                       ┌───────────▼───────────┐
+  │   剧本轨（Part B）      │                       │   制作轨（Part C）      │
+  │                       │                       │                       │
+  │  Stage 1 → G1 → R1   │                       │  Stage 3a → 3b ∥ 3c  │
+  │  Stage 2 → G2         │                       │  → G3                 │
+  │  Stage 4 → G4 → R2   │── 标记「可制作」───────→│  Stage 5 → G5         │
+  │  （逐集循环，不等待）    │    （交接协议）         │  Stage 6 → G6         │
+  │                       │                       │  （对可制作集随时启动）  │
+  └───────────────────────┘                       └───────────────────────┘
 ```
 
-| Stage | Agent | 职责 | 核心产出 |
-|-------|-------|------|----------|
-| 1 | `story-architect`（故事架构师） | 86集故事大纲、情绪弧线、钩子矩阵 | `短剧剧本_<剧名>_86集.md` |
-| 2 | `production-planner`（制片结构注册师） | ID 系统、资产骨架、分段规则 | `制片规范.md` + `资产/` 骨架卡 |
-| 3a | `prop-designer`（道具设计师） | 道具视觉设计、参考图生成 | `assets/props/` + CDN URLs |
-| 3b | `character-designer`（角色设计师） | 角色视觉设计、形象图生成（使用道具参考图） | `资产/角色卡片.md` + `assets/looks/` |
-| 3c | `scene-designer`（场景设计师） | 场景视觉设计、参考图生成（使用道具参考图） | `assets/scenes/` + CDN URLs |
-| 4 | `scene-writer`（分镜编剧） | 分集剧本、镜头表 | `剧本/EP##/EP##_*.md` |
-| 5 | `segment-builder`（分镜构建师） | YAML 生成供 API 提交 | `剧本/EP##/EP##_shots.yaml` + `EP##_segments.yaml` |
-| 6 | `drama-director`（总导演） | 标题/封面/简介合规审查 | 发布就绪确认 |
+| Stage | Agent | 轨道 | 职责 | 核心产出 |
+|-------|-------|------|------|----------|
+| 1 | `story-architect`（故事架构师） | 剧本轨 | 86集故事大纲、情绪弧线、钩子矩阵 | `短剧剧本_<剧名>_86集.md` |
+| 2 | `production-planner`（制片结构注册师） | 剧本轨 | ID 系统、资产骨架、外貌锚点、分段规则 | `制片规范.md` + `资产/` 骨架卡 |
+| 3a | `prop-designer`（道具设计师） | 制作轨 | 道具视觉设计（3a-D 零扣费）→ 用户确认 → 参考图生成（3a-G 扣费） | `assets/props/` + CDN URLs |
+| 3b | `character-designer`（角色设计师） | 制作轨 | 角色视觉设计（3b-D 零扣费）→ 用户确认 → 形象图生成（3b-G 扣费，使用道具参考图） | `资产/角色卡片.md` + `assets/looks/` |
+| 3c | `scene-designer`（场景设计师） | 制作轨 | 场景视觉设计（3c-D 零扣费）→ 用户确认 → 参考图生成（3c-G 扣费，使用道具参考图） | `assets/scenes/` + CDN URLs |
+| 4 | `scene-writer`（分镜编剧） | 剧本轨 | 分集剧本、镜头表（连续逐集，不等待制作） | `剧本/EP##/EP##_*.md` |
+| 5 | `segment-builder`（分镜构建师） | 制作轨 | YAML 生成供 API 提交（对「可制作」集随时启动） | `剧本/EP##/EP##_shots.yaml` + `EP##_segments.yaml` |
+| 6 | `drama-director`（总导演） | 制作轨 | 标题/封面/简介合规审查 | 发布就绪确认 |
 
-> **🚫 集间严格串行执行（2026-06-30 更新）**：Stage 4→5（分镜写作 + YAML 构建）按集**严格顺序推进，严禁批量/并行**。EP(N) 必须完整跑完 Stage 4 → G4 → R2 → Stage 5 → G5 五关全过，方可启动 EP(N+1) 的 Stage 4。违反"一次一集"硬红线 = 流程违规，产出作废。完整规则见 `.qoder/agents/drama-director.md`「批量集数推进」段及各 agent 约束条件。
+> **🚫 双轨并行（2026-08-05 更新）**：流水线拆为**剧本轨**（平台无关、连续推进）与**制作轨**（平台依赖、随时启动）两条独立轨道：
+> - **剧本轨**：scene-writer 按集**连续逐集**写作（一次一集，严禁批量/并行），每集经 Stage 4 → G4 → R2 剧本定稿门（G4 后即审、不等制作）定稿并标记「可制作」后，立即推进 EP(N+1)，**不等待该集 Stage 5 / G5 / 出片**。**剧本轨仅依赖 Stage 1+2 产物**（86集大纲 + 制片规范 + 骨架卡：CHAR-###/SCENE-###/PROP-###、语言画像草案、外貌锚点、voice_prompt），零扣费、零阻塞，不设中间阶段。
+> - **制作轨**：对任意已标记「可制作」的集**独立随时启动**。Stage 3 内**设计先行**：3-D 设计（文字，零扣费）→ 逐设计师用户确认 → 3-G 生成（图片，扣费），用户可停在 3-D；3-G 完成后经素材就绪（C7）+ G3 增量验证 + 制作放行门（维度 6 视觉资产补审）→ 逐集转译 YAML → G5 → 出片，与剧本轨互不阻塞。
+>
+> 两轨各自内部均禁止批量/并行（违反「一次一集」硬红线 = 流程违规，产出作废）。完整规则见 `.qoder/agents/drama-director.md`「Part A3 两轨交接协议」「Part B6 剧本轨集数推进」「Part C10 制作轨集数推进」段及各 agent 约束条件。
 
 **辅助角色**：
-- `script-reviewer`（剧本审核师）：R1（大纲后）和 R2（EP01 剧本后）质量门控
+- `script-reviewer`（剧本审核师）：R1（大纲后）和 R2·剧本定稿门（单集剧本 G4 后即审）质量门控 + 制作放行门（维度 6 补审）
 - `drama-director`（总导演）：流水线调度、门控判定、状态追踪
 
 ## 质量门控（Gate）
 
-| 门控 | 位置 | 职责 |
-|------|------|------|
-| G1 | Stage 1 → Stage 2 | 大纲完整性校验 |
-| G2 | Stage 2 → Stage 3 | 制片规范 + ID 系统就绪 |
-| G3 | Stage 3 → Stage 4 | 道具/角色/场景资产就绪 |
-| G4 | Stage 4 → Stage 5 | 分集剧本定稿 |
-| G5 | Stage 5 完成 | YAML 合规校验 |
-| G6 | Stage 5 → 发布 | 元数据合规性 |
+| 门控 | 位置 | 轨道 | 职责 |
+|------|------|------|------|
+| G1 | Stage 1 → Stage 2 | 剧本轨 | 大纲完整性校验 |
+| G2 | Stage 2 → [Stage 4 ∥ Stage 3] | 两轨 | 制片体系 + ID 骨架 + 外貌锚点就绪 |
+| G3 | [3a + 3b ∥ 3c] → 5 | 制作轨 | 道具/角色/场景资产就绪（不阻塞剧本轨） |
+| G4 | Stage 4 后（剧本轨内） | 剧本轨 | 分集剧本合规性 |
+| G5 | Stage 5 完成 | 制作轨 | YAML 合规校验 |
+| G6 | Stage 5 → 发布 | 制作轨 | 元数据合规性 |
 
 **审查节点**：
 - **R1**（G1 之后）：`script-reviewer` 审查 86 集大纲，≥15/25 分放行
-- **R2**（G4 之后）：`script-reviewer` 审查单集剧本，EP01 ≥28/35 硬门控，EP02+ ≥25/35 软门控（未过则暂停并报告、用户可 override 后带记录继续）（R2 在 Stage 3 完成后触发，含视觉资产维度，常态 35 分制）
+- **R2·剧本定稿门**（每集 G4 之后，不等 G3/G5）：`script-reviewer` 审查单集剧本（维度 1-5 + 7，满分 30），EP01 ≥24/30 硬门控，EP02+ ≥21/30 软门控（未过则暂停并报告、用户可 override 后带记录继续）；通过并 notes 清零 → 该集标记「可制作」，剧本轨推进下一集
+- **制作放行门**（制作轨启动某集前，C7 素材就绪 + G3 增量验证后）：`script-reviewer` 补审维度 6（视觉资产审查，满分 5），≥4/5 硬门控，通过后制作轨启动该集 Stage 5
 
 > **⚠️ notes 清零协议（2026-07-26 起强制）**：R1/R2 分数达标≠放行。审查判定只有两个终态：**PASS（clean）** 与 **FAIL**；「PASS with notes」是中间态，必须执行「源头修复（R1→大纲正文、R2→剧本正文）→ 同步下游文件 → director 实测验证 → reviewer 核销轮」循环，直到 notes 清零升级 PASS（clean）才可放行（循环上限 3 轮，超限升级用户）。题材属性/赛道同质化等无法文本修复的因素列「结构性观察」，不计 notes、不阻断。禁止把 notes 挂账给下游阶段后直接放行。详见 `.qoder/agents/script-reviewer.md`「判定终态与 notes 清零协议」。
 
-> **📅 分制口径代差告知**：2026-06-30 前的历史审核报告（如 `dramas/布衣账房/`、`dramas/前任的弟弟是我的租客/` 等 `docs/审核报告_R2_*.md`）按旧 30 分制生成（EP01 ≥21/30 硬门控）。新项目自 2026-06-30 起统一按 35 分制（EP01 ≥28/35、EP02+ ≥25/35）。历史报告不改写，但跨项目比对时需注意分制代差。
+> **📅 分制口径代差告知**：2026-06-30 前的历史审核报告（如 `dramas/布衣账房/`、`dramas/前任的弟弟是我的租客/` 等 `docs/审核报告_R2_*.md`）按旧 30 分制生成（EP01 ≥21/30 硬门控）。2026-06-30 至 2026-08-04 期间项目按 35 分制（EP01 ≥28/35、EP02+ ≥25/35）。自 2026-08-05 双轨改造起，R2 拆为「剧本定稿门」（30 分制：维度 1-5 + 7，EP01 ≥24/30、EP02+ ≥21/30）与「制作放行门」（5 分制：维度 6，≥4/5）。历史报告不改写，但跨项目比对时需注意分制代差。
 
 ## Agent 工作闭环原则（⚠️ 所有 Agent 强制执行）
 
@@ -116,7 +135,7 @@ Step → Verify → [有问题? → Fix → Verify (循环至干净)] → Next S
 
 ## 时长红线（禁止数学游戏）⚠️ 对 scene-writer / segment-builder / drama-director 强制执行
 
-> 以下规则来自生产事故复盘：大模型在剧本时长不够时倾向于"数学游戏"——直接给某几个镜头加 1s 或几秒凑数，内容不变，产出的视频是拖长的空镜/慢动作。剧本是整条流水线的真相源（scene-writer → segment-builder → Seedance 按段扣费的视频生成），剧本凑数=后面全浪费，故必须从源头杜绝。
+> 以下规则来自生产事故复盘：大模型在剧本时长不够时倾向于"数学游戏"——直接给某几个镜头加 1s 或几秒凑数，内容不变，产出的视频是拖长的空镜/慢动作。剧本是整条流水线的真相源（scene-writer → segment-builder → 视频生成引擎按段扣费的视频生成），剧本凑数=后面全浪费，故必须从源头杜绝。
 
 ### 三条硬规则
 
@@ -139,24 +158,28 @@ Step → Verify → [有问题? → Fix → Verify (循环至干净)] → Next S
 ### A. Prompt 设计自检（生成前 — agent 必须执行）
 
 每个 prompt 逐条检查：
-- [ ] **场景/道具人脸禁令**：场景和道具图中**严禁**出现任何人类面孔（含照片、画像、贴纸、屏幕显示等平面媒介）。人物由 Seedance 视频阶段加入。角色卡要求"墙上挂照片"时，改用物品替代（名牌/奖状/标志性物件）
-- [ ] **道具参考图自然锚点（2026-07-30 双事故复盘）**：Seedream 会把 `image_urls` 参考图**原样复制进画面**。仅当 prompt 显式把道具绑定到自然物理锚点（held in hand / hanging at waist sash / parked on the floor beside X）并写明接触面时才可传道具参考图；镜头中不自然可见的道具一律文字描述、不传图（事故：残页参考图被平贴到角色胸口）
+- [ ] **场景/道具人脸禁令**：场景和道具图中**严禁**出现任何人类面孔（含照片、画像、贴纸、屏幕显示等平面媒介）。人物由视频生成引擎（video_gen）阶段加入。角色卡要求"墙上挂照片"时，改用物品替代（名牌/奖状/标志性物件）
+- [ ] **道具参考图自然锚点（2026-07-30 双事故复盘）**：图片生成引擎会把 `image_urls` 参考图**原样复制进画面**（该结论为 Seedream 实测，当前默认引擎 gpt-image 需以实际输出验证）。仅当 prompt 显式把道具绑定到自然物理锚点（held in hand / hanging at waist sash / parked on the floor beside X）并写明接触面时才可传道具参考图；镜头中不自然可见的道具一律文字描述、不传图（事故：残页参考图被平贴到角色胸口）
 - [ ] **空间介词无歧义**：禁用 "at the head of the table" 类可读作"在桌面上"的歧义表述，必须显式命名支撑面（on the floor / on the tabletop）（事故：轮椅被摆上会议桌桌面）
 - [ ] **文字语种**：场景/道具/角色物品（刻字玉佩、绣字长袍等）如需出现中文，必须写 `Simplified Chinese`，不能只写 `Chinese text`（会出繁体）
 - [ ] **文字内容**：所有需要的标签、铭文、手写内容必须**完整拼出**在 prompt 中
 
 ### B. 道具交叉引用检查（生成前 — director 必须执行）
 
-**场景中出现特定道具作为陈设时**：
-- [ ] 该道具图是否在 `image_urls` 中？
-- [ ] 该道具是否已生成并上传 TOS？
+**先判定道具类别**：
+- **固定陈设**（祭坛、武器架、牌匾等常驻物）→ 场景图中应含该道具，走下方交叉引用
+- **情节道具**（襁褓、信件、兵器等随剧情出现/消失的物体）→ **严禁入场景底图**：场景图必须保持空场景，该道具由视频阶段 `shots.yaml` 的 `prop_urls` 传入锁定外观（2026-08-07 事故：SCENE-001 底图固化襁褓导致跨集穿帮 + 与基准时段不符）
 
-**Seedance 视频阶段道具锁定**：
-场景图本身不保证道具在视频中外观稳定——Seedance 可能改变场景中的物品。需要道具外观严格一致的镜头，**必须**在 `shots.yaml` 中将道具图作为独立参考图传入：
+**场景中出现固定陈设道具时**：
+- [ ] 该道具图是否在 `image_urls` 中？
+- [ ] 该道具是否已生成并上传对象存储（storage）？
+
+**视频生成引擎（video_gen）阶段道具锁定**：
+场景图本身不保证道具在视频中外观稳定——视频生成引擎可能改变场景中的物品。需要道具外观严格一致的镜头，**必须**在 `shots.yaml` 中将道具图作为独立参考图传入：
 ```yaml
 assets:
   prop_urls:
-    PROP-003: https://.../PROP-003.png   # TOS URL
+    PROP-003: https://.../PROP-003.png   # 存储永久 URL（当前 TOS）
 api:
   content_roles:
     - file: PROP-003
@@ -170,14 +193,23 @@ api:
 ```
 Stage 3a（道具，含即生即传） → [验证 cdn_urls.json] → Stage 3b（角色）∥ Stage 3c（场景）
 ```
-- 道具必须已上 TOS，角色/场景才能引用
+- 道具必须已上传对象存储（storage），角色/场景才能引用
 
 ### D. 生成后验证（每批次生成后立即执行）
 
-1. [ ] **TOS 上传 + 更新 registry**：`tos_upload.py sync --project-root dramas/<剧名>`
+1. [ ] **对象存储上传 + 更新 registry**（storage 能力，TOS 为当前默认引擎；CLI 路径见 `engine_registry.cli_path('storage')`）：`tos_upload.py sync --project-root dramas/<剧名>`
    （`sync` 内部已自动上传 + 更新 `cdn_urls.json`，等价于底层 `upload-dir` + `update-registry` 两步；与 prop/character/scene-designer 的命令一致）
 2. [ ] **更新卡片状态**：道具卡片.md、角色卡片.md、场景卡片.md、形象索引.md 中所有 `待生成` → `✅ 已生成`
 3. [ ] **更新工作计划.md** 流水线状态
+
+### D2. 场景变体必须基于基准图编辑生成（硬门控，2026-08-08 事故固化）
+
+> 事故：8 张场景变体（-b/-c）从零生成（image_urls 空），与基准图几何结构全高漂移（ORB 匹配 3-20 点 vs 同布局 80+），跨集交叉使用必穿帮（如 EP29 封店维修铺 ≠ EP01 维修铺）。
+
+- [ ] **变体条目 `image_urls` 必须包含对应基准图（SCENE-###）的存储永久 URL（tos_url）**
+- [ ] **变体 prompt 为 delta 编辑式**：`same scene as the reference image, keep the layout, architecture, signage and structures exactly, [仅修改状态差异]`
+- [ ] **3c-G 组装/提交前逐条校验**：变体条目（ID 含 `-b`/`-c`/`-dawn`/`-night` 等后缀）`image_urls` 非空且为 `https://` 基准图 tos_url，否则禁止提交
+- [ ] 生成后抽查：变体与基准图 ORB 特征匹配 ≥80 点（`script/check_scene_drift.py` 思路）才可放行
 
 ### E. 场景/道具人脸禁令
 
@@ -185,31 +217,31 @@ Stage 3a（道具，含即生即传） → [验证 cdn_urls.json] → Stage 3b�
 
 ### F. L02+ 面部一致性硬门控
 
-L02+ 衍生形象**必须**通过 `image_urls`（CLI: `--image-url`）传入对应角色 L01 的 TOS URL 作为面部参考图。
+L02+ 衍生形象**必须**通过 `image_urls`（CLI: `--image-url`）传入对应角色 L01 的存储永久 URL（当前 TOS `tos_url`）作为面部参考图。
 
-- [ ] **L01 参考图必须传入**：`image_urls` 包含 L01 的 `https://` TOS URL，不得为空 `[]`
+- [ ] **L01 参考图必须传入**：`image_urls` 包含 L01 的 `https://` 存储永久 URL，不得为空 `[]`
 - [ ] **Prompt 必须包含面部一致性指令**："SAME person as the reference image"、"Keep the SAME face"
-- [ ] **禁止仅靠文本 FACE ANCHOR**：Seedream 无法从文本描述复现同一张脸，即使一字不差的 FACE ANCHOR 也会生成不同人脸
+- [ ] **禁止仅靠文本 FACE ANCHOR**：图片生成引擎无法从文本描述复现同一张脸（该结论为 Seedream 实测，gpt-image 需以实际输出验证），即使一字不差的 FACE ANCHOR 也会生成不同人脸
 
 **事故复盘**：《修仙界唯一的男人》CHAR-006-L02 首次生成时仅用文本 FACE ANCHOR（未传 L01 参考图），导致生成完全不同的人脸。重新生成时传入 L01 `--image-url` 后问题解决。
 
-CLI 示例：
+CLI 示例（当前默认引擎 gpt-image；CLI 路径随引擎，见 `mcps/shared/engine_registry.py`）：
 ```bash
-python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
+python3 mcps/gpt-image/scripts/gpt_image.py generate \
   --image-url "https://drama-reference-images.tos-cn-beijing.volces.com/looks/<剧名>/CHAR-XXX-L01.png" \
   --prompt "The SAME person as the reference image..." \
   --output "dramas/<剧名>/assets/looks/CHAR-XXX-L02.png"
 ```
 
-### G. 面部网格变体强制（Seedance 输入人脸过滤解法）
+### G. 面部网格变体强制（视频生成引擎（video_gen）输入人脸过滤解法）
 
 > 来自生产验证（2026-07-26，《满级师尊她装作刚入门》EP01 全集 10/10 段）：照片级写实人脸参考图会被 ARK 以 `InputImageSensitiveContentDetected.PrivacyInformation` 确定性拒绝（HTTP 400 不建单不扣费）。解法：用 `script/add_face_mesh.py` 在面部叠加 AR 风格三角网格后即可通过，且**网格不会被复现到成片、面部一致性保持**（男女角色、特写/全景均验证）。轻度 CG 风格化重渲染**无效**（仍被拒）。
 
 规则：
-- [ ] **生成时机**：character-designer 在每张含可见人脸的 L01/L02+ 确认后，立即生成 `-mesh.png` 变体，并随「即生即传」流程一并上传 TOS
+- [ ] **生成时机**：character-designer 在每张含可见人脸的 L01/L02+ 确认后，立即生成 `-mesh.png` 变体，并随「即生即传」流程一并上传对象存储（storage）
 - [ ] **命名**：`CHAR-###-L##-mesh.png`，群演为 `CHAR-GRP-##-L01-mesh.png`（群演同样适用本规则）；与原图同目录（`assets/looks/`），同步注册 cdn_urls.json
 - [ ] **登记凭据**：生成或豁免结论必须登记到 `资产/形象索引.md` 对应行（`✅ mesh已生成` / `mesh豁免（剪影）` / `mesh豁免（背影）`）；下游 segment-builder 与 G3 均以此登记为准，**无登记视为缺口**，不得自行猜测是否豁免
-- [ ] **使用边界**：仅 Seedance 视频提交（shots/segments YAML 的 `look_urls`）用 mesh 版；Seedream L02+ 衍生、对外展示仍用原图
+- [ ] **使用边界**：仅视频生成引擎（video_gen）提交（shots/segments YAML 的 `look_urls`）用 mesh 版；图片生成 L02+ 衍生、对外展示仍用原图
 - [ ] **豁免**：逆光剪影、背影等无可见人脸的形象图不触发过滤，无需 mesh 版（需登记豁免，见上）
 - [ ] **根治并行**：向平台申请 AIGC 白名单后可逐步退场
 
@@ -217,14 +249,14 @@ python3 mcps/volc-ark/scripts/ark_seedream_image.py generate \
 
 | 跳过此项 | 结果 |
 |---------|------|
-| 道具参考图自然锚点/空间介词检查 | 道具图被原样平贴进画面（残页贴胸口）、道具落在荒诞位置（轮椅上会议桌），Seedance 继承缺陷至成片 |
+| 道具参考图自然锚点/空间介词检查 | 道具图被原样平贴进画面（残页贴胸口）、道具落在荒诞位置（轮椅上会议桌），视频生成引擎继承缺陷至成片 |
 | 场景/道具人脸禁令 | 场景中出现错误角色面孔、西方面孔或无意义人脸（SCENE-009 教授照） |
 | 文字语种检查 | 简体内容出现繁体文字（PROP-011 商业计划书） |
 | 道具交叉引用检查 | 道具与场景不匹配 |
 | 串行门控 | 道具/角色/场景并行生成，无法使用 `image_urls` 交叉引用 |
-| 生成后验证 | 卡片状态卡在“待生成”，下游阶段缺少 TOS URL |
+| 生成后验证 | 卡片状态卡在“待生成”，下游阶段缺少存储永久 URL |
 | L02+ 面部一致性门控 | L02 生成完全不同的人脸（CHAR-006-L02 事故），必须重新生成 |
-| 面部网格变体 | Seedance 提交被人脸过滤 HTTP 400 拦截，整集无法开工（满级师尊 EP01 事故，后由 mesh 方案解决） |
+| 面部网格变体 | 视频生成引擎提交被人脸过滤 HTTP 400 拦截，整集无法开工（满级师尊 EP01 事故，后由 mesh 方案解决） |
 
 ## ID 格式
 
@@ -245,8 +277,8 @@ dramas/<剧名>/
 ├── 资产/              ← 角色卡片.md, 形象索引.md, 场景卡片.md, 道具卡片.md, 声音卡片.md
 ├── 剧本/EP01/         ← 分集剧本 + 分镜脚本 + YAML
 ├── assets/            ← AI 生成素材
-│   ├── generated/     ← 视频素材（Seedance 输出）
-│   ├── looks/         ← 角色形象参考图（Seedream 输出）
+│   ├── generated/     ← 视频素材（视频生成引擎输出）
+│   ├── looks/         ← 角色形象参考图（图片生成输出）
 │   └── scenes/        ← 场景参考图
 ├── 制片规范.md        ← 项目"宪法"（ID 系统、分段规则）
 ├── 工作计划.md        ← 流水线状态追踪
@@ -259,11 +291,16 @@ dramas/<剧名>/
 
 ## MCP 工具链
 
+> 🔴 **执行前先读规范（硬约束，2026-08-07 事故固化）**：任何环节动手前，必须**先读**对应权威规则再执行——`docs/制片规范模板.md`（后期合成必读 §七 声音/§七B 字幕与叠加层）、项目 `制片规范.md`、`AGENTS.md` 强制清单。**禁止凭直觉/经验直接开工**（事故链：字幕用错工具漏出场卡、--force 未测即用、reconcile 一轮不跑、情节道具入底图，全部是"先干后查"导致）。执行顺序：读规则 → 确认适用项 → 执行 → 对照规则自检 → 才可交付。
+
+> 🔌 **引擎注册表**：图片/视频生成/存储按「能力」引用，当前默认引擎由 `mcps/shared/engine_registry.py` 统一解析：`image_gen`（图片生成，默认 **gpt-image**，备选 seedream）、`video_gen`（视频生成，默认 seedance，备选 kling）、`storage`（对象存储/参考图永久托管，默认 **tos**，备选可扩展）。切换引擎改注册表或设 `IMAGE_GEN_ENGINE` / `VIDEO_GEN_ENGINE` / `STORAGE_ENGINE` 环境变量即可，agent 提示词无需改。视频默认参数（model/ratio/resolution/duration_sec 等）由 `video_defaults()` 解析；存储桶/永久 URL 由 `storage_info()` / `storage_url()` 解析；各能力 CLI 路径由 `cli_path()` 解析。
+
 | 功能 | MCP 服务 | 工具 | 扣费 |
 |------|----------|------|------|
-| 图片生成 | `volc-ark` | `ark_seedream_generate` / `ark_seedream_batch` | **是** |
+| 图片生成（默认 image_gen） | `gpt-image` | `gpt_image_generate` / `gpt_image_batch` | **是** |
+| 图片生成（备选） | `volc-ark` | `ark_seedream_generate` / `ark_seedream_batch` | **是** |
 | 图片托管 | `imgbb` | `imgbb_upload` | 否 |
-| 视频生成 | `volc-ark` | `ark_seedance_create` / `ark_seedance_shots` | **是** |
+| 视频生成（默认 video_gen） | `volc-ark` | `ark_seedance_create` / `ark_seedance_shots` | **是** |
 | 视频查询 | `volc-ark` | `ark_seedance_list` / `ark_seedance_get` / `ark_seedance_wait` | 否 |
 | 视频下载 | `volc-ark` | `ark_seedance_download` | 否 |
 | 任务归档 | `volc-ark` | `ark_list_tasks` | 否 |
@@ -279,7 +316,7 @@ MCP 工具本质是 Python CLI 的薄包装。MCP 未启动时，通过 Bash 直
 | 查询任务 | `python3 mcps/volc-ark/scripts/ark_seedance_video.py get --task-id cgt-xxx` |
 | 列出远程任务 | `python3 mcps/volc-ark/scripts/ark_seedance_video.py list --json` |
 | 下载视频 | `python3 mcps/volc-ark/scripts/ark_seedance_video.py download --task-id cgt-xxx -o out.mp4` |
-| 生成图片 | `python3 mcps/volc-ark/scripts/ark_seedream_image.py generate --prompt "..." --output path.png` |
+| 生成图片（当前默认引擎 gpt-image；CLI 路径随引擎，见 `mcps/shared/engine_registry.py`） | `python3 mcps/gpt-image/scripts/gpt_image.py generate --prompt "..." --output path.png` |
 
 **环境变量**：`export ARK_API_KEY=xxx`（或 `DRAMA_PROJECT_ROOT=dramas/<剧名>`）
 
@@ -404,10 +441,30 @@ python3 script/download_jimeng_from_tasks.py
 - `volc_visual_query`（查询视觉任务状态）
 - `kling_image_*`、`kling_video_*`（Kling 相关）
 - `minimax_text_to_image`（MiniMax 图片生成）
+- **`gpt_image_generate`、`gpt_image_batch`**（gpt-image 出图）
 - **`ark_seedream_generate`、`ark_seedream_batch`**（方舟 Seedream 出图）
 - **`ark_seedance_create`、`ark_seedance_shots`**（方舟 Seedance 出视频）
 
 **违规调用将浪费用户金钱！调用前必须获得用户明确授权！**
+
+## 🚫 禁止擅自更换生成模型/引擎（硬红线，2026-08-08 事故固化）
+
+> 事故：gpt-image 生成时配置模型 `openai/gpt-image-2` 在中转返回 HTTP 500（get_channel_failed，auto 分组无渠道），执行者未经授权自行探测并改用 `gpt-image-1` 生成，超出用户授权范围并产生未经批准的扣费。
+
+1. **未经用户明确授权，禁止更换、探测任何生成模型、引擎或模型别名**——包括但不限于：`--model` 参数、`GPT_IMAGE_MODEL`、`IMAGE_GEN_ENGINE` / `VIDEO_GEN_ENGINE` / `STORAGE_ENGINE` 环境变量、切换 MCP 服务、以及"试跑其他模型名验证可用性"等任何形式的探测。
+2. **配置的模型报错时**（HTTP 500 / `get_channel_failed` / 渠道不存在 / 超时等）：**立即停止** → 原样报告错误全文（含 message/code/type）→ 说明排查结论（如"别名无渠道但其他别名存在"）→ 列出候选选项与各自成本 → **等待用户裁决**。严禁自行选用替代模型/别名/引擎继续生成。
+3. **"探测可用模型"同样属于换模型行为**，未获用户明确授权一律禁止（用户明确要求排查时除外，且排查只读、不生成）。
+4. 已授权范围内的生成（模型/引擎/数量/预算不变）不受本条限制；授权后如需任何变更，重新请求授权。
+5. 违反本条 = 流程违规：产出作废、费用如实上报、不得隐瞒。用户可随时要求回滚。
+
+## 🚫 禁止手写正则提取卡片 Prompt（硬红线，2026-08-08 事故固化）
+
+> 事故：3a-G 生成 PROP-013 银腕表时，用 `re.search` 全局匹配「道具 Prompt（EN）」代码块，匹配到卡片文件中第一个代码块（PROP-001 手修笔记），生成了错误的道具图并重复扣费（≈$0.1）。
+
+1. **从卡片文件（道具/角色/场景卡片.md）提取任何 Prompt，必须使用 `script/extract_prompt.py`**，禁止手写 `re.search` / `grep -A` / `sed` 区间等临时提取。
+2. **提交生成前必须做关键词门控**：`python3 script/extract_prompt.py --card <卡片> --id <ID> --keyword <该道具/形象的关键词>`（如银腕表→`watch`、手修笔记→`notebook`、角色→`Chinese woman/man`）。门控失败（exit 1）即疑似提取错段，**禁止提交生成**。
+3. 生成后的产物（图片文件）在提交 TOS 上传前，须与预期道具/形象做一致性确认（如按段提取的 prompt 与生成请求一致、md5 校验等）。
+4. 违反本条 = 流程违规：错误产出作废、费用如实上报。
 
 ## 视频生成规则
 

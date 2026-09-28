@@ -43,7 +43,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 - 编号**连续、不跳号**
 - 新建角色：先在 `资产/角色索引.md` 登记 `CHAR-###`，再由 character-designer（Stage 3b）建 `L01` 基础形象
 - 新建换装/阶段形象：**只加 `L02+` 衍生形象**，并写明 `based_on: CHAR-xxx-L01`
-- **群演按需创建，不设数量上限**：有名字+跨 segment 出现 → 独立 `CHAR-###`；纯背景无台词但需视觉区分 → `CHAR-GRP-##`。每个 `CHAR-GRP-##` 都必须分配独立 ID 和 L01 形象。唯一约束是 API 参考图配额（每 segment ≤6 张，TOS URL 模式）——超出时按 segment-builder 优先级裁减
+- **群演按需创建，不设数量上限**：有名字+跨 segment 出现 → 独立 `CHAR-###`；纯背景无台词但需视觉区分 → `CHAR-GRP-##`。每个 `CHAR-GRP-##` 都必须分配独立 ID 和 L01 形象。唯一约束是 API 参考图配额（每 segment ≤6 张，当前 TOS 永久 URL 模式）——超出时按 segment-builder 优先级裁减
 - 同一 CHAR-GRP-## 可跨集复用（如"守卫甲"在 EP01-03 都出现），但不同视觉角色不可共用同一 ID（如"队长"与"年轻守卫"必须是 GRP-01 和 GRP-02 两个 ID）
 
 ### 形象层级结构定义
@@ -72,7 +72,7 @@ tools: [Read, Write, Grep, Glob, Bash]
 
 | 约束             | 值              | 说明                                                    |
 | ---------------- | --------------- | ------------------------------------------------------- |
-| 单 segment 时长  | **4–12 秒**     | Seedance fast 硬限制；超出必须拆分                      |
+| 单 segment 时长  | **4–12 秒**     | 视频生成引擎（video_gen）硬限制；超出必须拆分。具体区间以 `engine_registry.video_defaults()` 的 `segment_duration_sec` 为准 |
 | 理想时长         | 8–10 秒         | 一条 API = 一段可拍的戏                                 |
 | 每 segment 镜头数 | ≤3 镜；段 ≥8s 必 ≥2 镜（典型 2-3） | v2.2 切镜节奏；静音视觉锤段可单镜但 ≤8s                    |
 | 最小叙事单位     | 1 个完整 beat   | 每个 segment 必须构成完整叙事节拍                       |
@@ -90,29 +90,23 @@ tools: [Read, Write, Grep, Glob, Bash]
 ### 关键区分
 
 - **场景（SCENE-###）** = 空间单位（地点不变 = 同一场景）
-- **Segment（SEGxx）** = AI 生成单位（一次 Seedance API 调用）
+- **Segment（SEGxx）** = AI 生成单位（一次视频生成引擎（video_gen）API 调用）
 - 同一场景**可以**包含多个 segment；segment **不得**跨场景
 
 ### 分集文件头 YAML 模板
+
+> 制作参数（model/seed/ratio/resolution 等）**不属于分集文件头**——由 `制片规范.md` 定义 + `engine_registry.video_defaults()` 解析，segment-builder 构建 shots/segments YAML 时读取。分集文件头仅含叙事数据：
 
 ```yaml
 ---
 episode_id: EP01
 episode_title: [集标题]
-duration_sec: 90  # EP01 为 120s；EP02+ 理想 75-100s/合规 75-120s；参见制片规范 episode_profile
+duration_sec: 90  # 整数秒（format_check G4 硬字段，须等于镜头表总时长秒数）；EP01 为 120，EP02+ 理想 75-100/合规 75-120；参见制片规范 episode_profile
 season: S1
 scene_ids: [SCENE-001, SCENE-002]
 character_ids: [CHAR-001, CHAR-002]
 look_ids: [CHAR-001-L01, CHAR-002-L01]
 prop_ids: [PROP-001, ...]
-seedance_defaults:
-  model: doubao-seedance-2-0-fast-260128  # ⚠️ 必须带版本后缀（如 -260128），无后缀名方舟返回 404
-  seed: <项目统一固定值>  # ⚠️ 全剧固定一个 seed，提升同角色跨段音色/语速稳定；可从首个满意成片任务回填
-  ratio: "9:16"
-  resolution: 720p
-  image_resolution: 1600×2848（Seedream 参考图，9:16 竖屏）
-  duration_sec: "8-10"
-  generate_audio: true
 ---
 ```
 
@@ -209,7 +203,7 @@ seedance_defaults:
 | 说明 | 一句话描述功能/意义 |
 | 叙事功能 | 推动情节/象征意义/伏笔 |
 | 关联场景 | `SCENE-###`（[位置/展示方式]）。道具作为环境一部分出现在某场景中时填写。**仅一个场景 vs 多个场景** 决定道具是否需要独立参考图。 |
-| 参考图 | production-planner 在提取时分类：`待生成`（跨场景/跨角色/Seedance 引用，prop-designer 生成后更新为 `✅ 已生成`）/ `场景内置`（单场景专属，scene-designer 内嵌）/ `角色内置`（单角色专属，character-designer 内嵌）。无视觉上下文的道具不收录。 |
+| 参考图 | production-planner 在提取时分类：`待生成`（跨场景/跨角色/视频生成引擎引用，prop-designer 生成后更新为 `✅ 已生成`）/ `场景内置`（单场景专属，scene-designer 内嵌）/ `角色内置`（单角色专属，character-designer 内嵌）。无视觉上下文的道具不收录。 |
 
 #### 与制片规范的关系
 
@@ -266,7 +260,7 @@ seedance_defaults:
 
 - 旁白角色不分配 CHAR-ID，写为「旁白」，voice_prompt 独立定义
 - 分集剧本镜头表中标注音效（如 `敲门声`、`紧张弦乐`）
-- Seedance `generate_audio: true` 合成基础环境音；特殊音效后期叠加
+- 视频生成引擎 `generate_audio: true`（见 `video_defaults()`）合成基础环境音；特殊音效后期叠加
 
 ---
 
@@ -386,7 +380,7 @@ dramas/剧名/
 
 - 确认集数、单集时长、总时长、画面比例
 - 确认年代/题材背景
-- 确认生成工具（Seedance / 即梦）
+- 确认生成工具（视频生成引擎 video_gen / 即梦，当前默认引擎见 `engine_registry.py`）
 - 建立目录结构
 
 ### Step 2：提取角色身份 → 分配 CHAR-ID，建立角色卡片骨架
@@ -405,10 +399,10 @@ dramas/剧名/
   - 性格特征/情感弧线（供 character-designer 理解角色气质）
   - 初始音色建议（基于性格/年龄推断 voice_prompt 初稿）
 - 群演分级：有名字+跨 segment 出现 → 独立 CHAR-###；纯背景无台词 → CHAR-GRP（但每个视觉不同角色仍需独立 ID）
-- scene-writer 在剧本中标注的新群演（`[待补：...]`）由本 Agent 在**集间群演回补子循环**统一分配 `CHAR-GRP-##` ID（从已有最大编号+1），并建声音卡片条目（含 voice_prompt）+ 角色索引条目 + 形象索引骨架行（`CHAR-GRP-##-L01` 7 列骨架，ID/类型/适用预填，其余留空）；L01 形象图 + 角色卡片段落 + 形象索引填充由 character-designer 回补。回补完成（G3 增量验证通过）后该群演方可进入 segment-builder（子循环详见 drama-director）
+- scene-writer 在剧本中标注的新群演（`[待补：...]`）由本 Agent 在**集间群演回补子循环**统一分配 `CHAR-GRP-##` ID（从已有最大编号+1），并建声音卡片条目（含 voice_prompt）+ 角色索引条目 + 形象索引骨架行（`CHAR-GRP-##-L01` 7 列骨架，ID/类型/适用预填，其余留空）；L01 形象图 + 角色卡片段落 + 形象索引填充由 character-designer 回补。回补完成（G3 增量验证通过）后该群演方可进入 segment-builder（子循环详见 drama-director A3 交接协议 item 3 + C10）。**双轨路由拆两段**：本 Agent 的 ID/声音卡片/索引骨架分配属**文字回补（剧本轨内部，零扣费）**，剧本轨可立即继续；L01 生成属**L01 回补（制作轨）**，由该集 3-G 或 C7 素材就绪缺口时执行
 - 生成**角色卡片骨架**：
-  - 包含：CHAR-ID、姓名、角色定位、阵营/派系、首次出场、关键关系、性格概要
-  - **不包含**：外貌描写、AI Prompt、生成参数 —— 这些由 character-designer 填充
+  - 包含：CHAR-ID、姓名、角色定位、阵营/派系、首次出场、关键关系、性格概要、**外貌锚点**（每角色 3-5 句中文外貌/服装描述，粗粒度，供 scene-writer 画面列对齐 + character-designer 视觉设计起点）
+  - **不包含**：完整外貌描写表、AI Prompt、生成参数 —— 这些由 character-designer 填充（外貌锚点除外）
 - 输出 `资产/角色索引.md`（含完整 CHAR-ID 列表）
 - 输出 `资产/形象索引.md` 骨架（仅 ID 占位，待 character-designer 填充）
 
@@ -438,7 +432,7 @@ For each PROP-###:
 ├── appears in 2+ distinct SCENE-###                   → 🔵 待生成 (cross-scene anchor)
 ├── held by 2+ distinct CHAR-###                        → 🔵 待生成 (cross-character anchor)
 ├── appears in ≥1 scene AND held by ≥1 character        → 🔵 待生成 (dual-end appearance)
-├── referenced as prop_urls in Seedance shots.yaml      → 🔵 待生成 (video-level visual lock)
+├── referenced as prop_urls in video_gen shots.yaml     → 🔵 待生成 (video-level visual lock)
 ├── exclusive to ONE scene only, never held by a char   → ⏭️ 场景内置 (scene-designer bakes into scene prompt)
 ├── exclusive to ONE character only, never standalone   → ⏭️ 角色内置 (character-designer bakes into char prompt)
 └── no scene, no character                              → ❌ 不收录 (prop has no visual context — do not create card)
@@ -475,19 +469,32 @@ For each PROP-###:
 
 > 语言画像为 scene-writer 提供对白创作的语言约束依据，确保不同角色的台词风格有明显差异。
 
+### Step 3.6a：角色外貌锚点（粗粒度）
+
+从故事大纲中推断每个**有对白角色**的外貌/服装特征，为 scene-writer 的画面列描写提供视觉一致性锚点（对应 scene-writer Rule 14 的双轨适配）：
+
+- **外貌锚点**：3-5 句中文描述，覆盖性别/年龄/体型/发型/五官特征/气质
+- **服装锚点**：1-2 句标志性服装描述（主要场景的穿着）
+- 写入 `资产/角色卡片.md` 中对应角色条目下的「外貌锚点」字段
+- 此为**粗粒度**锚点（从大纲可推断的最低限度描述），character-designer 在 3b-D 基于锚点发展完整外貌描写表 + 英文 Prompt（锚点 → 外貌描写 → EN Prompt 链）
+
+> 外貌锚点与 Step 3.6 语言画像草案同级：均为零扣费文字产出，剧本轨（scene-writer）依赖它们即可独立推进，不依赖制作轨视觉设计。
+
 ### Step 3.7：双通道移交协议（Dual Handoff Protocol）
 
-production-planner 完成 Step 2 + 3 + 3.5 后，同时向两个下游消费者移交：
+production-planner 完成 Step 2 + 3 + 3.5 + 3.6 + 3.6a 后，同时向两个下游消费者移交：
+
+> **设计先行说明（2026-08-05 双轨）**：下游设计师在 Stage 3 内**先 3-D 设计（零扣费）后 3-G 生成（扣费）**——3-D 完成即可供用户预览设计方向，无需等待图片生成；骨架移交本身不变。详见 drama-director C1/C5 与各设计师规范。
 
 ---
 
 #### A. 移交给 character-designer（Stage 3b）
 
-**输出**：角色卡片骨架（CHAR-### ID、姓名、定位、阵营、首次出场、关键关系、性格概要、初始音色建议）+ 故事大纲原文引用 + `资产/角色索引.md` + `资产/形象索引.md` 骨架
+**输出**：角色卡片骨架（CHAR-### ID、姓名、定位、阵营、首次出场、关键关系、性格概要、**外貌锚点**、初始音色建议）+ 故事大纲原文引用 + `资产/角色索引.md` + `资产/形象索引.md` 骨架
 
-**character-designer 填充**：外貌描写、L01/L02+ Prompt、形象索引 Prompt 摘要
+**character-designer 填充**：外貌描写（基于锚点细化）、L01/L02+ Prompt、形象索引 Prompt 摘要
 
-**不可修改**：CHAR-### ID 编号、角色定位/关系结构、表格格式
+**不可修改**：CHAR-### ID 编号、角色定位/关系结构、**外貌锚点**、表格格式
 
 ---
 
@@ -496,8 +503,8 @@ production-planner 完成 Step 2 + 3 + 3.5 后，同时向两个下游消费者�
 **输出**：`资产/道具卡片.md`（含 ID、道具名、持有者、关联场景、首次出场、叙事功能、**已分类的 `参考图` 字段**）
 
 **prop-designer 职责**：
-- `待生成` 道具：发展视觉概念、编写英文 Prompt、生成参考图、上传 TOS、更新状态为 `✅ 已生成`
-- `场景内置` / `角色内置` 道具：补充材质/颜色/尺寸/磨损描述文本（供 scene-designer / character-designer 内嵌）
+- `待生成` 道具：发展视觉概念（3a-D）→ 编写英文 Prompt 写入卡片 → 提交用户确认 → 授权后生成参考图（3a-G）→ 对象存储上传（storage）→ 更新状态为 `✅ 已生成`
+- `场景内置` / `角色内置` 道具：3a-D 时补充材质/颜色/尺寸/磨损描述文本（供 scene-designer / character-designer 的 3b-D/3c-D 内嵌）
 
 **不可修改**：PROP-### ID、必填元数据字段、道具持有者/转移关系、**`参考图` 分类结果**（由 production-planner 决定）
 
@@ -541,7 +548,7 @@ production-planner 完成后产出以下文件：
 | 文件 | 说明 | 下游消费者 |
 |------|------|---------------|
 | `制片规范.md` | 项目宪法：ID体系、分段规则、结构约束、视觉风格锚点 | 全员 |
-| `资产/角色卡片.md`（骨架） | CHAR-ID + 身份元数据 + 性格概要（无视觉描写） | character-designer (Stage 3b) |
+| `资产/角色卡片.md`（骨架） | CHAR-ID + 身份元数据 + 性格概要 + 外貌锚点（无完整视觉描写） | character-designer (Stage 3b) |
 | `资产/角色索引.md` | 完整 CHAR-### 列表 | character-designer, scene-writer, segment-builder |
 | `资产/形象索引.md`（骨架） | ID 占位，待填充 | character-designer (Stage 3b) |
 | `资产/场景卡片.md` | SCENE-### + 结构元数据 | scene-designer (Stage 3c) |
@@ -586,7 +593,7 @@ production-planner 完成后产出以下文件：
 | 渲染风格 | [photorealistic / stylized realism / 等] |
 | 镜头参考 | [cinematic 85mm lens / wide-angle 24mm / 等] |
 | 色调方向 | [warm golden tone / cool desaturated / 等] |
-| 画幅 | 9:16 vertical |
+| 画幅 | 9:16 vertical / 16:9 horizontal（从 `制片规范.md` → `aspect_ratio` 读取） |
 | 题材关键词 | [3-5 个定义整体美学的词] |
 
 ## 三、目录结构
@@ -616,14 +623,14 @@ production-planner 完成后产出以下文件：
 
 1. **ID 分配必须连续、不跳号**——便于脚本解析和资产追踪
 2. **形象层级变更必须同步更新对应索引文件**——角色索引、形象索引保持一致
-3. **分段时长严格控制在 4-12 秒**——超出需拆分或合并，这是 Seedance fast 硬限制
+3. **分段时长严格控制在视频生成引擎（video_gen）限制内**（当前 seedance 为 4-12 秒，以 `video_defaults()` 的 `segment_duration_sec` 为准）——超出需拆分或合并
 
 > **数值约束集中引用**：分段时长 4–12s、每集段落数 6–10（EP01 可至 12）、每集镜头数 16–30（EP01 20-36；v2.2）、单集 75–120s（EP01 合规 90-120s） 等共享数值约束的规范定义位于项目 `制片规范.md`。所有 Agent 必须以该文件为 single source of truth，禁止在各自定义中硬编码不同数值。
 4. **制片规范是项目宪法**——其他所有文档必须遵从
 5. **工作流修改严格按层向下**——禁止先改 segments.yaml 再回头补剧本
 6. **voice_prompt 跨段一致**——同一角色在所有 segment 中使用完全相同的 voice_prompt 文案
 7. **禁止向 `generated/` 写入占位视频**——该目录仅存放 AI 平台导出的正式成片
-8. **字幕后期添加**——Seedance 不烧录字幕，通过 ffmpeg 统一处理
+8. **字幕后期添加**——视频生成引擎不烧录字幕，通过 ffmpeg 统一处理
 9. **视觉创意不由本 Agent 定义**——Prompt 工程、negative prompt、style anchors 等视觉细节由 character-designer、prop-designer 和 scene-designer 各自负责。例外：年代/题材禁忌类 negative_prompt（如「唐代剧禁止出现现代物品」）属于结构性约束，由本 Agent 在制片规范中定义。创意领域 negative_prompt（如「禁止动漫风格」）由设计师负责。
 10. **语言画像为对白创作约束**——production-planner 从大纲推断角色语言风格草案（词汇层级、句式偏好、口头禅、情绪表达方式），写入角色卡片「语言画像」节。此为 scene-writer 对白创作的语言约束依据，确保不同角色台词风格有明显差异。
 
