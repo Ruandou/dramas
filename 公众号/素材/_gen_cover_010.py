@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""010《9 月备案公示 296 部里，「微短剧」出现 0 次：这个赛道到底怎么被统计》封面两方向
+"""010《"微短剧不能碰司法、公安题材"？官方季度数据里 17 部拿到了发行许可》封面两方向
 纯本地 Pillow，零扣费。900×383；每条关键文案宽度必须 ≤383（分享卡只保留中间方形区）。
 注：Menlo 无中文字形，中英混排行一律走 mix/mix_centered。
 """
@@ -26,28 +26,28 @@ def eyebrow(d, tag="数据"):
     tracked(d, 78, 46, "一人短剧厂牌 · " + tag, f(HIRA, 20), DIM, 3)
 
 
-# ── A：0 次 ─────────────────────────────────────────────────
+# ── A：17 部拿到发行许可（打脸"不能碰"）────────────────────
 def dir_a():
-    im = Image.new("RGB", (W, H), INK)
+    im = Image.new("RGB", (W, H), CARBON)
     d = ImageDraw.Draw(im)
     eyebrow(d)
     cx = W / 2
-    chk(d, "9 月全国备案公示 296 部", 20, mono=False)
-    chk(d, "0 次", 92)
-    chk(d, "「微短剧」三个字", 26, mono=False)
-    chk(d, "在 296 行里一次没出现", 26, mono=False)
-    chk(d, "它不在这张表里，却在另一张表被统计", 19, mono=False)
+    chk(d, "2026 二季度拿到发行许可的微短剧", 20, mono=False)
+    chk(d, "17 部", 92)
+    chk(d, "司法 6 · 公安 10 · 国家安全 1", 24, mono=False)
+    chk(d, "平均 30.0 集/部，不是试水短内容", 24, mono=False)
+    chk(d, "「微短剧不能碰司法公安」和官方数字不吻合", 17, mono=False)
 
-    mix_centered(d, cx, TOP, "9 月全国备案公示 296 部", 20, FAINT)
-    mix_centered(d, cx, TOP + 26, "0 次", 92, BONE)
-    mix_centered(d, cx, TOP + 148, "「微短剧」三个字", 26, RUST)
-    mix_centered(d, cx, TOP + 190, "在 296 行里一次没出现", 26, BONE)
+    mix_centered(d, cx, TOP, "2026 二季度拿到发行许可的微短剧", 20, FAINT)
+    mix_centered(d, cx, TOP + 26, "17 部", 92, BONE)
+    mix_centered(d, cx, TOP + 150, "司法 6 · 公安 10 · 国家安全 1", 24, RUST)
+    mix_centered(d, cx, TOP + 192, "平均 30.0 集/部，不是试水短内容", 24, BONE)
     d.line([(cx - 150, TOP + 236), (cx + 150, TOP + 236)], fill=(64, 60, 55), width=1)
-    mix_centered(d, cx, TOP + 248, "它不在这张表里，却在另一张表被统计", 19, FAINT)
+    mix_centered(d, cx, TOP + 248, "「微短剧不能碰司法公安」和官方数字不吻合", 17, FAINT)
     # 两侧装饰（分享卡会裁掉）
-    mix(d, 24, 150, "中剧 53 部", 19, (86, 82, 76), mono=False)
-    mix(d, 726, 190, "网络故事片 176 部", 19, (86, 82, 76), mono=False)
-    return im, "封面_010_A_零次_900x383.png"
+    mix(d, 24, 150, "510 集", 19, (86, 82, 76), mono=False)
+    mix(d, 740, 190, "〔2026〕5 号通告", 19, (86, 82, 76), mono=False)
+    return im, "封面_010_A_十七部拿证_900x383.png"
 
 
 # ── B：159 部 / 39.4→33.9 ──────────────────────────────────
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     sh = (H + 130 + 40) * 2 + pad * 2
     sheet = Image.new("RGB", (sw, sh), (244, 244, 244))
     sd = ImageDraw.Draw(sheet)
-    ttl = ["9 月备案公示 296 部里", "「微短剧」出现 0 次：这个赛道怎么被统计"]
+    ttl = ["微短剧不能碰司法、公安题材？", "官方季度数据里 17 部拿到了发行许可"]
     yy = pad
     for name, im in built:
         dbg = im.copy()

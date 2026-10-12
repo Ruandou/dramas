@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""009《总局秋季点评会点名 12 部微短剧，我逐条查了哪 4 部是 AI 剧》封面两方向
+"""009《官方点名的 12 部微短剧，哪几部是 AI 剧？我逐条查了公开报道》封面两方向
 纯本地 Pillow，零扣费。900×383；每条关键文案宽度必须 ≤383（分享卡只保留中间方形区）。
 注：Menlo 无中文字形，中英混排行一律走 mix/mix_centered。
 """
@@ -50,25 +50,25 @@ def dir_a():
     return im, "封面_009_A_十二部_900x383.png"
 
 
-# ── B：两个「1 次」 ─────────────────────────────────────────
+# ── B：每集打标识（16 号令第三十四条）──────────────────────
 def dir_b():
     im = Image.new("RGB", (W, H), INK)
     d = ImageDraw.Draw(im)
-    eyebrow(d)
+    eyebrow(d, "合规")
     cx = W / 2
-    chk(d, "两份文件，各 1 次", 22, mono=False)
-    chk(d, "1 次", 76)
-    chk(d, "通稿 390 字里的「AI」", 21, mono=False)
-    chk(d, "16 号令 6,209 字里的「人工智能」", 21, mono=False)
-    chk(d, "一次是成绩措辞，一次是逐集标识义务", 19, mono=False)
+    chk(d, "《微短剧发展管理办法》第三十四条", 20, mono=False)
+    chk(d, "每集", 88)
+    chk(d, "明显位置添加提示标识", 28, mono=False)
+    chk(d, "义务主体：制作机构和播出单位", 21, mono=False)
+    chk(d, "2026-09-01 施行 · 上线后平台是第一责任方", 17, mono=False)
 
-    mix_centered(d, cx, TOP, "两份文件，各 1 次", 22, FAINT)
-    mix_centered(d, cx, TOP + 28, "1 次", 76, BONE)
-    mix_centered(d, cx, TOP + 132, "通稿 390 字里的「AI」", 21, RUST)
-    mix_centered(d, cx, TOP + 166, "16 号令 6,209 字里的「人工智能」", 21, BLUE)
-    d.line([(cx - 160, TOP + 208), (cx + 160, TOP + 208)], fill=(64, 60, 55), width=1)
-    mix_centered(d, cx, TOP + 220, "一次是成绩措辞，一次是逐集标识义务", 19, BONE)
-    return im, "封面_009_B_两个一次_900x383.png"
+    mix_centered(d, cx, TOP, "《微短剧发展管理办法》第三十四条", 20, FAINT)
+    mix_centered(d, cx, TOP + 26, "每集", 88, RUST)
+    mix_centered(d, cx, TOP + 142, "明显位置添加提示标识", 28, BONE)
+    mix_centered(d, cx, TOP + 186, "义务主体：制作机构和播出单位", 21, BLUE)
+    d.line([(cx - 158, TOP + 226), (cx + 158, TOP + 226)], fill=(64, 60, 55), width=1)
+    mix_centered(d, cx, TOP + 240, "2026-09-01 施行 · 上线后平台是第一责任方", 17, FAINT)
+    return im, "封面_009_B_每集打标识_900x383.png"
 
 
 if __name__ == "__main__":
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     sh = (H + 130 + 40) * 2 + pad * 2
     sheet = Image.new("RGB", (sw, sh), (244, 244, 244))
     sd = ImageDraw.Draw(sheet)
-    ttl = ["总局秋季点评会点名 12 部微短剧", "我逐条查了哪 4 部是 AI 剧"]
+    ttl = ["官方点名的 12 部微短剧", "哪几部是 AI 剧？我逐条查了公开报道"]
     yy = pad
     for name, im in built:
         dbg = im.copy()
