@@ -88,16 +88,33 @@ def streak_rows(limit):
                  'ORDER BY n DESC, best ASC LIMIT ?', (limit,))
 
 
-def new_entries(limit):
+def editions_sampled():
+    return query('SELECT COUNT(DISTINCT edition_date) FROM snapshot WHERE board=1')[0][0]
+
+
+def ping_note():
+    """好评榜不做的理由须按当日实际档位动态生成，避免沿用旧数字。"""
+    rows = query('SELECT metric_value v, COUNT(*) n FROM snapshot WHERE board=2 AND edition_date=? '
+                 'GROUP BY metric_value ORDER BY v ASC', (EDITION,))
+    if len(rows) == 2:
+        (lo, nlo), (hi, nhi) = rows
+        return f'本号不做好评榜：当日仅 {lo} 分（{nlo} 部）与 {hi} 分（{nhi} 部）两档，区分度不足。'
+    return '本号不做好评榜：当日好评榜分值档位区分度不足。'
+
+
+def new_entries(limit=None):
     editions = [r[0] for r in query('SELECT DISTINCT edition_date FROM snapshot WHERE board=1 '
                                     'ORDER BY edition_date')]
     idx = editions.index(EDITION)
     assert idx > 0, f'{EDITION} 是该榜最早一期，无双期对比'
     prev = editions[idx - 1]
-    return query('SELECT rank, title, genre, metric_value FROM snapshot '
-                 'WHERE board=1 AND edition_date=? AND title NOT IN '
-                 '(SELECT title FROM snapshot WHERE board=1 AND edition_date=?) '
-                 'ORDER BY rank LIMIT ?', (EDITION, prev, limit))
+    sql = ('SELECT rank, title, genre, metric_value FROM snapshot '
+           'WHERE board=1 AND edition_date=? AND title NOT IN '
+           '(SELECT title FROM snapshot WHERE board=1 AND edition_date=?) '
+           'ORDER BY rank')
+    if limit is None:
+        return query(sql, (EDITION, prev))
+    return query(sql + ' LIMIT ?', (EDITION, prev, limit))
 
 
 def section(d, y, label, note, color):
@@ -146,7 +163,7 @@ def build():
     y = section(d, y, '当日热播榜', 'TOP12 / 当日热播指数', RUST)
     y = list_rows(d, y, main_rows, RUST)
 
-    y = section(d, y, '长期在榜', '跨 79 期采样 / 在榜期数最多', TEAL)
+    y = section(d, y, '长期在榜', f'跨 {editions_sampled()} 期采样 / 在榜期数最多', TEAL)
     for title, n, best in streak:
         d.rounded_rectangle((72, y, 118, y + 34), radius=8, fill=TEAL)
         w = d.textlength(str(n), font=font(23, 'number'))
@@ -232,9 +249,14 @@ def cover():
 
 
 def genre_rows(limit):
-    return query('SELECT ROW_NUMBER() OVER (ORDER BY COUNT(*) DESC) r, genre, COUNT(*) n '
+    # 徽标名次的平局规则必须与显示排序完全一致，否则同分两行会出现「4 排在 3 上面」
+    # （2026-10-15 贴图事故：11 部并列时徽标 4 的种田经营排在了徽标 3 的都市脑洞上面）
+    rows = query('SELECT ROW_NUMBER() OVER (ORDER BY COUNT(*) DESC, genre) r, genre, COUNT(*) n '
                  'FROM snapshot WHERE board=1 AND edition_date=? GROUP BY genre '
                  'ORDER BY n DESC, genre LIMIT ?', (EDITION, limit))
+    assert [r[0] for r in rows] == list(range(1, len(rows) + 1)), rows
+    assert all(rows[i][2] >= rows[i + 1][2] for i in range(len(rows) - 1)), rows
+    return rows
 
 
 def poster():
@@ -242,6 +264,10 @@ def poster():
     main_rows = board_rows(1, 18)
     streak = streak_rows(8)
     fresh = new_entries(10)
+    fresh_total = len(new_entries(None))
+    fresh_note = f'对比前一采样日新上榜 / 共 {fresh_total} 部'
+    if fresh_total > len(fresh):
+        fresh_note += f'，列前 {len(fresh)}'
     booking = board_rows(3, 10)
     genres = genre_rows(6)
     files = []
@@ -286,7 +312,7 @@ def poster():
 
     im, _ = new_canvas()
     d = draw_on(im)
-    y = head(d, '长期在榜', '跨 79 期采样 / 在榜期数最多')
+    y = head(d, '长期在榜', f'跨 {editions_sampled()} 期采样 / 在榜期数最多')
     for title, n, best in streak:
         d.rounded_rectangle((72, y, 118, y + 34), radius=8, fill=TEAL)
         w = d.textlength(str(n), font=font(23, 'number'))
@@ -297,7 +323,7 @@ def poster():
             d.line((134, y + 48, W - 72, y + 48), fill='#e6ded0', width=1)
         y += 56
     y += 24
-    y = section(d, y, '今日新进', '对比前一采样日新上榜', TEAL)
+    y = section(d, y, '今日新进', fresh_note, TEAL)
     y = list_rows(d, y, fresh, TEAL)
     save(im, y, f'榜{ISSUE}_贴图2_长期在榜与新进_1080.png',
          ['“在榜期数”为采样命中次数，非连续天数。'])
@@ -320,7 +346,7 @@ def poster():
     save(im, y, f'榜{ISSUE}_贴图3_预约榜与题材_1080.png', [
         '来源 duanjugongcheng.com/cn/bangdan/' + EDITION + '，第三方转算指数。',
         '该站未公布指数单位与权重；预约值含义官方未说明，仅原样呈现。',
-        '本号不做好评榜：当日仅 9 分（32 部）与 10 分（68 部）两档，区分度不足。',
+        ping_note(),
     ])
 
     for (path, index), chars in GLYPHS.items():

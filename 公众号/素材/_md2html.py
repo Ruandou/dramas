@@ -42,6 +42,19 @@ def convert(md: str) -> str:
             out.append(f'<h2>{inline(line[3:].strip())}</h2>')
             i += 1
             continue
+        if line.startswith('```'):
+            i += 1
+            block = []
+            while i < len(lines) and not lines[i].startswith('```'):
+                block.append(lines[i].rstrip())
+                i += 1
+            i += 1
+            while block and not block[0].strip():
+                block.pop(0)
+            while block and not block[-1].strip():
+                block.pop()
+            out.append('<p>' + '<br>'.join(inline(b) for b in block) + '</p>')
+            continue
         if line.startswith('|'):
             rows = []
             while i < len(lines) and lines[i].startswith('|'):
@@ -73,6 +86,7 @@ def main() -> None:
     dest.write_text(fragment, encoding='utf-8')
     text = re.sub(r'<[^>]+>', '', fragment)
     assert '**' not in text, '仍残留 ** 未转加粗'
+    assert '```' not in text, '仍残留代码围栏未转'
     plain_len = len(re.sub(r'\s+', '', text))
     print(f'{dest.name}: {len(fragment)} 字节 / 纯文本 {plain_len} 字符')
     print('元素统计:',
