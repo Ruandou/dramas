@@ -14,6 +14,7 @@ import hashlib
 import re
 import sqlite3
 import time
+import urllib.error
 import urllib.request
 from datetime import date
 from html import unescape
@@ -146,12 +147,26 @@ def cmd_backfill(conn: sqlite3.Connection, board: int) -> None:
         'SELECT DISTINCT edition_date FROM snapshot WHERE board=?', (board,))}
     todo = [e for e in want if e not in have]
     print(f'[board={board} {BOARDS[board][0]}] 期次 {len(want)}，已有 {len(have)}，待抓 {len(todo)}')
+    absent, done = [], 0
     for i, edition in enumerate(todo, 1):
-        page = fetch(url_for(edition, board)).decode('utf-8', 'ignore')
-        n = ingest(conn, edition, board, page)
-        print(f'[{i}/{len(todo)}] {edition} {n} 行')
+        try:
+            page = fetch(url_for(edition, board)).decode('utf-8', 'ignore')
+        except urllib.error.HTTPError as exc:
+            # 好评榜/预约榜只有近期期次建页（2026-10-17 实测：老期次一律 404），属站点结构而非故障
+            if exc.code != 404:
+                raise
+            absent.append(edition)
+            print(f'[{i}/{len(todo)}] {edition} 该榜无此期（404），跳过')
+        else:
+            n = ingest(conn, edition, board, page)
+            done += 1
+            print(f'[{i}/{len(todo)}] {edition} {n} 行')
         if i < len(todo):
             time.sleep(SLEEP_SEC)
+    if absent:
+        print(f'[board={board} {BOARDS[board][0]}] 无此榜 {len(absent)} 期'
+              f'（{absent[0]}~{absent[-1]}），入库 {done} 期')
+        assert done, f'board={board} 全部 {len(absent)} 期均 404 —— 疑似站点结构变更，需人工核查'
 
 
 def cmd_reparse(conn: sqlite3.Connection) -> None:

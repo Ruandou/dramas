@@ -1,0 +1,58 @@
+{
+  "form": "贴图（图片消息）",
+  "issue": "003",
+  "edition_date": "2026-10-17",
+  "title_optional": null,
+  "title_note": "标题栏留空；线上 og:title = 描述第一行「厂牌榜 003 · 2026-10-17」（与 001/002 一致）",
+  "description_chars": 545,
+  "description_chars_note": "后台计数器 545/1000（不计空白）；含换行原文 639 字符、9 段、8 个全角空格分隔行、16 个 <br>。**本期起按 §002 的 description_format_rule 直接写入全角空格行，首次提交即为目标排版**（001/002 都是先发后改）",
+  "description_format_rule": "沿用 002 结论：贴图描述框是「单文本块 + 硬换行」，段间空行（\\n\\n）会被平台吃掉 → 视觉分段用「全角空格（U+3000）单独成行」，段首加【】短标签。本轮实测：合成 ClipboardEvent 粘贴 text/plain（含 \\n）→ ProseMirror 直接转 16 个 <br>，无块级拆分、无丢段（一次性成功）",
+  "description": "厂牌榜 003 · 2026-10-17\n　\n【榜首】三天换了三个人。《谁让这个文盲修仙的第五季》昨天不在榜上，今天直接第 1（9200，近一周最高读数）；昨天第 1 的《反向拿捏：和闺蜜穿七零带着婆婆一起离》退到第 2（7287），10-15 的第 1《满院亲戚全是上古大妖第五季》落到第 3（6850）。\n　\n【长跑】《咱家剑宗团宠小师妹第五季》：在榜 40 期、最高到过第 14，今天第 25（5634）——这份榜上待得最久的一部。\n　\n【新进】对比前一采样日，新进 17 部、掉出 17 部；新进名次跨度 1 到 100，除榜首外都落在 17 名之后，图中列前 10。\n　\n【预约】前三：《万妖图录传》1653、《十八岁太奶奶驾到，重整家族荣耀第五部》1562、《首辅娇娘第二季》1422，第 4 名掉到 1266。\n　\n【题材】TOP100：都市爱情 16、玄幻仙侠 14、都市脑洞 13、家庭伦理 12、种田经营 12——昨天排第一的玄幻仙侠今天退到第二。\n　\n【口径】热播指数与预约值均为第三方转算指标，取自 duanjugongcheng.com/cn/bangdan/2026-10-17，非平台官方；该站未公布指数单位与权重。\n　\n【盲区】2026-09 前为周一采样，「在榜期数」是采样命中次数，不是连续天数。\n　\n【其他】本号不做好评榜（当日 9 分 36 部、10 分 64 部，两档区分度不足）；预约值含义官方未说明，只原样呈现。不构成任何投资参考。",
+  "images": [
+    "榜003_贴图1_热播榜_1080.png",
+    "榜003_贴图2_长期在榜与新进_1080.png",
+    "榜003_贴图3_预约榜与题材_1080.png"
+  ],
+  "image_spec": "1080x1440（3:4）三页统一，贴图滑动浏览；三图 100.4 / 108.9 / 74.7 KB，均低于 200 KB 上传红线（无需 _q 量化版）",
+  "image_order_verified": "草稿阶段：草稿缩略图 vs 本地源文件 96x96 灰度差矩阵对角全 0.00（线上与本地逐像素一致）；线上阶段：/s/ 页面四张 swiper 图中 2/3/4 张 = 贴图1/2/3（差 0.00/0.14/0.13，发布时二次编码带 watermark），第 1 张是贴图1 的无水分身（见 known_issues）",
+  "cover_unused": "无独立封面（贴图第一张即展示图）",
+  "known_issues": [
+    "线上页 swiper 为「1 + 3」两段结构：第 1 张 = 贴图1 原图（无 watermark / 非 webp），其后 3 张 = 贴图1/2/3 的水印版。**对照 002 线上页（/s/aXtY-WthsYaWzaJDzZHWqg）同构**（1 段 1 张 + 1 段 3 张），故为贴图页固定版式，非本期缺陷。",
+    "题材 4/5 名并列（家庭伦理 12 = 种田经营 12）：_gen_board.py 的平局规则（ORDER BY n DESC, genre + 徽标递增断言）生效，显示顺序与徽标一致（④ 家庭伦理 → ⑤ 种田经营），001 期的倒挂未复现。"
+  ],
+  "known_tradeoffs": [
+    "贴图无原创声明入口（后台无该设置项）",
+    "描述里的来源 URL 不可点击，链接仅支持内容链接/小程序/小店商品"
+  ],
+  "backend_verified_2026_10_17": [
+    "新建贴图入口：首页「新的创作」行 → 贴图（isNew=1&type=77&createType=8），**开在新标签页（user tab，非受控）需 claimTab 接管**",
+    "贴图图片区上传口 = 页面第 2 个 input[type=file]（accept 含 image/bmp，位于 .image-selector__add > .pop-opr__group-select-image > .js_upload_btn_container.webuploader-container）；**第 1 个 input 是正文编辑器的「本地上传」（accept 含 image/svg,image/webp），喂错会插进正文**",
+    "上传通道：本地 HTTP 静态服务（127.0.0.1:8791，Access-Control-Allow-Origin:*）→ 页内 fetch → new File → DataTransfer.items.add → input.files = dt.files → dispatch change。3 张一次喂入，约 4 秒后计数器显示 3/3、底部 3 个缩略图，顺序与喂入顺序一致",
+    "描述框 = div.ProseMirror（.share-text__input.js_pmEditorArea），计数器 .share-text__counter",
+    "「预览」是扫码预览弹窗（扫码后转发给朋友预览），非页面内模拟；弹窗内可扫码或关闭",
+    "「发表」→ 确认弹窗（文案「发表贴图无需开启群发通知」，按钮：定时发表 / 发表 / 取消）→ 点「发表」后弹出「微信验证」扫码弹窗（safeqrcode?ticket=…）",
+    "**本轮未扫码即完成发表**：微信验证弹窗出现后约 1-2 分钟自行消失、页面回首页，发表记录已显示「今天 16:17 已发表」。与 002 记录的「扫码前不落定时」不一致 —— 可能是用户已扫码（本机浏览器窗格可见），也可能是本次提交不需扫码，**未查明原因，不作因果结论**；下次发表时留意弹窗是否必扫。",
+    "截图能力本轮不可用（browser screenshot surface preparation timed out），改用 DOM 取证替代视觉核验"
+  ],
+  "sources": [
+    "https://www.duanjugongcheng.com/cn/bangdan/2026-10-17",
+    "https://www.duanjugongcheng.com/cn/bangdan/2026-10-17?board=2",
+    "https://www.duanjugongcheng.com/cn/bangdan/2026-10-17?board=3"
+  ],
+  "status": "已发表（2026-10-17 16:17），未群发（贴图不计群发额度）",
+  "published_url": "https://mp.weixin.qq.com/s/kheYqLevRClq863P4cvBkg",
+  "published_verified": "线上 og:title =「厂牌榜 003 · 2026-10-17」；描述全文渲染正常（8 个全角空格行逐行命中，首尾段完整）；3 张 swiper 图 1080x1440 顺序正确",
+  "draft_id": 100000309,
+  "submitted_at": "2026-10-17T16:17:00+08:00",
+  "group_notification": false,
+  "group_notification_note": "发表弹窗明写「发表贴图无需开启群发通知」，不占用每日群发额度",
+  "cadence_note": "022（今天 12:00 发表）的下期预告写的是「周一《厂牌榜》更新（003 期）」，本期实际 10-17（周六）发出，早于预告；002 也有「提前上线」先例（021 已公开说明）。如需对齐，下一篇以 021 的写法做说明。",
+  "ops_notes": [
+    "本机 公众号/榜单/data/ 与 raw/ 为 gitignore 内容，拉代码后需重建：`python3 fetch.py backfill --board 1`（81 期）",
+    "**好评榜/预约榜只有 2026-09-08 起才有页面**（站点改日更时才建这两个榜页），更早的 41 期一律 404。2026-10-17 已改 `fetch.py` 的 `cmd_backfill`：404 不再中断整轮，改为跳过并汇总（`无此榜 N 期（起~止），入库 M 期`），全期 404 才断言失败（防站点结构变更被吞）。修复后 board=2/3 各入库 40 期，`verify` PASS（161 组 / 14050 行）",
+    "本机 python3 缺 fontTools，已 `pip install --user fonttools`（4.60.2）；缺它时 _gen_board.py 无法启动（字形覆盖断言依赖 TTFont）",
+    "上传用的本地静态服务（带 CORS）已固化进仓库：`公众号/榜单/serve_assets.py`（默认目录 公众号/素材、默认端口 8791，用法与页内喂图代码见脚本 docstring）",
+    "图片库可能残留本期调试副本（3 张贴图上传即入库），与 001/002 情况相同，不影响发布"
+  ],
+  "media_library_leftovers": "待核（图片库应有本期 3 张贴图）"
+}
