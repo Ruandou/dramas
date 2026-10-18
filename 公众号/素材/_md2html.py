@@ -42,6 +42,13 @@ def convert(md: str) -> str:
             out.append(f'<h2>{inline(line[3:].strip())}</h2>')
             i += 1
             continue
+        if line.startswith('> '):
+            block = []
+            while i < len(lines) and lines[i].startswith('> '):
+                block.append(lines[i][2:].strip())
+                i += 1
+            out.append('<blockquote>' + '<br>'.join(inline(b) for b in block) + '</blockquote>')
+            continue
         if line.startswith('```'):
             i += 1
             block = []
