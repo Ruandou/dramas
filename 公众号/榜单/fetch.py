@@ -94,7 +94,12 @@ def parse(page: str, edition: str) -> list[dict]:
         # metric 单元格为裸数字，该站未公布单位
         digits = re.sub(r'[^0-9]', '', metric)
         assert int(rank) == len(rows) + 1, (edition, rank)
-        assert title and genre and digits, (edition, cells)
+        # 站点偶发占位行：标题与详情链接为空（2026-10-27 预约榜第 54 名）。
+        # 用占位标题保住名次连续性，下游按「（无标题」前缀可排除。
+        if not title:
+            print(f'[{edition}] 第 {rank} 名标题为空，按占位处理', flush=True)
+            title = f'（无标题 #{rank}）'
+        assert genre and digits, (edition, cells)
         rows.append({
             'rank': int(rank),
             'title': title,
