@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""热题扫描：免费多源（百度热搜 / 头条热榜 / 新浪 7×24 / 新浪财经滚动）。
+"""选题扫描：关键词资讯搜索（360 资讯，按时间排序）+ 新浪滚动兜底，不扫热榜。
 
-同题至少 2 个独立来源才写入 公众号/素材/候选池.md；每条记录
-搜索词 / 平台 / 查询时间 / 可见指标。去重状态与日志放仓库外。
-只在 10:00—19:00 时段运行；机器休眠唤醒后由 launchd 补跑。
+用「短剧 / AI短剧 / 红果 / 微短剧 / AI漫剧」逐词搜索，并用新浪科技/娱乐/财经
+滚动流做交叉；同一选题至少 2 家互不隶属的媒体同题报道才写入
+公众号/素材/候选池.md；每条记录搜索词 / 媒体 / 发布时间 / 查询时间。
+去重状态与日志放仓库外。只在 10:00—19:00 时段运行；机器休眠唤醒后由 launchd 补跑。
 """
 import argparse
 import hashlib
+import html
 import json
 import re
 import sys
@@ -27,9 +29,9 @@ UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'
 
 POOL_HEADER = """# 候选池
 
-来源：百度热搜、头条热榜、新浪 7×24、新浪财经滚动。关键词：短剧 / AI短剧 / 红果 / 微短剧 / AI漫剧。
-规则：同题至少 2 个不同平台才写入（同平台多条只算 1 个来源）；每条带搜索词、平台、查询时间、可见指标。
-热搜和快讯只说明有动静，过门仍需人工核：24—72 小时、≥2 个独立信源、可复查的阅读/榜单凭据。
+来源：360 资讯关键词新闻搜索（短剧 / AI短剧 / 红果 / 微短剧 / AI漫剧，按时间排序）+ 新浪科技/娱乐/财经滚动流交叉；另有一层 Qoder 定时 Agent 用 WebSearch 补充（每日 4 次），条目格式相同。不扫热榜。
+规则：同一选题至少 2 家互不隶属的媒体同题报道才写入（同一家多条、同集团频道、同篇通稿转载都只算 1 个来源）；每条带搜索词、媒体、发布时间、查询时间。
+搜索只说明有动静，过门仍需人工核：24—72 小时、≥2 个独立信源、可复查的阅读/榜单凭据。
 """
 
 
@@ -41,10 +43,6 @@ def fetch_text(url, timeout=20):
     req = urllib.request.Request(url, headers={'User-Agent': UA})
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return resp.read().decode('utf-8', 'ignore')
-
-
-def fetch_json(url, timeout=20):
-    return json.loads(fetch_text(url, timeout))
 
 
 def compact(text):
@@ -68,90 +66,129 @@ def make_item(platform, source_key, title, url, metric, keywords, time_text=''):
     }
 
 
-def fetch_baidu():
-    data = fetch_json('https://top.baidu.com/api/board?platform=wise&tab=realtime')
+def parse_time_text(text):
+    text = (text or '').strip()
+    if not text:
+        return ''
+    base = now()
+    try:
+        if text == '刚刚':
+            return base.strftime('%Y-%m-%d %H:%M:%S')
+        m = re.match(r'(\d+)\s*分钟前', text)
+        if m:
+            return (base - timedelta(minutes=int(m.group(1)))).strftime('%Y-%m-%d %H:%M:%S')
+        m = re.match(r'(\d+)\s*小时前', text)
+        if m:
+            return (base - timedelta(hours=int(m.group(1)))).strftime('%Y-%m-%d %H:%M:%S')
+        m = re.match(r'今天\s*(\d{1,2}):(\d{2})', text)
+        if m:
+            return base.replace(hour=int(m.group(1)), minute=int(m.group(2)),
+                                second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')
+        m = re.match(r'昨天\s*(\d{1,2}):(\d{2})', text)
+        if m:
+            day = base - timedelta(days=1)
+            return day.replace(hour=int(m.group(1)), minute=int(m.group(2)),
+                               second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')
+        m = re.match(r'(\d{4})-(\d{1,2})-(\d{1,2})(?:\s+(\d{1,2}):(\d{2}))?', text)
+        if m:
+            return datetime(int(m.group(1)), int(m.group(2)), int(m.group(3)),
+                            int(m.group(4) or 0), int(m.group(5) or 0)).strftime('%Y-%m-%d %H:%M:%S')
+        m = re.match(r'(\d{1,2})-(\d{1,2})(?:\s+(\d{1,2}):(\d{2}))?', text)
+        if m:
+            return datetime(base.year, int(m.group(1)), int(m.group(2)),
+                            int(m.group(3) or 0), int(m.group(4) or 0)).strftime('%Y-%m-%d %H:%M:%S')
+    except ValueError:
+        return ''
+    return ''
+
+
+def domain_of(url):
+    try:
+        return urllib.parse.urlsplit(url).hostname or ''
+    except ValueError:
+        return ''
+
+
+def source_key_of(url):
+    host = domain_of(url)
+    if host == 'sina.com' or host.endswith('.sina.com.cn') or host == 'sina.com.cn':
+        return 'sina'
+    return host
+
+
+NOISE_WORDS = ('炒红果', '糖葫芦', '山楂', '果丹皮', '做法', '美味')
+
+
+def fetch_news_search():
     items = []
-    for card in (data.get('data') or {}).get('cards') or []:
-        for block in card.get('content') or []:
-            for entry in block.get('content') or []:
-                word = (entry.get('word') or '').strip()
-                kws = matched_keywords(word)
-                if not kws:
-                    continue
-                rank = entry.get('index')
-                metric = f'第 {rank} 位' if rank else ('置顶' if entry.get('isTop') else '上榜')
-                items.append(make_item('百度热搜', 'baidu', word, entry.get('url'), metric, kws))
-    return items
-
-
-def fetch_toutiao():
-    data = fetch_json('https://www.toutiao.com/hot-event/hot-board/?origin=toutiao_pc')
-    items = []
-    for rank, entry in enumerate(data.get('data') or [], 1):
-        title = (entry.get('Title') or '').strip()
-        kws = matched_keywords(title)
-        if not kws:
-            continue
-        metric = f'第 {rank} 位'
-        hot = entry.get('HotValue')
-        if isinstance(hot, (int, float)):
-            metric += f'，热度 {int(hot):,}'
-        items.append(make_item('头条热榜', 'toutiao', title,
-                               entry.get('Url'), metric, kws))
-    return items
-
-
-def fetch_sina():
-    items = []
-    for page in range(1, 5):
-        url = 'https://zhibo.sina.com.cn/api/zhibo/feed?' + urllib.parse.urlencode({
-            'page': page, 'page_size': 100, 'zhibo_id': 152,
-            'tag_id': 0, 'dire': 'f', 'dpc': 1, 'type': 0,
+    seen_urls = set()
+    for query in KEYWORDS:
+        url = 'https://news.so.com/ns?' + urllib.parse.urlencode({
+            'q': query, 'pn': 1, 'rn': 20, 'j': 0, 'rad': '', 'sort': 1,
         })
-        data = fetch_json(url)
-        batch = (((data.get('result') or {}).get('data') or {}).get('feed') or {}).get('list') or []
-        for entry in batch:
-            text = (entry.get('rich_text') or '').strip()
-            kws = matched_keywords(text)
+        page = fetch_text(url)
+        for block in re.findall(r'<li[^>]*res-list[^>]*>.*?</li>', page, re.S):
+            m = re.search(r'<a[^>]*href="([^"]+)"[^>]*title="([^"]+)"', block)
+            if not m:
+                continue
+            link = m.group(1)
+            if link.startswith('/'):
+                link = 'https://news.so.com' + link
+            if link in seen_urls:
+                continue
+            seen_urls.add(link)
+            title = html.unescape(m.group(2)).strip()
+            if any(word in title for word in NOISE_WORDS):
+                continue
+            kws = matched_keywords(title)
             if not kws:
                 continue
-            stamp = entry.get('create_time') or ''
-            if not is_fresh(stamp, hours=36):
+            site = re.search(r'<cite[^>]*class="sitename"[^>]*>(.*?)</cite>', block, re.S)
+            site = html.unescape(re.sub(r'<[^>]+>', '', site.group(1))).strip() if site else ''
+            if not site:
+                site = domain_of(link)
+            tm = re.search(r'class="[^"]*time[^"]*"[^>]*>([^<]+)<', block)
+            tm = tm.group(1).strip() if tm else ''
+            stamp = parse_time_text(tm)
+            if stamp and not is_fresh(stamp, hours=36):
                 continue
-            title = text.split('】', 1)[0].lstrip('【') if '】' in text[:40] else text[:60]
-            items.append(make_item('新浪7×24', 'sina', title, entry.get('docurl') or '',
-                                   f'发布 {stamp}' if stamp else '时间未给', kws, stamp))
-        if len(batch) < 100:
-            break
+            items.append(make_item(site or '未署名', source_key_of(link), title, link,
+                                   tm or '时间未给', kws, stamp))
     return items
 
 
-def fetch_sina_finance():
-    data = fetch_json('https://feed.mix.sina.com.cn/api/roll/get?' + urllib.parse.urlencode({
-        'pageid': 153, 'lid': 2516, 'k': '', 'num': 50, 'page': 1,
-    }))
+SINA_ROLL_LIDS = (('科技', 2515), ('娱乐', 2514), ('财经', 2516))
+
+
+def fetch_sina_roll():
     items = []
-    for entry in (data.get('result') or {}).get('data') or []:
-        title = (entry.get('title') or entry.get('stitle') or '').strip()
-        text = title + ' ' + (entry.get('intro') or '')
-        kws = matched_keywords(text)
-        if not kws:
-            continue
-        stamp = ''
-        if entry.get('ctime'):
-            try:
-                stamp = datetime.fromtimestamp(int(entry['ctime'])).strftime('%Y-%m-%d %H:%M:%S')
-            except (TypeError, ValueError, OSError):
-                pass
-        if stamp and not is_fresh(stamp, hours=36):
-            continue
-        media = (entry.get('media_name') or '').strip()
-        metric = f'发布 {stamp}' if stamp else '时间未给'
-        if media:
-            metric = f'{media}，{metric}'
-        items.append(make_item('新浪财经', 'sina', title,
-                               entry.get('url') or entry.get('wapurl') or '',
-                               metric, kws, stamp))
+    seen_urls = set()
+    for channel, lid in SINA_ROLL_LIDS:
+        url = 'https://feed.mix.sina.com.cn/api/roll/get?' + urllib.parse.urlencode({
+            'pageid': 153, 'lid': lid, 'k': '', 'num': 50, 'page': 1,
+        })
+        data = json.loads(fetch_text(url))
+        for entry in (data.get('result') or {}).get('data') or []:
+            title = (entry.get('title') or entry.get('stitle') or '').strip()
+            kws = matched_keywords(title)
+            if not kws:
+                continue
+            link = entry.get('url') or entry.get('wapurl') or ''
+            if not link or link in seen_urls:
+                continue
+            seen_urls.add(link)
+            stamp = ''
+            if entry.get('ctime'):
+                try:
+                    stamp = datetime.fromtimestamp(int(entry['ctime'])).strftime('%Y-%m-%d %H:%M:%S')
+                except (TypeError, ValueError, OSError):
+                    pass
+            if stamp and not is_fresh(stamp, hours=36):
+                continue
+            media = (entry.get('media_name') or '').strip() or domain_of(link)
+            metric = f'{channel}滚动，发布 {stamp}' if stamp else f'{channel}滚动，时间未给'
+            items.append(make_item(media or '未署名', 'sina', title, link,
+                                   metric, kws, stamp))
     return items
 
 
@@ -232,6 +269,10 @@ def topic_key(cluster):
     return f'topic:{digest}', rep['title']
 
 
+def already_seen(title, seen):
+    return any(same_topic(title, entry.get('title') or '') for entry in seen.values())
+
+
 def select_candidates(clusters, seen):
     candidates = []
     for cluster in clusters:
@@ -239,7 +280,7 @@ def select_candidates(clusters, seen):
         if len(source_keys) < 2:
             continue
         key, title = topic_key(cluster)
-        if key in seen:
+        if key in seen or already_seen(title, seen):
             continue
         platforms = []
         for item in cluster:
@@ -315,20 +356,22 @@ def prune_seen(seen):
 def collect():
     items = []
     status = {}
+    seen_urls = set()
     sources = (
-        ('百度热搜', fetch_baidu),
-        ('头条热榜', fetch_toutiao),
-        ('新浪7×24', fetch_sina),
-        ('新浪财经', fetch_sina_finance),
+        ('360资讯', fetch_news_search),
+        ('新浪滚动', fetch_sina_roll),
     )
     for name, fetcher in sources:
         try:
             batch = fetcher()
-            items.extend(batch)
-            status[name] = f'{len(batch)} 条'
         except Exception as exc:
             status[name] = '不可用'
             print(f'[warn] {name}: {exc}', file=sys.stderr)
+            continue
+        kept = [it for it in batch if it['url'] and it['url'] not in seen_urls]
+        seen_urls.update(it['url'] for it in kept)
+        items.extend(kept)
+        status[name] = f'{len(batch)} 条'
     return items, status
 
 
