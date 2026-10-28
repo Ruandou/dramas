@@ -42,11 +42,18 @@ https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew
 
 对 `.ProseMirror[1]` 派发 `ClipboardEvent('paste')`，`text/html` 放 HTML、`text/plain` 放去标签文本。粘贴后立刻核对：h2、p、table、strong、图锚点数量与 HTML 一致。
 
-### 4. 按锚点插图
+### 4. 按锚点插图（图片库上传 + 受信任点击）
 
-逐个锚点：定位包含「【图 N」的 `<p>` → `Range.selectNodeContents(p)` → 选中 → 派发带图片 File 的 `paste`。每张等 5—6 秒，确认 `img.naturalWidth > 10` 且锚点减少。三张插完锚点应为 0。
+**不要**用 paste 带图片 File，也不要用 `execCommand('insertHTML')` 塞 `<img>`——ProseMirror 会报「内容插入失败」。可行路径是走工具栏图片库：
 
-图片 File 用 `fetch('http://127.0.0.1:8791/'+encodeURIComponent(name))` 取 blob 构造，不要依赖 MCP 的本地文件上传（workspace 限制会拒绝仓内路径）。
+1. 定位包含「【图 N」的 `<p>`，`Range.selectNodeContents(p)` 选中锚点文字。
+2. 点工具栏「图片」→「从图片库选择」，等弹窗出现。
+3. 页面内 `fetch('http://127.0.0.1:8791/'+encodeURIComponent(name))` 取 blob，构造 `File`，用 `DataTransfer` 写入弹窗里 `input[type=file][accept*=bmp]` 的 `files`，派发 `change`。
+4. 等弹窗显示「1 / 100 项」（即已选中 1 张）。
+5. 用**受信任点击**（CDP/Playwright 的 click，不是 `el.click()` 或回车）点弹窗「确定」；JS 点击在此处不生效。
+6. 每张等 5—6 秒，确认 `img.naturalWidth > 10` 且锚点文字消失。三张插完锚点应为 0。
+
+若第 5 步后锚点仍在或图片数不变，重开图片库重试，不要退回 paste。
 
 ### 5. 标题与摘要
 
@@ -62,7 +69,7 @@ https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew
 
 ### 7. 封面
 
-`.select-cover__btn` → `#js_cover_null .js_imagedialog` → 找到 `input[type=file][accept*=bmp]`，塞 File 并派发 `change` → 等图片库首项出现且 `selected` → 「下一步」→「确认」→ 校验 `.js_cover_preview_new` 的 background-image 是 `https://mmbiz.qpic.cn/…`。
+点 `#js_cover_null .js_imagedialog`（`.select-cover__btn` 有时点不动）→ 找到 `input[type=file][accept*=bmp]`，塞 File 并派发 `change` → 等图片库首项出现且 `selected`（异步，稍等再读）→ 「下一步」→「确认」→ 校验 `.js_cover_preview_new` 的 background-image 是 `https://mmbiz.qpic.cn/…`。
 
 ### 8. 存草稿与重载复核
 
@@ -71,12 +78,12 @@ https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew
 ### 9. 定时与群发
 
 1. 点「发表」，等弹窗出现（class 可能是 `.new_mass_send_dialog`，也可能只是 `.weui-desktop-dialog`；按「定时发表」文字找）。
-2. 定时开关：取最后一个 `.weui-desktop-switch`；先点 `.weui-desktop-switch__box`，必要时再点 label，然后 `input.checked = true` 并派发 `input` + `change`。出现 `.mass-send__timer` 才算成功。
+2. 定时开关：取最后一个 `.weui-desktop-switch`。**只点一次** `.weui-desktop-switch__box`（JS 单点即可）；同一脚本里再点 label 会二次切换、把开关关掉。出现 `.mass-send__timer` 才算成功。受信任点击有时报 did not become interactive，改用 JS 单点。
 3. 日期：点 `.mass-send__timer .weui-desktop-form__dropdown__dt`，在可见的 `.weui-desktop-dropdown__list-ele` 里选「今天」或「明天」。切到明天后，若有额度，群发开关会自动变为开启且可用。
-4. 时间：输入框只是显示层。点开 `.weui-desktop-picker__time`，在 `.weui-desktop-picker__time__hour li` 和 `__minute li` 里点选目标时/分（索引 0 起）。核对选中索引与输入框值一致，否则会按旧时间提交。
+4. 时间：输入框只是显示层。点**可见的 `.weui-desktop-form__input`** 打开选择器（点 `.weui-desktop-picker__time` 有时不展开）；点 `.weui-desktop-picker__time__hour li` 后页面会重渲染，分钟点击可能被吞，需要再点一次 `__minute li`。选中 class 是 `weui-desktop-picker__selected`。核对选中索引与输入框值一致，否则会按旧时间提交。
 5. 群发通知：第一个开关。显示「今天没有通知次数」时不可开；显示「明天还有 1 次通知次数」时可开。贴图无需群发。
 6. 出现「该时刻定时消息过多…」属正常提示，可继续。
-7. 点弹窗里的「发表」→ 若弹「已开启群发通知」，点「继续发表」→ 等微信验证二维码。
+7. 点弹窗里的「发表」→ 确认框可能只有「发表/取消」，也可能有「继续发表」；按需点「继续发表」→ 等微信验证二维码。二维码弹窗 class 是 `.weui-desktop-dialog`（不是 `.dialog_wrp`），按「微信验证」文字查找。
 
 ### 10. 扫码与核验
 

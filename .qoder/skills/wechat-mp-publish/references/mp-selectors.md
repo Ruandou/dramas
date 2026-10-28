@@ -15,18 +15,38 @@ ed.dispatchEvent(new ClipboardEvent('paste', { clipboardData: dt, bubbles: true,
 // 校验：ed.querySelectorAll('h2/table/strong') 与锚点数量
 ```
 
-## 2. 按锚点插图
+## 2. 按锚点插图（图片库上传 + 受信任点击）
+
+paste 带图片 File / `execCommand('insertHTML')` 都会被 ProseMirror 拒绝（「内容插入失败」）。走图片库：
 
 ```js
+// 1) 选中锚点文字
 const name = '0NN_图1_xxx_1080.png';
 const p = [...ed.querySelectorAll('p')].find(e => e.innerText.includes('【图 1'));
 const r = document.createRange(); r.selectNodeContents(p);
 const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+
+// 2) 点工具栏「图片」→「从图片库选择」（按可见文字找，勿写死 class）
+const byText = txt => [...document.querySelectorAll('button,a,li,span,div')]
+  .filter(e => e.offsetParent && e.innerText.trim() === txt).pop();
+byText('图片').click();               // 等菜单出现
+byText('从图片库选择').click();        // 等弹窗出现
+
+// 3) 往弹窗的 file input 塞 File
+const dlg = [...document.querySelectorAll('.weui-desktop-dialog')]
+  .find(d => d.offsetParent && /图片库|选择图片/.test(d.innerText));
+const inp = dlg.querySelector('input[type=file][accept*=bmp]');
 const b = await (await fetch('http://127.0.0.1:8791/' + encodeURIComponent(name))).blob();
 const dt = new DataTransfer(); dt.items.add(new File([b], name, { type: 'image/png' }));
-p.dispatchEvent(new ClipboardEvent('paste', { clipboardData: dt, bubbles: true, cancelable: true }));
-// 等 5—6s；img.naturalWidth > 10
+inp.files = dt.files;
+inp.dispatchEvent(new Event('change', { bubbles: true }));
+// 等弹窗显示「1 / 100 项」
+
+// 4) 用受信任点击（CDP/Playwright click）点弹窗「确定」；el.click() / 回车不生效
+// 5) 等 5—6s；确认 img.naturalWidth > 10 且锚点文字消失
 ```
+
+若第 4 步后锚点仍在，重开图片库重试；不要退回 paste。
 
 ## 3. 标题与摘要
 
