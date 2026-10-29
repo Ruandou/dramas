@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>微短剧扶持台账 · 一人短剧厂牌</title>
+<meta name="description" content="只收还开着的口子。每条写清谁能申、几号截止、个人能不能报。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f3eee4'/%3E%3Crect x='6' y='6' width='7' height='20' fill='%23ae422c'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --paper:#f3eee4; --white:#fffaf0; --ink:#2c2925; --dim:#756d61;
+    --line:#d4c9b8; --rust:#ae422c; --teal:#28695e; --gold:#b9853d; --grey:#8f8576;
+    --mono:"SF Mono",Menlo,Consolas,monospace;
+    --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",serif;
+    --sans:"PingFang SC","Hiragino Sans GB","Noto Sans SC",system-ui,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans);
+         -webkit-font-smoothing:antialiased; line-height:1.65; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 24px 80px; }
+  header { padding:44px 0 8px; }
+  .brand { display:flex; align-items:center; gap:10px; font-size:13px; color:var(--dim);
+            letter-spacing:.08em; }
+  .brand::before { content:""; width:11px; height:22px; background:var(--rust); display:block; }
+  h1 { font-family:var(--serif); font-size:52px; line-height:1.15; margin:22px 0 10px;
+        letter-spacing:.01em; font-weight:700; }
+  .sub { font-size:17px; color:var(--dim); max-width:640px; margin:0 0 8px; }
+  .stamp { font-family:var(--mono); font-size:12px; color:var(--grey); letter-spacing:.04em; }
+
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);
+           border:1px solid var(--line); border-radius:12px; overflow:hidden; margin:30px 0 8px; }
+  .stat { background:var(--white); padding:18px 20px; }
+  .stat b { display:block; font-family:var(--mono); font-size:32px; line-height:1.1; font-weight:600; }
+  .stat span { font-size:12px; color:var(--dim); letter-spacing:.06em; }
+  .stat--rust b { color:var(--rust); } .stat--teal b { color:var(--teal); }
+  .stat--gold b { color:var(--gold); }
+
+  .rail { margin:26px 0 6px; border-top:2px solid var(--line); padding-top:0; }
+  .rail__row { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .stop { padding:14px 0 0; position:relative; }
+  .stop::before { content:""; position:absolute; top:-7px; left:0; width:12px; height:12px;
+                   border-radius:50%; background:var(--paper); border:3px solid var(--grey); }
+  .stop--now::before { border-color:var(--rust); }
+  .stop--end::before { border-color:var(--gold); }
+  .stop time { font-family:var(--mono); font-size:15px; font-weight:600; }
+  .stop p { margin:2px 0 0; font-size:13px; color:var(--dim); }
+
+  .filters { display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+             margin:26px 0 18px; padding-top:18px; border-top:1px solid var(--line); }
+  .filters button { font:inherit; font-size:13px; padding:7px 15px; border-radius:999px;
+                    border:1px solid var(--line); background:transparent; color:var(--dim);
+                    cursor:pointer; transition:.15s; }
+  .filters button:hover { border-color:var(--dim); color:var(--ink); }
+  .filters button[aria-pressed="true"] { background:var(--ink); border-color:var(--ink);
+                                        color:var(--paper); }
+  .filters .count { margin-left:auto; font-family:var(--mono); font-size:12px; color:var(--grey); }
+
+  .card { display:flex; background:var(--white); border:1px solid var(--line); border-radius:14px;
+           overflow:hidden; margin-bottom:14px; }
+  .card[hidden] { display:none; }
+  .card__bar { width:4px; flex:none; background:var(--rust); }
+  .card--platform .card__bar { background:var(--teal); }
+  .card__body { padding:20px 24px 16px; flex:1; min-width:0; }
+  .card__top { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .issuer { font-size:13px; font-weight:600; letter-spacing:.04em; }
+  .region { margin-left:auto; font-family:var(--mono); font-size:11px; color:var(--grey); }
+  .badge { font-size:11px; padding:2px 8px; border-radius:999px; letter-spacing:.04em; }
+  .badge--type { background:rgba(174,66,44,.09); color:var(--rust); }
+  .card--platform .badge--type { background:rgba(40,105,94,.1); color:var(--teal); }
+  .badge--yes { background:rgba(40,105,94,.12); color:var(--teal); font-weight:600; }
+  .badge--partial { background:rgba(185,133,61,.14); color:#8a5f22; font-weight:600; }
+  .badge--entity { background:rgba(117,109,97,.12); color:var(--dim); }
+  .badge--no { background:rgba(174,66,44,.1); color:#8b3a29; }
+  .card__title { font-family:var(--serif); font-size:25px; line-height:1.3; margin:10px 0 6px;
+                 font-weight:700; }
+  .benefit { margin:0 0 16px; font-size:15px; color:#4a443c; }
+  .meta { display:grid; grid-template-columns:1.4fr .7fr 1.2fr; gap:14px; margin:0;
+           padding-top:14px; border-top:1px dashed var(--line); }
+  .meta div { min-width:0; }
+  .meta dt { font-size:11px; color:var(--grey); letter-spacing:.1em; margin-bottom:2px; }
+  .meta dd { margin:0; font-size:13px; }
+  .date { font-family:var(--mono); font-size:16px; font-weight:600; }
+  .countdown { display:block; font-family:var(--sans); font-size:11px; color:var(--rust);
+                font-weight:400; margin-top:1px; }
+  .card__foot { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:14px;
+                font-size:11px; color:var(--grey); }
+  .ev { font-family:var(--mono); padding:1px 6px; border:1px solid var(--line); border-radius:4px; }
+  .ev--a { color:var(--teal); border-color:rgba(40,105,94,.35); }
+  .ev--b { color:var(--gold); border-color:rgba(185,133,61,.4); }
+  .card__foot .hint { flex:1; min-width:180px; }
+  .card__foot a { color:var(--rust); text-decoration:none; border-bottom:1px solid rgba(174,66,44,.3); }
+
+  .closed { margin:34px 0 0; }
+  .closed summary { cursor:pointer; font-size:14px; color:var(--dim); padding:14px 0;
+                    border-top:1px solid var(--line); list-style:none; }
+  .closed summary::-webkit-details-marker { display:none; }
+  .closed summary::before { content:"＋"; margin-right:8px; color:var(--grey); }
+  .closed[open] summary::before { content:"－"; }
+  .closed ul { list-style:none; margin:0; padding:0; }
+  .closed li { display:grid; grid-template-columns:110px 1fr 60px 1.6fr 40px; gap:12px;
+               align-items:baseline; padding:10px 0; border-bottom:1px solid var(--line);
+               font-size:13px; color:var(--dim); }
+  .closed-title { color:var(--ink); }
+  .closed-date { font-family:var(--mono); color:var(--rust); }
+  .closed-note { font-size:12px; }
+  .closed a { color:var(--grey); text-decoration:none; font-size:12px; }
+
+  .how { margin:44px 0 0; padding:22px 24px; background:var(--ink); color:#bdb3a1;
+          border-radius:14px; }
+  .how h3 { margin:0 0 10px; color:#f0c588; font-size:15px; letter-spacing:.06em; }
+  .how ol { margin:0; padding-left:18px; font-size:13px; line-height:1.9; }
+  .how b { color:#efe6d6; font-weight:600; }
+
+  footer { margin-top:34px; padding-top:18px; border-top:1px solid var(--line);
+            font-size:12px; color:var(--grey); line-height:1.9; }
+  footer b { color:var(--dim); font-weight:600; }
+
+  @media (max-width:720px) {
+    .wrap { padding:0 18px 60px; }
+    h1 { font-size:34px; }
+    .sub { font-size:15px; }
+    .stats { grid-template-columns:repeat(2,1fr); }
+    .stat b { font-size:26px; }
+    .meta { grid-template-columns:1fr 1fr; }
+    .meta div:last-child { grid-column:1 / -1; }
+    .card__body { padding:16px 16px 14px; }
+    .card__title { font-size:21px; }
+    .closed li { grid-template-columns:1fr 1fr; }
+    .closed-note { grid-column:1 / -1; }
+    .rail__row { display:block; }
+    .stop { padding:10px 0 10px 26px; border-left:2px solid var(--line); margin-left:5px; }
+    .stop:last-child { grid-column:auto; }
+    .stop::before { top:16px; left:-8px; }
+    .stop p { margin:1px 0 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">一人短剧厂牌 · 台账</div>
+    <h1>微短剧扶持台账</h1>
+    <p class="sub">只收还开着的口子。每条写清谁能申、几号截止、个人能不能报。</p>
+    <p class="stamp">更新于 2026-10-29 ｜ 11 个还开着 ｜ 4 个已关闭</p>
+  </header>
+
+  <section class="stats" aria-label="统计">
+    <div class="stat stat--rust"><b>11</b><span>还开着的口子</span></div>
+    <div class="stat"><b>5</b><span>政府扶持</span></div>
+    <div class="stat stat--teal"><b>6</b><span>平台扶持</span></div>
+    <div class="stat stat--gold"><b>3</b><span>个人可申</span></div>
+  </section>
+
+  <section class="rail" aria-label="近期窗口">
+    <div class="rail__row">
+      <div class="stop"><time>11-01</time><p>公众号小说改编签约开窗</p></div>
+      <div class="stop stop--now"><time>11-18</time><p>上海专项申报截止</p></div>
+      <div class="stop stop--end"><time>12-31</time><p>微信 Q4 激励与小说签约截止</p></div>
+    </div>
+  </section>
+
+  <div class="filters" role="group" aria-label="筛选">
+    <button data-filter="all" aria-pressed="true">全部</button>
+    <button data-filter="gov" aria-pressed="false">政府</button>
+    <button data-filter="platform" aria-pressed="false">平台</button>
+    <button data-filter="personal" aria-pressed="false">个人可申（3）</button>
+    <span class="count" id="count">共 11 条</span>
+  </div>
+
+  <main id="list">
+    
+    <article class="card card--gov" data-type="gov" data-individual="no">
+      <div class="card__bar"></div>
+      <div class="card__body">
+        <div class="card__top">
+          <span class="issuer">上海市文旅局</span>
+          <span class="badge badge--type">政府</span>
+          <span class="badge badge--no">个人不可</span>
+          <span class="region">上海</span>
+        </div>
+        <h2 class="card__title">2026 年度上海市微短剧发展专项经费</h2>
+        <p class="benefit">精品（含 AI）最高 300 万；海外发行最高 50 万</p>
+        <dl class="meta">
+          <div><dt>谁能申</dt><dd>上海微短剧经营单位</dd></div>
+          <div><dt>截止</dt><dd class="date">11-18<span class="countdown">剩 20 天</span></dd></div>
+          <div><dt>入口</dt><dd>一网通办「随申兑」</dd></div>
+        </dl>
+        <div class="card__foot">
+          <span class="ev ev--a">证据 A</span>
+          <span class="hint">指南原文不接受个人、个体户</span>
+          <a href="https://www.shanghai.gov.cn/gwk/affairs/content/0022@ca80c36bef9b49c9b547b410dd679a71" target="_blank" rel="noopener">原文</a>
+        </div>
+      </div>
+    </article>
+    <article class="card card--platform" data-type="platform" data-individual="entity">
+      <div class="card__bar"></div>
+      <div class="card__body">
+        <div class="card__top">
+          <span class="issuer">微信开放平台</span>
+          <span class="badge badge--type">平台</span>
+          <span class="badge badge--entity">需主体</span>
+          <span class="region">全国</span>
+        </div>
+        <h2 class="card__title">2026 Q4「微短剧」小程序激励</h2>
+        <p class="benefit">IAA 优质时长最高 70% 现金；联合发行最高 100% 收入</p>
+        <dl class="meta">
+          <div><dt>谁能申</dt><dd>已加入计划、使用官方播放器的小程序开发者</dd></div>
+          <div><dt>截止</dt><dd class="date">12-31<span class="countdown">剩 63 天</span></dd></div>
+          <div><dt>入口</dt><dd>微信开放平台·短剧小程序激励计划</dd></div>
+        </dl>
+        <div class="card__foot">
+          <span class="ev ev--b">证据 B</span>
+          <span class="hint">门槛在小程序主体与短剧类目资质</span>
+          <a href="https://lmtw.com/mzw/content/detail/id/258941/keyword_id/-1" target="_blank" rel="noopener">原文</a>
+        </div>
+      </div>
+    </article>
+    <article class="card card--platform" data-type="platform" data-individual="yes">
+      <div class="card__bar"></div>
+      <div class="card__body">
+        <div class="card__top">
+          <span class="issuer">微信开放平台 + 视频号</span>
+          <span class="badge badge--type">平台</span>
+          <span class="badge badge--yes">个人可申</span>
+          <span class="region">全国</span>
+        </div>
+        <h2 class="card__title">公众号小说改编微短剧·第一期</h2>
+        <p class="benefit">作者与承制方各得优先发行前 30 天变现收入的额外 5%</p>
+        <dl class="meta">
+          <div><dt>谁能申</dt><dd>名单内公众号小说作者 + 承制方</dd></div>
+          <div><dt>截止</dt><dd class="date">12-31<span class="countdown">剩 63 天</span></dd></div>
+          <div><dt>入口</dt><dd>平台邀约制，无公开入口</dd></div>
+        </dl>
+        <div class="card__foot">
+          <span class="ev ev--b">证据 B</span>
+          <span class="hint">作者个人可拿；首期 10 部，无公开报名</span>
+          <a href="https://tech.ifeng.com/c/8xMmBWatevI" target="_blank" rel="noopener">原文</a>
+        </div>
+      </div>
+    </article>
+    <article class="card card--gov" data-type="gov" data-individual="no">
+      <div class="card__bar"></div>
+      <div class="card__body">
+        <div class="card__top">
+          <span class="issuer">深圳市政府</span>
+          <span class="badge badge--type">政府</span>
+          <span class="badge badge--no">个人不可</span>
+          <span class="region">深圳</span>
+        </div>
+        <h2 class="card__title">促进微短剧产业高质量发展若干措施</h2>
+        <p class="benefit">剧本最高 100 万（不超过制作成本 30%）；制作最高 200 万</p>
+        <dl class="meta">
+          <div><dt>谁能申</dt><dd>深圳企业</dd></div>
+          <div><dt>截止</dt><dd class="date">滚动<span class="countdown">按公告</span></dd></div>
+          <div><dt>入口</dt><dd>市文化广电旅游体育局年度申报</dd></div>
+        </dl>
+        <div class="card__foot">
+          <span class="ev ev--b">证据 B</span>
+          <span class="hint">企业主体，按年度申报指南</span>
+          <a href="https://www.sz.gov.cn/zfgb/2025/gb1378/content/post_12281907.html" target="_blank" rel="noopener">原文</a>
+        </div>
+      </div>
+    </article>
+    <article class="card card--gov" data-type="gov" data-individual="no">
+      <div class="card__bar"></div>
+      <div class="card__body">
+        <div class="card__top">
+          <span class="issuer">横琴粤澳深度合作区</span>
+          <span class="badge badge--type">政府</span>
+          <span class="badge badge--no">个人不可</span>
+          <span class="region">横琴</span>
+        </div>
+        <h2 class="card__title">微短剧产业发展扶持办法</h2>
+        <p class="benefit">剧本 1 万/部；首次拍摄并完整播放最高 20 万；住宿每间夜 40 元（运营主体年度 300 万）</p>
+        <dl class="meta">
+          <div><dt>谁能申</dt><dd>合作区企业、园区运营主体</dd></div>
+          <div><dt>截止</dt><dd class="date">滚动<span class="countdown">按公告</span></dd></div>
+          <div><dt>入口</dt><dd>合作区官网申报通知</dd></div>
+        </dl>
+        <div class="card__foot">
+          <span class="ev ev--a">证据 A</span>
+          <span class="hint">企业或园区主体</span>
+          <a href="https://www.hengqin.gov.cn/macao_zh_hans/zwgk/zcfg/gfxwj/content/post_3913694.html" target="_blank" rel="noopener">原文</a>
+        </div>
+      </div>
+    </article>
+    <article class="card card--gov" data-type="gov" data-individual="no">
+      <div class="card__bar"></div>
+      <div class="card__body">
+        <div class="card__top">
+          <span class="issuer">福建省</span>
+          <span class="badge badge--type">政府</span>
+          <span class="badge badge--no">个人不可</span>
+          <span class="region">福建</span>
+        </div>
+        <h2 class="card__title">微短剧扶持资金</h2>
+        <p class="benefit">每年 1000 万，单部最高 260 万</p>
+        <dl class="meta">
+          <div><dt>谁能申</dt><dd>省内机构</dd></div>
+          <div><dt>截止</dt><dd class="date">滚动<span class="countdown">按公告</span></dd></div>
+          <div><dt>入口</dt><dd>省级年度通知</dd></div>
+        </dl>
+        <div class="card__foot">
+          <span class="ev ev--b">证据 B</span>
+          <span class="hint">机构主体</span>
+          <a href="https://www.thepaper.cn/newsDetail_forward_32989596" target="_blank" rel="noopener">原文</a>
+        </div>
+      </div>
+    </article>
+    <article class="card card--gov" data-type="gov" data-individual="no">
+      <div class="card__bar"></div>
+      <div class="card__body">
+        <div class="card__top">
+          <span class="issuer">广东省</span>
+          <span class="badge badge--type">政府</span>
+          <span class="badge badge--no">个人不可</span>
+          <span class="region">广东</span>
+        </div>
+        <h2 class="card__title">文艺精品专项（省市区三级叠加）</h2>
+        <p class="benefit">剧本 200 万 / 制作 300 万 / 播出 200 万 / 获奖 550 万 / 出海 500 万 / 园区 1000 万</p>
+        <dl class="meta">
+          <div><dt>谁能申</dt><dd>省内机构</dd></div>
+          <div><dt>截止</dt><dd class="date">滚动<span class="countdown">按公告</span></dd></div>
+          <div><dt>入口</dt><dd>省级年度通知</dd></div>
+        </dl>
+        <div class="card__foot">
+          <span class="ev ev--b">证据 B</span>
+          <span class="hint">机构主体</span>
+          <a href="https://www.thepaper.cn/newsDetail_forward_32989596" target="_blank" rel="noopener">原文</a>
+        </div>
+      </div>
+    </article>
+    <article class="card card--platform" data-type="platform" data-individual="no">
+      <div class="card__bar"></div>
+      <div class="card__body">
+        <div class="card__top">
+          <span class="issuer">抖音集团</span>
+          <span class="badge badge--type">平台</span>
+          <span class="badge badge--no">个人不可</span>
+          <span class="region">全国</span>
+        </div>
+        <h2 class="card__title">2026 真人短剧保底扶持</h2>
+        <p class="benefit">全年保底预算超 15 亿，部均较去年 +60%；另有 5 亿专项</p>
+        <dl class="meta">
+          <div><dt>谁能申</dt><dd>有竖屏承制能力的制作方</dd></div>
+          <div><dt>截止</dt><dd class="date">滚动<span class="countdown">按公告</span></dd></div>
+          <div><dt>入口</dt><dd>抖音集团短剧版权中心</dd></div>
+        </dl>
+        <div class="card__foot">
+          <span class="ev ev--a">证据 A</span>
+          <span class="hint">要能按时交片的团队</span>
+          <a href="https://www.cls.cn/detail/2368715" target="_blank" rel="noopener">原文</a>
+        </div>
+      </div>
+    </article>
+    <article class="card card--platform" data-type="platform" data-individual="no">
+      <div class="card__bar"></div>
+      <div class="card__body">
+        <div class="card__top">
+          <span class="issuer">红果</span>
+          <span class="badge badge--type">平台</span>
+          <span class="badge badge--no">个人不可</span>
+          <span class="region">全国</span>
+        </div>
+        <h2 class="card__title">短剧成长计划 / 万象短剧计划第二期</h2>
+        <p class="benefit">单部最高 200 万保底 + 宣发与 IP 资源</p>
+        <dl class="meta">
+          <div><dt>谁能申</dt><dd>影视机构、制作公司</dd></div>
+          <div><dt>截止</dt><dd class="date">滚动<span class="countdown">按公告</span></dd></div>
+          <div><dt>入口</dt><dd>红果短剧</dd></div>
+        </dl>
+        <div class="card__foot">
+          <span class="ev ev--b">证据 B</span>
+          <span class="hint">机构主体</span>
+          <a href="https://www.21jingji.com/article/20260417/herald/25d258d20648673f9ad1df845b82105b.html" target="_blank" rel="noopener">原文</a>
+        </div>
+      </div>
+    </article>
+    <article class="card card--platform" data-type="platform" data-individual="partial">
+      <div class="card__bar"></div>
+      <div class="card__body">
+        <div class="card__top">
+          <span class="issuer">抖音</span>
+          <span class="badge badge--type">平台</span>
+          <span class="badge badge--partial">部分可申</span>
+          <span class="region">全国</span>
+        </div>
+        <h2 class="card__title">影视 IP 真人短剧征集</h2>
+        <p class="benefit">剧本最高 5 万；成片保底最高 300 万</p>
+        <dl class="meta">
+          <div><dt>谁能申</dt><dd>制作方；剧本可个人投</dd></div>
+          <div><dt>截止</dt><dd class="date">滚动<span class="countdown">按公告</span></dd></div>
+          <div><dt>入口</dt><dd>抖音短剧版权中心征集公告</dd></div>
+        </dl>
+        <div class="card__foot">
+          <span class="ev ev--b">证据 B</span>
+          <span class="hint">剧本环节个人可投，成片需公司</span>
+          <a href="https://www.thepaper.cn/newsDetail_forward_32989596" target="_blank" rel="noopener">原文</a>
+        </div>
+      </div>
+    </article>
+    <article class="card card--platform" data-type="platform" data-individual="yes">
+      <div class="card__bar"></div>
+      <div class="card__body">
+        <div class="card__top">
+          <span class="issuer">红果</span>
+          <span class="badge badge--type">平台</span>
+          <span class="badge badge--yes">个人可申</span>
+          <span class="region">全国</span>
+        </div>
+        <h2 class="card__title">剧本评级收稿</h2>
+        <p class="benefit">A- 4 万起，按评级上浮，另有分成</p>
+        <dl class="meta">
+          <div><dt>谁能申</dt><dd>编剧、工作室</dd></div>
+          <div><dt>截止</dt><dd class="date">滚动<span class="countdown">按公告</span></dd></div>
+          <div><dt>入口</dt><dd>红果短剧收稿</dd></div>
+        </dl>
+        <div class="card__foot">
+          <span class="ev ev--c">证据 C</span>
+          <span class="hint">个人编剧可投；2025 年口径，最新价目以收稿公告为准</span>
+          <a href="https://m.36kr.com/p/3422323157588103" target="_blank" rel="noopener">原文</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <details class="closed">
+    <summary>已关闭 4 条（留档，别当机会）</summary>
+    <ul>
+      <li>
+        <span class="closed-issuer">佛山市</span>
+        <span class="closed-title">扶持网络微短剧办法</span>
+        <span class="closed-date">10-20</span>
+        <span class="closed-note">覆盖 2024-06-18 后上线作品</span>
+        <a href="https://www.foshan.gov.cn/gzjg/fswenhua/tz/content/post_7307284.html" target="_blank" rel="noopener">原文</a>
+      </li>
+      <li>
+        <span class="closed-issuer">广电总局</span>
+        <span class="closed-title">微短剧精品创作传播计划「五个一批」</span>
+        <span class="closed-date">09-15</span>
+        <span class="closed-note">三批分别 6-5 / 7-15 / 9-15 截止；限机构、须已备案未上线</span>
+        <a href="https://www.nrta.gov.cn/art/2026/9/4/art_113_74031.html" target="_blank" rel="noopener">原文</a>
+      </li>
+      <li>
+        <span class="closed-issuer">红果</span>
+        <span class="closed-title">千部计划（真人短剧）</span>
+        <span class="closed-date">09-30</span>
+        <span class="closed-note">40—50 集、现实主义题材，单部剧本 2 万保底</span>
+        <a href="https://www.lanjinger.com/d/1788514597134746072" target="_blank" rel="noopener">原文</a>
+      </li>
+      <li>
+        <span class="closed-issuer">浙江</span>
+        <span class="closed-title">第二届微短剧剧本创作大赛</span>
+        <span class="closed-date">07-20</span>
+        <span class="closed-note">面向全国创作者，个人可投</span>
+        <a href="http://www.cnsa.cn/art/2026/6/25/art_1954_48951.html" target="_blank" rel="noopener">原文</a>
+      </li>
+    </ul>
+  </details>
+
+  <section class="how">
+    <h3>拿到任何一条政策，先看四行</h3>
+    <ol>
+      <li><b>申报主体</b>：个人、个体户、企业、机构，四者不通用。</li>
+      <li><b>完成时间区间</b>：补过去一年的成片，还是给未来项目。</li>
+      <li><b>备案与上线</b>：要不要备案号、要不要上线证明。</li>
+      <li><b>奖励还是补贴</b>：奖励是先干成再给，补贴是先投入后报。</li>
+    </ol>
+  </section>
+
+  <footer>
+    <p><b>口径</b>：只收还能申报或参与的条目；「最高」均为评审上限，不等于到手金额。证据 A 为政府或平台原文，B 为主流媒体转述，C 为二手汇总仅作线索。</p>
+    <p><b>时效</b>：政策随时调整，申报以官方最新公告为准。台账下次更新随公众号发文同步。</p>
+    <p><b>说明</b>：本页不构成申报建议或法律意见。数据源文件 policy.yaml，本页由 build.py 生成。</p>
+  </footer>
+</div>
+<script>
+  const buttons = document.querySelectorAll('.filters button');
+  const cards = Array.from(document.querySelectorAll('#list .card'));
+  const count = document.getElementById('count');
+  function apply(filter) {
+    let shown = 0;
+    cards.forEach(card => {
+      const type = card.dataset.type;
+      const ind = card.dataset.individual;
+      const ok = filter === 'all' || type === filter ||
+                 (filter === 'personal' && (ind === 'yes' || ind === 'partial'));
+      card.hidden = !ok;
+      if (ok) shown++;
+    });
+    count.textContent = '共 ' + shown + ' 条';
+  }
+  buttons.forEach(btn => btn.addEventListener('click', () => {
+    buttons.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+    apply(btn.dataset.filter);
+  }));
+</script>
+</body>
+</html>
