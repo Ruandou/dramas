@@ -209,15 +209,25 @@ def cover():
 
     d.line((490, 62, 490, 324), fill='#4a443c', width=1)
     x0, span, top, bot = 528, 342, 148, 216
-    segs = [(0.195, '#ae422c'), (0.421, '#b9853d'), (0.142, '#28695e'), (0.242, '#8f8576')]
+    segs = [
+        (0.195, '#ae422c', '19.5%', '1'),
+        (0.421, '#b9853d', '42.1%', '2–10'),
+        (0.142, '#28695e', '14.2%', '11–20'),
+        (0.242, '#8f8576', '24.2%', '21–100'),
+    ]
     x = x0
-    for ratio, color in segs:
+    for ratio, color, pct, rng in segs:
         w = span * ratio
         d.rectangle((x, top, x + w, bot), fill=color)
+        for size in (16, 14, 12):
+            tw = d.textlength(pct, font=font(size, 'bold'))
+            if tw + 6 <= w:
+                put(d, x + (w - tw) / 2, top + 34, pct, size, WHITE, 'bold', x + w - 1)
+                break
+        tw = d.textlength(rng, font=font(12))
+        put(d, x + (w - tw) / 2, bot + 8, rng, 12, '#8f8576', 'body', 900)
         x += w
-    put(d, x0, bot + 12, '第 1 名', 15, '#8f8576', 'body', x0 + 120)
-    put(d, x0 + 86, bot + 12, '第 2-100 名', 15, '#8f8576', 'body', x0 + span + 4)
-    put(d, 528, 100, '100 部的热度值怎么分', 18, '#bdb3a1', 'body', 880)
+    put(d, 528, 100, '按名次：100 部的热度值怎么分', 18, '#bdb3a1', 'body', 880)
     put(d, 528, 262, '4,677 万热度值', 22, WHITE, 'bold', 880)
     put(d, 528, 300, '榜首一部占 19.5%', 18, '#8fc0b4', 'body', 880)
     return im
