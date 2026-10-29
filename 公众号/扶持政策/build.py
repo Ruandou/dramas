@@ -2,6 +2,7 @@
 """生成微短剧扶持台账静态页。用法：python3 build.py [--output dist]"""
 import argparse
 import html
+import json
 import shutil
 from datetime import date
 from pathlib import Path
@@ -34,8 +35,9 @@ def load():
         doc = yaml.safe_load(f)
     doc['updated'] = str(doc['updated'])
     for item in doc['items'] + doc.get('closed', []):
-        if item.get('deadline') is not None:
-            item['deadline'] = str(item['deadline'])
+        for key in ('deadline', 'start'):
+            if item.get(key) is not None:
+                item[key] = str(item[key])
         if 'individual' in item:
             item['individual'] = {True: 'yes', False: 'no'}.get(
                 item['individual'], str(item['individual']))
@@ -54,6 +56,28 @@ def sort_items(items):
     return dated + rolling
 
 
+def rail_events(items, updated):
+    """按数据生成最近三个窗口：开窗日与截止日都算，只取更新日之后的。"""
+    today = date.fromisoformat(updated)
+    events = []
+    for item in items:
+        label = item.get('short') or item['title']
+        if item.get('start') and date.fromisoformat(item['start']) >= today:
+            events.append((item['start'], '开窗', label))
+        if item.get('deadline') and date.fromisoformat(item['deadline']) >= today:
+            events.append((item['deadline'], '截止', label))
+    events.sort()
+    picked, seen = [], set()
+    for when, kind, label in events:
+        if when in seen:
+            continue
+        seen.add(when)
+        picked.append((when, kind, label))
+        if len(picked) == 3:
+            break
+    return picked
+
+
 def esc(s):
     return html.escape(str(s), quote=True)
 
@@ -65,16 +89,29 @@ def badge_individual(value):
 
 def render_card(item, updated):
     left = days_left(updated, item['deadline'])
-    if item['deadline']:
-        dl = item['deadline'][5:].replace('-', '-')
-        dday = f'剩 {left} 天' if left is not None and left >= 0 else '已截止'
-        date_html = f'<dd class="date">{dl}<span class="countdown">{dday}</span></dd>'
+    deadline = item.get('deadline') or ''
+    start = item.get('start') or ''
+    expired = bool(deadline) and left is not None and left < 0
+
+    start_note = ''
+    if start and start >= updated and start != deadline:
+        start_note = f'<span class="startnote">{start[5:]} 开窗</span>'
+    if deadline:
+        dl = deadline[5:]
+        dday = '今天截止' if left == 0 else (f'剩 {left} 天' if left and left > 0 else '已截止')
+        date_html = (f'<dd class="date">{dl}<span class="countdown">{dday}</span>'
+                     f'{start_note}</dd>')
     else:
-        date_html = '<dd class="date">滚动<span class="countdown">按公告</span></dd>'
+        date_html = (f'<dd class="date">滚动<span class="countdown">按公告</span>'
+                     f'{start_note}</dd>')
 
     note = item.get('individual_note', '')
+    search_blob = ' '.join(str(item.get(k, '')) for k in (
+        'issuer', 'region', 'title', 'benefit', 'eligibility', 'entry'))
     return f'''
-    <article class="card card--{item['type']}" data-type="{item['type']}" data-individual="{item['individual']}">
+    <article class="card card--{item['type']}{' is-expired' if expired else ''}"
+             data-type="{item['type']}" data-individual="{item['individual']}"
+             data-deadline="{deadline}" data-search="{esc(search_blob)}">
       <div class="card__bar"></div>
       <div class="card__body">
         <div class="card__top">
@@ -123,6 +160,25 @@ def build(doc):
     cards = ''.join(render_card(i, updated) for i in items)
     closed_rows = ''.join(render_closed(i) for i in closed)
 
+    stops = []
+    for idx, (when, kind, label) in enumerate(rail_events(items, updated)):
+        cls = ' stop--now' if idx == 0 else ''
+        stops.append(f'<div class="stop{cls}"><time>{when[5:]}</time>'
+                     f'<p><span class="stop__kind">{kind}</span>{esc(label)}</p></div>')
+    rail = ''.join(stops)
+
+    ld = json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        'name': doc['title'],
+        'dateModified': updated,
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': n, 'name': i['title'],
+             'url': i['url'], 'description': i['benefit']}
+            for n, i in enumerate(items, 1)
+        ],
+    }, ensure_ascii=False, separators=(',', ':'))
+
     page = f'''<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -130,7 +186,17 @@ def build(doc):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{esc(doc['title'])} · 一人短剧厂牌</title>
 <meta name="description" content="{esc(doc['subtitle'])}">
+<link rel="canonical" href="https://duanju-policy.pages.dev/">
+<meta name="theme-color" content="#f3eee4">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="一人短剧厂牌">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="{esc(doc['title'])} · 一人短剧厂牌">
+<meta property="og:description" content="{esc(doc['subtitle'])}">
+<meta property="og:url" content="https://duanju-policy.pages.dev/">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="{FAVICON}">
+<script type="application/ld+json">{ld}</script>
 <style>
   :root {{
     --paper:#f3eee4; --white:#fffaf0; --ink:#2c2925; --dim:#756d61;
@@ -159,9 +225,19 @@ def build(doc):
   .stat span {{ font-size:12px; color:var(--dim); letter-spacing:.06em; }}
   .stat--rust b {{ color:var(--rust); }} .stat--teal b {{ color:var(--teal); }}
   .stat--gold b {{ color:var(--gold); }}
+  .stat small {{ display:block; margin-top:4px; font-size:11px; color:var(--grey); }}
 
   .rail {{ margin:26px 0 6px; border-top:2px solid var(--line); padding-top:0; }}
+  .rail__cap {{ margin:12px 0 10px; font-family:var(--mono); font-size:12px;
+                color:var(--grey); letter-spacing:.05em; }}
   .rail__row {{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }}
+  .stop__kind {{ display:inline-block; margin-right:6px; padding:0 5px; border-radius:3px;
+                 background:rgba(174,66,44,.1); color:var(--rust); font-size:10px;
+                 letter-spacing:.05em; }}
+
+  .stale {{ margin:18px 0 0; padding:10px 14px; border:1px solid rgba(174,66,44,.35);
+            border-radius:8px; background:rgba(174,66,44,.06); color:#8b3a29; font-size:13px; }}
+  .empty {{ margin:26px 0; text-align:center; color:var(--grey); font-size:14px; }}
   .stop {{ padding:14px 0 0; position:relative; }}
   .stop::before {{ content:""; position:absolute; top:-7px; left:0; width:12px; height:12px;
                    border-radius:50%; background:var(--paper); border:3px solid var(--grey); }}
@@ -172,6 +248,12 @@ def build(doc):
 
   .filters {{ display:flex; flex-wrap:wrap; gap:8px; align-items:center;
              margin:26px 0 18px; padding-top:18px; border-top:1px solid var(--line); }}
+  .filters .search {{ flex:1 1 190px; min-width:150px; }}
+  .search input {{ width:100%; font:inherit; font-size:13px; padding:7px 13px;
+                   border:1px solid var(--line); border-radius:999px;
+                   background:var(--white); color:var(--ink); }}
+  .search input:focus {{ outline:none; border-color:var(--dim); }}
+  .search input::placeholder {{ color:var(--grey); }}
   .filters button {{ font:inherit; font-size:13px; padding:7px 15px; border-radius:999px;
                     border:1px solid var(--line); background:transparent; color:var(--dim);
                     cursor:pointer; transition:.15s; }}
@@ -207,6 +289,10 @@ def build(doc):
   .date {{ font-family:var(--mono); font-size:16px; font-weight:600; }}
   .countdown {{ display:block; font-family:var(--sans); font-size:11px; color:var(--rust);
                 font-weight:400; margin-top:1px; }}
+  .startnote {{ display:block; font-size:11px; color:var(--teal); margin-top:2px; }}
+  .card.is-expired {{ opacity:.55; }}
+  .card.is-expired .card__bar {{ background:var(--grey); }}
+  .card.is-expired .countdown {{ color:var(--grey); }}
   .card__foot {{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:14px;
                 font-size:11px; color:var(--grey); }}
   .ev {{ font-family:var(--mono); padding:1px 6px; border:1px solid var(--line); border-radius:4px; }}
@@ -266,35 +352,38 @@ def build(doc):
     <div class="brand">一人短剧厂牌 · 台账</div>
     <h1>{esc(doc['title'])}</h1>
     <p class="sub">{esc(doc['subtitle'])}</p>
-    <p class="stamp">更新于 {esc(updated)} ｜ {len(items)} 个还开着 ｜ {len(closed)} 个已关闭</p>
+    <p class="stamp">更新于 {esc(updated)} ｜ <span id="open-count">{len(items)}</span> 个还开着 ｜ {len(closed)} 个已关闭</p>
   </header>
 
   <section class="stats" aria-label="统计">
     <div class="stat stat--rust"><b>{gov + plat}</b><span>还开着的口子</span></div>
     <div class="stat"><b>{gov}</b><span>政府扶持</span></div>
     <div class="stat stat--teal"><b>{plat}</b><span>平台扶持</span></div>
-    <div class="stat stat--gold"><b>{personal_total}</b><span>个人可申</span></div>
+    <div class="stat stat--gold"><b>{personal}</b><span>个人可申</span>
+      <small>另有 {partial} 条部分可申</small></div>
   </section>
 
   <section class="rail" aria-label="近期窗口">
-    <div class="rail__row">
-      <div class="stop"><time>11-01</time><p>公众号小说改编签约开窗</p></div>
-      <div class="stop stop--now"><time>11-18</time><p>上海专项申报截止</p></div>
-      <div class="stop stop--end"><time>12-31</time><p>微信 Q4 激励与小说签约截止</p></div>
-    </div>
+    <p class="rail__cap">从 {esc(updated[5:])} 起最近的三个窗口</p>
+    <div class="rail__row">{rail}</div>
   </section>
 
+  <p class="stale" id="stale" hidden></p>
+
   <div class="filters" role="group" aria-label="筛选">
+    <label class="search"><input id="q" type="search" placeholder="搜城市、机构、主题"
+      autocomplete="off" aria-label="搜索台账"></label>
     <button data-filter="all" aria-pressed="true">全部</button>
     <button data-filter="gov" aria-pressed="false">政府</button>
     <button data-filter="platform" aria-pressed="false">平台</button>
-    <button data-filter="personal" aria-pressed="false">个人可申（{personal_total}）</button>
+    <button data-filter="personal" aria-pressed="false">个人能参与（{personal_total}）</button>
     <span class="count" id="count">共 {len(items)} 条</span>
   </div>
 
   <main id="list">
     {cards}
   </main>
+  <p class="empty" id="empty" hidden>没有匹配的条目，换个词试试。</p>
 
   <details class="closed">
     <summary>已关闭 {len(closed)} 条（留档，别当机会）</summary>
@@ -315,29 +404,87 @@ def build(doc):
   <footer>
     <p><b>口径</b>：只收还能申报或参与的条目；「最高」均为评审上限，不等于到手金额。证据 A 为政府或平台原文，B 为主流媒体转述，C 为二手汇总仅作线索。</p>
     <p><b>时效</b>：政策随时调整，申报以官方最新公告为准。台账下次更新随公众号发文同步。</p>
-    <p><b>说明</b>：本页不构成申报建议或法律意见。数据源文件 policy.yaml，本页由 build.py 生成。</p>
+    <p><b>说明</b>：本页不构成申报建议或法律意见。看到过期条目、漏掉的口子，或者入口打不开，在公众号「一人短剧厂牌」留言，我核完就改。</p>
   </footer>
 </div>
 <script>
-  const buttons = document.querySelectorAll('.filters button');
+  const UPDATED = '{updated}';
+  const DAY = 86400000;
+  const list = document.getElementById('list');
   const cards = Array.from(document.querySelectorAll('#list .card'));
+  const buttons = Array.from(document.querySelectorAll('.filters button'));
   const count = document.getElementById('count');
-  function apply(filter) {{
+  const q = document.getElementById('q');
+  const empty = document.getElementById('empty');
+  const stale = document.getElementById('stale');
+  const openCount = document.getElementById('open-count');
+
+  function midnight(s) {{
+    const d = new Date(s + 'T00:00:00');
+    return isNaN(d) ? null : d;
+  }}
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  const daysFrom = s => {{ const d = midnight(s); return d ? Math.round((d - now) / DAY) : null; }};
+
+  let expired = 0;
+  cards.forEach(card => {{
+    const left = daysFrom(card.dataset.deadline);
+    if (left === null) return;            // 滚动窗口，没有日期可算
+    const label = card.querySelector('.countdown');
+    if (left < 0) {{
+      expired++;
+      card.classList.add('is-expired');
+      card.dataset.state = 'expired';
+      if (label) label.textContent = '已截止';
+    }} else {{
+      card.dataset.state = 'open';
+      if (label) label.textContent = left === 0 ? '今天截止' : '剩 ' + left + ' 天';
+    }}
+  }});
+
+  // 过期的沉到列表末尾，别挡在还能申的前面
+  if (expired) {{
+    cards.filter(c => c.dataset.state === 'expired').forEach(c => list.appendChild(c));
+    if (openCount) openCount.textContent = cards.length - expired;
+  }}
+
+  const notes = [];
+  const age = Math.abs(daysFrom(UPDATED));
+  if (age > 14) {{
+    notes.push('这份台账停在 ' + UPDATED + '，已经 ' + age + ' 天没更新，截止日和金额可能变了，以官方公告为准。');
+  }}
+  if (expired) {{
+    notes.push('有 ' + expired + ' 条过了截止日，仍留在页面上供对照，下次更新移入「已关闭」。');
+  }}
+  if (notes.length) {{
+    stale.textContent = notes.join(' ');
+    stale.hidden = false;
+  }}
+
+  let filter = 'all';
+  function apply() {{
+    const terms = q.value.trim().toLowerCase().split(/\\s+/).filter(Boolean);
     let shown = 0;
     cards.forEach(card => {{
       const type = card.dataset.type;
       const ind = card.dataset.individual;
-      const ok = filter === 'all' || type === filter ||
-                 (filter === 'personal' && (ind === 'yes' || ind === 'partial'));
+      const typeOk = filter === 'all' || type === filter ||
+                     (filter === 'personal' && (ind === 'yes' || ind === 'partial'));
+      const blob = (card.dataset.search || '').toLowerCase();
+      const ok = typeOk && terms.every(t => blob.indexOf(t) !== -1);
       card.hidden = !ok;
       if (ok) shown++;
     }});
-    count.textContent = '共 ' + shown + ' 条';
+    count.textContent = (terms.length ? '筛出 ' : '共 ') + shown + ' 条';
+    empty.hidden = shown !== 0;
   }}
   buttons.forEach(btn => btn.addEventListener('click', () => {{
+    filter = btn.dataset.filter;
     buttons.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
-    apply(btn.dataset.filter);
+    apply();
   }}));
+  q.addEventListener('input', apply);
 </script>
 </body>
 </html>

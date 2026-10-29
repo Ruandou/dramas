@@ -5,7 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>微短剧扶持台账 · 一人短剧厂牌</title>
 <meta name="description" content="只收还开着的口子。每条写清谁能申、几号截止、个人能不能报。">
+<link rel="canonical" href="https://duanju-policy.pages.dev/">
+<meta name="theme-color" content="#f3eee4">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="一人短剧厂牌">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="微短剧扶持台账 · 一人短剧厂牌">
+<meta property="og:description" content="只收还开着的口子。每条写清谁能申、几号截止、个人能不能报。">
+<meta property="og:url" content="https://duanju-policy.pages.dev/">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f3eee4'/%3E%3Crect x='6' y='6' width='7' height='20' fill='%23ae422c'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"微短剧扶持台账","dateModified":"2026-10-29","itemListElement":[{"@type":"ListItem","position":1,"name":"2026 年度上海市微短剧发展专项经费","url":"https://www.shanghai.gov.cn/gwk/affairs/content/0022@ca80c36bef9b49c9b547b410dd679a71","description":"精品（含 AI）最高 300 万；海外发行最高 50 万"},{"@type":"ListItem","position":2,"name":"2026 Q4「微短剧」小程序激励","url":"https://lmtw.com/mzw/content/detail/id/258941/keyword_id/-1","description":"IAA 优质时长最高 70% 现金；联合发行最高 100% 收入"},{"@type":"ListItem","position":3,"name":"公众号小说改编微短剧·第一期","url":"https://tech.ifeng.com/c/8xMmBWatevI","description":"作者与承制方各得优先发行前 30 天变现收入的额外 5%"},{"@type":"ListItem","position":4,"name":"促进微短剧产业高质量发展若干措施","url":"https://www.sz.gov.cn/zfgb/2025/gb1378/content/post_12281907.html","description":"剧本最高 100 万（不超过制作成本 30%）；制作最高 200 万"},{"@type":"ListItem","position":5,"name":"微短剧产业发展扶持办法","url":"https://www.hengqin.gov.cn/macao_zh_hans/zwgk/zcfg/gfxwj/content/post_3913694.html","description":"剧本 1 万/部；首次拍摄并完整播放最高 20 万；住宿每间夜 40 元（运营主体年度 300 万）"},{"@type":"ListItem","position":6,"name":"微短剧扶持资金","url":"https://www.thepaper.cn/newsDetail_forward_32989596","description":"每年 1000 万，单部最高 260 万"},{"@type":"ListItem","position":7,"name":"文艺精品专项（省市区三级叠加）","url":"https://www.thepaper.cn/newsDetail_forward_32989596","description":"剧本 200 万 / 制作 300 万 / 播出 200 万 / 获奖 550 万 / 出海 500 万 / 园区 1000 万"},{"@type":"ListItem","position":8,"name":"2026 真人短剧保底扶持","url":"https://www.cls.cn/detail/2368715","description":"全年保底预算超 15 亿，部均较去年 +60%；另有 5 亿专项"},{"@type":"ListItem","position":9,"name":"短剧成长计划 / 万象短剧计划第二期","url":"https://www.21jingji.com/article/20260417/herald/25d258d20648673f9ad1df845b82105b.html","description":"单部最高 200 万保底 + 宣发与 IP 资源"},{"@type":"ListItem","position":10,"name":"影视 IP 真人短剧征集","url":"https://www.thepaper.cn/newsDetail_forward_32989596","description":"剧本最高 5 万；成片保底最高 300 万"},{"@type":"ListItem","position":11,"name":"剧本评级收稿","url":"https://m.36kr.com/p/3422323157588103","description":"A- 4 万起，按评级上浮，另有分成"}]}</script>
 <style>
   :root {
     --paper:#f3eee4; --white:#fffaf0; --ink:#2c2925; --dim:#756d61;
@@ -34,9 +44,19 @@
   .stat span { font-size:12px; color:var(--dim); letter-spacing:.06em; }
   .stat--rust b { color:var(--rust); } .stat--teal b { color:var(--teal); }
   .stat--gold b { color:var(--gold); }
+  .stat small { display:block; margin-top:4px; font-size:11px; color:var(--grey); }
 
   .rail { margin:26px 0 6px; border-top:2px solid var(--line); padding-top:0; }
+  .rail__cap { margin:12px 0 10px; font-family:var(--mono); font-size:12px;
+                color:var(--grey); letter-spacing:.05em; }
   .rail__row { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .stop__kind { display:inline-block; margin-right:6px; padding:0 5px; border-radius:3px;
+                 background:rgba(174,66,44,.1); color:var(--rust); font-size:10px;
+                 letter-spacing:.05em; }
+
+  .stale { margin:18px 0 0; padding:10px 14px; border:1px solid rgba(174,66,44,.35);
+            border-radius:8px; background:rgba(174,66,44,.06); color:#8b3a29; font-size:13px; }
+  .empty { margin:26px 0; text-align:center; color:var(--grey); font-size:14px; }
   .stop { padding:14px 0 0; position:relative; }
   .stop::before { content:""; position:absolute; top:-7px; left:0; width:12px; height:12px;
                    border-radius:50%; background:var(--paper); border:3px solid var(--grey); }
@@ -47,6 +67,12 @@
 
   .filters { display:flex; flex-wrap:wrap; gap:8px; align-items:center;
              margin:26px 0 18px; padding-top:18px; border-top:1px solid var(--line); }
+  .filters .search { flex:1 1 190px; min-width:150px; }
+  .search input { width:100%; font:inherit; font-size:13px; padding:7px 13px;
+                   border:1px solid var(--line); border-radius:999px;
+                   background:var(--white); color:var(--ink); }
+  .search input:focus { outline:none; border-color:var(--dim); }
+  .search input::placeholder { color:var(--grey); }
   .filters button { font:inherit; font-size:13px; padding:7px 15px; border-radius:999px;
                     border:1px solid var(--line); background:transparent; color:var(--dim);
                     cursor:pointer; transition:.15s; }
@@ -82,6 +108,10 @@
   .date { font-family:var(--mono); font-size:16px; font-weight:600; }
   .countdown { display:block; font-family:var(--sans); font-size:11px; color:var(--rust);
                 font-weight:400; margin-top:1px; }
+  .startnote { display:block; font-size:11px; color:var(--teal); margin-top:2px; }
+  .card.is-expired { opacity:.55; }
+  .card.is-expired .card__bar { background:var(--grey); }
+  .card.is-expired .countdown { color:var(--grey); }
   .card__foot { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:14px;
                 font-size:11px; color:var(--grey); }
   .ev { font-family:var(--mono); padding:1px 6px; border:1px solid var(--line); border-radius:4px; }
@@ -141,35 +171,39 @@
     <div class="brand">一人短剧厂牌 · 台账</div>
     <h1>微短剧扶持台账</h1>
     <p class="sub">只收还开着的口子。每条写清谁能申、几号截止、个人能不能报。</p>
-    <p class="stamp">更新于 2026-10-29 ｜ 11 个还开着 ｜ 4 个已关闭</p>
+    <p class="stamp">更新于 2026-10-29 ｜ <span id="open-count">11</span> 个还开着 ｜ 4 个已关闭</p>
   </header>
 
   <section class="stats" aria-label="统计">
     <div class="stat stat--rust"><b>11</b><span>还开着的口子</span></div>
     <div class="stat"><b>5</b><span>政府扶持</span></div>
     <div class="stat stat--teal"><b>6</b><span>平台扶持</span></div>
-    <div class="stat stat--gold"><b>3</b><span>个人可申</span></div>
+    <div class="stat stat--gold"><b>2</b><span>个人可申</span>
+      <small>另有 1 条部分可申</small></div>
   </section>
 
   <section class="rail" aria-label="近期窗口">
-    <div class="rail__row">
-      <div class="stop"><time>11-01</time><p>公众号小说改编签约开窗</p></div>
-      <div class="stop stop--now"><time>11-18</time><p>上海专项申报截止</p></div>
-      <div class="stop stop--end"><time>12-31</time><p>微信 Q4 激励与小说签约截止</p></div>
-    </div>
+    <p class="rail__cap">从 10-29 起最近的三个窗口</p>
+    <div class="rail__row"><div class="stop stop--now"><time>11-01</time><p><span class="stop__kind">开窗</span>公众号小说改编</p></div><div class="stop"><time>11-18</time><p><span class="stop__kind">截止</span>上海专项</p></div><div class="stop"><time>12-31</time><p><span class="stop__kind">截止</span>公众号小说改编</p></div></div>
   </section>
 
+  <p class="stale" id="stale" hidden></p>
+
   <div class="filters" role="group" aria-label="筛选">
+    <label class="search"><input id="q" type="search" placeholder="搜城市、机构、主题"
+      autocomplete="off" aria-label="搜索台账"></label>
     <button data-filter="all" aria-pressed="true">全部</button>
     <button data-filter="gov" aria-pressed="false">政府</button>
     <button data-filter="platform" aria-pressed="false">平台</button>
-    <button data-filter="personal" aria-pressed="false">个人可申（3）</button>
+    <button data-filter="personal" aria-pressed="false">个人能参与（3）</button>
     <span class="count" id="count">共 11 条</span>
   </div>
 
   <main id="list">
     
-    <article class="card card--gov" data-type="gov" data-individual="no">
+    <article class="card card--gov"
+             data-type="gov" data-individual="no"
+             data-deadline="2026-11-18" data-search="上海市文旅局 上海 2026 年度上海市微短剧发展专项经费 精品（含 AI）最高 300 万；海外发行最高 50 万 上海微短剧经营单位 一网通办「随申兑」">
       <div class="card__bar"></div>
       <div class="card__body">
         <div class="card__top">
@@ -192,7 +226,9 @@
         </div>
       </div>
     </article>
-    <article class="card card--platform" data-type="platform" data-individual="entity">
+    <article class="card card--platform"
+             data-type="platform" data-individual="entity"
+             data-deadline="2026-12-31" data-search="微信开放平台 全国 2026 Q4「微短剧」小程序激励 IAA 优质时长最高 70% 现金；联合发行最高 100% 收入 已加入计划、使用官方播放器的小程序开发者 微信开放平台·短剧小程序激励计划">
       <div class="card__bar"></div>
       <div class="card__body">
         <div class="card__top">
@@ -215,7 +251,9 @@
         </div>
       </div>
     </article>
-    <article class="card card--platform" data-type="platform" data-individual="yes">
+    <article class="card card--platform"
+             data-type="platform" data-individual="yes"
+             data-deadline="2026-12-31" data-search="微信开放平台 + 视频号 全国 公众号小说改编微短剧·第一期 作者与承制方各得优先发行前 30 天变现收入的额外 5% 名单内公众号小说作者 + 承制方 平台邀约制，无公开入口">
       <div class="card__bar"></div>
       <div class="card__body">
         <div class="card__top">
@@ -228,7 +266,7 @@
         <p class="benefit">作者与承制方各得优先发行前 30 天变现收入的额外 5%</p>
         <dl class="meta">
           <div><dt>谁能申</dt><dd>名单内公众号小说作者 + 承制方</dd></div>
-          <div><dt>截止</dt><dd class="date">12-31<span class="countdown">剩 63 天</span></dd></div>
+          <div><dt>截止</dt><dd class="date">12-31<span class="countdown">剩 63 天</span><span class="startnote">11-01 开窗</span></dd></div>
           <div><dt>入口</dt><dd>平台邀约制，无公开入口</dd></div>
         </dl>
         <div class="card__foot">
@@ -238,7 +276,9 @@
         </div>
       </div>
     </article>
-    <article class="card card--gov" data-type="gov" data-individual="no">
+    <article class="card card--gov"
+             data-type="gov" data-individual="no"
+             data-deadline="" data-search="深圳市政府 深圳 促进微短剧产业高质量发展若干措施 剧本最高 100 万（不超过制作成本 30%）；制作最高 200 万 深圳企业 市文化广电旅游体育局年度申报">
       <div class="card__bar"></div>
       <div class="card__body">
         <div class="card__top">
@@ -261,7 +301,9 @@
         </div>
       </div>
     </article>
-    <article class="card card--gov" data-type="gov" data-individual="no">
+    <article class="card card--gov"
+             data-type="gov" data-individual="no"
+             data-deadline="" data-search="横琴粤澳深度合作区 横琴 微短剧产业发展扶持办法 剧本 1 万/部；首次拍摄并完整播放最高 20 万；住宿每间夜 40 元（运营主体年度 300 万） 合作区企业、园区运营主体 合作区官网申报通知">
       <div class="card__bar"></div>
       <div class="card__body">
         <div class="card__top">
@@ -284,7 +326,9 @@
         </div>
       </div>
     </article>
-    <article class="card card--gov" data-type="gov" data-individual="no">
+    <article class="card card--gov"
+             data-type="gov" data-individual="no"
+             data-deadline="" data-search="福建省 福建 微短剧扶持资金 每年 1000 万，单部最高 260 万 省内机构 省级年度通知">
       <div class="card__bar"></div>
       <div class="card__body">
         <div class="card__top">
@@ -307,7 +351,9 @@
         </div>
       </div>
     </article>
-    <article class="card card--gov" data-type="gov" data-individual="no">
+    <article class="card card--gov"
+             data-type="gov" data-individual="no"
+             data-deadline="" data-search="广东省 广东 文艺精品专项（省市区三级叠加） 剧本 200 万 / 制作 300 万 / 播出 200 万 / 获奖 550 万 / 出海 500 万 / 园区 1000 万 省内机构 省级年度通知">
       <div class="card__bar"></div>
       <div class="card__body">
         <div class="card__top">
@@ -330,7 +376,9 @@
         </div>
       </div>
     </article>
-    <article class="card card--platform" data-type="platform" data-individual="no">
+    <article class="card card--platform"
+             data-type="platform" data-individual="no"
+             data-deadline="" data-search="抖音集团 全国 2026 真人短剧保底扶持 全年保底预算超 15 亿，部均较去年 +60%；另有 5 亿专项 有竖屏承制能力的制作方 抖音集团短剧版权中心">
       <div class="card__bar"></div>
       <div class="card__body">
         <div class="card__top">
@@ -353,7 +401,9 @@
         </div>
       </div>
     </article>
-    <article class="card card--platform" data-type="platform" data-individual="no">
+    <article class="card card--platform"
+             data-type="platform" data-individual="no"
+             data-deadline="" data-search="红果 全国 短剧成长计划 / 万象短剧计划第二期 单部最高 200 万保底 + 宣发与 IP 资源 影视机构、制作公司 红果短剧">
       <div class="card__bar"></div>
       <div class="card__body">
         <div class="card__top">
@@ -376,7 +426,9 @@
         </div>
       </div>
     </article>
-    <article class="card card--platform" data-type="platform" data-individual="partial">
+    <article class="card card--platform"
+             data-type="platform" data-individual="partial"
+             data-deadline="" data-search="抖音 全国 影视 IP 真人短剧征集 剧本最高 5 万；成片保底最高 300 万 制作方；剧本可个人投 抖音短剧版权中心征集公告">
       <div class="card__bar"></div>
       <div class="card__body">
         <div class="card__top">
@@ -399,7 +451,9 @@
         </div>
       </div>
     </article>
-    <article class="card card--platform" data-type="platform" data-individual="yes">
+    <article class="card card--platform"
+             data-type="platform" data-individual="yes"
+             data-deadline="" data-search="红果 全国 剧本评级收稿 A- 4 万起，按评级上浮，另有分成 编剧、工作室 红果短剧收稿">
       <div class="card__bar"></div>
       <div class="card__body">
         <div class="card__top">
@@ -423,6 +477,7 @@
       </div>
     </article>
   </main>
+  <p class="empty" id="empty" hidden>没有匹配的条目，换个词试试。</p>
 
   <details class="closed">
     <summary>已关闭 4 条（留档，别当机会）</summary>
@@ -471,29 +526,87 @@
   <footer>
     <p><b>口径</b>：只收还能申报或参与的条目；「最高」均为评审上限，不等于到手金额。证据 A 为政府或平台原文，B 为主流媒体转述，C 为二手汇总仅作线索。</p>
     <p><b>时效</b>：政策随时调整，申报以官方最新公告为准。台账下次更新随公众号发文同步。</p>
-    <p><b>说明</b>：本页不构成申报建议或法律意见。数据源文件 policy.yaml，本页由 build.py 生成。</p>
+    <p><b>说明</b>：本页不构成申报建议或法律意见。看到过期条目、漏掉的口子，或者入口打不开，在公众号「一人短剧厂牌」留言，我核完就改。</p>
   </footer>
 </div>
 <script>
-  const buttons = document.querySelectorAll('.filters button');
+  const UPDATED = '2026-10-29';
+  const DAY = 86400000;
+  const list = document.getElementById('list');
   const cards = Array.from(document.querySelectorAll('#list .card'));
+  const buttons = Array.from(document.querySelectorAll('.filters button'));
   const count = document.getElementById('count');
-  function apply(filter) {
+  const q = document.getElementById('q');
+  const empty = document.getElementById('empty');
+  const stale = document.getElementById('stale');
+  const openCount = document.getElementById('open-count');
+
+  function midnight(s) {
+    const d = new Date(s + 'T00:00:00');
+    return isNaN(d) ? null : d;
+  }
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  const daysFrom = s => { const d = midnight(s); return d ? Math.round((d - now) / DAY) : null; };
+
+  let expired = 0;
+  cards.forEach(card => {
+    const left = daysFrom(card.dataset.deadline);
+    if (left === null) return;            // 滚动窗口，没有日期可算
+    const label = card.querySelector('.countdown');
+    if (left < 0) {
+      expired++;
+      card.classList.add('is-expired');
+      card.dataset.state = 'expired';
+      if (label) label.textContent = '已截止';
+    } else {
+      card.dataset.state = 'open';
+      if (label) label.textContent = left === 0 ? '今天截止' : '剩 ' + left + ' 天';
+    }
+  });
+
+  // 过期的沉到列表末尾，别挡在还能申的前面
+  if (expired) {
+    cards.filter(c => c.dataset.state === 'expired').forEach(c => list.appendChild(c));
+    if (openCount) openCount.textContent = cards.length - expired;
+  }
+
+  const notes = [];
+  const age = Math.abs(daysFrom(UPDATED));
+  if (age > 14) {
+    notes.push('这份台账停在 ' + UPDATED + '，已经 ' + age + ' 天没更新，截止日和金额可能变了，以官方公告为准。');
+  }
+  if (expired) {
+    notes.push('有 ' + expired + ' 条过了截止日，仍留在页面上供对照，下次更新移入「已关闭」。');
+  }
+  if (notes.length) {
+    stale.textContent = notes.join(' ');
+    stale.hidden = false;
+  }
+
+  let filter = 'all';
+  function apply() {
+    const terms = q.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
     let shown = 0;
     cards.forEach(card => {
       const type = card.dataset.type;
       const ind = card.dataset.individual;
-      const ok = filter === 'all' || type === filter ||
-                 (filter === 'personal' && (ind === 'yes' || ind === 'partial'));
+      const typeOk = filter === 'all' || type === filter ||
+                     (filter === 'personal' && (ind === 'yes' || ind === 'partial'));
+      const blob = (card.dataset.search || '').toLowerCase();
+      const ok = typeOk && terms.every(t => blob.indexOf(t) !== -1);
       card.hidden = !ok;
       if (ok) shown++;
     });
-    count.textContent = '共 ' + shown + ' 条';
+    count.textContent = (terms.length ? '筛出 ' : '共 ') + shown + ' 条';
+    empty.hidden = shown !== 0;
   }
   buttons.forEach(btn => btn.addEventListener('click', () => {
+    filter = btn.dataset.filter;
     buttons.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
-    apply(btn.dataset.filter);
+    apply();
   }));
+  q.addEventListener('input', apply);
 </script>
 </body>
 </html>
