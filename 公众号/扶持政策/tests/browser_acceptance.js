@@ -1,0 +1,165 @@
+async (page) => {
+  const context = await page.context().browser().newContext({ viewport: { width: 1440, height: 1100 }, reducedMotion: 'reduce' });
+  await context.addInitScript(() => {
+    document.addEventListener('toggle', event => {
+      if (window.__holdEvidenceToggle && event.target.matches('.field-evidence')) event.stopImmediatePropagation();
+    }, true);
+  });
+  const tab = await context.newPage();
+  const errors = [], passed = [];
+  tab.on('pageerror', error => errors.push(error.message));
+  const check = (condition, name) => { if (!condition) throw new Error(name); passed.push(name); };
+  const base = 'http://127.0.0.1:8767';
+  const count = () => tab.locator('.resource-card').count();
+  const noOverflow = async name => check(await tab.evaluate(() => document.documentElement.scrollWidth <= innerWidth), name);
+  const category = async name => { await tab.locator(`[data-nav="${name}"]`).click(); await tab.locator('#listing-view').waitFor({ state: 'visible' }); };
+  try {
+    await tab.goto(base);
+    const html = await tab.content();
+    const data = await tab.locator('#catalog-data').evaluate(element => JSON.parse(element.textContent));
+    await tab.keyboard.press('Tab');
+    await tab.keyboard.press('Enter');
+    check(await tab.locator('#main').evaluate(element => element === document.activeElement), 'keyboard skip link focuses main content');
+    for (const name of ['policies', 'platforms', 'models', 'tools']) {
+      const expected = data.records.filter(record => record.category === name).length;
+      check(Number(await tab.locator(`[data-count="${name}"]`).textContent()) === expected, `home count: ${name}`);
+      await category(name);
+      check(await count() === expected, `category records: ${name}`);
+      await noOverflow(`desktop width: ${name}`);
+    }
+    await tab.locator('[data-nav="home"]').click();
+    await tab.getByRole('link', { name: '短剧出海', exact: true }).click();
+    check(await count() === 33 && tab.url().includes('group='), 'overseas shortcut selects its group');
+    await tab.locator('#filter-market').selectOption('日本');
+    check(await count() === 3, 'overseas Japanese market');
+    await tab.locator('#filter-access').selectOption('public');
+    const listedIds = await tab.locator('.resource-card').evaluateAll(cards => cards.map(card => card.dataset.id));
+    check(listedIds.every(id => data.records.find(record => record.id === id).access === 'public'), 'platform entry text does not imply public access');
+    await category('policies');
+    const first = tab.locator('.resource-card h2 a').first();
+    const firstTitle = await first.textContent();
+    await tab.locator('#filter-region').fill('上海');
+    await first.click();
+    check(await tab.locator('#detail-title').textContent() === firstTitle, 'blur does not swallow a record click');
+    check(!tab.url().includes('region='), 'unsubmitted text does not silently filter');
+    await tab.locator('#detail-back').click();
+    await tab.locator('#filter-region').fill('上海');
+    await tab.locator('#filter-eligibility').fill('企业');
+    await tab.getByRole('button', { name: '应用关键词' }).click();
+    check(await count() === 9, 'combined policy region and eligibility');
+    await tab.locator('.resource-card h2 a').first().click();
+    const summary = tab.locator('.field-evidence summary').first();
+    await summary.click();
+    await summary.focus();
+    const before = await tab.evaluate(() => ({ scroll: scrollY, focus: document.activeElement.id, open: document.querySelector('.field-evidence').open }));
+    await tab.goBack();
+    await tab.locator('#listing-view').waitFor({ state: 'visible' });
+    check(await count() === 9, 'back restores filtered list');
+    await tab.goForward();
+    await tab.locator('#detail-view').waitFor({ state: 'visible' });
+    await tab.waitForFunction(saved => Math.abs(scrollY - saved.scroll) < 2 && document.activeElement.id === saved.focus, before);
+    check(await tab.locator('.field-evidence').first().evaluate(item => item.open), 'forward restores evidence expansion, scroll and focus');
+    await tab.locator('#detail-back').click();
+    await tab.locator('.resource-card h2 a').first().click();
+    await tab.evaluate(() => {
+      window.__holdEvidenceToggle = true;
+      document.querySelector('.field-evidence').open = true;
+      history.back();
+    });
+    await tab.locator('#listing-view').waitFor({ state: 'visible' });
+    await tab.waitForFunction(() => Boolean(document.activeElement.dataset.recordLink));
+    await tab.goForward();
+    await tab.locator('#detail-view').waitFor({ state: 'visible' });
+    check(await tab.locator('.field-evidence').first().evaluate(item => item.open), 'forward restores evidence even before its toggle event is delivered');
+    await tab.evaluate(() => { window.__holdEvidenceToggle = false; });
+    await tab.locator('#detail-back').click();
+    await tab.locator('#filter-region').fill('不存在的地区');
+    await tab.locator('#filter-region').press('Enter');
+    check(await tab.locator('#empty-results').isVisible(), 'Enter applies policy text and shows empty state');
+    await tab.locator('#clear-search').click();
+    check(await count() === 86, 'empty state reset restores policies');
+    await tab.goto(`${base}/?view=policies&id=wx-novel`);
+    check((await tab.locator('#facts').textContent()).includes('定向邀约，不是公开报名'), 'invitation detail preserves participation boundary');
+    const fieldLink = tab.locator('.field-proof-link').first();
+    const evidenceId = (await fieldLink.getAttribute('href')).slice(1);
+    await fieldLink.click();
+    check(await tab.locator(`[id="${evidenceId}"]`).evaluate(item => item.open), 'field link expands its evidence');
+    await tab.reload();
+    check(await tab.locator(`[id="${evidenceId}"]`).evaluate(item => item.open), 'evidence hash survives reload');
+    await category('tools');
+    await tab.locator('input[name="group"][value="剪辑 / 后期"]').check();
+    await tab.locator('#filter-environment').selectOption('Mac');
+    check(await count() === 8, 'tool stage and environment filters');
+    await tab.locator('.resource-card h2 a').first().click();
+    check((await tab.locator('#facts').textContent()).includes('制作用途与运行环境'), 'tool formal detail');
+    await category('models');
+    await tab.locator('#listing-q').fill('Seedance 2.5');
+    await tab.locator('#listing-q').press('Enter');
+    check(await count() > 0, 'Seedance 2.5 remains searchable');
+    await tab.locator('.resource-card h2 a').first().click();
+    const modelId = new URL(tab.url()).searchParams.get('id');
+    check((await tab.locator('#detail-title').textContent()).includes('2.5'), 'model formal detail');
+    await tab.keyboard.press('Control+k');
+    check(await tab.locator('#listing-q').evaluate(input => input === document.activeElement), 'search shortcut from detail');
+    await tab.goto(`${base}/policies.html?category=models&id=${modelId}`);
+    check((await tab.locator('#detail-title').textContent()).includes('2.5'), 'legacy category and detail URL');
+    await tab.goto(`${base}/policies.html`);
+    check(await count() === 86, 'legacy policy path default');
+    await tab.goto(`${base}/?view=tools&id=missing-record`);
+    check(await tab.locator('#detail-title').textContent() === '没有找到这个条目', 'unknown record has an explicit empty state');
+
+    const fixture = structuredClone(data);
+    const record = fixture.records.find(record => record.id === 'wx-novel');
+    const field = record.fields[0];
+    const at = '2026-10-30T12:00:00+08:00';
+    field.verified_at = at;
+    field.verification = { value: field.value, source_id: field.source_ids[0], quote: '测试摘录 <img src=x onerror=window.injected=true>', note: '测试口径，不写入真实底库' };
+    record.metadata_verification = { access: { value: record.access, source_id: record.sources[0].id, quote: '名单邀约测试摘录', verified_at: at } };
+    record.history.push({ kind: 'review', field: field.key, at, before: '修改前测试值', after: field.value, source_id: field.source_ids[0], quote: '历史测试摘录', summary: '浏览器回归夹具' });
+    record.related_ids = [modelId];
+    const scriptPattern = /(<script[^>]*id="catalog-data"[^>]*>)[\s\S]*?(<\/script>)/;
+    const fixtureHTML = html.replace(scriptPattern, (_, start, end) => start + JSON.stringify(fixture).replace(/</g, '\\u003c') + end);
+    await tab.route('**/fixture.html*', route => route.fulfill({ contentType: 'text/html', body: fixtureHTML }));
+    await tab.goto(`${base}/fixture.html?view=policies&id=wx-novel`);
+    check(await tab.locator('#facts .detail-fields dt').count() === record.fields.length, 'detail retains every field');
+    check(await tab.locator('#sources .source-row').count() === record.sources.length, 'detail retains every source');
+    await tab.locator('.field-evidence summary').first().click();
+    check((await tab.locator('.field-evidence[open]').textContent()).includes(field.verification.quote), 'literal field quote preserved without HTML execution');
+    check(await tab.evaluate(() => !window.injected && !document.querySelector('.proof-block img')), 'proof text cannot inject HTML');
+    await tab.locator('[id="metadata-access"] summary').click();
+    check((await tab.locator('[id="metadata-access"]').textContent()).includes('名单邀约测试摘录'), 'metadata quote is readable');
+    check((await tab.locator('#history').textContent()).includes('修改前测试值'), 'history shows before and after');
+    check((await tab.locator('.detail-status').textContent()).includes('部分核验'), 'partial evidence does not imply full verification');
+    await tab.locator('#related a').first().click();
+    check(new URL(tab.url()).searchParams.get('id') === modelId, 'cross-category related record opens');
+    await tab.unroute('**/fixture.html*');
+    await tab.route('**/broken.html', route => route.fulfill({ contentType: 'text/html', body: html.replace(scriptPattern, '$1not-json$2') }));
+    await tab.goto(`${base}/broken.html`);
+    check(await tab.locator('#load-error').isVisible() && !await tab.locator('#home-view').isVisible(), 'malformed public data shows a load error');
+    await tab.unroute('**/broken.html');
+
+    await tab.setViewportSize({ width: 390, height: 844 });
+    await tab.goto(base);
+    await noOverflow('mobile home width');
+    for (const name of ['policies', 'platforms', 'models', 'tools']) {
+      await category(name);
+      await noOverflow(`mobile listing width: ${name}`);
+      check(!await tab.locator('#category-filters').isVisible(), `mobile filters start collapsed: ${name}`);
+      await tab.locator('#toggle-filters').click();
+      check(await tab.locator('#category-filters').isVisible(), `mobile filter toggle opens: ${name}`);
+      await noOverflow(`mobile filters width: ${name}`);
+      await tab.locator('#toggle-filters').click();
+      await tab.locator('.resource-card h2 a').first().click();
+      await noOverflow(`mobile detail width: ${name}`);
+      check(await tab.locator('#facts').isVisible() && !await tab.locator('dialog').count(), `mobile full-page detail: ${name}`);
+    }
+    const noJS = await page.context().browser().newContext({ javaScriptEnabled: false });
+    try {
+      const staticTab = await noJS.newPage(); await staticTab.goto(base);
+      check(await staticTab.locator('noscript').isVisible(), 'no-JavaScript source fallback is visible');
+      check(await staticTab.locator('noscript details').count() === data.records.length, 'no-JavaScript fallback retains every record');
+    } finally { await noJS.close(); }
+    check(errors.length === 0, `no runtime errors: ${errors.join('; ')}`);
+    return { passed: passed.length, checks: passed };
+  } finally { await context.close(); }
+}

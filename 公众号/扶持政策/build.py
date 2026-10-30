@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-"""从唯一底库生成站点、Markdown 清单与扶持 YAML 导出。"""
+"""从 JSON 底库生成站点与 Markdown 阅读版。"""
 import argparse
 import json
 from pathlib import Path
-
-import yaml
 
 from catalog import ROOT, load, markdown_exports
 
@@ -37,17 +35,13 @@ def build(doc):
         'catalog.js': (ROOT / 'static' / 'catalog.js').read_text(encoding='utf-8'),
         'catalog.css': (ROOT / 'static' / 'catalog.css').read_text(encoding='utf-8'),
         'catalog.json': json.dumps(data, ensure_ascii=False, indent=2) + '\n',
-        '404.html': '<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><link rel="stylesheet" href="/catalog.css"><title>页面不存在 · 一人短剧厂牌</title><main class="page-shell"><h1>这条资料不在这里</h1><p>链接可能已变更，可以回资料库重新查找。</p><a href="/">回到短剧资料库</a></main></html>\n',
+        '404.html': f'<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">{web.FAVICON}<link rel="stylesheet" href="/catalog.css"><title>页面不存在 · 一人短剧厂牌</title><main class="page-shell"><h1>这条资料不在这里</h1><p>链接可能已变更，可以回资料库重新查找。</p><a href="/">回到短剧资料库</a></main></html>\n',
         '_headers': HEADERS,
     }
 
 
 def exports(doc):
-    files = {ROOT.parent / '素材' / name: content for name, content in markdown_exports(doc).items()}
-    policy = {k: doc[k] for k in ('schema_version', 'reported_as_of')}
-    policy['records'] = [r for r in doc['records'] if r['kind'] == 'policy']
-    files[ROOT / 'data' / 'policy.yaml'] = '# 自动生成的扶持专题导出；唯一权威数据为 catalog.json，禁止手改。\n' + yaml.safe_dump(policy, allow_unicode=True, sort_keys=False)
-    return files
+    return {ROOT.parent / '素材' / name: content for name, content in markdown_exports(doc).items()}
 
 
 def main():

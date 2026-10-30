@@ -66,13 +66,26 @@ class RenderTests(unittest.TestCase):
         parser = PageParser()
         parser.feed(output)
         self.assertTrue(output.startswith('<!doctype html>'))
-        self.assertIn('做短剧，<br>先把信息查明白。', output)
+        self.assertIn('把时间留给创作。', output)
         self.assertIn(('script', {'src': '/catalog.js', 'defer': None}), parser.attrs)
         self.assertIn(('link', {'rel': 'stylesheet', 'href': '/catalog.css'}), parser.attrs)
+        icons = [attrs['href'] for tag, attrs in parser.attrs if tag == 'link' and attrs.get('rel') == 'icon']
+        self.assertEqual(len(icons), 1)
+        self.assertTrue(icons[0].startswith('data:image/svg+xml,'))
         self.assertIn('href="/policies.html"', output)
         self.assertIn('扶持台账', output)
-        categories = [attrs['data-category'] for _, attrs in parser.attrs if 'data-category' in attrs]
-        self.assertEqual(categories, ['all', 'policies', 'platforms', 'models', 'tools'])
+        categories = [attrs['data-nav'] for _, attrs in parser.attrs if 'data-nav' in attrs]
+        self.assertEqual(categories, ['home', 'policies', 'platforms', 'models', 'tools'])
+        ids = [attrs['id'] for _, attrs in parser.attrs if 'id' in attrs]
+        self.assertEqual(len(ids), len(set(ids)))
+        for required in ['home-view', 'listing-view', 'detail-view', 'detail-content',
+                         'detail-back', 'detail-category', 'category-filters',
+                         'listing-search', 'listing-q', 'document-notes', 'maintenance']:
+            self.assertIn(required, ids)
+        self.assertNotIn('dialog', parser.tags)
+        self.assertNotIn('current/', output)
+        hrefs = [attrs['href'] for _, attrs in parser.attrs if 'href' in attrs]
+        self.assertIn('?view=platforms&group=海外', hrefs)
         self.assertEqual(json.loads(parser.embedded), document())
 
     def test_render_does_not_mutate_input(self):
@@ -133,11 +146,11 @@ class RenderTests(unittest.TestCase):
     def test_noscript_and_empty_document(self):
         output = web.render(document([]))
         self.assertIn('<noscript>', output)
-        self.assertIn('无法使用筛选与实时日期提醒', output)
+        self.assertIn('无法使用搜索、筛选与日期提醒', output)
         self.assertIn('资料尚未收录', output)
         self.assertIn('role="status"', output)
         self.assertIn('aria-live="polite"', output)
-        self.assertIn('class="skip-link"', output)
+        self.assertIn('skip-link', output)
 
     def test_asset_security_and_accessibility_invariants(self):
         js = (ROOT / 'static/catalog.js').read_text()
@@ -149,10 +162,13 @@ class RenderTests(unittest.TestCase):
         self.assertIn("node('details'", js)
         self.assertIn('prefers-reduced-motion', css)
         self.assertIn(':focus-visible', css)
-        self.assertIn('@media (max-width: 720px)', css)
+        self.assertIn('@media (max-width: 760px)', css)
         self.assertEqual(css.count('{'), css.count('}'))
-        for colour in ['#f3eee4', '#fffaf0', '#2c2925', '#ae422c', '#28695e', '#d4c9b8']:
+        for colour in ['#f5f7fa', '#112842', '#087e83', '#e3eaef', '#ffffff', '#617183']:
             self.assertIn(colour, css)
+        self.assertNotIn('line-clamp', css)
+        self.assertIn('detail-layout', css)
+        self.assertIn('category-filters', css)
 
 
 @unittest.skipUnless(shutil.which('node'), 'Node required for browser-helper tests')
@@ -310,6 +326,103 @@ for (const value of ['javascript:alert(1)', 'data:text/html,x', '//evil.test', '
 }
 assert.equal(h.safeURL('https://example.com/a?b=1&c=2'), 'https://example.com/a?b=1&c=2');
 assert.equal(h.safeURL('http://example.com'), 'http://example.com/');
+''')
+
+    def test_home_category_and_formal_detail_routes(self):
+        self.run_js('''
+assert.equal(h.readState('', '/').view, 'home');
+assert.equal(h.readState('?q=上海').view, 'search');
+for (const category of ['policies', 'platforms', 'models', 'tools']) {
+  const modern = h.readState(`?view=${category}&id=missing-id`);
+  const legacy = h.readState(`?category=${category}&id=missing-id`);
+  assert.deepEqual(modern, legacy);
+  assert.equal(modern.id, 'missing-id');
+  assert.deepEqual(h.readState(h.queryFor(modern)), modern);
+}
+assert.equal(h.readState('?view=home', '/policies.html').view, 'home');
+assert.equal(h.readState('?view=models&history=0').lifecycle, 'listed');
+const detailed = h.readState('?view=policies&region=上海&eligibility=企业&timing=current&sort=name&id=wx-novel');
+assert.deepEqual(h.readState(h.queryFor(detailed)), detailed);
+assert.equal(h.readState('?view=tools&region=上海&eligibility=企业&timing=current&market=日本&api=open').region, '');
+assert.equal(h.readState('?view=tools&region=上海&market=日本').market, '');
+''')
+
+    def test_policy_filters_use_relevant_fields_not_summary_guesses(self):
+        self.run_js('''
+const r = {...base, fields:[{key:'region',value:'上海·浦东'}, {key:'eligibility',value:'区内企业/剧组'}, {key:'benefit',value:'北京个人可申请'}]};
+const policy = h.readState('?view=policies');
+assert.equal(h.matches(r, {...policy, region:'上海 浦东', eligibility:'企业'}), true);
+assert.equal(h.matches(r, {...policy, region:'北京'}), false);
+assert.equal(h.matches(r, {...policy, eligibility:'个人'}), false);
+const sparse = {...base, fields:[{key:'issuer',value:'佛山市'}, {key:'note',value:'仅历史条件'}]};
+assert.equal(h.matches(sparse, {...policy, region:'佛山'}), true);
+assert.equal(h.matches(sparse, {...policy, eligibility:'企业'}), false);
+assert.equal(h.summaryText(sparse), '仅历史条件');
+const invited = {...r, access:'invitation', fields:[...r.fields, {key:'individual',value:'yes'}]};
+assert.equal(h.matches(invited, {...policy, access:'public'}), false);
+assert.equal(h.matches(invited, {...policy, access:'invitation'}), true);
+''')
+
+    def test_platform_market_and_access_do_not_use_text_inference(self):
+        self.run_js('''
+const platform = h.readState('?view=platforms');
+const r = {...base, category:'platforms', group:'海外', access:'unknown', fields:[{key:'market',value:'海外/日本、韩国'}, {key:'entry',value:'可投稿：商务待核'}, {key:'format',value:'付费解锁'}]};
+assert.deepEqual(h.markets(r), ['海外', '日本', '韩国']);
+assert.equal(h.matches(r, {...platform, group:'海外', market:'日本'}), true);
+assert.equal(h.matches(r, {...platform, market:'国内'}), false);
+assert.equal(h.matches(r, {...platform, access:'public'}), false);
+assert.equal(h.matches(r, {...platform, access:'unknown'}), true);
+assert.equal(h.summaryText(r), '付费解锁');
+''')
+
+    def test_date_phase_is_not_application_availability(self):
+        self.run_js('''
+const r = {...base, access:'invitation', window:{kind:'contract', start:'2026-11-01', end:'2026-12-31'}};
+assert.equal(h.windowPhase(r, '2026-10-30'), 'upcoming');
+assert.equal(h.windowPhase(r, '2026-11-01'), 'current');
+assert.equal(h.windowPhase(r, '2026-12-31'), 'current');
+assert.equal(h.windowPhase(r, '2027-01-01'), 'ended');
+for (const window of [null, {start:null,end:null}, {start:null,end:'2026-12-31'}]) {
+  assert.equal(h.windowPhase({...r,window}, '2026-11-01'), 'unknown');
+}
+const policy = h.readState('?view=policies&timing=current');
+assert.equal(h.matches(r, policy, '2026-11-01'), true);
+assert.equal(h.matches(r, {...policy, access:'public'}, '2026-11-01'), false);
+''')
+
+    def test_associations_and_changes_preserve_record_identity(self):
+        self.run_js('''
+const a = {...base, id:'a', entity_id:'same', related_ids:['b','b','a','missing']};
+const b = {...base, id:'b', entity_id:'different'};
+const c = {...base, id:'c', entity_id:'same', category:'tools'};
+const d = {...base, id:'d', entity_id:'other'};
+assert.deepEqual(h.relatedRecords([a,b,c,d], a).map(r=>r.id), ['b','c']);
+const events = [{kind:'import',at:'1'}, {kind:'review',at:'2',before:'same',after:'same'}, {kind:'review',at:'3',before:'old',after:'new'}, {kind:'correction',at:'4',summary:'修订'}];
+const input = [{...base,history:events}];
+const before = JSON.stringify(input);
+assert.deepEqual(h.contentChanges(input).map(x=>x.event.at), ['4','3']);
+h.selectRecords(input, {...state,sort:'name'});
+assert.equal(JSON.stringify(input), before);
+''')
+
+    def test_actual_catalog_four_categories_and_evidence(self):
+        public = ROOT / 'data/catalog.json'
+        self.run_js(f'''
+const doc = JSON.parse(require('node:fs').readFileSync({json.dumps(str(public))}, 'utf8'));
+for (const category of ['policies','platforms','models','tools']) {{
+  const records = doc.records.filter(r=>r.category===category);
+  assert.deepEqual(h.selectRecords(doc.records, h.readState(`?view=${{category}}`)).map(r=>r.id), records.map(r=>r.id));
+}}
+const invitation = doc.records.find(r=>r.id==='wx-novel');
+assert.equal(invitation.access,'invitation');
+assert.equal(h.matches(invitation,h.readState('?view=policies&access=public')),false);
+assert.equal(h.windowKind(invitation),'签约期');
+const seedance = doc.records.find(r=>r.id==='model-e261618399b6');
+assert.equal(h.matches(seedance,h.readState('?view=models&q=Ｓｅｅｄａｎｃｅ ２．５')),true);
+const before = JSON.stringify(doc);
+h.relatedRecords(doc.records, seedance);
+h.selectRecords(doc.records, h.readState('?view=tools&environment=Web&sort=name'));
+assert.equal(JSON.stringify(doc),before);
 ''')
 
 

@@ -11,11 +11,13 @@
 - `maintain.py`：公开来源正文巡检、私有快照、待审队列、覆盖率报告；不修改事实。
 - `data/maintenance.json`：程序显式导出的计数/时间摘要，可公开，不含正文快照、来源 URL 或待审记录 ID。
 - `web.py`、`static/catalog.js`、`static/catalog.css`：页面与交互源码。
-- `build.py`：生成 `dist/` 七个文件、`data/policy.yaml` 和素材目录五份 Markdown 清单。不要手改生成物。
+- `build.py`：生成 `dist/` 七个文件和素材目录五份 Markdown 阅读版。站点数据统一输出为 `dist/catalog.json`，不再生成 YAML；不要手改生成物。
+
+当前数据文件统一为 JSON，不另建扶持专题数据副本。底库的 `migration_archive.policy_yaml` 仅保存首次迁移的原始文本，历史来源中的 YAML 路径也只作溯源记录；两者不是现行数据入口，不改写或删除。
 
 首次迁移为 330 条资料记录：15 条扶持项目/历史批次、71 条地方资料、73 条分发平台、91 条模型、80 条工具用途。它们不是 330 个独立产品或可参与机会；同产品不同用途通过 `entity_id` 关联。后续数量由底库计算，不再手工维护标题里的数字。
 
-四类页面为地方与扶持、分发平台、模型、制作工具；旧 `/policies.html` 与 Cloudflare 的 `/policies` 入口仍默认筛到地方与扶持。搜索、筛选和展开条目的状态写入 URL，便于分享和回退。
+首页以搜索、四类入口、内容变更和日期提醒组织资源；分类页分别按地区与主体条件、市场与接入、模型能力、制作环节与环境筛选。`?view=policies|platforms|models|tools` 进入分类，附 `id` 进入独立详情页，完整展示字段、来源、核验证据、历史和关联条目。旧 `?category=`、`/policies.html` 与 Cloudflare 的 `/policies` 入口继续有效；搜索、筛选和详情状态写入 URL，便于分享和回退。
 
 ## 二、数据与证据规则
 
@@ -82,7 +84,7 @@ python3 公众号/扶持政策/build.py --check
 
 不改值时省略 `--value`；元数据可使用 `title`、`access`、`lifecycle`、`window.kind`、`window.start`、`window.end`，已有窗口的起止日可用 `--value null` 清空。来源必须属于该字段或记录，摘录和值会进入历史。
 
-新增记录/来源或改变记录结构时编辑底库，保留已有 ID/证据/沿革，给新事实留空核验时间；非扶持项目还需更新相应 `documents[].blocks` 的引用。随后运行 `catalog.py check` 和构建检查。`import_catalog.py` 仅用于首次迁移，已有底库会拒绝覆盖，不用于日常更新。
+新增记录/来源或改变记录结构时编辑底库，保留已有 ID/证据/沿革，给新事实留空核验时间；非扶持项目还需更新相应 `documents[].blocks` 的引用。随后运行 `catalog.py check` 和构建检查。`import_catalog.py` 保留首次迁移逻辑，已有底库会拒绝覆盖，不用于日常更新；迁移测试只在临时目录从归档重建旧输入，不要求现行目录存在 YAML 文件。
 
 正文待审核销是另一件事：明确读过快照、确认仅接受比较基线后，才由人工执行：
 
@@ -94,7 +96,7 @@ python3 公众号/扶持政策/maintain.py dismiss '<队列ID>' --reason '<人�
 
 ## 五、本地验收
 
-依赖 Python 3.9+、项目已有的 PyYAML；测试使用 Node 运行前端纯函数，不需要安装前端框架。
+日常维护和构建只需 Python 3.9+ 标准库，不依赖 PyYAML。完整测试中的历史迁移重放仍使用项目已有的 PyYAML；前端纯函数测试使用 Node，不需要安装前端框架。
 
 ```bash
 python3 -B -m unittest discover -s 公众号/扶持政策/tests
@@ -106,7 +108,9 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory 公众号/扶持政策/
 
 浏览器查看 `http://127.0.0.1:8766/`，验收 1440 / 390 两个宽度、四类搜索和筛选、无结果重置、来源/证据展开、深链接及回退。全库核验数与巡检覆盖率分开显示。检查控制台错误；Python 预览服务器不会应用 Cloudflare 的 `_headers`，线上仍需单独验证 CSP。
 
-`--check` 对七份站点产物、扶持 YAML 和五份 Markdown 清单逐字节比对，共 13 个文件；普通构建只写已知产物，不清空输出目录或删除无关文件。产物不使用构建当天伪造数据更新时间，前端按北京时间实时计算窗口状态。
+`tests/browser_acceptance.js` 是真实浏览器回归脚本：在 8767 端口另起上述预览服务器，通过 Playwright MCP 的 `browser_run_code_unsafe` 传入该文件的绝对 `filename` 运行。脚本新建并关闭自己的隔离浏览器上下文，覆盖桌面/手机、筛选与历史导航、证据与异常数据；测试证据只通过浏览器请求拦截注入，不写入底库。
+
+`--check` 对七份站点产物和五份 Markdown 阅读版逐字节比对，共 12 个文件；普通构建只写已知产物，不清空输出目录或删除无关文件。产物不使用构建当天伪造数据更新时间，前端按北京时间实时计算窗口状态。
 
 ## 六、经当次授权后部署
 
