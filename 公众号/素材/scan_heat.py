@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """选题扫描：关键词资讯搜索（360 资讯，按时间排序）+ 新浪滚动兜底，不扫热榜。
 
-用「短剧 / AI短剧 / 红果 / 微短剧 / AI漫剧」逐词搜索，并用新浪科技/娱乐/财经
-滚动流做交叉；同一选题至少 2 家互不隶属的媒体同题报道才写入
-公众号/素材/候选池.md；每条记录搜索词 / 媒体 / 发布时间 / 查询时间。
+词表分三组：分发端（短剧 / AI短剧 / 红果 / 微短剧 / AI漫剧）、制作与模型
+（可灵 / 即梦 / 海螺AI / Vidu / Seedance / 视频模型）、数据端（DataEye / 云合）。
+13 个词一次性全搜会触发 360 反爬（2026-10-29 实测「访问异常页面」），所以核心
+分发 5 词每轮都搜，其余 8 词按小时奇偶分两半轮流，每个词两小时覆盖一次；
+每词之间停 1.5 秒。被拦截时状态写进候选池注释，不静默当 0 条。
+新浪科技/娱乐/财经滚动流另做交叉；同一选题至少 2 家互不隶属的媒体同题报道才
+写入公众号/素材/候选池.md；每条记录搜索词 / 媒体 / 发布时间 / 查询时间。
+入池仍要人工过相关性门：必须能回答「对独立制作方意味着什么」（成本/产能/过审/
+分账四选一），纯跑分、纯融资、纯股价不收。
 去重状态与日志放仓库外。只在 10:00—19:00 时段运行；机器休眠唤醒后由 launchd 补跑。
 """
 import argparse
@@ -25,13 +31,23 @@ SEEN_PATH = STATE_DIR / 'seen.json'
 LAST_PATH = STATE_DIR / 'last_run'
 
 KEYWORDS = ('短剧', 'AI短剧', '红果', '微短剧', 'AI漫剧')
+EXTRA_KEYWORDS = ('可灵', '即梦', '海螺AI', 'Vidu', 'Seedance', '视频模型', 'DataEye', '云合')
+KEYWORD_EXCLUDE = {'可灵': ('可灵活',)}
 UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'
+
+
+def keywords_for_run():
+    # 13 个词一轮全搜会触发 360 反爬（2026-10-29 实测），核心 5 词每轮都搜，
+    # 其余 8 词按小时奇偶分两半轮流，每个词每两小时覆盖一次
+    return KEYWORDS + EXTRA_KEYWORDS[now().hour % 2::2]
+
 
 POOL_HEADER = """# 候选池
 
-来源：360 资讯关键词新闻搜索（短剧 / AI短剧 / 红果 / 微短剧 / AI漫剧，按时间排序）+ 新浪科技/娱乐/财经滚动流交叉；另有一层 Qoder 定时 Agent 用 WebSearch 补充（每日 4 次），条目格式相同。不扫热榜。
+来源：360 资讯关键词新闻搜索（按时间排序）+ 新浪科技/娱乐/财经滚动流交叉；另有一层 Qoder 定时 Agent 用 WebSearch 补充（每日 4 次），条目格式相同。不扫热榜。
+词表三组——分发端：短剧 / AI短剧 / 红果 / 微短剧 / AI漫剧；制作与模型：可灵 / 即梦 / 海螺AI / Vidu / Seedance / 视频模型；数据端：DataEye / 云合。后 8 个词按小时奇偶分两批轮流搜（每词两小时覆盖一次）。
 规则：同一选题至少 2 家互不隶属的媒体同题报道才写入（同一家多条、同集团频道、同篇通稿转载都只算 1 个来源）；每条带搜索词、媒体、发布时间、查询时间。
-搜索只说明有动静，过门仍需人工核：24—72 小时、≥2 个独立信源、可复查的阅读/榜单凭据。
+搜索只说明有动静，过门仍需人工核：①必须能回答「对独立制作方意味着什么」——成本 / 产能 / 过审 / 分账四选一，答不出不收；②24—72 小时；③≥2 个独立信源；④可复查的阅读/榜单凭据。纯跑分、纯融资、纯股价不收。
 """
 
 
@@ -50,8 +66,15 @@ def compact(text):
 
 
 def matched_keywords(*texts):
-    text = compact(' '.join(texts))
-    return [k for k in KEYWORDS if k in text]
+    text = compact(' '.join(texts)).lower()
+    for kw, drops in KEYWORD_EXCLUDE.items():
+        for drop in drops:
+            text = text.replace(drop.lower(), '')
+    hits = [k for k in KEYWORDS + EXTRA_KEYWORDS if k.lower() in text]
+    # 云合、DataEye 什么都统计，只靠它们命中会混进长剧收视；必须与短剧类词同现
+    if hits and all(k in DATA_KEYWORDS for k in hits):
+        return []
+    return hits
 
 
 def make_item(platform, source_key, title, url, metric, keywords, time_text=''):
@@ -80,6 +103,9 @@ def parse_time_text(text):
         m = re.match(r'(\d+)\s*小时前', text)
         if m:
             return (base - timedelta(hours=int(m.group(1)))).strftime('%Y-%m-%d %H:%M:%S')
+        m = re.match(r'(\d+)\s*天前', text)
+        if m:
+            return (base - timedelta(days=int(m.group(1)))).strftime('%Y-%m-%d %H:%M:%S')
         m = re.match(r'今天\s*(\d{1,2}):(\d{2})', text)
         if m:
             return base.replace(hour=int(m.group(1)), minute=int(m.group(2)),
@@ -116,17 +142,27 @@ def source_key_of(url):
     return host
 
 
-NOISE_WORDS = ('炒红果', '糖葫芦', '山楂', '果丹皮', '做法', '美味')
+NOISE_WORDS = ('炒红果', '糖葫芦', '山楂', '果丹皮', '做法', '美味',
+               '教程', '零基础', '全网首发', '免费下载', '破解')
+DATA_KEYWORDS = ('DataEye', '云合')
+
+SOURCE_NOTES = {}
 
 
 def fetch_news_search():
     items = []
     seen_urls = set()
-    for query in KEYWORDS:
+    queries = keywords_for_run()
+    for index, query in enumerate(queries):
         url = 'https://news.so.com/ns?' + urllib.parse.urlencode({
             'q': query, 'pn': 1, 'rn': 20, 'j': 0, 'rad': '', 'sort': 1,
         })
         page = fetch_text(url)
+        if '访问异常' in page:
+            if not items:
+                raise RuntimeError(f'{query} 起被反爬拦截')
+            SOURCE_NOTES['360资讯'] = f'{len(items)} 条（{query} 起被拦截，后 {len(queries) - index} 个词未跑）'
+            return items
         for block in re.findall(r'<li[^>]*res-list[^>]*>.*?</li>', page, re.S):
             m = re.search(r'<a[^>]*href="([^"]+)"[^>]*title="([^"]+)"', block)
             if not m:
@@ -145,15 +181,17 @@ def fetch_news_search():
                 continue
             site = re.search(r'<cite[^>]*class="sitename"[^>]*>(.*?)</cite>', block, re.S)
             site = html.unescape(re.sub(r'<[^>]+>', '', site.group(1))).strip() if site else ''
-            if not site:
+            if not site or (not re.search(r'[\u4e00-\u9fff]', site) and '.' in site):
                 site = domain_of(link)
+            site = re.sub(r'^www\.', '', site)
             tm = re.search(r'class="[^"]*time[^"]*"[^>]*>([^<]+)<', block)
             tm = tm.group(1).strip() if tm else ''
             stamp = parse_time_text(tm)
-            if stamp and not is_fresh(stamp, hours=36):
+            if stamp and not is_fresh(stamp, hours=72):
                 continue
             items.append(make_item(site or '未署名', source_key_of(link), title, link,
                                    tm or '时间未给', kws, stamp))
+        time.sleep(1.5)
     return items
 
 
@@ -183,7 +221,7 @@ def fetch_sina_roll():
                     stamp = datetime.fromtimestamp(int(entry['ctime'])).strftime('%Y-%m-%d %H:%M:%S')
                 except (TypeError, ValueError, OSError):
                     pass
-            if stamp and not is_fresh(stamp, hours=36):
+            if stamp and not is_fresh(stamp, hours=72):
                 continue
             media = (entry.get('media_name') or '').strip() or domain_of(link)
             metric = f'{channel}滚动，发布 {stamp}' if stamp else f'{channel}滚动，时间未给'
@@ -192,7 +230,7 @@ def fetch_sina_roll():
     return items
 
 
-def is_fresh(stamp, hours=36):
+def is_fresh(stamp, hours=72):
     try:
         return datetime.strptime(stamp, '%Y-%m-%d %H:%M:%S') >= now() - timedelta(hours=hours)
     except (TypeError, ValueError):
@@ -263,8 +301,25 @@ def cluster_topics(items):
     return list(clusters.values())
 
 
+def title_similarity(a, b):
+    left, right = bigrams(norm_title(a)), bigrams(norm_title(b))
+    return len(left & right) / max(1, len(left | right))
+
+
+def representative(cluster):
+    # 取最靠中心的标题，避免把「早报合辑」这类拼盘标题当选题名
+    if len(cluster) == 1:
+        return cluster[0]
+
+    def score(item):
+        return sum(title_similarity(item['title'], other['title'])
+                   for other in cluster if other is not item)
+
+    return max(cluster, key=score)
+
+
 def topic_key(cluster):
-    rep = max(cluster, key=lambda it: len(norm_title(it['title'])))
+    rep = representative(cluster)
     digest = hashlib.sha1(norm_title(rep['title']).encode('utf-8')).hexdigest()[:16]
     return f'topic:{digest}', rep['title']
 
@@ -282,10 +337,10 @@ def select_candidates(clusters, seen):
         key, title = topic_key(cluster)
         if key in seen or already_seen(title, seen):
             continue
-        platforms = []
+        by_source = {}
         for item in cluster:
-            if item['platform'] not in platforms:
-                platforms.append(item['platform'])
+            by_source.setdefault(item['source_key'], item['platform'])
+        platforms = list(by_source.values())
         keywords = []
         for item in cluster:
             for kw in item['keywords']:
@@ -293,7 +348,7 @@ def select_candidates(clusters, seen):
                     keywords.append(kw)
         candidates.append({
             'key': key,
-            'title': max(cluster, key=lambda it: len(it['title']))['title'],
+            'title': representative(cluster)['title'],
             'platforms': platforms,
             'source_keys': source_keys,
             'keywords': keywords,
@@ -357,6 +412,7 @@ def collect():
     items = []
     status = {}
     seen_urls = set()
+    SOURCE_NOTES.clear()
     sources = (
         ('360资讯', fetch_news_search),
         ('新浪滚动', fetch_sina_roll),
@@ -371,7 +427,7 @@ def collect():
         kept = [it for it in batch if it['url'] and it['url'] not in seen_urls]
         seen_urls.update(it['url'] for it in kept)
         items.extend(kept)
-        status[name] = f'{len(batch)} 条'
+        status[name] = SOURCE_NOTES.get(name) or f'{len(batch)} 条'
     return items, status
 
 
