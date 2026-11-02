@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""「厂牌榜」周榜（009）三张贴图：热播全勤 / 换血 / 预约与题材。
+"""「厂牌榜」周榜（010）三张贴图：热播全勤 / 换血 / 预约与题材。
 
-窗口 2026-10-19—10-25（7 个采样日）。数据来自 data/bangdan.sqlite。
+窗口 2026-10-26—11-01（7 个采样日）。数据来自 data/bangdan.sqlite。
 运行：/usr/local/bin/python3 _gen_week.py
 """
 from pathlib import Path
@@ -11,8 +11,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import _gen_board as g
 from PIL import Image, ImageDraw
 
-ISSUE = '009'
-START, END = '2026-10-19', '2026-10-25'
+ISSUE = '010'
+START, END = '2026-10-26', '2026-11-01'
+BOOKING_START = '2026-10-26'
 W, H = 1080, 1440
 
 
@@ -51,10 +52,61 @@ def new_face_count():
         (START, END, START))[0][0]
 
 
+def top10_overlap():
+    start = {r[0] for r in g.query(
+        "SELECT title FROM snapshot WHERE board=1 AND edition_date=? ORDER BY rank LIMIT 10", (START,))}
+    end = {r[0] for r in g.query(
+        "SELECT title FROM snapshot WHERE board=1 AND edition_date=? ORDER BY rank LIMIT 10", (END,))}
+    return len(start & end)
+
+
+def new_face_full_count():
+    return g.query(
+        "SELECT COUNT(*) FROM (SELECT title FROM snapshot WHERE board=1 "
+        "AND edition_date BETWEEN ? AND ? AND title NOT IN "
+        "(SELECT title FROM snapshot WHERE board=1 AND edition_date < ?) "
+        "GROUP BY title HAVING COUNT(DISTINCT edition_date)=7)",
+        (START, END, START))[0][0]
+
+
+def new_face_best_full():
+    return g.query(
+        "SELECT title, AVG(rank) ar FROM snapshot WHERE board=1 "
+        "AND edition_date BETWEEN ? AND ? AND title NOT IN "
+        "(SELECT title FROM snapshot WHERE board=1 AND edition_date < ?) "
+        "GROUP BY title HAVING COUNT(DISTINCT edition_date)=7 ORDER BY ar LIMIT 1",
+        (START, END, START))[0]
+
+
+def single_day_peak():
+    row = g.query(
+        "SELECT edition_date, title, metric_value FROM snapshot WHERE board=1 "
+        "AND edition_date BETWEEN ? AND ? ORDER BY metric_value DESC LIMIT 1",
+        (START, END))[0]
+    return row
+
+
+def full_avg_top():
+    return g.query(
+        "SELECT title, AVG(metric_value) av FROM snapshot WHERE board=1 "
+        "AND edition_date BETWEEN ? AND ? GROUP BY title "
+        "HAVING COUNT(DISTINCT edition_date)=7 ORDER BY av DESC LIMIT 1",
+        (START, END))[0]
+
+
+def booking_start_top():
+    rows = g.query(
+        "SELECT title, metric_value FROM snapshot WHERE board=3 AND edition_date=? "
+        "ORDER BY rank LIMIT 1", (BOOKING_START,))
+    return rows[0] if rows else None
+
+
 def daily_champs():
+    from datetime import date, timedelta
     out = []
-    for d in ['2026-10-19', '2026-10-20', '2026-10-21', '2026-10-22',
-              '2026-10-23', '2026-10-24', '2026-10-25']:
+    lo = date.fromisoformat(START)
+    for i in range((date.fromisoformat(END) - lo).days + 1):
+        d = (lo + timedelta(days=i)).isoformat()
         r = g.query("SELECT title, metric_value FROM snapshot WHERE board=1 "
                     "AND edition_date=? ORDER BY rank LIMIT 1", (d,))[0]
         out.append((d[5:], r[0], r[1]))
@@ -99,7 +151,7 @@ def save(im, name, foot_lines):
 
 
 def page1():
-    im, d = page('本周热播：41 部全勤', '7 个采样日 / 178 部曾上榜 / 按平均名次排序')
+    im, d = page('本周热播：和离 7 天 6 冠', '7 个采样日 / 178 部曾上榜 / 41 部全勤 / 按平均名次排序')
     y = 216
     rows = week_rows(10)
     for i, (title, days, ar, br, av, genre) in enumerate(rows, 1):
@@ -115,7 +167,7 @@ def page1():
     y += 14
     d.line((72, y + 24, W - 72, y + 24), fill=g.GOLD, width=3)
     g.put(d, 72, y - 8, '本周掉出前 100', 28, g.INK, 'title')
-    g.put(d, 340, y, '10-19 在榜 / 10-25 不在', 20, g.DIM)
+    g.put(d, 340, y, f'{START[5:]} 在榜 / {END[5:]} 不在', 20, g.DIM)
     y += 50
     for rank, title in dropped(5):
         g.row_badge(d, y, rank, '#a2988a')
@@ -125,28 +177,30 @@ def page1():
     y += 16
     d.rounded_rectangle((72, y, 1008, y + 150), radius=12, fill=g.INK)
     g.put(d, 100, y + 16, '周冠看两把尺子', 21, '#bdb3a1')
-    g.put(d, 100, y + 48, '全勤 + 均名 4.0：王妈在顾家当保姆', 25, '#f0c588', 'bold', 980)
-    g.put(d, 100, y + 86, '均指数最高 7,074：聚宝仙盆第十四季', 24, '#f0c588', 'bold', 980)
-    g.put(d, 100, y + 120, '一个是名次稳，一个是分数高。', 20, '#bdb3a1', 'body', 980)
+    g.put(d, 100, y + 48, '全勤 + 均名 1.3 + 均指数 9,020：和离后我带女儿横扫魔域', 24, '#f0c588', 'bold', 980)
+    g.put(d, 100, y + 86, '单日最高 12,068：十八岁太奶奶第五部（11-01 登顶）', 23, '#f0c588', 'bold', 980)
+    g.put(d, 100, y + 120, '一个是整周稳，一个是单日冲高。', 20, '#bdb3a1', 'body', 980)
 
     save(im, f'榜{ISSUE}_贴图1_周榜热播_1080.png', [
-        '口径：7 个采样日（10-19—10-25）平均名次与平均指数；指数为第三方转算。',
+        f'口径：7 个采样日（{START[5:]}—{END[5:]}）平均名次与平均指数；指数为第三方转算。',
         '全勤＝7 天均在前 100；「均」为算术平均，不代表平台官方排名。',
     ])
 
 
 def page2():
-    im, d = page('本周换血：前十 9 张新面孔', f'新面孔 {new_face_count()} 部 / 榜首 7 天换 5 部')
+    im, d = page('本周换血：前十 8 席换人',
+                 f'新面孔 {new_face_count()} 部 / 11-01 前十 8 张 / 新面孔中 {new_face_full_count()} 部全勤')
     y = 216
     g.put(d, 72, y, '每日榜首', 30, g.INK, 'title')
     d.line((72, y + 46, W - 72, y + 46), fill=g.RUST, width=3)
     y += 66
-    for date, title, value in daily_champs():
+    champs = daily_champs()
+    for date, title, value in champs:
         g.put(d, 72, y + 2, date, 22, g.GOLD, 'number')
         g.put(d, 160, y + 1, wrap_title(d, title, 620), 24, g.INK, 'bold', 800)
         txt = f'{value}'
         g.put(d, 1008 - d.textlength(txt, font=g.font(24, 'number')), y + 2, txt, 24, g.RUST, 'number')
-        if date != '10-25':
+        if date != champs[-1][0]:
             d.line((160, y + 40, W - 72, y + 40), fill='#e6ded0', width=1)
         y += 46
 
@@ -163,8 +217,10 @@ def page2():
 
     y += 10
     d.rounded_rectangle((72, y, 1008, y + 92), radius=12, fill='#e8f0ec')
-    g.put(d, 100, y + 16, '10-25 前十里，9 部是本周才出现的新面孔。', 24, g.TEAL, 'bold', 980)
-    g.put(d, 100, y + 56, '全勤的 41 部，是另一种活法：不冲顶，但一直在。', 20, g.DIM, 'body', 980)
+    g.put(d, 100, y + 16, f'{START[5:]} 的前十，到 {END[5:]} 只剩 {top10_overlap()} 部。', 24, g.TEAL, 'bold', 980)
+    nf, nar = new_face_best_full()
+    g.put(d, 100, y + 56, f'新面孔里 {new_face_full_count()} 部 7 天全勤，{nf} 均名 {nar:.1f}。',
+          20, g.DIM, 'body', 980)
 
     save(im, f'榜{ISSUE}_贴图2_周榜换血_1080.png', [
         '新面孔＝本周之前从未进入过热播榜前 100 的剧；不等于新上线。',
@@ -173,10 +229,10 @@ def page2():
 
 
 def page3():
-    im, d = page('预约榜反超，都市爱情 30 部', '预约看 10-25 单日 / 题材看本周去重剧数')
+    im, d = page('预约换棒：第六部 2,046 登顶', '预约看 11-01 / 对比 10-26 与 10-30 / 题材看本周去重')
     y = 216
     g.put(d, 72, y, '预约榜 TOP8', 30, g.INK, 'title')
-    g.put(d, 300, y + 10, '10-25 / 当日预约值', 21, g.DIM)
+    g.put(d, 300, y + 10, f'{END[5:]} / 当日预约值', 21, g.DIM)
     d.line((72, y + 46, W - 72, y + 46), fill=g.GOLD, width=3)
     y += 66
     for rank, title, genre, value in booking(8):
@@ -202,14 +258,20 @@ def page3():
         y += 52
 
     y += 12
-    d.rounded_rectangle((72, y, 1008, y + 96), radius=12, fill='#f7e9e3')
-    g.put(d, 100, y + 16, '预约第一换人：太奶奶第五部 1,827 反超万妖图录传 1,688。', 21, g.RUST, 'bold', 980)
-    g.put(d, 100, y + 54, '都市爱情 30 部，占 178 部的 16.9%；前六合计 108 部。', 19, g.DIM, 'body', 980)
+    d.rounded_rectangle((72, y, 1008, y + 122), radius=12, fill='#f7e9e3')
+    bs = booking_start_top()[1]
+    be = booking(1)[0][3]
+    g.put(d, 100, y + 14, f'预约第一换人：{BOOKING_START[5:]} 第五部 {bs:,} → {END[5:]} 第六部 {be:,}。',
+          20, g.RUST, 'bold', 980)
+    g.put(d, 100, y + 50, f'第五部 10-30 预约 3,421 居首，{END[5:]} 热播 12,068 登顶。',
+          20, g.RUST, 'bold', 980)
+    g.put(d, 100, y + 86, '都市爱情 29 部占 16.3%；前六合计 120 部，占 67.4%。',
+          19, g.DIM, 'body', 980)
 
     save(im, f'榜{ISSUE}_贴图3_预约与题材_1080.png', [
-        '来源 duanjugongcheng.com/cn/bangdan/2026-10-25，第三方转算指数。',
-        '预约值含义官方未说明，仅原样呈现；题材按本周曾上榜剧去重计数。',
-        '本号不做好评榜：10-25 仅 9 分（37 部）与 10 分（63 部）两档。',
+        f'来源 duanjugongcheng.com/cn/bangdan/{END}，第三方转算指数。',
+        f'预约对比用 {BOOKING_START[5:]} 与 {END[5:]}；预约值含义官方未说明，题材按本周曾上榜去重。',
+        '本号不做好评榜：11-01 仅 9 分（33 部）与 10 分（67 部）两档。',
     ])
 
 
