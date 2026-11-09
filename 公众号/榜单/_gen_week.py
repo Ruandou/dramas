@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""「厂牌榜」周榜（010）三张贴图：热播全勤 / 换血 / 预约与题材。
+"""「厂牌榜」周榜（011）三张贴图：热播全勤 / 换血 / 预约与题材。
 
-窗口 2026-10-26—11-01（7 个采样日）。数据来自 data/bangdan.sqlite。
+窗口 2026-11-02—11-08（7 个采样日）。数据来自 data/bangdan.sqlite。
 运行：/usr/local/bin/python3 _gen_week.py
 """
 from pathlib import Path
@@ -11,9 +11,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import _gen_board as g
 from PIL import Image, ImageDraw
 
-ISSUE = '010'
-START, END = '2026-10-26', '2026-11-01'
-BOOKING_START = '2026-10-26'
+ISSUE = '011'
+START, END = '2026-11-02', '2026-11-08'
+BOOKING_START = '2026-11-02'
 W, H = 1080, 1440
 
 
@@ -120,7 +120,7 @@ def booking(limit=8):
 
 def genres(limit=6):
     return g.query("SELECT genre, COUNT(DISTINCT title) n FROM snapshot WHERE board=1 "
-                   "AND edition_date BETWEEN ? AND ? GROUP BY genre ORDER BY n DESC LIMIT ?",
+                   "AND edition_date BETWEEN ? AND ? GROUP BY genre ORDER BY n DESC, genre LIMIT ?",
                    (START, END, limit))
 
 
@@ -151,7 +151,7 @@ def save(im, name, foot_lines):
 
 
 def page1():
-    im, d = page('本周热播：和离 7 天 6 冠', '7 个采样日 / 178 部曾上榜 / 41 部全勤 / 按平均名次排序')
+    im, d = page('本周热播：太奶奶第五部 7 天 5 冠', '7 个采样日 / 192 部曾上榜 / 33 部全勤 / 按平均名次排序')
     y = 216
     rows = week_rows(10)
     for i, (title, days, ar, br, av, genre) in enumerate(rows, 1):
@@ -177,8 +177,8 @@ def page1():
     y += 16
     d.rounded_rectangle((72, y, 1008, y + 150), radius=12, fill=g.INK)
     g.put(d, 100, y + 16, '周冠看两把尺子', 21, '#bdb3a1')
-    g.put(d, 100, y + 48, '全勤 + 均名 1.3 + 均指数 9,020：和离后我带女儿横扫魔域', 24, '#f0c588', 'bold', 980)
-    g.put(d, 100, y + 86, '单日最高 12,068：十八岁太奶奶第五部（11-01 登顶）', 23, '#f0c588', 'bold', 980)
+    g.put(d, 100, y + 48, '全勤 + 均名 1.6 + 均指数 8,814：十八岁太奶奶驾到，重整家族荣耀第五部', 24, '#f0c588', 'bold', 980)
+    g.put(d, 100, y + 86, '单日最高 13,237：万妖图录传第十四季（11-08 登顶）', 23, '#f0c588', 'bold', 980)
     g.put(d, 100, y + 120, '一个是整周稳，一个是单日冲高。', 20, '#bdb3a1', 'body', 980)
 
     save(im, f'榜{ISSUE}_贴图1_周榜热播_1080.png', [
@@ -189,7 +189,7 @@ def page1():
 
 def page2():
     im, d = page('本周换血：前十 8 席换人',
-                 f'新面孔 {new_face_count()} 部 / 11-01 前十 8 张 / 新面孔中 {new_face_full_count()} 部全勤')
+                 f'新面孔 {new_face_count()} 部 / {END[5:]} 前十 8 张 / 新面孔中 {new_face_full_count()} 部全勤')
     y = 216
     g.put(d, 72, y, '每日榜首', 30, g.INK, 'title')
     d.line((72, y + 46, W - 72, y + 46), fill=g.RUST, width=3)
@@ -229,7 +229,7 @@ def page2():
 
 
 def page3():
-    im, d = page('预约换棒：第六部 2,046 登顶', '预约看 11-01 / 对比 10-26 与 10-30 / 题材看本周去重')
+    im, d = page('预约换棒：持械入宋第十一季 6 连冠', f'预约看 {END[5:]} / 对比 {BOOKING_START[5:]} 与 {END[5:]} / 题材看本周去重')
     y = 216
     g.put(d, 72, y, '预约榜 TOP8', 30, g.INK, 'title')
     g.put(d, 300, y + 10, f'{END[5:]} / 当日预约值', 21, g.DIM)
@@ -261,17 +261,17 @@ def page3():
     d.rounded_rectangle((72, y, 1008, y + 122), radius=12, fill='#f7e9e3')
     bs = booking_start_top()[1]
     be = booking(1)[0][3]
-    g.put(d, 100, y + 14, f'预约第一换人：{BOOKING_START[5:]} 第五部 {bs:,} → {END[5:]} 第六部 {be:,}。',
+    g.put(d, 100, y + 14, f'预约第一换人：{BOOKING_START[5:]} 第六部 {bs:,} → {END[5:]} 持械入宋第十一季 {be:,}。',
           20, g.RUST, 'bold', 980)
-    g.put(d, 100, y + 50, f'第五部 10-30 预约 3,421 居首，{END[5:]} 热播 12,068 登顶。',
+    g.put(d, 100, y + 50, '持械入宋第十一季预约 6 连冠，本周热播前 100 未上榜。',
           20, g.RUST, 'bold', 980)
-    g.put(d, 100, y + 86, '都市爱情 29 部占 16.3%；前六合计 120 部，占 67.4%。',
+    g.put(d, 100, y + 86, '都市爱情 31 部占 16.1%；前六合计 129 部，占 67.2%。',
           19, g.DIM, 'body', 980)
 
     save(im, f'榜{ISSUE}_贴图3_预约与题材_1080.png', [
         f'来源 duanjugongcheng.com/cn/bangdan/{END}，第三方转算指数。',
         f'预约对比用 {BOOKING_START[5:]} 与 {END[5:]}；预约值含义官方未说明，题材按本周曾上榜去重。',
-        '本号不做好评榜：11-01 仅 9 分（33 部）与 10 分（67 部）两档。',
+        '本号不做好评榜：11-08 仅 9 分（29 部）与 10 分（71 部）两档。',
     ])
 
 
