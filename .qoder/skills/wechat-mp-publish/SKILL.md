@@ -19,6 +19,7 @@ description: 微信公众号「一人短剧厂牌」的文章与贴图发布全�
 3. 记录当前 URL 里的 `token`；每次登录后 token 会变，后续所有后台 URL 都要用新 token。
 4. 本地图片先起静态服务：`python3 公众号/榜单/serve_assets.py 公众号/素材 8791`，页面内用 `fetch` 取图。
 5. 稿件三件套齐了再进后台：`文章/0NN_发布版.md`、`素材/0NN_增量卡.md`、`素材/_gen_0NN.py`（图与封面）。
+6. **动手前先确认窗口在前台**：CDP 受信任点击在窗口最小化/页面隐藏时**静默失效**（无报错、事件不送达，连 JS click 也点不动弹窗按钮）。先 `Page.bringToFront`，再读 `document.visibilityState === "visible"` 且 `outerWidth > 0`，才可开始点。2026-11-11 事故：窗口最小化导致图片库「确定」「取消」连点多次全部无效。
 
 ## 一、文章发布
 
@@ -49,9 +50,11 @@ https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew
 1. 定位包含「【图 N」的 `<p>`，`Range.selectNodeContents(p)` 选中锚点文字。
 2. 点工具栏「图片」→「从图片库选择」，等弹窗出现。
 3. 页面内 `fetch('http://127.0.0.1:8791/'+encodeURIComponent(name))` 取 blob，构造 `File`，用 `DataTransfer` 写入弹窗里 `input[type=file][accept*=bmp]` 的 `files`，派发 `change`。
-4. 等弹窗显示「1 / 100 项」（即已选中 1 张）。
-5. 用**受信任点击**（CDP/Playwright 的 click，不是 `el.click()` 或回车）点弹窗「确定」；JS 点击在此处不生效。
+4. 等弹窗显示「1 / N 项」（N 是本次上限，不是库内总数；图库会**自动选中**刚上传的新图，旧选中项会被替换）。
+5. 用**受信任点击**（CDP/Playwright 的 click，不是 `el.click()` 或回车）点弹窗「确定」；JS 点击在此处不生效。按钮只认 `getBoundingClientRect().width > 0` 的那个——同名弹窗可能有隐藏副本，坐标会读出 0,0。
 6. 每张等 5—6 秒，确认 `img.naturalWidth > 10` 且锚点文字消失。三张插完锚点应为 0。
+
+**上传是否成功别看计数**：计数不随库容量变化。取弹窗首项缩略图 `background-image` 的 URL，把 `/300?` 换成 `/0?` 载入 `Image()` 读 `naturalWidth/Height`，与本地图尺寸比对（如 1080×960 vs 1080×990），一致即上传成功且已选中。
 
 若第 5 步后锚点仍在或图片数不变，重开图片库重试，不要退回 paste。
 
@@ -71,25 +74,28 @@ https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew
 
 点 `#js_cover_null .js_imagedialog`（`.select-cover__btn` 有时点不动）→ 找到 `input[type=file][accept*=bmp]`，塞 File 并派发 `change` → 等图片库首项出现且 `selected`（异步，稍等再读）→ 「下一步」→「确认」→ 校验 `.js_cover_preview_new` 的 background-image 是 `https://mmbiz.qpic.cn/…`。
 
+「编辑封面」弹窗比视口高时，「确认」的 y 会超出 `innerHeight`（点不到）。先 `Emulation.setDeviceMetricsOverride {width:1280, height:900}`，点击后再 `Emulation.clearDeviceMetricsOverride`。
+
 ### 8. 存草稿与重载复核
 
 点「保存为草稿」，URL 会变成 `type=77&appmsgid=<DRAFT_ID>`。重载后逐项核对：标题、摘要、h2、表格、加粗、三张图尺寸、图锚点 0、原创、封面。任何一项不符，先修再往下。
 
 ### 9. 定时与群发
 
-1. 点「发表」，等弹窗出现（class 可能是 `.new_mass_send_dialog`，也可能只是 `.weui-desktop-dialog`；按「定时发表」文字找）。
+1. 点「发表」，等弹窗出现（class 可能是 `.new_mass_send_dialog`，也可能只是 `.weui-desktop-dialog`；按「定时发表」文字找）。页面加载后可能先弹「话题卡片」「路线指南」等新功能提示，会吞掉第一次点击——先点「我知道了」再点「发表」。
 2. 定时开关：取最后一个 `.weui-desktop-switch`。**只点一次** `.weui-desktop-switch__box`（JS 单点即可）；同一脚本里再点 label 会二次切换、把开关关掉。出现 `.mass-send__timer` 才算成功。受信任点击有时报 did not become interactive，改用 JS 单点。
 3. 日期：点 `.mass-send__timer .weui-desktop-form__dropdown__dt`，在可见的 `.weui-desktop-dropdown__list-ele` 里选「今天」或「明天」。切到明天后，若有额度，群发开关会自动变为开启且可用。
 4. 时间：输入框只是显示层。点**可见的 `.weui-desktop-form__input`** 打开选择器（点 `.weui-desktop-picker__time` 有时不展开）；点 `.weui-desktop-picker__time__hour li` 后页面会重渲染，分钟点击可能被吞，需要再点一次 `__minute li`。选中 class 是 `weui-desktop-picker__selected`。核对选中索引与输入框值一致，否则会按旧时间提交。
-5. 群发通知：第一个开关。显示「今天没有通知次数」时不可开；显示「明天还有 1 次通知次数」时可开。贴图无需群发。
+5. 群发通知：第一个开关。**判定状态别看类名**——label 可能一直带 `weui-desktop-switch_loading`、box 没有 checked/active 类，但实际是开的。看 `getComputedStyle(box).backgroundColor`：`rgb(7,193,96)` 绿=开，`rgb(177,178,179)` 灰=关；文案同步为「已开启/未开启群发通知」。**现发流程默认会开**（2026-11-11 实测：未要求群发时它是绿的），要求不群发就受信任点击 `__box` 一次关掉，确认变灰再发表。显示「今天没有通知次数」时不可开。
 6. 出现「该时刻定时消息过多…」属正常提示，可继续。
 7. 点弹窗里的「发表」→ 确认框可能只有「发表/取消」，也可能有「继续发表」；按需点「继续发表」→ 等微信验证二维码。二维码弹窗 class 是 `.weui-desktop-dialog`（不是 `.dialog_wrp`），按「微信验证」文字查找。
+8. **最后一道状态校验**：确认框文案必须与要求一致——要求不群发时出现「已开启群发通知」→ 立即「取消」，回去关开关重来，不能点「继续发表」。
 
 ### 10. 扫码与核验
 
-- 截图二维码交管理员扫；助手绝不代扫。
+- 截图二维码交管理员扫；助手绝不代扫。**页面隐藏时 `Page.captureScreenshot` 返回全白**：改在页面内把 `img[src*=safeqrcode]`（同源）`drawImage` 到 canvas → `toDataURL` → 解码写 PNG，再 `open` + 对话附图。
 - 扫码成功后页面会跳回首页。核验首页定时卡文字：`定时发表 明天/今天 HH:MM 已开启群发通知/未开启群发通知`，标题一致。
-- 已发表后核验 `publish_list`（见 references）与线上页；贴图再核 `share_imageinfo` 的图片顺序。
+- 已发表后核验发布接口（`/cgi-bin/appmsgpublish?sub=list`，`/cgi-bin/publish_list` 已 404）与线上页；贴图再核 `share_imageinfo` 的图片顺序。发表条 `type=10002` 没有 sent_time/publish_status，看 `msgid`、`appmsg_info[0].is_deleted`、`copyright_status`（先 0 后转 11）。
 
 ## 二、贴图发布
 
@@ -111,7 +117,7 @@ https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew
 4. **现发**：草稿页直接「发表」→ 弹窗（贴图无需群发）→「发表」→ 扫码。到点手动发，不建定时任务。
 5. **误设定时的补救**：首页定时卡点「取消发表」→ 弹「取消后，内容将不会发表…」点「确认」→ 重开草稿（`appmsgid` 不变）→ 按现发流程重发、重新扫码。
 
-核验：首页「已发表」条目 + `publish_list` 的 msgid/时间 + `share_imageinfo` 三图顺序（签名比对）。
+核验：首页「已发表」条目 + `appmsgpublish` 的 msgid/时间 + `share_imageinfo` 三图顺序（签名比对）。
 
 ## 三、故障处理
 
@@ -123,12 +129,20 @@ https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew
 | 时间输入框显示 08:00，但实际按 11:42 提交 | 输入框非模型，选择器才是 | 点开选择器，点选小时/分钟 li，核对选中索引 |
 | 定时开关点不动 | 开关是 label + 隐藏 input | 点 `__box`，再点 label，再设 checked + input/change |
 | 扫码提示二维码过期 | 二维码有时效 | 关掉验证弹窗（状态会保留）→ 再点「发表」→「继续发表」→ 新码 |
-| 扫码后编辑页直接关闭 | 提交成功并跳首页 | 到首页看定时卡；未发表则查 publish_list |
+| 扫码后编辑页直接关闭 | 提交成功并跳首页 | 到首页看定时卡；未发表则查 appmsgpublish |
 | 周榜误设了定时、要求现发 | 定时卡与现发冲突 | 首页定时卡「取消发表」→ 确认「取消后，内容将不会发表」→ 重开草稿 → 直接发表 → 重新扫码 |
 | 贴图里出现 6/9 张重复图 | change 重复触发 | 保留第一组三张，选中末尾逐张删除 |
 | 图片上传后页面无变化 | 选错了 file input | 认准 `accept` 含 `bmp` 且位于 webuploader 容器里的那个；优先在页面内 fetch + File |
 | 图片顺序不确定 | 列表顺序≠文件顺序 | 下载线上图做 32×32 灰度签名，与本地图比对 |
 | 保存后重载内容缺失 | 保存未完成/版本冲突 | 等保存跳转后再重载；冲突时走「查看新草稿 → 最新的草稿」 |
+| 受信任点击「确定/取消」全无反应，JS 点击也不动 | 窗口最小化/页面隐藏（`outerWidth=0`、`visibilityState=hidden`） | `Page.bringToFront`，确认 `visibilityState=visible` 后再点；2026-11-11 事故 |
+| 弹窗按钮坐标读出 0,0 | 同名弹窗存在隐藏副本 | 只取 `getBoundingClientRect().width > 0` 的按钮 |
+| 图片库上传后计数不变 | 计数是「已选/上限」，不是库容量 | 取首项缩略图 `/300?`→`/0?` 比对 `naturalWidth/Height` 与本地图 |
+| 点「发表」第一次无反应 | 新功能提示弹窗（话题卡片/路线指南）吞点击 | 先关「我知道了」再点 |
+| 群发开关看似 loading、无 checked 类，确认框却说「已开启群发通知」 | 状态类不可靠；现发流程默认开 | 看 box 背景色绿=开灰=关；要求不群发→取消→点 `__box` 关到灰→重新发表 |
+| 封面「确认」点不到（y 超出视口） | 编辑封面弹窗高于页面 | `Emulation.setDeviceMetricsOverride` 高 900 → 点击 → 清除 |
+| 二维码截图全白 | 页面隐藏时截图空白 | 页面内 canvas 导出 `img[src*=safeqrcode]` → dataURL → 写文件 → open |
+| `publish_list` 接口 404 / 空 body | 路径已变更 | 用 `/cgi-bin/appmsgpublish?sub=list&f=json&ajax=1` |
 
 ## 四、发布后记账
 

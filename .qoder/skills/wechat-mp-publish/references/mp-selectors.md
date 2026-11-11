@@ -192,12 +192,23 @@ const a = (info.appmsg_info || [])[0];
 // 贴图顺序：a.share_imageinfo[].file_id / cdn_url / width / height
 ```
 
+注意：`publish_page`、`publish_info` 两层都是 JSON 字符串。发表条 `type=10002` 常无 `sent_info`/`publish_status`，核 `msgid`、`appmsg_info[0].is_deleted`、`copyright_status`（先 0，审核通过转 11）。`/cgi-bin/publish_list` 已 404，别再试。
+
 ```js
 // 首页定时卡
 const t = document.body.innerText.replace(/\s+/g, ' ');
 const i = t.indexOf('定时发表');
 t.slice(i, i + 80);
 // 期望形如：定时发表 明天 08:00 已开启群发通知 取消发表 <标题>
+```
+
+```js
+// 二维码导出（页面隐藏时 Page.captureScreenshot 全白，用 canvas）
+const img = document.querySelector('img[src*=safeqrcode]');
+const c = document.createElement('canvas');
+c.width = img.naturalWidth; c.height = img.naturalHeight;
+c.getContext('2d').drawImage(img, 0, 0);
+c.toDataURL('image/png');   // 取回后 base64 解码写 PNG
 ```
 
 ## 9. 登录状态
