@@ -19,7 +19,9 @@ description: 微信公众号「一人短剧厂牌」的文章与贴图发布全�
 3. 记录当前 URL 里的 `token`；每次登录后 token 会变，后续所有后台 URL 都要用新 token。
 4. 本地图片先起静态服务：`python3 公众号/榜单/serve_assets.py 公众号/素材 8791`，页面内用 `fetch` 取图。
 5. 稿件三件套齐了再进后台：`文章/0NN_发布版.md`、`素材/0NN_增量卡.md`、`素材/_gen_0NN.py`（图与封面）。
-6. **动手前先确认窗口在前台**：CDP 受信任点击在窗口最小化/页面隐藏时**静默失效**（无报错、事件不送达，连 JS click 也点不动弹窗按钮）。先 `Page.bringToFront`，再读 `document.visibilityState === "visible"` 且 `outerWidth > 0`，才可开始点。2026-11-11 事故：窗口最小化导致图片库「确定」「取消」连点多次全部无效。
+6. **动手前先确认窗口在前台**：CDP 受信任点击在窗口最小化/页面隐藏时**静默失效**（无报错、事件不送达）。先区分两种情况：
+   - **窗口最小化/切后台**：`Page.bringToFront` 后 `visibilityState` 变 `visible`、`outerWidth > 0`，点击恢复。2026-11-11 事故：最小化导致图片库「确定」「取消」连点无效。
+   - **整机锁屏**（`ioreg -n Root -d1 -a | grep -A1 ScreenIsLocked` 为 true）：`outerWidth=0`，bringToFront / setWindowBounds / open -a / System Events 全部无效，受信任点击一律不投递。此时走「纯 JS 路径」（见 §4 补充），不必等解锁；保存、原创、封面、发表等按钮的 JS 点击仍然有效，只有正文图片库的「确定」不行。
 
 ## 一、文章发布
 
@@ -58,6 +60,30 @@ https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew
 
 若第 5 步后锚点仍在或图片数不变，重开图片库重试，不要退回 paste。
 
+### 4b. 纯 JS 插图（锁屏/无受信任点击时）
+
+2026-11-12 实测：锁屏下整套发布只有「正文图片库确定」必须受信任点击；其余按钮（保存草稿、原创确定、封面下一步/确认、发表、继续发表）都可 `el.click()`。正文图用下面这条路径绕过：
+
+1. 打开图片库 → `input[accept*=bmp]` 逐张上传（`change` 事件即可，上传走微信自己的管线）。每张上传后读首项缩略图 `background-image`，`/300?` 换 `/0?` 得原图 URL，并核对尺寸。**同一 input 连续上传第二张前先 `inp.value = ""`**，否则第二次 `change` 不触发、两张拿到同一个 URL。
+2. 取编辑器内部视图：页面全局 `window.__mpBodyChecktextView` 就是正文的 ProseMirror EditorView（`v.dom === .ProseMirror[1]`，`v.state.schema.nodes.image` 有 src/data-src/data-w/data-ratio 等 attrs）。
+3. 用事务把锚点段落整个替换为「para 包一个 image」：
+
+```js
+const v = window.__mpBodyChecktextView;
+const state = v.state;                     // 每次替换前重新取，别复用旧 state
+const z7 = state.schema.nodes.image, paraT = state.schema.nodes.para;
+let pos = null, size = null;
+state.doc.descendants((n, p) => { if (n.isTextblock && n.textContent.includes('【图 1')) { pos = p; size = n.nodeSize; return false; } });
+const img = z7.create({src: url, 'data-src': url, _src: url, 'data-w': '1080', 'data-ratio': '0.8888888888888888', style: 'width: 100%;'});
+v.dispatch(v.state.tr.replaceWith(pos, pos + size, paraT.create(null, img)));
+```
+
+4. 锚点消失后保存草稿并**重载核验**：`img.naturalWidth` 必须是原图宽（1080），且保存后重载仍在。
+5. 报错 `RangeError: Applying a mismatched transaction` = 复用了 dispatch 前的旧 `state`；每张图重新读 `v.state` 与重新定位锚点即可。
+6. **上传会顺带插图**：纯 JS 上传时，图片库在 `change` 后可能把图自动插进正文当前选区（2026-11-13 实测：锚点处堆了 4 张，含误插的封面）。保存前必须用 `v.state.doc` 清点 `nodeleaf`/`image` 节点，按偏移删掉多余项，只留锚点位置的图；保存重载后再核对 `img` 数量与尺寸。
+
+若 `window.__mpBodyChecktextView` 不存在（换版/换页），先跑一遍全局扫描找 view：`for (k in window) if (window[k]?.state?.doc && window[k]?.dispatch) ...`。
+
 ### 5. 标题与摘要
 
 - 标题：`.ProseMirror[0]` 聚焦 → `selectAll` → `execCommand('insertText', …, title)`。校验 `textarea#title` 的值。
@@ -76,6 +102,8 @@ https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew
 
 「编辑封面」弹窗比视口高时，「确认」的 y 会超出 `innerHeight`（点不到）。先 `Emulation.setDeviceMetricsOverride {width:1280, height:900}`，点击后再 `Emulation.clearDeviceMetricsOverride`。
 
+**封面这条路不需要受信任点击**：图片库里的「下一步」和编辑封面的「确认」都认 `el.click()`（2026-11-12 锁屏实测）。注意两点：① 封面弹窗的第一步按钮是「下一步」不是「确定」，找不到「确定」别硬找；② 误点「上一步」会把选中清空并退回图片库，需要重新点选图片再「下一步」。
+
 ### 8. 存草稿与重载复核
 
 点「保存为草稿」，URL 会变成 `type=77&appmsgid=<DRAFT_ID>`。重载后逐项核对：标题、摘要、h2、表格、加粗、三张图尺寸、图锚点 0、原创、封面。任何一项不符，先修再往下。
@@ -86,7 +114,7 @@ https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew
 2. 定时开关：取最后一个 `.weui-desktop-switch`。**只点一次** `.weui-desktop-switch__box`（JS 单点即可）；同一脚本里再点 label 会二次切换、把开关关掉。出现 `.mass-send__timer` 才算成功。受信任点击有时报 did not become interactive，改用 JS 单点。
 3. 日期：点 `.mass-send__timer .weui-desktop-form__dropdown__dt`，在可见的 `.weui-desktop-dropdown__list-ele` 里选「今天」或「明天」。切到明天后，若有额度，群发开关会自动变为开启且可用。
 4. 时间：输入框只是显示层。点**可见的 `.weui-desktop-form__input`** 打开选择器（点 `.weui-desktop-picker__time` 有时不展开）；点 `.weui-desktop-picker__time__hour li` 后页面会重渲染，分钟点击可能被吞，需要再点一次 `__minute li`。选中 class 是 `weui-desktop-picker__selected`。核对选中索引与输入框值一致，否则会按旧时间提交。
-5. 群发通知：第一个开关。**判定状态别看类名**——label 可能一直带 `weui-desktop-switch_loading`、box 没有 checked/active 类，但实际是开的。看 `getComputedStyle(box).backgroundColor`：`rgb(7,193,96)` 绿=开，`rgb(177,178,179)` 灰=关；文案同步为「已开启/未开启群发通知」。**现发流程默认会开**（2026-11-11 实测：未要求群发时它是绿的），要求不群发就受信任点击 `__box` 一次关掉，确认变灰再发表。显示「今天没有通知次数」时不可开。
+5. 群发通知：第一个开关。**判定状态别看类名**——label 可能一直带 `weui-desktop-switch_loading`、box 没有 checked/active 类，但实际是开的。看 `getComputedStyle(box).backgroundColor`：`rgb(7,193,96)` 绿=开，`rgb(177,178,179)` 灰=关；文案同步为「已开启/未开启群发通知」。**现发流程默认会开**（2026-11-11 实测：未要求群发时它是绿的），要求不群发就关掉，确认变灰再发表。显示「今天没有通知次数」时不可开。开关、发表、继续发表都可用 JS 点击（锁屏也可）。
 6. 出现「该时刻定时消息过多…」属正常提示，可继续。
 7. 点弹窗里的「发表」→ 确认框可能只有「发表/取消」，也可能有「继续发表」；按需点「继续发表」→ 等微信验证二维码。二维码弹窗 class 是 `.weui-desktop-dialog`（不是 `.dialog_wrp`），按「微信验证」文字查找。
 8. **最后一道状态校验**：确认框文案必须与要求一致——要求不群发时出现「已开启群发通知」→ 立即「取消」，回去关开关重来，不能点「继续发表」。
@@ -143,6 +171,11 @@ https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit_v2&action=edit&isNew
 | 封面「确认」点不到（y 超出视口） | 编辑封面弹窗高于页面 | `Emulation.setDeviceMetricsOverride` 高 900 → 点击 → 清除 |
 | 二维码截图全白 | 页面隐藏时截图空白 | 页面内 canvas 导出 `img[src*=safeqrcode]` → dataURL → 写文件 → open |
 | `publish_list` 接口 404 / 空 body | 路径已变更 | 用 `/cgi-bin/appmsgpublish?sub=list&f=json&ajax=1` |
+| 受信任点击全部失效且 `outer=0` | 整机锁屏（`CGSSessionScreenIsLocked=true`） | 不等解锁，走 §4b 纯 JS 路径；保存/原创/封面/发表都可用 `el.click()`，只有正文图片库「确定」不行 |
+| 正文插图报 `RangeError: Applying a mismatched transaction` | 复用了 dispatch 前的旧 `state` | 每张图重新读 `window.__mpBodyChecktextView.state` 并重新定位锚点 |
+| 连续上传两张，第二张拿到的 URL 和第一张一样 | 同一个 file input 再次赋值没触发 `change` | 第二张前先 `inp.value = ""`，再设 `files` 并派发 `change` |
+| 锁屏下标题 execCommand 后 `textarea#title` 仍为空 | 隐藏标签页里 title 编辑器未就绪 | 保存草稿后重载，再 `focus + selectAll + insertText`，校验 `textarea#title` |
+| 封面弹窗找不到「确定」 | 封面流程按钮是「下一步」/「确认」 | 图片库点「下一步」，编辑封面点「确认」；误点「上一步」要重新选图 |
 
 ## 四、发布后记账
 
