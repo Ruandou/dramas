@@ -1,15 +1,15 @@
 {
   "product_line": "快讯（不占主稿配额）",
-  "status": "已发表 2026-11-13 20:1x（现发，未开启群发通知）",
+  "status": "已群发 2026-11-13 19:55:09（sent_info.time）；77/77成功、0失败；2026-11-14后台复核更正，原「20:1x、未群发」作废",
   "draft_id": 100001050,
-  "published_at": "2026-11-13T20:10:00+08:00",
-  "url": "https://mp.weixin.qq.com/s?__biz=MzY4NTQ2NjI4MA==&chksm=f39572d9c4e2fbcf77c54d3db0a2d99c917879d7206c6c2ab46820f3cebcd8dcc8408428df55#rd",
+  "published_at": "2026-11-13T19:55:09+08:00",
+  "url": "https://mp.weixin.qq.com/s/AY0HC1h4Kqqru4tMIQWmHg",
   "msgid": 1000000115,
-  "appmsgid": 1000000115,
-  "publish_type": "现发（草稿直接发表，未定时）",
-  "group_notification": false,
-  "group_notification_note": "发表弹窗第一个开关初始为开启（绿色），JS 点击关闭；确认框「继续发表」",
-  "qr_verification": "20:0x 生成微信验证二维码交管理员（canvas 导出，对话内附图）；管理员本人扫码，助手未代扫",
+  "appmsgid": 2247484702,
+  "publish_type": "群发（后台publish_type=101）",
+  "group_notification": true,
+  "group_notification_note": "2026-11-14后台复核：已开启群发，sent_status.total=77、succ=77、fail=0。此前「关闭群发、未群发」记录作废。",
+  "qr_verification": "原流程记录称管理员本人完成微信验证，助手未代扫；原记「20:0x生成二维码」时间未获本轮证据支持，作废。实际群发时间以sent_info.time=1794570909为准。",
   "title": "AI 写一季 80 集剧本：1,350 美元/月，合约绑 12 个月",
   "title_chars": 30,
   "digest": "Screenburn Writers Room：1,350 美元/月、12 个月合约，每月生成一季约 80 集剧本；一年 16,200 美元起，只覆盖剧本，不含拍摄、配音和模型调用。",
@@ -39,14 +39,52 @@
     "边界：只覆盖剧本生成，不含拍摄/配音/模型调用/改稿；80 集与 2.9 万词、数小时为厂商口径；评分 Certified 为厂商口径；专利仅申请中"
   ],
   "dedup_notes": "已发稿未见 AI 剧本生成工具；与 044 即梦短剧工作室、百度一镜（待补价目）不是同一类（后者是生成/制作平台）。Screenburn 为新主体，无 48h 冷却。",
-  "import_method": "ClipboardEvent 粘贴 → 图片库逐张上传取 mmbiz URL（第二张前清空 input.value）→ window.__mpBodyChecktextView 事务替换图锚点 → 关闭图片库（Escape）→ 标题受信任点击 + Meta+A + insertText（先 scrollTo(0,0)）→ 摘要 setter、原创 JS、封面 JS（下一步→确认）→ 保存草稿 100001050 → 重载核验首块/图片/原创/封面 → 发表、关群发、继续发表、扫码",
+  "import_method": "ClipboardEvent 粘贴 → 图片库逐张上传取 mmbiz URL（第二张前清空 input.value）→ window.__mpBodyChecktextView 事务替换图锚点 → 关闭图片库（Escape）→ 标题受信任点击 + Meta+A + insertText（先 scrollTo(0,0)）→ 摘要 setter、原创 JS、封面 JS（下一步→确认）→ 保存草稿 100001050 → 重载核验首块/图片/原创/封面 → 发表并微信验证；原记「关群发」作废，2026-11-14后台核实实际为群发",
   "verification": {
     "backend_after_save": "草稿 100001050 重载：首块为正文段落、标题一致、摘要 91 字、h2=5、正文仅 2 图（1080×990 / 1080×960）、原创、封面为 mmbiz",
-    "published": "publish_page 首条：msgid=1000000115、is_deleted=false、copyright_status=11",
+    "published": "2026-11-14后台复核：群发msgid=1000000115，文章appmsgid=2247484702，publish_type=101，is_deleted=false，copyright_status=11；sent_info.time=1794570909（19:55:09），line_info.send_time=1794570970（19:56:10），77/77成功、0失败。",
     "online_page": "线上页首块为正文段落；h2=5；两图 data-src 为 mmbiz.qpic.cn；作者 一人短剧厂牌；含「原创」"
   },
   "prepared_at": "2026-11-13 19:45",
   "published_verified_at": "2026-11-13 20:15",
   "assets_source": "公众号/素材/_gen_101.py（Pillow 本地出图，零扣费）",
-  "notes": "编号 101。官方价目页与格式页为 A 级；Broadcast 为 B 级媒体核述。口径：12 个月合约、额度不结转、只覆盖剧本、80 集约 2.9 万词与数小时为厂商口径、专利仅申请。"
+  "notes": "编号 101。官方价目页与格式页为 A 级；Broadcast 为 B 级媒体核述。口径：12 个月合约、额度不结转、只覆盖剧本、80 集约 2.9 万词与数小时为厂商口径、专利仅申请。",
+  "published_at_basis": "后台群发记录sent_info.time=1794570909；不与文章line_info.send_time混用。",
+  "publish_type_code": 101,
+  "sent_status": {
+    "total": 77,
+    "succ": 77,
+    "fail": 0
+  },
+  "line_info_send_time": 1794570970,
+  "line_info_send_at": "2026-11-13T19:56:10+08:00",
+  "publication_audit_2026_11_14": {
+    "source": "2026-11-14后台appmsgpublish原始发表记录（A 级）；仅摘录时间、群发与文章标识字段，未保存登录信息或完整响应。",
+    "msgid": 1000000115,
+    "appmsgid": 2247484702,
+    "publish_type": 101,
+    "sent_info_time": 1794570909,
+    "sent_info_at": "2026-11-13T19:55:09+08:00",
+    "line_info_send_time": 1794570970,
+    "line_info_send_at": "2026-11-13T19:56:10+08:00",
+    "sent_status": {
+      "total": 77,
+      "succ": 77,
+      "fail": 0
+    },
+    "is_deleted": false,
+    "superseded": {
+      "status": "已发表 2026-11-13 20:1x（现发，未开启群发通知）",
+      "published_at": "2026-11-13T20:10:00+08:00",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzY4NTQ2NjI4MA==&chksm=f39572d9c4e2fbcf77c54d3db0a2d99c917879d7206c6c2ab46820f3cebcd8dcc8408428df55#rd",
+      "appmsgid": 1000000115,
+      "publish_type": "现发（草稿直接发表，未定时）",
+      "group_notification": false,
+      "group_notification_note": "发表弹窗第一个开关初始为开启（绿色），JS 点击关闭；确认框「继续发表」",
+      "qr_verification": "20:0x 生成微信验证二维码交管理员（canvas 导出，对话内附图）；管理员本人扫码，助手未代扫",
+      "import_method": "ClipboardEvent 粘贴 → 图片库逐张上传取 mmbiz URL（第二张前清空 input.value）→ window.__mpBodyChecktextView 事务替换图锚点 → 关闭图片库（Escape）→ 标题受信任点击 + Meta+A + insertText（先 scrollTo(0,0)）→ 摘要 setter、原创 JS、封面 JS（下一步→确认）→ 保存草稿 100001050 → 重载核验首块/图片/原创/封面 → 发表、关群发、继续发表、扫码"
+    },
+    "superseded_verification_published": "publish_page 首条：msgid=1000000115、is_deleted=false、copyright_status=11",
+    "scope": "本轮只复核群发时间、文章时间字段、标识、送达数与发表状态；未重新核验正文、配图、原创设置或AI生成声明。原prepared_at及published_verified_at是历史准备/核验记录，不作为发表时间依据；其他字段按原记录保留。"
+  }
 }

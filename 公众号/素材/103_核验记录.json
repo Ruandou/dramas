@@ -1,0 +1,157 @@
+{
+  "checked_at": "2026-11-14T18:08:33+08:00",
+  "topic": "ERNIE-Wizshot-ME 微表情模型",
+  "status": "事实与预算审阅通过，本地备稿，未过发布门、未发表",
+  "paid_generation_calls": 0,
+  "sources": {
+    "product": "https://cloud.baidu.com/product/qianfan_home/model_3.html",
+    "pricing": "https://cloud.baidu.com/doc/qianfan/s/wmh4sv6ya",
+    "create_api": "https://cloud.baidu.com/doc/qianfan-api/s/8mwbylac7",
+    "query_api": "https://cloud.baidu.com/doc/qianfan-api/s/Imwc2p4go",
+    "models": "https://cloud.baidu.com/doc/qianfan-docs/s/7m95lyy43",
+    "auth": "https://cloud.baidu.com/doc/qianfan-api/s/ym9chdsy5",
+    "independent_price_check": "https://unwire.pro/2026/11/12/baidu-wenxin-app-models-qianfan-2026/new-product/",
+    "event_report": "https://www.stdaily.com/web/gdxw/2026-11/12/content_612433.html"
+  },
+  "price": {
+    "rmb_per_second": "0.7",
+    "official_5second_example_rmb": "3.5",
+    "scenario": "同一5秒镜头生成N个均成功计费候选，最终选1条",
+    "rows": [
+      {
+        "candidates": 1,
+        "generated_seconds": 5,
+        "retained_seconds": 5,
+        "estimated_model_rmb": "3.5"
+      },
+      {
+        "candidates": 2,
+        "generated_seconds": 10,
+        "retained_seconds": 5,
+        "estimated_model_rmb": "7.0"
+      },
+      {
+        "candidates": 3,
+        "generated_seconds": 15,
+        "retained_seconds": 5,
+        "estimated_model_rmb": "10.5"
+      }
+    ],
+    "not_measured": "非账单、非成功率或可用率实测"
+  },
+  "required_inputs": [
+    "每人avatar_url人物图",
+    "每人mid人声WAV参考素材10–60秒",
+    "每镜头shot_image画面图",
+    "机位、出镜人物、台词、情绪等字段"
+  ],
+  "input_boundaries": [
+    "人物图与镜头图服装须一致；两个字段必填，官方示例可复用同URL",
+    "镜头图短边至少720px，宽高比9:16至16:9",
+    "不得把人声素材说成必须录好全部对白，或说仅提取音色"
+  ],
+  "duration": {
+    "product": "4–15秒",
+    "create_api_validation": "合成台词+静音合计4–16秒，以服务端实测为准",
+    "article_approach": "仅用5秒情景，不声称15秒硬上限或16秒已验证可用"
+  },
+  "concurrency": {
+    "running": 1,
+    "queued": 1,
+    "reference": "公开模型列表，未测实际吞吐"
+  },
+  "access": "API Key鉴权已核；未登录实测个人账号、白名单、最低余额或地域可用性",
+  "unresolved_billing": [
+    "小数秒如何取整",
+    "失败及审核失败是否扣费",
+    "音频/TTS或参考素材是否附加收费",
+    "本模型资源包、折扣及最低充值未核得明确规则；产品页5折属于另一基础模型"
+  ],
+  "samples": [
+    {
+      "name": "keji",
+      "source": "https://bce.bdstatic.com/p3m/common-service/uploads/keji_4d68839.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1056,
+            "r_frame_rate": "24/1"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "13.541667",
+          "size": "4637908"
+        }
+      },
+      "frames": [
+        "/private/tmp/wizshot-public-samples-20261114/keji-frame-1.png",
+        "/private/tmp/wizshot-public-samples-20261114/keji-frame-2.png",
+        "/private/tmp/wizshot-public-samples-20261114/keji-frame-3.png"
+      ],
+      "sha256": "78b6bda83c8c66f3fce9702b05023db3aaa6a634473749696b01bbbb45e907fd",
+      "inspection": "读取容器元数据，并在时长10%/50%/90%各抽1帧；未评价音质或口型同步"
+    },
+    {
+      "name": "zuqiu",
+      "source": "https://bce.bdstatic.com/p3m/common-service/uploads/zuqiu_efc14f4.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1056,
+            "r_frame_rate": "24/1"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "14.000000",
+          "size": "5595444"
+        }
+      },
+      "frames": [
+        "/private/tmp/wizshot-public-samples-20261114/zuqiu-frame-1.png",
+        "/private/tmp/wizshot-public-samples-20261114/zuqiu-frame-2.png",
+        "/private/tmp/wizshot-public-samples-20261114/zuqiu-frame-3.png"
+      ],
+      "sha256": "bdc2882d5ba359cf89a17a874f6de2fa6bd32d808a34d1bd13c00924b90f9cc9",
+      "inspection": "读取容器元数据，并在时长10%/50%/90%各抽1帧；未评价音质或口型同步"
+    }
+  ],
+  "sample_observations": [
+    "科技访谈样片包含单人近景和双人全景",
+    "足球访谈样片的已抽帧均为坐姿人物交谈",
+    "两段下载文件均为1920×1056、24fps，不能据此验证API所有输出规格或可用率"
+  ],
+  "publication_gate": {
+    "news_event_date": "2026-11-12",
+    "independent_sources": "已补官方及独立核价报道",
+    "heat_metric": "未取到",
+    "draft_only": true
+  },
+  "editorial_review": {
+    "result": "事实及预算通过；两处措辞已收紧并回读验证",
+    "changes": [
+      "图地址复用限定为同一图片同时满足两项要求",
+      "样片观察明确为两段演示共6帧抽样，未完整视听评测"
+    ],
+    "article_han": 382
+  }
+}
