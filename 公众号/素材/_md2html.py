@@ -5,7 +5,7 @@
 且把 H1 混进正文（019 导入后正文多出标题行、两处列表被并成一段）。
 
 用法：python3 _md2html.py 文章/019_发布版.md 素材/_tmp_body.html
-规则：H1 丢弃（走标题字段）；H2→<h2>；连续「- 」→<ul>；|…| →表格；
+规则：H1 丢弃（走标题字段）；H2→<h2>；连续「- 」→<ul>；连续「1. 」→<ol>；|…| →表格；
      **粗**→<strong>；[文字](url)→<a>；【图 N：…】保持独立段落作为插图锚点。
 """
 from __future__ import annotations
@@ -75,6 +75,13 @@ def convert(md: str) -> str:
                 body.append('<tr>' + ''.join(f'<{tag}>{inline(c)}</{tag}>' for c in row) + '</tr>')
             out.append('<table><tbody>' + ''.join(body) + '</tbody></table>')
             continue
+        if re.match(r'^\d+\.\s+', line):
+            items = []
+            while i < len(lines) and re.match(r'^\d+\.\s+', lines[i].rstrip()):
+                items.append(re.sub(r'^\d+\.\s+', '', lines[i].rstrip()).strip())
+                i += 1
+            out.append('<ol>' + ''.join(f'<li>{inline(t)}</li>' for t in items) + '</ol>')
+            continue
         if line.startswith('- '):
             items = []
             while i < len(lines) and lines[i].startswith('- '):
@@ -95,10 +102,11 @@ def main() -> None:
     assert '**' not in text, '仍残留 ** 未转加粗'
     assert '```' not in text, '仍残留代码围栏未转'
     plain_len = len(re.sub(r'\s+', '', text))
-    print(f'{dest.name}: {len(fragment)} 字节 / 纯文本 {plain_len} 字符')
+    print(f'{dest.name}: {len(fragment.encode("utf-8"))} 字节 / 纯文本 {plain_len} 字符')
     print('元素统计:',
           f'h2={fragment.count("<h2>")}',
           f'p={fragment.count("<p>")}',
+          f'ol={fragment.count("<ol>")}',
           f'li={fragment.count("<li>")}',
           f'strong={fragment.count("<strong>")}',
           f'table={fragment.count("<table>")}',
