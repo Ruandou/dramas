@@ -12,6 +12,7 @@
 - `data/maintenance.json`：程序显式导出的计数/时间摘要，可公开，不含正文快照、来源 URL 或待审记录 ID。
 - `web.py`、`static/catalog.js`、`static/catalog.css`：页面与交互源码。
 - `build.py`：生成 `dist/` 七个文件和素材目录五份 Markdown 阅读版。站点数据统一输出为 `dist/catalog.json`，不再生成 YAML；不要手改生成物。
+- `deploy.py`：构建校验通过后，把七个产物与部署镜像比对；有差异才拷贝、部署到 Cloudflare Pages，并核验线上哈希、404 与安全头。`--dry-run` 只看判断，`--force` 仅人工明确要求时使用。审计写入 `deploy_log.jsonl`。
 
 当前数据文件统一为 JSON，不另建扶持专题数据副本。底库的 `migration_archive.policy_yaml` 仅保存首次迁移的原始文本，历史来源中的 YAML 路径也只作溯源记录；两者不是现行数据入口，不改写或删除。
 
@@ -65,12 +66,12 @@ python3 公众号/扶持政策/build.py --check
 
 资料库维护与选题搜索已拆成两个独立的 Qoder 本地任务，互不写对方的文件：
 
-- 「一人短剧厂牌·资料库维护」，任务 ID `8e43a0c3-ce1d-4e88-a67b-06b670108152`，`Asia/Shanghai` 每日 10:17、16:17（`17 10,16 * * *`）。只执行上述当日幂等巡检、报告与本地构建，不搜选题、不写候选池。
+- 「一人短剧厂牌·资料库维护」，任务 ID `8e43a0c3-ce1d-4e88-a67b-06b670108152`，`Asia/Shanghai` 每日 10:17、16:17（`17 10,16 * * *`）。执行上述当日幂等巡检、报告与本地构建；构建校验通过后调用 `deploy.py --auto`，产物有变化才自动部署。不搜选题、不写候选池。
 - 「一人短剧厂牌·选题轮询」，任务 ID `8e9f5520-112d-4d26-858c-3820aa1587b3`，`Asia/Shanghai` 每日 10:07、13:07、16:07、19:07（`7 10-19/3 * * *`）。只做关键词选题搜索并追加候选池，不运行维护/构建命令、不改底库。
 
 另有两个 launchd 任务（不在 Qoder 内）：`com.yiren.heatscan` 每日 10:05—19:05 每小时运行 `公众号/素材/scan_heat.py`（360 资讯 + 新浪滚动，只写候选池）；`com.yiren.duanju.boardfetch` 每日 15:00 拉取榜单数据。
 
-资料库维护每次触发先做上述当日幂等巡检；选题仍受时效、相关性、独立来源与热度凭据约束，底库事实变化不因「不够热」而丢弃，但只在选题任务本轮执行会话里列待审建议，不自动入库或核验。两个自动任务都不发布站点、不提交或推送 Git。
+资料库维护每次触发先做上述当日幂等巡检；选题仍受时效、相关性、独立来源与热度凭据约束，底库事实变化不因「不够热」而丢弃，但只在选题任务本轮执行会话里列待审建议，不自动入库或核验。维护任务在构建产物变化时会自动部署站点（规则见第六节），选题任务不部署；两个任务都不提交或推送 Git。
 
 机器和 Qoder 需要可运行；多时段只增加遇到开机时段的机会，不保证离线时照常执行，也不补造漏跑日期。任务已保存不等于未来运行已完成，可从自动化执行记录查看结果；需全天候运行时另行确认云端迁移。
 
@@ -117,27 +118,23 @@ python3 -m http.server 8766 --bind 127.0.0.1 --directory 公众号/扶持政策/
 
 `--check` 对七份站点产物和五份 Markdown 阅读版逐字节比对，共 12 个文件；普通构建只写已知产物，不清空输出目录或删除无关文件。产物不使用构建当天伪造数据更新时间，前端按北京时间实时计算窗口状态。
 
-## 六、经当次授权后部署
+## 六、构建产物自动部署（已授权）
 
-小仓库 `~/Movies/duanju-policy`（GitHub `Ruandou/duanju-policy`）只放部署产物 `dist/`、`vercel.json`、`.gitignore`。不要复制源码或私有状态；commit/push 不会自动发布网站。
-
-从仓库根目录依次执行，任一卡口失败即停止：
+2026-11-10 用户指令：资料库维护巡检完成并构建后，若产物有变化就自动部署，不再逐次询问。自动部署只由「资料库维护」任务在 `build.py --check` 通过后调用：
 
 ```bash
-python3 公众号/扶持政策/build.py
-python3 公众号/扶持政策/build.py --check
-
-for f in index.html policies.html catalog.js catalog.css catalog.json 404.html _headers; do
-  cp "公众号/扶持政策/dist/$f" "$HOME/Movies/duanju-policy/dist/$f" || exit 1
-  cmp -s "公众号/扶持政策/dist/$f" "$HOME/Movies/duanju-policy/dist/$f" || exit 1
-done
-
-CLOUDFLARE_API_TOKEN=$(cat ~/.config/duanju-policy/cf_token) \
-CLOUDFLARE_ACCOUNT_ID=66e4284ea93f7d90a59b90e6879c36d0 \
-npx wrangler@latest pages deploy "$HOME/Movies/duanju-policy/dist" \
-  --project-name duanju-policy --branch main --commit-dirty=true
+python3 公众号/扶持政策/deploy.py --auto
 ```
 
-Token 仅从本机权限 600 的文件读取，不入仓库、不打印。发布前确认部署目录没有额外私有文件；七个文件全部比对一致才可部署，防止小仓库旧快照上线。
+判断与执行规则：
 
-部署后逐项验证首页、旧扶持入口、CSS/JS/公开 JSON，线上内容与本地产物一致；不存在的路径返回 404，HTTP 响应头含 CSP、nosniff 和 Referrer-Policy。再用桌面和移动端实测交互。`/404.html` 的扩展名重定向不等于缺失路径的 HTTP 404。
+- 对七个部署产物（`index.html`、`policies.html`、`catalog.js`、`catalog.css`、`catalog.json`、`404.html`、`_headers`）与部署镜像 `~/Movies/duanju-policy/dist/` 比对；完全一致则跳过，不产生部署。比对时忽略 `maintenance.generated_at` 这类纯时间戳变化，当天统计口径（日期、覆盖率、待审/失败数、记录内容）变化仍会触发。
+- 有差异时：拷贝到镜像 → 逐字节校验 → `wrangler pages deploy`（项目 `duanju-policy`，分支 `main`）→ 线上核验。
+- 线上核验：`catalog.json` 与 `index.html` 哈希必须与本地产物一致；不存在的路径返回 HTTP 404；响应头含 CSP、nosniff、Referrer-Policy。传播延迟最多重试 12 次、每次 3 秒。
+- 构建校验失败、产物缺失、密钥缺失或权限不对、已有部署在跑、wrangler 或线上核验失败：停止并写 `deploy_log.jsonl`，不手改生成物、不绕过检查；下一个计划时段重试。
+- `--dry-run` 只输出判断；`--force` 仅限人工明确要求，自动任务不得使用。
+- 审计日志 `deploy_log.jsonl` 只记时间、触发来源、变化文件、部署 URL、核验结果和文件哈希前缀，不记密钥。
+
+小仓库 `~/Movies/duanju-policy`（GitHub `Ruandou/duanju-policy`）只放部署产物 `dist/`、`vercel.json`、`.gitignore`；不要复制源码或私有状态。Token 仅从权限 600 的 `~/.config/duanju-policy/cf_token` 读取，不入仓库、不打印。部署小仓库不需要也不自动 commit/push；commit/push 同样不会自动发布网站。
+
+人工应急部署仍可用同一脚本：`deploy.py --dry-run` 看判断，`deploy.py --force` 强制重发。其他会话未经用户当次要求，不运行部署。Cloudflare Pages 保留历史部署，需要回滚时在控制台选择上一版本；脚本不自动回滚。
